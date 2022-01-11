@@ -1,1 +1,3925 @@
-
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12CommandAllocatorImpl: Sized + ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
+    fn Reset();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12CommandAllocatorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12CommandAllocatorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12CommandAllocatorVtbl {
+        unsafe extern "system" fn Reset<Impl: ID3D12CommandAllocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateDataInterface::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, GetDevice::<Impl, IMPL_OFFSET>, Reset::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12CommandAllocator as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12CommandListImpl: Sized + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
+    fn GetType();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12CommandListVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12CommandListImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12CommandListVtbl {
+        unsafe extern "system" fn GetType<Impl: ID3D12CommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> D3D12_COMMAND_LIST_TYPE {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateDataInterface::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, GetDevice::<Impl, IMPL_OFFSET>, GetType::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12CommandList as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12CommandQueueImpl: Sized + ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
+    fn UpdateTileMappings();
+    fn CopyTileMappings();
+    fn ExecuteCommandLists();
+    fn SetMarker();
+    fn BeginEvent();
+    fn EndEvent();
+    fn Signal();
+    fn Wait();
+    fn GetTimestampFrequency();
+    fn GetClockCalibration();
+    fn GetDesc();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12CommandQueueVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12CommandQueueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12CommandQueueVtbl {
+        unsafe extern "system" fn UpdateTileMappings<Impl: ID3D12CommandQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, numresourceregions: u32, presourceregionstartcoordinates: *const D3D12_TILED_RESOURCE_COORDINATE, presourceregionsizes: *const D3D12_TILE_REGION_SIZE, pheap: ::windows::core::RawPtr, numranges: u32, prangeflags: *const D3D12_TILE_RANGE_FLAGS, pheaprangestartoffsets: *const u32, prangetilecounts: *const u32, flags: D3D12_TILE_MAPPING_FLAGS) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CopyTileMappings<Impl: ID3D12CommandQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdstresource: ::windows::core::RawPtr, pdstregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, psrcresource: ::windows::core::RawPtr, psrcregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, pregionsize: *const D3D12_TILE_REGION_SIZE, flags: D3D12_TILE_MAPPING_FLAGS) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ExecuteCommandLists<Impl: ID3D12CommandQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numcommandlists: u32, ppcommandlists: *const ::windows::core::RawPtr) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetMarker<Impl: ID3D12CommandQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BeginEvent<Impl: ID3D12CommandQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EndEvent<Impl: ID3D12CommandQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Signal<Impl: ID3D12CommandQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfence: ::windows::core::RawPtr, value: u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Wait<Impl: ID3D12CommandQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfence: ::windows::core::RawPtr, value: u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetTimestampFrequency<Impl: ID3D12CommandQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfrequency: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetClockCalibration<Impl: ID3D12CommandQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgputimestamp: *mut u64, pcputimestamp: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDesc<Impl: ID3D12CommandQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_COMMAND_QUEUE_DESC) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateDataInterface::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            GetDevice::<Impl, IMPL_OFFSET>,
+            UpdateTileMappings::<Impl, IMPL_OFFSET>,
+            CopyTileMappings::<Impl, IMPL_OFFSET>,
+            ExecuteCommandLists::<Impl, IMPL_OFFSET>,
+            SetMarker::<Impl, IMPL_OFFSET>,
+            BeginEvent::<Impl, IMPL_OFFSET>,
+            EndEvent::<Impl, IMPL_OFFSET>,
+            Signal::<Impl, IMPL_OFFSET>,
+            Wait::<Impl, IMPL_OFFSET>,
+            GetTimestampFrequency::<Impl, IMPL_OFFSET>,
+            GetClockCalibration::<Impl, IMPL_OFFSET>,
+            GetDesc::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12CommandQueue as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12CommandSignatureImpl: Sized + ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12CommandSignatureVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12CommandSignatureImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12CommandSignatureVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateDataInterface::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, GetDevice::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12CommandSignature as ::windows::core::Interface>::IID
+    }
+}
+pub trait ID3D12DebugImpl: Sized {
+    fn EnableDebugLayer();
+}
+impl ID3D12DebugVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DebugImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12DebugVtbl {
+        unsafe extern "system" fn EnableDebugLayer<Impl: ID3D12DebugImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, EnableDebugLayer::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12Debug as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12Debug1Impl: Sized {
+    fn EnableDebugLayer();
+    fn SetEnableGPUBasedValidation();
+    fn SetEnableSynchronizedCommandQueueValidation();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12Debug1Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Debug1Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12Debug1Vtbl {
+        unsafe extern "system" fn EnableDebugLayer<Impl: ID3D12Debug1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetEnableGPUBasedValidation<Impl: ID3D12Debug1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enable: super::super::Foundation::BOOL) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetEnableSynchronizedCommandQueueValidation<Impl: ID3D12Debug1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enable: super::super::Foundation::BOOL) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, EnableDebugLayer::<Impl, IMPL_OFFSET>, SetEnableGPUBasedValidation::<Impl, IMPL_OFFSET>, SetEnableSynchronizedCommandQueueValidation::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12Debug1 as ::windows::core::Interface>::IID
+    }
+}
+pub trait ID3D12Debug2Impl: Sized {
+    fn SetGPUBasedValidationFlags();
+}
+impl ID3D12Debug2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Debug2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12Debug2Vtbl {
+        unsafe extern "system" fn SetGPUBasedValidationFlags<Impl: ID3D12Debug2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: D3D12_GPU_BASED_VALIDATION_FLAGS) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, SetGPUBasedValidationFlags::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12Debug2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12Debug3Impl: Sized + ID3D12DebugImpl {
+    fn SetEnableGPUBasedValidation();
+    fn SetEnableSynchronizedCommandQueueValidation();
+    fn SetGPUBasedValidationFlags();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12Debug3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Debug3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12Debug3Vtbl {
+        unsafe extern "system" fn SetEnableGPUBasedValidation<Impl: ID3D12Debug3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enable: super::super::Foundation::BOOL) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetEnableSynchronizedCommandQueueValidation<Impl: ID3D12Debug3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enable: super::super::Foundation::BOOL) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetGPUBasedValidationFlags<Impl: ID3D12Debug3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: D3D12_GPU_BASED_VALIDATION_FLAGS) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, EnableDebugLayer::<Impl, IMPL_OFFSET>, SetEnableGPUBasedValidation::<Impl, IMPL_OFFSET>, SetEnableSynchronizedCommandQueueValidation::<Impl, IMPL_OFFSET>, SetGPUBasedValidationFlags::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12Debug3 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12Debug4Impl: Sized + ID3D12Debug3Impl + ID3D12DebugImpl {
+    fn DisableDebugLayer();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12Debug4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Debug4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12Debug4Vtbl {
+        unsafe extern "system" fn DisableDebugLayer<Impl: ID3D12Debug4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, EnableDebugLayer::<Impl, IMPL_OFFSET>, SetEnableGPUBasedValidation::<Impl, IMPL_OFFSET>, SetEnableSynchronizedCommandQueueValidation::<Impl, IMPL_OFFSET>, SetGPUBasedValidationFlags::<Impl, IMPL_OFFSET>, DisableDebugLayer::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12Debug4 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12Debug5Impl: Sized + ID3D12Debug4Impl + ID3D12Debug3Impl + ID3D12DebugImpl {
+    fn SetEnableAutoName();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12Debug5Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Debug5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12Debug5Vtbl {
+        unsafe extern "system" fn SetEnableAutoName<Impl: ID3D12Debug5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enable: super::super::Foundation::BOOL) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, EnableDebugLayer::<Impl, IMPL_OFFSET>, SetEnableGPUBasedValidation::<Impl, IMPL_OFFSET>, SetEnableSynchronizedCommandQueueValidation::<Impl, IMPL_OFFSET>, SetGPUBasedValidationFlags::<Impl, IMPL_OFFSET>, DisableDebugLayer::<Impl, IMPL_OFFSET>, SetEnableAutoName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12Debug5 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12DebugCommandListImpl: Sized {
+    fn AssertResourceState();
+    fn SetFeatureMask();
+    fn GetFeatureMask();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12DebugCommandListVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DebugCommandListImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12DebugCommandListVtbl {
+        unsafe extern "system" fn AssertResourceState<Impl: ID3D12DebugCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, subresource: u32, state: u32) -> super::super::Foundation::BOOL {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetFeatureMask<Impl: ID3D12DebugCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mask: D3D12_DEBUG_FEATURE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetFeatureMask<Impl: ID3D12DebugCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> D3D12_DEBUG_FEATURE {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, AssertResourceState::<Impl, IMPL_OFFSET>, SetFeatureMask::<Impl, IMPL_OFFSET>, GetFeatureMask::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12DebugCommandList as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12DebugCommandList1Impl: Sized {
+    fn AssertResourceState();
+    fn SetDebugParameter();
+    fn GetDebugParameter();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12DebugCommandList1Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DebugCommandList1Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12DebugCommandList1Vtbl {
+        unsafe extern "system" fn AssertResourceState<Impl: ID3D12DebugCommandList1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, subresource: u32, state: u32) -> super::super::Foundation::BOOL {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDebugParameter<Impl: ID3D12DebugCommandList1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *const ::core::ffi::c_void, datasize: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDebugParameter<Impl: ID3D12DebugCommandList1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *mut ::core::ffi::c_void, datasize: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, AssertResourceState::<Impl, IMPL_OFFSET>, SetDebugParameter::<Impl, IMPL_OFFSET>, GetDebugParameter::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12DebugCommandList1 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12DebugCommandList2Impl: Sized + ID3D12DebugCommandListImpl {
+    fn SetDebugParameter();
+    fn GetDebugParameter();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12DebugCommandList2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DebugCommandList2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12DebugCommandList2Vtbl {
+        unsafe extern "system" fn SetDebugParameter<Impl: ID3D12DebugCommandList2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *const ::core::ffi::c_void, datasize: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDebugParameter<Impl: ID3D12DebugCommandList2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *mut ::core::ffi::c_void, datasize: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, AssertResourceState::<Impl, IMPL_OFFSET>, SetFeatureMask::<Impl, IMPL_OFFSET>, GetFeatureMask::<Impl, IMPL_OFFSET>, SetDebugParameter::<Impl, IMPL_OFFSET>, GetDebugParameter::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12DebugCommandList2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12DebugCommandQueueImpl: Sized {
+    fn AssertResourceState();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12DebugCommandQueueVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DebugCommandQueueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12DebugCommandQueueVtbl {
+        unsafe extern "system" fn AssertResourceState<Impl: ID3D12DebugCommandQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, subresource: u32, state: u32) -> super::super::Foundation::BOOL {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, AssertResourceState::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12DebugCommandQueue as ::windows::core::Interface>::IID
+    }
+}
+pub trait ID3D12DebugDeviceImpl: Sized {
+    fn SetFeatureMask();
+    fn GetFeatureMask();
+    fn ReportLiveDeviceObjects();
+}
+impl ID3D12DebugDeviceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DebugDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12DebugDeviceVtbl {
+        unsafe extern "system" fn SetFeatureMask<Impl: ID3D12DebugDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mask: D3D12_DEBUG_FEATURE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetFeatureMask<Impl: ID3D12DebugDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> D3D12_DEBUG_FEATURE {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReportLiveDeviceObjects<Impl: ID3D12DebugDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: D3D12_RLDO_FLAGS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, SetFeatureMask::<Impl, IMPL_OFFSET>, GetFeatureMask::<Impl, IMPL_OFFSET>, ReportLiveDeviceObjects::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12DebugDevice as ::windows::core::Interface>::IID
+    }
+}
+pub trait ID3D12DebugDevice1Impl: Sized {
+    fn SetDebugParameter();
+    fn GetDebugParameter();
+    fn ReportLiveDeviceObjects();
+}
+impl ID3D12DebugDevice1Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DebugDevice1Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12DebugDevice1Vtbl {
+        unsafe extern "system" fn SetDebugParameter<Impl: ID3D12DebugDevice1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *const ::core::ffi::c_void, datasize: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDebugParameter<Impl: ID3D12DebugDevice1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *mut ::core::ffi::c_void, datasize: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReportLiveDeviceObjects<Impl: ID3D12DebugDevice1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: D3D12_RLDO_FLAGS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, SetDebugParameter::<Impl, IMPL_OFFSET>, GetDebugParameter::<Impl, IMPL_OFFSET>, ReportLiveDeviceObjects::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12DebugDevice1 as ::windows::core::Interface>::IID
+    }
+}
+pub trait ID3D12DebugDevice2Impl: Sized + ID3D12DebugDeviceImpl {
+    fn SetDebugParameter();
+    fn GetDebugParameter();
+}
+impl ID3D12DebugDevice2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DebugDevice2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12DebugDevice2Vtbl {
+        unsafe extern "system" fn SetDebugParameter<Impl: ID3D12DebugDevice2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *const ::core::ffi::c_void, datasize: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDebugParameter<Impl: ID3D12DebugDevice2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *mut ::core::ffi::c_void, datasize: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, SetFeatureMask::<Impl, IMPL_OFFSET>, GetFeatureMask::<Impl, IMPL_OFFSET>, ReportLiveDeviceObjects::<Impl, IMPL_OFFSET>, SetDebugParameter::<Impl, IMPL_OFFSET>, GetDebugParameter::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12DebugDevice2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12DescriptorHeapImpl: Sized + ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
+    fn GetDesc();
+    fn GetCPUDescriptorHandleForHeapStart();
+    fn GetGPUDescriptorHandleForHeapStart();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12DescriptorHeapVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DescriptorHeapImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12DescriptorHeapVtbl {
+        unsafe extern "system" fn GetDesc<Impl: ID3D12DescriptorHeapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_DESCRIPTOR_HEAP_DESC) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCPUDescriptorHandleForHeapStart<Impl: ID3D12DescriptorHeapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_CPU_DESCRIPTOR_HANDLE) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetGPUDescriptorHandleForHeapStart<Impl: ID3D12DescriptorHeapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_GPU_DESCRIPTOR_HANDLE) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateDataInterface::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            GetDevice::<Impl, IMPL_OFFSET>,
+            GetDesc::<Impl, IMPL_OFFSET>,
+            GetCPUDescriptorHandleForHeapStart::<Impl, IMPL_OFFSET>,
+            GetGPUDescriptorHandleForHeapStart::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12DescriptorHeap as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+pub trait ID3D12DeviceImpl: Sized + ID3D12ObjectImpl {
+    fn GetNodeCount();
+    fn CreateCommandQueue();
+    fn CreateCommandAllocator();
+    fn CreateGraphicsPipelineState();
+    fn CreateComputePipelineState();
+    fn CreateCommandList();
+    fn CheckFeatureSupport();
+    fn CreateDescriptorHeap();
+    fn GetDescriptorHandleIncrementSize();
+    fn CreateRootSignature();
+    fn CreateConstantBufferView();
+    fn CreateShaderResourceView();
+    fn CreateUnorderedAccessView();
+    fn CreateRenderTargetView();
+    fn CreateDepthStencilView();
+    fn CreateSampler();
+    fn CopyDescriptors();
+    fn CopyDescriptorsSimple();
+    fn GetResourceAllocationInfo();
+    fn GetCustomHeapProperties();
+    fn CreateCommittedResource();
+    fn CreateHeap();
+    fn CreatePlacedResource();
+    fn CreateReservedResource();
+    fn CreateSharedHandle();
+    fn OpenSharedHandle();
+    fn OpenSharedHandleByName();
+    fn MakeResident();
+    fn Evict();
+    fn CreateFence();
+    fn GetDeviceRemovedReason();
+    fn GetCopyableFootprints();
+    fn CreateQueryHeap();
+    fn SetStablePowerState();
+    fn CreateCommandSignature();
+    fn GetResourceTiling();
+    fn GetAdapterLuid();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+impl ID3D12DeviceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12DeviceVtbl {
+        unsafe extern "system" fn GetNodeCount<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateCommandQueue<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_COMMAND_QUEUE_DESC, riid: *const ::windows::core::GUID, ppcommandqueue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateCommandAllocator<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: D3D12_COMMAND_LIST_TYPE, riid: *const ::windows::core::GUID, ppcommandallocator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateGraphicsPipelineState<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateComputePipelineState<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateCommandList<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: ::windows::core::RawPtr, pinitialstate: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CheckFeatureSupport<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, feature: D3D12_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateDescriptorHeap<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdescriptorheapdesc: *const D3D12_DESCRIPTOR_HEAP_DESC, riid: *const ::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDescriptorHandleIncrementSize<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descriptorheaptype: D3D12_DESCRIPTOR_HEAP_TYPE) -> u32 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateRootSignature<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodemask: u32, pblobwithrootsignature: *const ::core::ffi::c_void, bloblengthinbytes: usize, riid: *const ::windows::core::GUID, ppvrootsignature: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateConstantBufferView<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateShaderResourceView<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateUnorderedAccessView<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, pcounterresource: ::windows::core::RawPtr, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateRenderTargetView<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, pdesc: *const D3D12_RENDER_TARGET_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateDepthStencilView<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, pdesc: *const D3D12_DEPTH_STENCIL_VIEW_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateSampler<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_SAMPLER_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CopyDescriptors<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: *const u32, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: *const u32, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CopyDescriptorsSimple<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numdescriptors: u32, destdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, srcdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetResourceAllocationInfo<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCustomHeapProperties<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_HEAP_PROPERTIES, nodemask: u32, heaptype: D3D12_HEAP_TYPE) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateCommittedResource<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riidresource: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateHeap<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_HEAP_DESC, riid: *const ::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreatePlacedResource<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pheap: ::windows::core::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateReservedResource<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateSharedHandle<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobject: ::windows::core::RawPtr, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: super::super::Foundation::PWSTR, phandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OpenSharedHandle<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nthandle: super::super::Foundation::HANDLE, riid: *const ::windows::core::GUID, ppvobj: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OpenSharedHandleByName<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR, access: u32, pnthandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MakeResident<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numobjects: u32, ppobjects: *const ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Evict<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numobjects: u32, ppobjects: *const ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateFence<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, initialvalue: u64, flags: D3D12_FENCE_FLAGS, riid: *const ::windows::core::GUID, ppfence: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDeviceRemovedReason<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCopyableFootprints<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateQueryHeap<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_QUERY_HEAP_DESC, riid: *const ::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetStablePowerState<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateCommandSignature<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_COMMAND_SIGNATURE_DESC, prootsignature: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvcommandsignature: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetResourceTiling<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptiledresource: ::windows::core::RawPtr, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D12_PACKED_MIP_INFO, pstandardtileshapefornonpackedmips: *mut D3D12_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetAdapterLuid<Impl: ID3D12DeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::LUID) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateDataInterface::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            GetNodeCount::<Impl, IMPL_OFFSET>,
+            CreateCommandQueue::<Impl, IMPL_OFFSET>,
+            CreateCommandAllocator::<Impl, IMPL_OFFSET>,
+            CreateGraphicsPipelineState::<Impl, IMPL_OFFSET>,
+            CreateComputePipelineState::<Impl, IMPL_OFFSET>,
+            CreateCommandList::<Impl, IMPL_OFFSET>,
+            CheckFeatureSupport::<Impl, IMPL_OFFSET>,
+            CreateDescriptorHeap::<Impl, IMPL_OFFSET>,
+            GetDescriptorHandleIncrementSize::<Impl, IMPL_OFFSET>,
+            CreateRootSignature::<Impl, IMPL_OFFSET>,
+            CreateConstantBufferView::<Impl, IMPL_OFFSET>,
+            CreateShaderResourceView::<Impl, IMPL_OFFSET>,
+            CreateUnorderedAccessView::<Impl, IMPL_OFFSET>,
+            CreateRenderTargetView::<Impl, IMPL_OFFSET>,
+            CreateDepthStencilView::<Impl, IMPL_OFFSET>,
+            CreateSampler::<Impl, IMPL_OFFSET>,
+            CopyDescriptors::<Impl, IMPL_OFFSET>,
+            CopyDescriptorsSimple::<Impl, IMPL_OFFSET>,
+            GetResourceAllocationInfo::<Impl, IMPL_OFFSET>,
+            GetCustomHeapProperties::<Impl, IMPL_OFFSET>,
+            CreateCommittedResource::<Impl, IMPL_OFFSET>,
+            CreateHeap::<Impl, IMPL_OFFSET>,
+            CreatePlacedResource::<Impl, IMPL_OFFSET>,
+            CreateReservedResource::<Impl, IMPL_OFFSET>,
+            CreateSharedHandle::<Impl, IMPL_OFFSET>,
+            OpenSharedHandle::<Impl, IMPL_OFFSET>,
+            OpenSharedHandleByName::<Impl, IMPL_OFFSET>,
+            MakeResident::<Impl, IMPL_OFFSET>,
+            Evict::<Impl, IMPL_OFFSET>,
+            CreateFence::<Impl, IMPL_OFFSET>,
+            GetDeviceRemovedReason::<Impl, IMPL_OFFSET>,
+            GetCopyableFootprints::<Impl, IMPL_OFFSET>,
+            CreateQueryHeap::<Impl, IMPL_OFFSET>,
+            SetStablePowerState::<Impl, IMPL_OFFSET>,
+            CreateCommandSignature::<Impl, IMPL_OFFSET>,
+            GetResourceTiling::<Impl, IMPL_OFFSET>,
+            GetAdapterLuid::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12Device as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+pub trait ID3D12Device1Impl: Sized + ID3D12DeviceImpl + ID3D12ObjectImpl {
+    fn CreatePipelineLibrary();
+    fn SetEventOnMultipleFenceCompletion();
+    fn SetResidencyPriority();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+impl ID3D12Device1Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device1Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12Device1Vtbl {
+        unsafe extern "system" fn CreatePipelineLibrary<Impl: ID3D12Device1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plibraryblob: *const ::core::ffi::c_void, bloblength: usize, riid: *const ::windows::core::GUID, pppipelinelibrary: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetEventOnMultipleFenceCompletion<Impl: ID3D12Device1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfences: *const ::windows::core::RawPtr, pfencevalues: *const u64, numfences: u32, flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetResidencyPriority<Impl: ID3D12Device1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numobjects: u32, ppobjects: *const ::windows::core::RawPtr, ppriorities: *const D3D12_RESIDENCY_PRIORITY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateDataInterface::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            GetNodeCount::<Impl, IMPL_OFFSET>,
+            CreateCommandQueue::<Impl, IMPL_OFFSET>,
+            CreateCommandAllocator::<Impl, IMPL_OFFSET>,
+            CreateGraphicsPipelineState::<Impl, IMPL_OFFSET>,
+            CreateComputePipelineState::<Impl, IMPL_OFFSET>,
+            CreateCommandList::<Impl, IMPL_OFFSET>,
+            CheckFeatureSupport::<Impl, IMPL_OFFSET>,
+            CreateDescriptorHeap::<Impl, IMPL_OFFSET>,
+            GetDescriptorHandleIncrementSize::<Impl, IMPL_OFFSET>,
+            CreateRootSignature::<Impl, IMPL_OFFSET>,
+            CreateConstantBufferView::<Impl, IMPL_OFFSET>,
+            CreateShaderResourceView::<Impl, IMPL_OFFSET>,
+            CreateUnorderedAccessView::<Impl, IMPL_OFFSET>,
+            CreateRenderTargetView::<Impl, IMPL_OFFSET>,
+            CreateDepthStencilView::<Impl, IMPL_OFFSET>,
+            CreateSampler::<Impl, IMPL_OFFSET>,
+            CopyDescriptors::<Impl, IMPL_OFFSET>,
+            CopyDescriptorsSimple::<Impl, IMPL_OFFSET>,
+            GetResourceAllocationInfo::<Impl, IMPL_OFFSET>,
+            GetCustomHeapProperties::<Impl, IMPL_OFFSET>,
+            CreateCommittedResource::<Impl, IMPL_OFFSET>,
+            CreateHeap::<Impl, IMPL_OFFSET>,
+            CreatePlacedResource::<Impl, IMPL_OFFSET>,
+            CreateReservedResource::<Impl, IMPL_OFFSET>,
+            CreateSharedHandle::<Impl, IMPL_OFFSET>,
+            OpenSharedHandle::<Impl, IMPL_OFFSET>,
+            OpenSharedHandleByName::<Impl, IMPL_OFFSET>,
+            MakeResident::<Impl, IMPL_OFFSET>,
+            Evict::<Impl, IMPL_OFFSET>,
+            CreateFence::<Impl, IMPL_OFFSET>,
+            GetDeviceRemovedReason::<Impl, IMPL_OFFSET>,
+            GetCopyableFootprints::<Impl, IMPL_OFFSET>,
+            CreateQueryHeap::<Impl, IMPL_OFFSET>,
+            SetStablePowerState::<Impl, IMPL_OFFSET>,
+            CreateCommandSignature::<Impl, IMPL_OFFSET>,
+            GetResourceTiling::<Impl, IMPL_OFFSET>,
+            GetAdapterLuid::<Impl, IMPL_OFFSET>,
+            CreatePipelineLibrary::<Impl, IMPL_OFFSET>,
+            SetEventOnMultipleFenceCompletion::<Impl, IMPL_OFFSET>,
+            SetResidencyPriority::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12Device1 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+pub trait ID3D12Device2Impl: Sized + ID3D12Device1Impl + ID3D12DeviceImpl + ID3D12ObjectImpl {
+    fn CreatePipelineState();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+impl ID3D12Device2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12Device2Vtbl {
+        unsafe extern "system" fn CreatePipelineState<Impl: ID3D12Device2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateDataInterface::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            GetNodeCount::<Impl, IMPL_OFFSET>,
+            CreateCommandQueue::<Impl, IMPL_OFFSET>,
+            CreateCommandAllocator::<Impl, IMPL_OFFSET>,
+            CreateGraphicsPipelineState::<Impl, IMPL_OFFSET>,
+            CreateComputePipelineState::<Impl, IMPL_OFFSET>,
+            CreateCommandList::<Impl, IMPL_OFFSET>,
+            CheckFeatureSupport::<Impl, IMPL_OFFSET>,
+            CreateDescriptorHeap::<Impl, IMPL_OFFSET>,
+            GetDescriptorHandleIncrementSize::<Impl, IMPL_OFFSET>,
+            CreateRootSignature::<Impl, IMPL_OFFSET>,
+            CreateConstantBufferView::<Impl, IMPL_OFFSET>,
+            CreateShaderResourceView::<Impl, IMPL_OFFSET>,
+            CreateUnorderedAccessView::<Impl, IMPL_OFFSET>,
+            CreateRenderTargetView::<Impl, IMPL_OFFSET>,
+            CreateDepthStencilView::<Impl, IMPL_OFFSET>,
+            CreateSampler::<Impl, IMPL_OFFSET>,
+            CopyDescriptors::<Impl, IMPL_OFFSET>,
+            CopyDescriptorsSimple::<Impl, IMPL_OFFSET>,
+            GetResourceAllocationInfo::<Impl, IMPL_OFFSET>,
+            GetCustomHeapProperties::<Impl, IMPL_OFFSET>,
+            CreateCommittedResource::<Impl, IMPL_OFFSET>,
+            CreateHeap::<Impl, IMPL_OFFSET>,
+            CreatePlacedResource::<Impl, IMPL_OFFSET>,
+            CreateReservedResource::<Impl, IMPL_OFFSET>,
+            CreateSharedHandle::<Impl, IMPL_OFFSET>,
+            OpenSharedHandle::<Impl, IMPL_OFFSET>,
+            OpenSharedHandleByName::<Impl, IMPL_OFFSET>,
+            MakeResident::<Impl, IMPL_OFFSET>,
+            Evict::<Impl, IMPL_OFFSET>,
+            CreateFence::<Impl, IMPL_OFFSET>,
+            GetDeviceRemovedReason::<Impl, IMPL_OFFSET>,
+            GetCopyableFootprints::<Impl, IMPL_OFFSET>,
+            CreateQueryHeap::<Impl, IMPL_OFFSET>,
+            SetStablePowerState::<Impl, IMPL_OFFSET>,
+            CreateCommandSignature::<Impl, IMPL_OFFSET>,
+            GetResourceTiling::<Impl, IMPL_OFFSET>,
+            GetAdapterLuid::<Impl, IMPL_OFFSET>,
+            CreatePipelineLibrary::<Impl, IMPL_OFFSET>,
+            SetEventOnMultipleFenceCompletion::<Impl, IMPL_OFFSET>,
+            SetResidencyPriority::<Impl, IMPL_OFFSET>,
+            CreatePipelineState::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12Device2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+pub trait ID3D12Device3Impl: Sized + ID3D12Device2Impl + ID3D12Device1Impl + ID3D12DeviceImpl + ID3D12ObjectImpl {
+    fn OpenExistingHeapFromAddress();
+    fn OpenExistingHeapFromFileMapping();
+    fn EnqueueMakeResident();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+impl ID3D12Device3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12Device3Vtbl {
+        unsafe extern "system" fn OpenExistingHeapFromAddress<Impl: ID3D12Device3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddress: *const ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OpenExistingHeapFromFileMapping<Impl: ID3D12Device3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hfilemapping: super::super::Foundation::HANDLE, riid: *const ::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnqueueMakeResident<Impl: ID3D12Device3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: D3D12_RESIDENCY_FLAGS, numobjects: u32, ppobjects: *const ::windows::core::RawPtr, pfencetosignal: ::windows::core::RawPtr, fencevaluetosignal: u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateDataInterface::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            GetNodeCount::<Impl, IMPL_OFFSET>,
+            CreateCommandQueue::<Impl, IMPL_OFFSET>,
+            CreateCommandAllocator::<Impl, IMPL_OFFSET>,
+            CreateGraphicsPipelineState::<Impl, IMPL_OFFSET>,
+            CreateComputePipelineState::<Impl, IMPL_OFFSET>,
+            CreateCommandList::<Impl, IMPL_OFFSET>,
+            CheckFeatureSupport::<Impl, IMPL_OFFSET>,
+            CreateDescriptorHeap::<Impl, IMPL_OFFSET>,
+            GetDescriptorHandleIncrementSize::<Impl, IMPL_OFFSET>,
+            CreateRootSignature::<Impl, IMPL_OFFSET>,
+            CreateConstantBufferView::<Impl, IMPL_OFFSET>,
+            CreateShaderResourceView::<Impl, IMPL_OFFSET>,
+            CreateUnorderedAccessView::<Impl, IMPL_OFFSET>,
+            CreateRenderTargetView::<Impl, IMPL_OFFSET>,
+            CreateDepthStencilView::<Impl, IMPL_OFFSET>,
+            CreateSampler::<Impl, IMPL_OFFSET>,
+            CopyDescriptors::<Impl, IMPL_OFFSET>,
+            CopyDescriptorsSimple::<Impl, IMPL_OFFSET>,
+            GetResourceAllocationInfo::<Impl, IMPL_OFFSET>,
+            GetCustomHeapProperties::<Impl, IMPL_OFFSET>,
+            CreateCommittedResource::<Impl, IMPL_OFFSET>,
+            CreateHeap::<Impl, IMPL_OFFSET>,
+            CreatePlacedResource::<Impl, IMPL_OFFSET>,
+            CreateReservedResource::<Impl, IMPL_OFFSET>,
+            CreateSharedHandle::<Impl, IMPL_OFFSET>,
+            OpenSharedHandle::<Impl, IMPL_OFFSET>,
+            OpenSharedHandleByName::<Impl, IMPL_OFFSET>,
+            MakeResident::<Impl, IMPL_OFFSET>,
+            Evict::<Impl, IMPL_OFFSET>,
+            CreateFence::<Impl, IMPL_OFFSET>,
+            GetDeviceRemovedReason::<Impl, IMPL_OFFSET>,
+            GetCopyableFootprints::<Impl, IMPL_OFFSET>,
+            CreateQueryHeap::<Impl, IMPL_OFFSET>,
+            SetStablePowerState::<Impl, IMPL_OFFSET>,
+            CreateCommandSignature::<Impl, IMPL_OFFSET>,
+            GetResourceTiling::<Impl, IMPL_OFFSET>,
+            GetAdapterLuid::<Impl, IMPL_OFFSET>,
+            CreatePipelineLibrary::<Impl, IMPL_OFFSET>,
+            SetEventOnMultipleFenceCompletion::<Impl, IMPL_OFFSET>,
+            SetResidencyPriority::<Impl, IMPL_OFFSET>,
+            CreatePipelineState::<Impl, IMPL_OFFSET>,
+            OpenExistingHeapFromAddress::<Impl, IMPL_OFFSET>,
+            OpenExistingHeapFromFileMapping::<Impl, IMPL_OFFSET>,
+            EnqueueMakeResident::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12Device3 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+pub trait ID3D12Device4Impl: Sized + ID3D12Device3Impl + ID3D12Device2Impl + ID3D12Device1Impl + ID3D12DeviceImpl + ID3D12ObjectImpl {
+    fn CreateCommandList1();
+    fn CreateProtectedResourceSession();
+    fn CreateCommittedResource1();
+    fn CreateHeap1();
+    fn CreateReservedResource1();
+    fn GetResourceAllocationInfo1();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+impl ID3D12Device4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12Device4Vtbl {
+        unsafe extern "system" fn CreateCommandList1<Impl: ID3D12Device4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, flags: D3D12_COMMAND_LIST_FLAGS, riid: *const ::windows::core::GUID, ppcommandlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateProtectedResourceSession<Impl: ID3D12Device4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC, riid: *const ::windows::core::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateCommittedResource1<Impl: ID3D12Device4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::core::RawPtr, riidresource: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateHeap1<Impl: ID3D12Device4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_HEAP_DESC, pprotectedsession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateReservedResource1<Impl: ID3D12Device4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetResourceAllocationInfo1<Impl: ID3D12Device4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateDataInterface::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            GetNodeCount::<Impl, IMPL_OFFSET>,
+            CreateCommandQueue::<Impl, IMPL_OFFSET>,
+            CreateCommandAllocator::<Impl, IMPL_OFFSET>,
+            CreateGraphicsPipelineState::<Impl, IMPL_OFFSET>,
+            CreateComputePipelineState::<Impl, IMPL_OFFSET>,
+            CreateCommandList::<Impl, IMPL_OFFSET>,
+            CheckFeatureSupport::<Impl, IMPL_OFFSET>,
+            CreateDescriptorHeap::<Impl, IMPL_OFFSET>,
+            GetDescriptorHandleIncrementSize::<Impl, IMPL_OFFSET>,
+            CreateRootSignature::<Impl, IMPL_OFFSET>,
+            CreateConstantBufferView::<Impl, IMPL_OFFSET>,
+            CreateShaderResourceView::<Impl, IMPL_OFFSET>,
+            CreateUnorderedAccessView::<Impl, IMPL_OFFSET>,
+            CreateRenderTargetView::<Impl, IMPL_OFFSET>,
+            CreateDepthStencilView::<Impl, IMPL_OFFSET>,
+            CreateSampler::<Impl, IMPL_OFFSET>,
+            CopyDescriptors::<Impl, IMPL_OFFSET>,
+            CopyDescriptorsSimple::<Impl, IMPL_OFFSET>,
+            GetResourceAllocationInfo::<Impl, IMPL_OFFSET>,
+            GetCustomHeapProperties::<Impl, IMPL_OFFSET>,
+            CreateCommittedResource::<Impl, IMPL_OFFSET>,
+            CreateHeap::<Impl, IMPL_OFFSET>,
+            CreatePlacedResource::<Impl, IMPL_OFFSET>,
+            CreateReservedResource::<Impl, IMPL_OFFSET>,
+            CreateSharedHandle::<Impl, IMPL_OFFSET>,
+            OpenSharedHandle::<Impl, IMPL_OFFSET>,
+            OpenSharedHandleByName::<Impl, IMPL_OFFSET>,
+            MakeResident::<Impl, IMPL_OFFSET>,
+            Evict::<Impl, IMPL_OFFSET>,
+            CreateFence::<Impl, IMPL_OFFSET>,
+            GetDeviceRemovedReason::<Impl, IMPL_OFFSET>,
+            GetCopyableFootprints::<Impl, IMPL_OFFSET>,
+            CreateQueryHeap::<Impl, IMPL_OFFSET>,
+            SetStablePowerState::<Impl, IMPL_OFFSET>,
+            CreateCommandSignature::<Impl, IMPL_OFFSET>,
+            GetResourceTiling::<Impl, IMPL_OFFSET>,
+            GetAdapterLuid::<Impl, IMPL_OFFSET>,
+            CreatePipelineLibrary::<Impl, IMPL_OFFSET>,
+            SetEventOnMultipleFenceCompletion::<Impl, IMPL_OFFSET>,
+            SetResidencyPriority::<Impl, IMPL_OFFSET>,
+            CreatePipelineState::<Impl, IMPL_OFFSET>,
+            OpenExistingHeapFromAddress::<Impl, IMPL_OFFSET>,
+            OpenExistingHeapFromFileMapping::<Impl, IMPL_OFFSET>,
+            EnqueueMakeResident::<Impl, IMPL_OFFSET>,
+            CreateCommandList1::<Impl, IMPL_OFFSET>,
+            CreateProtectedResourceSession::<Impl, IMPL_OFFSET>,
+            CreateCommittedResource1::<Impl, IMPL_OFFSET>,
+            CreateHeap1::<Impl, IMPL_OFFSET>,
+            CreateReservedResource1::<Impl, IMPL_OFFSET>,
+            GetResourceAllocationInfo1::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12Device4 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+pub trait ID3D12Device5Impl: Sized + ID3D12Device4Impl + ID3D12Device3Impl + ID3D12Device2Impl + ID3D12Device1Impl + ID3D12DeviceImpl + ID3D12ObjectImpl {
+    fn CreateLifetimeTracker();
+    fn RemoveDevice();
+    fn EnumerateMetaCommands();
+    fn EnumerateMetaCommandParameters();
+    fn CreateMetaCommand();
+    fn CreateStateObject();
+    fn GetRaytracingAccelerationStructurePrebuildInfo();
+    fn CheckDriverMatchingIdentifier();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+impl ID3D12Device5Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12Device5Vtbl {
+        unsafe extern "system" fn CreateLifetimeTracker<Impl: ID3D12Device5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, powner: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvtracker: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RemoveDevice<Impl: ID3D12Device5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnumerateMetaCommands<Impl: ID3D12Device5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnummetacommands: *mut u32, pdescs: *mut D3D12_META_COMMAND_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnumerateMetaCommandParameters<Impl: ID3D12Device5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, commandid: *const ::windows::core::GUID, stage: D3D12_META_COMMAND_PARAMETER_STAGE, ptotalstructuresizeinbytes: *mut u32, pparametercount: *mut u32, pparameterdescs: *mut D3D12_META_COMMAND_PARAMETER_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateMetaCommand<Impl: ID3D12Device5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, commandid: *const ::windows::core::GUID, nodemask: u32, pcreationparametersdata: *const ::core::ffi::c_void, creationparametersdatasizeinbytes: usize, riid: *const ::windows::core::GUID, ppmetacommand: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateStateObject<Impl: ID3D12Device5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_STATE_OBJECT_DESC, riid: *const ::windows::core::GUID, ppstateobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetRaytracingAccelerationStructurePrebuildInfo<Impl: ID3D12Device5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS, pinfo: *mut D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CheckDriverMatchingIdentifier<Impl: ID3D12Device5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, serializeddatatype: D3D12_SERIALIZED_DATA_TYPE, pidentifiertocheck: *const D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER) -> D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateDataInterface::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            GetNodeCount::<Impl, IMPL_OFFSET>,
+            CreateCommandQueue::<Impl, IMPL_OFFSET>,
+            CreateCommandAllocator::<Impl, IMPL_OFFSET>,
+            CreateGraphicsPipelineState::<Impl, IMPL_OFFSET>,
+            CreateComputePipelineState::<Impl, IMPL_OFFSET>,
+            CreateCommandList::<Impl, IMPL_OFFSET>,
+            CheckFeatureSupport::<Impl, IMPL_OFFSET>,
+            CreateDescriptorHeap::<Impl, IMPL_OFFSET>,
+            GetDescriptorHandleIncrementSize::<Impl, IMPL_OFFSET>,
+            CreateRootSignature::<Impl, IMPL_OFFSET>,
+            CreateConstantBufferView::<Impl, IMPL_OFFSET>,
+            CreateShaderResourceView::<Impl, IMPL_OFFSET>,
+            CreateUnorderedAccessView::<Impl, IMPL_OFFSET>,
+            CreateRenderTargetView::<Impl, IMPL_OFFSET>,
+            CreateDepthStencilView::<Impl, IMPL_OFFSET>,
+            CreateSampler::<Impl, IMPL_OFFSET>,
+            CopyDescriptors::<Impl, IMPL_OFFSET>,
+            CopyDescriptorsSimple::<Impl, IMPL_OFFSET>,
+            GetResourceAllocationInfo::<Impl, IMPL_OFFSET>,
+            GetCustomHeapProperties::<Impl, IMPL_OFFSET>,
+            CreateCommittedResource::<Impl, IMPL_OFFSET>,
+            CreateHeap::<Impl, IMPL_OFFSET>,
+            CreatePlacedResource::<Impl, IMPL_OFFSET>,
+            CreateReservedResource::<Impl, IMPL_OFFSET>,
+            CreateSharedHandle::<Impl, IMPL_OFFSET>,
+            OpenSharedHandle::<Impl, IMPL_OFFSET>,
+            OpenSharedHandleByName::<Impl, IMPL_OFFSET>,
+            MakeResident::<Impl, IMPL_OFFSET>,
+            Evict::<Impl, IMPL_OFFSET>,
+            CreateFence::<Impl, IMPL_OFFSET>,
+            GetDeviceRemovedReason::<Impl, IMPL_OFFSET>,
+            GetCopyableFootprints::<Impl, IMPL_OFFSET>,
+            CreateQueryHeap::<Impl, IMPL_OFFSET>,
+            SetStablePowerState::<Impl, IMPL_OFFSET>,
+            CreateCommandSignature::<Impl, IMPL_OFFSET>,
+            GetResourceTiling::<Impl, IMPL_OFFSET>,
+            GetAdapterLuid::<Impl, IMPL_OFFSET>,
+            CreatePipelineLibrary::<Impl, IMPL_OFFSET>,
+            SetEventOnMultipleFenceCompletion::<Impl, IMPL_OFFSET>,
+            SetResidencyPriority::<Impl, IMPL_OFFSET>,
+            CreatePipelineState::<Impl, IMPL_OFFSET>,
+            OpenExistingHeapFromAddress::<Impl, IMPL_OFFSET>,
+            OpenExistingHeapFromFileMapping::<Impl, IMPL_OFFSET>,
+            EnqueueMakeResident::<Impl, IMPL_OFFSET>,
+            CreateCommandList1::<Impl, IMPL_OFFSET>,
+            CreateProtectedResourceSession::<Impl, IMPL_OFFSET>,
+            CreateCommittedResource1::<Impl, IMPL_OFFSET>,
+            CreateHeap1::<Impl, IMPL_OFFSET>,
+            CreateReservedResource1::<Impl, IMPL_OFFSET>,
+            GetResourceAllocationInfo1::<Impl, IMPL_OFFSET>,
+            CreateLifetimeTracker::<Impl, IMPL_OFFSET>,
+            RemoveDevice::<Impl, IMPL_OFFSET>,
+            EnumerateMetaCommands::<Impl, IMPL_OFFSET>,
+            EnumerateMetaCommandParameters::<Impl, IMPL_OFFSET>,
+            CreateMetaCommand::<Impl, IMPL_OFFSET>,
+            CreateStateObject::<Impl, IMPL_OFFSET>,
+            GetRaytracingAccelerationStructurePrebuildInfo::<Impl, IMPL_OFFSET>,
+            CheckDriverMatchingIdentifier::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12Device5 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+pub trait ID3D12Device6Impl: Sized + ID3D12Device5Impl + ID3D12Device4Impl + ID3D12Device3Impl + ID3D12Device2Impl + ID3D12Device1Impl + ID3D12DeviceImpl + ID3D12ObjectImpl {
+    fn SetBackgroundProcessingMode();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+impl ID3D12Device6Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device6Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12Device6Vtbl {
+        unsafe extern "system" fn SetBackgroundProcessingMode<Impl: ID3D12Device6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: D3D12_BACKGROUND_PROCESSING_MODE, measurementsaction: D3D12_MEASUREMENTS_ACTION, heventtosignaluponcompletion: super::super::Foundation::HANDLE, pbfurthermeasurementsdesired: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateDataInterface::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            GetNodeCount::<Impl, IMPL_OFFSET>,
+            CreateCommandQueue::<Impl, IMPL_OFFSET>,
+            CreateCommandAllocator::<Impl, IMPL_OFFSET>,
+            CreateGraphicsPipelineState::<Impl, IMPL_OFFSET>,
+            CreateComputePipelineState::<Impl, IMPL_OFFSET>,
+            CreateCommandList::<Impl, IMPL_OFFSET>,
+            CheckFeatureSupport::<Impl, IMPL_OFFSET>,
+            CreateDescriptorHeap::<Impl, IMPL_OFFSET>,
+            GetDescriptorHandleIncrementSize::<Impl, IMPL_OFFSET>,
+            CreateRootSignature::<Impl, IMPL_OFFSET>,
+            CreateConstantBufferView::<Impl, IMPL_OFFSET>,
+            CreateShaderResourceView::<Impl, IMPL_OFFSET>,
+            CreateUnorderedAccessView::<Impl, IMPL_OFFSET>,
+            CreateRenderTargetView::<Impl, IMPL_OFFSET>,
+            CreateDepthStencilView::<Impl, IMPL_OFFSET>,
+            CreateSampler::<Impl, IMPL_OFFSET>,
+            CopyDescriptors::<Impl, IMPL_OFFSET>,
+            CopyDescriptorsSimple::<Impl, IMPL_OFFSET>,
+            GetResourceAllocationInfo::<Impl, IMPL_OFFSET>,
+            GetCustomHeapProperties::<Impl, IMPL_OFFSET>,
+            CreateCommittedResource::<Impl, IMPL_OFFSET>,
+            CreateHeap::<Impl, IMPL_OFFSET>,
+            CreatePlacedResource::<Impl, IMPL_OFFSET>,
+            CreateReservedResource::<Impl, IMPL_OFFSET>,
+            CreateSharedHandle::<Impl, IMPL_OFFSET>,
+            OpenSharedHandle::<Impl, IMPL_OFFSET>,
+            OpenSharedHandleByName::<Impl, IMPL_OFFSET>,
+            MakeResident::<Impl, IMPL_OFFSET>,
+            Evict::<Impl, IMPL_OFFSET>,
+            CreateFence::<Impl, IMPL_OFFSET>,
+            GetDeviceRemovedReason::<Impl, IMPL_OFFSET>,
+            GetCopyableFootprints::<Impl, IMPL_OFFSET>,
+            CreateQueryHeap::<Impl, IMPL_OFFSET>,
+            SetStablePowerState::<Impl, IMPL_OFFSET>,
+            CreateCommandSignature::<Impl, IMPL_OFFSET>,
+            GetResourceTiling::<Impl, IMPL_OFFSET>,
+            GetAdapterLuid::<Impl, IMPL_OFFSET>,
+            CreatePipelineLibrary::<Impl, IMPL_OFFSET>,
+            SetEventOnMultipleFenceCompletion::<Impl, IMPL_OFFSET>,
+            SetResidencyPriority::<Impl, IMPL_OFFSET>,
+            CreatePipelineState::<Impl, IMPL_OFFSET>,
+            OpenExistingHeapFromAddress::<Impl, IMPL_OFFSET>,
+            OpenExistingHeapFromFileMapping::<Impl, IMPL_OFFSET>,
+            EnqueueMakeResident::<Impl, IMPL_OFFSET>,
+            CreateCommandList1::<Impl, IMPL_OFFSET>,
+            CreateProtectedResourceSession::<Impl, IMPL_OFFSET>,
+            CreateCommittedResource1::<Impl, IMPL_OFFSET>,
+            CreateHeap1::<Impl, IMPL_OFFSET>,
+            CreateReservedResource1::<Impl, IMPL_OFFSET>,
+            GetResourceAllocationInfo1::<Impl, IMPL_OFFSET>,
+            CreateLifetimeTracker::<Impl, IMPL_OFFSET>,
+            RemoveDevice::<Impl, IMPL_OFFSET>,
+            EnumerateMetaCommands::<Impl, IMPL_OFFSET>,
+            EnumerateMetaCommandParameters::<Impl, IMPL_OFFSET>,
+            CreateMetaCommand::<Impl, IMPL_OFFSET>,
+            CreateStateObject::<Impl, IMPL_OFFSET>,
+            GetRaytracingAccelerationStructurePrebuildInfo::<Impl, IMPL_OFFSET>,
+            CheckDriverMatchingIdentifier::<Impl, IMPL_OFFSET>,
+            SetBackgroundProcessingMode::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12Device6 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+pub trait ID3D12Device7Impl: Sized + ID3D12Device6Impl + ID3D12Device5Impl + ID3D12Device4Impl + ID3D12Device3Impl + ID3D12Device2Impl + ID3D12Device1Impl + ID3D12DeviceImpl + ID3D12ObjectImpl {
+    fn AddToStateObject();
+    fn CreateProtectedResourceSession1();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+impl ID3D12Device7Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device7Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12Device7Vtbl {
+        unsafe extern "system" fn AddToStateObject<Impl: ID3D12Device7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddition: *const D3D12_STATE_OBJECT_DESC, pstateobjecttogrowfrom: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppnewstateobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateProtectedResourceSession1<Impl: ID3D12Device7Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC1, riid: *const ::windows::core::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateDataInterface::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            GetNodeCount::<Impl, IMPL_OFFSET>,
+            CreateCommandQueue::<Impl, IMPL_OFFSET>,
+            CreateCommandAllocator::<Impl, IMPL_OFFSET>,
+            CreateGraphicsPipelineState::<Impl, IMPL_OFFSET>,
+            CreateComputePipelineState::<Impl, IMPL_OFFSET>,
+            CreateCommandList::<Impl, IMPL_OFFSET>,
+            CheckFeatureSupport::<Impl, IMPL_OFFSET>,
+            CreateDescriptorHeap::<Impl, IMPL_OFFSET>,
+            GetDescriptorHandleIncrementSize::<Impl, IMPL_OFFSET>,
+            CreateRootSignature::<Impl, IMPL_OFFSET>,
+            CreateConstantBufferView::<Impl, IMPL_OFFSET>,
+            CreateShaderResourceView::<Impl, IMPL_OFFSET>,
+            CreateUnorderedAccessView::<Impl, IMPL_OFFSET>,
+            CreateRenderTargetView::<Impl, IMPL_OFFSET>,
+            CreateDepthStencilView::<Impl, IMPL_OFFSET>,
+            CreateSampler::<Impl, IMPL_OFFSET>,
+            CopyDescriptors::<Impl, IMPL_OFFSET>,
+            CopyDescriptorsSimple::<Impl, IMPL_OFFSET>,
+            GetResourceAllocationInfo::<Impl, IMPL_OFFSET>,
+            GetCustomHeapProperties::<Impl, IMPL_OFFSET>,
+            CreateCommittedResource::<Impl, IMPL_OFFSET>,
+            CreateHeap::<Impl, IMPL_OFFSET>,
+            CreatePlacedResource::<Impl, IMPL_OFFSET>,
+            CreateReservedResource::<Impl, IMPL_OFFSET>,
+            CreateSharedHandle::<Impl, IMPL_OFFSET>,
+            OpenSharedHandle::<Impl, IMPL_OFFSET>,
+            OpenSharedHandleByName::<Impl, IMPL_OFFSET>,
+            MakeResident::<Impl, IMPL_OFFSET>,
+            Evict::<Impl, IMPL_OFFSET>,
+            CreateFence::<Impl, IMPL_OFFSET>,
+            GetDeviceRemovedReason::<Impl, IMPL_OFFSET>,
+            GetCopyableFootprints::<Impl, IMPL_OFFSET>,
+            CreateQueryHeap::<Impl, IMPL_OFFSET>,
+            SetStablePowerState::<Impl, IMPL_OFFSET>,
+            CreateCommandSignature::<Impl, IMPL_OFFSET>,
+            GetResourceTiling::<Impl, IMPL_OFFSET>,
+            GetAdapterLuid::<Impl, IMPL_OFFSET>,
+            CreatePipelineLibrary::<Impl, IMPL_OFFSET>,
+            SetEventOnMultipleFenceCompletion::<Impl, IMPL_OFFSET>,
+            SetResidencyPriority::<Impl, IMPL_OFFSET>,
+            CreatePipelineState::<Impl, IMPL_OFFSET>,
+            OpenExistingHeapFromAddress::<Impl, IMPL_OFFSET>,
+            OpenExistingHeapFromFileMapping::<Impl, IMPL_OFFSET>,
+            EnqueueMakeResident::<Impl, IMPL_OFFSET>,
+            CreateCommandList1::<Impl, IMPL_OFFSET>,
+            CreateProtectedResourceSession::<Impl, IMPL_OFFSET>,
+            CreateCommittedResource1::<Impl, IMPL_OFFSET>,
+            CreateHeap1::<Impl, IMPL_OFFSET>,
+            CreateReservedResource1::<Impl, IMPL_OFFSET>,
+            GetResourceAllocationInfo1::<Impl, IMPL_OFFSET>,
+            CreateLifetimeTracker::<Impl, IMPL_OFFSET>,
+            RemoveDevice::<Impl, IMPL_OFFSET>,
+            EnumerateMetaCommands::<Impl, IMPL_OFFSET>,
+            EnumerateMetaCommandParameters::<Impl, IMPL_OFFSET>,
+            CreateMetaCommand::<Impl, IMPL_OFFSET>,
+            CreateStateObject::<Impl, IMPL_OFFSET>,
+            GetRaytracingAccelerationStructurePrebuildInfo::<Impl, IMPL_OFFSET>,
+            CheckDriverMatchingIdentifier::<Impl, IMPL_OFFSET>,
+            SetBackgroundProcessingMode::<Impl, IMPL_OFFSET>,
+            AddToStateObject::<Impl, IMPL_OFFSET>,
+            CreateProtectedResourceSession1::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12Device7 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+pub trait ID3D12Device8Impl: Sized + ID3D12Device7Impl + ID3D12Device6Impl + ID3D12Device5Impl + ID3D12Device4Impl + ID3D12Device3Impl + ID3D12Device2Impl + ID3D12Device1Impl + ID3D12DeviceImpl + ID3D12ObjectImpl {
+    fn GetResourceAllocationInfo2();
+    fn CreateCommittedResource2();
+    fn CreatePlacedResource1();
+    fn CreateSamplerFeedbackUnorderedAccessView();
+    fn GetCopyableFootprints1();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+impl ID3D12Device8Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device8Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12Device8Vtbl {
+        unsafe extern "system" fn GetResourceAllocationInfo2<Impl: ID3D12Device8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_RESOURCE_ALLOCATION_INFO, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateCommittedResource2<Impl: ID3D12Device8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: ::windows::core::RawPtr, riidresource: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreatePlacedResource1<Impl: ID3D12Device8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pheap: ::windows::core::RawPtr, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateSamplerFeedbackUnorderedAccessView<Impl: ID3D12Device8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptargetedresource: ::windows::core::RawPtr, pfeedbackresource: ::windows::core::RawPtr, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCopyableFootprints1<Impl: ID3D12Device8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presourcedesc: *const D3D12_RESOURCE_DESC1, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateDataInterface::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            GetNodeCount::<Impl, IMPL_OFFSET>,
+            CreateCommandQueue::<Impl, IMPL_OFFSET>,
+            CreateCommandAllocator::<Impl, IMPL_OFFSET>,
+            CreateGraphicsPipelineState::<Impl, IMPL_OFFSET>,
+            CreateComputePipelineState::<Impl, IMPL_OFFSET>,
+            CreateCommandList::<Impl, IMPL_OFFSET>,
+            CheckFeatureSupport::<Impl, IMPL_OFFSET>,
+            CreateDescriptorHeap::<Impl, IMPL_OFFSET>,
+            GetDescriptorHandleIncrementSize::<Impl, IMPL_OFFSET>,
+            CreateRootSignature::<Impl, IMPL_OFFSET>,
+            CreateConstantBufferView::<Impl, IMPL_OFFSET>,
+            CreateShaderResourceView::<Impl, IMPL_OFFSET>,
+            CreateUnorderedAccessView::<Impl, IMPL_OFFSET>,
+            CreateRenderTargetView::<Impl, IMPL_OFFSET>,
+            CreateDepthStencilView::<Impl, IMPL_OFFSET>,
+            CreateSampler::<Impl, IMPL_OFFSET>,
+            CopyDescriptors::<Impl, IMPL_OFFSET>,
+            CopyDescriptorsSimple::<Impl, IMPL_OFFSET>,
+            GetResourceAllocationInfo::<Impl, IMPL_OFFSET>,
+            GetCustomHeapProperties::<Impl, IMPL_OFFSET>,
+            CreateCommittedResource::<Impl, IMPL_OFFSET>,
+            CreateHeap::<Impl, IMPL_OFFSET>,
+            CreatePlacedResource::<Impl, IMPL_OFFSET>,
+            CreateReservedResource::<Impl, IMPL_OFFSET>,
+            CreateSharedHandle::<Impl, IMPL_OFFSET>,
+            OpenSharedHandle::<Impl, IMPL_OFFSET>,
+            OpenSharedHandleByName::<Impl, IMPL_OFFSET>,
+            MakeResident::<Impl, IMPL_OFFSET>,
+            Evict::<Impl, IMPL_OFFSET>,
+            CreateFence::<Impl, IMPL_OFFSET>,
+            GetDeviceRemovedReason::<Impl, IMPL_OFFSET>,
+            GetCopyableFootprints::<Impl, IMPL_OFFSET>,
+            CreateQueryHeap::<Impl, IMPL_OFFSET>,
+            SetStablePowerState::<Impl, IMPL_OFFSET>,
+            CreateCommandSignature::<Impl, IMPL_OFFSET>,
+            GetResourceTiling::<Impl, IMPL_OFFSET>,
+            GetAdapterLuid::<Impl, IMPL_OFFSET>,
+            CreatePipelineLibrary::<Impl, IMPL_OFFSET>,
+            SetEventOnMultipleFenceCompletion::<Impl, IMPL_OFFSET>,
+            SetResidencyPriority::<Impl, IMPL_OFFSET>,
+            CreatePipelineState::<Impl, IMPL_OFFSET>,
+            OpenExistingHeapFromAddress::<Impl, IMPL_OFFSET>,
+            OpenExistingHeapFromFileMapping::<Impl, IMPL_OFFSET>,
+            EnqueueMakeResident::<Impl, IMPL_OFFSET>,
+            CreateCommandList1::<Impl, IMPL_OFFSET>,
+            CreateProtectedResourceSession::<Impl, IMPL_OFFSET>,
+            CreateCommittedResource1::<Impl, IMPL_OFFSET>,
+            CreateHeap1::<Impl, IMPL_OFFSET>,
+            CreateReservedResource1::<Impl, IMPL_OFFSET>,
+            GetResourceAllocationInfo1::<Impl, IMPL_OFFSET>,
+            CreateLifetimeTracker::<Impl, IMPL_OFFSET>,
+            RemoveDevice::<Impl, IMPL_OFFSET>,
+            EnumerateMetaCommands::<Impl, IMPL_OFFSET>,
+            EnumerateMetaCommandParameters::<Impl, IMPL_OFFSET>,
+            CreateMetaCommand::<Impl, IMPL_OFFSET>,
+            CreateStateObject::<Impl, IMPL_OFFSET>,
+            GetRaytracingAccelerationStructurePrebuildInfo::<Impl, IMPL_OFFSET>,
+            CheckDriverMatchingIdentifier::<Impl, IMPL_OFFSET>,
+            SetBackgroundProcessingMode::<Impl, IMPL_OFFSET>,
+            AddToStateObject::<Impl, IMPL_OFFSET>,
+            CreateProtectedResourceSession1::<Impl, IMPL_OFFSET>,
+            GetResourceAllocationInfo2::<Impl, IMPL_OFFSET>,
+            CreateCommittedResource2::<Impl, IMPL_OFFSET>,
+            CreatePlacedResource1::<Impl, IMPL_OFFSET>,
+            CreateSamplerFeedbackUnorderedAccessView::<Impl, IMPL_OFFSET>,
+            GetCopyableFootprints1::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12Device8 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+pub trait ID3D12Device9Impl: Sized + ID3D12Device8Impl + ID3D12Device7Impl + ID3D12Device6Impl + ID3D12Device5Impl + ID3D12Device4Impl + ID3D12Device3Impl + ID3D12Device2Impl + ID3D12Device1Impl + ID3D12DeviceImpl + ID3D12ObjectImpl {
+    fn CreateShaderCacheSession();
+    fn ShaderCacheControl();
+    fn CreateCommandQueue1();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
+impl ID3D12Device9Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Device9Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12Device9Vtbl {
+        unsafe extern "system" fn CreateShaderCacheSession<Impl: ID3D12Device9Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_SHADER_CACHE_SESSION_DESC, riid: *const ::windows::core::GUID, ppvsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ShaderCacheControl<Impl: ID3D12Device9Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kinds: D3D12_SHADER_CACHE_KIND_FLAGS, control: D3D12_SHADER_CACHE_CONTROL_FLAGS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateCommandQueue1<Impl: ID3D12Device9Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_COMMAND_QUEUE_DESC, creatorid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppcommandqueue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateDataInterface::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            GetNodeCount::<Impl, IMPL_OFFSET>,
+            CreateCommandQueue::<Impl, IMPL_OFFSET>,
+            CreateCommandAllocator::<Impl, IMPL_OFFSET>,
+            CreateGraphicsPipelineState::<Impl, IMPL_OFFSET>,
+            CreateComputePipelineState::<Impl, IMPL_OFFSET>,
+            CreateCommandList::<Impl, IMPL_OFFSET>,
+            CheckFeatureSupport::<Impl, IMPL_OFFSET>,
+            CreateDescriptorHeap::<Impl, IMPL_OFFSET>,
+            GetDescriptorHandleIncrementSize::<Impl, IMPL_OFFSET>,
+            CreateRootSignature::<Impl, IMPL_OFFSET>,
+            CreateConstantBufferView::<Impl, IMPL_OFFSET>,
+            CreateShaderResourceView::<Impl, IMPL_OFFSET>,
+            CreateUnorderedAccessView::<Impl, IMPL_OFFSET>,
+            CreateRenderTargetView::<Impl, IMPL_OFFSET>,
+            CreateDepthStencilView::<Impl, IMPL_OFFSET>,
+            CreateSampler::<Impl, IMPL_OFFSET>,
+            CopyDescriptors::<Impl, IMPL_OFFSET>,
+            CopyDescriptorsSimple::<Impl, IMPL_OFFSET>,
+            GetResourceAllocationInfo::<Impl, IMPL_OFFSET>,
+            GetCustomHeapProperties::<Impl, IMPL_OFFSET>,
+            CreateCommittedResource::<Impl, IMPL_OFFSET>,
+            CreateHeap::<Impl, IMPL_OFFSET>,
+            CreatePlacedResource::<Impl, IMPL_OFFSET>,
+            CreateReservedResource::<Impl, IMPL_OFFSET>,
+            CreateSharedHandle::<Impl, IMPL_OFFSET>,
+            OpenSharedHandle::<Impl, IMPL_OFFSET>,
+            OpenSharedHandleByName::<Impl, IMPL_OFFSET>,
+            MakeResident::<Impl, IMPL_OFFSET>,
+            Evict::<Impl, IMPL_OFFSET>,
+            CreateFence::<Impl, IMPL_OFFSET>,
+            GetDeviceRemovedReason::<Impl, IMPL_OFFSET>,
+            GetCopyableFootprints::<Impl, IMPL_OFFSET>,
+            CreateQueryHeap::<Impl, IMPL_OFFSET>,
+            SetStablePowerState::<Impl, IMPL_OFFSET>,
+            CreateCommandSignature::<Impl, IMPL_OFFSET>,
+            GetResourceTiling::<Impl, IMPL_OFFSET>,
+            GetAdapterLuid::<Impl, IMPL_OFFSET>,
+            CreatePipelineLibrary::<Impl, IMPL_OFFSET>,
+            SetEventOnMultipleFenceCompletion::<Impl, IMPL_OFFSET>,
+            SetResidencyPriority::<Impl, IMPL_OFFSET>,
+            CreatePipelineState::<Impl, IMPL_OFFSET>,
+            OpenExistingHeapFromAddress::<Impl, IMPL_OFFSET>,
+            OpenExistingHeapFromFileMapping::<Impl, IMPL_OFFSET>,
+            EnqueueMakeResident::<Impl, IMPL_OFFSET>,
+            CreateCommandList1::<Impl, IMPL_OFFSET>,
+            CreateProtectedResourceSession::<Impl, IMPL_OFFSET>,
+            CreateCommittedResource1::<Impl, IMPL_OFFSET>,
+            CreateHeap1::<Impl, IMPL_OFFSET>,
+            CreateReservedResource1::<Impl, IMPL_OFFSET>,
+            GetResourceAllocationInfo1::<Impl, IMPL_OFFSET>,
+            CreateLifetimeTracker::<Impl, IMPL_OFFSET>,
+            RemoveDevice::<Impl, IMPL_OFFSET>,
+            EnumerateMetaCommands::<Impl, IMPL_OFFSET>,
+            EnumerateMetaCommandParameters::<Impl, IMPL_OFFSET>,
+            CreateMetaCommand::<Impl, IMPL_OFFSET>,
+            CreateStateObject::<Impl, IMPL_OFFSET>,
+            GetRaytracingAccelerationStructurePrebuildInfo::<Impl, IMPL_OFFSET>,
+            CheckDriverMatchingIdentifier::<Impl, IMPL_OFFSET>,
+            SetBackgroundProcessingMode::<Impl, IMPL_OFFSET>,
+            AddToStateObject::<Impl, IMPL_OFFSET>,
+            CreateProtectedResourceSession1::<Impl, IMPL_OFFSET>,
+            GetResourceAllocationInfo2::<Impl, IMPL_OFFSET>,
+            CreateCommittedResource2::<Impl, IMPL_OFFSET>,
+            CreatePlacedResource1::<Impl, IMPL_OFFSET>,
+            CreateSamplerFeedbackUnorderedAccessView::<Impl, IMPL_OFFSET>,
+            GetCopyableFootprints1::<Impl, IMPL_OFFSET>,
+            CreateShaderCacheSession::<Impl, IMPL_OFFSET>,
+            ShaderCacheControl::<Impl, IMPL_OFFSET>,
+            CreateCommandQueue1::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12Device9 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12DeviceChildImpl: Sized + ID3D12ObjectImpl {
+    fn GetDevice();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12DeviceChildVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DeviceChildImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12DeviceChildVtbl {
+        unsafe extern "system" fn GetDevice<Impl: ID3D12DeviceChildImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateDataInterface::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, GetDevice::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12DeviceChild as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12DeviceRemovedExtendedDataImpl: Sized {
+    fn GetAutoBreadcrumbsOutput();
+    fn GetPageFaultAllocationOutput();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12DeviceRemovedExtendedDataVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DeviceRemovedExtendedDataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12DeviceRemovedExtendedDataVtbl {
+        unsafe extern "system" fn GetAutoBreadcrumbsOutput<Impl: ID3D12DeviceRemovedExtendedDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poutput: *mut D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetPageFaultAllocationOutput<Impl: ID3D12DeviceRemovedExtendedDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poutput: *mut D3D12_DRED_PAGE_FAULT_OUTPUT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetAutoBreadcrumbsOutput::<Impl, IMPL_OFFSET>, GetPageFaultAllocationOutput::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12DeviceRemovedExtendedData as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12DeviceRemovedExtendedData1Impl: Sized + ID3D12DeviceRemovedExtendedDataImpl {
+    fn GetAutoBreadcrumbsOutput1();
+    fn GetPageFaultAllocationOutput1();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12DeviceRemovedExtendedData1Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DeviceRemovedExtendedData1Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12DeviceRemovedExtendedData1Vtbl {
+        unsafe extern "system" fn GetAutoBreadcrumbsOutput1<Impl: ID3D12DeviceRemovedExtendedData1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poutput: *mut D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetPageFaultAllocationOutput1<Impl: ID3D12DeviceRemovedExtendedData1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poutput: *mut D3D12_DRED_PAGE_FAULT_OUTPUT1) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetAutoBreadcrumbsOutput::<Impl, IMPL_OFFSET>, GetPageFaultAllocationOutput::<Impl, IMPL_OFFSET>, GetAutoBreadcrumbsOutput1::<Impl, IMPL_OFFSET>, GetPageFaultAllocationOutput1::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12DeviceRemovedExtendedData1 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12DeviceRemovedExtendedData2Impl: Sized + ID3D12DeviceRemovedExtendedData1Impl + ID3D12DeviceRemovedExtendedDataImpl {
+    fn GetPageFaultAllocationOutput2();
+    fn GetDeviceState();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12DeviceRemovedExtendedData2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DeviceRemovedExtendedData2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12DeviceRemovedExtendedData2Vtbl {
+        unsafe extern "system" fn GetPageFaultAllocationOutput2<Impl: ID3D12DeviceRemovedExtendedData2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poutput: *mut D3D12_DRED_PAGE_FAULT_OUTPUT2) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDeviceState<Impl: ID3D12DeviceRemovedExtendedData2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> D3D12_DRED_DEVICE_STATE {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetAutoBreadcrumbsOutput::<Impl, IMPL_OFFSET>, GetPageFaultAllocationOutput::<Impl, IMPL_OFFSET>, GetAutoBreadcrumbsOutput1::<Impl, IMPL_OFFSET>, GetPageFaultAllocationOutput1::<Impl, IMPL_OFFSET>, GetPageFaultAllocationOutput2::<Impl, IMPL_OFFSET>, GetDeviceState::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12DeviceRemovedExtendedData2 as ::windows::core::Interface>::IID
+    }
+}
+pub trait ID3D12DeviceRemovedExtendedDataSettingsImpl: Sized {
+    fn SetAutoBreadcrumbsEnablement();
+    fn SetPageFaultEnablement();
+    fn SetWatsonDumpEnablement();
+}
+impl ID3D12DeviceRemovedExtendedDataSettingsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DeviceRemovedExtendedDataSettingsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12DeviceRemovedExtendedDataSettingsVtbl {
+        unsafe extern "system" fn SetAutoBreadcrumbsEnablement<Impl: ID3D12DeviceRemovedExtendedDataSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enablement: D3D12_DRED_ENABLEMENT) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetPageFaultEnablement<Impl: ID3D12DeviceRemovedExtendedDataSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enablement: D3D12_DRED_ENABLEMENT) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetWatsonDumpEnablement<Impl: ID3D12DeviceRemovedExtendedDataSettingsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enablement: D3D12_DRED_ENABLEMENT) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, SetAutoBreadcrumbsEnablement::<Impl, IMPL_OFFSET>, SetPageFaultEnablement::<Impl, IMPL_OFFSET>, SetWatsonDumpEnablement::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12DeviceRemovedExtendedDataSettings as ::windows::core::Interface>::IID
+    }
+}
+pub trait ID3D12DeviceRemovedExtendedDataSettings1Impl: Sized + ID3D12DeviceRemovedExtendedDataSettingsImpl {
+    fn SetBreadcrumbContextEnablement();
+}
+impl ID3D12DeviceRemovedExtendedDataSettings1Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12DeviceRemovedExtendedDataSettings1Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12DeviceRemovedExtendedDataSettings1Vtbl {
+        unsafe extern "system" fn SetBreadcrumbContextEnablement<Impl: ID3D12DeviceRemovedExtendedDataSettings1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enablement: D3D12_DRED_ENABLEMENT) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, SetAutoBreadcrumbsEnablement::<Impl, IMPL_OFFSET>, SetPageFaultEnablement::<Impl, IMPL_OFFSET>, SetWatsonDumpEnablement::<Impl, IMPL_OFFSET>, SetBreadcrumbContextEnablement::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12DeviceRemovedExtendedDataSettings1 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12FenceImpl: Sized + ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
+    fn GetCompletedValue();
+    fn SetEventOnCompletion();
+    fn Signal();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12FenceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12FenceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12FenceVtbl {
+        unsafe extern "system" fn GetCompletedValue<Impl: ID3D12FenceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u64 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetEventOnCompletion<Impl: ID3D12FenceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u64, hevent: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Signal<Impl: ID3D12FenceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateDataInterface::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, GetDevice::<Impl, IMPL_OFFSET>, GetCompletedValue::<Impl, IMPL_OFFSET>, SetEventOnCompletion::<Impl, IMPL_OFFSET>, Signal::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12Fence as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12Fence1Impl: Sized + ID3D12FenceImpl + ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
+    fn GetCreationFlags();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12Fence1Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Fence1Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12Fence1Vtbl {
+        unsafe extern "system" fn GetCreationFlags<Impl: ID3D12Fence1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> D3D12_FENCE_FLAGS {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateDataInterface::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            GetDevice::<Impl, IMPL_OFFSET>,
+            GetCompletedValue::<Impl, IMPL_OFFSET>,
+            SetEventOnCompletion::<Impl, IMPL_OFFSET>,
+            Signal::<Impl, IMPL_OFFSET>,
+            GetCreationFlags::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12Fence1 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+pub trait ID3D12FunctionParameterReflectionImpl: Sized {
+    fn GetDesc();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ID3D12FunctionParameterReflectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12FunctionParameterReflectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12FunctionParameterReflectionVtbl {
+        unsafe extern "system" fn GetDesc<Impl: ID3D12FunctionParameterReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D12_PARAMETER_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(GetDesc::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12FunctionParameterReflection as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+pub trait ID3D12FunctionReflectionImpl: Sized {
+    fn GetDesc();
+    fn GetConstantBufferByIndex();
+    fn GetConstantBufferByName();
+    fn GetResourceBindingDesc();
+    fn GetVariableByName();
+    fn GetResourceBindingDescByName();
+    fn GetFunctionParameter();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ID3D12FunctionReflectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12FunctionReflectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12FunctionReflectionVtbl {
+        unsafe extern "system" fn GetDesc<Impl: ID3D12FunctionReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D12_FUNCTION_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetConstantBufferByIndex<Impl: ID3D12FunctionReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bufferindex: u32) -> ::core::option::Option<ID3D12ShaderReflectionConstantBuffer> {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetConstantBufferByName<Impl: ID3D12FunctionReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D12ShaderReflectionConstantBuffer> {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetResourceBindingDesc<Impl: ID3D12FunctionReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceindex: u32, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetVariableByName<Impl: ID3D12FunctionReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D12ShaderReflectionVariable> {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetResourceBindingDescByName<Impl: ID3D12FunctionReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PSTR, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetFunctionParameter<Impl: ID3D12FunctionReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parameterindex: i32) -> ::core::option::Option<ID3D12FunctionParameterReflection> {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(GetDesc::<Impl, IMPL_OFFSET>, GetConstantBufferByIndex::<Impl, IMPL_OFFSET>, GetConstantBufferByName::<Impl, IMPL_OFFSET>, GetResourceBindingDesc::<Impl, IMPL_OFFSET>, GetVariableByName::<Impl, IMPL_OFFSET>, GetResourceBindingDescByName::<Impl, IMPL_OFFSET>, GetFunctionParameter::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12FunctionReflection as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+pub trait ID3D12GraphicsCommandListImpl: Sized + ID3D12CommandListImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
+    fn Close();
+    fn Reset();
+    fn ClearState();
+    fn DrawInstanced();
+    fn DrawIndexedInstanced();
+    fn Dispatch();
+    fn CopyBufferRegion();
+    fn CopyTextureRegion();
+    fn CopyResource();
+    fn CopyTiles();
+    fn ResolveSubresource();
+    fn IASetPrimitiveTopology();
+    fn RSSetViewports();
+    fn RSSetScissorRects();
+    fn OMSetBlendFactor();
+    fn OMSetStencilRef();
+    fn SetPipelineState();
+    fn ResourceBarrier();
+    fn ExecuteBundle();
+    fn SetDescriptorHeaps();
+    fn SetComputeRootSignature();
+    fn SetGraphicsRootSignature();
+    fn SetComputeRootDescriptorTable();
+    fn SetGraphicsRootDescriptorTable();
+    fn SetComputeRoot32BitConstant();
+    fn SetGraphicsRoot32BitConstant();
+    fn SetComputeRoot32BitConstants();
+    fn SetGraphicsRoot32BitConstants();
+    fn SetComputeRootConstantBufferView();
+    fn SetGraphicsRootConstantBufferView();
+    fn SetComputeRootShaderResourceView();
+    fn SetGraphicsRootShaderResourceView();
+    fn SetComputeRootUnorderedAccessView();
+    fn SetGraphicsRootUnorderedAccessView();
+    fn IASetIndexBuffer();
+    fn IASetVertexBuffers();
+    fn SOSetTargets();
+    fn OMSetRenderTargets();
+    fn ClearDepthStencilView();
+    fn ClearRenderTargetView();
+    fn ClearUnorderedAccessViewUint();
+    fn ClearUnorderedAccessViewFloat();
+    fn DiscardResource();
+    fn BeginQuery();
+    fn EndQuery();
+    fn ResolveQueryData();
+    fn SetPredication();
+    fn SetMarker();
+    fn BeginEvent();
+    fn EndEvent();
+    fn ExecuteIndirect();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ID3D12GraphicsCommandListVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12GraphicsCommandListImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12GraphicsCommandListVtbl {
+        unsafe extern "system" fn Close<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Reset<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pallocator: ::windows::core::RawPtr, pinitialstate: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ClearState<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppipelinestate: ::windows::core::RawPtr) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DrawInstanced<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vertexcountperinstance: u32, instancecount: u32, startvertexlocation: u32, startinstancelocation: u32) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DrawIndexedInstanced<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Dispatch<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CopyBufferRegion<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdstbuffer: ::windows::core::RawPtr, dstoffset: u64, psrcbuffer: ::windows::core::RawPtr, srcoffset: u64, numbytes: u64) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CopyTextureRegion<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: *const D3D12_BOX) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CopyResource<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdstresource: ::windows::core::RawPtr, psrcresource: ::windows::core::RawPtr) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CopyTiles<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptiledresource: ::windows::core::RawPtr, ptileregionstartcoordinate: *const D3D12_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D12_TILE_REGION_SIZE, pbuffer: ::windows::core::RawPtr, bufferstartoffsetinbytes: u64, flags: D3D12_TILE_COPY_FLAGS) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ResolveSubresource<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdstresource: ::windows::core::RawPtr, dstsubresource: u32, psrcresource: ::windows::core::RawPtr, srcsubresource: u32, format: super::Dxgi::Common::DXGI_FORMAT) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IASetPrimitiveTopology<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, primitivetopology: super::Direct3D::D3D_PRIMITIVE_TOPOLOGY) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RSSetViewports<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numviewports: u32, pviewports: *const D3D12_VIEWPORT) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RSSetScissorRects<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numrects: u32, prects: *const super::super::Foundation::RECT) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OMSetBlendFactor<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, blendfactor: *const f32) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OMSetStencilRef<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stencilref: u32) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetPipelineState<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppipelinestate: ::windows::core::RawPtr) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ResourceBarrier<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numbarriers: u32, pbarriers: *const D3D12_RESOURCE_BARRIER) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ExecuteBundle<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcommandlist: ::windows::core::RawPtr) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDescriptorHeaps<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numdescriptorheaps: u32, ppdescriptorheaps: *const ::windows::core::RawPtr) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetComputeRootSignature<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prootsignature: ::windows::core::RawPtr) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetGraphicsRootSignature<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prootsignature: ::windows::core::RawPtr) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetComputeRootDescriptorTable<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rootparameterindex: u32, basedescriptor: D3D12_GPU_DESCRIPTOR_HANDLE) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetGraphicsRootDescriptorTable<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rootparameterindex: u32, basedescriptor: D3D12_GPU_DESCRIPTOR_HANDLE) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetComputeRoot32BitConstant<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rootparameterindex: u32, srcdata: u32, destoffsetin32bitvalues: u32) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetGraphicsRoot32BitConstant<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rootparameterindex: u32, srcdata: u32, destoffsetin32bitvalues: u32) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetComputeRoot32BitConstants<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rootparameterindex: u32, num32bitvaluestoset: u32, psrcdata: *const ::core::ffi::c_void, destoffsetin32bitvalues: u32) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetGraphicsRoot32BitConstants<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rootparameterindex: u32, num32bitvaluestoset: u32, psrcdata: *const ::core::ffi::c_void, destoffsetin32bitvalues: u32) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetComputeRootConstantBufferView<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rootparameterindex: u32, bufferlocation: u64) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetGraphicsRootConstantBufferView<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rootparameterindex: u32, bufferlocation: u64) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetComputeRootShaderResourceView<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rootparameterindex: u32, bufferlocation: u64) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetGraphicsRootShaderResourceView<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rootparameterindex: u32, bufferlocation: u64) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetComputeRootUnorderedAccessView<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rootparameterindex: u32, bufferlocation: u64) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetGraphicsRootUnorderedAccessView<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rootparameterindex: u32, bufferlocation: u64) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IASetIndexBuffer<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pview: *const D3D12_INDEX_BUFFER_VIEW) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IASetVertexBuffers<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startslot: u32, numviews: u32, pviews: *const D3D12_VERTEX_BUFFER_VIEW) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SOSetTargets<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startslot: u32, numviews: u32, pviews: *const D3D12_STREAM_OUTPUT_BUFFER_VIEW) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OMSetRenderTargets<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numrendertargetdescriptors: u32, prendertargetdescriptors: *const D3D12_CPU_DESCRIPTOR_HANDLE, rtssinglehandletodescriptorrange: super::super::Foundation::BOOL, pdepthstencildescriptor: *const D3D12_CPU_DESCRIPTOR_HANDLE) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ClearDepthStencilView<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, depthstencilview: D3D12_CPU_DESCRIPTOR_HANDLE, clearflags: D3D12_CLEAR_FLAGS, depth: f32, stencil: u8, numrects: u32, prects: *const super::super::Foundation::RECT) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ClearRenderTargetView<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: *const f32, numrects: u32, prects: *const super::super::Foundation::RECT) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ClearUnorderedAccessViewUint<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, viewgpuhandleincurrentheap: D3D12_GPU_DESCRIPTOR_HANDLE, viewcpuhandle: D3D12_CPU_DESCRIPTOR_HANDLE, presource: ::windows::core::RawPtr, values: *const u32, numrects: u32, prects: *const super::super::Foundation::RECT) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ClearUnorderedAccessViewFloat<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, viewgpuhandleincurrentheap: D3D12_GPU_DESCRIPTOR_HANDLE, viewcpuhandle: D3D12_CPU_DESCRIPTOR_HANDLE, presource: ::windows::core::RawPtr, values: *const f32, numrects: u32, prects: *const super::super::Foundation::RECT) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DiscardResource<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, pregion: *const D3D12_DISCARD_REGION) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BeginQuery<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pqueryheap: ::windows::core::RawPtr, r#type: D3D12_QUERY_TYPE, index: u32) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EndQuery<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pqueryheap: ::windows::core::RawPtr, r#type: D3D12_QUERY_TYPE, index: u32) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ResolveQueryData<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pqueryheap: ::windows::core::RawPtr, r#type: D3D12_QUERY_TYPE, startindex: u32, numqueries: u32, pdestinationbuffer: ::windows::core::RawPtr, aligneddestinationbufferoffset: u64) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetPredication<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffer: ::windows::core::RawPtr, alignedbufferoffset: u64, operation: D3D12_PREDICATION_OP) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetMarker<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BeginEvent<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EndEvent<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ExecuteIndirect<Impl: ID3D12GraphicsCommandListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcommandsignature: ::windows::core::RawPtr, maxcommandcount: u32, pargumentbuffer: ::windows::core::RawPtr, argumentbufferoffset: u64, pcountbuffer: ::windows::core::RawPtr, countbufferoffset: u64) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateDataInterface::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            GetDevice::<Impl, IMPL_OFFSET>,
+            GetType::<Impl, IMPL_OFFSET>,
+            Close::<Impl, IMPL_OFFSET>,
+            Reset::<Impl, IMPL_OFFSET>,
+            ClearState::<Impl, IMPL_OFFSET>,
+            DrawInstanced::<Impl, IMPL_OFFSET>,
+            DrawIndexedInstanced::<Impl, IMPL_OFFSET>,
+            Dispatch::<Impl, IMPL_OFFSET>,
+            CopyBufferRegion::<Impl, IMPL_OFFSET>,
+            CopyTextureRegion::<Impl, IMPL_OFFSET>,
+            CopyResource::<Impl, IMPL_OFFSET>,
+            CopyTiles::<Impl, IMPL_OFFSET>,
+            ResolveSubresource::<Impl, IMPL_OFFSET>,
+            IASetPrimitiveTopology::<Impl, IMPL_OFFSET>,
+            RSSetViewports::<Impl, IMPL_OFFSET>,
+            RSSetScissorRects::<Impl, IMPL_OFFSET>,
+            OMSetBlendFactor::<Impl, IMPL_OFFSET>,
+            OMSetStencilRef::<Impl, IMPL_OFFSET>,
+            SetPipelineState::<Impl, IMPL_OFFSET>,
+            ResourceBarrier::<Impl, IMPL_OFFSET>,
+            ExecuteBundle::<Impl, IMPL_OFFSET>,
+            SetDescriptorHeaps::<Impl, IMPL_OFFSET>,
+            SetComputeRootSignature::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootSignature::<Impl, IMPL_OFFSET>,
+            SetComputeRootDescriptorTable::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootDescriptorTable::<Impl, IMPL_OFFSET>,
+            SetComputeRoot32BitConstant::<Impl, IMPL_OFFSET>,
+            SetGraphicsRoot32BitConstant::<Impl, IMPL_OFFSET>,
+            SetComputeRoot32BitConstants::<Impl, IMPL_OFFSET>,
+            SetGraphicsRoot32BitConstants::<Impl, IMPL_OFFSET>,
+            SetComputeRootConstantBufferView::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootConstantBufferView::<Impl, IMPL_OFFSET>,
+            SetComputeRootShaderResourceView::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootShaderResourceView::<Impl, IMPL_OFFSET>,
+            SetComputeRootUnorderedAccessView::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootUnorderedAccessView::<Impl, IMPL_OFFSET>,
+            IASetIndexBuffer::<Impl, IMPL_OFFSET>,
+            IASetVertexBuffers::<Impl, IMPL_OFFSET>,
+            SOSetTargets::<Impl, IMPL_OFFSET>,
+            OMSetRenderTargets::<Impl, IMPL_OFFSET>,
+            ClearDepthStencilView::<Impl, IMPL_OFFSET>,
+            ClearRenderTargetView::<Impl, IMPL_OFFSET>,
+            ClearUnorderedAccessViewUint::<Impl, IMPL_OFFSET>,
+            ClearUnorderedAccessViewFloat::<Impl, IMPL_OFFSET>,
+            DiscardResource::<Impl, IMPL_OFFSET>,
+            BeginQuery::<Impl, IMPL_OFFSET>,
+            EndQuery::<Impl, IMPL_OFFSET>,
+            ResolveQueryData::<Impl, IMPL_OFFSET>,
+            SetPredication::<Impl, IMPL_OFFSET>,
+            SetMarker::<Impl, IMPL_OFFSET>,
+            BeginEvent::<Impl, IMPL_OFFSET>,
+            EndEvent::<Impl, IMPL_OFFSET>,
+            ExecuteIndirect::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12GraphicsCommandList as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+pub trait ID3D12GraphicsCommandList1Impl: Sized + ID3D12GraphicsCommandListImpl + ID3D12CommandListImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
+    fn AtomicCopyBufferUINT();
+    fn AtomicCopyBufferUINT64();
+    fn OMSetDepthBounds();
+    fn SetSamplePositions();
+    fn ResolveSubresourceRegion();
+    fn SetViewInstanceMask();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ID3D12GraphicsCommandList1Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12GraphicsCommandList1Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12GraphicsCommandList1Vtbl {
+        unsafe extern "system" fn AtomicCopyBufferUINT<Impl: ID3D12GraphicsCommandList1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdstbuffer: ::windows::core::RawPtr, dstoffset: u64, psrcbuffer: ::windows::core::RawPtr, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::windows::core::RawPtr, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AtomicCopyBufferUINT64<Impl: ID3D12GraphicsCommandList1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdstbuffer: ::windows::core::RawPtr, dstoffset: u64, psrcbuffer: ::windows::core::RawPtr, srcoffset: u64, dependencies: u32, ppdependentresources: *const ::windows::core::RawPtr, pdependentsubresourceranges: *const D3D12_SUBRESOURCE_RANGE_UINT64) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OMSetDepthBounds<Impl: ID3D12GraphicsCommandList1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, min: f32, max: f32) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSamplePositions<Impl: ID3D12GraphicsCommandList1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numsamplesperpixel: u32, numpixels: u32, psamplepositions: *const D3D12_SAMPLE_POSITION) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ResolveSubresourceRegion<Impl: ID3D12GraphicsCommandList1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdstresource: ::windows::core::RawPtr, dstsubresource: u32, dstx: u32, dsty: u32, psrcresource: ::windows::core::RawPtr, srcsubresource: u32, psrcrect: *const super::super::Foundation::RECT, format: super::Dxgi::Common::DXGI_FORMAT, resolvemode: D3D12_RESOLVE_MODE) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetViewInstanceMask<Impl: ID3D12GraphicsCommandList1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mask: u32) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateDataInterface::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            GetDevice::<Impl, IMPL_OFFSET>,
+            GetType::<Impl, IMPL_OFFSET>,
+            Close::<Impl, IMPL_OFFSET>,
+            Reset::<Impl, IMPL_OFFSET>,
+            ClearState::<Impl, IMPL_OFFSET>,
+            DrawInstanced::<Impl, IMPL_OFFSET>,
+            DrawIndexedInstanced::<Impl, IMPL_OFFSET>,
+            Dispatch::<Impl, IMPL_OFFSET>,
+            CopyBufferRegion::<Impl, IMPL_OFFSET>,
+            CopyTextureRegion::<Impl, IMPL_OFFSET>,
+            CopyResource::<Impl, IMPL_OFFSET>,
+            CopyTiles::<Impl, IMPL_OFFSET>,
+            ResolveSubresource::<Impl, IMPL_OFFSET>,
+            IASetPrimitiveTopology::<Impl, IMPL_OFFSET>,
+            RSSetViewports::<Impl, IMPL_OFFSET>,
+            RSSetScissorRects::<Impl, IMPL_OFFSET>,
+            OMSetBlendFactor::<Impl, IMPL_OFFSET>,
+            OMSetStencilRef::<Impl, IMPL_OFFSET>,
+            SetPipelineState::<Impl, IMPL_OFFSET>,
+            ResourceBarrier::<Impl, IMPL_OFFSET>,
+            ExecuteBundle::<Impl, IMPL_OFFSET>,
+            SetDescriptorHeaps::<Impl, IMPL_OFFSET>,
+            SetComputeRootSignature::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootSignature::<Impl, IMPL_OFFSET>,
+            SetComputeRootDescriptorTable::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootDescriptorTable::<Impl, IMPL_OFFSET>,
+            SetComputeRoot32BitConstant::<Impl, IMPL_OFFSET>,
+            SetGraphicsRoot32BitConstant::<Impl, IMPL_OFFSET>,
+            SetComputeRoot32BitConstants::<Impl, IMPL_OFFSET>,
+            SetGraphicsRoot32BitConstants::<Impl, IMPL_OFFSET>,
+            SetComputeRootConstantBufferView::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootConstantBufferView::<Impl, IMPL_OFFSET>,
+            SetComputeRootShaderResourceView::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootShaderResourceView::<Impl, IMPL_OFFSET>,
+            SetComputeRootUnorderedAccessView::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootUnorderedAccessView::<Impl, IMPL_OFFSET>,
+            IASetIndexBuffer::<Impl, IMPL_OFFSET>,
+            IASetVertexBuffers::<Impl, IMPL_OFFSET>,
+            SOSetTargets::<Impl, IMPL_OFFSET>,
+            OMSetRenderTargets::<Impl, IMPL_OFFSET>,
+            ClearDepthStencilView::<Impl, IMPL_OFFSET>,
+            ClearRenderTargetView::<Impl, IMPL_OFFSET>,
+            ClearUnorderedAccessViewUint::<Impl, IMPL_OFFSET>,
+            ClearUnorderedAccessViewFloat::<Impl, IMPL_OFFSET>,
+            DiscardResource::<Impl, IMPL_OFFSET>,
+            BeginQuery::<Impl, IMPL_OFFSET>,
+            EndQuery::<Impl, IMPL_OFFSET>,
+            ResolveQueryData::<Impl, IMPL_OFFSET>,
+            SetPredication::<Impl, IMPL_OFFSET>,
+            SetMarker::<Impl, IMPL_OFFSET>,
+            BeginEvent::<Impl, IMPL_OFFSET>,
+            EndEvent::<Impl, IMPL_OFFSET>,
+            ExecuteIndirect::<Impl, IMPL_OFFSET>,
+            AtomicCopyBufferUINT::<Impl, IMPL_OFFSET>,
+            AtomicCopyBufferUINT64::<Impl, IMPL_OFFSET>,
+            OMSetDepthBounds::<Impl, IMPL_OFFSET>,
+            SetSamplePositions::<Impl, IMPL_OFFSET>,
+            ResolveSubresourceRegion::<Impl, IMPL_OFFSET>,
+            SetViewInstanceMask::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12GraphicsCommandList1 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+pub trait ID3D12GraphicsCommandList2Impl: Sized + ID3D12GraphicsCommandList1Impl + ID3D12GraphicsCommandListImpl + ID3D12CommandListImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
+    fn WriteBufferImmediate();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ID3D12GraphicsCommandList2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12GraphicsCommandList2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12GraphicsCommandList2Vtbl {
+        unsafe extern "system" fn WriteBufferImmediate<Impl: ID3D12GraphicsCommandList2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const D3D12_WRITEBUFFERIMMEDIATE_MODE) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateDataInterface::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            GetDevice::<Impl, IMPL_OFFSET>,
+            GetType::<Impl, IMPL_OFFSET>,
+            Close::<Impl, IMPL_OFFSET>,
+            Reset::<Impl, IMPL_OFFSET>,
+            ClearState::<Impl, IMPL_OFFSET>,
+            DrawInstanced::<Impl, IMPL_OFFSET>,
+            DrawIndexedInstanced::<Impl, IMPL_OFFSET>,
+            Dispatch::<Impl, IMPL_OFFSET>,
+            CopyBufferRegion::<Impl, IMPL_OFFSET>,
+            CopyTextureRegion::<Impl, IMPL_OFFSET>,
+            CopyResource::<Impl, IMPL_OFFSET>,
+            CopyTiles::<Impl, IMPL_OFFSET>,
+            ResolveSubresource::<Impl, IMPL_OFFSET>,
+            IASetPrimitiveTopology::<Impl, IMPL_OFFSET>,
+            RSSetViewports::<Impl, IMPL_OFFSET>,
+            RSSetScissorRects::<Impl, IMPL_OFFSET>,
+            OMSetBlendFactor::<Impl, IMPL_OFFSET>,
+            OMSetStencilRef::<Impl, IMPL_OFFSET>,
+            SetPipelineState::<Impl, IMPL_OFFSET>,
+            ResourceBarrier::<Impl, IMPL_OFFSET>,
+            ExecuteBundle::<Impl, IMPL_OFFSET>,
+            SetDescriptorHeaps::<Impl, IMPL_OFFSET>,
+            SetComputeRootSignature::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootSignature::<Impl, IMPL_OFFSET>,
+            SetComputeRootDescriptorTable::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootDescriptorTable::<Impl, IMPL_OFFSET>,
+            SetComputeRoot32BitConstant::<Impl, IMPL_OFFSET>,
+            SetGraphicsRoot32BitConstant::<Impl, IMPL_OFFSET>,
+            SetComputeRoot32BitConstants::<Impl, IMPL_OFFSET>,
+            SetGraphicsRoot32BitConstants::<Impl, IMPL_OFFSET>,
+            SetComputeRootConstantBufferView::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootConstantBufferView::<Impl, IMPL_OFFSET>,
+            SetComputeRootShaderResourceView::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootShaderResourceView::<Impl, IMPL_OFFSET>,
+            SetComputeRootUnorderedAccessView::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootUnorderedAccessView::<Impl, IMPL_OFFSET>,
+            IASetIndexBuffer::<Impl, IMPL_OFFSET>,
+            IASetVertexBuffers::<Impl, IMPL_OFFSET>,
+            SOSetTargets::<Impl, IMPL_OFFSET>,
+            OMSetRenderTargets::<Impl, IMPL_OFFSET>,
+            ClearDepthStencilView::<Impl, IMPL_OFFSET>,
+            ClearRenderTargetView::<Impl, IMPL_OFFSET>,
+            ClearUnorderedAccessViewUint::<Impl, IMPL_OFFSET>,
+            ClearUnorderedAccessViewFloat::<Impl, IMPL_OFFSET>,
+            DiscardResource::<Impl, IMPL_OFFSET>,
+            BeginQuery::<Impl, IMPL_OFFSET>,
+            EndQuery::<Impl, IMPL_OFFSET>,
+            ResolveQueryData::<Impl, IMPL_OFFSET>,
+            SetPredication::<Impl, IMPL_OFFSET>,
+            SetMarker::<Impl, IMPL_OFFSET>,
+            BeginEvent::<Impl, IMPL_OFFSET>,
+            EndEvent::<Impl, IMPL_OFFSET>,
+            ExecuteIndirect::<Impl, IMPL_OFFSET>,
+            AtomicCopyBufferUINT::<Impl, IMPL_OFFSET>,
+            AtomicCopyBufferUINT64::<Impl, IMPL_OFFSET>,
+            OMSetDepthBounds::<Impl, IMPL_OFFSET>,
+            SetSamplePositions::<Impl, IMPL_OFFSET>,
+            ResolveSubresourceRegion::<Impl, IMPL_OFFSET>,
+            SetViewInstanceMask::<Impl, IMPL_OFFSET>,
+            WriteBufferImmediate::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12GraphicsCommandList2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+pub trait ID3D12GraphicsCommandList3Impl: Sized + ID3D12GraphicsCommandList2Impl + ID3D12GraphicsCommandList1Impl + ID3D12GraphicsCommandListImpl + ID3D12CommandListImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
+    fn SetProtectedResourceSession();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ID3D12GraphicsCommandList3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12GraphicsCommandList3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12GraphicsCommandList3Vtbl {
+        unsafe extern "system" fn SetProtectedResourceSession<Impl: ID3D12GraphicsCommandList3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprotectedresourcesession: ::windows::core::RawPtr) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateDataInterface::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            GetDevice::<Impl, IMPL_OFFSET>,
+            GetType::<Impl, IMPL_OFFSET>,
+            Close::<Impl, IMPL_OFFSET>,
+            Reset::<Impl, IMPL_OFFSET>,
+            ClearState::<Impl, IMPL_OFFSET>,
+            DrawInstanced::<Impl, IMPL_OFFSET>,
+            DrawIndexedInstanced::<Impl, IMPL_OFFSET>,
+            Dispatch::<Impl, IMPL_OFFSET>,
+            CopyBufferRegion::<Impl, IMPL_OFFSET>,
+            CopyTextureRegion::<Impl, IMPL_OFFSET>,
+            CopyResource::<Impl, IMPL_OFFSET>,
+            CopyTiles::<Impl, IMPL_OFFSET>,
+            ResolveSubresource::<Impl, IMPL_OFFSET>,
+            IASetPrimitiveTopology::<Impl, IMPL_OFFSET>,
+            RSSetViewports::<Impl, IMPL_OFFSET>,
+            RSSetScissorRects::<Impl, IMPL_OFFSET>,
+            OMSetBlendFactor::<Impl, IMPL_OFFSET>,
+            OMSetStencilRef::<Impl, IMPL_OFFSET>,
+            SetPipelineState::<Impl, IMPL_OFFSET>,
+            ResourceBarrier::<Impl, IMPL_OFFSET>,
+            ExecuteBundle::<Impl, IMPL_OFFSET>,
+            SetDescriptorHeaps::<Impl, IMPL_OFFSET>,
+            SetComputeRootSignature::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootSignature::<Impl, IMPL_OFFSET>,
+            SetComputeRootDescriptorTable::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootDescriptorTable::<Impl, IMPL_OFFSET>,
+            SetComputeRoot32BitConstant::<Impl, IMPL_OFFSET>,
+            SetGraphicsRoot32BitConstant::<Impl, IMPL_OFFSET>,
+            SetComputeRoot32BitConstants::<Impl, IMPL_OFFSET>,
+            SetGraphicsRoot32BitConstants::<Impl, IMPL_OFFSET>,
+            SetComputeRootConstantBufferView::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootConstantBufferView::<Impl, IMPL_OFFSET>,
+            SetComputeRootShaderResourceView::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootShaderResourceView::<Impl, IMPL_OFFSET>,
+            SetComputeRootUnorderedAccessView::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootUnorderedAccessView::<Impl, IMPL_OFFSET>,
+            IASetIndexBuffer::<Impl, IMPL_OFFSET>,
+            IASetVertexBuffers::<Impl, IMPL_OFFSET>,
+            SOSetTargets::<Impl, IMPL_OFFSET>,
+            OMSetRenderTargets::<Impl, IMPL_OFFSET>,
+            ClearDepthStencilView::<Impl, IMPL_OFFSET>,
+            ClearRenderTargetView::<Impl, IMPL_OFFSET>,
+            ClearUnorderedAccessViewUint::<Impl, IMPL_OFFSET>,
+            ClearUnorderedAccessViewFloat::<Impl, IMPL_OFFSET>,
+            DiscardResource::<Impl, IMPL_OFFSET>,
+            BeginQuery::<Impl, IMPL_OFFSET>,
+            EndQuery::<Impl, IMPL_OFFSET>,
+            ResolveQueryData::<Impl, IMPL_OFFSET>,
+            SetPredication::<Impl, IMPL_OFFSET>,
+            SetMarker::<Impl, IMPL_OFFSET>,
+            BeginEvent::<Impl, IMPL_OFFSET>,
+            EndEvent::<Impl, IMPL_OFFSET>,
+            ExecuteIndirect::<Impl, IMPL_OFFSET>,
+            AtomicCopyBufferUINT::<Impl, IMPL_OFFSET>,
+            AtomicCopyBufferUINT64::<Impl, IMPL_OFFSET>,
+            OMSetDepthBounds::<Impl, IMPL_OFFSET>,
+            SetSamplePositions::<Impl, IMPL_OFFSET>,
+            ResolveSubresourceRegion::<Impl, IMPL_OFFSET>,
+            SetViewInstanceMask::<Impl, IMPL_OFFSET>,
+            WriteBufferImmediate::<Impl, IMPL_OFFSET>,
+            SetProtectedResourceSession::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12GraphicsCommandList3 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+pub trait ID3D12GraphicsCommandList4Impl: Sized + ID3D12GraphicsCommandList3Impl + ID3D12GraphicsCommandList2Impl + ID3D12GraphicsCommandList1Impl + ID3D12GraphicsCommandListImpl + ID3D12CommandListImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
+    fn BeginRenderPass();
+    fn EndRenderPass();
+    fn InitializeMetaCommand();
+    fn ExecuteMetaCommand();
+    fn BuildRaytracingAccelerationStructure();
+    fn EmitRaytracingAccelerationStructurePostbuildInfo();
+    fn CopyRaytracingAccelerationStructure();
+    fn SetPipelineState1();
+    fn DispatchRays();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ID3D12GraphicsCommandList4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12GraphicsCommandList4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12GraphicsCommandList4Vtbl {
+        unsafe extern "system" fn BeginRenderPass<Impl: ID3D12GraphicsCommandList4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numrendertargets: u32, prendertargets: *const D3D12_RENDER_PASS_RENDER_TARGET_DESC, pdepthstencil: *const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC, flags: D3D12_RENDER_PASS_FLAGS) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EndRenderPass<Impl: ID3D12GraphicsCommandList4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn InitializeMetaCommand<Impl: ID3D12GraphicsCommandList4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmetacommand: ::windows::core::RawPtr, pinitializationparametersdata: *const ::core::ffi::c_void, initializationparametersdatasizeinbytes: usize) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ExecuteMetaCommand<Impl: ID3D12GraphicsCommandList4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmetacommand: ::windows::core::RawPtr, pexecutionparametersdata: *const ::core::ffi::c_void, executionparametersdatasizeinbytes: usize) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BuildRaytracingAccelerationStructure<Impl: ID3D12GraphicsCommandList4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC, numpostbuildinfodescs: u32, ppostbuildinfodescs: *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EmitRaytracingAccelerationStructurePostbuildInfo<Impl: ID3D12GraphicsCommandList4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC, numsourceaccelerationstructures: u32, psourceaccelerationstructuredata: *const u64) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CopyRaytracingAccelerationStructure<Impl: ID3D12GraphicsCommandList4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destaccelerationstructuredata: u64, sourceaccelerationstructuredata: u64, mode: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetPipelineState1<Impl: ID3D12GraphicsCommandList4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstateobject: ::windows::core::RawPtr) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DispatchRays<Impl: ID3D12GraphicsCommandList4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_DISPATCH_RAYS_DESC) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateDataInterface::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            GetDevice::<Impl, IMPL_OFFSET>,
+            GetType::<Impl, IMPL_OFFSET>,
+            Close::<Impl, IMPL_OFFSET>,
+            Reset::<Impl, IMPL_OFFSET>,
+            ClearState::<Impl, IMPL_OFFSET>,
+            DrawInstanced::<Impl, IMPL_OFFSET>,
+            DrawIndexedInstanced::<Impl, IMPL_OFFSET>,
+            Dispatch::<Impl, IMPL_OFFSET>,
+            CopyBufferRegion::<Impl, IMPL_OFFSET>,
+            CopyTextureRegion::<Impl, IMPL_OFFSET>,
+            CopyResource::<Impl, IMPL_OFFSET>,
+            CopyTiles::<Impl, IMPL_OFFSET>,
+            ResolveSubresource::<Impl, IMPL_OFFSET>,
+            IASetPrimitiveTopology::<Impl, IMPL_OFFSET>,
+            RSSetViewports::<Impl, IMPL_OFFSET>,
+            RSSetScissorRects::<Impl, IMPL_OFFSET>,
+            OMSetBlendFactor::<Impl, IMPL_OFFSET>,
+            OMSetStencilRef::<Impl, IMPL_OFFSET>,
+            SetPipelineState::<Impl, IMPL_OFFSET>,
+            ResourceBarrier::<Impl, IMPL_OFFSET>,
+            ExecuteBundle::<Impl, IMPL_OFFSET>,
+            SetDescriptorHeaps::<Impl, IMPL_OFFSET>,
+            SetComputeRootSignature::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootSignature::<Impl, IMPL_OFFSET>,
+            SetComputeRootDescriptorTable::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootDescriptorTable::<Impl, IMPL_OFFSET>,
+            SetComputeRoot32BitConstant::<Impl, IMPL_OFFSET>,
+            SetGraphicsRoot32BitConstant::<Impl, IMPL_OFFSET>,
+            SetComputeRoot32BitConstants::<Impl, IMPL_OFFSET>,
+            SetGraphicsRoot32BitConstants::<Impl, IMPL_OFFSET>,
+            SetComputeRootConstantBufferView::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootConstantBufferView::<Impl, IMPL_OFFSET>,
+            SetComputeRootShaderResourceView::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootShaderResourceView::<Impl, IMPL_OFFSET>,
+            SetComputeRootUnorderedAccessView::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootUnorderedAccessView::<Impl, IMPL_OFFSET>,
+            IASetIndexBuffer::<Impl, IMPL_OFFSET>,
+            IASetVertexBuffers::<Impl, IMPL_OFFSET>,
+            SOSetTargets::<Impl, IMPL_OFFSET>,
+            OMSetRenderTargets::<Impl, IMPL_OFFSET>,
+            ClearDepthStencilView::<Impl, IMPL_OFFSET>,
+            ClearRenderTargetView::<Impl, IMPL_OFFSET>,
+            ClearUnorderedAccessViewUint::<Impl, IMPL_OFFSET>,
+            ClearUnorderedAccessViewFloat::<Impl, IMPL_OFFSET>,
+            DiscardResource::<Impl, IMPL_OFFSET>,
+            BeginQuery::<Impl, IMPL_OFFSET>,
+            EndQuery::<Impl, IMPL_OFFSET>,
+            ResolveQueryData::<Impl, IMPL_OFFSET>,
+            SetPredication::<Impl, IMPL_OFFSET>,
+            SetMarker::<Impl, IMPL_OFFSET>,
+            BeginEvent::<Impl, IMPL_OFFSET>,
+            EndEvent::<Impl, IMPL_OFFSET>,
+            ExecuteIndirect::<Impl, IMPL_OFFSET>,
+            AtomicCopyBufferUINT::<Impl, IMPL_OFFSET>,
+            AtomicCopyBufferUINT64::<Impl, IMPL_OFFSET>,
+            OMSetDepthBounds::<Impl, IMPL_OFFSET>,
+            SetSamplePositions::<Impl, IMPL_OFFSET>,
+            ResolveSubresourceRegion::<Impl, IMPL_OFFSET>,
+            SetViewInstanceMask::<Impl, IMPL_OFFSET>,
+            WriteBufferImmediate::<Impl, IMPL_OFFSET>,
+            SetProtectedResourceSession::<Impl, IMPL_OFFSET>,
+            BeginRenderPass::<Impl, IMPL_OFFSET>,
+            EndRenderPass::<Impl, IMPL_OFFSET>,
+            InitializeMetaCommand::<Impl, IMPL_OFFSET>,
+            ExecuteMetaCommand::<Impl, IMPL_OFFSET>,
+            BuildRaytracingAccelerationStructure::<Impl, IMPL_OFFSET>,
+            EmitRaytracingAccelerationStructurePostbuildInfo::<Impl, IMPL_OFFSET>,
+            CopyRaytracingAccelerationStructure::<Impl, IMPL_OFFSET>,
+            SetPipelineState1::<Impl, IMPL_OFFSET>,
+            DispatchRays::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12GraphicsCommandList4 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+pub trait ID3D12GraphicsCommandList5Impl: Sized + ID3D12GraphicsCommandList4Impl + ID3D12GraphicsCommandList3Impl + ID3D12GraphicsCommandList2Impl + ID3D12GraphicsCommandList1Impl + ID3D12GraphicsCommandListImpl + ID3D12CommandListImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
+    fn RSSetShadingRate();
+    fn RSSetShadingRateImage();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ID3D12GraphicsCommandList5Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12GraphicsCommandList5Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12GraphicsCommandList5Vtbl {
+        unsafe extern "system" fn RSSetShadingRate<Impl: ID3D12GraphicsCommandList5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, baseshadingrate: D3D12_SHADING_RATE, combiners: *const D3D12_SHADING_RATE_COMBINER) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RSSetShadingRateImage<Impl: ID3D12GraphicsCommandList5Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shadingrateimage: ::windows::core::RawPtr) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateDataInterface::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            GetDevice::<Impl, IMPL_OFFSET>,
+            GetType::<Impl, IMPL_OFFSET>,
+            Close::<Impl, IMPL_OFFSET>,
+            Reset::<Impl, IMPL_OFFSET>,
+            ClearState::<Impl, IMPL_OFFSET>,
+            DrawInstanced::<Impl, IMPL_OFFSET>,
+            DrawIndexedInstanced::<Impl, IMPL_OFFSET>,
+            Dispatch::<Impl, IMPL_OFFSET>,
+            CopyBufferRegion::<Impl, IMPL_OFFSET>,
+            CopyTextureRegion::<Impl, IMPL_OFFSET>,
+            CopyResource::<Impl, IMPL_OFFSET>,
+            CopyTiles::<Impl, IMPL_OFFSET>,
+            ResolveSubresource::<Impl, IMPL_OFFSET>,
+            IASetPrimitiveTopology::<Impl, IMPL_OFFSET>,
+            RSSetViewports::<Impl, IMPL_OFFSET>,
+            RSSetScissorRects::<Impl, IMPL_OFFSET>,
+            OMSetBlendFactor::<Impl, IMPL_OFFSET>,
+            OMSetStencilRef::<Impl, IMPL_OFFSET>,
+            SetPipelineState::<Impl, IMPL_OFFSET>,
+            ResourceBarrier::<Impl, IMPL_OFFSET>,
+            ExecuteBundle::<Impl, IMPL_OFFSET>,
+            SetDescriptorHeaps::<Impl, IMPL_OFFSET>,
+            SetComputeRootSignature::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootSignature::<Impl, IMPL_OFFSET>,
+            SetComputeRootDescriptorTable::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootDescriptorTable::<Impl, IMPL_OFFSET>,
+            SetComputeRoot32BitConstant::<Impl, IMPL_OFFSET>,
+            SetGraphicsRoot32BitConstant::<Impl, IMPL_OFFSET>,
+            SetComputeRoot32BitConstants::<Impl, IMPL_OFFSET>,
+            SetGraphicsRoot32BitConstants::<Impl, IMPL_OFFSET>,
+            SetComputeRootConstantBufferView::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootConstantBufferView::<Impl, IMPL_OFFSET>,
+            SetComputeRootShaderResourceView::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootShaderResourceView::<Impl, IMPL_OFFSET>,
+            SetComputeRootUnorderedAccessView::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootUnorderedAccessView::<Impl, IMPL_OFFSET>,
+            IASetIndexBuffer::<Impl, IMPL_OFFSET>,
+            IASetVertexBuffers::<Impl, IMPL_OFFSET>,
+            SOSetTargets::<Impl, IMPL_OFFSET>,
+            OMSetRenderTargets::<Impl, IMPL_OFFSET>,
+            ClearDepthStencilView::<Impl, IMPL_OFFSET>,
+            ClearRenderTargetView::<Impl, IMPL_OFFSET>,
+            ClearUnorderedAccessViewUint::<Impl, IMPL_OFFSET>,
+            ClearUnorderedAccessViewFloat::<Impl, IMPL_OFFSET>,
+            DiscardResource::<Impl, IMPL_OFFSET>,
+            BeginQuery::<Impl, IMPL_OFFSET>,
+            EndQuery::<Impl, IMPL_OFFSET>,
+            ResolveQueryData::<Impl, IMPL_OFFSET>,
+            SetPredication::<Impl, IMPL_OFFSET>,
+            SetMarker::<Impl, IMPL_OFFSET>,
+            BeginEvent::<Impl, IMPL_OFFSET>,
+            EndEvent::<Impl, IMPL_OFFSET>,
+            ExecuteIndirect::<Impl, IMPL_OFFSET>,
+            AtomicCopyBufferUINT::<Impl, IMPL_OFFSET>,
+            AtomicCopyBufferUINT64::<Impl, IMPL_OFFSET>,
+            OMSetDepthBounds::<Impl, IMPL_OFFSET>,
+            SetSamplePositions::<Impl, IMPL_OFFSET>,
+            ResolveSubresourceRegion::<Impl, IMPL_OFFSET>,
+            SetViewInstanceMask::<Impl, IMPL_OFFSET>,
+            WriteBufferImmediate::<Impl, IMPL_OFFSET>,
+            SetProtectedResourceSession::<Impl, IMPL_OFFSET>,
+            BeginRenderPass::<Impl, IMPL_OFFSET>,
+            EndRenderPass::<Impl, IMPL_OFFSET>,
+            InitializeMetaCommand::<Impl, IMPL_OFFSET>,
+            ExecuteMetaCommand::<Impl, IMPL_OFFSET>,
+            BuildRaytracingAccelerationStructure::<Impl, IMPL_OFFSET>,
+            EmitRaytracingAccelerationStructurePostbuildInfo::<Impl, IMPL_OFFSET>,
+            CopyRaytracingAccelerationStructure::<Impl, IMPL_OFFSET>,
+            SetPipelineState1::<Impl, IMPL_OFFSET>,
+            DispatchRays::<Impl, IMPL_OFFSET>,
+            RSSetShadingRate::<Impl, IMPL_OFFSET>,
+            RSSetShadingRateImage::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12GraphicsCommandList5 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+pub trait ID3D12GraphicsCommandList6Impl: Sized + ID3D12GraphicsCommandList5Impl + ID3D12GraphicsCommandList4Impl + ID3D12GraphicsCommandList3Impl + ID3D12GraphicsCommandList2Impl + ID3D12GraphicsCommandList1Impl + ID3D12GraphicsCommandListImpl + ID3D12CommandListImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
+    fn DispatchMesh();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ID3D12GraphicsCommandList6Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12GraphicsCommandList6Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12GraphicsCommandList6Vtbl {
+        unsafe extern "system" fn DispatchMesh<Impl: ID3D12GraphicsCommandList6Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, threadgroupcountx: u32, threadgroupcounty: u32, threadgroupcountz: u32) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateDataInterface::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            GetDevice::<Impl, IMPL_OFFSET>,
+            GetType::<Impl, IMPL_OFFSET>,
+            Close::<Impl, IMPL_OFFSET>,
+            Reset::<Impl, IMPL_OFFSET>,
+            ClearState::<Impl, IMPL_OFFSET>,
+            DrawInstanced::<Impl, IMPL_OFFSET>,
+            DrawIndexedInstanced::<Impl, IMPL_OFFSET>,
+            Dispatch::<Impl, IMPL_OFFSET>,
+            CopyBufferRegion::<Impl, IMPL_OFFSET>,
+            CopyTextureRegion::<Impl, IMPL_OFFSET>,
+            CopyResource::<Impl, IMPL_OFFSET>,
+            CopyTiles::<Impl, IMPL_OFFSET>,
+            ResolveSubresource::<Impl, IMPL_OFFSET>,
+            IASetPrimitiveTopology::<Impl, IMPL_OFFSET>,
+            RSSetViewports::<Impl, IMPL_OFFSET>,
+            RSSetScissorRects::<Impl, IMPL_OFFSET>,
+            OMSetBlendFactor::<Impl, IMPL_OFFSET>,
+            OMSetStencilRef::<Impl, IMPL_OFFSET>,
+            SetPipelineState::<Impl, IMPL_OFFSET>,
+            ResourceBarrier::<Impl, IMPL_OFFSET>,
+            ExecuteBundle::<Impl, IMPL_OFFSET>,
+            SetDescriptorHeaps::<Impl, IMPL_OFFSET>,
+            SetComputeRootSignature::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootSignature::<Impl, IMPL_OFFSET>,
+            SetComputeRootDescriptorTable::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootDescriptorTable::<Impl, IMPL_OFFSET>,
+            SetComputeRoot32BitConstant::<Impl, IMPL_OFFSET>,
+            SetGraphicsRoot32BitConstant::<Impl, IMPL_OFFSET>,
+            SetComputeRoot32BitConstants::<Impl, IMPL_OFFSET>,
+            SetGraphicsRoot32BitConstants::<Impl, IMPL_OFFSET>,
+            SetComputeRootConstantBufferView::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootConstantBufferView::<Impl, IMPL_OFFSET>,
+            SetComputeRootShaderResourceView::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootShaderResourceView::<Impl, IMPL_OFFSET>,
+            SetComputeRootUnorderedAccessView::<Impl, IMPL_OFFSET>,
+            SetGraphicsRootUnorderedAccessView::<Impl, IMPL_OFFSET>,
+            IASetIndexBuffer::<Impl, IMPL_OFFSET>,
+            IASetVertexBuffers::<Impl, IMPL_OFFSET>,
+            SOSetTargets::<Impl, IMPL_OFFSET>,
+            OMSetRenderTargets::<Impl, IMPL_OFFSET>,
+            ClearDepthStencilView::<Impl, IMPL_OFFSET>,
+            ClearRenderTargetView::<Impl, IMPL_OFFSET>,
+            ClearUnorderedAccessViewUint::<Impl, IMPL_OFFSET>,
+            ClearUnorderedAccessViewFloat::<Impl, IMPL_OFFSET>,
+            DiscardResource::<Impl, IMPL_OFFSET>,
+            BeginQuery::<Impl, IMPL_OFFSET>,
+            EndQuery::<Impl, IMPL_OFFSET>,
+            ResolveQueryData::<Impl, IMPL_OFFSET>,
+            SetPredication::<Impl, IMPL_OFFSET>,
+            SetMarker::<Impl, IMPL_OFFSET>,
+            BeginEvent::<Impl, IMPL_OFFSET>,
+            EndEvent::<Impl, IMPL_OFFSET>,
+            ExecuteIndirect::<Impl, IMPL_OFFSET>,
+            AtomicCopyBufferUINT::<Impl, IMPL_OFFSET>,
+            AtomicCopyBufferUINT64::<Impl, IMPL_OFFSET>,
+            OMSetDepthBounds::<Impl, IMPL_OFFSET>,
+            SetSamplePositions::<Impl, IMPL_OFFSET>,
+            ResolveSubresourceRegion::<Impl, IMPL_OFFSET>,
+            SetViewInstanceMask::<Impl, IMPL_OFFSET>,
+            WriteBufferImmediate::<Impl, IMPL_OFFSET>,
+            SetProtectedResourceSession::<Impl, IMPL_OFFSET>,
+            BeginRenderPass::<Impl, IMPL_OFFSET>,
+            EndRenderPass::<Impl, IMPL_OFFSET>,
+            InitializeMetaCommand::<Impl, IMPL_OFFSET>,
+            ExecuteMetaCommand::<Impl, IMPL_OFFSET>,
+            BuildRaytracingAccelerationStructure::<Impl, IMPL_OFFSET>,
+            EmitRaytracingAccelerationStructurePostbuildInfo::<Impl, IMPL_OFFSET>,
+            CopyRaytracingAccelerationStructure::<Impl, IMPL_OFFSET>,
+            SetPipelineState1::<Impl, IMPL_OFFSET>,
+            DispatchRays::<Impl, IMPL_OFFSET>,
+            RSSetShadingRate::<Impl, IMPL_OFFSET>,
+            RSSetShadingRateImage::<Impl, IMPL_OFFSET>,
+            DispatchMesh::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12GraphicsCommandList6 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12HeapImpl: Sized + ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
+    fn GetDesc();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12HeapVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12HeapImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12HeapVtbl {
+        unsafe extern "system" fn GetDesc<Impl: ID3D12HeapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_HEAP_DESC) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateDataInterface::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, GetDevice::<Impl, IMPL_OFFSET>, GetDesc::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12Heap as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12Heap1Impl: Sized + ID3D12HeapImpl + ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
+    fn GetProtectedResourceSession();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12Heap1Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Heap1Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12Heap1Vtbl {
+        unsafe extern "system" fn GetProtectedResourceSession<Impl: ID3D12Heap1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateDataInterface::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, GetDevice::<Impl, IMPL_OFFSET>, GetDesc::<Impl, IMPL_OFFSET>, GetProtectedResourceSession::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12Heap1 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12InfoQueueImpl: Sized {
+    fn SetMessageCountLimit();
+    fn ClearStoredMessages();
+    fn GetMessage();
+    fn GetNumMessagesAllowedByStorageFilter();
+    fn GetNumMessagesDeniedByStorageFilter();
+    fn GetNumStoredMessages();
+    fn GetNumStoredMessagesAllowedByRetrievalFilter();
+    fn GetNumMessagesDiscardedByMessageCountLimit();
+    fn GetMessageCountLimit();
+    fn AddStorageFilterEntries();
+    fn GetStorageFilter();
+    fn ClearStorageFilter();
+    fn PushEmptyStorageFilter();
+    fn PushCopyOfStorageFilter();
+    fn PushStorageFilter();
+    fn PopStorageFilter();
+    fn GetStorageFilterStackSize();
+    fn AddRetrievalFilterEntries();
+    fn GetRetrievalFilter();
+    fn ClearRetrievalFilter();
+    fn PushEmptyRetrievalFilter();
+    fn PushCopyOfRetrievalFilter();
+    fn PushRetrievalFilter();
+    fn PopRetrievalFilter();
+    fn GetRetrievalFilterStackSize();
+    fn AddMessage();
+    fn AddApplicationMessage();
+    fn SetBreakOnCategory();
+    fn SetBreakOnSeverity();
+    fn SetBreakOnID();
+    fn GetBreakOnCategory();
+    fn GetBreakOnSeverity();
+    fn GetBreakOnID();
+    fn SetMuteDebugOutput();
+    fn GetMuteDebugOutput();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12InfoQueueVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12InfoQueueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12InfoQueueVtbl {
+        unsafe extern "system" fn SetMessageCountLimit<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, messagecountlimit: u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ClearStoredMessages<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMessage<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, messageindex: u64, pmessage: *mut D3D12_MESSAGE, pmessagebytelength: *mut usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetNumMessagesAllowedByStorageFilter<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u64 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetNumMessagesDeniedByStorageFilter<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u64 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetNumStoredMessages<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u64 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetNumStoredMessagesAllowedByRetrievalFilter<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u64 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetNumMessagesDiscardedByMessageCountLimit<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u64 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMessageCountLimit<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u64 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddStorageFilterEntries<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetStorageFilter<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfilter: *mut D3D12_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ClearStorageFilter<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PushEmptyStorageFilter<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PushCopyOfStorageFilter<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PushStorageFilter<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PopStorageFilter<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetStorageFilterStackSize<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddRetrievalFilterEntries<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetRetrievalFilter<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfilter: *mut D3D12_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ClearRetrievalFilter<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PushEmptyRetrievalFilter<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PushCopyOfRetrievalFilter<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PushRetrievalFilter<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PopRetrievalFilter<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetRetrievalFilterStackSize<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddMessage<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: super::super::Foundation::PSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddApplicationMessage<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, severity: D3D12_MESSAGE_SEVERITY, pdescription: super::super::Foundation::PSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetBreakOnCategory<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, category: D3D12_MESSAGE_CATEGORY, benable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetBreakOnSeverity<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, severity: D3D12_MESSAGE_SEVERITY, benable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetBreakOnID<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: D3D12_MESSAGE_ID, benable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetBreakOnCategory<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, category: D3D12_MESSAGE_CATEGORY) -> super::super::Foundation::BOOL {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetBreakOnSeverity<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, severity: D3D12_MESSAGE_SEVERITY) -> super::super::Foundation::BOOL {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetBreakOnID<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: D3D12_MESSAGE_ID) -> super::super::Foundation::BOOL {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetMuteDebugOutput<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bmute: super::super::Foundation::BOOL) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMuteDebugOutput<Impl: ID3D12InfoQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            SetMessageCountLimit::<Impl, IMPL_OFFSET>,
+            ClearStoredMessages::<Impl, IMPL_OFFSET>,
+            GetMessage::<Impl, IMPL_OFFSET>,
+            GetNumMessagesAllowedByStorageFilter::<Impl, IMPL_OFFSET>,
+            GetNumMessagesDeniedByStorageFilter::<Impl, IMPL_OFFSET>,
+            GetNumStoredMessages::<Impl, IMPL_OFFSET>,
+            GetNumStoredMessagesAllowedByRetrievalFilter::<Impl, IMPL_OFFSET>,
+            GetNumMessagesDiscardedByMessageCountLimit::<Impl, IMPL_OFFSET>,
+            GetMessageCountLimit::<Impl, IMPL_OFFSET>,
+            AddStorageFilterEntries::<Impl, IMPL_OFFSET>,
+            GetStorageFilter::<Impl, IMPL_OFFSET>,
+            ClearStorageFilter::<Impl, IMPL_OFFSET>,
+            PushEmptyStorageFilter::<Impl, IMPL_OFFSET>,
+            PushCopyOfStorageFilter::<Impl, IMPL_OFFSET>,
+            PushStorageFilter::<Impl, IMPL_OFFSET>,
+            PopStorageFilter::<Impl, IMPL_OFFSET>,
+            GetStorageFilterStackSize::<Impl, IMPL_OFFSET>,
+            AddRetrievalFilterEntries::<Impl, IMPL_OFFSET>,
+            GetRetrievalFilter::<Impl, IMPL_OFFSET>,
+            ClearRetrievalFilter::<Impl, IMPL_OFFSET>,
+            PushEmptyRetrievalFilter::<Impl, IMPL_OFFSET>,
+            PushCopyOfRetrievalFilter::<Impl, IMPL_OFFSET>,
+            PushRetrievalFilter::<Impl, IMPL_OFFSET>,
+            PopRetrievalFilter::<Impl, IMPL_OFFSET>,
+            GetRetrievalFilterStackSize::<Impl, IMPL_OFFSET>,
+            AddMessage::<Impl, IMPL_OFFSET>,
+            AddApplicationMessage::<Impl, IMPL_OFFSET>,
+            SetBreakOnCategory::<Impl, IMPL_OFFSET>,
+            SetBreakOnSeverity::<Impl, IMPL_OFFSET>,
+            SetBreakOnID::<Impl, IMPL_OFFSET>,
+            GetBreakOnCategory::<Impl, IMPL_OFFSET>,
+            GetBreakOnSeverity::<Impl, IMPL_OFFSET>,
+            GetBreakOnID::<Impl, IMPL_OFFSET>,
+            SetMuteDebugOutput::<Impl, IMPL_OFFSET>,
+            GetMuteDebugOutput::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12InfoQueue as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12InfoQueue1Impl: Sized + ID3D12InfoQueueImpl {
+    fn RegisterMessageCallback();
+    fn UnregisterMessageCallback();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12InfoQueue1Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12InfoQueue1Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12InfoQueue1Vtbl {
+        unsafe extern "system" fn RegisterMessageCallback<Impl: ID3D12InfoQueue1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callbackfunc: ::windows::core::RawPtr, callbackfilterflags: D3D12_MESSAGE_CALLBACK_FLAGS, pcontext: *const ::core::ffi::c_void, pcallbackcookie: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UnregisterMessageCallback<Impl: ID3D12InfoQueue1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callbackcookie: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            SetMessageCountLimit::<Impl, IMPL_OFFSET>,
+            ClearStoredMessages::<Impl, IMPL_OFFSET>,
+            GetMessage::<Impl, IMPL_OFFSET>,
+            GetNumMessagesAllowedByStorageFilter::<Impl, IMPL_OFFSET>,
+            GetNumMessagesDeniedByStorageFilter::<Impl, IMPL_OFFSET>,
+            GetNumStoredMessages::<Impl, IMPL_OFFSET>,
+            GetNumStoredMessagesAllowedByRetrievalFilter::<Impl, IMPL_OFFSET>,
+            GetNumMessagesDiscardedByMessageCountLimit::<Impl, IMPL_OFFSET>,
+            GetMessageCountLimit::<Impl, IMPL_OFFSET>,
+            AddStorageFilterEntries::<Impl, IMPL_OFFSET>,
+            GetStorageFilter::<Impl, IMPL_OFFSET>,
+            ClearStorageFilter::<Impl, IMPL_OFFSET>,
+            PushEmptyStorageFilter::<Impl, IMPL_OFFSET>,
+            PushCopyOfStorageFilter::<Impl, IMPL_OFFSET>,
+            PushStorageFilter::<Impl, IMPL_OFFSET>,
+            PopStorageFilter::<Impl, IMPL_OFFSET>,
+            GetStorageFilterStackSize::<Impl, IMPL_OFFSET>,
+            AddRetrievalFilterEntries::<Impl, IMPL_OFFSET>,
+            GetRetrievalFilter::<Impl, IMPL_OFFSET>,
+            ClearRetrievalFilter::<Impl, IMPL_OFFSET>,
+            PushEmptyRetrievalFilter::<Impl, IMPL_OFFSET>,
+            PushCopyOfRetrievalFilter::<Impl, IMPL_OFFSET>,
+            PushRetrievalFilter::<Impl, IMPL_OFFSET>,
+            PopRetrievalFilter::<Impl, IMPL_OFFSET>,
+            GetRetrievalFilterStackSize::<Impl, IMPL_OFFSET>,
+            AddMessage::<Impl, IMPL_OFFSET>,
+            AddApplicationMessage::<Impl, IMPL_OFFSET>,
+            SetBreakOnCategory::<Impl, IMPL_OFFSET>,
+            SetBreakOnSeverity::<Impl, IMPL_OFFSET>,
+            SetBreakOnID::<Impl, IMPL_OFFSET>,
+            GetBreakOnCategory::<Impl, IMPL_OFFSET>,
+            GetBreakOnSeverity::<Impl, IMPL_OFFSET>,
+            GetBreakOnID::<Impl, IMPL_OFFSET>,
+            SetMuteDebugOutput::<Impl, IMPL_OFFSET>,
+            GetMuteDebugOutput::<Impl, IMPL_OFFSET>,
+            RegisterMessageCallback::<Impl, IMPL_OFFSET>,
+            UnregisterMessageCallback::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12InfoQueue1 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12LibraryReflectionImpl: Sized {
+    fn GetDesc();
+    fn GetFunctionByIndex();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12LibraryReflectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12LibraryReflectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12LibraryReflectionVtbl {
+        unsafe extern "system" fn GetDesc<Impl: ID3D12LibraryReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D12_LIBRARY_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetFunctionByIndex<Impl: ID3D12LibraryReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, functionindex: i32) -> ::core::option::Option<ID3D12FunctionReflection> {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetDesc::<Impl, IMPL_OFFSET>, GetFunctionByIndex::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12LibraryReflection as ::windows::core::Interface>::IID
+    }
+}
+pub trait ID3D12LifetimeOwnerImpl: Sized {
+    fn LifetimeStateUpdated();
+}
+impl ID3D12LifetimeOwnerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12LifetimeOwnerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12LifetimeOwnerVtbl {
+        unsafe extern "system" fn LifetimeStateUpdated<Impl: ID3D12LifetimeOwnerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newstate: D3D12_LIFETIME_STATE) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, LifetimeStateUpdated::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12LifetimeOwner as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12LifetimeTrackerImpl: Sized + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
+    fn DestroyOwnedObject();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12LifetimeTrackerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12LifetimeTrackerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12LifetimeTrackerVtbl {
+        unsafe extern "system" fn DestroyOwnedObject<Impl: ID3D12LifetimeTrackerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateDataInterface::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, GetDevice::<Impl, IMPL_OFFSET>, DestroyOwnedObject::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12LifetimeTracker as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12MetaCommandImpl: Sized + ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
+    fn GetRequiredParameterResourceSize();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12MetaCommandVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12MetaCommandImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12MetaCommandVtbl {
+        unsafe extern "system" fn GetRequiredParameterResourceSize<Impl: ID3D12MetaCommandImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stage: D3D12_META_COMMAND_PARAMETER_STAGE, parameterindex: u32) -> u64 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateDataInterface::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, GetDevice::<Impl, IMPL_OFFSET>, GetRequiredParameterResourceSize::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12MetaCommand as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12ObjectImpl: Sized {
+    fn GetPrivateData();
+    fn SetPrivateData();
+    fn SetPrivateDataInterface();
+    fn SetName();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12ObjectVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ObjectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12ObjectVtbl {
+        unsafe extern "system" fn GetPrivateData<Impl: ID3D12ObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetPrivateData<Impl: ID3D12ObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetPrivateDataInterface<Impl: ID3D12ObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetName<Impl: ID3D12ObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateDataInterface::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12Object as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12PageableImpl: Sized + ID3D12DeviceChildImpl + ID3D12ObjectImpl {}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12PageableVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12PageableImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12PageableVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateDataInterface::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, GetDevice::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12Pageable as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+pub trait ID3D12PipelineLibraryImpl: Sized + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
+    fn StorePipeline();
+    fn LoadGraphicsPipeline();
+    fn LoadComputePipeline();
+    fn GetSerializedSize();
+    fn Serialize();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ID3D12PipelineLibraryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12PipelineLibraryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12PipelineLibraryVtbl {
+        unsafe extern "system" fn StorePipeline<Impl: ID3D12PipelineLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: super::super::Foundation::PWSTR, ppipeline: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LoadGraphicsPipeline<Impl: ID3D12PipelineLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: super::super::Foundation::PWSTR, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LoadComputePipeline<Impl: ID3D12PipelineLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: super::super::Foundation::PWSTR, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSerializedSize<Impl: ID3D12PipelineLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> usize {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Serialize<Impl: ID3D12PipelineLibraryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut ::core::ffi::c_void, datasizeinbytes: usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateDataInterface::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            GetDevice::<Impl, IMPL_OFFSET>,
+            StorePipeline::<Impl, IMPL_OFFSET>,
+            LoadGraphicsPipeline::<Impl, IMPL_OFFSET>,
+            LoadComputePipeline::<Impl, IMPL_OFFSET>,
+            GetSerializedSize::<Impl, IMPL_OFFSET>,
+            Serialize::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12PipelineLibrary as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+pub trait ID3D12PipelineLibrary1Impl: Sized + ID3D12PipelineLibraryImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
+    fn LoadPipeline();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ID3D12PipelineLibrary1Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12PipelineLibrary1Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12PipelineLibrary1Vtbl {
+        unsafe extern "system" fn LoadPipeline<Impl: ID3D12PipelineLibrary1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: super::super::Foundation::PWSTR, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC, riid: *const ::windows::core::GUID, pppipelinestate: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateDataInterface::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            GetDevice::<Impl, IMPL_OFFSET>,
+            StorePipeline::<Impl, IMPL_OFFSET>,
+            LoadGraphicsPipeline::<Impl, IMPL_OFFSET>,
+            LoadComputePipeline::<Impl, IMPL_OFFSET>,
+            GetSerializedSize::<Impl, IMPL_OFFSET>,
+            Serialize::<Impl, IMPL_OFFSET>,
+            LoadPipeline::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12PipelineLibrary1 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+pub trait ID3D12PipelineStateImpl: Sized + ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
+    fn GetCachedBlob();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ID3D12PipelineStateVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12PipelineStateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12PipelineStateVtbl {
+        unsafe extern "system" fn GetCachedBlob<Impl: ID3D12PipelineStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppblob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateDataInterface::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, GetDevice::<Impl, IMPL_OFFSET>, GetCachedBlob::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12PipelineState as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12ProtectedResourceSessionImpl: Sized + ID3D12ProtectedSessionImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
+    fn GetDesc();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12ProtectedResourceSessionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ProtectedResourceSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12ProtectedResourceSessionVtbl {
+        unsafe extern "system" fn GetDesc<Impl: ID3D12ProtectedResourceSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_PROTECTED_RESOURCE_SESSION_DESC) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateDataInterface::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, GetDevice::<Impl, IMPL_OFFSET>, GetStatusFence::<Impl, IMPL_OFFSET>, GetSessionStatus::<Impl, IMPL_OFFSET>, GetDesc::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12ProtectedResourceSession as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12ProtectedResourceSession1Impl: Sized + ID3D12ProtectedResourceSessionImpl + ID3D12ProtectedSessionImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
+    fn GetDesc1();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12ProtectedResourceSession1Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ProtectedResourceSession1Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12ProtectedResourceSession1Vtbl {
+        unsafe extern "system" fn GetDesc1<Impl: ID3D12ProtectedResourceSession1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_PROTECTED_RESOURCE_SESSION_DESC1) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateDataInterface::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, GetDevice::<Impl, IMPL_OFFSET>, GetStatusFence::<Impl, IMPL_OFFSET>, GetSessionStatus::<Impl, IMPL_OFFSET>, GetDesc::<Impl, IMPL_OFFSET>, GetDesc1::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12ProtectedResourceSession1 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12ProtectedSessionImpl: Sized + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
+    fn GetStatusFence();
+    fn GetSessionStatus();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12ProtectedSessionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ProtectedSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12ProtectedSessionVtbl {
+        unsafe extern "system" fn GetStatusFence<Impl: ID3D12ProtectedSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppfence: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSessionStatus<Impl: ID3D12ProtectedSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> D3D12_PROTECTED_SESSION_STATUS {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateDataInterface::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, GetDevice::<Impl, IMPL_OFFSET>, GetStatusFence::<Impl, IMPL_OFFSET>, GetSessionStatus::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12ProtectedSession as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12QueryHeapImpl: Sized + ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12QueryHeapVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12QueryHeapImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12QueryHeapVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateDataInterface::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, GetDevice::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12QueryHeap as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+pub trait ID3D12ResourceImpl: Sized + ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
+    fn Map();
+    fn Unmap();
+    fn GetDesc();
+    fn GetGPUVirtualAddress();
+    fn WriteToSubresource();
+    fn ReadFromSubresource();
+    fn GetHeapProperties();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ID3D12ResourceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ResourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12ResourceVtbl {
+        unsafe extern "system" fn Map<Impl: ID3D12ResourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, subresource: u32, preadrange: *const D3D12_RANGE, ppdata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Unmap<Impl: ID3D12ResourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, subresource: u32, pwrittenrange: *const D3D12_RANGE) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDesc<Impl: ID3D12ResourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_RESOURCE_DESC) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetGPUVirtualAddress<Impl: ID3D12ResourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u64 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn WriteToSubresource<Impl: ID3D12ResourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dstsubresource: u32, pdstbox: *const D3D12_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReadFromSubresource<Impl: ID3D12ResourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdstdata: *mut ::core::ffi::c_void, dstrowpitch: u32, dstdepthpitch: u32, srcsubresource: u32, psrcbox: *const D3D12_BOX) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetHeapProperties<Impl: ID3D12ResourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pheapproperties: *mut D3D12_HEAP_PROPERTIES, pheapflags: *mut D3D12_HEAP_FLAGS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateDataInterface::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            GetDevice::<Impl, IMPL_OFFSET>,
+            Map::<Impl, IMPL_OFFSET>,
+            Unmap::<Impl, IMPL_OFFSET>,
+            GetDesc::<Impl, IMPL_OFFSET>,
+            GetGPUVirtualAddress::<Impl, IMPL_OFFSET>,
+            WriteToSubresource::<Impl, IMPL_OFFSET>,
+            ReadFromSubresource::<Impl, IMPL_OFFSET>,
+            GetHeapProperties::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12Resource as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+pub trait ID3D12Resource1Impl: Sized + ID3D12ResourceImpl + ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
+    fn GetProtectedResourceSession();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ID3D12Resource1Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Resource1Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12Resource1Vtbl {
+        unsafe extern "system" fn GetProtectedResourceSession<Impl: ID3D12Resource1Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateDataInterface::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            GetDevice::<Impl, IMPL_OFFSET>,
+            Map::<Impl, IMPL_OFFSET>,
+            Unmap::<Impl, IMPL_OFFSET>,
+            GetDesc::<Impl, IMPL_OFFSET>,
+            GetGPUVirtualAddress::<Impl, IMPL_OFFSET>,
+            WriteToSubresource::<Impl, IMPL_OFFSET>,
+            ReadFromSubresource::<Impl, IMPL_OFFSET>,
+            GetHeapProperties::<Impl, IMPL_OFFSET>,
+            GetProtectedResourceSession::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12Resource1 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+pub trait ID3D12Resource2Impl: Sized + ID3D12Resource1Impl + ID3D12ResourceImpl + ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
+    fn GetDesc1();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+impl ID3D12Resource2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12Resource2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12Resource2Vtbl {
+        unsafe extern "system" fn GetDesc1<Impl: ID3D12Resource2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_RESOURCE_DESC1) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateData::<Impl, IMPL_OFFSET>,
+            SetPrivateDataInterface::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            GetDevice::<Impl, IMPL_OFFSET>,
+            Map::<Impl, IMPL_OFFSET>,
+            Unmap::<Impl, IMPL_OFFSET>,
+            GetDesc::<Impl, IMPL_OFFSET>,
+            GetGPUVirtualAddress::<Impl, IMPL_OFFSET>,
+            WriteToSubresource::<Impl, IMPL_OFFSET>,
+            ReadFromSubresource::<Impl, IMPL_OFFSET>,
+            GetHeapProperties::<Impl, IMPL_OFFSET>,
+            GetProtectedResourceSession::<Impl, IMPL_OFFSET>,
+            GetDesc1::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12Resource2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12RootSignatureImpl: Sized + ID3D12DeviceChildImpl + ID3D12ObjectImpl {}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12RootSignatureVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12RootSignatureImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12RootSignatureVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateDataInterface::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, GetDevice::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12RootSignature as ::windows::core::Interface>::IID
+    }
+}
+pub trait ID3D12RootSignatureDeserializerImpl: Sized {
+    fn GetRootSignatureDesc();
+}
+impl ID3D12RootSignatureDeserializerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12RootSignatureDeserializerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12RootSignatureDeserializerVtbl {
+        unsafe extern "system" fn GetRootSignatureDesc<Impl: ID3D12RootSignatureDeserializerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> *mut D3D12_ROOT_SIGNATURE_DESC {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetRootSignatureDesc::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12RootSignatureDeserializer as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12SDKConfigurationImpl: Sized {
+    fn SetSDKVersion();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12SDKConfigurationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12SDKConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12SDKConfigurationVtbl {
+        unsafe extern "system" fn SetSDKVersion<Impl: ID3D12SDKConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sdkversion: u32, sdkpath: super::super::Foundation::PSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, SetSDKVersion::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12SDKConfiguration as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12ShaderCacheSessionImpl: Sized + ID3D12DeviceChildImpl + ID3D12ObjectImpl {
+    fn FindValue();
+    fn StoreValue();
+    fn SetDeleteOnDestroy();
+    fn GetDesc();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12ShaderCacheSessionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ShaderCacheSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12ShaderCacheSessionVtbl {
+        unsafe extern "system" fn FindValue<Impl: ID3D12ShaderCacheSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pkey: *const ::core::ffi::c_void, keysize: u32, pvalue: *mut ::core::ffi::c_void, pvaluesize: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn StoreValue<Impl: ID3D12ShaderCacheSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pkey: *const ::core::ffi::c_void, keysize: u32, pvalue: *const ::core::ffi::c_void, valuesize: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDeleteOnDestroy<Impl: ID3D12ShaderCacheSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDesc<Impl: ID3D12ShaderCacheSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut D3D12_SHADER_CACHE_SESSION_DESC) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateDataInterface::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, GetDevice::<Impl, IMPL_OFFSET>, FindValue::<Impl, IMPL_OFFSET>, StoreValue::<Impl, IMPL_OFFSET>, SetDeleteOnDestroy::<Impl, IMPL_OFFSET>, GetDesc::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12ShaderCacheSession as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+pub trait ID3D12ShaderReflectionImpl: Sized {
+    fn GetDesc();
+    fn GetConstantBufferByIndex();
+    fn GetConstantBufferByName();
+    fn GetResourceBindingDesc();
+    fn GetInputParameterDesc();
+    fn GetOutputParameterDesc();
+    fn GetPatchConstantParameterDesc();
+    fn GetVariableByName();
+    fn GetResourceBindingDescByName();
+    fn GetMovInstructionCount();
+    fn GetMovcInstructionCount();
+    fn GetConversionInstructionCount();
+    fn GetBitwiseInstructionCount();
+    fn GetGSInputPrimitive();
+    fn IsSampleFrequencyShader();
+    fn GetNumInterfaceSlots();
+    fn GetMinFeatureLevel();
+    fn GetThreadGroupSize();
+    fn GetRequiresFlags();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ID3D12ShaderReflectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ShaderReflectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12ShaderReflectionVtbl {
+        unsafe extern "system" fn GetDesc<Impl: ID3D12ShaderReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D12_SHADER_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetConstantBufferByIndex<Impl: ID3D12ShaderReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D12ShaderReflectionConstantBuffer> {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetConstantBufferByName<Impl: ID3D12ShaderReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D12ShaderReflectionConstantBuffer> {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetResourceBindingDesc<Impl: ID3D12ShaderReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceindex: u32, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetInputParameterDesc<Impl: ID3D12ShaderReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetOutputParameterDesc<Impl: ID3D12ShaderReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetPatchConstantParameterDesc<Impl: ID3D12ShaderReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetVariableByName<Impl: ID3D12ShaderReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D12ShaderReflectionVariable> {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetResourceBindingDescByName<Impl: ID3D12ShaderReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PSTR, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMovInstructionCount<Impl: ID3D12ShaderReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMovcInstructionCount<Impl: ID3D12ShaderReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetConversionInstructionCount<Impl: ID3D12ShaderReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetBitwiseInstructionCount<Impl: ID3D12ShaderReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetGSInputPrimitive<Impl: ID3D12ShaderReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::Direct3D::D3D_PRIMITIVE {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsSampleFrequencyShader<Impl: ID3D12ShaderReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetNumInterfaceSlots<Impl: ID3D12ShaderReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMinFeatureLevel<Impl: ID3D12ShaderReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plevel: *mut super::Direct3D::D3D_FEATURE_LEVEL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetThreadGroupSize<Impl: ID3D12ShaderReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psizex: *mut u32, psizey: *mut u32, psizez: *mut u32) -> u32 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetRequiresFlags<Impl: ID3D12ShaderReflectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u64 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetDesc::<Impl, IMPL_OFFSET>,
+            GetConstantBufferByIndex::<Impl, IMPL_OFFSET>,
+            GetConstantBufferByName::<Impl, IMPL_OFFSET>,
+            GetResourceBindingDesc::<Impl, IMPL_OFFSET>,
+            GetInputParameterDesc::<Impl, IMPL_OFFSET>,
+            GetOutputParameterDesc::<Impl, IMPL_OFFSET>,
+            GetPatchConstantParameterDesc::<Impl, IMPL_OFFSET>,
+            GetVariableByName::<Impl, IMPL_OFFSET>,
+            GetResourceBindingDescByName::<Impl, IMPL_OFFSET>,
+            GetMovInstructionCount::<Impl, IMPL_OFFSET>,
+            GetMovcInstructionCount::<Impl, IMPL_OFFSET>,
+            GetConversionInstructionCount::<Impl, IMPL_OFFSET>,
+            GetBitwiseInstructionCount::<Impl, IMPL_OFFSET>,
+            GetGSInputPrimitive::<Impl, IMPL_OFFSET>,
+            IsSampleFrequencyShader::<Impl, IMPL_OFFSET>,
+            GetNumInterfaceSlots::<Impl, IMPL_OFFSET>,
+            GetMinFeatureLevel::<Impl, IMPL_OFFSET>,
+            GetThreadGroupSize::<Impl, IMPL_OFFSET>,
+            GetRequiresFlags::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12ShaderReflection as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+pub trait ID3D12ShaderReflectionConstantBufferImpl: Sized {
+    fn GetDesc();
+    fn GetVariableByIndex();
+    fn GetVariableByName();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ID3D12ShaderReflectionConstantBufferVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ShaderReflectionConstantBufferImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12ShaderReflectionConstantBufferVtbl {
+        unsafe extern "system" fn GetDesc<Impl: ID3D12ShaderReflectionConstantBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D12_SHADER_BUFFER_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetVariableByIndex<Impl: ID3D12ShaderReflectionConstantBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D12ShaderReflectionVariable> {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetVariableByName<Impl: ID3D12ShaderReflectionConstantBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D12ShaderReflectionVariable> {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(GetDesc::<Impl, IMPL_OFFSET>, GetVariableByIndex::<Impl, IMPL_OFFSET>, GetVariableByName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12ShaderReflectionConstantBuffer as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+pub trait ID3D12ShaderReflectionTypeImpl: Sized {
+    fn GetDesc();
+    fn GetMemberTypeByIndex();
+    fn GetMemberTypeByName();
+    fn GetMemberTypeName();
+    fn IsEqual();
+    fn GetSubType();
+    fn GetBaseClass();
+    fn GetNumInterfaces();
+    fn GetInterfaceByIndex();
+    fn IsOfType();
+    fn ImplementsInterface();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D"))]
+impl ID3D12ShaderReflectionTypeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ShaderReflectionTypeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12ShaderReflectionTypeVtbl {
+        unsafe extern "system" fn GetDesc<Impl: ID3D12ShaderReflectionTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D12_SHADER_TYPE_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMemberTypeByIndex<Impl: ID3D12ShaderReflectionTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::core::option::Option<ID3D12ShaderReflectionType> {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMemberTypeByName<Impl: ID3D12ShaderReflectionTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PSTR) -> ::core::option::Option<ID3D12ShaderReflectionType> {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMemberTypeName<Impl: ID3D12ShaderReflectionTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> super::super::Foundation::PSTR {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsEqual<Impl: ID3D12ShaderReflectionTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptype: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSubType<Impl: ID3D12ShaderReflectionTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D12ShaderReflectionType> {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetBaseClass<Impl: ID3D12ShaderReflectionTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D12ShaderReflectionType> {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetNumInterfaces<Impl: ID3D12ShaderReflectionTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetInterfaceByIndex<Impl: ID3D12ShaderReflectionTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uindex: u32) -> ::core::option::Option<ID3D12ShaderReflectionType> {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsOfType<Impl: ID3D12ShaderReflectionTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptype: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ImplementsInterface<Impl: ID3D12ShaderReflectionTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbase: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(GetDesc::<Impl, IMPL_OFFSET>, GetMemberTypeByIndex::<Impl, IMPL_OFFSET>, GetMemberTypeByName::<Impl, IMPL_OFFSET>, GetMemberTypeName::<Impl, IMPL_OFFSET>, IsEqual::<Impl, IMPL_OFFSET>, GetSubType::<Impl, IMPL_OFFSET>, GetBaseClass::<Impl, IMPL_OFFSET>, GetNumInterfaces::<Impl, IMPL_OFFSET>, GetInterfaceByIndex::<Impl, IMPL_OFFSET>, IsOfType::<Impl, IMPL_OFFSET>, ImplementsInterface::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12ShaderReflectionType as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12ShaderReflectionVariableImpl: Sized {
+    fn GetDesc();
+    fn GetType();
+    fn GetBuffer();
+    fn GetInterfaceSlot();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12ShaderReflectionVariableVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ShaderReflectionVariableImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12ShaderReflectionVariableVtbl {
+        unsafe extern "system" fn GetDesc<Impl: ID3D12ShaderReflectionVariableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesc: *mut D3D12_SHADER_VARIABLE_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetType<Impl: ID3D12ShaderReflectionVariableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D12ShaderReflectionType> {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetBuffer<Impl: ID3D12ShaderReflectionVariableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::core::option::Option<ID3D12ShaderReflectionConstantBuffer> {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetInterfaceSlot<Impl: ID3D12ShaderReflectionVariableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uarrayindex: u32) -> u32 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(GetDesc::<Impl, IMPL_OFFSET>, GetType::<Impl, IMPL_OFFSET>, GetBuffer::<Impl, IMPL_OFFSET>, GetInterfaceSlot::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12ShaderReflectionVariable as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12SharingContractImpl: Sized {
+    fn Present();
+    fn SharedFenceSignal();
+    fn BeginCapturableWork();
+    fn EndCapturableWork();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12SharingContractVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12SharingContractImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12SharingContractVtbl {
+        unsafe extern "system" fn Present<Impl: ID3D12SharingContractImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, subresource: u32, window: super::super::Foundation::HWND) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SharedFenceSignal<Impl: ID3D12SharingContractImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfence: ::windows::core::RawPtr, fencevalue: u64) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BeginCapturableWork<Impl: ID3D12SharingContractImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EndCapturableWork<Impl: ID3D12SharingContractImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Present::<Impl, IMPL_OFFSET>, SharedFenceSignal::<Impl, IMPL_OFFSET>, BeginCapturableWork::<Impl, IMPL_OFFSET>, EndCapturableWork::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12SharingContract as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12StateObjectImpl: Sized + ID3D12PageableImpl + ID3D12DeviceChildImpl + ID3D12ObjectImpl {}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12StateObjectVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12StateObjectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12StateObjectVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateData::<Impl, IMPL_OFFSET>, SetPrivateDataInterface::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>, GetDevice::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12StateObject as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12StateObjectPropertiesImpl: Sized {
+    fn GetShaderIdentifier();
+    fn GetShaderStackSize();
+    fn GetPipelineStackSize();
+    fn SetPipelineStackSize();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12StateObjectPropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12StateObjectPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12StateObjectPropertiesVtbl {
+        unsafe extern "system" fn GetShaderIdentifier<Impl: ID3D12StateObjectPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pexportname: super::super::Foundation::PWSTR) -> *mut ::core::ffi::c_void {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetShaderStackSize<Impl: ID3D12StateObjectPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pexportname: super::super::Foundation::PWSTR) -> u64 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetPipelineStackSize<Impl: ID3D12StateObjectPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u64 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetPipelineStackSize<Impl: ID3D12StateObjectPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pipelinestacksizeinbytes: u64) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetShaderIdentifier::<Impl, IMPL_OFFSET>, GetShaderStackSize::<Impl, IMPL_OFFSET>, GetPipelineStackSize::<Impl, IMPL_OFFSET>, SetPipelineStackSize::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12StateObjectProperties as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12SwapChainAssistantImpl: Sized {
+    fn GetLUID();
+    fn GetSwapChainObject();
+    fn GetCurrentResourceAndCommandQueue();
+    fn InsertImplicitSync();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12SwapChainAssistantVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12SwapChainAssistantImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12SwapChainAssistantVtbl {
+        unsafe extern "system" fn GetLUID<Impl: ID3D12SwapChainAssistantImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::LUID) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSwapChainObject<Impl: ID3D12SwapChainAssistantImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCurrentResourceAndCommandQueue<Impl: ID3D12SwapChainAssistantImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riidresource: *const ::windows::core::GUID, ppvresource: *mut *mut ::core::ffi::c_void, riidqueue: *const ::windows::core::GUID, ppvqueue: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn InsertImplicitSync<Impl: ID3D12SwapChainAssistantImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetLUID::<Impl, IMPL_OFFSET>, GetSwapChainObject::<Impl, IMPL_OFFSET>, GetCurrentResourceAndCommandQueue::<Impl, IMPL_OFFSET>, InsertImplicitSync::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12SwapChainAssistant as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ID3D12ToolsImpl: Sized {
+    fn EnableShaderInstrumentation();
+    fn ShaderInstrumentationEnabled();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ID3D12ToolsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12ToolsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12ToolsVtbl {
+        unsafe extern "system" fn EnableShaderInstrumentation<Impl: ID3D12ToolsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, benable: super::super::Foundation::BOOL) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ShaderInstrumentationEnabled<Impl: ID3D12ToolsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, EnableShaderInstrumentation::<Impl, IMPL_OFFSET>, ShaderInstrumentationEnabled::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12Tools as ::windows::core::Interface>::IID
+    }
+}
+pub trait ID3D12VersionedRootSignatureDeserializerImpl: Sized {
+    fn GetRootSignatureDescAtVersion();
+    fn GetUnconvertedRootSignatureDesc();
+}
+impl ID3D12VersionedRootSignatureDeserializerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ID3D12VersionedRootSignatureDeserializerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ID3D12VersionedRootSignatureDeserializerVtbl {
+        unsafe extern "system" fn GetRootSignatureDescAtVersion<Impl: ID3D12VersionedRootSignatureDeserializerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, converttoversion: D3D_ROOT_SIGNATURE_VERSION, ppdesc: *mut *mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetUnconvertedRootSignatureDesc<Impl: ID3D12VersionedRootSignatureDeserializerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> *mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetRootSignatureDescAtVersion::<Impl, IMPL_OFFSET>, GetUnconvertedRootSignatureDesc::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ID3D12VersionedRootSignatureDeserializer as ::windows::core::Interface>::IID
+    }
+}

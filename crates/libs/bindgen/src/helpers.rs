@@ -290,11 +290,12 @@ pub fn gen_constant_value(value: &ConstantValue) -> TokenStream {
 }
 
 pub fn gen_runtime_name(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
+    let name = gen_type_ident(def, gen);
+    let cfg = cfg.gen(gen);
+
     if def.is_winrt() {
-        let name = gen_type_ident(def, gen);
         let constraints = gen_type_constraints(def, gen);
         let runtime_name = format!("{}", def.type_name());
-        let cfg = cfg.gen(gen);
 
         quote! {
             #cfg
@@ -303,7 +304,14 @@ pub fn gen_runtime_name(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
             }
         }
     }
-     else {
+     else if def.vtable_types().iter().any(|e| e == &ElementType::IInspectable) {
+        quote! {
+            #cfg
+            impl ::windows::core::RuntimeName for #name {
+                const NAME: &'static str = "";
+            }
+        }
+     } else {
          quote! {}
      }
 }

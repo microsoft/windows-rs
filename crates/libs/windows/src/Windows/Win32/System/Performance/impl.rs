@@ -1,1 +1,4066 @@
-
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait DICounterItemImpl: Sized + IDispatchImpl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl DICounterItemVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DICounterItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> DICounterItemVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<DICounterItem as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait DILogFileItemImpl: Sized + IDispatchImpl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl DILogFileItemVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DILogFileItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> DILogFileItemVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<DILogFileItem as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait DISystemMonitorImpl: Sized + IDispatchImpl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl DISystemMonitorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DISystemMonitorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> DISystemMonitorVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<DISystemMonitor as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait DISystemMonitorEventsImpl: Sized + IDispatchImpl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl DISystemMonitorEventsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DISystemMonitorEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> DISystemMonitorEventsVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<DISystemMonitorEvents as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait DISystemMonitorInternalImpl: Sized + IDispatchImpl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl DISystemMonitorInternalVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DISystemMonitorInternalImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> DISystemMonitorInternalVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<DISystemMonitorInternal as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IAlertDataCollectorImpl: Sized + IDataCollectorImpl + IDispatchImpl {
+    fn AlertThresholds();
+    fn SetAlertThresholds();
+    fn EventLog();
+    fn SetEventLog();
+    fn SampleInterval();
+    fn SetSampleInterval();
+    fn Task();
+    fn SetTask();
+    fn TaskRunAsSelf();
+    fn SetTaskRunAsSelf();
+    fn TaskArguments();
+    fn SetTaskArguments();
+    fn TaskUserTextArguments();
+    fn SetTaskUserTextArguments();
+    fn TriggerDataCollectorSet();
+    fn SetTriggerDataCollectorSet();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IAlertDataCollectorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAlertDataCollectorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAlertDataCollectorVtbl {
+        unsafe extern "system" fn AlertThresholds<Impl: IAlertDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, alerts: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAlertThresholds<Impl: IAlertDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, alerts: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EventLog<Impl: IAlertDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, log: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetEventLog<Impl: IAlertDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, log: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SampleInterval<Impl: IAlertDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interval: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSampleInterval<Impl: IAlertDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interval: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Task<Impl: IAlertDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, task: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetTask<Impl: IAlertDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, task: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TaskRunAsSelf<Impl: IAlertDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, runasself: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetTaskRunAsSelf<Impl: IAlertDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, runasself: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TaskArguments<Impl: IAlertDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, task: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetTaskArguments<Impl: IAlertDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, task: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TaskUserTextArguments<Impl: IAlertDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, task: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetTaskUserTextArguments<Impl: IAlertDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, task: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TriggerDataCollectorSet<Impl: IAlertDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetTriggerDataCollectorSet<Impl: IAlertDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            DataCollectorSet::<Impl, IMPL_OFFSET>,
+            SetDataCollectorSet::<Impl, IMPL_OFFSET>,
+            DataCollectorType::<Impl, IMPL_OFFSET>,
+            FileName::<Impl, IMPL_OFFSET>,
+            SetFileName::<Impl, IMPL_OFFSET>,
+            FileNameFormat::<Impl, IMPL_OFFSET>,
+            SetFileNameFormat::<Impl, IMPL_OFFSET>,
+            FileNameFormatPattern::<Impl, IMPL_OFFSET>,
+            SetFileNameFormatPattern::<Impl, IMPL_OFFSET>,
+            LatestOutputLocation::<Impl, IMPL_OFFSET>,
+            SetLatestOutputLocation::<Impl, IMPL_OFFSET>,
+            LogAppend::<Impl, IMPL_OFFSET>,
+            SetLogAppend::<Impl, IMPL_OFFSET>,
+            LogCircular::<Impl, IMPL_OFFSET>,
+            SetLogCircular::<Impl, IMPL_OFFSET>,
+            LogOverwrite::<Impl, IMPL_OFFSET>,
+            SetLogOverwrite::<Impl, IMPL_OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            OutputLocation::<Impl, IMPL_OFFSET>,
+            Index::<Impl, IMPL_OFFSET>,
+            SetIndex::<Impl, IMPL_OFFSET>,
+            Xml::<Impl, IMPL_OFFSET>,
+            SetXml::<Impl, IMPL_OFFSET>,
+            CreateOutputLocation::<Impl, IMPL_OFFSET>,
+            AlertThresholds::<Impl, IMPL_OFFSET>,
+            SetAlertThresholds::<Impl, IMPL_OFFSET>,
+            EventLog::<Impl, IMPL_OFFSET>,
+            SetEventLog::<Impl, IMPL_OFFSET>,
+            SampleInterval::<Impl, IMPL_OFFSET>,
+            SetSampleInterval::<Impl, IMPL_OFFSET>,
+            Task::<Impl, IMPL_OFFSET>,
+            SetTask::<Impl, IMPL_OFFSET>,
+            TaskRunAsSelf::<Impl, IMPL_OFFSET>,
+            SetTaskRunAsSelf::<Impl, IMPL_OFFSET>,
+            TaskArguments::<Impl, IMPL_OFFSET>,
+            SetTaskArguments::<Impl, IMPL_OFFSET>,
+            TaskUserTextArguments::<Impl, IMPL_OFFSET>,
+            SetTaskUserTextArguments::<Impl, IMPL_OFFSET>,
+            TriggerDataCollectorSet::<Impl, IMPL_OFFSET>,
+            SetTriggerDataCollectorSet::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAlertDataCollector as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IApiTracingDataCollectorImpl: Sized + IDataCollectorImpl + IDispatchImpl {
+    fn LogApiNamesOnly();
+    fn SetLogApiNamesOnly();
+    fn LogApisRecursively();
+    fn SetLogApisRecursively();
+    fn ExePath();
+    fn SetExePath();
+    fn LogFilePath();
+    fn SetLogFilePath();
+    fn IncludeModules();
+    fn SetIncludeModules();
+    fn IncludeApis();
+    fn SetIncludeApis();
+    fn ExcludeApis();
+    fn SetExcludeApis();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IApiTracingDataCollectorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IApiTracingDataCollectorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IApiTracingDataCollectorVtbl {
+        unsafe extern "system" fn LogApiNamesOnly<Impl: IApiTracingDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, logapinames: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLogApiNamesOnly<Impl: IApiTracingDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, logapinames: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LogApisRecursively<Impl: IApiTracingDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, logrecursively: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLogApisRecursively<Impl: IApiTracingDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, logrecursively: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ExePath<Impl: IApiTracingDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, exepath: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetExePath<Impl: IApiTracingDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, exepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LogFilePath<Impl: IApiTracingDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, logfilepath: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLogFilePath<Impl: IApiTracingDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, logfilepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IncludeModules<Impl: IApiTracingDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, includemodules: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetIncludeModules<Impl: IApiTracingDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, includemodules: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IncludeApis<Impl: IApiTracingDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, includeapis: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetIncludeApis<Impl: IApiTracingDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, includeapis: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ExcludeApis<Impl: IApiTracingDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, excludeapis: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetExcludeApis<Impl: IApiTracingDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, excludeapis: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            DataCollectorSet::<Impl, IMPL_OFFSET>,
+            SetDataCollectorSet::<Impl, IMPL_OFFSET>,
+            DataCollectorType::<Impl, IMPL_OFFSET>,
+            FileName::<Impl, IMPL_OFFSET>,
+            SetFileName::<Impl, IMPL_OFFSET>,
+            FileNameFormat::<Impl, IMPL_OFFSET>,
+            SetFileNameFormat::<Impl, IMPL_OFFSET>,
+            FileNameFormatPattern::<Impl, IMPL_OFFSET>,
+            SetFileNameFormatPattern::<Impl, IMPL_OFFSET>,
+            LatestOutputLocation::<Impl, IMPL_OFFSET>,
+            SetLatestOutputLocation::<Impl, IMPL_OFFSET>,
+            LogAppend::<Impl, IMPL_OFFSET>,
+            SetLogAppend::<Impl, IMPL_OFFSET>,
+            LogCircular::<Impl, IMPL_OFFSET>,
+            SetLogCircular::<Impl, IMPL_OFFSET>,
+            LogOverwrite::<Impl, IMPL_OFFSET>,
+            SetLogOverwrite::<Impl, IMPL_OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            OutputLocation::<Impl, IMPL_OFFSET>,
+            Index::<Impl, IMPL_OFFSET>,
+            SetIndex::<Impl, IMPL_OFFSET>,
+            Xml::<Impl, IMPL_OFFSET>,
+            SetXml::<Impl, IMPL_OFFSET>,
+            CreateOutputLocation::<Impl, IMPL_OFFSET>,
+            LogApiNamesOnly::<Impl, IMPL_OFFSET>,
+            SetLogApiNamesOnly::<Impl, IMPL_OFFSET>,
+            LogApisRecursively::<Impl, IMPL_OFFSET>,
+            SetLogApisRecursively::<Impl, IMPL_OFFSET>,
+            ExePath::<Impl, IMPL_OFFSET>,
+            SetExePath::<Impl, IMPL_OFFSET>,
+            LogFilePath::<Impl, IMPL_OFFSET>,
+            SetLogFilePath::<Impl, IMPL_OFFSET>,
+            IncludeModules::<Impl, IMPL_OFFSET>,
+            SetIncludeModules::<Impl, IMPL_OFFSET>,
+            IncludeApis::<Impl, IMPL_OFFSET>,
+            SetIncludeApis::<Impl, IMPL_OFFSET>,
+            ExcludeApis::<Impl, IMPL_OFFSET>,
+            SetExcludeApis::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IApiTracingDataCollector as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IConfigurationDataCollectorImpl: Sized + IDataCollectorImpl + IDispatchImpl {
+    fn FileMaxCount();
+    fn SetFileMaxCount();
+    fn FileMaxRecursiveDepth();
+    fn SetFileMaxRecursiveDepth();
+    fn FileMaxTotalSize();
+    fn SetFileMaxTotalSize();
+    fn Files();
+    fn SetFiles();
+    fn ManagementQueries();
+    fn SetManagementQueries();
+    fn QueryNetworkAdapters();
+    fn SetQueryNetworkAdapters();
+    fn RegistryKeys();
+    fn SetRegistryKeys();
+    fn RegistryMaxRecursiveDepth();
+    fn SetRegistryMaxRecursiveDepth();
+    fn SystemStateFile();
+    fn SetSystemStateFile();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IConfigurationDataCollectorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConfigurationDataCollectorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConfigurationDataCollectorVtbl {
+        unsafe extern "system" fn FileMaxCount<Impl: IConfigurationDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetFileMaxCount<Impl: IConfigurationDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FileMaxRecursiveDepth<Impl: IConfigurationDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, depth: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetFileMaxRecursiveDepth<Impl: IConfigurationDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, depth: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FileMaxTotalSize<Impl: IConfigurationDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetFileMaxTotalSize<Impl: IConfigurationDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Files<Impl: IConfigurationDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, files: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetFiles<Impl: IConfigurationDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, files: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ManagementQueries<Impl: IConfigurationDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queries: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetManagementQueries<Impl: IConfigurationDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, queries: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn QueryNetworkAdapters<Impl: IConfigurationDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, network: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetQueryNetworkAdapters<Impl: IConfigurationDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, network: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RegistryKeys<Impl: IConfigurationDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, query: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRegistryKeys<Impl: IConfigurationDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, query: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RegistryMaxRecursiveDepth<Impl: IConfigurationDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, depth: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRegistryMaxRecursiveDepth<Impl: IConfigurationDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, depth: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SystemStateFile<Impl: IConfigurationDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSystemStateFile<Impl: IConfigurationDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            DataCollectorSet::<Impl, IMPL_OFFSET>,
+            SetDataCollectorSet::<Impl, IMPL_OFFSET>,
+            DataCollectorType::<Impl, IMPL_OFFSET>,
+            FileName::<Impl, IMPL_OFFSET>,
+            SetFileName::<Impl, IMPL_OFFSET>,
+            FileNameFormat::<Impl, IMPL_OFFSET>,
+            SetFileNameFormat::<Impl, IMPL_OFFSET>,
+            FileNameFormatPattern::<Impl, IMPL_OFFSET>,
+            SetFileNameFormatPattern::<Impl, IMPL_OFFSET>,
+            LatestOutputLocation::<Impl, IMPL_OFFSET>,
+            SetLatestOutputLocation::<Impl, IMPL_OFFSET>,
+            LogAppend::<Impl, IMPL_OFFSET>,
+            SetLogAppend::<Impl, IMPL_OFFSET>,
+            LogCircular::<Impl, IMPL_OFFSET>,
+            SetLogCircular::<Impl, IMPL_OFFSET>,
+            LogOverwrite::<Impl, IMPL_OFFSET>,
+            SetLogOverwrite::<Impl, IMPL_OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            OutputLocation::<Impl, IMPL_OFFSET>,
+            Index::<Impl, IMPL_OFFSET>,
+            SetIndex::<Impl, IMPL_OFFSET>,
+            Xml::<Impl, IMPL_OFFSET>,
+            SetXml::<Impl, IMPL_OFFSET>,
+            CreateOutputLocation::<Impl, IMPL_OFFSET>,
+            FileMaxCount::<Impl, IMPL_OFFSET>,
+            SetFileMaxCount::<Impl, IMPL_OFFSET>,
+            FileMaxRecursiveDepth::<Impl, IMPL_OFFSET>,
+            SetFileMaxRecursiveDepth::<Impl, IMPL_OFFSET>,
+            FileMaxTotalSize::<Impl, IMPL_OFFSET>,
+            SetFileMaxTotalSize::<Impl, IMPL_OFFSET>,
+            Files::<Impl, IMPL_OFFSET>,
+            SetFiles::<Impl, IMPL_OFFSET>,
+            ManagementQueries::<Impl, IMPL_OFFSET>,
+            SetManagementQueries::<Impl, IMPL_OFFSET>,
+            QueryNetworkAdapters::<Impl, IMPL_OFFSET>,
+            SetQueryNetworkAdapters::<Impl, IMPL_OFFSET>,
+            RegistryKeys::<Impl, IMPL_OFFSET>,
+            SetRegistryKeys::<Impl, IMPL_OFFSET>,
+            RegistryMaxRecursiveDepth::<Impl, IMPL_OFFSET>,
+            SetRegistryMaxRecursiveDepth::<Impl, IMPL_OFFSET>,
+            SystemStateFile::<Impl, IMPL_OFFSET>,
+            SetSystemStateFile::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConfigurationDataCollector as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ICounterItemImpl: Sized {
+    fn Value();
+    fn SetColor();
+    fn Color();
+    fn SetWidth();
+    fn Width();
+    fn SetLineStyle();
+    fn LineStyle();
+    fn SetScaleFactor();
+    fn ScaleFactor();
+    fn Path();
+    fn GetValue();
+    fn GetStatistics();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ICounterItemVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICounterItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICounterItemVtbl {
+        unsafe extern "system" fn Value<Impl: ICounterItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdblvalue: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetColor<Impl: ICounterItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Color<Impl: ICounterItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcolor: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetWidth<Impl: ICounterItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iwidth: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Width<Impl: ICounterItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pivalue: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLineStyle<Impl: ICounterItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ilinestyle: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LineStyle<Impl: ICounterItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pivalue: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetScaleFactor<Impl: ICounterItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iscale: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ScaleFactor<Impl: ICounterItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pivalue: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Path<Impl: ICounterItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetValue<Impl: ICounterItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut f64, status: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetStatistics<Impl: ICounterItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, max: *mut f64, min: *mut f64, avg: *mut f64, status: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            Value::<Impl, IMPL_OFFSET>,
+            SetColor::<Impl, IMPL_OFFSET>,
+            Color::<Impl, IMPL_OFFSET>,
+            SetWidth::<Impl, IMPL_OFFSET>,
+            Width::<Impl, IMPL_OFFSET>,
+            SetLineStyle::<Impl, IMPL_OFFSET>,
+            LineStyle::<Impl, IMPL_OFFSET>,
+            SetScaleFactor::<Impl, IMPL_OFFSET>,
+            ScaleFactor::<Impl, IMPL_OFFSET>,
+            Path::<Impl, IMPL_OFFSET>,
+            GetValue::<Impl, IMPL_OFFSET>,
+            GetStatistics::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICounterItem as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ICounterItem2Impl: Sized + ICounterItemImpl {
+    fn SetSelected();
+    fn Selected();
+    fn SetVisible();
+    fn Visible();
+    fn GetDataAt();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ICounterItem2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICounterItem2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICounterItem2Vtbl {
+        unsafe extern "system" fn SetSelected<Impl: ICounterItem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Selected<Impl: ICounterItem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetVisible<Impl: ICounterItem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Visible<Impl: ICounterItem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDataAt<Impl: ICounterItem2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iindex: i32, iwhich: SysmonDataType, pvariant: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            Value::<Impl, IMPL_OFFSET>,
+            SetColor::<Impl, IMPL_OFFSET>,
+            Color::<Impl, IMPL_OFFSET>,
+            SetWidth::<Impl, IMPL_OFFSET>,
+            Width::<Impl, IMPL_OFFSET>,
+            SetLineStyle::<Impl, IMPL_OFFSET>,
+            LineStyle::<Impl, IMPL_OFFSET>,
+            SetScaleFactor::<Impl, IMPL_OFFSET>,
+            ScaleFactor::<Impl, IMPL_OFFSET>,
+            Path::<Impl, IMPL_OFFSET>,
+            GetValue::<Impl, IMPL_OFFSET>,
+            GetStatistics::<Impl, IMPL_OFFSET>,
+            SetSelected::<Impl, IMPL_OFFSET>,
+            Selected::<Impl, IMPL_OFFSET>,
+            SetVisible::<Impl, IMPL_OFFSET>,
+            Visible::<Impl, IMPL_OFFSET>,
+            GetDataAt::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICounterItem2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ICountersImpl: Sized + IDispatchImpl {
+    fn Count();
+    fn _NewEnum();
+    fn Item();
+    fn Add();
+    fn Remove();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ICountersVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICountersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICountersVtbl {
+        unsafe extern "system" fn Count<Impl: ICountersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plong: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn _NewEnum<Impl: ICountersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: ICountersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppi: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Add<Impl: ICountersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pathname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppi: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Remove<Impl: ICountersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, Count::<Impl, IMPL_OFFSET>, _NewEnum::<Impl, IMPL_OFFSET>, Item::<Impl, IMPL_OFFSET>, Add::<Impl, IMPL_OFFSET>, Remove::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICounters as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IDataCollectorImpl: Sized + IDispatchImpl {
+    fn DataCollectorSet();
+    fn SetDataCollectorSet();
+    fn DataCollectorType();
+    fn FileName();
+    fn SetFileName();
+    fn FileNameFormat();
+    fn SetFileNameFormat();
+    fn FileNameFormatPattern();
+    fn SetFileNameFormatPattern();
+    fn LatestOutputLocation();
+    fn SetLatestOutputLocation();
+    fn LogAppend();
+    fn SetLogAppend();
+    fn LogCircular();
+    fn SetLogCircular();
+    fn LogOverwrite();
+    fn SetLogOverwrite();
+    fn Name();
+    fn SetName();
+    fn OutputLocation();
+    fn Index();
+    fn SetIndex();
+    fn Xml();
+    fn SetXml();
+    fn CreateOutputLocation();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IDataCollectorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataCollectorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataCollectorVtbl {
+        unsafe extern "system" fn DataCollectorSet<Impl: IDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, group: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDataCollectorSet<Impl: IDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, group: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DataCollectorType<Impl: IDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: *mut DataCollectorType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FileName<Impl: IDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetFileName<Impl: IDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FileNameFormat<Impl: IDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: *mut AutoPathFormat) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetFileNameFormat<Impl: IDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: AutoPathFormat) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FileNameFormatPattern<Impl: IDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pattern: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetFileNameFormatPattern<Impl: IDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pattern: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LatestOutputLocation<Impl: IDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLatestOutputLocation<Impl: IDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LogAppend<Impl: IDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, append: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLogAppend<Impl: IDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, append: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LogCircular<Impl: IDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, circular: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLogCircular<Impl: IDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, circular: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LogOverwrite<Impl: IDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, overwrite: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLogOverwrite<Impl: IDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, overwrite: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Name<Impl: IDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetName<Impl: IDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OutputLocation<Impl: IDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Index<Impl: IDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetIndex<Impl: IDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Xml<Impl: IDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xml: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetXml<Impl: IDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xml: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, validation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateOutputLocation<Impl: IDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, latest: i16, location: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            DataCollectorSet::<Impl, IMPL_OFFSET>,
+            SetDataCollectorSet::<Impl, IMPL_OFFSET>,
+            DataCollectorType::<Impl, IMPL_OFFSET>,
+            FileName::<Impl, IMPL_OFFSET>,
+            SetFileName::<Impl, IMPL_OFFSET>,
+            FileNameFormat::<Impl, IMPL_OFFSET>,
+            SetFileNameFormat::<Impl, IMPL_OFFSET>,
+            FileNameFormatPattern::<Impl, IMPL_OFFSET>,
+            SetFileNameFormatPattern::<Impl, IMPL_OFFSET>,
+            LatestOutputLocation::<Impl, IMPL_OFFSET>,
+            SetLatestOutputLocation::<Impl, IMPL_OFFSET>,
+            LogAppend::<Impl, IMPL_OFFSET>,
+            SetLogAppend::<Impl, IMPL_OFFSET>,
+            LogCircular::<Impl, IMPL_OFFSET>,
+            SetLogCircular::<Impl, IMPL_OFFSET>,
+            LogOverwrite::<Impl, IMPL_OFFSET>,
+            SetLogOverwrite::<Impl, IMPL_OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            OutputLocation::<Impl, IMPL_OFFSET>,
+            Index::<Impl, IMPL_OFFSET>,
+            SetIndex::<Impl, IMPL_OFFSET>,
+            Xml::<Impl, IMPL_OFFSET>,
+            SetXml::<Impl, IMPL_OFFSET>,
+            CreateOutputLocation::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDataCollector as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IDataCollectorCollectionImpl: Sized + IDispatchImpl {
+    fn Count();
+    fn Item();
+    fn _NewEnum();
+    fn Add();
+    fn Remove();
+    fn Clear();
+    fn AddRange();
+    fn CreateDataCollectorFromXml();
+    fn CreateDataCollector();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IDataCollectorCollectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataCollectorCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataCollectorCollectionVtbl {
+        unsafe extern "system" fn Count<Impl: IDataCollectorCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: IDataCollectorCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, collector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn _NewEnum<Impl: IDataCollectorCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Add<Impl: IDataCollectorCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, collector: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Remove<Impl: IDataCollectorCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, collector: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Clear<Impl: IDataCollectorCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddRange<Impl: IDataCollectorCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, collectors: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateDataCollectorFromXml<Impl: IDataCollectorCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrxml: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvalidation: *mut ::windows::core::RawPtr, pcollector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateDataCollector<Impl: IDataCollectorCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: DataCollectorType, collector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            Count::<Impl, IMPL_OFFSET>,
+            Item::<Impl, IMPL_OFFSET>,
+            _NewEnum::<Impl, IMPL_OFFSET>,
+            Add::<Impl, IMPL_OFFSET>,
+            Remove::<Impl, IMPL_OFFSET>,
+            Clear::<Impl, IMPL_OFFSET>,
+            AddRange::<Impl, IMPL_OFFSET>,
+            CreateDataCollectorFromXml::<Impl, IMPL_OFFSET>,
+            CreateDataCollector::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDataCollectorCollection as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IDataCollectorSetImpl: Sized + IDispatchImpl {
+    fn DataCollectors();
+    fn Duration();
+    fn SetDuration();
+    fn Description();
+    fn SetDescription();
+    fn DescriptionUnresolved();
+    fn DisplayName();
+    fn SetDisplayName();
+    fn DisplayNameUnresolved();
+    fn Keywords();
+    fn SetKeywords();
+    fn LatestOutputLocation();
+    fn SetLatestOutputLocation();
+    fn Name();
+    fn OutputLocation();
+    fn RootPath();
+    fn SetRootPath();
+    fn Segment();
+    fn SetSegment();
+    fn SegmentMaxDuration();
+    fn SetSegmentMaxDuration();
+    fn SegmentMaxSize();
+    fn SetSegmentMaxSize();
+    fn SerialNumber();
+    fn SetSerialNumber();
+    fn Server();
+    fn Status();
+    fn Subdirectory();
+    fn SetSubdirectory();
+    fn SubdirectoryFormat();
+    fn SetSubdirectoryFormat();
+    fn SubdirectoryFormatPattern();
+    fn SetSubdirectoryFormatPattern();
+    fn Task();
+    fn SetTask();
+    fn TaskRunAsSelf();
+    fn SetTaskRunAsSelf();
+    fn TaskArguments();
+    fn SetTaskArguments();
+    fn TaskUserTextArguments();
+    fn SetTaskUserTextArguments();
+    fn Schedules();
+    fn SchedulesEnabled();
+    fn SetSchedulesEnabled();
+    fn UserAccount();
+    fn Xml();
+    fn Security();
+    fn SetSecurity();
+    fn StopOnCompletion();
+    fn SetStopOnCompletion();
+    fn DataManager();
+    fn SetCredentials();
+    fn Query();
+    fn Commit();
+    fn Delete();
+    fn Start();
+    fn Stop();
+    fn SetXml();
+    fn SetValue();
+    fn GetValue();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IDataCollectorSetVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataCollectorSetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataCollectorSetVtbl {
+        unsafe extern "system" fn DataCollectors<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, collectors: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Duration<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, seconds: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDuration<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, seconds: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Description<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, description: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDescription<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, description: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DescriptionUnresolved<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, descr: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DisplayName<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displayname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDisplayName<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displayname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DisplayNameUnresolved<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Keywords<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keywords: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetKeywords<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keywords: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LatestOutputLocation<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLatestOutputLocation<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Name<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OutputLocation<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RootPath<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, folder: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRootPath<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, folder: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Segment<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, segment: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSegment<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, segment: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SegmentMaxDuration<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, seconds: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSegmentMaxDuration<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, seconds: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SegmentMaxSize<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSegmentMaxSize<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SerialNumber<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSerialNumber<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Server<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, server: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Status<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: *mut DataCollectorSetStatus) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Subdirectory<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, folder: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSubdirectory<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, folder: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SubdirectoryFormat<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: *mut AutoPathFormat) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSubdirectoryFormat<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: AutoPathFormat) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SubdirectoryFormatPattern<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pattern: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSubdirectoryFormatPattern<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pattern: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Task<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, task: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetTask<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, task: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TaskRunAsSelf<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, runasself: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetTaskRunAsSelf<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, runasself: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TaskArguments<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, task: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetTaskArguments<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, task: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TaskUserTextArguments<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, usertext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetTaskUserTextArguments<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, usertext: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Schedules<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppschedules: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SchedulesEnabled<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSchedulesEnabled<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UserAccount<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Xml<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xml: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Security<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsecurity: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSecurity<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsecurity: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn StopOnCompletion<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stop: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetStopOnCompletion<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stop: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DataManager<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datamanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetCredentials<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, user: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, password: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Query<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, server: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Commit<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, server: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, mode: CommitMode, validation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Delete<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Start<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, synchronous: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Stop<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, synchronous: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetXml<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xml: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, validation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetValue<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, value: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetValue<Impl: IDataCollectorSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, value: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            DataCollectors::<Impl, IMPL_OFFSET>,
+            Duration::<Impl, IMPL_OFFSET>,
+            SetDuration::<Impl, IMPL_OFFSET>,
+            Description::<Impl, IMPL_OFFSET>,
+            SetDescription::<Impl, IMPL_OFFSET>,
+            DescriptionUnresolved::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName::<Impl, IMPL_OFFSET>,
+            DisplayNameUnresolved::<Impl, IMPL_OFFSET>,
+            Keywords::<Impl, IMPL_OFFSET>,
+            SetKeywords::<Impl, IMPL_OFFSET>,
+            LatestOutputLocation::<Impl, IMPL_OFFSET>,
+            SetLatestOutputLocation::<Impl, IMPL_OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            OutputLocation::<Impl, IMPL_OFFSET>,
+            RootPath::<Impl, IMPL_OFFSET>,
+            SetRootPath::<Impl, IMPL_OFFSET>,
+            Segment::<Impl, IMPL_OFFSET>,
+            SetSegment::<Impl, IMPL_OFFSET>,
+            SegmentMaxDuration::<Impl, IMPL_OFFSET>,
+            SetSegmentMaxDuration::<Impl, IMPL_OFFSET>,
+            SegmentMaxSize::<Impl, IMPL_OFFSET>,
+            SetSegmentMaxSize::<Impl, IMPL_OFFSET>,
+            SerialNumber::<Impl, IMPL_OFFSET>,
+            SetSerialNumber::<Impl, IMPL_OFFSET>,
+            Server::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            Subdirectory::<Impl, IMPL_OFFSET>,
+            SetSubdirectory::<Impl, IMPL_OFFSET>,
+            SubdirectoryFormat::<Impl, IMPL_OFFSET>,
+            SetSubdirectoryFormat::<Impl, IMPL_OFFSET>,
+            SubdirectoryFormatPattern::<Impl, IMPL_OFFSET>,
+            SetSubdirectoryFormatPattern::<Impl, IMPL_OFFSET>,
+            Task::<Impl, IMPL_OFFSET>,
+            SetTask::<Impl, IMPL_OFFSET>,
+            TaskRunAsSelf::<Impl, IMPL_OFFSET>,
+            SetTaskRunAsSelf::<Impl, IMPL_OFFSET>,
+            TaskArguments::<Impl, IMPL_OFFSET>,
+            SetTaskArguments::<Impl, IMPL_OFFSET>,
+            TaskUserTextArguments::<Impl, IMPL_OFFSET>,
+            SetTaskUserTextArguments::<Impl, IMPL_OFFSET>,
+            Schedules::<Impl, IMPL_OFFSET>,
+            SchedulesEnabled::<Impl, IMPL_OFFSET>,
+            SetSchedulesEnabled::<Impl, IMPL_OFFSET>,
+            UserAccount::<Impl, IMPL_OFFSET>,
+            Xml::<Impl, IMPL_OFFSET>,
+            Security::<Impl, IMPL_OFFSET>,
+            SetSecurity::<Impl, IMPL_OFFSET>,
+            StopOnCompletion::<Impl, IMPL_OFFSET>,
+            SetStopOnCompletion::<Impl, IMPL_OFFSET>,
+            DataManager::<Impl, IMPL_OFFSET>,
+            SetCredentials::<Impl, IMPL_OFFSET>,
+            Query::<Impl, IMPL_OFFSET>,
+            Commit::<Impl, IMPL_OFFSET>,
+            Delete::<Impl, IMPL_OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
+            SetXml::<Impl, IMPL_OFFSET>,
+            SetValue::<Impl, IMPL_OFFSET>,
+            GetValue::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDataCollectorSet as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IDataCollectorSetCollectionImpl: Sized + IDispatchImpl {
+    fn Count();
+    fn Item();
+    fn _NewEnum();
+    fn Add();
+    fn Remove();
+    fn Clear();
+    fn AddRange();
+    fn GetDataCollectorSets();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IDataCollectorSetCollectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataCollectorSetCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataCollectorSetCollectionVtbl {
+        unsafe extern "system" fn Count<Impl: IDataCollectorSetCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: IDataCollectorSetCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, set: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn _NewEnum<Impl: IDataCollectorSetCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Add<Impl: IDataCollectorSetCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, set: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Remove<Impl: IDataCollectorSetCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, set: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Clear<Impl: IDataCollectorSetCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddRange<Impl: IDataCollectorSetCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sets: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDataCollectorSets<Impl: IDataCollectorSetCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, server: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, filter: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            Count::<Impl, IMPL_OFFSET>,
+            Item::<Impl, IMPL_OFFSET>,
+            _NewEnum::<Impl, IMPL_OFFSET>,
+            Add::<Impl, IMPL_OFFSET>,
+            Remove::<Impl, IMPL_OFFSET>,
+            Clear::<Impl, IMPL_OFFSET>,
+            AddRange::<Impl, IMPL_OFFSET>,
+            GetDataCollectorSets::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDataCollectorSetCollection as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IDataManagerImpl: Sized + IDispatchImpl {
+    fn Enabled();
+    fn SetEnabled();
+    fn CheckBeforeRunning();
+    fn SetCheckBeforeRunning();
+    fn MinFreeDisk();
+    fn SetMinFreeDisk();
+    fn MaxSize();
+    fn SetMaxSize();
+    fn MaxFolderCount();
+    fn SetMaxFolderCount();
+    fn ResourcePolicy();
+    fn SetResourcePolicy();
+    fn FolderActions();
+    fn ReportSchema();
+    fn SetReportSchema();
+    fn ReportFileName();
+    fn SetReportFileName();
+    fn RuleTargetFileName();
+    fn SetRuleTargetFileName();
+    fn EventsFileName();
+    fn SetEventsFileName();
+    fn Rules();
+    fn SetRules();
+    fn Run();
+    fn Extract();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IDataManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataManagerVtbl {
+        unsafe extern "system" fn Enabled<Impl: IDataManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetEnabled<Impl: IDataManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenabled: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CheckBeforeRunning<Impl: IDataManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfcheck: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetCheckBeforeRunning<Impl: IDataManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fcheck: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MinFreeDisk<Impl: IDataManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, minfreedisk: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetMinFreeDisk<Impl: IDataManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, minfreedisk: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MaxSize<Impl: IDataManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulmaxsize: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetMaxSize<Impl: IDataManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulmaxsize: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MaxFolderCount<Impl: IDataManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulmaxfoldercount: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetMaxFolderCount<Impl: IDataManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulmaxfoldercount: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ResourcePolicy<Impl: IDataManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppolicy: *mut ResourcePolicy) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetResourcePolicy<Impl: IDataManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, policy: ResourcePolicy) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FolderActions<Impl: IDataManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, actions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReportSchema<Impl: IDataManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reportschema: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetReportSchema<Impl: IDataManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reportschema: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReportFileName<Impl: IDataManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfilename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetReportFileName<Impl: IDataManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RuleTargetFileName<Impl: IDataManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRuleTargetFileName<Impl: IDataManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EventsFileName<Impl: IDataManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfilename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetEventsFileName<Impl: IDataManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Rules<Impl: IDataManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrxml: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRules<Impl: IDataManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrxml: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Run<Impl: IDataManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, steps: DataManagerSteps, bstrfolder: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, errors: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Extract<Impl: IDataManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cabfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, destinationpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            Enabled::<Impl, IMPL_OFFSET>,
+            SetEnabled::<Impl, IMPL_OFFSET>,
+            CheckBeforeRunning::<Impl, IMPL_OFFSET>,
+            SetCheckBeforeRunning::<Impl, IMPL_OFFSET>,
+            MinFreeDisk::<Impl, IMPL_OFFSET>,
+            SetMinFreeDisk::<Impl, IMPL_OFFSET>,
+            MaxSize::<Impl, IMPL_OFFSET>,
+            SetMaxSize::<Impl, IMPL_OFFSET>,
+            MaxFolderCount::<Impl, IMPL_OFFSET>,
+            SetMaxFolderCount::<Impl, IMPL_OFFSET>,
+            ResourcePolicy::<Impl, IMPL_OFFSET>,
+            SetResourcePolicy::<Impl, IMPL_OFFSET>,
+            FolderActions::<Impl, IMPL_OFFSET>,
+            ReportSchema::<Impl, IMPL_OFFSET>,
+            SetReportSchema::<Impl, IMPL_OFFSET>,
+            ReportFileName::<Impl, IMPL_OFFSET>,
+            SetReportFileName::<Impl, IMPL_OFFSET>,
+            RuleTargetFileName::<Impl, IMPL_OFFSET>,
+            SetRuleTargetFileName::<Impl, IMPL_OFFSET>,
+            EventsFileName::<Impl, IMPL_OFFSET>,
+            SetEventsFileName::<Impl, IMPL_OFFSET>,
+            Rules::<Impl, IMPL_OFFSET>,
+            SetRules::<Impl, IMPL_OFFSET>,
+            Run::<Impl, IMPL_OFFSET>,
+            Extract::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDataManager as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFolderActionImpl: Sized + IDispatchImpl {
+    fn Age();
+    fn SetAge();
+    fn Size();
+    fn SetSize();
+    fn Actions();
+    fn SetActions();
+    fn SendCabTo();
+    fn SetSendCabTo();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFolderActionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFolderActionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFolderActionVtbl {
+        unsafe extern "system" fn Age<Impl: IFolderActionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulage: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAge<Impl: IFolderActionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulage: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Size<Impl: IFolderActionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulage: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSize<Impl: IFolderActionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulage: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Actions<Impl: IFolderActionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, steps: *mut FolderActionSteps) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetActions<Impl: IFolderActionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, steps: FolderActionSteps) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SendCabTo<Impl: IFolderActionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdestination: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSendCabTo<Impl: IFolderActionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdestination: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            Age::<Impl, IMPL_OFFSET>,
+            SetAge::<Impl, IMPL_OFFSET>,
+            Size::<Impl, IMPL_OFFSET>,
+            SetSize::<Impl, IMPL_OFFSET>,
+            Actions::<Impl, IMPL_OFFSET>,
+            SetActions::<Impl, IMPL_OFFSET>,
+            SendCabTo::<Impl, IMPL_OFFSET>,
+            SetSendCabTo::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFolderAction as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFolderActionCollectionImpl: Sized + IDispatchImpl {
+    fn Count();
+    fn Item();
+    fn _NewEnum();
+    fn Add();
+    fn Remove();
+    fn Clear();
+    fn AddRange();
+    fn CreateFolderAction();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFolderActionCollectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFolderActionCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFolderActionCollectionVtbl {
+        unsafe extern "system" fn Count<Impl: IFolderActionCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: IFolderActionCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, action: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn _NewEnum<Impl: IFolderActionCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#enum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Add<Impl: IFolderActionCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, action: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Remove<Impl: IFolderActionCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Clear<Impl: IFolderActionCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddRange<Impl: IFolderActionCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, actions: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateFolderAction<Impl: IFolderActionCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, folderaction: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            Count::<Impl, IMPL_OFFSET>,
+            Item::<Impl, IMPL_OFFSET>,
+            _NewEnum::<Impl, IMPL_OFFSET>,
+            Add::<Impl, IMPL_OFFSET>,
+            Remove::<Impl, IMPL_OFFSET>,
+            Clear::<Impl, IMPL_OFFSET>,
+            AddRange::<Impl, IMPL_OFFSET>,
+            CreateFolderAction::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFolderActionCollection as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ILogFileItemImpl: Sized {
+    fn Path();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ILogFileItemVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILogFileItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILogFileItemVtbl {
+        unsafe extern "system" fn Path<Impl: ILogFileItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Path::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILogFileItem as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ILogFilesImpl: Sized + IDispatchImpl {
+    fn Count();
+    fn _NewEnum();
+    fn Item();
+    fn Add();
+    fn Remove();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ILogFilesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILogFilesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILogFilesVtbl {
+        unsafe extern "system" fn Count<Impl: ILogFilesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plong: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn _NewEnum<Impl: ILogFilesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppiunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: ILogFilesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppi: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Add<Impl: ILogFilesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pathname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppi: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Remove<Impl: ILogFilesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, Count::<Impl, IMPL_OFFSET>, _NewEnum::<Impl, IMPL_OFFSET>, Item::<Impl, IMPL_OFFSET>, Add::<Impl, IMPL_OFFSET>, Remove::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILogFiles as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IPerformanceCounterDataCollectorImpl: Sized + IDataCollectorImpl + IDispatchImpl {
+    fn DataSourceName();
+    fn SetDataSourceName();
+    fn PerformanceCounters();
+    fn SetPerformanceCounters();
+    fn LogFileFormat();
+    fn SetLogFileFormat();
+    fn SampleInterval();
+    fn SetSampleInterval();
+    fn SegmentMaxRecords();
+    fn SetSegmentMaxRecords();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IPerformanceCounterDataCollectorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerformanceCounterDataCollectorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerformanceCounterDataCollectorVtbl {
+        unsafe extern "system" fn DataSourceName<Impl: IPerformanceCounterDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dsn: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDataSourceName<Impl: IPerformanceCounterDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dsn: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PerformanceCounters<Impl: IPerformanceCounterDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, counters: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetPerformanceCounters<Impl: IPerformanceCounterDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, counters: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LogFileFormat<Impl: IPerformanceCounterDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: *mut FileFormat) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLogFileFormat<Impl: IPerformanceCounterDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: FileFormat) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SampleInterval<Impl: IPerformanceCounterDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interval: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSampleInterval<Impl: IPerformanceCounterDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interval: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SegmentMaxRecords<Impl: IPerformanceCounterDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, records: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSegmentMaxRecords<Impl: IPerformanceCounterDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, records: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            DataCollectorSet::<Impl, IMPL_OFFSET>,
+            SetDataCollectorSet::<Impl, IMPL_OFFSET>,
+            DataCollectorType::<Impl, IMPL_OFFSET>,
+            FileName::<Impl, IMPL_OFFSET>,
+            SetFileName::<Impl, IMPL_OFFSET>,
+            FileNameFormat::<Impl, IMPL_OFFSET>,
+            SetFileNameFormat::<Impl, IMPL_OFFSET>,
+            FileNameFormatPattern::<Impl, IMPL_OFFSET>,
+            SetFileNameFormatPattern::<Impl, IMPL_OFFSET>,
+            LatestOutputLocation::<Impl, IMPL_OFFSET>,
+            SetLatestOutputLocation::<Impl, IMPL_OFFSET>,
+            LogAppend::<Impl, IMPL_OFFSET>,
+            SetLogAppend::<Impl, IMPL_OFFSET>,
+            LogCircular::<Impl, IMPL_OFFSET>,
+            SetLogCircular::<Impl, IMPL_OFFSET>,
+            LogOverwrite::<Impl, IMPL_OFFSET>,
+            SetLogOverwrite::<Impl, IMPL_OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            OutputLocation::<Impl, IMPL_OFFSET>,
+            Index::<Impl, IMPL_OFFSET>,
+            SetIndex::<Impl, IMPL_OFFSET>,
+            Xml::<Impl, IMPL_OFFSET>,
+            SetXml::<Impl, IMPL_OFFSET>,
+            CreateOutputLocation::<Impl, IMPL_OFFSET>,
+            DataSourceName::<Impl, IMPL_OFFSET>,
+            SetDataSourceName::<Impl, IMPL_OFFSET>,
+            PerformanceCounters::<Impl, IMPL_OFFSET>,
+            SetPerformanceCounters::<Impl, IMPL_OFFSET>,
+            LogFileFormat::<Impl, IMPL_OFFSET>,
+            SetLogFileFormat::<Impl, IMPL_OFFSET>,
+            SampleInterval::<Impl, IMPL_OFFSET>,
+            SetSampleInterval::<Impl, IMPL_OFFSET>,
+            SegmentMaxRecords::<Impl, IMPL_OFFSET>,
+            SetSegmentMaxRecords::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerformanceCounterDataCollector as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IScheduleImpl: Sized + IDispatchImpl {
+    fn StartDate();
+    fn SetStartDate();
+    fn EndDate();
+    fn SetEndDate();
+    fn StartTime();
+    fn SetStartTime();
+    fn Days();
+    fn SetDays();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IScheduleVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScheduleImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScheduleVtbl {
+        unsafe extern "system" fn StartDate<Impl: IScheduleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, start: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetStartDate<Impl: IScheduleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, start: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EndDate<Impl: IScheduleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, end: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetEndDate<Impl: IScheduleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, end: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn StartTime<Impl: IScheduleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, start: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetStartTime<Impl: IScheduleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, start: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Days<Impl: IScheduleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, days: *mut WeekDays) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDays<Impl: IScheduleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, days: WeekDays) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            StartDate::<Impl, IMPL_OFFSET>,
+            SetStartDate::<Impl, IMPL_OFFSET>,
+            EndDate::<Impl, IMPL_OFFSET>,
+            SetEndDate::<Impl, IMPL_OFFSET>,
+            StartTime::<Impl, IMPL_OFFSET>,
+            SetStartTime::<Impl, IMPL_OFFSET>,
+            Days::<Impl, IMPL_OFFSET>,
+            SetDays::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISchedule as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IScheduleCollectionImpl: Sized + IDispatchImpl {
+    fn Count();
+    fn Item();
+    fn _NewEnum();
+    fn Add();
+    fn Remove();
+    fn Clear();
+    fn AddRange();
+    fn CreateSchedule();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IScheduleCollectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScheduleCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScheduleCollectionVtbl {
+        unsafe extern "system" fn Count<Impl: IScheduleCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: IScheduleCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppschedule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn _NewEnum<Impl: IScheduleCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ienum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Add<Impl: IScheduleCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pschedule: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Remove<Impl: IScheduleCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vschedule: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Clear<Impl: IScheduleCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddRange<Impl: IScheduleCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pschedules: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateSchedule<Impl: IScheduleCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, schedule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            Count::<Impl, IMPL_OFFSET>,
+            Item::<Impl, IMPL_OFFSET>,
+            _NewEnum::<Impl, IMPL_OFFSET>,
+            Add::<Impl, IMPL_OFFSET>,
+            Remove::<Impl, IMPL_OFFSET>,
+            Clear::<Impl, IMPL_OFFSET>,
+            AddRange::<Impl, IMPL_OFFSET>,
+            CreateSchedule::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IScheduleCollection as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+pub trait ISystemMonitorImpl: Sized {
+    fn Appearance();
+    fn SetAppearance();
+    fn BackColor();
+    fn SetBackColor();
+    fn BorderStyle();
+    fn SetBorderStyle();
+    fn ForeColor();
+    fn SetForeColor();
+    fn Font();
+    fn putref_Font();
+    fn Counters();
+    fn SetShowVerticalGrid();
+    fn ShowVerticalGrid();
+    fn SetShowHorizontalGrid();
+    fn ShowHorizontalGrid();
+    fn SetShowLegend();
+    fn ShowLegend();
+    fn SetShowScaleLabels();
+    fn ShowScaleLabels();
+    fn SetShowValueBar();
+    fn ShowValueBar();
+    fn SetMaximumScale();
+    fn MaximumScale();
+    fn SetMinimumScale();
+    fn MinimumScale();
+    fn SetUpdateInterval();
+    fn UpdateInterval();
+    fn SetDisplayType();
+    fn DisplayType();
+    fn SetManualUpdate();
+    fn ManualUpdate();
+    fn SetGraphTitle();
+    fn GraphTitle();
+    fn SetYAxisLabel();
+    fn YAxisLabel();
+    fn CollectSample();
+    fn UpdateGraph();
+    fn BrowseCounters();
+    fn DisplayProperties();
+    fn Counter();
+    fn AddCounter();
+    fn DeleteCounter();
+    fn BackColorCtl();
+    fn SetBackColorCtl();
+    fn SetLogFileName();
+    fn LogFileName();
+    fn SetLogViewStart();
+    fn LogViewStart();
+    fn SetLogViewStop();
+    fn LogViewStop();
+    fn GridColor();
+    fn SetGridColor();
+    fn TimeBarColor();
+    fn SetTimeBarColor();
+    fn Highlight();
+    fn SetHighlight();
+    fn ShowToolbar();
+    fn SetShowToolbar();
+    fn Paste();
+    fn Copy();
+    fn Reset();
+    fn SetReadOnly();
+    fn ReadOnly();
+    fn SetReportValueType();
+    fn ReportValueType();
+    fn SetMonitorDuplicateInstances();
+    fn MonitorDuplicateInstances();
+    fn SetDisplayFilter();
+    fn DisplayFilter();
+    fn LogFiles();
+    fn SetDataSourceType();
+    fn DataSourceType();
+    fn SetSqlDsnName();
+    fn SqlDsnName();
+    fn SetSqlLogSetName();
+    fn SqlLogSetName();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ISystemMonitorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMonitorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemMonitorVtbl {
+        unsafe extern "system" fn Appearance<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iappearance: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAppearance<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iappearance: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BackColor<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcolor: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetBackColor<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BorderStyle<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iborderstyle: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetBorderStyle<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iborderstyle: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ForeColor<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcolor: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetForeColor<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Font<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfont: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn putref_Font<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfont: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Counters<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppicounters: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetShowVerticalGrid<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ShowVerticalGrid<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetShowHorizontalGrid<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ShowHorizontalGrid<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetShowLegend<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ShowLegend<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetShowScaleLabels<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ShowScaleLabels<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetShowValueBar<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ShowValueBar<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetMaximumScale<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ivalue: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MaximumScale<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pivalue: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetMinimumScale<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ivalue: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MinimumScale<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pivalue: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetUpdateInterval<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fvalue: f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UpdateInterval<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfvalue: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDisplayType<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, edisplaytype: DisplayTypeConstants) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DisplayType<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pedisplaytype: *mut DisplayTypeConstants) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetManualUpdate<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ManualUpdate<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetGraphTitle<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstitle: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GraphTitle<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstitle: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetYAxisLabel<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstitle: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn YAxisLabel<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstitle: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CollectSample<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UpdateGraph<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BrowseCounters<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DisplayProperties<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Counter<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iindex: i32, ppicounter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddCounter<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bspath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppicounter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DeleteCounter<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pctr: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BackColorCtl<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcolor: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetBackColorCtl<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLogFileName<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bsfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LogFileName<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bsfilename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLogViewStart<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starttime: f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LogViewStart<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starttime: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLogViewStop<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stoptime: f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LogViewStop<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stoptime: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GridColor<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcolor: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetGridColor<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TimeBarColor<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcolor: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetTimeBarColor<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Highlight<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetHighlight<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ShowToolbar<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetShowToolbar<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Paste<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Copy<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Reset<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetReadOnly<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReadOnly<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetReportValueType<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ereportvaluetype: ReportValueTypeConstants) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReportValueType<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pereportvaluetype: *mut ReportValueTypeConstants) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetMonitorDuplicateInstances<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MonitorDuplicateInstances<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDisplayFilter<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ivalue: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DisplayFilter<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pivalue: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LogFiles<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppilogfiles: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDataSourceType<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, edatasourcetype: DataSourceTypeConstants) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DataSourceType<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pedatasourcetype: *mut DataSourceTypeConstants) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSqlDsnName<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bssqldsnname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SqlDsnName<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bssqldsnname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSqlLogSetName<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bssqllogsetname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SqlLogSetName<Impl: ISystemMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bssqllogsetname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            Appearance::<Impl, IMPL_OFFSET>,
+            SetAppearance::<Impl, IMPL_OFFSET>,
+            BackColor::<Impl, IMPL_OFFSET>,
+            SetBackColor::<Impl, IMPL_OFFSET>,
+            BorderStyle::<Impl, IMPL_OFFSET>,
+            SetBorderStyle::<Impl, IMPL_OFFSET>,
+            ForeColor::<Impl, IMPL_OFFSET>,
+            SetForeColor::<Impl, IMPL_OFFSET>,
+            Font::<Impl, IMPL_OFFSET>,
+            putref_Font::<Impl, IMPL_OFFSET>,
+            Counters::<Impl, IMPL_OFFSET>,
+            SetShowVerticalGrid::<Impl, IMPL_OFFSET>,
+            ShowVerticalGrid::<Impl, IMPL_OFFSET>,
+            SetShowHorizontalGrid::<Impl, IMPL_OFFSET>,
+            ShowHorizontalGrid::<Impl, IMPL_OFFSET>,
+            SetShowLegend::<Impl, IMPL_OFFSET>,
+            ShowLegend::<Impl, IMPL_OFFSET>,
+            SetShowScaleLabels::<Impl, IMPL_OFFSET>,
+            ShowScaleLabels::<Impl, IMPL_OFFSET>,
+            SetShowValueBar::<Impl, IMPL_OFFSET>,
+            ShowValueBar::<Impl, IMPL_OFFSET>,
+            SetMaximumScale::<Impl, IMPL_OFFSET>,
+            MaximumScale::<Impl, IMPL_OFFSET>,
+            SetMinimumScale::<Impl, IMPL_OFFSET>,
+            MinimumScale::<Impl, IMPL_OFFSET>,
+            SetUpdateInterval::<Impl, IMPL_OFFSET>,
+            UpdateInterval::<Impl, IMPL_OFFSET>,
+            SetDisplayType::<Impl, IMPL_OFFSET>,
+            DisplayType::<Impl, IMPL_OFFSET>,
+            SetManualUpdate::<Impl, IMPL_OFFSET>,
+            ManualUpdate::<Impl, IMPL_OFFSET>,
+            SetGraphTitle::<Impl, IMPL_OFFSET>,
+            GraphTitle::<Impl, IMPL_OFFSET>,
+            SetYAxisLabel::<Impl, IMPL_OFFSET>,
+            YAxisLabel::<Impl, IMPL_OFFSET>,
+            CollectSample::<Impl, IMPL_OFFSET>,
+            UpdateGraph::<Impl, IMPL_OFFSET>,
+            BrowseCounters::<Impl, IMPL_OFFSET>,
+            DisplayProperties::<Impl, IMPL_OFFSET>,
+            Counter::<Impl, IMPL_OFFSET>,
+            AddCounter::<Impl, IMPL_OFFSET>,
+            DeleteCounter::<Impl, IMPL_OFFSET>,
+            BackColorCtl::<Impl, IMPL_OFFSET>,
+            SetBackColorCtl::<Impl, IMPL_OFFSET>,
+            SetLogFileName::<Impl, IMPL_OFFSET>,
+            LogFileName::<Impl, IMPL_OFFSET>,
+            SetLogViewStart::<Impl, IMPL_OFFSET>,
+            LogViewStart::<Impl, IMPL_OFFSET>,
+            SetLogViewStop::<Impl, IMPL_OFFSET>,
+            LogViewStop::<Impl, IMPL_OFFSET>,
+            GridColor::<Impl, IMPL_OFFSET>,
+            SetGridColor::<Impl, IMPL_OFFSET>,
+            TimeBarColor::<Impl, IMPL_OFFSET>,
+            SetTimeBarColor::<Impl, IMPL_OFFSET>,
+            Highlight::<Impl, IMPL_OFFSET>,
+            SetHighlight::<Impl, IMPL_OFFSET>,
+            ShowToolbar::<Impl, IMPL_OFFSET>,
+            SetShowToolbar::<Impl, IMPL_OFFSET>,
+            Paste::<Impl, IMPL_OFFSET>,
+            Copy::<Impl, IMPL_OFFSET>,
+            Reset::<Impl, IMPL_OFFSET>,
+            SetReadOnly::<Impl, IMPL_OFFSET>,
+            ReadOnly::<Impl, IMPL_OFFSET>,
+            SetReportValueType::<Impl, IMPL_OFFSET>,
+            ReportValueType::<Impl, IMPL_OFFSET>,
+            SetMonitorDuplicateInstances::<Impl, IMPL_OFFSET>,
+            MonitorDuplicateInstances::<Impl, IMPL_OFFSET>,
+            SetDisplayFilter::<Impl, IMPL_OFFSET>,
+            DisplayFilter::<Impl, IMPL_OFFSET>,
+            LogFiles::<Impl, IMPL_OFFSET>,
+            SetDataSourceType::<Impl, IMPL_OFFSET>,
+            DataSourceType::<Impl, IMPL_OFFSET>,
+            SetSqlDsnName::<Impl, IMPL_OFFSET>,
+            SqlDsnName::<Impl, IMPL_OFFSET>,
+            SetSqlLogSetName::<Impl, IMPL_OFFSET>,
+            SqlLogSetName::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemMonitor as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+pub trait ISystemMonitor2Impl: Sized + ISystemMonitorImpl {
+    fn SetEnableDigitGrouping();
+    fn EnableDigitGrouping();
+    fn SetEnableToolTips();
+    fn EnableToolTips();
+    fn SetShowTimeAxisLabels();
+    fn ShowTimeAxisLabels();
+    fn SetChartScroll();
+    fn ChartScroll();
+    fn SetDataPointCount();
+    fn DataPointCount();
+    fn ScaleToFit();
+    fn SaveAs();
+    fn Relog();
+    fn ClearData();
+    fn LogSourceStartTime();
+    fn LogSourceStopTime();
+    fn SetLogViewRange();
+    fn GetLogViewRange();
+    fn BatchingLock();
+    fn LoadSettings();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl ISystemMonitor2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMonitor2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemMonitor2Vtbl {
+        unsafe extern "system" fn SetEnableDigitGrouping<Impl: ISystemMonitor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnableDigitGrouping<Impl: ISystemMonitor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetEnableToolTips<Impl: ISystemMonitor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnableToolTips<Impl: ISystemMonitor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetShowTimeAxisLabels<Impl: ISystemMonitor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ShowTimeAxisLabels<Impl: ISystemMonitor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetChartScroll<Impl: ISystemMonitor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bscroll: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ChartScroll<Impl: ISystemMonitor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbscroll: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDataPointCount<Impl: ISystemMonitor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inewcount: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DataPointCount<Impl: ISystemMonitor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidatapointcount: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ScaleToFit<Impl: ISystemMonitor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bselectedcountersonly: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SaveAs<Impl: ISystemMonitor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, esysmonfiletype: SysmonFileType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Relog<Impl: ISystemMonitor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, esysmonfiletype: SysmonFileType, ifilter: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ClearData<Impl: ISystemMonitor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LogSourceStartTime<Impl: ISystemMonitor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdate: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LogSourceStopTime<Impl: ISystemMonitor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdate: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLogViewRange<Impl: ISystemMonitor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starttime: f64, stoptime: f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetLogViewRange<Impl: ISystemMonitor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starttime: *mut f64, stoptime: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BatchingLock<Impl: ISystemMonitor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flock: i16, ebatchreason: SysmonBatchReason) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LoadSettings<Impl: ISystemMonitor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsettingfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            Appearance::<Impl, IMPL_OFFSET>,
+            SetAppearance::<Impl, IMPL_OFFSET>,
+            BackColor::<Impl, IMPL_OFFSET>,
+            SetBackColor::<Impl, IMPL_OFFSET>,
+            BorderStyle::<Impl, IMPL_OFFSET>,
+            SetBorderStyle::<Impl, IMPL_OFFSET>,
+            ForeColor::<Impl, IMPL_OFFSET>,
+            SetForeColor::<Impl, IMPL_OFFSET>,
+            Font::<Impl, IMPL_OFFSET>,
+            putref_Font::<Impl, IMPL_OFFSET>,
+            Counters::<Impl, IMPL_OFFSET>,
+            SetShowVerticalGrid::<Impl, IMPL_OFFSET>,
+            ShowVerticalGrid::<Impl, IMPL_OFFSET>,
+            SetShowHorizontalGrid::<Impl, IMPL_OFFSET>,
+            ShowHorizontalGrid::<Impl, IMPL_OFFSET>,
+            SetShowLegend::<Impl, IMPL_OFFSET>,
+            ShowLegend::<Impl, IMPL_OFFSET>,
+            SetShowScaleLabels::<Impl, IMPL_OFFSET>,
+            ShowScaleLabels::<Impl, IMPL_OFFSET>,
+            SetShowValueBar::<Impl, IMPL_OFFSET>,
+            ShowValueBar::<Impl, IMPL_OFFSET>,
+            SetMaximumScale::<Impl, IMPL_OFFSET>,
+            MaximumScale::<Impl, IMPL_OFFSET>,
+            SetMinimumScale::<Impl, IMPL_OFFSET>,
+            MinimumScale::<Impl, IMPL_OFFSET>,
+            SetUpdateInterval::<Impl, IMPL_OFFSET>,
+            UpdateInterval::<Impl, IMPL_OFFSET>,
+            SetDisplayType::<Impl, IMPL_OFFSET>,
+            DisplayType::<Impl, IMPL_OFFSET>,
+            SetManualUpdate::<Impl, IMPL_OFFSET>,
+            ManualUpdate::<Impl, IMPL_OFFSET>,
+            SetGraphTitle::<Impl, IMPL_OFFSET>,
+            GraphTitle::<Impl, IMPL_OFFSET>,
+            SetYAxisLabel::<Impl, IMPL_OFFSET>,
+            YAxisLabel::<Impl, IMPL_OFFSET>,
+            CollectSample::<Impl, IMPL_OFFSET>,
+            UpdateGraph::<Impl, IMPL_OFFSET>,
+            BrowseCounters::<Impl, IMPL_OFFSET>,
+            DisplayProperties::<Impl, IMPL_OFFSET>,
+            Counter::<Impl, IMPL_OFFSET>,
+            AddCounter::<Impl, IMPL_OFFSET>,
+            DeleteCounter::<Impl, IMPL_OFFSET>,
+            BackColorCtl::<Impl, IMPL_OFFSET>,
+            SetBackColorCtl::<Impl, IMPL_OFFSET>,
+            SetLogFileName::<Impl, IMPL_OFFSET>,
+            LogFileName::<Impl, IMPL_OFFSET>,
+            SetLogViewStart::<Impl, IMPL_OFFSET>,
+            LogViewStart::<Impl, IMPL_OFFSET>,
+            SetLogViewStop::<Impl, IMPL_OFFSET>,
+            LogViewStop::<Impl, IMPL_OFFSET>,
+            GridColor::<Impl, IMPL_OFFSET>,
+            SetGridColor::<Impl, IMPL_OFFSET>,
+            TimeBarColor::<Impl, IMPL_OFFSET>,
+            SetTimeBarColor::<Impl, IMPL_OFFSET>,
+            Highlight::<Impl, IMPL_OFFSET>,
+            SetHighlight::<Impl, IMPL_OFFSET>,
+            ShowToolbar::<Impl, IMPL_OFFSET>,
+            SetShowToolbar::<Impl, IMPL_OFFSET>,
+            Paste::<Impl, IMPL_OFFSET>,
+            Copy::<Impl, IMPL_OFFSET>,
+            Reset::<Impl, IMPL_OFFSET>,
+            SetReadOnly::<Impl, IMPL_OFFSET>,
+            ReadOnly::<Impl, IMPL_OFFSET>,
+            SetReportValueType::<Impl, IMPL_OFFSET>,
+            ReportValueType::<Impl, IMPL_OFFSET>,
+            SetMonitorDuplicateInstances::<Impl, IMPL_OFFSET>,
+            MonitorDuplicateInstances::<Impl, IMPL_OFFSET>,
+            SetDisplayFilter::<Impl, IMPL_OFFSET>,
+            DisplayFilter::<Impl, IMPL_OFFSET>,
+            LogFiles::<Impl, IMPL_OFFSET>,
+            SetDataSourceType::<Impl, IMPL_OFFSET>,
+            DataSourceType::<Impl, IMPL_OFFSET>,
+            SetSqlDsnName::<Impl, IMPL_OFFSET>,
+            SqlDsnName::<Impl, IMPL_OFFSET>,
+            SetSqlLogSetName::<Impl, IMPL_OFFSET>,
+            SqlLogSetName::<Impl, IMPL_OFFSET>,
+            SetEnableDigitGrouping::<Impl, IMPL_OFFSET>,
+            EnableDigitGrouping::<Impl, IMPL_OFFSET>,
+            SetEnableToolTips::<Impl, IMPL_OFFSET>,
+            EnableToolTips::<Impl, IMPL_OFFSET>,
+            SetShowTimeAxisLabels::<Impl, IMPL_OFFSET>,
+            ShowTimeAxisLabels::<Impl, IMPL_OFFSET>,
+            SetChartScroll::<Impl, IMPL_OFFSET>,
+            ChartScroll::<Impl, IMPL_OFFSET>,
+            SetDataPointCount::<Impl, IMPL_OFFSET>,
+            DataPointCount::<Impl, IMPL_OFFSET>,
+            ScaleToFit::<Impl, IMPL_OFFSET>,
+            SaveAs::<Impl, IMPL_OFFSET>,
+            Relog::<Impl, IMPL_OFFSET>,
+            ClearData::<Impl, IMPL_OFFSET>,
+            LogSourceStartTime::<Impl, IMPL_OFFSET>,
+            LogSourceStopTime::<Impl, IMPL_OFFSET>,
+            SetLogViewRange::<Impl, IMPL_OFFSET>,
+            GetLogViewRange::<Impl, IMPL_OFFSET>,
+            BatchingLock::<Impl, IMPL_OFFSET>,
+            LoadSettings::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemMonitor2 as ::windows::core::Interface>::IID
+    }
+}
+pub trait ISystemMonitorEventsImpl: Sized {
+    fn OnCounterSelected();
+    fn OnCounterAdded();
+    fn OnCounterDeleted();
+    fn OnSampleCollected();
+    fn OnDblClick();
+}
+impl ISystemMonitorEventsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISystemMonitorEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISystemMonitorEventsVtbl {
+        unsafe extern "system" fn OnCounterSelected<Impl: ISystemMonitorEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnCounterAdded<Impl: ISystemMonitorEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnCounterDeleted<Impl: ISystemMonitorEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnSampleCollected<Impl: ISystemMonitorEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnDblClick<Impl: ISystemMonitorEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnCounterSelected::<Impl, IMPL_OFFSET>, OnCounterAdded::<Impl, IMPL_OFFSET>, OnCounterDeleted::<Impl, IMPL_OFFSET>, OnSampleCollected::<Impl, IMPL_OFFSET>, OnDblClick::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISystemMonitorEvents as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ITraceDataCollectorImpl: Sized + IDataCollectorImpl + IDispatchImpl {
+    fn BufferSize();
+    fn SetBufferSize();
+    fn BuffersLost();
+    fn SetBuffersLost();
+    fn BuffersWritten();
+    fn SetBuffersWritten();
+    fn ClockType();
+    fn SetClockType();
+    fn EventsLost();
+    fn SetEventsLost();
+    fn ExtendedModes();
+    fn SetExtendedModes();
+    fn FlushTimer();
+    fn SetFlushTimer();
+    fn FreeBuffers();
+    fn SetFreeBuffers();
+    fn Guid();
+    fn SetGuid();
+    fn IsKernelTrace();
+    fn MaximumBuffers();
+    fn SetMaximumBuffers();
+    fn MinimumBuffers();
+    fn SetMinimumBuffers();
+    fn NumberOfBuffers();
+    fn SetNumberOfBuffers();
+    fn PreallocateFile();
+    fn SetPreallocateFile();
+    fn ProcessMode();
+    fn SetProcessMode();
+    fn RealTimeBuffersLost();
+    fn SetRealTimeBuffersLost();
+    fn SessionId();
+    fn SetSessionId();
+    fn SessionName();
+    fn SetSessionName();
+    fn SessionThreadId();
+    fn SetSessionThreadId();
+    fn StreamMode();
+    fn SetStreamMode();
+    fn TraceDataProviders();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ITraceDataCollectorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITraceDataCollectorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITraceDataCollectorVtbl {
+        unsafe extern "system" fn BufferSize<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetBufferSize<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BuffersLost<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffers: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetBuffersLost<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffers: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BuffersWritten<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffers: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetBuffersWritten<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffers: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ClockType<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clock: *mut ClockType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetClockType<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clock: ClockType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EventsLost<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, events: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetEventsLost<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, events: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ExtendedModes<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetExtendedModes<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FlushTimer<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, seconds: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetFlushTimer<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, seconds: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FreeBuffers<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffers: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetFreeBuffers<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffers: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Guid<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetGuid<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsKernelTrace<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, kernel: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MaximumBuffers<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffers: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetMaximumBuffers<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffers: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MinimumBuffers<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffers: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetMinimumBuffers<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffers: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn NumberOfBuffers<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffers: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetNumberOfBuffers<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffers: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PreallocateFile<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allocate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetPreallocateFile<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allocate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ProcessMode<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, process: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetProcessMode<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, process: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RealTimeBuffersLost<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffers: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRealTimeBuffersLost<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffers: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SessionId<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSessionId<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SessionName<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSessionName<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SessionThreadId<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tid: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSessionThreadId<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tid: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn StreamMode<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: *mut StreamMode) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetStreamMode<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mode: StreamMode) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TraceDataProviders<Impl: ITraceDataCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providers: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            DataCollectorSet::<Impl, IMPL_OFFSET>,
+            SetDataCollectorSet::<Impl, IMPL_OFFSET>,
+            DataCollectorType::<Impl, IMPL_OFFSET>,
+            FileName::<Impl, IMPL_OFFSET>,
+            SetFileName::<Impl, IMPL_OFFSET>,
+            FileNameFormat::<Impl, IMPL_OFFSET>,
+            SetFileNameFormat::<Impl, IMPL_OFFSET>,
+            FileNameFormatPattern::<Impl, IMPL_OFFSET>,
+            SetFileNameFormatPattern::<Impl, IMPL_OFFSET>,
+            LatestOutputLocation::<Impl, IMPL_OFFSET>,
+            SetLatestOutputLocation::<Impl, IMPL_OFFSET>,
+            LogAppend::<Impl, IMPL_OFFSET>,
+            SetLogAppend::<Impl, IMPL_OFFSET>,
+            LogCircular::<Impl, IMPL_OFFSET>,
+            SetLogCircular::<Impl, IMPL_OFFSET>,
+            LogOverwrite::<Impl, IMPL_OFFSET>,
+            SetLogOverwrite::<Impl, IMPL_OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            OutputLocation::<Impl, IMPL_OFFSET>,
+            Index::<Impl, IMPL_OFFSET>,
+            SetIndex::<Impl, IMPL_OFFSET>,
+            Xml::<Impl, IMPL_OFFSET>,
+            SetXml::<Impl, IMPL_OFFSET>,
+            CreateOutputLocation::<Impl, IMPL_OFFSET>,
+            BufferSize::<Impl, IMPL_OFFSET>,
+            SetBufferSize::<Impl, IMPL_OFFSET>,
+            BuffersLost::<Impl, IMPL_OFFSET>,
+            SetBuffersLost::<Impl, IMPL_OFFSET>,
+            BuffersWritten::<Impl, IMPL_OFFSET>,
+            SetBuffersWritten::<Impl, IMPL_OFFSET>,
+            ClockType::<Impl, IMPL_OFFSET>,
+            SetClockType::<Impl, IMPL_OFFSET>,
+            EventsLost::<Impl, IMPL_OFFSET>,
+            SetEventsLost::<Impl, IMPL_OFFSET>,
+            ExtendedModes::<Impl, IMPL_OFFSET>,
+            SetExtendedModes::<Impl, IMPL_OFFSET>,
+            FlushTimer::<Impl, IMPL_OFFSET>,
+            SetFlushTimer::<Impl, IMPL_OFFSET>,
+            FreeBuffers::<Impl, IMPL_OFFSET>,
+            SetFreeBuffers::<Impl, IMPL_OFFSET>,
+            Guid::<Impl, IMPL_OFFSET>,
+            SetGuid::<Impl, IMPL_OFFSET>,
+            IsKernelTrace::<Impl, IMPL_OFFSET>,
+            MaximumBuffers::<Impl, IMPL_OFFSET>,
+            SetMaximumBuffers::<Impl, IMPL_OFFSET>,
+            MinimumBuffers::<Impl, IMPL_OFFSET>,
+            SetMinimumBuffers::<Impl, IMPL_OFFSET>,
+            NumberOfBuffers::<Impl, IMPL_OFFSET>,
+            SetNumberOfBuffers::<Impl, IMPL_OFFSET>,
+            PreallocateFile::<Impl, IMPL_OFFSET>,
+            SetPreallocateFile::<Impl, IMPL_OFFSET>,
+            ProcessMode::<Impl, IMPL_OFFSET>,
+            SetProcessMode::<Impl, IMPL_OFFSET>,
+            RealTimeBuffersLost::<Impl, IMPL_OFFSET>,
+            SetRealTimeBuffersLost::<Impl, IMPL_OFFSET>,
+            SessionId::<Impl, IMPL_OFFSET>,
+            SetSessionId::<Impl, IMPL_OFFSET>,
+            SessionName::<Impl, IMPL_OFFSET>,
+            SetSessionName::<Impl, IMPL_OFFSET>,
+            SessionThreadId::<Impl, IMPL_OFFSET>,
+            SetSessionThreadId::<Impl, IMPL_OFFSET>,
+            StreamMode::<Impl, IMPL_OFFSET>,
+            SetStreamMode::<Impl, IMPL_OFFSET>,
+            TraceDataProviders::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITraceDataCollector as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ITraceDataProviderImpl: Sized + IDispatchImpl {
+    fn DisplayName();
+    fn SetDisplayName();
+    fn Guid();
+    fn SetGuid();
+    fn Level();
+    fn KeywordsAny();
+    fn KeywordsAll();
+    fn Properties();
+    fn FilterEnabled();
+    fn SetFilterEnabled();
+    fn FilterType();
+    fn SetFilterType();
+    fn FilterData();
+    fn SetFilterData();
+    fn Query();
+    fn Resolve();
+    fn SetSecurity();
+    fn GetSecurity();
+    fn GetRegisteredProcesses();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ITraceDataProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITraceDataProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITraceDataProviderVtbl {
+        unsafe extern "system" fn DisplayName<Impl: ITraceDataProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDisplayName<Impl: ITraceDataProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Guid<Impl: ITraceDataProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetGuid<Impl: ITraceDataProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Level<Impl: ITraceDataProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pplevel: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn KeywordsAny<Impl: ITraceDataProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppkeywords: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn KeywordsAll<Impl: ITraceDataProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppkeywords: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Properties<Impl: ITraceDataProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FilterEnabled<Impl: ITraceDataProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filterenabled: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetFilterEnabled<Impl: ITraceDataProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filterenabled: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FilterType<Impl: ITraceDataProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pultype: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetFilterType<Impl: ITraceDataProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ultype: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FilterData<Impl: ITraceDataProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdata: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetFilterData<Impl: ITraceDataProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *const super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Query<Impl: ITraceDataProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrserver: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Resolve<Impl: ITraceDataProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfrom: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSecurity<Impl: ITraceDataProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sddl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSecurity<Impl: ITraceDataProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, securityinfo: u32, sddl: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetRegisteredProcesses<Impl: ITraceDataProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, processes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            DisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName::<Impl, IMPL_OFFSET>,
+            Guid::<Impl, IMPL_OFFSET>,
+            SetGuid::<Impl, IMPL_OFFSET>,
+            Level::<Impl, IMPL_OFFSET>,
+            KeywordsAny::<Impl, IMPL_OFFSET>,
+            KeywordsAll::<Impl, IMPL_OFFSET>,
+            Properties::<Impl, IMPL_OFFSET>,
+            FilterEnabled::<Impl, IMPL_OFFSET>,
+            SetFilterEnabled::<Impl, IMPL_OFFSET>,
+            FilterType::<Impl, IMPL_OFFSET>,
+            SetFilterType::<Impl, IMPL_OFFSET>,
+            FilterData::<Impl, IMPL_OFFSET>,
+            SetFilterData::<Impl, IMPL_OFFSET>,
+            Query::<Impl, IMPL_OFFSET>,
+            Resolve::<Impl, IMPL_OFFSET>,
+            SetSecurity::<Impl, IMPL_OFFSET>,
+            GetSecurity::<Impl, IMPL_OFFSET>,
+            GetRegisteredProcesses::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITraceDataProvider as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ITraceDataProviderCollectionImpl: Sized + IDispatchImpl {
+    fn Count();
+    fn Item();
+    fn _NewEnum();
+    fn Add();
+    fn Remove();
+    fn Clear();
+    fn AddRange();
+    fn CreateTraceDataProvider();
+    fn GetTraceDataProviders();
+    fn GetTraceDataProvidersByProcess();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ITraceDataProviderCollectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITraceDataProviderCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITraceDataProviderCollectionVtbl {
+        unsafe extern "system" fn Count<Impl: ITraceDataProviderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: ITraceDataProviderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppprovider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn _NewEnum<Impl: ITraceDataProviderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Add<Impl: ITraceDataProviderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprovider: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Remove<Impl: ITraceDataProviderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vprovider: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Clear<Impl: ITraceDataProviderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddRange<Impl: ITraceDataProviderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, providers: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateTraceDataProvider<Impl: ITraceDataProviderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, provider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetTraceDataProviders<Impl: ITraceDataProviderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, server: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetTraceDataProvidersByProcess<Impl: ITraceDataProviderCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, server: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pid: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            Count::<Impl, IMPL_OFFSET>,
+            Item::<Impl, IMPL_OFFSET>,
+            _NewEnum::<Impl, IMPL_OFFSET>,
+            Add::<Impl, IMPL_OFFSET>,
+            Remove::<Impl, IMPL_OFFSET>,
+            Clear::<Impl, IMPL_OFFSET>,
+            AddRange::<Impl, IMPL_OFFSET>,
+            CreateTraceDataProvider::<Impl, IMPL_OFFSET>,
+            GetTraceDataProviders::<Impl, IMPL_OFFSET>,
+            GetTraceDataProvidersByProcess::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITraceDataProviderCollection as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IValueMapImpl: Sized + IDispatchImpl {
+    fn Count();
+    fn Item();
+    fn _NewEnum();
+    fn Description();
+    fn SetDescription();
+    fn Value();
+    fn SetValue();
+    fn ValueMapType();
+    fn SetValueMapType();
+    fn Add();
+    fn Remove();
+    fn Clear();
+    fn AddRange();
+    fn CreateValueMapItem();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IValueMapVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IValueMapImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IValueMapVtbl {
+        unsafe extern "system" fn Count<Impl: IValueMapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: IValueMapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: ::core::mem::ManuallyDrop<super::Com::VARIANT>, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn _NewEnum<Impl: IValueMapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Description<Impl: IValueMapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, description: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDescription<Impl: IValueMapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, description: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Value<Impl: IValueMapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetValue<Impl: IValueMapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ValueMapType<Impl: IValueMapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: *mut ValueMapType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetValueMapType<Impl: IValueMapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ValueMapType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Add<Impl: IValueMapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Remove<Impl: IValueMapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Clear<Impl: IValueMapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddRange<Impl: IValueMapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, map: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateValueMapItem<Impl: IValueMapImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            Count::<Impl, IMPL_OFFSET>,
+            Item::<Impl, IMPL_OFFSET>,
+            _NewEnum::<Impl, IMPL_OFFSET>,
+            Description::<Impl, IMPL_OFFSET>,
+            SetDescription::<Impl, IMPL_OFFSET>,
+            Value::<Impl, IMPL_OFFSET>,
+            SetValue::<Impl, IMPL_OFFSET>,
+            ValueMapType::<Impl, IMPL_OFFSET>,
+            SetValueMapType::<Impl, IMPL_OFFSET>,
+            Add::<Impl, IMPL_OFFSET>,
+            Remove::<Impl, IMPL_OFFSET>,
+            Clear::<Impl, IMPL_OFFSET>,
+            AddRange::<Impl, IMPL_OFFSET>,
+            CreateValueMapItem::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IValueMap as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IValueMapItemImpl: Sized + IDispatchImpl {
+    fn Description();
+    fn SetDescription();
+    fn Enabled();
+    fn SetEnabled();
+    fn Key();
+    fn SetKey();
+    fn Value();
+    fn SetValue();
+    fn ValueMapType();
+    fn SetValueMapType();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IValueMapItemVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IValueMapItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IValueMapItemVtbl {
+        unsafe extern "system" fn Description<Impl: IValueMapItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, description: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDescription<Impl: IValueMapItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, description: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Enabled<Impl: IValueMapItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetEnabled<Impl: IValueMapItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enabled: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Key<Impl: IValueMapItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetKey<Impl: IValueMapItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Value<Impl: IValueMapItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetValue<Impl: IValueMapItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ValueMapType<Impl: IValueMapItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: *mut ValueMapType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetValueMapType<Impl: IValueMapItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ValueMapType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            Description::<Impl, IMPL_OFFSET>,
+            SetDescription::<Impl, IMPL_OFFSET>,
+            Enabled::<Impl, IMPL_OFFSET>,
+            SetEnabled::<Impl, IMPL_OFFSET>,
+            Key::<Impl, IMPL_OFFSET>,
+            SetKey::<Impl, IMPL_OFFSET>,
+            Value::<Impl, IMPL_OFFSET>,
+            SetValue::<Impl, IMPL_OFFSET>,
+            ValueMapType::<Impl, IMPL_OFFSET>,
+            SetValueMapType::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IValueMapItem as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait _ICounterItemUnionImpl: Sized {
+    fn Value();
+    fn SetColor();
+    fn Color();
+    fn SetWidth();
+    fn Width();
+    fn SetLineStyle();
+    fn LineStyle();
+    fn SetScaleFactor();
+    fn ScaleFactor();
+    fn Path();
+    fn GetValue();
+    fn GetStatistics();
+    fn SetSelected();
+    fn Selected();
+    fn SetVisible();
+    fn Visible();
+    fn GetDataAt();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl _ICounterItemUnionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _ICounterItemUnionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> _ICounterItemUnionVtbl {
+        unsafe extern "system" fn Value<Impl: _ICounterItemUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdblvalue: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetColor<Impl: _ICounterItemUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Color<Impl: _ICounterItemUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcolor: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetWidth<Impl: _ICounterItemUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iwidth: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Width<Impl: _ICounterItemUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pivalue: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLineStyle<Impl: _ICounterItemUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ilinestyle: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LineStyle<Impl: _ICounterItemUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pivalue: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetScaleFactor<Impl: _ICounterItemUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iscale: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ScaleFactor<Impl: _ICounterItemUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pivalue: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Path<Impl: _ICounterItemUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetValue<Impl: _ICounterItemUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut f64, status: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetStatistics<Impl: _ICounterItemUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, max: *mut f64, min: *mut f64, avg: *mut f64, status: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSelected<Impl: _ICounterItemUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Selected<Impl: _ICounterItemUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetVisible<Impl: _ICounterItemUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Visible<Impl: _ICounterItemUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDataAt<Impl: _ICounterItemUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iindex: i32, iwhich: SysmonDataType, pvariant: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            Value::<Impl, IMPL_OFFSET>,
+            SetColor::<Impl, IMPL_OFFSET>,
+            Color::<Impl, IMPL_OFFSET>,
+            SetWidth::<Impl, IMPL_OFFSET>,
+            Width::<Impl, IMPL_OFFSET>,
+            SetLineStyle::<Impl, IMPL_OFFSET>,
+            LineStyle::<Impl, IMPL_OFFSET>,
+            SetScaleFactor::<Impl, IMPL_OFFSET>,
+            ScaleFactor::<Impl, IMPL_OFFSET>,
+            Path::<Impl, IMPL_OFFSET>,
+            GetValue::<Impl, IMPL_OFFSET>,
+            GetStatistics::<Impl, IMPL_OFFSET>,
+            SetSelected::<Impl, IMPL_OFFSET>,
+            Selected::<Impl, IMPL_OFFSET>,
+            SetVisible::<Impl, IMPL_OFFSET>,
+            Visible::<Impl, IMPL_OFFSET>,
+            GetDataAt::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<_ICounterItemUnion as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+pub trait _ISystemMonitorUnionImpl: Sized {
+    fn Appearance();
+    fn SetAppearance();
+    fn BackColor();
+    fn SetBackColor();
+    fn BorderStyle();
+    fn SetBorderStyle();
+    fn ForeColor();
+    fn SetForeColor();
+    fn Font();
+    fn putref_Font();
+    fn Counters();
+    fn SetShowVerticalGrid();
+    fn ShowVerticalGrid();
+    fn SetShowHorizontalGrid();
+    fn ShowHorizontalGrid();
+    fn SetShowLegend();
+    fn ShowLegend();
+    fn SetShowScaleLabels();
+    fn ShowScaleLabels();
+    fn SetShowValueBar();
+    fn ShowValueBar();
+    fn SetMaximumScale();
+    fn MaximumScale();
+    fn SetMinimumScale();
+    fn MinimumScale();
+    fn SetUpdateInterval();
+    fn UpdateInterval();
+    fn SetDisplayType();
+    fn DisplayType();
+    fn SetManualUpdate();
+    fn ManualUpdate();
+    fn SetGraphTitle();
+    fn GraphTitle();
+    fn SetYAxisLabel();
+    fn YAxisLabel();
+    fn CollectSample();
+    fn UpdateGraph();
+    fn BrowseCounters();
+    fn DisplayProperties();
+    fn Counter();
+    fn AddCounter();
+    fn DeleteCounter();
+    fn BackColorCtl();
+    fn SetBackColorCtl();
+    fn SetLogFileName();
+    fn LogFileName();
+    fn SetLogViewStart();
+    fn LogViewStart();
+    fn SetLogViewStop();
+    fn LogViewStop();
+    fn GridColor();
+    fn SetGridColor();
+    fn TimeBarColor();
+    fn SetTimeBarColor();
+    fn Highlight();
+    fn SetHighlight();
+    fn ShowToolbar();
+    fn SetShowToolbar();
+    fn Paste();
+    fn Copy();
+    fn Reset();
+    fn SetReadOnly();
+    fn ReadOnly();
+    fn SetReportValueType();
+    fn ReportValueType();
+    fn SetMonitorDuplicateInstances();
+    fn MonitorDuplicateInstances();
+    fn SetDisplayFilter();
+    fn DisplayFilter();
+    fn LogFiles();
+    fn SetDataSourceType();
+    fn DataSourceType();
+    fn SetSqlDsnName();
+    fn SqlDsnName();
+    fn SetSqlLogSetName();
+    fn SqlLogSetName();
+    fn SetEnableDigitGrouping();
+    fn EnableDigitGrouping();
+    fn SetEnableToolTips();
+    fn EnableToolTips();
+    fn SetShowTimeAxisLabels();
+    fn ShowTimeAxisLabels();
+    fn SetChartScroll();
+    fn ChartScroll();
+    fn SetDataPointCount();
+    fn DataPointCount();
+    fn ScaleToFit();
+    fn SaveAs();
+    fn Relog();
+    fn ClearData();
+    fn LogSourceStartTime();
+    fn LogSourceStopTime();
+    fn SetLogViewRange();
+    fn GetLogViewRange();
+    fn BatchingLock();
+    fn LoadSettings();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+impl _ISystemMonitorUnionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _ISystemMonitorUnionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> _ISystemMonitorUnionVtbl {
+        unsafe extern "system" fn Appearance<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iappearance: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAppearance<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iappearance: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BackColor<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcolor: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetBackColor<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BorderStyle<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iborderstyle: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetBorderStyle<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iborderstyle: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ForeColor<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcolor: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetForeColor<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Font<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfont: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn putref_Font<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfont: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Counters<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppicounters: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetShowVerticalGrid<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ShowVerticalGrid<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetShowHorizontalGrid<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ShowHorizontalGrid<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetShowLegend<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ShowLegend<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetShowScaleLabels<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ShowScaleLabels<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetShowValueBar<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ShowValueBar<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetMaximumScale<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ivalue: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MaximumScale<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pivalue: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetMinimumScale<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ivalue: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MinimumScale<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pivalue: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetUpdateInterval<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fvalue: f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UpdateInterval<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfvalue: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDisplayType<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, edisplaytype: DisplayTypeConstants) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DisplayType<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pedisplaytype: *mut DisplayTypeConstants) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetManualUpdate<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ManualUpdate<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetGraphTitle<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstitle: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GraphTitle<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstitle: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetYAxisLabel<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstitle: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn YAxisLabel<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstitle: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CollectSample<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UpdateGraph<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BrowseCounters<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DisplayProperties<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Counter<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iindex: i32, ppicounter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddCounter<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bspath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppicounter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DeleteCounter<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pctr: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BackColorCtl<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcolor: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetBackColorCtl<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLogFileName<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bsfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LogFileName<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bsfilename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLogViewStart<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starttime: f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LogViewStart<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starttime: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLogViewStop<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stoptime: f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LogViewStop<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stoptime: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GridColor<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcolor: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetGridColor<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TimeBarColor<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcolor: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetTimeBarColor<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, color: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Highlight<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetHighlight<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ShowToolbar<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetShowToolbar<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Paste<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Copy<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Reset<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetReadOnly<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReadOnly<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetReportValueType<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ereportvaluetype: ReportValueTypeConstants) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReportValueType<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pereportvaluetype: *mut ReportValueTypeConstants) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetMonitorDuplicateInstances<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MonitorDuplicateInstances<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDisplayFilter<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ivalue: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DisplayFilter<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pivalue: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LogFiles<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppilogfiles: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDataSourceType<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, edatasourcetype: DataSourceTypeConstants) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DataSourceType<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pedatasourcetype: *mut DataSourceTypeConstants) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSqlDsnName<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bssqldsnname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SqlDsnName<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bssqldsnname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSqlLogSetName<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bssqllogsetname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SqlLogSetName<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bssqllogsetname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetEnableDigitGrouping<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnableDigitGrouping<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetEnableToolTips<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnableToolTips<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetShowTimeAxisLabels<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstate: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ShowTimeAxisLabels<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstate: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetChartScroll<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bscroll: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ChartScroll<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbscroll: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDataPointCount<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inewcount: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DataPointCount<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidatapointcount: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ScaleToFit<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bselectedcountersonly: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SaveAs<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, esysmonfiletype: SysmonFileType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Relog<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, esysmonfiletype: SysmonFileType, ifilter: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ClearData<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LogSourceStartTime<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdate: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LogSourceStopTime<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdate: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLogViewRange<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starttime: f64, stoptime: f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetLogViewRange<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starttime: *mut f64, stoptime: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BatchingLock<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flock: i16, ebatchreason: SysmonBatchReason) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LoadSettings<Impl: _ISystemMonitorUnionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsettingfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            Appearance::<Impl, IMPL_OFFSET>,
+            SetAppearance::<Impl, IMPL_OFFSET>,
+            BackColor::<Impl, IMPL_OFFSET>,
+            SetBackColor::<Impl, IMPL_OFFSET>,
+            BorderStyle::<Impl, IMPL_OFFSET>,
+            SetBorderStyle::<Impl, IMPL_OFFSET>,
+            ForeColor::<Impl, IMPL_OFFSET>,
+            SetForeColor::<Impl, IMPL_OFFSET>,
+            Font::<Impl, IMPL_OFFSET>,
+            putref_Font::<Impl, IMPL_OFFSET>,
+            Counters::<Impl, IMPL_OFFSET>,
+            SetShowVerticalGrid::<Impl, IMPL_OFFSET>,
+            ShowVerticalGrid::<Impl, IMPL_OFFSET>,
+            SetShowHorizontalGrid::<Impl, IMPL_OFFSET>,
+            ShowHorizontalGrid::<Impl, IMPL_OFFSET>,
+            SetShowLegend::<Impl, IMPL_OFFSET>,
+            ShowLegend::<Impl, IMPL_OFFSET>,
+            SetShowScaleLabels::<Impl, IMPL_OFFSET>,
+            ShowScaleLabels::<Impl, IMPL_OFFSET>,
+            SetShowValueBar::<Impl, IMPL_OFFSET>,
+            ShowValueBar::<Impl, IMPL_OFFSET>,
+            SetMaximumScale::<Impl, IMPL_OFFSET>,
+            MaximumScale::<Impl, IMPL_OFFSET>,
+            SetMinimumScale::<Impl, IMPL_OFFSET>,
+            MinimumScale::<Impl, IMPL_OFFSET>,
+            SetUpdateInterval::<Impl, IMPL_OFFSET>,
+            UpdateInterval::<Impl, IMPL_OFFSET>,
+            SetDisplayType::<Impl, IMPL_OFFSET>,
+            DisplayType::<Impl, IMPL_OFFSET>,
+            SetManualUpdate::<Impl, IMPL_OFFSET>,
+            ManualUpdate::<Impl, IMPL_OFFSET>,
+            SetGraphTitle::<Impl, IMPL_OFFSET>,
+            GraphTitle::<Impl, IMPL_OFFSET>,
+            SetYAxisLabel::<Impl, IMPL_OFFSET>,
+            YAxisLabel::<Impl, IMPL_OFFSET>,
+            CollectSample::<Impl, IMPL_OFFSET>,
+            UpdateGraph::<Impl, IMPL_OFFSET>,
+            BrowseCounters::<Impl, IMPL_OFFSET>,
+            DisplayProperties::<Impl, IMPL_OFFSET>,
+            Counter::<Impl, IMPL_OFFSET>,
+            AddCounter::<Impl, IMPL_OFFSET>,
+            DeleteCounter::<Impl, IMPL_OFFSET>,
+            BackColorCtl::<Impl, IMPL_OFFSET>,
+            SetBackColorCtl::<Impl, IMPL_OFFSET>,
+            SetLogFileName::<Impl, IMPL_OFFSET>,
+            LogFileName::<Impl, IMPL_OFFSET>,
+            SetLogViewStart::<Impl, IMPL_OFFSET>,
+            LogViewStart::<Impl, IMPL_OFFSET>,
+            SetLogViewStop::<Impl, IMPL_OFFSET>,
+            LogViewStop::<Impl, IMPL_OFFSET>,
+            GridColor::<Impl, IMPL_OFFSET>,
+            SetGridColor::<Impl, IMPL_OFFSET>,
+            TimeBarColor::<Impl, IMPL_OFFSET>,
+            SetTimeBarColor::<Impl, IMPL_OFFSET>,
+            Highlight::<Impl, IMPL_OFFSET>,
+            SetHighlight::<Impl, IMPL_OFFSET>,
+            ShowToolbar::<Impl, IMPL_OFFSET>,
+            SetShowToolbar::<Impl, IMPL_OFFSET>,
+            Paste::<Impl, IMPL_OFFSET>,
+            Copy::<Impl, IMPL_OFFSET>,
+            Reset::<Impl, IMPL_OFFSET>,
+            SetReadOnly::<Impl, IMPL_OFFSET>,
+            ReadOnly::<Impl, IMPL_OFFSET>,
+            SetReportValueType::<Impl, IMPL_OFFSET>,
+            ReportValueType::<Impl, IMPL_OFFSET>,
+            SetMonitorDuplicateInstances::<Impl, IMPL_OFFSET>,
+            MonitorDuplicateInstances::<Impl, IMPL_OFFSET>,
+            SetDisplayFilter::<Impl, IMPL_OFFSET>,
+            DisplayFilter::<Impl, IMPL_OFFSET>,
+            LogFiles::<Impl, IMPL_OFFSET>,
+            SetDataSourceType::<Impl, IMPL_OFFSET>,
+            DataSourceType::<Impl, IMPL_OFFSET>,
+            SetSqlDsnName::<Impl, IMPL_OFFSET>,
+            SqlDsnName::<Impl, IMPL_OFFSET>,
+            SetSqlLogSetName::<Impl, IMPL_OFFSET>,
+            SqlLogSetName::<Impl, IMPL_OFFSET>,
+            SetEnableDigitGrouping::<Impl, IMPL_OFFSET>,
+            EnableDigitGrouping::<Impl, IMPL_OFFSET>,
+            SetEnableToolTips::<Impl, IMPL_OFFSET>,
+            EnableToolTips::<Impl, IMPL_OFFSET>,
+            SetShowTimeAxisLabels::<Impl, IMPL_OFFSET>,
+            ShowTimeAxisLabels::<Impl, IMPL_OFFSET>,
+            SetChartScroll::<Impl, IMPL_OFFSET>,
+            ChartScroll::<Impl, IMPL_OFFSET>,
+            SetDataPointCount::<Impl, IMPL_OFFSET>,
+            DataPointCount::<Impl, IMPL_OFFSET>,
+            ScaleToFit::<Impl, IMPL_OFFSET>,
+            SaveAs::<Impl, IMPL_OFFSET>,
+            Relog::<Impl, IMPL_OFFSET>,
+            ClearData::<Impl, IMPL_OFFSET>,
+            LogSourceStartTime::<Impl, IMPL_OFFSET>,
+            LogSourceStopTime::<Impl, IMPL_OFFSET>,
+            SetLogViewRange::<Impl, IMPL_OFFSET>,
+            GetLogViewRange::<Impl, IMPL_OFFSET>,
+            BatchingLock::<Impl, IMPL_OFFSET>,
+            LoadSettings::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<_ISystemMonitorUnion as ::windows::core::Interface>::IID
+    }
+}

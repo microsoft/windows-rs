@@ -9,10 +9,6 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
 }
 
 fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
-    if !def.is_winrt() {
-        return quote! {};
-    }
-
     let type_ident = gen_ident(def.name());
     let impl_ident = type_ident.join("Impl");
     let vtbl_ident = type_ident.join("Vtbl");
@@ -63,10 +59,29 @@ fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
         }
     });
 
-    let method_ptrs = def.methods().map(|method| {
-        let name = gen_ident(&method.rust_name());
-        quote! { #name::<#(#generics)* Impl, IMPL_OFFSET>, }
-    });
+    let mut methods = quote! {};
+
+    for def in def.vtable_types() {
+        match def {
+            ElementType::TypeDef(def) => {
+                for method in def.methods() {
+                    let name = gen_ident(&method.rust_name());
+                    methods.combine(&quote! { #name::<#(#generics)* Impl, IMPL_OFFSET>, });
+                }
+            }
+            ElementType::IInspectable => methods.combine(&quote! {
+                ::windows::core::GetIids,
+                ::windows::core::GetRuntimeClassName::<#type_ident<#(#generics)*>>,
+                ::windows::core::GetTrustLevel,
+            }),
+            ElementType::IUnknown => methods.combine(&quote! {
+                ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+                ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+                ::windows::core::Release::<Identity, BASE_OFFSET>,
+            }),
+            _ => unimplemented!(),
+        }
+    }
 
     quote!{
         #cfg
@@ -79,13 +94,7 @@ fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
             pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: #impl_ident<#(#generics)*>, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> #vtbl_ident<#(#generics)*> {
                 #(#method_impls)*
                 Self(
-                    ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-                    ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-                    ::windows::core::Release::<Identity, BASE_OFFSET>,
-                    ::windows::core::GetIids,
-                    ::windows::core::GetRuntimeClassName::<#type_ident<#(#generics)*>>,
-                    ::windows::core::GetTrustLevel,
-                    #(#method_ptrs)*
+                    #methods
                     #(#phantoms)*
                 )
             }

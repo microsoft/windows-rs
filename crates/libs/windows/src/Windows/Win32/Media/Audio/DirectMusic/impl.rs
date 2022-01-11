@@ -1,1 +1,652 @@
-
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound"))]
+pub trait IDirectMusicImpl: Sized {
+    fn EnumPort();
+    fn CreateMusicBuffer();
+    fn CreatePort();
+    fn EnumMasterClock();
+    fn GetMasterClock();
+    fn SetMasterClock();
+    fn Activate();
+    fn GetDefaultPort();
+    fn SetDirectSound();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound"))]
+impl IDirectMusicVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectMusicImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDirectMusicVtbl {
+        unsafe extern "system" fn EnumPort<Impl: IDirectMusicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateMusicBuffer<Impl: IDirectMusicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut ::windows::core::RawPtr, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreatePort<Impl: IDirectMusicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rclsidport: *const ::windows::core::GUID, pportparams: *mut DMUS_PORTPARAMS8, ppport: *mut ::windows::core::RawPtr, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnumMasterClock<Impl: IDirectMusicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwindex: u32, lpclockinfo: *mut DMUS_CLOCKINFO8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMasterClock<Impl: IDirectMusicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidclock: *mut ::windows::core::GUID, ppreferenceclock: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetMasterClock<Impl: IDirectMusicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguidclock: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Activate<Impl: IDirectMusicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenable: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDefaultPort<Impl: IDirectMusicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidport: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDirectSound<Impl: IDirectMusicImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdirectsound: ::windows::core::RawPtr, hwnd: super::super::super::Foundation::HWND) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, EnumPort::<Impl, IMPL_OFFSET>, CreateMusicBuffer::<Impl, IMPL_OFFSET>, CreatePort::<Impl, IMPL_OFFSET>, EnumMasterClock::<Impl, IMPL_OFFSET>, GetMasterClock::<Impl, IMPL_OFFSET>, SetMasterClock::<Impl, IMPL_OFFSET>, Activate::<Impl, IMPL_OFFSET>, GetDefaultPort::<Impl, IMPL_OFFSET>, SetDirectSound::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDirectMusic as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound"))]
+pub trait IDirectMusic8Impl: Sized + IDirectMusicImpl {
+    fn SetExternalMasterClock();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound"))]
+impl IDirectMusic8Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectMusic8Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDirectMusic8Vtbl {
+        unsafe extern "system" fn SetExternalMasterClock<Impl: IDirectMusic8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclock: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            EnumPort::<Impl, IMPL_OFFSET>,
+            CreateMusicBuffer::<Impl, IMPL_OFFSET>,
+            CreatePort::<Impl, IMPL_OFFSET>,
+            EnumMasterClock::<Impl, IMPL_OFFSET>,
+            GetMasterClock::<Impl, IMPL_OFFSET>,
+            SetMasterClock::<Impl, IMPL_OFFSET>,
+            Activate::<Impl, IMPL_OFFSET>,
+            GetDefaultPort::<Impl, IMPL_OFFSET>,
+            SetDirectSound::<Impl, IMPL_OFFSET>,
+            SetExternalMasterClock::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDirectMusic8 as ::windows::core::Interface>::IID
+    }
+}
+pub trait IDirectMusicBufferImpl: Sized {
+    fn Flush();
+    fn TotalTime();
+    fn PackStructured();
+    fn PackUnstructured();
+    fn ResetReadPtr();
+    fn GetNextEvent();
+    fn GetRawBufferPtr();
+    fn GetStartTime();
+    fn GetUsedBytes();
+    fn GetMaxBytes();
+    fn GetBufferFormat();
+    fn SetStartTime();
+    fn SetUsedBytes();
+}
+impl IDirectMusicBufferVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectMusicBufferImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDirectMusicBufferVtbl {
+        unsafe extern "system" fn Flush<Impl: IDirectMusicBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TotalTime<Impl: IDirectMusicBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prttime: *mut i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PackStructured<Impl: IDirectMusicBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rt: i64, dwchannelgroup: u32, dwchannelmessage: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PackUnstructured<Impl: IDirectMusicBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rt: i64, dwchannelgroup: u32, cb: u32, lpb: *mut u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ResetReadPtr<Impl: IDirectMusicBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetNextEvent<Impl: IDirectMusicBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prt: *mut i64, pdwchannelgroup: *mut u32, pdwlength: *mut u32, ppdata: *mut *mut u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetRawBufferPtr<Impl: IDirectMusicBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdata: *mut *mut u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetStartTime<Impl: IDirectMusicBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prt: *mut i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetUsedBytes<Impl: IDirectMusicBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcb: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMaxBytes<Impl: IDirectMusicBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcb: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetBufferFormat<Impl: IDirectMusicBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidformat: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetStartTime<Impl: IDirectMusicBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rt: i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetUsedBytes<Impl: IDirectMusicBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cb: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            Flush::<Impl, IMPL_OFFSET>,
+            TotalTime::<Impl, IMPL_OFFSET>,
+            PackStructured::<Impl, IMPL_OFFSET>,
+            PackUnstructured::<Impl, IMPL_OFFSET>,
+            ResetReadPtr::<Impl, IMPL_OFFSET>,
+            GetNextEvent::<Impl, IMPL_OFFSET>,
+            GetRawBufferPtr::<Impl, IMPL_OFFSET>,
+            GetStartTime::<Impl, IMPL_OFFSET>,
+            GetUsedBytes::<Impl, IMPL_OFFSET>,
+            GetMaxBytes::<Impl, IMPL_OFFSET>,
+            GetBufferFormat::<Impl, IMPL_OFFSET>,
+            SetStartTime::<Impl, IMPL_OFFSET>,
+            SetUsedBytes::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDirectMusicBuffer as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IDirectMusicCollectionImpl: Sized {
+    fn GetInstrument();
+    fn EnumInstrument();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IDirectMusicCollectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectMusicCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDirectMusicCollectionVtbl {
+        unsafe extern "system" fn GetInstrument<Impl: IDirectMusicCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwpatch: u32, ppinstrument: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnumInstrument<Impl: IDirectMusicCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwindex: u32, pdwpatch: *mut u32, pwszname: super::super::super::Foundation::PWSTR, dwnamelen: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetInstrument::<Impl, IMPL_OFFSET>, EnumInstrument::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDirectMusicCollection as ::windows::core::Interface>::IID
+    }
+}
+pub trait IDirectMusicDownloadImpl: Sized {
+    fn GetBuffer();
+}
+impl IDirectMusicDownloadVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectMusicDownloadImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDirectMusicDownloadVtbl {
+        unsafe extern "system" fn GetBuffer<Impl: IDirectMusicDownloadImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvbuffer: *mut *mut ::core::ffi::c_void, pdwsize: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetBuffer::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDirectMusicDownload as ::windows::core::Interface>::IID
+    }
+}
+pub trait IDirectMusicDownloadedInstrumentImpl: Sized {}
+impl IDirectMusicDownloadedInstrumentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectMusicDownloadedInstrumentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDirectMusicDownloadedInstrumentVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDirectMusicDownloadedInstrument as ::windows::core::Interface>::IID
+    }
+}
+pub trait IDirectMusicInstrumentImpl: Sized {
+    fn GetPatch();
+    fn SetPatch();
+}
+impl IDirectMusicInstrumentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectMusicInstrumentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDirectMusicInstrumentVtbl {
+        unsafe extern "system" fn GetPatch<Impl: IDirectMusicInstrumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwpatch: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetPatch<Impl: IDirectMusicInstrumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwpatch: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetPatch::<Impl, IMPL_OFFSET>, SetPatch::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDirectMusicInstrument as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound", feature = "Win32_System_IO"))]
+pub trait IDirectMusicPortImpl: Sized {
+    fn PlayBuffer();
+    fn SetReadNotificationHandle();
+    fn Read();
+    fn DownloadInstrument();
+    fn UnloadInstrument();
+    fn GetLatencyClock();
+    fn GetRunningStats();
+    fn Compact();
+    fn GetCaps();
+    fn DeviceIoControl();
+    fn SetNumChannelGroups();
+    fn GetNumChannelGroups();
+    fn Activate();
+    fn SetChannelPriority();
+    fn GetChannelPriority();
+    fn SetDirectSound();
+    fn GetFormat();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound", feature = "Win32_System_IO"))]
+impl IDirectMusicPortVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectMusicPortImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDirectMusicPortVtbl {
+        unsafe extern "system" fn PlayBuffer<Impl: IDirectMusicPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetReadNotificationHandle<Impl: IDirectMusicPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hevent: super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Read<Impl: IDirectMusicPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DownloadInstrument<Impl: IDirectMusicPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinstrument: ::windows::core::RawPtr, ppdownloadedinstrument: *mut ::windows::core::RawPtr, pnoteranges: *mut DMUS_NOTERANGE, dwnumnoteranges: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UnloadInstrument<Impl: IDirectMusicPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdownloadedinstrument: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetLatencyClock<Impl: IDirectMusicPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppclock: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetRunningStats<Impl: IDirectMusicPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstats: *mut DMUS_SYNTHSTATS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Compact<Impl: IDirectMusicPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCaps<Impl: IDirectMusicPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pportcaps: *mut DMUS_PORTCAPS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DeviceIoControl<Impl: IDirectMusicPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwiocontrolcode: u32, lpinbuffer: *mut ::core::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::core::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetNumChannelGroups<Impl: IDirectMusicPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwchannelgroups: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetNumChannelGroups<Impl: IDirectMusicPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwchannelgroups: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Activate<Impl: IDirectMusicPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, factive: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetChannelPriority<Impl: IDirectMusicPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwchannelgroup: u32, dwchannel: u32, dwpriority: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetChannelPriority<Impl: IDirectMusicPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwchannelgroup: u32, dwchannel: u32, pdwpriority: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDirectSound<Impl: IDirectMusicPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdirectsound: ::windows::core::RawPtr, pdirectsoundbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetFormat<Impl: IDirectMusicPortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwaveformatex: *mut super::WAVEFORMATEX, pdwwaveformatexsize: *mut u32, pdwbuffersize: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            PlayBuffer::<Impl, IMPL_OFFSET>,
+            SetReadNotificationHandle::<Impl, IMPL_OFFSET>,
+            Read::<Impl, IMPL_OFFSET>,
+            DownloadInstrument::<Impl, IMPL_OFFSET>,
+            UnloadInstrument::<Impl, IMPL_OFFSET>,
+            GetLatencyClock::<Impl, IMPL_OFFSET>,
+            GetRunningStats::<Impl, IMPL_OFFSET>,
+            Compact::<Impl, IMPL_OFFSET>,
+            GetCaps::<Impl, IMPL_OFFSET>,
+            DeviceIoControl::<Impl, IMPL_OFFSET>,
+            SetNumChannelGroups::<Impl, IMPL_OFFSET>,
+            GetNumChannelGroups::<Impl, IMPL_OFFSET>,
+            Activate::<Impl, IMPL_OFFSET>,
+            SetChannelPriority::<Impl, IMPL_OFFSET>,
+            GetChannelPriority::<Impl, IMPL_OFFSET>,
+            SetDirectSound::<Impl, IMPL_OFFSET>,
+            GetFormat::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDirectMusicPort as ::windows::core::Interface>::IID
+    }
+}
+pub trait IDirectMusicPortDownloadImpl: Sized {
+    fn GetBuffer();
+    fn AllocateBuffer();
+    fn GetDLId();
+    fn GetAppend();
+    fn Download();
+    fn Unload();
+}
+impl IDirectMusicPortDownloadVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectMusicPortDownloadImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDirectMusicPortDownloadVtbl {
+        unsafe extern "system" fn GetBuffer<Impl: IDirectMusicPortDownloadImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwdlid: u32, ppidmdownload: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AllocateBuffer<Impl: IDirectMusicPortDownloadImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsize: u32, ppidmdownload: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDLId<Impl: IDirectMusicPortDownloadImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwstartdlid: *mut u32, dwcount: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetAppend<Impl: IDirectMusicPortDownloadImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwappend: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Download<Impl: IDirectMusicPortDownloadImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidmdownload: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Unload<Impl: IDirectMusicPortDownloadImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pidmdownload: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetBuffer::<Impl, IMPL_OFFSET>, AllocateBuffer::<Impl, IMPL_OFFSET>, GetDLId::<Impl, IMPL_OFFSET>, GetAppend::<Impl, IMPL_OFFSET>, Download::<Impl, IMPL_OFFSET>, Unload::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDirectMusicPortDownload as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IDirectMusicSynthImpl: Sized {
+    fn Open();
+    fn Close();
+    fn SetNumChannelGroups();
+    fn Download();
+    fn Unload();
+    fn PlayBuffer();
+    fn GetRunningStats();
+    fn GetPortCaps();
+    fn SetMasterClock();
+    fn GetLatencyClock();
+    fn Activate();
+    fn SetSynthSink();
+    fn Render();
+    fn SetChannelPriority();
+    fn GetChannelPriority();
+    fn GetFormat();
+    fn GetAppend();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IDirectMusicSynthVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectMusicSynthImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDirectMusicSynthVtbl {
+        unsafe extern "system" fn Open<Impl: IDirectMusicSynthImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pportparams: *mut DMUS_PORTPARAMS8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Close<Impl: IDirectMusicSynthImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetNumChannelGroups<Impl: IDirectMusicSynthImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwgroups: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Download<Impl: IDirectMusicSynthImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phdownload: *mut super::super::super::Foundation::HANDLE, pvdata: *mut ::core::ffi::c_void, pbfree: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Unload<Impl: IDirectMusicSynthImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hdownload: super::super::super::Foundation::HANDLE, lpfreehandle: isize, huserdata: super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PlayBuffer<Impl: IDirectMusicSynthImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rt: i64, pbbuffer: *mut u8, cbbuffer: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetRunningStats<Impl: IDirectMusicSynthImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstats: *mut DMUS_SYNTHSTATS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetPortCaps<Impl: IDirectMusicSynthImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcaps: *mut DMUS_PORTCAPS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetMasterClock<Impl: IDirectMusicSynthImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclock: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetLatencyClock<Impl: IDirectMusicSynthImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppclock: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Activate<Impl: IDirectMusicSynthImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenable: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSynthSink<Impl: IDirectMusicSynthImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psynthsink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Render<Impl: IDirectMusicSynthImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffer: *mut i16, dwlength: u32, llposition: i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetChannelPriority<Impl: IDirectMusicSynthImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwchannelgroup: u32, dwchannel: u32, dwpriority: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetChannelPriority<Impl: IDirectMusicSynthImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwchannelgroup: u32, dwchannel: u32, pdwpriority: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetFormat<Impl: IDirectMusicSynthImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwaveformatex: *mut super::WAVEFORMATEX, pdwwaveformatexsize: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetAppend<Impl: IDirectMusicSynthImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwappend: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            Open::<Impl, IMPL_OFFSET>,
+            Close::<Impl, IMPL_OFFSET>,
+            SetNumChannelGroups::<Impl, IMPL_OFFSET>,
+            Download::<Impl, IMPL_OFFSET>,
+            Unload::<Impl, IMPL_OFFSET>,
+            PlayBuffer::<Impl, IMPL_OFFSET>,
+            GetRunningStats::<Impl, IMPL_OFFSET>,
+            GetPortCaps::<Impl, IMPL_OFFSET>,
+            SetMasterClock::<Impl, IMPL_OFFSET>,
+            GetLatencyClock::<Impl, IMPL_OFFSET>,
+            Activate::<Impl, IMPL_OFFSET>,
+            SetSynthSink::<Impl, IMPL_OFFSET>,
+            Render::<Impl, IMPL_OFFSET>,
+            SetChannelPriority::<Impl, IMPL_OFFSET>,
+            GetChannelPriority::<Impl, IMPL_OFFSET>,
+            GetFormat::<Impl, IMPL_OFFSET>,
+            GetAppend::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDirectMusicSynth as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IDirectMusicSynth8Impl: Sized + IDirectMusicSynthImpl {
+    fn PlayVoice();
+    fn StopVoice();
+    fn GetVoiceState();
+    fn Refresh();
+    fn AssignChannelToBuses();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IDirectMusicSynth8Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectMusicSynth8Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDirectMusicSynth8Vtbl {
+        unsafe extern "system" fn PlayVoice<Impl: IDirectMusicSynth8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rt: i64, dwvoiceid: u32, dwchannelgroup: u32, dwchannel: u32, dwdlid: u32, prpitch: i32, vrvolume: i32, stvoicestart: u64, stloopstart: u64, stloopend: u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn StopVoice<Impl: IDirectMusicSynth8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rt: i64, dwvoiceid: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetVoiceState<Impl: IDirectMusicSynth8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwvoice: *mut u32, cbvoice: u32, dwvoicestate: *mut DMUS_VOICE_STATE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Refresh<Impl: IDirectMusicSynth8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwdownloadid: u32, dwflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AssignChannelToBuses<Impl: IDirectMusicSynth8Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwchannelgroup: u32, dwchannel: u32, pdwbuses: *mut u32, cbuses: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            Open::<Impl, IMPL_OFFSET>,
+            Close::<Impl, IMPL_OFFSET>,
+            SetNumChannelGroups::<Impl, IMPL_OFFSET>,
+            Download::<Impl, IMPL_OFFSET>,
+            Unload::<Impl, IMPL_OFFSET>,
+            PlayBuffer::<Impl, IMPL_OFFSET>,
+            GetRunningStats::<Impl, IMPL_OFFSET>,
+            GetPortCaps::<Impl, IMPL_OFFSET>,
+            SetMasterClock::<Impl, IMPL_OFFSET>,
+            GetLatencyClock::<Impl, IMPL_OFFSET>,
+            Activate::<Impl, IMPL_OFFSET>,
+            SetSynthSink::<Impl, IMPL_OFFSET>,
+            Render::<Impl, IMPL_OFFSET>,
+            SetChannelPriority::<Impl, IMPL_OFFSET>,
+            GetChannelPriority::<Impl, IMPL_OFFSET>,
+            GetFormat::<Impl, IMPL_OFFSET>,
+            GetAppend::<Impl, IMPL_OFFSET>,
+            PlayVoice::<Impl, IMPL_OFFSET>,
+            StopVoice::<Impl, IMPL_OFFSET>,
+            GetVoiceState::<Impl, IMPL_OFFSET>,
+            Refresh::<Impl, IMPL_OFFSET>,
+            AssignChannelToBuses::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDirectMusicSynth8 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound"))]
+pub trait IDirectMusicSynthSinkImpl: Sized {
+    fn Init();
+    fn SetMasterClock();
+    fn GetLatencyClock();
+    fn Activate();
+    fn SampleToRefTime();
+    fn RefTimeToSample();
+    fn SetDirectSound();
+    fn GetDesiredBufferSize();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_DirectSound"))]
+impl IDirectMusicSynthSinkVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectMusicSynthSinkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDirectMusicSynthSinkVtbl {
+        unsafe extern "system" fn Init<Impl: IDirectMusicSynthSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psynth: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetMasterClock<Impl: IDirectMusicSynthSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclock: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetLatencyClock<Impl: IDirectMusicSynthSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppclock: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Activate<Impl: IDirectMusicSynthSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenable: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SampleToRefTime<Impl: IDirectMusicSynthSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, llsampletime: i64, prftime: *mut i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RefTimeToSample<Impl: IDirectMusicSynthSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rftime: i64, pllsampletime: *mut i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDirectSound<Impl: IDirectMusicSynthSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdirectsound: ::windows::core::RawPtr, pdirectsoundbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDesiredBufferSize<Impl: IDirectMusicSynthSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwbuffersizeinsamples: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Init::<Impl, IMPL_OFFSET>, SetMasterClock::<Impl, IMPL_OFFSET>, GetLatencyClock::<Impl, IMPL_OFFSET>, Activate::<Impl, IMPL_OFFSET>, SampleToRefTime::<Impl, IMPL_OFFSET>, RefTimeToSample::<Impl, IMPL_OFFSET>, SetDirectSound::<Impl, IMPL_OFFSET>, GetDesiredBufferSize::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDirectMusicSynthSink as ::windows::core::Interface>::IID
+    }
+}
+pub trait IDirectMusicThruImpl: Sized {
+    fn ThruChannel();
+}
+impl IDirectMusicThruVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDirectMusicThruImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDirectMusicThruVtbl {
+        unsafe extern "system" fn ThruChannel<Impl: IDirectMusicThruImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsourcechannelgroup: u32, dwsourcechannel: u32, dwdestinationchannelgroup: u32, dwdestinationchannel: u32, pdestinationport: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ThruChannel::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDirectMusicThru as ::windows::core::Interface>::IID
+    }
+}

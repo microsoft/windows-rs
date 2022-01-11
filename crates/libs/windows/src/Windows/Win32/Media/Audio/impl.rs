@@ -1,1 +1,2169 @@
-
+pub trait IActivateAudioInterfaceAsyncOperationImpl: Sized {
+    fn GetActivateResult();
+}
+impl IActivateAudioInterfaceAsyncOperationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivateAudioInterfaceAsyncOperationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IActivateAudioInterfaceAsyncOperationVtbl {
+        unsafe extern "system" fn GetActivateResult<Impl: IActivateAudioInterfaceAsyncOperationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activateresult: *mut ::windows::core::HRESULT, activatedinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetActivateResult::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IActivateAudioInterfaceAsyncOperation as ::windows::core::Interface>::IID
+    }
+}
+pub trait IActivateAudioInterfaceCompletionHandlerImpl: Sized {
+    fn ActivateCompleted();
+}
+impl IActivateAudioInterfaceCompletionHandlerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IActivateAudioInterfaceCompletionHandlerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IActivateAudioInterfaceCompletionHandlerVtbl {
+        unsafe extern "system" fn ActivateCompleted<Impl: IActivateAudioInterfaceCompletionHandlerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activateoperation: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ActivateCompleted::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IActivateAudioInterfaceCompletionHandler as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IAudioAmbisonicsControlImpl: Sized {
+    fn SetData();
+    fn SetHeadTracking();
+    fn GetHeadTracking();
+    fn SetRotation();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IAudioAmbisonicsControlVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioAmbisonicsControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioAmbisonicsControlVtbl {
+        unsafe extern "system" fn SetData<Impl: IAudioAmbisonicsControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pambisonicsparams: *const AMBISONICS_PARAMS, cbambisonicsparams: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetHeadTracking<Impl: IAudioAmbisonicsControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, benableheadtracking: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetHeadTracking<Impl: IAudioAmbisonicsControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbenableheadtracking: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRotation<Impl: IAudioAmbisonicsControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, x: f32, y: f32, z: f32, w: f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, SetData::<Impl, IMPL_OFFSET>, SetHeadTracking::<Impl, IMPL_OFFSET>, GetHeadTracking::<Impl, IMPL_OFFSET>, SetRotation::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioAmbisonicsControl as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IAudioAutoGainControlImpl: Sized {
+    fn GetEnabled();
+    fn SetEnabled();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IAudioAutoGainControlVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioAutoGainControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioAutoGainControlVtbl {
+        unsafe extern "system" fn GetEnabled<Impl: IAudioAutoGainControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbenabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetEnabled<Impl: IAudioAutoGainControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, benable: super::super::Foundation::BOOL, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetEnabled::<Impl, IMPL_OFFSET>, SetEnabled::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioAutoGainControl as ::windows::core::Interface>::IID
+    }
+}
+pub trait IAudioBassImpl: Sized + IPerChannelDbLevelImpl {}
+impl IAudioBassVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioBassImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioBassVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetChannelCount::<Impl, IMPL_OFFSET>, GetLevelRange::<Impl, IMPL_OFFSET>, GetLevel::<Impl, IMPL_OFFSET>, SetLevel::<Impl, IMPL_OFFSET>, SetLevelUniform::<Impl, IMPL_OFFSET>, SetLevelAllChannels::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioBass as ::windows::core::Interface>::IID
+    }
+}
+pub trait IAudioCaptureClientImpl: Sized {
+    fn GetBuffer();
+    fn ReleaseBuffer();
+    fn GetNextPacketSize();
+}
+impl IAudioCaptureClientVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioCaptureClientImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioCaptureClientVtbl {
+        unsafe extern "system" fn GetBuffer<Impl: IAudioCaptureClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdata: *mut *mut u8, pnumframestoread: *mut u32, pdwflags: *mut u32, pu64deviceposition: *mut u64, pu64qpcposition: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReleaseBuffer<Impl: IAudioCaptureClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numframesread: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetNextPacketSize<Impl: IAudioCaptureClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnumframesinnextpacket: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetBuffer::<Impl, IMPL_OFFSET>, ReleaseBuffer::<Impl, IMPL_OFFSET>, GetNextPacketSize::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioCaptureClient as ::windows::core::Interface>::IID
+    }
+}
+pub trait IAudioChannelConfigImpl: Sized {
+    fn SetChannelConfig();
+    fn GetChannelConfig();
+}
+impl IAudioChannelConfigVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioChannelConfigImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioChannelConfigVtbl {
+        unsafe extern "system" fn SetChannelConfig<Impl: IAudioChannelConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwconfig: u32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetChannelConfig<Impl: IAudioChannelConfigImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwconfig: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, SetChannelConfig::<Impl, IMPL_OFFSET>, GetChannelConfig::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioChannelConfig as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IAudioClientImpl: Sized {
+    fn Initialize();
+    fn GetBufferSize();
+    fn GetStreamLatency();
+    fn GetCurrentPadding();
+    fn IsFormatSupported();
+    fn GetMixFormat();
+    fn GetDevicePeriod();
+    fn Start();
+    fn Stop();
+    fn Reset();
+    fn SetEventHandle();
+    fn GetService();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IAudioClientVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioClientImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioClientVtbl {
+        unsafe extern "system" fn Initialize<Impl: IAudioClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sharemode: AUDCLNT_SHAREMODE, streamflags: u32, hnsbufferduration: i64, hnsperiodicity: i64, pformat: *const WAVEFORMATEX, audiosessionguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetBufferSize<Impl: IAudioClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnumbufferframes: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetStreamLatency<Impl: IAudioClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phnslatency: *mut i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCurrentPadding<Impl: IAudioClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnumpaddingframes: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsFormatSupported<Impl: IAudioClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sharemode: AUDCLNT_SHAREMODE, pformat: *const WAVEFORMATEX, ppclosestmatch: *mut *mut WAVEFORMATEX) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMixFormat<Impl: IAudioClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdeviceformat: *mut *mut WAVEFORMATEX) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDevicePeriod<Impl: IAudioClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phnsdefaultdeviceperiod: *mut i64, phnsminimumdeviceperiod: *mut i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Start<Impl: IAudioClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Stop<Impl: IAudioClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Reset<Impl: IAudioClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetEventHandle<Impl: IAudioClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetService<Impl: IAudioClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            Initialize::<Impl, IMPL_OFFSET>,
+            GetBufferSize::<Impl, IMPL_OFFSET>,
+            GetStreamLatency::<Impl, IMPL_OFFSET>,
+            GetCurrentPadding::<Impl, IMPL_OFFSET>,
+            IsFormatSupported::<Impl, IMPL_OFFSET>,
+            GetMixFormat::<Impl, IMPL_OFFSET>,
+            GetDevicePeriod::<Impl, IMPL_OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
+            Reset::<Impl, IMPL_OFFSET>,
+            SetEventHandle::<Impl, IMPL_OFFSET>,
+            GetService::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioClient as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IAudioClient2Impl: Sized + IAudioClientImpl {
+    fn IsOffloadCapable();
+    fn SetClientProperties();
+    fn GetBufferSizeLimits();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IAudioClient2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioClient2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioClient2Vtbl {
+        unsafe extern "system" fn IsOffloadCapable<Impl: IAudioClient2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, category: AUDIO_STREAM_CATEGORY, pboffloadcapable: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetClientProperties<Impl: IAudioClient2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproperties: *const AudioClientProperties) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetBufferSizeLimits<Impl: IAudioClient2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pformat: *const WAVEFORMATEX, beventdriven: super::super::Foundation::BOOL, phnsminbufferduration: *mut i64, phnsmaxbufferduration: *mut i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            Initialize::<Impl, IMPL_OFFSET>,
+            GetBufferSize::<Impl, IMPL_OFFSET>,
+            GetStreamLatency::<Impl, IMPL_OFFSET>,
+            GetCurrentPadding::<Impl, IMPL_OFFSET>,
+            IsFormatSupported::<Impl, IMPL_OFFSET>,
+            GetMixFormat::<Impl, IMPL_OFFSET>,
+            GetDevicePeriod::<Impl, IMPL_OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
+            Reset::<Impl, IMPL_OFFSET>,
+            SetEventHandle::<Impl, IMPL_OFFSET>,
+            GetService::<Impl, IMPL_OFFSET>,
+            IsOffloadCapable::<Impl, IMPL_OFFSET>,
+            SetClientProperties::<Impl, IMPL_OFFSET>,
+            GetBufferSizeLimits::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioClient2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IAudioClient3Impl: Sized + IAudioClient2Impl + IAudioClientImpl {
+    fn GetSharedModeEnginePeriod();
+    fn GetCurrentSharedModeEnginePeriod();
+    fn InitializeSharedAudioStream();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IAudioClient3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioClient3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioClient3Vtbl {
+        unsafe extern "system" fn GetSharedModeEnginePeriod<Impl: IAudioClient3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pformat: *const WAVEFORMATEX, pdefaultperiodinframes: *mut u32, pfundamentalperiodinframes: *mut u32, pminperiodinframes: *mut u32, pmaxperiodinframes: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCurrentSharedModeEnginePeriod<Impl: IAudioClient3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppformat: *mut *mut WAVEFORMATEX, pcurrentperiodinframes: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn InitializeSharedAudioStream<Impl: IAudioClient3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, streamflags: u32, periodinframes: u32, pformat: *const WAVEFORMATEX, audiosessionguid: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            Initialize::<Impl, IMPL_OFFSET>,
+            GetBufferSize::<Impl, IMPL_OFFSET>,
+            GetStreamLatency::<Impl, IMPL_OFFSET>,
+            GetCurrentPadding::<Impl, IMPL_OFFSET>,
+            IsFormatSupported::<Impl, IMPL_OFFSET>,
+            GetMixFormat::<Impl, IMPL_OFFSET>,
+            GetDevicePeriod::<Impl, IMPL_OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
+            Reset::<Impl, IMPL_OFFSET>,
+            SetEventHandle::<Impl, IMPL_OFFSET>,
+            GetService::<Impl, IMPL_OFFSET>,
+            IsOffloadCapable::<Impl, IMPL_OFFSET>,
+            SetClientProperties::<Impl, IMPL_OFFSET>,
+            GetBufferSizeLimits::<Impl, IMPL_OFFSET>,
+            GetSharedModeEnginePeriod::<Impl, IMPL_OFFSET>,
+            GetCurrentSharedModeEnginePeriod::<Impl, IMPL_OFFSET>,
+            InitializeSharedAudioStream::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioClient3 as ::windows::core::Interface>::IID
+    }
+}
+pub trait IAudioClientDuckingControlImpl: Sized {
+    fn SetDuckingOptionsForCurrentStream();
+}
+impl IAudioClientDuckingControlVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioClientDuckingControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioClientDuckingControlVtbl {
+        unsafe extern "system" fn SetDuckingOptionsForCurrentStream<Impl: IAudioClientDuckingControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: AUDIO_DUCKING_OPTIONS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, SetDuckingOptionsForCurrentStream::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioClientDuckingControl as ::windows::core::Interface>::IID
+    }
+}
+pub trait IAudioClockImpl: Sized {
+    fn GetFrequency();
+    fn GetPosition();
+    fn GetCharacteristics();
+}
+impl IAudioClockVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioClockImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioClockVtbl {
+        unsafe extern "system" fn GetFrequency<Impl: IAudioClockImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pu64frequency: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetPosition<Impl: IAudioClockImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pu64position: *mut u64, pu64qpcposition: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCharacteristics<Impl: IAudioClockImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwcharacteristics: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetFrequency::<Impl, IMPL_OFFSET>, GetPosition::<Impl, IMPL_OFFSET>, GetCharacteristics::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioClock as ::windows::core::Interface>::IID
+    }
+}
+pub trait IAudioClock2Impl: Sized {
+    fn GetDevicePosition();
+}
+impl IAudioClock2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioClock2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioClock2Vtbl {
+        unsafe extern "system" fn GetDevicePosition<Impl: IAudioClock2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceposition: *mut u64, qpcposition: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetDevicePosition::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioClock2 as ::windows::core::Interface>::IID
+    }
+}
+pub trait IAudioClockAdjustmentImpl: Sized {
+    fn SetSampleRate();
+}
+impl IAudioClockAdjustmentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioClockAdjustmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioClockAdjustmentVtbl {
+        unsafe extern "system" fn SetSampleRate<Impl: IAudioClockAdjustmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flsamplerate: f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, SetSampleRate::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioClockAdjustment as ::windows::core::Interface>::IID
+    }
+}
+pub trait IAudioEffectsChangedNotificationClientImpl: Sized {
+    fn OnAudioEffectsChanged();
+}
+impl IAudioEffectsChangedNotificationClientVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEffectsChangedNotificationClientImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioEffectsChangedNotificationClientVtbl {
+        unsafe extern "system" fn OnAudioEffectsChanged<Impl: IAudioEffectsChangedNotificationClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnAudioEffectsChanged::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioEffectsChangedNotificationClient as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IAudioEffectsManagerImpl: Sized {
+    fn RegisterAudioEffectsChangedNotificationCallback();
+    fn UnregisterAudioEffectsChangedNotificationCallback();
+    fn GetAudioEffects();
+    fn SetAudioEffectState();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IAudioEffectsManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioEffectsManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioEffectsManagerVtbl {
+        unsafe extern "system" fn RegisterAudioEffectsChangedNotificationCallback<Impl: IAudioEffectsManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, client: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UnregisterAudioEffectsChangedNotificationCallback<Impl: IAudioEffectsManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, client: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetAudioEffects<Impl: IAudioEffectsManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effects: *mut *mut AUDIO_EFFECT, numeffects: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAudioEffectState<Impl: IAudioEffectsManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effectid: ::windows::core::GUID, state: AUDIO_EFFECT_STATE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, RegisterAudioEffectsChangedNotificationCallback::<Impl, IMPL_OFFSET>, UnregisterAudioEffectsChangedNotificationCallback::<Impl, IMPL_OFFSET>, GetAudioEffects::<Impl, IMPL_OFFSET>, SetAudioEffectState::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioEffectsManager as ::windows::core::Interface>::IID
+    }
+}
+pub trait IAudioFormatEnumeratorImpl: Sized {
+    fn GetCount();
+    fn GetFormat();
+}
+impl IAudioFormatEnumeratorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioFormatEnumeratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioFormatEnumeratorVtbl {
+        unsafe extern "system" fn GetCount<Impl: IAudioFormatEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetFormat<Impl: IAudioFormatEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, format: *mut *mut WAVEFORMATEX) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetCount::<Impl, IMPL_OFFSET>, GetFormat::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioFormatEnumerator as ::windows::core::Interface>::IID
+    }
+}
+pub trait IAudioInputSelectorImpl: Sized {
+    fn GetSelection();
+    fn SetSelection();
+}
+impl IAudioInputSelectorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioInputSelectorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioInputSelectorVtbl {
+        unsafe extern "system" fn GetSelection<Impl: IAudioInputSelectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnidselected: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSelection<Impl: IAudioInputSelectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nidselect: u32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetSelection::<Impl, IMPL_OFFSET>, SetSelection::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioInputSelector as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IAudioLoudnessImpl: Sized {
+    fn GetEnabled();
+    fn SetEnabled();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IAudioLoudnessVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioLoudnessImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioLoudnessVtbl {
+        unsafe extern "system" fn GetEnabled<Impl: IAudioLoudnessImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbenabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetEnabled<Impl: IAudioLoudnessImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, benable: super::super::Foundation::BOOL, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetEnabled::<Impl, IMPL_OFFSET>, SetEnabled::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioLoudness as ::windows::core::Interface>::IID
+    }
+}
+pub trait IAudioMidrangeImpl: Sized + IPerChannelDbLevelImpl {}
+impl IAudioMidrangeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioMidrangeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioMidrangeVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetChannelCount::<Impl, IMPL_OFFSET>, GetLevelRange::<Impl, IMPL_OFFSET>, GetLevel::<Impl, IMPL_OFFSET>, SetLevel::<Impl, IMPL_OFFSET>, SetLevelUniform::<Impl, IMPL_OFFSET>, SetLevelAllChannels::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioMidrange as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IAudioMuteImpl: Sized {
+    fn SetMute();
+    fn GetMute();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IAudioMuteVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioMuteImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioMuteVtbl {
+        unsafe extern "system" fn SetMute<Impl: IAudioMuteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bmuted: super::super::Foundation::BOOL, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMute<Impl: IAudioMuteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbmuted: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, SetMute::<Impl, IMPL_OFFSET>, GetMute::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioMute as ::windows::core::Interface>::IID
+    }
+}
+pub trait IAudioOutputSelectorImpl: Sized {
+    fn GetSelection();
+    fn SetSelection();
+}
+impl IAudioOutputSelectorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioOutputSelectorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioOutputSelectorVtbl {
+        unsafe extern "system" fn GetSelection<Impl: IAudioOutputSelectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnidselected: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSelection<Impl: IAudioOutputSelectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nidselect: u32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetSelection::<Impl, IMPL_OFFSET>, SetSelection::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioOutputSelector as ::windows::core::Interface>::IID
+    }
+}
+pub trait IAudioPeakMeterImpl: Sized {
+    fn GetChannelCount();
+    fn GetLevel();
+}
+impl IAudioPeakMeterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioPeakMeterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioPeakMeterVtbl {
+        unsafe extern "system" fn GetChannelCount<Impl: IAudioPeakMeterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcchannels: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetLevel<Impl: IAudioPeakMeterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nchannel: u32, pflevel: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetChannelCount::<Impl, IMPL_OFFSET>, GetLevel::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioPeakMeter as ::windows::core::Interface>::IID
+    }
+}
+pub trait IAudioRenderClientImpl: Sized {
+    fn GetBuffer();
+    fn ReleaseBuffer();
+}
+impl IAudioRenderClientVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioRenderClientImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioRenderClientVtbl {
+        unsafe extern "system" fn GetBuffer<Impl: IAudioRenderClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numframesrequested: u32, ppdata: *mut *mut u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReleaseBuffer<Impl: IAudioRenderClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numframeswritten: u32, dwflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetBuffer::<Impl, IMPL_OFFSET>, ReleaseBuffer::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioRenderClient as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IAudioSessionControlImpl: Sized {
+    fn GetState();
+    fn GetDisplayName();
+    fn SetDisplayName();
+    fn GetIconPath();
+    fn SetIconPath();
+    fn GetGroupingParam();
+    fn SetGroupingParam();
+    fn RegisterAudioSessionNotification();
+    fn UnregisterAudioSessionNotification();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IAudioSessionControlVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioSessionControlVtbl {
+        unsafe extern "system" fn GetState<Impl: IAudioSessionControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut AudioSessionState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDisplayName<Impl: IAudioSessionControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDisplayName<Impl: IAudioSessionControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::PWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetIconPath<Impl: IAudioSessionControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetIconPath<Impl: IAudioSessionControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: super::super::Foundation::PWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetGroupingParam<Impl: IAudioSessionControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetGroupingParam<Impl: IAudioSessionControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#override: *const ::windows::core::GUID, eventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RegisterAudioSessionNotification<Impl: IAudioSessionControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newnotifications: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UnregisterAudioSessionNotification<Impl: IAudioSessionControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newnotifications: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetState::<Impl, IMPL_OFFSET>,
+            GetDisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName::<Impl, IMPL_OFFSET>,
+            GetIconPath::<Impl, IMPL_OFFSET>,
+            SetIconPath::<Impl, IMPL_OFFSET>,
+            GetGroupingParam::<Impl, IMPL_OFFSET>,
+            SetGroupingParam::<Impl, IMPL_OFFSET>,
+            RegisterAudioSessionNotification::<Impl, IMPL_OFFSET>,
+            UnregisterAudioSessionNotification::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioSessionControl as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IAudioSessionControl2Impl: Sized + IAudioSessionControlImpl {
+    fn GetSessionIdentifier();
+    fn GetSessionInstanceIdentifier();
+    fn GetProcessId();
+    fn IsSystemSoundsSession();
+    fn SetDuckingPreference();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IAudioSessionControl2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionControl2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioSessionControl2Vtbl {
+        unsafe extern "system" fn GetSessionIdentifier<Impl: IAudioSessionControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSessionInstanceIdentifier<Impl: IAudioSessionControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetProcessId<Impl: IAudioSessionControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsSystemSoundsSession<Impl: IAudioSessionControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDuckingPreference<Impl: IAudioSessionControl2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, optout: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetState::<Impl, IMPL_OFFSET>,
+            GetDisplayName::<Impl, IMPL_OFFSET>,
+            SetDisplayName::<Impl, IMPL_OFFSET>,
+            GetIconPath::<Impl, IMPL_OFFSET>,
+            SetIconPath::<Impl, IMPL_OFFSET>,
+            GetGroupingParam::<Impl, IMPL_OFFSET>,
+            SetGroupingParam::<Impl, IMPL_OFFSET>,
+            RegisterAudioSessionNotification::<Impl, IMPL_OFFSET>,
+            UnregisterAudioSessionNotification::<Impl, IMPL_OFFSET>,
+            GetSessionIdentifier::<Impl, IMPL_OFFSET>,
+            GetSessionInstanceIdentifier::<Impl, IMPL_OFFSET>,
+            GetProcessId::<Impl, IMPL_OFFSET>,
+            IsSystemSoundsSession::<Impl, IMPL_OFFSET>,
+            SetDuckingPreference::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioSessionControl2 as ::windows::core::Interface>::IID
+    }
+}
+pub trait IAudioSessionEnumeratorImpl: Sized {
+    fn GetCount();
+    fn GetSession();
+}
+impl IAudioSessionEnumeratorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionEnumeratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioSessionEnumeratorVtbl {
+        unsafe extern "system" fn GetCount<Impl: IAudioSessionEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessioncount: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSession<Impl: IAudioSessionEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessioncount: i32, session: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetCount::<Impl, IMPL_OFFSET>, GetSession::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioSessionEnumerator as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IAudioSessionEventsImpl: Sized {
+    fn OnDisplayNameChanged();
+    fn OnIconPathChanged();
+    fn OnSimpleVolumeChanged();
+    fn OnChannelVolumeChanged();
+    fn OnGroupingParamChanged();
+    fn OnStateChanged();
+    fn OnSessionDisconnected();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IAudioSessionEventsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioSessionEventsVtbl {
+        unsafe extern "system" fn OnDisplayNameChanged<Impl: IAudioSessionEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newdisplayname: super::super::Foundation::PWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnIconPathChanged<Impl: IAudioSessionEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newiconpath: super::super::Foundation::PWSTR, eventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnSimpleVolumeChanged<Impl: IAudioSessionEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newvolume: f32, newmute: super::super::Foundation::BOOL, eventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnChannelVolumeChanged<Impl: IAudioSessionEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channelcount: u32, newchannelvolumearray: *const f32, changedchannel: u32, eventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnGroupingParamChanged<Impl: IAudioSessionEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newgroupingparam: *const ::windows::core::GUID, eventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnStateChanged<Impl: IAudioSessionEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newstate: AudioSessionState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnSessionDisconnected<Impl: IAudioSessionEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, disconnectreason: AudioSessionDisconnectReason) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnDisplayNameChanged::<Impl, IMPL_OFFSET>, OnIconPathChanged::<Impl, IMPL_OFFSET>, OnSimpleVolumeChanged::<Impl, IMPL_OFFSET>, OnChannelVolumeChanged::<Impl, IMPL_OFFSET>, OnGroupingParamChanged::<Impl, IMPL_OFFSET>, OnStateChanged::<Impl, IMPL_OFFSET>, OnSessionDisconnected::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioSessionEvents as ::windows::core::Interface>::IID
+    }
+}
+pub trait IAudioSessionManagerImpl: Sized {
+    fn GetAudioSessionControl();
+    fn GetSimpleAudioVolume();
+}
+impl IAudioSessionManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioSessionManagerVtbl {
+        unsafe extern "system" fn GetAudioSessionControl<Impl: IAudioSessionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audiosessionguid: *const ::windows::core::GUID, streamflags: u32, sessioncontrol: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSimpleAudioVolume<Impl: IAudioSessionManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audiosessionguid: *const ::windows::core::GUID, streamflags: u32, audiovolume: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetAudioSessionControl::<Impl, IMPL_OFFSET>, GetSimpleAudioVolume::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioSessionManager as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IAudioSessionManager2Impl: Sized + IAudioSessionManagerImpl {
+    fn GetSessionEnumerator();
+    fn RegisterSessionNotification();
+    fn UnregisterSessionNotification();
+    fn RegisterDuckNotification();
+    fn UnregisterDuckNotification();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IAudioSessionManager2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionManager2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioSessionManager2Vtbl {
+        unsafe extern "system" fn GetSessionEnumerator<Impl: IAudioSessionManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RegisterSessionNotification<Impl: IAudioSessionManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionnotification: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UnregisterSessionNotification<Impl: IAudioSessionManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionnotification: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RegisterDuckNotification<Impl: IAudioSessionManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionid: super::super::Foundation::PWSTR, ducknotification: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UnregisterDuckNotification<Impl: IAudioSessionManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ducknotification: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetAudioSessionControl::<Impl, IMPL_OFFSET>,
+            GetSimpleAudioVolume::<Impl, IMPL_OFFSET>,
+            GetSessionEnumerator::<Impl, IMPL_OFFSET>,
+            RegisterSessionNotification::<Impl, IMPL_OFFSET>,
+            UnregisterSessionNotification::<Impl, IMPL_OFFSET>,
+            RegisterDuckNotification::<Impl, IMPL_OFFSET>,
+            UnregisterDuckNotification::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioSessionManager2 as ::windows::core::Interface>::IID
+    }
+}
+pub trait IAudioSessionNotificationImpl: Sized {
+    fn OnSessionCreated();
+}
+impl IAudioSessionNotificationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSessionNotificationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioSessionNotificationVtbl {
+        unsafe extern "system" fn OnSessionCreated<Impl: IAudioSessionNotificationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newsession: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnSessionCreated::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioSessionNotification as ::windows::core::Interface>::IID
+    }
+}
+pub trait IAudioStateMonitorImpl: Sized {
+    fn RegisterCallback();
+    fn UnregisterCallback();
+    fn GetSoundLevel();
+}
+impl IAudioStateMonitorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioStateMonitorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioStateMonitorVtbl {
+        unsafe extern "system" fn RegisterCallback<Impl: IAudioStateMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callback: ::windows::core::RawPtr, context: *const ::core::ffi::c_void, registration: *mut i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UnregisterCallback<Impl: IAudioStateMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, registration: i64) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSoundLevel<Impl: IAudioStateMonitorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> AudioStateMonitorSoundLevel {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, RegisterCallback::<Impl, IMPL_OFFSET>, UnregisterCallback::<Impl, IMPL_OFFSET>, GetSoundLevel::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioStateMonitor as ::windows::core::Interface>::IID
+    }
+}
+pub trait IAudioStreamVolumeImpl: Sized {
+    fn GetChannelCount();
+    fn SetChannelVolume();
+    fn GetChannelVolume();
+    fn SetAllVolumes();
+    fn GetAllVolumes();
+}
+impl IAudioStreamVolumeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioStreamVolumeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioStreamVolumeVtbl {
+        unsafe extern "system" fn GetChannelCount<Impl: IAudioStreamVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetChannelVolume<Impl: IAudioStreamVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwindex: u32, flevel: f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetChannelVolume<Impl: IAudioStreamVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwindex: u32, pflevel: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAllVolumes<Impl: IAudioStreamVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwcount: u32, pfvolumes: *const f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetAllVolumes<Impl: IAudioStreamVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwcount: u32, pfvolumes: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetChannelCount::<Impl, IMPL_OFFSET>, SetChannelVolume::<Impl, IMPL_OFFSET>, GetChannelVolume::<Impl, IMPL_OFFSET>, SetAllVolumes::<Impl, IMPL_OFFSET>, GetAllVolumes::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioStreamVolume as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub trait IAudioSystemEffectsPropertyChangeNotificationClientImpl: Sized {
+    fn OnPropertyChanged();
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl IAudioSystemEffectsPropertyChangeNotificationClientVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSystemEffectsPropertyChangeNotificationClientImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioSystemEffectsPropertyChangeNotificationClientVtbl {
+        unsafe extern "system" fn OnPropertyChanged<Impl: IAudioSystemEffectsPropertyChangeNotificationClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002, key: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnPropertyChanged::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioSystemEffectsPropertyChangeNotificationClient as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+pub trait IAudioSystemEffectsPropertyStoreImpl: Sized {
+    fn OpenDefaultPropertyStore();
+    fn OpenUserPropertyStore();
+    fn OpenVolatilePropertyStore();
+    fn ResetUserPropertyStore();
+    fn ResetVolatilePropertyStore();
+    fn RegisterPropertyChangeNotification();
+    fn UnregisterPropertyChangeNotification();
+}
+#[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
+impl IAudioSystemEffectsPropertyStoreVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioSystemEffectsPropertyStoreImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioSystemEffectsPropertyStoreVtbl {
+        unsafe extern "system" fn OpenDefaultPropertyStore<Impl: IAudioSystemEffectsPropertyStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stgmaccess: u32, propstore: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OpenUserPropertyStore<Impl: IAudioSystemEffectsPropertyStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stgmaccess: u32, propstore: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OpenVolatilePropertyStore<Impl: IAudioSystemEffectsPropertyStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stgmaccess: u32, propstore: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ResetUserPropertyStore<Impl: IAudioSystemEffectsPropertyStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ResetVolatilePropertyStore<Impl: IAudioSystemEffectsPropertyStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RegisterPropertyChangeNotification<Impl: IAudioSystemEffectsPropertyStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callback: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UnregisterPropertyChangeNotification<Impl: IAudioSystemEffectsPropertyStoreImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callback: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            OpenDefaultPropertyStore::<Impl, IMPL_OFFSET>,
+            OpenUserPropertyStore::<Impl, IMPL_OFFSET>,
+            OpenVolatilePropertyStore::<Impl, IMPL_OFFSET>,
+            ResetUserPropertyStore::<Impl, IMPL_OFFSET>,
+            ResetVolatilePropertyStore::<Impl, IMPL_OFFSET>,
+            RegisterPropertyChangeNotification::<Impl, IMPL_OFFSET>,
+            UnregisterPropertyChangeNotification::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioSystemEffectsPropertyStore as ::windows::core::Interface>::IID
+    }
+}
+pub trait IAudioTrebleImpl: Sized + IPerChannelDbLevelImpl {}
+impl IAudioTrebleVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioTrebleImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioTrebleVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetChannelCount::<Impl, IMPL_OFFSET>, GetLevelRange::<Impl, IMPL_OFFSET>, GetLevel::<Impl, IMPL_OFFSET>, SetLevel::<Impl, IMPL_OFFSET>, SetLevelUniform::<Impl, IMPL_OFFSET>, SetLevelAllChannels::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioTreble as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IAudioVolumeDuckNotificationImpl: Sized {
+    fn OnVolumeDuckNotification();
+    fn OnVolumeUnduckNotification();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IAudioVolumeDuckNotificationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioVolumeDuckNotificationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioVolumeDuckNotificationVtbl {
+        unsafe extern "system" fn OnVolumeDuckNotification<Impl: IAudioVolumeDuckNotificationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionid: super::super::Foundation::PWSTR, countcommunicationsessions: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnVolumeUnduckNotification<Impl: IAudioVolumeDuckNotificationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnVolumeDuckNotification::<Impl, IMPL_OFFSET>, OnVolumeUnduckNotification::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioVolumeDuckNotification as ::windows::core::Interface>::IID
+    }
+}
+pub trait IAudioVolumeLevelImpl: Sized + IPerChannelDbLevelImpl {}
+impl IAudioVolumeLevelVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAudioVolumeLevelImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAudioVolumeLevelVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetChannelCount::<Impl, IMPL_OFFSET>, GetLevelRange::<Impl, IMPL_OFFSET>, GetLevel::<Impl, IMPL_OFFSET>, SetLevel::<Impl, IMPL_OFFSET>, SetLevelUniform::<Impl, IMPL_OFFSET>, SetLevelAllChannels::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAudioVolumeLevel as ::windows::core::Interface>::IID
+    }
+}
+pub trait IChannelAudioVolumeImpl: Sized {
+    fn GetChannelCount();
+    fn SetChannelVolume();
+    fn GetChannelVolume();
+    fn SetAllVolumes();
+    fn GetAllVolumes();
+}
+impl IChannelAudioVolumeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChannelAudioVolumeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChannelAudioVolumeVtbl {
+        unsafe extern "system" fn GetChannelCount<Impl: IChannelAudioVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetChannelVolume<Impl: IChannelAudioVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwindex: u32, flevel: f32, eventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetChannelVolume<Impl: IChannelAudioVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwindex: u32, pflevel: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAllVolumes<Impl: IChannelAudioVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwcount: u32, pfvolumes: *const f32, eventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetAllVolumes<Impl: IChannelAudioVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwcount: u32, pfvolumes: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetChannelCount::<Impl, IMPL_OFFSET>, SetChannelVolume::<Impl, IMPL_OFFSET>, GetChannelVolume::<Impl, IMPL_OFFSET>, SetAllVolumes::<Impl, IMPL_OFFSET>, GetAllVolumes::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChannelAudioVolume as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IConnectorImpl: Sized {
+    fn GetType();
+    fn GetDataFlow();
+    fn ConnectTo();
+    fn Disconnect();
+    fn IsConnected();
+    fn GetConnectedTo();
+    fn GetConnectorIdConnectedTo();
+    fn GetDeviceIdConnectedTo();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IConnectorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConnectorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConnectorVtbl {
+        unsafe extern "system" fn GetType<Impl: IConnectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptype: *mut ConnectorType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDataFlow<Impl: IConnectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pflow: *mut DataFlow) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ConnectTo<Impl: IConnectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconnectto: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Disconnect<Impl: IConnectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsConnected<Impl: IConnectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbconnected: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetConnectedTo<Impl: IConnectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppconto: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetConnectorIdConnectedTo<Impl: IConnectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwstrconnectorid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDeviceIdConnectedTo<Impl: IConnectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwstrdeviceid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetType::<Impl, IMPL_OFFSET>, GetDataFlow::<Impl, IMPL_OFFSET>, ConnectTo::<Impl, IMPL_OFFSET>, Disconnect::<Impl, IMPL_OFFSET>, IsConnected::<Impl, IMPL_OFFSET>, GetConnectedTo::<Impl, IMPL_OFFSET>, GetConnectorIdConnectedTo::<Impl, IMPL_OFFSET>, GetDeviceIdConnectedTo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConnector as ::windows::core::Interface>::IID
+    }
+}
+pub trait IControlChangeNotifyImpl: Sized {
+    fn OnNotify();
+}
+impl IControlChangeNotifyVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IControlChangeNotifyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IControlChangeNotifyVtbl {
+        unsafe extern "system" fn OnNotify<Impl: IControlChangeNotifyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwsenderprocessid: u32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnNotify::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IControlChangeNotify as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IControlInterfaceImpl: Sized {
+    fn GetName();
+    fn GetIID();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IControlInterfaceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IControlInterfaceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IControlInterfaceVtbl {
+        unsafe extern "system" fn GetName<Impl: IControlInterfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwstrname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetIID<Impl: IControlInterfaceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetName::<Impl, IMPL_OFFSET>, GetIID::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IControlInterface as ::windows::core::Interface>::IID
+    }
+}
+pub trait IDeviceSpecificPropertyImpl: Sized {
+    fn GetType();
+    fn GetValue();
+    fn SetValue();
+    fn Get4BRange();
+}
+impl IDeviceSpecificPropertyVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceSpecificPropertyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceSpecificPropertyVtbl {
+        unsafe extern "system" fn GetType<Impl: IDeviceSpecificPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvtype: *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetValue<Impl: IDeviceSpecificPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvvalue: *mut ::core::ffi::c_void, pcbvalue: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetValue<Impl: IDeviceSpecificPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvvalue: *const ::core::ffi::c_void, cbvalue: u32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Get4BRange<Impl: IDeviceSpecificPropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plmin: *mut i32, plmax: *mut i32, plstepping: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetType::<Impl, IMPL_OFFSET>, GetValue::<Impl, IMPL_OFFSET>, SetValue::<Impl, IMPL_OFFSET>, Get4BRange::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDeviceSpecificProperty as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IDeviceTopologyImpl: Sized {
+    fn GetConnectorCount();
+    fn GetConnector();
+    fn GetSubunitCount();
+    fn GetSubunit();
+    fn GetPartById();
+    fn GetDeviceId();
+    fn GetSignalPath();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IDeviceTopologyVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDeviceTopologyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDeviceTopologyVtbl {
+        unsafe extern "system" fn GetConnectorCount<Impl: IDeviceTopologyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetConnector<Impl: IDeviceTopologyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: u32, ppconnector: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSubunitCount<Impl: IDeviceTopologyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSubunit<Impl: IDeviceTopologyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: u32, ppsubunit: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetPartById<Impl: IDeviceTopologyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nid: u32, pppart: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDeviceId<Impl: IDeviceTopologyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwstrdeviceid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSignalPath<Impl: IDeviceTopologyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pipartfrom: ::windows::core::RawPtr, pipartto: ::windows::core::RawPtr, brejectmixedpaths: super::super::Foundation::BOOL, ppparts: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetConnectorCount::<Impl, IMPL_OFFSET>, GetConnector::<Impl, IMPL_OFFSET>, GetSubunitCount::<Impl, IMPL_OFFSET>, GetSubunit::<Impl, IMPL_OFFSET>, GetPartById::<Impl, IMPL_OFFSET>, GetDeviceId::<Impl, IMPL_OFFSET>, GetSignalPath::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDeviceTopology as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+pub trait IMMDeviceImpl: Sized {
+    fn Activate();
+    fn OpenPropertyStore();
+    fn GetId();
+    fn GetState();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl IMMDeviceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMMDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMMDeviceVtbl {
+        unsafe extern "system" fn Activate<Impl: IMMDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, dwclsctx: super::super::System::Com::CLSCTX, pactivationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OpenPropertyStore<Impl: IMMDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stgmaccess: super::super::System::Com::StructuredStorage::STGM, ppproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetId<Impl: IMMDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppstrid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetState<Impl: IMMDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwstate: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Activate::<Impl, IMPL_OFFSET>, OpenPropertyStore::<Impl, IMPL_OFFSET>, GetId::<Impl, IMPL_OFFSET>, GetState::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMMDevice as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub trait IMMDeviceActivatorImpl: Sized {
+    fn Activate();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl IMMDeviceActivatorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMMDeviceActivatorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMMDeviceActivatorVtbl {
+        unsafe extern "system" fn Activate<Impl: IMMDeviceActivatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iid: *const ::windows::core::GUID, pdevice: ::windows::core::RawPtr, pactivationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, ppinterface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Activate::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMMDeviceActivator as ::windows::core::Interface>::IID
+    }
+}
+pub trait IMMDeviceCollectionImpl: Sized {
+    fn GetCount();
+    fn Item();
+}
+impl IMMDeviceCollectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMMDeviceCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMMDeviceCollectionVtbl {
+        unsafe extern "system" fn GetCount<Impl: IMMDeviceCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcdevices: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: IMMDeviceCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ndevice: u32, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetCount::<Impl, IMPL_OFFSET>, Item::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMMDeviceCollection as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IMMDeviceEnumeratorImpl: Sized {
+    fn EnumAudioEndpoints();
+    fn GetDefaultAudioEndpoint();
+    fn GetDevice();
+    fn RegisterEndpointNotificationCallback();
+    fn UnregisterEndpointNotificationCallback();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IMMDeviceEnumeratorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMMDeviceEnumeratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMMDeviceEnumeratorVtbl {
+        unsafe extern "system" fn EnumAudioEndpoints<Impl: IMMDeviceEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dataflow: EDataFlow, dwstatemask: u32, ppdevices: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDefaultAudioEndpoint<Impl: IMMDeviceEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dataflow: EDataFlow, role: ERole, ppendpoint: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDevice<Impl: IMMDeviceEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwstrid: super::super::Foundation::PWSTR, ppdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RegisterEndpointNotificationCallback<Impl: IMMDeviceEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclient: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UnregisterEndpointNotificationCallback<Impl: IMMDeviceEnumeratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclient: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, EnumAudioEndpoints::<Impl, IMPL_OFFSET>, GetDefaultAudioEndpoint::<Impl, IMPL_OFFSET>, GetDevice::<Impl, IMPL_OFFSET>, RegisterEndpointNotificationCallback::<Impl, IMPL_OFFSET>, UnregisterEndpointNotificationCallback::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMMDeviceEnumerator as ::windows::core::Interface>::IID
+    }
+}
+pub trait IMMEndpointImpl: Sized {
+    fn GetDataFlow();
+}
+impl IMMEndpointVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMMEndpointImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMMEndpointVtbl {
+        unsafe extern "system" fn GetDataFlow<Impl: IMMEndpointImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdataflow: *mut EDataFlow) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetDataFlow::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMMEndpoint as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+pub trait IMMNotificationClientImpl: Sized {
+    fn OnDeviceStateChanged();
+    fn OnDeviceAdded();
+    fn OnDeviceRemoved();
+    fn OnDefaultDeviceChanged();
+    fn OnPropertyValueChanged();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl IMMNotificationClientVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMMNotificationClientImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMMNotificationClientVtbl {
+        unsafe extern "system" fn OnDeviceStateChanged<Impl: IMMNotificationClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwstrdeviceid: super::super::Foundation::PWSTR, dwnewstate: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnDeviceAdded<Impl: IMMNotificationClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwstrdeviceid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnDeviceRemoved<Impl: IMMNotificationClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwstrdeviceid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnDefaultDeviceChanged<Impl: IMMNotificationClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flow: EDataFlow, role: ERole, pwstrdefaultdeviceid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnPropertyValueChanged<Impl: IMMNotificationClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwstrdeviceid: super::super::Foundation::PWSTR, key: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnDeviceStateChanged::<Impl, IMPL_OFFSET>, OnDeviceAdded::<Impl, IMPL_OFFSET>, OnDeviceRemoved::<Impl, IMPL_OFFSET>, OnDefaultDeviceChanged::<Impl, IMPL_OFFSET>, OnPropertyValueChanged::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMMNotificationClient as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IMessageFilterImpl: Sized {
+    fn HandleInComingCall();
+    fn RetryRejectedCall();
+    fn MessagePending();
+}
+#[cfg(feature = "Win32_System_Com")]
+impl IMessageFilterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMessageFilterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMessageFilterVtbl {
+        unsafe extern "system" fn HandleInComingCall<Impl: IMessageFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwcalltype: u32, htaskcaller: super::HTASK, dwtickcount: u32, lpinterfaceinfo: *const super::super::System::Com::INTERFACEINFO) -> u32 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RetryRejectedCall<Impl: IMessageFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htaskcallee: super::HTASK, dwtickcount: u32, dwrejecttype: u32) -> u32 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MessagePending<Impl: IMessageFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, htaskcallee: super::HTASK, dwtickcount: u32, dwpendingtype: u32) -> u32 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, HandleInComingCall::<Impl, IMPL_OFFSET>, RetryRejectedCall::<Impl, IMPL_OFFSET>, MessagePending::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMessageFilter as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IPartImpl: Sized {
+    fn GetName();
+    fn GetLocalId();
+    fn GetGlobalId();
+    fn GetPartType();
+    fn GetSubType();
+    fn GetControlInterfaceCount();
+    fn GetControlInterface();
+    fn EnumPartsIncoming();
+    fn EnumPartsOutgoing();
+    fn GetTopologyObject();
+    fn Activate();
+    fn RegisterControlChangeCallback();
+    fn UnregisterControlChangeCallback();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IPartVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPartImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPartVtbl {
+        unsafe extern "system" fn GetName<Impl: IPartImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwstrname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetLocalId<Impl: IPartImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnid: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetGlobalId<Impl: IPartImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwstrglobalid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetPartType<Impl: IPartImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pparttype: *mut PartType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSubType<Impl: IPartImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psubtype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetControlInterfaceCount<Impl: IPartImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetControlInterface<Impl: IPartImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: u32, ppinterfacedesc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnumPartsIncoming<Impl: IPartImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppparts: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnumPartsOutgoing<Impl: IPartImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppparts: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetTopologyObject<Impl: IPartImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptopology: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Activate<Impl: IPartImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwclscontext: u32, refiid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RegisterControlChangeCallback<Impl: IPartImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pnotify: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UnregisterControlChangeCallback<Impl: IPartImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnotify: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetName::<Impl, IMPL_OFFSET>,
+            GetLocalId::<Impl, IMPL_OFFSET>,
+            GetGlobalId::<Impl, IMPL_OFFSET>,
+            GetPartType::<Impl, IMPL_OFFSET>,
+            GetSubType::<Impl, IMPL_OFFSET>,
+            GetControlInterfaceCount::<Impl, IMPL_OFFSET>,
+            GetControlInterface::<Impl, IMPL_OFFSET>,
+            EnumPartsIncoming::<Impl, IMPL_OFFSET>,
+            EnumPartsOutgoing::<Impl, IMPL_OFFSET>,
+            GetTopologyObject::<Impl, IMPL_OFFSET>,
+            Activate::<Impl, IMPL_OFFSET>,
+            RegisterControlChangeCallback::<Impl, IMPL_OFFSET>,
+            UnregisterControlChangeCallback::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPart as ::windows::core::Interface>::IID
+    }
+}
+pub trait IPartsListImpl: Sized {
+    fn GetCount();
+    fn GetPart();
+}
+impl IPartsListVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPartsListImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPartsListVtbl {
+        unsafe extern "system" fn GetCount<Impl: IPartsListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetPart<Impl: IPartsListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nindex: u32, pppart: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetCount::<Impl, IMPL_OFFSET>, GetPart::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPartsList as ::windows::core::Interface>::IID
+    }
+}
+pub trait IPerChannelDbLevelImpl: Sized {
+    fn GetChannelCount();
+    fn GetLevelRange();
+    fn GetLevel();
+    fn SetLevel();
+    fn SetLevelUniform();
+    fn SetLevelAllChannels();
+}
+impl IPerChannelDbLevelVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPerChannelDbLevelImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPerChannelDbLevelVtbl {
+        unsafe extern "system" fn GetChannelCount<Impl: IPerChannelDbLevelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcchannels: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetLevelRange<Impl: IPerChannelDbLevelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nchannel: u32, pfminleveldb: *mut f32, pfmaxleveldb: *mut f32, pfstepping: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetLevel<Impl: IPerChannelDbLevelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nchannel: u32, pfleveldb: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLevel<Impl: IPerChannelDbLevelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nchannel: u32, fleveldb: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLevelUniform<Impl: IPerChannelDbLevelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fleveldb: f32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLevelAllChannels<Impl: IPerChannelDbLevelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, alevelsdb: *const f32, cchannels: u32, pguideventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetChannelCount::<Impl, IMPL_OFFSET>, GetLevelRange::<Impl, IMPL_OFFSET>, GetLevel::<Impl, IMPL_OFFSET>, SetLevel::<Impl, IMPL_OFFSET>, SetLevelUniform::<Impl, IMPL_OFFSET>, SetLevelAllChannels::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPerChannelDbLevel as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISimpleAudioVolumeImpl: Sized {
+    fn SetMasterVolume();
+    fn GetMasterVolume();
+    fn SetMute();
+    fn GetMute();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISimpleAudioVolumeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISimpleAudioVolumeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISimpleAudioVolumeVtbl {
+        unsafe extern "system" fn SetMasterVolume<Impl: ISimpleAudioVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flevel: f32, eventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMasterVolume<Impl: ISimpleAudioVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pflevel: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetMute<Impl: ISimpleAudioVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bmute: super::super::Foundation::BOOL, eventcontext: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMute<Impl: ISimpleAudioVolumeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbmute: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, SetMasterVolume::<Impl, IMPL_OFFSET>, GetMasterVolume::<Impl, IMPL_OFFSET>, SetMute::<Impl, IMPL_OFFSET>, GetMute::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISimpleAudioVolume as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub trait ISpatialAudioClientImpl: Sized {
+    fn GetStaticObjectPosition();
+    fn GetNativeStaticObjectTypeMask();
+    fn GetMaxDynamicObjectCount();
+    fn GetSupportedAudioObjectFormatEnumerator();
+    fn GetMaxFrameCount();
+    fn IsAudioObjectFormatSupported();
+    fn IsSpatialAudioStreamAvailable();
+    fn ActivateSpatialAudioStream();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ISpatialAudioClientVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAudioClientImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAudioClientVtbl {
+        unsafe extern "system" fn GetStaticObjectPosition<Impl: ISpatialAudioClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: AudioObjectType, x: *mut f32, y: *mut f32, z: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetNativeStaticObjectTypeMask<Impl: ISpatialAudioClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mask: *mut AudioObjectType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMaxDynamicObjectCount<Impl: ISpatialAudioClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSupportedAudioObjectFormatEnumerator<Impl: ISpatialAudioClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMaxFrameCount<Impl: ISpatialAudioClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objectformat: *const WAVEFORMATEX, framecountperbuffer: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsAudioObjectFormatSupported<Impl: ISpatialAudioClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objectformat: *const WAVEFORMATEX) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsSpatialAudioStreamAvailable<Impl: ISpatialAudioClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, streamuuid: *const ::windows::core::GUID, auxiliaryinfo: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ActivateSpatialAudioStream<Impl: ISpatialAudioClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activationparams: *const super::super::System::Com::StructuredStorage::PROPVARIANT, riid: *const ::windows::core::GUID, stream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetStaticObjectPosition::<Impl, IMPL_OFFSET>,
+            GetNativeStaticObjectTypeMask::<Impl, IMPL_OFFSET>,
+            GetMaxDynamicObjectCount::<Impl, IMPL_OFFSET>,
+            GetSupportedAudioObjectFormatEnumerator::<Impl, IMPL_OFFSET>,
+            GetMaxFrameCount::<Impl, IMPL_OFFSET>,
+            IsAudioObjectFormatSupported::<Impl, IMPL_OFFSET>,
+            IsSpatialAudioStreamAvailable::<Impl, IMPL_OFFSET>,
+            ActivateSpatialAudioStream::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAudioClient as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub trait ISpatialAudioClient2Impl: Sized + ISpatialAudioClientImpl {
+    fn IsOffloadCapable();
+    fn GetMaxFrameCountForCategory();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ISpatialAudioClient2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAudioClient2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAudioClient2Vtbl {
+        unsafe extern "system" fn IsOffloadCapable<Impl: ISpatialAudioClient2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, category: AUDIO_STREAM_CATEGORY, isoffloadcapable: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMaxFrameCountForCategory<Impl: ISpatialAudioClient2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, category: AUDIO_STREAM_CATEGORY, offloadenabled: super::super::Foundation::BOOL, objectformat: *const WAVEFORMATEX, framecountperbuffer: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetStaticObjectPosition::<Impl, IMPL_OFFSET>,
+            GetNativeStaticObjectTypeMask::<Impl, IMPL_OFFSET>,
+            GetMaxDynamicObjectCount::<Impl, IMPL_OFFSET>,
+            GetSupportedAudioObjectFormatEnumerator::<Impl, IMPL_OFFSET>,
+            GetMaxFrameCount::<Impl, IMPL_OFFSET>,
+            IsAudioObjectFormatSupported::<Impl, IMPL_OFFSET>,
+            IsSpatialAudioStreamAvailable::<Impl, IMPL_OFFSET>,
+            ActivateSpatialAudioStream::<Impl, IMPL_OFFSET>,
+            IsOffloadCapable::<Impl, IMPL_OFFSET>,
+            GetMaxFrameCountForCategory::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAudioClient2 as ::windows::core::Interface>::IID
+    }
+}
+pub trait ISpatialAudioMetadataClientImpl: Sized {
+    fn ActivateSpatialAudioMetadataItems();
+    fn GetSpatialAudioMetadataItemsBufferLength();
+    fn ActivateSpatialAudioMetadataWriter();
+    fn ActivateSpatialAudioMetadataCopier();
+    fn ActivateSpatialAudioMetadataReader();
+}
+impl ISpatialAudioMetadataClientVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAudioMetadataClientImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAudioMetadataClientVtbl {
+        unsafe extern "system" fn ActivateSpatialAudioMetadataItems<Impl: ISpatialAudioMetadataClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxitemcount: u16, framecount: u16, metadataitemsbuffer: *mut ::windows::core::RawPtr, metadataitems: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSpatialAudioMetadataItemsBufferLength<Impl: ISpatialAudioMetadataClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxitemcount: u16, bufferlength: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ActivateSpatialAudioMetadataWriter<Impl: ISpatialAudioMetadataClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, overflowmode: SpatialAudioMetadataWriterOverflowMode, metadatawriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ActivateSpatialAudioMetadataCopier<Impl: ISpatialAudioMetadataClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, metadatacopier: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ActivateSpatialAudioMetadataReader<Impl: ISpatialAudioMetadataClientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, metadatareader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ActivateSpatialAudioMetadataItems::<Impl, IMPL_OFFSET>, GetSpatialAudioMetadataItemsBufferLength::<Impl, IMPL_OFFSET>, ActivateSpatialAudioMetadataWriter::<Impl, IMPL_OFFSET>, ActivateSpatialAudioMetadataCopier::<Impl, IMPL_OFFSET>, ActivateSpatialAudioMetadataReader::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAudioMetadataClient as ::windows::core::Interface>::IID
+    }
+}
+pub trait ISpatialAudioMetadataCopierImpl: Sized {
+    fn Open();
+    fn CopyMetadataForFrames();
+    fn Close();
+}
+impl ISpatialAudioMetadataCopierVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAudioMetadataCopierImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAudioMetadataCopierVtbl {
+        unsafe extern "system" fn Open<Impl: ISpatialAudioMetadataCopierImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, metadataitems: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CopyMetadataForFrames<Impl: ISpatialAudioMetadataCopierImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, copyframecount: u16, copymode: SpatialAudioMetadataCopyMode, dstmetadataitems: ::windows::core::RawPtr, itemscopied: *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Close<Impl: ISpatialAudioMetadataCopierImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Open::<Impl, IMPL_OFFSET>, CopyMetadataForFrames::<Impl, IMPL_OFFSET>, Close::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAudioMetadataCopier as ::windows::core::Interface>::IID
+    }
+}
+pub trait ISpatialAudioMetadataItemsImpl: Sized {
+    fn GetFrameCount();
+    fn GetItemCount();
+    fn GetMaxItemCount();
+    fn GetMaxValueBufferLength();
+    fn GetInfo();
+}
+impl ISpatialAudioMetadataItemsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAudioMetadataItemsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAudioMetadataItemsVtbl {
+        unsafe extern "system" fn GetFrameCount<Impl: ISpatialAudioMetadataItemsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, framecount: *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetItemCount<Impl: ISpatialAudioMetadataItemsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itemcount: *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMaxItemCount<Impl: ISpatialAudioMetadataItemsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxitemcount: *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMaxValueBufferLength<Impl: ISpatialAudioMetadataItemsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxvaluebufferlength: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetInfo<Impl: ISpatialAudioMetadataItemsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, info: *mut SpatialAudioMetadataItemsInfo) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetFrameCount::<Impl, IMPL_OFFSET>, GetItemCount::<Impl, IMPL_OFFSET>, GetMaxItemCount::<Impl, IMPL_OFFSET>, GetMaxValueBufferLength::<Impl, IMPL_OFFSET>, GetInfo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAudioMetadataItems as ::windows::core::Interface>::IID
+    }
+}
+pub trait ISpatialAudioMetadataItemsBufferImpl: Sized {
+    fn AttachToBuffer();
+    fn AttachToPopulatedBuffer();
+    fn DetachBuffer();
+}
+impl ISpatialAudioMetadataItemsBufferVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAudioMetadataItemsBufferImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAudioMetadataItemsBufferVtbl {
+        unsafe extern "system" fn AttachToBuffer<Impl: ISpatialAudioMetadataItemsBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: *mut u8, bufferlength: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AttachToPopulatedBuffer<Impl: ISpatialAudioMetadataItemsBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: *mut u8, bufferlength: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DetachBuffer<Impl: ISpatialAudioMetadataItemsBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, AttachToBuffer::<Impl, IMPL_OFFSET>, AttachToPopulatedBuffer::<Impl, IMPL_OFFSET>, DetachBuffer::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAudioMetadataItemsBuffer as ::windows::core::Interface>::IID
+    }
+}
+pub trait ISpatialAudioMetadataReaderImpl: Sized {
+    fn Open();
+    fn ReadNextItem();
+    fn ReadNextItemCommand();
+    fn Close();
+}
+impl ISpatialAudioMetadataReaderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAudioMetadataReaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAudioMetadataReaderVtbl {
+        unsafe extern "system" fn Open<Impl: ISpatialAudioMetadataReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, metadataitems: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReadNextItem<Impl: ISpatialAudioMetadataReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, commandcount: *mut u8, frameoffset: *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReadNextItemCommand<Impl: ISpatialAudioMetadataReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, commandid: *mut u8, valuebuffer: *mut ::core::ffi::c_void, maxvaluebufferlength: u32, valuebufferlength: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Close<Impl: ISpatialAudioMetadataReaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Open::<Impl, IMPL_OFFSET>, ReadNextItem::<Impl, IMPL_OFFSET>, ReadNextItemCommand::<Impl, IMPL_OFFSET>, Close::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAudioMetadataReader as ::windows::core::Interface>::IID
+    }
+}
+pub trait ISpatialAudioMetadataWriterImpl: Sized {
+    fn Open();
+    fn WriteNextItem();
+    fn WriteNextItemCommand();
+    fn Close();
+}
+impl ISpatialAudioMetadataWriterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAudioMetadataWriterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAudioMetadataWriterVtbl {
+        unsafe extern "system" fn Open<Impl: ISpatialAudioMetadataWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, metadataitems: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn WriteNextItem<Impl: ISpatialAudioMetadataWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, frameoffset: u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn WriteNextItemCommand<Impl: ISpatialAudioMetadataWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, commandid: u8, valuebuffer: *const ::core::ffi::c_void, valuebufferlength: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Close<Impl: ISpatialAudioMetadataWriterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Open::<Impl, IMPL_OFFSET>, WriteNextItem::<Impl, IMPL_OFFSET>, WriteNextItemCommand::<Impl, IMPL_OFFSET>, Close::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAudioMetadataWriter as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpatialAudioObjectImpl: Sized + ISpatialAudioObjectBaseImpl {
+    fn SetPosition();
+    fn SetVolume();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpatialAudioObjectVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAudioObjectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAudioObjectVtbl {
+        unsafe extern "system" fn SetPosition<Impl: ISpatialAudioObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, x: f32, y: f32, z: f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetVolume<Impl: ISpatialAudioObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, volume: f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetBuffer::<Impl, IMPL_OFFSET>, SetEndOfStream::<Impl, IMPL_OFFSET>, IsActive::<Impl, IMPL_OFFSET>, GetAudioObjectType::<Impl, IMPL_OFFSET>, SetPosition::<Impl, IMPL_OFFSET>, SetVolume::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAudioObject as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpatialAudioObjectBaseImpl: Sized {
+    fn GetBuffer();
+    fn SetEndOfStream();
+    fn IsActive();
+    fn GetAudioObjectType();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpatialAudioObjectBaseVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAudioObjectBaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAudioObjectBaseVtbl {
+        unsafe extern "system" fn GetBuffer<Impl: ISpatialAudioObjectBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: *mut *mut u8, bufferlength: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetEndOfStream<Impl: ISpatialAudioObjectBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, framecount: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsActive<Impl: ISpatialAudioObjectBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isactive: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetAudioObjectType<Impl: ISpatialAudioObjectBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audioobjecttype: *mut AudioObjectType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetBuffer::<Impl, IMPL_OFFSET>, SetEndOfStream::<Impl, IMPL_OFFSET>, IsActive::<Impl, IMPL_OFFSET>, GetAudioObjectType::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAudioObjectBase as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpatialAudioObjectForHrtfImpl: Sized + ISpatialAudioObjectBaseImpl {
+    fn SetPosition();
+    fn SetGain();
+    fn SetOrientation();
+    fn SetEnvironment();
+    fn SetDistanceDecay();
+    fn SetDirectivity();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpatialAudioObjectForHrtfVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAudioObjectForHrtfImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAudioObjectForHrtfVtbl {
+        unsafe extern "system" fn SetPosition<Impl: ISpatialAudioObjectForHrtfImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, x: f32, y: f32, z: f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetGain<Impl: ISpatialAudioObjectForHrtfImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, gain: f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetOrientation<Impl: ISpatialAudioObjectForHrtfImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, orientation: *const *const f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetEnvironment<Impl: ISpatialAudioObjectForHrtfImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, environment: SpatialAudioHrtfEnvironmentType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDistanceDecay<Impl: ISpatialAudioObjectForHrtfImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, distancedecay: *const SpatialAudioHrtfDistanceDecay) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDirectivity<Impl: ISpatialAudioObjectForHrtfImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, directivity: *const SpatialAudioHrtfDirectivityUnion) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetBuffer::<Impl, IMPL_OFFSET>,
+            SetEndOfStream::<Impl, IMPL_OFFSET>,
+            IsActive::<Impl, IMPL_OFFSET>,
+            GetAudioObjectType::<Impl, IMPL_OFFSET>,
+            SetPosition::<Impl, IMPL_OFFSET>,
+            SetGain::<Impl, IMPL_OFFSET>,
+            SetOrientation::<Impl, IMPL_OFFSET>,
+            SetEnvironment::<Impl, IMPL_OFFSET>,
+            SetDistanceDecay::<Impl, IMPL_OFFSET>,
+            SetDirectivity::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAudioObjectForHrtf as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpatialAudioObjectForMetadataCommandsImpl: Sized + ISpatialAudioObjectBaseImpl {
+    fn WriteNextMetadataCommand();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpatialAudioObjectForMetadataCommandsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAudioObjectForMetadataCommandsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAudioObjectForMetadataCommandsVtbl {
+        unsafe extern "system" fn WriteNextMetadataCommand<Impl: ISpatialAudioObjectForMetadataCommandsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, commandid: u8, valuebuffer: *const ::core::ffi::c_void, valuebufferlength: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetBuffer::<Impl, IMPL_OFFSET>, SetEndOfStream::<Impl, IMPL_OFFSET>, IsActive::<Impl, IMPL_OFFSET>, GetAudioObjectType::<Impl, IMPL_OFFSET>, WriteNextMetadataCommand::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAudioObjectForMetadataCommands as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpatialAudioObjectForMetadataItemsImpl: Sized + ISpatialAudioObjectBaseImpl {
+    fn GetSpatialAudioMetadataItems();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpatialAudioObjectForMetadataItemsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAudioObjectForMetadataItemsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAudioObjectForMetadataItemsVtbl {
+        unsafe extern "system" fn GetSpatialAudioMetadataItems<Impl: ISpatialAudioObjectForMetadataItemsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, metadataitems: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetBuffer::<Impl, IMPL_OFFSET>, SetEndOfStream::<Impl, IMPL_OFFSET>, IsActive::<Impl, IMPL_OFFSET>, GetAudioObjectType::<Impl, IMPL_OFFSET>, GetSpatialAudioMetadataItems::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAudioObjectForMetadataItems as ::windows::core::Interface>::IID
+    }
+}
+pub trait ISpatialAudioObjectRenderStreamImpl: Sized + ISpatialAudioObjectRenderStreamBaseImpl {
+    fn ActivateSpatialAudioObject();
+}
+impl ISpatialAudioObjectRenderStreamVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAudioObjectRenderStreamImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAudioObjectRenderStreamVtbl {
+        unsafe extern "system" fn ActivateSpatialAudioObject<Impl: ISpatialAudioObjectRenderStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: AudioObjectType, audioobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetAvailableDynamicObjectCount::<Impl, IMPL_OFFSET>, GetService::<Impl, IMPL_OFFSET>, Start::<Impl, IMPL_OFFSET>, Stop::<Impl, IMPL_OFFSET>, Reset::<Impl, IMPL_OFFSET>, BeginUpdatingAudioObjects::<Impl, IMPL_OFFSET>, EndUpdatingAudioObjects::<Impl, IMPL_OFFSET>, ActivateSpatialAudioObject::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAudioObjectRenderStream as ::windows::core::Interface>::IID
+    }
+}
+pub trait ISpatialAudioObjectRenderStreamBaseImpl: Sized {
+    fn GetAvailableDynamicObjectCount();
+    fn GetService();
+    fn Start();
+    fn Stop();
+    fn Reset();
+    fn BeginUpdatingAudioObjects();
+    fn EndUpdatingAudioObjects();
+}
+impl ISpatialAudioObjectRenderStreamBaseVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAudioObjectRenderStreamBaseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAudioObjectRenderStreamBaseVtbl {
+        unsafe extern "system" fn GetAvailableDynamicObjectCount<Impl: ISpatialAudioObjectRenderStreamBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetService<Impl: ISpatialAudioObjectRenderStreamBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, service: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Start<Impl: ISpatialAudioObjectRenderStreamBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Stop<Impl: ISpatialAudioObjectRenderStreamBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Reset<Impl: ISpatialAudioObjectRenderStreamBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BeginUpdatingAudioObjects<Impl: ISpatialAudioObjectRenderStreamBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, availabledynamicobjectcount: *mut u32, framecountperbuffer: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EndUpdatingAudioObjects<Impl: ISpatialAudioObjectRenderStreamBaseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetAvailableDynamicObjectCount::<Impl, IMPL_OFFSET>, GetService::<Impl, IMPL_OFFSET>, Start::<Impl, IMPL_OFFSET>, Stop::<Impl, IMPL_OFFSET>, Reset::<Impl, IMPL_OFFSET>, BeginUpdatingAudioObjects::<Impl, IMPL_OFFSET>, EndUpdatingAudioObjects::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAudioObjectRenderStreamBase as ::windows::core::Interface>::IID
+    }
+}
+pub trait ISpatialAudioObjectRenderStreamForHrtfImpl: Sized + ISpatialAudioObjectRenderStreamBaseImpl {
+    fn ActivateSpatialAudioObjectForHrtf();
+}
+impl ISpatialAudioObjectRenderStreamForHrtfVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAudioObjectRenderStreamForHrtfImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAudioObjectRenderStreamForHrtfVtbl {
+        unsafe extern "system" fn ActivateSpatialAudioObjectForHrtf<Impl: ISpatialAudioObjectRenderStreamForHrtfImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: AudioObjectType, audioobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetAvailableDynamicObjectCount::<Impl, IMPL_OFFSET>, GetService::<Impl, IMPL_OFFSET>, Start::<Impl, IMPL_OFFSET>, Stop::<Impl, IMPL_OFFSET>, Reset::<Impl, IMPL_OFFSET>, BeginUpdatingAudioObjects::<Impl, IMPL_OFFSET>, EndUpdatingAudioObjects::<Impl, IMPL_OFFSET>, ActivateSpatialAudioObjectForHrtf::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAudioObjectRenderStreamForHrtf as ::windows::core::Interface>::IID
+    }
+}
+pub trait ISpatialAudioObjectRenderStreamForMetadataImpl: Sized + ISpatialAudioObjectRenderStreamBaseImpl {
+    fn ActivateSpatialAudioObjectForMetadataCommands();
+    fn ActivateSpatialAudioObjectForMetadataItems();
+}
+impl ISpatialAudioObjectRenderStreamForMetadataVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAudioObjectRenderStreamForMetadataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAudioObjectRenderStreamForMetadataVtbl {
+        unsafe extern "system" fn ActivateSpatialAudioObjectForMetadataCommands<Impl: ISpatialAudioObjectRenderStreamForMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: AudioObjectType, audioobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ActivateSpatialAudioObjectForMetadataItems<Impl: ISpatialAudioObjectRenderStreamForMetadataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: AudioObjectType, audioobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetAvailableDynamicObjectCount::<Impl, IMPL_OFFSET>,
+            GetService::<Impl, IMPL_OFFSET>,
+            Start::<Impl, IMPL_OFFSET>,
+            Stop::<Impl, IMPL_OFFSET>,
+            Reset::<Impl, IMPL_OFFSET>,
+            BeginUpdatingAudioObjects::<Impl, IMPL_OFFSET>,
+            EndUpdatingAudioObjects::<Impl, IMPL_OFFSET>,
+            ActivateSpatialAudioObjectForMetadataCommands::<Impl, IMPL_OFFSET>,
+            ActivateSpatialAudioObjectForMetadataItems::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAudioObjectRenderStreamForMetadata as ::windows::core::Interface>::IID
+    }
+}
+pub trait ISpatialAudioObjectRenderStreamNotifyImpl: Sized {
+    fn OnAvailableDynamicObjectCountChange();
+}
+impl ISpatialAudioObjectRenderStreamNotifyVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpatialAudioObjectRenderStreamNotifyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpatialAudioObjectRenderStreamNotifyVtbl {
+        unsafe extern "system" fn OnAvailableDynamicObjectCountChange<Impl: ISpatialAudioObjectRenderStreamNotifyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, hnscompliancedeadlinetime: i64, availabledynamicobjectcountchange: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, OnAvailableDynamicObjectCountChange::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpatialAudioObjectRenderStreamNotify as ::windows::core::Interface>::IID
+    }
+}
+pub trait ISubunitImpl: Sized {}
+impl ISubunitVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISubunitImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISubunitVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISubunit as ::windows::core::Interface>::IID
+    }
+}

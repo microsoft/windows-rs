@@ -1,1 +1,5004 @@
-
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxAccountImpl: Sized + IDispatchImpl {
+    fn AccountName();
+    fn Folders();
+    fn ListenToAccountEvents();
+    fn RegisteredEvents();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxAccountVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccountImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxAccountVtbl {
+        unsafe extern "system" fn AccountName<Impl: IFaxAccountImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstraccountname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Folders<Impl: IFaxAccountImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfolders: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ListenToAccountEvents<Impl: IFaxAccountImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventtypes: FAX_ACCOUNT_EVENTS_TYPE_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RegisteredEvents<Impl: IFaxAccountImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pregisteredevents: *mut FAX_ACCOUNT_EVENTS_TYPE_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, AccountName::<Impl, IMPL_OFFSET>, Folders::<Impl, IMPL_OFFSET>, ListenToAccountEvents::<Impl, IMPL_OFFSET>, RegisteredEvents::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxAccount as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxAccountFoldersImpl: Sized + IDispatchImpl {
+    fn OutgoingQueue();
+    fn IncomingQueue();
+    fn IncomingArchive();
+    fn OutgoingArchive();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxAccountFoldersVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccountFoldersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxAccountFoldersVtbl {
+        unsafe extern "system" fn OutgoingQueue<Impl: IFaxAccountFoldersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxoutgoingqueue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IncomingQueue<Impl: IFaxAccountFoldersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxincomingqueue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IncomingArchive<Impl: IFaxAccountFoldersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxincomingarchive: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OutgoingArchive<Impl: IFaxAccountFoldersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxoutgoingarchive: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, OutgoingQueue::<Impl, IMPL_OFFSET>, IncomingQueue::<Impl, IMPL_OFFSET>, IncomingArchive::<Impl, IMPL_OFFSET>, OutgoingArchive::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxAccountFolders as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxAccountIncomingArchiveImpl: Sized + IDispatchImpl {
+    fn SizeLow();
+    fn SizeHigh();
+    fn Refresh();
+    fn GetMessages();
+    fn GetMessage();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxAccountIncomingArchiveVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccountIncomingArchiveImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxAccountIncomingArchiveVtbl {
+        unsafe extern "system" fn SizeLow<Impl: IFaxAccountIncomingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plsizelow: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SizeHigh<Impl: IFaxAccountIncomingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plsizehigh: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Refresh<Impl: IFaxAccountIncomingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMessages<Impl: IFaxAccountIncomingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lprefetchsize: i32, pfaxincomingmessageiterator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMessage<Impl: IFaxAccountIncomingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxincomingmessage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, SizeLow::<Impl, IMPL_OFFSET>, SizeHigh::<Impl, IMPL_OFFSET>, Refresh::<Impl, IMPL_OFFSET>, GetMessages::<Impl, IMPL_OFFSET>, GetMessage::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxAccountIncomingArchive as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxAccountIncomingQueueImpl: Sized + IDispatchImpl {
+    fn GetJobs();
+    fn GetJob();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxAccountIncomingQueueVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccountIncomingQueueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxAccountIncomingQueueVtbl {
+        unsafe extern "system" fn GetJobs<Impl: IFaxAccountIncomingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxincomingjobs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetJob<Impl: IFaxAccountIncomingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxincomingjob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, GetJobs::<Impl, IMPL_OFFSET>, GetJob::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxAccountIncomingQueue as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxAccountNotifyImpl: Sized + IDispatchImpl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxAccountNotifyVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccountNotifyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxAccountNotifyVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxAccountNotify as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxAccountOutgoingArchiveImpl: Sized + IDispatchImpl {
+    fn SizeLow();
+    fn SizeHigh();
+    fn Refresh();
+    fn GetMessages();
+    fn GetMessage();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxAccountOutgoingArchiveVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccountOutgoingArchiveImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxAccountOutgoingArchiveVtbl {
+        unsafe extern "system" fn SizeLow<Impl: IFaxAccountOutgoingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plsizelow: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SizeHigh<Impl: IFaxAccountOutgoingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plsizehigh: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Refresh<Impl: IFaxAccountOutgoingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMessages<Impl: IFaxAccountOutgoingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lprefetchsize: i32, pfaxoutgoingmessageiterator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMessage<Impl: IFaxAccountOutgoingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxoutgoingmessage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, SizeLow::<Impl, IMPL_OFFSET>, SizeHigh::<Impl, IMPL_OFFSET>, Refresh::<Impl, IMPL_OFFSET>, GetMessages::<Impl, IMPL_OFFSET>, GetMessage::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxAccountOutgoingArchive as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxAccountOutgoingQueueImpl: Sized + IDispatchImpl {
+    fn GetJobs();
+    fn GetJob();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxAccountOutgoingQueueVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccountOutgoingQueueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxAccountOutgoingQueueVtbl {
+        unsafe extern "system" fn GetJobs<Impl: IFaxAccountOutgoingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxoutgoingjobs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetJob<Impl: IFaxAccountOutgoingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxoutgoingjob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, GetJobs::<Impl, IMPL_OFFSET>, GetJob::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxAccountOutgoingQueue as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxAccountSetImpl: Sized + IDispatchImpl {
+    fn GetAccounts();
+    fn GetAccount();
+    fn AddAccount();
+    fn RemoveAccount();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxAccountSetVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccountSetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxAccountSetVtbl {
+        unsafe extern "system" fn GetAccounts<Impl: IFaxAccountSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfaxaccounts: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetAccount<Impl: IFaxAccountSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstraccountname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxaccount: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddAccount<Impl: IFaxAccountSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstraccountname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxaccount: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RemoveAccount<Impl: IFaxAccountSetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstraccountname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, GetAccounts::<Impl, IMPL_OFFSET>, GetAccount::<Impl, IMPL_OFFSET>, AddAccount::<Impl, IMPL_OFFSET>, RemoveAccount::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxAccountSet as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxAccountsImpl: Sized + IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxAccountsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxAccountsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxAccountsVtbl {
+        unsafe extern "system" fn _NewEnum<Impl: IFaxAccountsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: IFaxAccountsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxaccount: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Count<Impl: IFaxAccountsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, _NewEnum::<Impl, IMPL_OFFSET>, Item::<Impl, IMPL_OFFSET>, Count::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxAccounts as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxActivityImpl: Sized + IDispatchImpl {
+    fn IncomingMessages();
+    fn RoutingMessages();
+    fn OutgoingMessages();
+    fn QueuedMessages();
+    fn Refresh();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxActivityVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxActivityImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxActivityVtbl {
+        unsafe extern "system" fn IncomingMessages<Impl: IFaxActivityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plincomingmessages: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RoutingMessages<Impl: IFaxActivityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plroutingmessages: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OutgoingMessages<Impl: IFaxActivityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ploutgoingmessages: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn QueuedMessages<Impl: IFaxActivityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plqueuedmessages: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Refresh<Impl: IFaxActivityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, IncomingMessages::<Impl, IMPL_OFFSET>, RoutingMessages::<Impl, IMPL_OFFSET>, OutgoingMessages::<Impl, IMPL_OFFSET>, QueuedMessages::<Impl, IMPL_OFFSET>, Refresh::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxActivity as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxActivityLoggingImpl: Sized + IDispatchImpl {
+    fn LogIncoming();
+    fn SetLogIncoming();
+    fn LogOutgoing();
+    fn SetLogOutgoing();
+    fn DatabasePath();
+    fn SetDatabasePath();
+    fn Refresh();
+    fn Save();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxActivityLoggingVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxActivityLoggingImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxActivityLoggingVtbl {
+        unsafe extern "system" fn LogIncoming<Impl: IFaxActivityLoggingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pblogincoming: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLogIncoming<Impl: IFaxActivityLoggingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, blogincoming: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LogOutgoing<Impl: IFaxActivityLoggingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pblogoutgoing: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLogOutgoing<Impl: IFaxActivityLoggingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, blogoutgoing: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DatabasePath<Impl: IFaxActivityLoggingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdatabasepath: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDatabasePath<Impl: IFaxActivityLoggingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdatabasepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Refresh<Impl: IFaxActivityLoggingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Save<Impl: IFaxActivityLoggingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            LogIncoming::<Impl, IMPL_OFFSET>,
+            SetLogIncoming::<Impl, IMPL_OFFSET>,
+            LogOutgoing::<Impl, IMPL_OFFSET>,
+            SetLogOutgoing::<Impl, IMPL_OFFSET>,
+            DatabasePath::<Impl, IMPL_OFFSET>,
+            SetDatabasePath::<Impl, IMPL_OFFSET>,
+            Refresh::<Impl, IMPL_OFFSET>,
+            Save::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxActivityLogging as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxConfigurationImpl: Sized + IDispatchImpl {
+    fn UseArchive();
+    fn SetUseArchive();
+    fn ArchiveLocation();
+    fn SetArchiveLocation();
+    fn SizeQuotaWarning();
+    fn SetSizeQuotaWarning();
+    fn HighQuotaWaterMark();
+    fn SetHighQuotaWaterMark();
+    fn LowQuotaWaterMark();
+    fn SetLowQuotaWaterMark();
+    fn ArchiveAgeLimit();
+    fn SetArchiveAgeLimit();
+    fn ArchiveSizeLow();
+    fn ArchiveSizeHigh();
+    fn OutgoingQueueBlocked();
+    fn SetOutgoingQueueBlocked();
+    fn OutgoingQueuePaused();
+    fn SetOutgoingQueuePaused();
+    fn AllowPersonalCoverPages();
+    fn SetAllowPersonalCoverPages();
+    fn UseDeviceTSID();
+    fn SetUseDeviceTSID();
+    fn Retries();
+    fn SetRetries();
+    fn RetryDelay();
+    fn SetRetryDelay();
+    fn DiscountRateStart();
+    fn SetDiscountRateStart();
+    fn DiscountRateEnd();
+    fn SetDiscountRateEnd();
+    fn OutgoingQueueAgeLimit();
+    fn SetOutgoingQueueAgeLimit();
+    fn Branding();
+    fn SetBranding();
+    fn IncomingQueueBlocked();
+    fn SetIncomingQueueBlocked();
+    fn AutoCreateAccountOnConnect();
+    fn SetAutoCreateAccountOnConnect();
+    fn IncomingFaxesArePublic();
+    fn SetIncomingFaxesArePublic();
+    fn Refresh();
+    fn Save();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxConfigurationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxConfigurationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxConfigurationVtbl {
+        unsafe extern "system" fn UseArchive<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbusearchive: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetUseArchive<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, busearchive: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ArchiveLocation<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrarchivelocation: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetArchiveLocation<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrarchivelocation: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SizeQuotaWarning<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbsizequotawarning: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSizeQuotaWarning<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bsizequotawarning: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn HighQuotaWaterMark<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plhighquotawatermark: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetHighQuotaWaterMark<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lhighquotawatermark: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LowQuotaWaterMark<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pllowquotawatermark: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLowQuotaWaterMark<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, llowquotawatermark: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ArchiveAgeLimit<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plarchiveagelimit: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetArchiveAgeLimit<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, larchiveagelimit: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ArchiveSizeLow<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plsizelow: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ArchiveSizeHigh<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plsizehigh: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OutgoingQueueBlocked<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pboutgoingblocked: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetOutgoingQueueBlocked<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, boutgoingblocked: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OutgoingQueuePaused<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pboutgoingpaused: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetOutgoingQueuePaused<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, boutgoingpaused: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AllowPersonalCoverPages<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pballowpersonalcoverpages: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAllowPersonalCoverPages<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ballowpersonalcoverpages: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UseDeviceTSID<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbusedevicetsid: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetUseDeviceTSID<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, busedevicetsid: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Retries<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plretries: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRetries<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lretries: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RetryDelay<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plretrydelay: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRetryDelay<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lretrydelay: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DiscountRateStart<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdatediscountratestart: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDiscountRateStart<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datediscountratestart: f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DiscountRateEnd<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdatediscountrateend: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDiscountRateEnd<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datediscountrateend: f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OutgoingQueueAgeLimit<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ploutgoingqueueagelimit: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetOutgoingQueueAgeLimit<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loutgoingqueueagelimit: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Branding<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbbranding: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetBranding<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bbranding: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IncomingQueueBlocked<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbincomingblocked: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetIncomingQueueBlocked<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bincomingblocked: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AutoCreateAccountOnConnect<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbautocreateaccountonconnect: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAutoCreateAccountOnConnect<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bautocreateaccountonconnect: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IncomingFaxesArePublic<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbincomingfaxesarepublic: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetIncomingFaxesArePublic<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bincomingfaxesarepublic: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Refresh<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Save<Impl: IFaxConfigurationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            UseArchive::<Impl, IMPL_OFFSET>,
+            SetUseArchive::<Impl, IMPL_OFFSET>,
+            ArchiveLocation::<Impl, IMPL_OFFSET>,
+            SetArchiveLocation::<Impl, IMPL_OFFSET>,
+            SizeQuotaWarning::<Impl, IMPL_OFFSET>,
+            SetSizeQuotaWarning::<Impl, IMPL_OFFSET>,
+            HighQuotaWaterMark::<Impl, IMPL_OFFSET>,
+            SetHighQuotaWaterMark::<Impl, IMPL_OFFSET>,
+            LowQuotaWaterMark::<Impl, IMPL_OFFSET>,
+            SetLowQuotaWaterMark::<Impl, IMPL_OFFSET>,
+            ArchiveAgeLimit::<Impl, IMPL_OFFSET>,
+            SetArchiveAgeLimit::<Impl, IMPL_OFFSET>,
+            ArchiveSizeLow::<Impl, IMPL_OFFSET>,
+            ArchiveSizeHigh::<Impl, IMPL_OFFSET>,
+            OutgoingQueueBlocked::<Impl, IMPL_OFFSET>,
+            SetOutgoingQueueBlocked::<Impl, IMPL_OFFSET>,
+            OutgoingQueuePaused::<Impl, IMPL_OFFSET>,
+            SetOutgoingQueuePaused::<Impl, IMPL_OFFSET>,
+            AllowPersonalCoverPages::<Impl, IMPL_OFFSET>,
+            SetAllowPersonalCoverPages::<Impl, IMPL_OFFSET>,
+            UseDeviceTSID::<Impl, IMPL_OFFSET>,
+            SetUseDeviceTSID::<Impl, IMPL_OFFSET>,
+            Retries::<Impl, IMPL_OFFSET>,
+            SetRetries::<Impl, IMPL_OFFSET>,
+            RetryDelay::<Impl, IMPL_OFFSET>,
+            SetRetryDelay::<Impl, IMPL_OFFSET>,
+            DiscountRateStart::<Impl, IMPL_OFFSET>,
+            SetDiscountRateStart::<Impl, IMPL_OFFSET>,
+            DiscountRateEnd::<Impl, IMPL_OFFSET>,
+            SetDiscountRateEnd::<Impl, IMPL_OFFSET>,
+            OutgoingQueueAgeLimit::<Impl, IMPL_OFFSET>,
+            SetOutgoingQueueAgeLimit::<Impl, IMPL_OFFSET>,
+            Branding::<Impl, IMPL_OFFSET>,
+            SetBranding::<Impl, IMPL_OFFSET>,
+            IncomingQueueBlocked::<Impl, IMPL_OFFSET>,
+            SetIncomingQueueBlocked::<Impl, IMPL_OFFSET>,
+            AutoCreateAccountOnConnect::<Impl, IMPL_OFFSET>,
+            SetAutoCreateAccountOnConnect::<Impl, IMPL_OFFSET>,
+            IncomingFaxesArePublic::<Impl, IMPL_OFFSET>,
+            SetIncomingFaxesArePublic::<Impl, IMPL_OFFSET>,
+            Refresh::<Impl, IMPL_OFFSET>,
+            Save::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxConfiguration as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxDeviceImpl: Sized + IDispatchImpl {
+    fn Id();
+    fn DeviceName();
+    fn ProviderUniqueName();
+    fn PoweredOff();
+    fn ReceivingNow();
+    fn SendingNow();
+    fn UsedRoutingMethods();
+    fn Description();
+    fn SetDescription();
+    fn SendEnabled();
+    fn SetSendEnabled();
+    fn ReceiveMode();
+    fn SetReceiveMode();
+    fn RingsBeforeAnswer();
+    fn SetRingsBeforeAnswer();
+    fn CSID();
+    fn SetCSID();
+    fn TSID();
+    fn SetTSID();
+    fn Refresh();
+    fn Save();
+    fn GetExtensionProperty();
+    fn SetExtensionProperty();
+    fn UseRoutingMethod();
+    fn RingingNow();
+    fn AnswerCall();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxDeviceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxDeviceVtbl {
+        unsafe extern "system" fn Id<Impl: IFaxDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plid: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DeviceName<Impl: IFaxDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdevicename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ProviderUniqueName<Impl: IFaxDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrprovideruniquename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PoweredOff<Impl: IFaxDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbpoweredoff: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReceivingNow<Impl: IFaxDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbreceivingnow: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SendingNow<Impl: IFaxDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbsendingnow: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UsedRoutingMethods<Impl: IFaxDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvusedroutingmethods: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Description<Impl: IFaxDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDescription<Impl: IFaxDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SendEnabled<Impl: IFaxDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbsendenabled: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSendEnabled<Impl: IFaxDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bsendenabled: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReceiveMode<Impl: IFaxDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preceivemode: *mut FAX_DEVICE_RECEIVE_MODE_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetReceiveMode<Impl: IFaxDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, receivemode: FAX_DEVICE_RECEIVE_MODE_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RingsBeforeAnswer<Impl: IFaxDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plringsbeforeanswer: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRingsBeforeAnswer<Impl: IFaxDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lringsbeforeanswer: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CSID<Impl: IFaxDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetCSID<Impl: IFaxDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TSID<Impl: IFaxDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetTSID<Impl: IFaxDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Refresh<Impl: IFaxDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Save<Impl: IFaxDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetExtensionProperty<Impl: IFaxDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvproperty: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetExtensionProperty<Impl: IFaxDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, vproperty: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UseRoutingMethod<Impl: IFaxDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmethodguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, buse: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RingingNow<Impl: IFaxDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbringingnow: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AnswerCall<Impl: IFaxDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            DeviceName::<Impl, IMPL_OFFSET>,
+            ProviderUniqueName::<Impl, IMPL_OFFSET>,
+            PoweredOff::<Impl, IMPL_OFFSET>,
+            ReceivingNow::<Impl, IMPL_OFFSET>,
+            SendingNow::<Impl, IMPL_OFFSET>,
+            UsedRoutingMethods::<Impl, IMPL_OFFSET>,
+            Description::<Impl, IMPL_OFFSET>,
+            SetDescription::<Impl, IMPL_OFFSET>,
+            SendEnabled::<Impl, IMPL_OFFSET>,
+            SetSendEnabled::<Impl, IMPL_OFFSET>,
+            ReceiveMode::<Impl, IMPL_OFFSET>,
+            SetReceiveMode::<Impl, IMPL_OFFSET>,
+            RingsBeforeAnswer::<Impl, IMPL_OFFSET>,
+            SetRingsBeforeAnswer::<Impl, IMPL_OFFSET>,
+            CSID::<Impl, IMPL_OFFSET>,
+            SetCSID::<Impl, IMPL_OFFSET>,
+            TSID::<Impl, IMPL_OFFSET>,
+            SetTSID::<Impl, IMPL_OFFSET>,
+            Refresh::<Impl, IMPL_OFFSET>,
+            Save::<Impl, IMPL_OFFSET>,
+            GetExtensionProperty::<Impl, IMPL_OFFSET>,
+            SetExtensionProperty::<Impl, IMPL_OFFSET>,
+            UseRoutingMethod::<Impl, IMPL_OFFSET>,
+            RingingNow::<Impl, IMPL_OFFSET>,
+            AnswerCall::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxDevice as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxDeviceIdsImpl: Sized + IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+    fn Add();
+    fn Remove();
+    fn SetOrder();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxDeviceIdsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDeviceIdsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxDeviceIdsVtbl {
+        unsafe extern "system" fn _NewEnum<Impl: IFaxDeviceIdsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: IFaxDeviceIdsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pldeviceid: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Count<Impl: IFaxDeviceIdsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Add<Impl: IFaxDeviceIdsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ldeviceid: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Remove<Impl: IFaxDeviceIdsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetOrder<Impl: IFaxDeviceIdsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ldeviceid: i32, lneworder: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, _NewEnum::<Impl, IMPL_OFFSET>, Item::<Impl, IMPL_OFFSET>, Count::<Impl, IMPL_OFFSET>, Add::<Impl, IMPL_OFFSET>, Remove::<Impl, IMPL_OFFSET>, SetOrder::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxDeviceIds as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxDeviceProviderImpl: Sized + IDispatchImpl {
+    fn FriendlyName();
+    fn ImageName();
+    fn UniqueName();
+    fn TapiProviderName();
+    fn MajorVersion();
+    fn MinorVersion();
+    fn MajorBuild();
+    fn MinorBuild();
+    fn Debug();
+    fn Status();
+    fn InitErrorCode();
+    fn DeviceIds();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxDeviceProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDeviceProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxDeviceProviderVtbl {
+        unsafe extern "system" fn FriendlyName<Impl: IFaxDeviceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfriendlyname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ImageName<Impl: IFaxDeviceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrimagename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UniqueName<Impl: IFaxDeviceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstruniquename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TapiProviderName<Impl: IFaxDeviceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtapiprovidername: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MajorVersion<Impl: IFaxDeviceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plmajorversion: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MinorVersion<Impl: IFaxDeviceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plminorversion: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MajorBuild<Impl: IFaxDeviceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plmajorbuild: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MinorBuild<Impl: IFaxDeviceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plminorbuild: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Debug<Impl: IFaxDeviceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbdebug: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Status<Impl: IFaxDeviceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatus: *mut FAX_PROVIDER_STATUS_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn InitErrorCode<Impl: IFaxDeviceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pliniterrorcode: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DeviceIds<Impl: IFaxDeviceProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvdeviceids: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            FriendlyName::<Impl, IMPL_OFFSET>,
+            ImageName::<Impl, IMPL_OFFSET>,
+            UniqueName::<Impl, IMPL_OFFSET>,
+            TapiProviderName::<Impl, IMPL_OFFSET>,
+            MajorVersion::<Impl, IMPL_OFFSET>,
+            MinorVersion::<Impl, IMPL_OFFSET>,
+            MajorBuild::<Impl, IMPL_OFFSET>,
+            MinorBuild::<Impl, IMPL_OFFSET>,
+            Debug::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            InitErrorCode::<Impl, IMPL_OFFSET>,
+            DeviceIds::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxDeviceProvider as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxDeviceProvidersImpl: Sized + IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxDeviceProvidersVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDeviceProvidersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxDeviceProvidersVtbl {
+        unsafe extern "system" fn _NewEnum<Impl: IFaxDeviceProvidersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: IFaxDeviceProvidersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxdeviceprovider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Count<Impl: IFaxDeviceProvidersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, _NewEnum::<Impl, IMPL_OFFSET>, Item::<Impl, IMPL_OFFSET>, Count::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxDeviceProviders as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxDevicesImpl: Sized + IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+    fn ItemById();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxDevicesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDevicesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxDevicesVtbl {
+        unsafe extern "system" fn _NewEnum<Impl: IFaxDevicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: IFaxDevicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Count<Impl: IFaxDevicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ItemById<Impl: IFaxDevicesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lid: i32, ppfaxdevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, _NewEnum::<Impl, IMPL_OFFSET>, Item::<Impl, IMPL_OFFSET>, Count::<Impl, IMPL_OFFSET>, ItemById::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxDevices as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxDocumentImpl: Sized + IDispatchImpl {
+    fn Body();
+    fn SetBody();
+    fn Sender();
+    fn Recipients();
+    fn CoverPage();
+    fn SetCoverPage();
+    fn Subject();
+    fn SetSubject();
+    fn Note();
+    fn SetNote();
+    fn ScheduleTime();
+    fn SetScheduleTime();
+    fn ReceiptAddress();
+    fn SetReceiptAddress();
+    fn DocumentName();
+    fn SetDocumentName();
+    fn CallHandle();
+    fn SetCallHandle();
+    fn CoverPageType();
+    fn SetCoverPageType();
+    fn ScheduleType();
+    fn SetScheduleType();
+    fn ReceiptType();
+    fn SetReceiptType();
+    fn GroupBroadcastReceipts();
+    fn SetGroupBroadcastReceipts();
+    fn Priority();
+    fn SetPriority();
+    fn TapiConnection();
+    fn putref_TapiConnection();
+    fn Submit();
+    fn ConnectedSubmit();
+    fn AttachFaxToReceipt();
+    fn SetAttachFaxToReceipt();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxDocumentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDocumentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxDocumentVtbl {
+        unsafe extern "system" fn Body<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbody: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetBody<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrbody: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Sender<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfaxsender: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Recipients<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfaxrecipients: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CoverPage<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcoverpage: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetCoverPage<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcoverpage: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Subject<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubject: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSubject<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsubject: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Note<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrnote: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetNote<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrnote: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ScheduleTime<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdatescheduletime: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetScheduleTime<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datescheduletime: f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReceiptAddress<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrreceiptaddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetReceiptAddress<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrreceiptaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DocumentName<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdocumentname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDocumentName<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdocumentname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CallHandle<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcallhandle: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetCallHandle<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcallhandle: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CoverPageType<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcoverpagetype: *mut FAX_COVERPAGE_TYPE_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetCoverPageType<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, coverpagetype: FAX_COVERPAGE_TYPE_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ScheduleType<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pscheduletype: *mut FAX_SCHEDULE_TYPE_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetScheduleType<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, scheduletype: FAX_SCHEDULE_TYPE_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReceiptType<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preceipttype: *mut FAX_RECEIPT_TYPE_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetReceiptType<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, receipttype: FAX_RECEIPT_TYPE_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GroupBroadcastReceipts<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbusegrouping: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetGroupBroadcastReceipts<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, busegrouping: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Priority<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppriority: *mut FAX_PRIORITY_TYPE_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetPriority<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, priority: FAX_PRIORITY_TYPE_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TapiConnection<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptapiconnection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn putref_TapiConnection<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptapiconnection: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Submit<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfaxservername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ConnectedSubmit<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AttachFaxToReceipt<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbattachfax: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAttachFaxToReceipt<Impl: IFaxDocumentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, battachfax: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            Body::<Impl, IMPL_OFFSET>,
+            SetBody::<Impl, IMPL_OFFSET>,
+            Sender::<Impl, IMPL_OFFSET>,
+            Recipients::<Impl, IMPL_OFFSET>,
+            CoverPage::<Impl, IMPL_OFFSET>,
+            SetCoverPage::<Impl, IMPL_OFFSET>,
+            Subject::<Impl, IMPL_OFFSET>,
+            SetSubject::<Impl, IMPL_OFFSET>,
+            Note::<Impl, IMPL_OFFSET>,
+            SetNote::<Impl, IMPL_OFFSET>,
+            ScheduleTime::<Impl, IMPL_OFFSET>,
+            SetScheduleTime::<Impl, IMPL_OFFSET>,
+            ReceiptAddress::<Impl, IMPL_OFFSET>,
+            SetReceiptAddress::<Impl, IMPL_OFFSET>,
+            DocumentName::<Impl, IMPL_OFFSET>,
+            SetDocumentName::<Impl, IMPL_OFFSET>,
+            CallHandle::<Impl, IMPL_OFFSET>,
+            SetCallHandle::<Impl, IMPL_OFFSET>,
+            CoverPageType::<Impl, IMPL_OFFSET>,
+            SetCoverPageType::<Impl, IMPL_OFFSET>,
+            ScheduleType::<Impl, IMPL_OFFSET>,
+            SetScheduleType::<Impl, IMPL_OFFSET>,
+            ReceiptType::<Impl, IMPL_OFFSET>,
+            SetReceiptType::<Impl, IMPL_OFFSET>,
+            GroupBroadcastReceipts::<Impl, IMPL_OFFSET>,
+            SetGroupBroadcastReceipts::<Impl, IMPL_OFFSET>,
+            Priority::<Impl, IMPL_OFFSET>,
+            SetPriority::<Impl, IMPL_OFFSET>,
+            TapiConnection::<Impl, IMPL_OFFSET>,
+            putref_TapiConnection::<Impl, IMPL_OFFSET>,
+            Submit::<Impl, IMPL_OFFSET>,
+            ConnectedSubmit::<Impl, IMPL_OFFSET>,
+            AttachFaxToReceipt::<Impl, IMPL_OFFSET>,
+            SetAttachFaxToReceipt::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxDocument as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxDocument2Impl: Sized + IFaxDocumentImpl + IDispatchImpl {
+    fn SubmissionId();
+    fn Bodies();
+    fn SetBodies();
+    fn Submit2();
+    fn ConnectedSubmit2();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxDocument2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxDocument2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxDocument2Vtbl {
+        unsafe extern "system" fn SubmissionId<Impl: IFaxDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubmissionid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Bodies<Impl: IFaxDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvbodies: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetBodies<Impl: IFaxDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vbodies: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Submit2<Impl: IFaxDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfaxservername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ConnectedSubmit2<Impl: IFaxDocument2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            Body::<Impl, IMPL_OFFSET>,
+            SetBody::<Impl, IMPL_OFFSET>,
+            Sender::<Impl, IMPL_OFFSET>,
+            Recipients::<Impl, IMPL_OFFSET>,
+            CoverPage::<Impl, IMPL_OFFSET>,
+            SetCoverPage::<Impl, IMPL_OFFSET>,
+            Subject::<Impl, IMPL_OFFSET>,
+            SetSubject::<Impl, IMPL_OFFSET>,
+            Note::<Impl, IMPL_OFFSET>,
+            SetNote::<Impl, IMPL_OFFSET>,
+            ScheduleTime::<Impl, IMPL_OFFSET>,
+            SetScheduleTime::<Impl, IMPL_OFFSET>,
+            ReceiptAddress::<Impl, IMPL_OFFSET>,
+            SetReceiptAddress::<Impl, IMPL_OFFSET>,
+            DocumentName::<Impl, IMPL_OFFSET>,
+            SetDocumentName::<Impl, IMPL_OFFSET>,
+            CallHandle::<Impl, IMPL_OFFSET>,
+            SetCallHandle::<Impl, IMPL_OFFSET>,
+            CoverPageType::<Impl, IMPL_OFFSET>,
+            SetCoverPageType::<Impl, IMPL_OFFSET>,
+            ScheduleType::<Impl, IMPL_OFFSET>,
+            SetScheduleType::<Impl, IMPL_OFFSET>,
+            ReceiptType::<Impl, IMPL_OFFSET>,
+            SetReceiptType::<Impl, IMPL_OFFSET>,
+            GroupBroadcastReceipts::<Impl, IMPL_OFFSET>,
+            SetGroupBroadcastReceipts::<Impl, IMPL_OFFSET>,
+            Priority::<Impl, IMPL_OFFSET>,
+            SetPriority::<Impl, IMPL_OFFSET>,
+            TapiConnection::<Impl, IMPL_OFFSET>,
+            putref_TapiConnection::<Impl, IMPL_OFFSET>,
+            Submit::<Impl, IMPL_OFFSET>,
+            ConnectedSubmit::<Impl, IMPL_OFFSET>,
+            AttachFaxToReceipt::<Impl, IMPL_OFFSET>,
+            SetAttachFaxToReceipt::<Impl, IMPL_OFFSET>,
+            SubmissionId::<Impl, IMPL_OFFSET>,
+            Bodies::<Impl, IMPL_OFFSET>,
+            SetBodies::<Impl, IMPL_OFFSET>,
+            Submit2::<Impl, IMPL_OFFSET>,
+            ConnectedSubmit2::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxDocument2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxEventLoggingImpl: Sized + IDispatchImpl {
+    fn InitEventsLevel();
+    fn SetInitEventsLevel();
+    fn InboundEventsLevel();
+    fn SetInboundEventsLevel();
+    fn OutboundEventsLevel();
+    fn SetOutboundEventsLevel();
+    fn GeneralEventsLevel();
+    fn SetGeneralEventsLevel();
+    fn Refresh();
+    fn Save();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxEventLoggingVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxEventLoggingImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxEventLoggingVtbl {
+        unsafe extern "system" fn InitEventsLevel<Impl: IFaxEventLoggingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piniteventlevel: *mut FAX_LOG_LEVEL_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetInitEventsLevel<Impl: IFaxEventLoggingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, initeventlevel: FAX_LOG_LEVEL_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn InboundEventsLevel<Impl: IFaxEventLoggingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinboundeventlevel: *mut FAX_LOG_LEVEL_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetInboundEventsLevel<Impl: IFaxEventLoggingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inboundeventlevel: FAX_LOG_LEVEL_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OutboundEventsLevel<Impl: IFaxEventLoggingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poutboundeventlevel: *mut FAX_LOG_LEVEL_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetOutboundEventsLevel<Impl: IFaxEventLoggingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outboundeventlevel: FAX_LOG_LEVEL_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GeneralEventsLevel<Impl: IFaxEventLoggingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgeneraleventlevel: *mut FAX_LOG_LEVEL_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetGeneralEventsLevel<Impl: IFaxEventLoggingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, generaleventlevel: FAX_LOG_LEVEL_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Refresh<Impl: IFaxEventLoggingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Save<Impl: IFaxEventLoggingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            InitEventsLevel::<Impl, IMPL_OFFSET>,
+            SetInitEventsLevel::<Impl, IMPL_OFFSET>,
+            InboundEventsLevel::<Impl, IMPL_OFFSET>,
+            SetInboundEventsLevel::<Impl, IMPL_OFFSET>,
+            OutboundEventsLevel::<Impl, IMPL_OFFSET>,
+            SetOutboundEventsLevel::<Impl, IMPL_OFFSET>,
+            GeneralEventsLevel::<Impl, IMPL_OFFSET>,
+            SetGeneralEventsLevel::<Impl, IMPL_OFFSET>,
+            Refresh::<Impl, IMPL_OFFSET>,
+            Save::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxEventLogging as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxFoldersImpl: Sized + IDispatchImpl {
+    fn OutgoingQueue();
+    fn IncomingQueue();
+    fn IncomingArchive();
+    fn OutgoingArchive();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxFoldersVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxFoldersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxFoldersVtbl {
+        unsafe extern "system" fn OutgoingQueue<Impl: IFaxFoldersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxoutgoingqueue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IncomingQueue<Impl: IFaxFoldersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxincomingqueue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IncomingArchive<Impl: IFaxFoldersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxincomingarchive: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OutgoingArchive<Impl: IFaxFoldersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxoutgoingarchive: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, OutgoingQueue::<Impl, IMPL_OFFSET>, IncomingQueue::<Impl, IMPL_OFFSET>, IncomingArchive::<Impl, IMPL_OFFSET>, OutgoingArchive::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxFolders as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxInboundRoutingImpl: Sized + IDispatchImpl {
+    fn GetExtensions();
+    fn GetMethods();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxInboundRoutingVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxInboundRoutingImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxInboundRoutingVtbl {
+        unsafe extern "system" fn GetExtensions<Impl: IFaxInboundRoutingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxinboundroutingextensions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMethods<Impl: IFaxInboundRoutingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxinboundroutingmethods: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, GetExtensions::<Impl, IMPL_OFFSET>, GetMethods::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxInboundRouting as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxInboundRoutingExtensionImpl: Sized + IDispatchImpl {
+    fn FriendlyName();
+    fn ImageName();
+    fn UniqueName();
+    fn MajorVersion();
+    fn MinorVersion();
+    fn MajorBuild();
+    fn MinorBuild();
+    fn Debug();
+    fn Status();
+    fn InitErrorCode();
+    fn Methods();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxInboundRoutingExtensionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxInboundRoutingExtensionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxInboundRoutingExtensionVtbl {
+        unsafe extern "system" fn FriendlyName<Impl: IFaxInboundRoutingExtensionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfriendlyname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ImageName<Impl: IFaxInboundRoutingExtensionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrimagename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UniqueName<Impl: IFaxInboundRoutingExtensionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstruniquename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MajorVersion<Impl: IFaxInboundRoutingExtensionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plmajorversion: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MinorVersion<Impl: IFaxInboundRoutingExtensionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plminorversion: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MajorBuild<Impl: IFaxInboundRoutingExtensionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plmajorbuild: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MinorBuild<Impl: IFaxInboundRoutingExtensionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plminorbuild: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Debug<Impl: IFaxInboundRoutingExtensionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbdebug: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Status<Impl: IFaxInboundRoutingExtensionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatus: *mut FAX_PROVIDER_STATUS_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn InitErrorCode<Impl: IFaxInboundRoutingExtensionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pliniterrorcode: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Methods<Impl: IFaxInboundRoutingExtensionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvmethods: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            FriendlyName::<Impl, IMPL_OFFSET>,
+            ImageName::<Impl, IMPL_OFFSET>,
+            UniqueName::<Impl, IMPL_OFFSET>,
+            MajorVersion::<Impl, IMPL_OFFSET>,
+            MinorVersion::<Impl, IMPL_OFFSET>,
+            MajorBuild::<Impl, IMPL_OFFSET>,
+            MinorBuild::<Impl, IMPL_OFFSET>,
+            Debug::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            InitErrorCode::<Impl, IMPL_OFFSET>,
+            Methods::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxInboundRoutingExtension as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxInboundRoutingExtensionsImpl: Sized + IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxInboundRoutingExtensionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxInboundRoutingExtensionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxInboundRoutingExtensionsVtbl {
+        unsafe extern "system" fn _NewEnum<Impl: IFaxInboundRoutingExtensionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: IFaxInboundRoutingExtensionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxinboundroutingextension: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Count<Impl: IFaxInboundRoutingExtensionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, _NewEnum::<Impl, IMPL_OFFSET>, Item::<Impl, IMPL_OFFSET>, Count::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxInboundRoutingExtensions as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxInboundRoutingMethodImpl: Sized + IDispatchImpl {
+    fn Name();
+    fn GUID();
+    fn FunctionName();
+    fn ExtensionFriendlyName();
+    fn ExtensionImageName();
+    fn Priority();
+    fn SetPriority();
+    fn Refresh();
+    fn Save();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxInboundRoutingMethodVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxInboundRoutingMethodImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxInboundRoutingMethodVtbl {
+        unsafe extern "system" fn Name<Impl: IFaxInboundRoutingMethodImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GUID<Impl: IFaxInboundRoutingMethodImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrguid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FunctionName<Impl: IFaxInboundRoutingMethodImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfunctionname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ExtensionFriendlyName<Impl: IFaxInboundRoutingMethodImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrextensionfriendlyname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ExtensionImageName<Impl: IFaxInboundRoutingMethodImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrextensionimagename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Priority<Impl: IFaxInboundRoutingMethodImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plpriority: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetPriority<Impl: IFaxInboundRoutingMethodImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpriority: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Refresh<Impl: IFaxInboundRoutingMethodImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Save<Impl: IFaxInboundRoutingMethodImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            GUID::<Impl, IMPL_OFFSET>,
+            FunctionName::<Impl, IMPL_OFFSET>,
+            ExtensionFriendlyName::<Impl, IMPL_OFFSET>,
+            ExtensionImageName::<Impl, IMPL_OFFSET>,
+            Priority::<Impl, IMPL_OFFSET>,
+            SetPriority::<Impl, IMPL_OFFSET>,
+            Refresh::<Impl, IMPL_OFFSET>,
+            Save::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxInboundRoutingMethod as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxInboundRoutingMethodsImpl: Sized + IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxInboundRoutingMethodsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxInboundRoutingMethodsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxInboundRoutingMethodsVtbl {
+        unsafe extern "system" fn _NewEnum<Impl: IFaxInboundRoutingMethodsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: IFaxInboundRoutingMethodsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxinboundroutingmethod: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Count<Impl: IFaxInboundRoutingMethodsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, _NewEnum::<Impl, IMPL_OFFSET>, Item::<Impl, IMPL_OFFSET>, Count::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxInboundRoutingMethods as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxIncomingArchiveImpl: Sized + IDispatchImpl {
+    fn UseArchive();
+    fn SetUseArchive();
+    fn ArchiveFolder();
+    fn SetArchiveFolder();
+    fn SizeQuotaWarning();
+    fn SetSizeQuotaWarning();
+    fn HighQuotaWaterMark();
+    fn SetHighQuotaWaterMark();
+    fn LowQuotaWaterMark();
+    fn SetLowQuotaWaterMark();
+    fn AgeLimit();
+    fn SetAgeLimit();
+    fn SizeLow();
+    fn SizeHigh();
+    fn Refresh();
+    fn Save();
+    fn GetMessages();
+    fn GetMessage();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxIncomingArchiveVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingArchiveImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxIncomingArchiveVtbl {
+        unsafe extern "system" fn UseArchive<Impl: IFaxIncomingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbusearchive: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetUseArchive<Impl: IFaxIncomingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, busearchive: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ArchiveFolder<Impl: IFaxIncomingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrarchivefolder: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetArchiveFolder<Impl: IFaxIncomingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrarchivefolder: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SizeQuotaWarning<Impl: IFaxIncomingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbsizequotawarning: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSizeQuotaWarning<Impl: IFaxIncomingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bsizequotawarning: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn HighQuotaWaterMark<Impl: IFaxIncomingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plhighquotawatermark: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetHighQuotaWaterMark<Impl: IFaxIncomingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lhighquotawatermark: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LowQuotaWaterMark<Impl: IFaxIncomingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pllowquotawatermark: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLowQuotaWaterMark<Impl: IFaxIncomingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, llowquotawatermark: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AgeLimit<Impl: IFaxIncomingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plagelimit: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAgeLimit<Impl: IFaxIncomingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lagelimit: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SizeLow<Impl: IFaxIncomingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plsizelow: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SizeHigh<Impl: IFaxIncomingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plsizehigh: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Refresh<Impl: IFaxIncomingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Save<Impl: IFaxIncomingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMessages<Impl: IFaxIncomingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lprefetchsize: i32, pfaxincomingmessageiterator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMessage<Impl: IFaxIncomingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxincomingmessage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            UseArchive::<Impl, IMPL_OFFSET>,
+            SetUseArchive::<Impl, IMPL_OFFSET>,
+            ArchiveFolder::<Impl, IMPL_OFFSET>,
+            SetArchiveFolder::<Impl, IMPL_OFFSET>,
+            SizeQuotaWarning::<Impl, IMPL_OFFSET>,
+            SetSizeQuotaWarning::<Impl, IMPL_OFFSET>,
+            HighQuotaWaterMark::<Impl, IMPL_OFFSET>,
+            SetHighQuotaWaterMark::<Impl, IMPL_OFFSET>,
+            LowQuotaWaterMark::<Impl, IMPL_OFFSET>,
+            SetLowQuotaWaterMark::<Impl, IMPL_OFFSET>,
+            AgeLimit::<Impl, IMPL_OFFSET>,
+            SetAgeLimit::<Impl, IMPL_OFFSET>,
+            SizeLow::<Impl, IMPL_OFFSET>,
+            SizeHigh::<Impl, IMPL_OFFSET>,
+            Refresh::<Impl, IMPL_OFFSET>,
+            Save::<Impl, IMPL_OFFSET>,
+            GetMessages::<Impl, IMPL_OFFSET>,
+            GetMessage::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxIncomingArchive as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxIncomingJobImpl: Sized + IDispatchImpl {
+    fn Size();
+    fn Id();
+    fn CurrentPage();
+    fn DeviceId();
+    fn Status();
+    fn ExtendedStatusCode();
+    fn ExtendedStatus();
+    fn AvailableOperations();
+    fn Retries();
+    fn TransmissionStart();
+    fn TransmissionEnd();
+    fn CSID();
+    fn TSID();
+    fn CallerId();
+    fn RoutingInformation();
+    fn JobType();
+    fn Cancel();
+    fn Refresh();
+    fn CopyTiff();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxIncomingJobVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingJobImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxIncomingJobVtbl {
+        unsafe extern "system" fn Size<Impl: IFaxIncomingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plsize: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Id<Impl: IFaxIncomingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CurrentPage<Impl: IFaxIncomingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcurrentpage: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DeviceId<Impl: IFaxIncomingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pldeviceid: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Status<Impl: IFaxIncomingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatus: *mut FAX_JOB_STATUS_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ExtendedStatusCode<Impl: IFaxIncomingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pextendedstatuscode: *mut FAX_JOB_EXTENDED_STATUS_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ExtendedStatus<Impl: IFaxIncomingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrextendedstatus: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AvailableOperations<Impl: IFaxIncomingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pavailableoperations: *mut FAX_JOB_OPERATIONS_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Retries<Impl: IFaxIncomingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plretries: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TransmissionStart<Impl: IFaxIncomingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdatetransmissionstart: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TransmissionEnd<Impl: IFaxIncomingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdatetransmissionend: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CSID<Impl: IFaxIncomingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TSID<Impl: IFaxIncomingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CallerId<Impl: IFaxIncomingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcallerid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RoutingInformation<Impl: IFaxIncomingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrroutinginformation: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn JobType<Impl: IFaxIncomingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pjobtype: *mut FAX_JOB_TYPE_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Cancel<Impl: IFaxIncomingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Refresh<Impl: IFaxIncomingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CopyTiff<Impl: IFaxIncomingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtiffpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            Size::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            CurrentPage::<Impl, IMPL_OFFSET>,
+            DeviceId::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            ExtendedStatusCode::<Impl, IMPL_OFFSET>,
+            ExtendedStatus::<Impl, IMPL_OFFSET>,
+            AvailableOperations::<Impl, IMPL_OFFSET>,
+            Retries::<Impl, IMPL_OFFSET>,
+            TransmissionStart::<Impl, IMPL_OFFSET>,
+            TransmissionEnd::<Impl, IMPL_OFFSET>,
+            CSID::<Impl, IMPL_OFFSET>,
+            TSID::<Impl, IMPL_OFFSET>,
+            CallerId::<Impl, IMPL_OFFSET>,
+            RoutingInformation::<Impl, IMPL_OFFSET>,
+            JobType::<Impl, IMPL_OFFSET>,
+            Cancel::<Impl, IMPL_OFFSET>,
+            Refresh::<Impl, IMPL_OFFSET>,
+            CopyTiff::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxIncomingJob as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxIncomingJobsImpl: Sized + IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxIncomingJobsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingJobsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxIncomingJobsVtbl {
+        unsafe extern "system" fn _NewEnum<Impl: IFaxIncomingJobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: IFaxIncomingJobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxincomingjob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Count<Impl: IFaxIncomingJobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, _NewEnum::<Impl, IMPL_OFFSET>, Item::<Impl, IMPL_OFFSET>, Count::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxIncomingJobs as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxIncomingMessageImpl: Sized + IDispatchImpl {
+    fn Id();
+    fn Pages();
+    fn Size();
+    fn DeviceName();
+    fn Retries();
+    fn TransmissionStart();
+    fn TransmissionEnd();
+    fn CSID();
+    fn TSID();
+    fn CallerId();
+    fn RoutingInformation();
+    fn CopyTiff();
+    fn Delete();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxIncomingMessageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxIncomingMessageVtbl {
+        unsafe extern "system" fn Id<Impl: IFaxIncomingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Pages<Impl: IFaxIncomingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plpages: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Size<Impl: IFaxIncomingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plsize: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DeviceName<Impl: IFaxIncomingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdevicename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Retries<Impl: IFaxIncomingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plretries: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TransmissionStart<Impl: IFaxIncomingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdatetransmissionstart: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TransmissionEnd<Impl: IFaxIncomingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdatetransmissionend: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CSID<Impl: IFaxIncomingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TSID<Impl: IFaxIncomingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CallerId<Impl: IFaxIncomingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcallerid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RoutingInformation<Impl: IFaxIncomingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrroutinginformation: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CopyTiff<Impl: IFaxIncomingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtiffpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Delete<Impl: IFaxIncomingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            Pages::<Impl, IMPL_OFFSET>,
+            Size::<Impl, IMPL_OFFSET>,
+            DeviceName::<Impl, IMPL_OFFSET>,
+            Retries::<Impl, IMPL_OFFSET>,
+            TransmissionStart::<Impl, IMPL_OFFSET>,
+            TransmissionEnd::<Impl, IMPL_OFFSET>,
+            CSID::<Impl, IMPL_OFFSET>,
+            TSID::<Impl, IMPL_OFFSET>,
+            CallerId::<Impl, IMPL_OFFSET>,
+            RoutingInformation::<Impl, IMPL_OFFSET>,
+            CopyTiff::<Impl, IMPL_OFFSET>,
+            Delete::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxIncomingMessage as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxIncomingMessage2Impl: Sized + IFaxIncomingMessageImpl + IDispatchImpl {
+    fn Subject();
+    fn SetSubject();
+    fn SenderName();
+    fn SetSenderName();
+    fn SenderFaxNumber();
+    fn SetSenderFaxNumber();
+    fn HasCoverPage();
+    fn SetHasCoverPage();
+    fn Recipients();
+    fn SetRecipients();
+    fn WasReAssigned();
+    fn Read();
+    fn SetRead();
+    fn ReAssign();
+    fn Save();
+    fn Refresh();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxIncomingMessage2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingMessage2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxIncomingMessage2Vtbl {
+        unsafe extern "system" fn Subject<Impl: IFaxIncomingMessage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubject: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSubject<Impl: IFaxIncomingMessage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsubject: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SenderName<Impl: IFaxIncomingMessage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsendername: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSenderName<Impl: IFaxIncomingMessage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsendername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SenderFaxNumber<Impl: IFaxIncomingMessage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsenderfaxnumber: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSenderFaxNumber<Impl: IFaxIncomingMessage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsenderfaxnumber: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn HasCoverPage<Impl: IFaxIncomingMessage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbhascoverpage: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetHasCoverPage<Impl: IFaxIncomingMessage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bhascoverpage: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Recipients<Impl: IFaxIncomingMessage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrrecipients: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRecipients<Impl: IFaxIncomingMessage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrecipients: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn WasReAssigned<Impl: IFaxIncomingMessage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbwasreassigned: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Read<Impl: IFaxIncomingMessage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbread: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRead<Impl: IFaxIncomingMessage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bread: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReAssign<Impl: IFaxIncomingMessage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Save<Impl: IFaxIncomingMessage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Refresh<Impl: IFaxIncomingMessage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            Pages::<Impl, IMPL_OFFSET>,
+            Size::<Impl, IMPL_OFFSET>,
+            DeviceName::<Impl, IMPL_OFFSET>,
+            Retries::<Impl, IMPL_OFFSET>,
+            TransmissionStart::<Impl, IMPL_OFFSET>,
+            TransmissionEnd::<Impl, IMPL_OFFSET>,
+            CSID::<Impl, IMPL_OFFSET>,
+            TSID::<Impl, IMPL_OFFSET>,
+            CallerId::<Impl, IMPL_OFFSET>,
+            RoutingInformation::<Impl, IMPL_OFFSET>,
+            CopyTiff::<Impl, IMPL_OFFSET>,
+            Delete::<Impl, IMPL_OFFSET>,
+            Subject::<Impl, IMPL_OFFSET>,
+            SetSubject::<Impl, IMPL_OFFSET>,
+            SenderName::<Impl, IMPL_OFFSET>,
+            SetSenderName::<Impl, IMPL_OFFSET>,
+            SenderFaxNumber::<Impl, IMPL_OFFSET>,
+            SetSenderFaxNumber::<Impl, IMPL_OFFSET>,
+            HasCoverPage::<Impl, IMPL_OFFSET>,
+            SetHasCoverPage::<Impl, IMPL_OFFSET>,
+            Recipients::<Impl, IMPL_OFFSET>,
+            SetRecipients::<Impl, IMPL_OFFSET>,
+            WasReAssigned::<Impl, IMPL_OFFSET>,
+            Read::<Impl, IMPL_OFFSET>,
+            SetRead::<Impl, IMPL_OFFSET>,
+            ReAssign::<Impl, IMPL_OFFSET>,
+            Save::<Impl, IMPL_OFFSET>,
+            Refresh::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxIncomingMessage2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxIncomingMessageIteratorImpl: Sized + IDispatchImpl {
+    fn Message();
+    fn PrefetchSize();
+    fn SetPrefetchSize();
+    fn AtEOF();
+    fn MoveFirst();
+    fn MoveNext();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxIncomingMessageIteratorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingMessageIteratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxIncomingMessageIteratorVtbl {
+        unsafe extern "system" fn Message<Impl: IFaxIncomingMessageIteratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxincomingmessage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PrefetchSize<Impl: IFaxIncomingMessageIteratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plprefetchsize: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetPrefetchSize<Impl: IFaxIncomingMessageIteratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lprefetchsize: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AtEOF<Impl: IFaxIncomingMessageIteratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbeof: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MoveFirst<Impl: IFaxIncomingMessageIteratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MoveNext<Impl: IFaxIncomingMessageIteratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            Message::<Impl, IMPL_OFFSET>,
+            PrefetchSize::<Impl, IMPL_OFFSET>,
+            SetPrefetchSize::<Impl, IMPL_OFFSET>,
+            AtEOF::<Impl, IMPL_OFFSET>,
+            MoveFirst::<Impl, IMPL_OFFSET>,
+            MoveNext::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxIncomingMessageIterator as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxIncomingQueueImpl: Sized + IDispatchImpl {
+    fn Blocked();
+    fn SetBlocked();
+    fn Refresh();
+    fn Save();
+    fn GetJobs();
+    fn GetJob();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxIncomingQueueVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxIncomingQueueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxIncomingQueueVtbl {
+        unsafe extern "system" fn Blocked<Impl: IFaxIncomingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbblocked: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetBlocked<Impl: IFaxIncomingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bblocked: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Refresh<Impl: IFaxIncomingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Save<Impl: IFaxIncomingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetJobs<Impl: IFaxIncomingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxincomingjobs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetJob<Impl: IFaxIncomingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxincomingjob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, Blocked::<Impl, IMPL_OFFSET>, SetBlocked::<Impl, IMPL_OFFSET>, Refresh::<Impl, IMPL_OFFSET>, Save::<Impl, IMPL_OFFSET>, GetJobs::<Impl, IMPL_OFFSET>, GetJob::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxIncomingQueue as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxJobStatusImpl: Sized + IDispatchImpl {
+    fn Status();
+    fn Pages();
+    fn Size();
+    fn CurrentPage();
+    fn DeviceId();
+    fn CSID();
+    fn TSID();
+    fn ExtendedStatusCode();
+    fn ExtendedStatus();
+    fn AvailableOperations();
+    fn Retries();
+    fn JobType();
+    fn ScheduledTime();
+    fn TransmissionStart();
+    fn TransmissionEnd();
+    fn CallerId();
+    fn RoutingInformation();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxJobStatusVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxJobStatusImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxJobStatusVtbl {
+        unsafe extern "system" fn Status<Impl: IFaxJobStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatus: *mut FAX_JOB_STATUS_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Pages<Impl: IFaxJobStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plpages: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Size<Impl: IFaxJobStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plsize: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CurrentPage<Impl: IFaxJobStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcurrentpage: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DeviceId<Impl: IFaxJobStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pldeviceid: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CSID<Impl: IFaxJobStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TSID<Impl: IFaxJobStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ExtendedStatusCode<Impl: IFaxJobStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pextendedstatuscode: *mut FAX_JOB_EXTENDED_STATUS_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ExtendedStatus<Impl: IFaxJobStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrextendedstatus: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AvailableOperations<Impl: IFaxJobStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pavailableoperations: *mut FAX_JOB_OPERATIONS_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Retries<Impl: IFaxJobStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plretries: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn JobType<Impl: IFaxJobStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pjobtype: *mut FAX_JOB_TYPE_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ScheduledTime<Impl: IFaxJobStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdatescheduledtime: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TransmissionStart<Impl: IFaxJobStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdatetransmissionstart: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TransmissionEnd<Impl: IFaxJobStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdatetransmissionend: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CallerId<Impl: IFaxJobStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcallerid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RoutingInformation<Impl: IFaxJobStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrroutinginformation: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            Pages::<Impl, IMPL_OFFSET>,
+            Size::<Impl, IMPL_OFFSET>,
+            CurrentPage::<Impl, IMPL_OFFSET>,
+            DeviceId::<Impl, IMPL_OFFSET>,
+            CSID::<Impl, IMPL_OFFSET>,
+            TSID::<Impl, IMPL_OFFSET>,
+            ExtendedStatusCode::<Impl, IMPL_OFFSET>,
+            ExtendedStatus::<Impl, IMPL_OFFSET>,
+            AvailableOperations::<Impl, IMPL_OFFSET>,
+            Retries::<Impl, IMPL_OFFSET>,
+            JobType::<Impl, IMPL_OFFSET>,
+            ScheduledTime::<Impl, IMPL_OFFSET>,
+            TransmissionStart::<Impl, IMPL_OFFSET>,
+            TransmissionEnd::<Impl, IMPL_OFFSET>,
+            CallerId::<Impl, IMPL_OFFSET>,
+            RoutingInformation::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxJobStatus as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxLoggingOptionsImpl: Sized + IDispatchImpl {
+    fn EventLogging();
+    fn ActivityLogging();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxLoggingOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxLoggingOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxLoggingOptionsVtbl {
+        unsafe extern "system" fn EventLogging<Impl: IFaxLoggingOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxeventlogging: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ActivityLogging<Impl: IFaxLoggingOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxactivitylogging: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, EventLogging::<Impl, IMPL_OFFSET>, ActivityLogging::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxLoggingOptions as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxOutboundRoutingImpl: Sized + IDispatchImpl {
+    fn GetGroups();
+    fn GetRules();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxOutboundRoutingVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutboundRoutingImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxOutboundRoutingVtbl {
+        unsafe extern "system" fn GetGroups<Impl: IFaxOutboundRoutingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxoutboundroutinggroups: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetRules<Impl: IFaxOutboundRoutingImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxoutboundroutingrules: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, GetGroups::<Impl, IMPL_OFFSET>, GetRules::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxOutboundRouting as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxOutboundRoutingGroupImpl: Sized + IDispatchImpl {
+    fn Name();
+    fn Status();
+    fn DeviceIds();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxOutboundRoutingGroupVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutboundRoutingGroupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxOutboundRoutingGroupVtbl {
+        unsafe extern "system" fn Name<Impl: IFaxOutboundRoutingGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Status<Impl: IFaxOutboundRoutingGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatus: *mut FAX_GROUP_STATUS_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DeviceIds<Impl: IFaxOutboundRoutingGroupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxdeviceids: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>, DeviceIds::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxOutboundRoutingGroup as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxOutboundRoutingGroupsImpl: Sized + IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+    fn Add();
+    fn Remove();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxOutboundRoutingGroupsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutboundRoutingGroupsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxOutboundRoutingGroupsVtbl {
+        unsafe extern "system" fn _NewEnum<Impl: IFaxOutboundRoutingGroupsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: IFaxOutboundRoutingGroupsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxoutboundroutinggroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Count<Impl: IFaxOutboundRoutingGroupsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Add<Impl: IFaxOutboundRoutingGroupsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxoutboundroutinggroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Remove<Impl: IFaxOutboundRoutingGroupsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, _NewEnum::<Impl, IMPL_OFFSET>, Item::<Impl, IMPL_OFFSET>, Count::<Impl, IMPL_OFFSET>, Add::<Impl, IMPL_OFFSET>, Remove::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxOutboundRoutingGroups as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxOutboundRoutingRuleImpl: Sized + IDispatchImpl {
+    fn CountryCode();
+    fn AreaCode();
+    fn Status();
+    fn UseDevice();
+    fn SetUseDevice();
+    fn DeviceId();
+    fn SetDeviceId();
+    fn GroupName();
+    fn SetGroupName();
+    fn Refresh();
+    fn Save();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxOutboundRoutingRuleVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutboundRoutingRuleImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxOutboundRoutingRuleVtbl {
+        unsafe extern "system" fn CountryCode<Impl: IFaxOutboundRoutingRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcountrycode: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AreaCode<Impl: IFaxOutboundRoutingRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plareacode: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Status<Impl: IFaxOutboundRoutingRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatus: *mut FAX_RULE_STATUS_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UseDevice<Impl: IFaxOutboundRoutingRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbusedevice: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetUseDevice<Impl: IFaxOutboundRoutingRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, busedevice: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DeviceId<Impl: IFaxOutboundRoutingRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pldeviceid: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDeviceId<Impl: IFaxOutboundRoutingRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GroupName<Impl: IFaxOutboundRoutingRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrgroupname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetGroupName<Impl: IFaxOutboundRoutingRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgroupname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Refresh<Impl: IFaxOutboundRoutingRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Save<Impl: IFaxOutboundRoutingRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            CountryCode::<Impl, IMPL_OFFSET>,
+            AreaCode::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            UseDevice::<Impl, IMPL_OFFSET>,
+            SetUseDevice::<Impl, IMPL_OFFSET>,
+            DeviceId::<Impl, IMPL_OFFSET>,
+            SetDeviceId::<Impl, IMPL_OFFSET>,
+            GroupName::<Impl, IMPL_OFFSET>,
+            SetGroupName::<Impl, IMPL_OFFSET>,
+            Refresh::<Impl, IMPL_OFFSET>,
+            Save::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxOutboundRoutingRule as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxOutboundRoutingRulesImpl: Sized + IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+    fn ItemByCountryAndArea();
+    fn RemoveByCountryAndArea();
+    fn Remove();
+    fn Add();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxOutboundRoutingRulesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutboundRoutingRulesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxOutboundRoutingRulesVtbl {
+        unsafe extern "system" fn _NewEnum<Impl: IFaxOutboundRoutingRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: IFaxOutboundRoutingRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pfaxoutboundroutingrule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Count<Impl: IFaxOutboundRoutingRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ItemByCountryAndArea<Impl: IFaxOutboundRoutingRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcountrycode: i32, lareacode: i32, pfaxoutboundroutingrule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RemoveByCountryAndArea<Impl: IFaxOutboundRoutingRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcountrycode: i32, lareacode: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Remove<Impl: IFaxOutboundRoutingRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Add<Impl: IFaxOutboundRoutingRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcountrycode: i32, lareacode: i32, busedevice: i16, bstrgroupname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ldeviceid: i32, pfaxoutboundroutingrule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            _NewEnum::<Impl, IMPL_OFFSET>,
+            Item::<Impl, IMPL_OFFSET>,
+            Count::<Impl, IMPL_OFFSET>,
+            ItemByCountryAndArea::<Impl, IMPL_OFFSET>,
+            RemoveByCountryAndArea::<Impl, IMPL_OFFSET>,
+            Remove::<Impl, IMPL_OFFSET>,
+            Add::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxOutboundRoutingRules as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxOutgoingArchiveImpl: Sized + IDispatchImpl {
+    fn UseArchive();
+    fn SetUseArchive();
+    fn ArchiveFolder();
+    fn SetArchiveFolder();
+    fn SizeQuotaWarning();
+    fn SetSizeQuotaWarning();
+    fn HighQuotaWaterMark();
+    fn SetHighQuotaWaterMark();
+    fn LowQuotaWaterMark();
+    fn SetLowQuotaWaterMark();
+    fn AgeLimit();
+    fn SetAgeLimit();
+    fn SizeLow();
+    fn SizeHigh();
+    fn Refresh();
+    fn Save();
+    fn GetMessages();
+    fn GetMessage();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxOutgoingArchiveVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingArchiveImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxOutgoingArchiveVtbl {
+        unsafe extern "system" fn UseArchive<Impl: IFaxOutgoingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbusearchive: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetUseArchive<Impl: IFaxOutgoingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, busearchive: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ArchiveFolder<Impl: IFaxOutgoingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrarchivefolder: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetArchiveFolder<Impl: IFaxOutgoingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrarchivefolder: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SizeQuotaWarning<Impl: IFaxOutgoingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbsizequotawarning: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSizeQuotaWarning<Impl: IFaxOutgoingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bsizequotawarning: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn HighQuotaWaterMark<Impl: IFaxOutgoingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plhighquotawatermark: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetHighQuotaWaterMark<Impl: IFaxOutgoingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lhighquotawatermark: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LowQuotaWaterMark<Impl: IFaxOutgoingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pllowquotawatermark: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLowQuotaWaterMark<Impl: IFaxOutgoingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, llowquotawatermark: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AgeLimit<Impl: IFaxOutgoingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plagelimit: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAgeLimit<Impl: IFaxOutgoingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lagelimit: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SizeLow<Impl: IFaxOutgoingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plsizelow: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SizeHigh<Impl: IFaxOutgoingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plsizehigh: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Refresh<Impl: IFaxOutgoingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Save<Impl: IFaxOutgoingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMessages<Impl: IFaxOutgoingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lprefetchsize: i32, pfaxoutgoingmessageiterator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMessage<Impl: IFaxOutgoingArchiveImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxoutgoingmessage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            UseArchive::<Impl, IMPL_OFFSET>,
+            SetUseArchive::<Impl, IMPL_OFFSET>,
+            ArchiveFolder::<Impl, IMPL_OFFSET>,
+            SetArchiveFolder::<Impl, IMPL_OFFSET>,
+            SizeQuotaWarning::<Impl, IMPL_OFFSET>,
+            SetSizeQuotaWarning::<Impl, IMPL_OFFSET>,
+            HighQuotaWaterMark::<Impl, IMPL_OFFSET>,
+            SetHighQuotaWaterMark::<Impl, IMPL_OFFSET>,
+            LowQuotaWaterMark::<Impl, IMPL_OFFSET>,
+            SetLowQuotaWaterMark::<Impl, IMPL_OFFSET>,
+            AgeLimit::<Impl, IMPL_OFFSET>,
+            SetAgeLimit::<Impl, IMPL_OFFSET>,
+            SizeLow::<Impl, IMPL_OFFSET>,
+            SizeHigh::<Impl, IMPL_OFFSET>,
+            Refresh::<Impl, IMPL_OFFSET>,
+            Save::<Impl, IMPL_OFFSET>,
+            GetMessages::<Impl, IMPL_OFFSET>,
+            GetMessage::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxOutgoingArchive as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxOutgoingJobImpl: Sized + IDispatchImpl {
+    fn Subject();
+    fn DocumentName();
+    fn Pages();
+    fn Size();
+    fn SubmissionId();
+    fn Id();
+    fn OriginalScheduledTime();
+    fn SubmissionTime();
+    fn ReceiptType();
+    fn Priority();
+    fn Sender();
+    fn Recipient();
+    fn CurrentPage();
+    fn DeviceId();
+    fn Status();
+    fn ExtendedStatusCode();
+    fn ExtendedStatus();
+    fn AvailableOperations();
+    fn Retries();
+    fn ScheduledTime();
+    fn TransmissionStart();
+    fn TransmissionEnd();
+    fn CSID();
+    fn TSID();
+    fn GroupBroadcastReceipts();
+    fn Pause();
+    fn Resume();
+    fn Restart();
+    fn CopyTiff();
+    fn Refresh();
+    fn Cancel();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxOutgoingJobVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingJobImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxOutgoingJobVtbl {
+        unsafe extern "system" fn Subject<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubject: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DocumentName<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdocumentname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Pages<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plpages: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Size<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plsize: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SubmissionId<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubmissionid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Id<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OriginalScheduledTime<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdateoriginalscheduledtime: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SubmissionTime<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdatesubmissiontime: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReceiptType<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preceipttype: *mut FAX_RECEIPT_TYPE_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Priority<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppriority: *mut FAX_PRIORITY_TYPE_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Sender<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfaxsender: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Recipient<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfaxrecipient: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CurrentPage<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcurrentpage: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DeviceId<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pldeviceid: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Status<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatus: *mut FAX_JOB_STATUS_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ExtendedStatusCode<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pextendedstatuscode: *mut FAX_JOB_EXTENDED_STATUS_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ExtendedStatus<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrextendedstatus: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AvailableOperations<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pavailableoperations: *mut FAX_JOB_OPERATIONS_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Retries<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plretries: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ScheduledTime<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdatescheduledtime: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TransmissionStart<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdatetransmissionstart: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TransmissionEnd<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdatetransmissionend: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CSID<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TSID<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GroupBroadcastReceipts<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbgroupbroadcastreceipts: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Pause<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Resume<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Restart<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CopyTiff<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtiffpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Refresh<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Cancel<Impl: IFaxOutgoingJobImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            Subject::<Impl, IMPL_OFFSET>,
+            DocumentName::<Impl, IMPL_OFFSET>,
+            Pages::<Impl, IMPL_OFFSET>,
+            Size::<Impl, IMPL_OFFSET>,
+            SubmissionId::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            OriginalScheduledTime::<Impl, IMPL_OFFSET>,
+            SubmissionTime::<Impl, IMPL_OFFSET>,
+            ReceiptType::<Impl, IMPL_OFFSET>,
+            Priority::<Impl, IMPL_OFFSET>,
+            Sender::<Impl, IMPL_OFFSET>,
+            Recipient::<Impl, IMPL_OFFSET>,
+            CurrentPage::<Impl, IMPL_OFFSET>,
+            DeviceId::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            ExtendedStatusCode::<Impl, IMPL_OFFSET>,
+            ExtendedStatus::<Impl, IMPL_OFFSET>,
+            AvailableOperations::<Impl, IMPL_OFFSET>,
+            Retries::<Impl, IMPL_OFFSET>,
+            ScheduledTime::<Impl, IMPL_OFFSET>,
+            TransmissionStart::<Impl, IMPL_OFFSET>,
+            TransmissionEnd::<Impl, IMPL_OFFSET>,
+            CSID::<Impl, IMPL_OFFSET>,
+            TSID::<Impl, IMPL_OFFSET>,
+            GroupBroadcastReceipts::<Impl, IMPL_OFFSET>,
+            Pause::<Impl, IMPL_OFFSET>,
+            Resume::<Impl, IMPL_OFFSET>,
+            Restart::<Impl, IMPL_OFFSET>,
+            CopyTiff::<Impl, IMPL_OFFSET>,
+            Refresh::<Impl, IMPL_OFFSET>,
+            Cancel::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxOutgoingJob as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxOutgoingJob2Impl: Sized + IFaxOutgoingJobImpl + IDispatchImpl {
+    fn HasCoverPage();
+    fn ReceiptAddress();
+    fn ScheduleType();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxOutgoingJob2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingJob2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxOutgoingJob2Vtbl {
+        unsafe extern "system" fn HasCoverPage<Impl: IFaxOutgoingJob2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbhascoverpage: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReceiptAddress<Impl: IFaxOutgoingJob2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrreceiptaddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ScheduleType<Impl: IFaxOutgoingJob2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pscheduletype: *mut FAX_SCHEDULE_TYPE_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            Subject::<Impl, IMPL_OFFSET>,
+            DocumentName::<Impl, IMPL_OFFSET>,
+            Pages::<Impl, IMPL_OFFSET>,
+            Size::<Impl, IMPL_OFFSET>,
+            SubmissionId::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            OriginalScheduledTime::<Impl, IMPL_OFFSET>,
+            SubmissionTime::<Impl, IMPL_OFFSET>,
+            ReceiptType::<Impl, IMPL_OFFSET>,
+            Priority::<Impl, IMPL_OFFSET>,
+            Sender::<Impl, IMPL_OFFSET>,
+            Recipient::<Impl, IMPL_OFFSET>,
+            CurrentPage::<Impl, IMPL_OFFSET>,
+            DeviceId::<Impl, IMPL_OFFSET>,
+            Status::<Impl, IMPL_OFFSET>,
+            ExtendedStatusCode::<Impl, IMPL_OFFSET>,
+            ExtendedStatus::<Impl, IMPL_OFFSET>,
+            AvailableOperations::<Impl, IMPL_OFFSET>,
+            Retries::<Impl, IMPL_OFFSET>,
+            ScheduledTime::<Impl, IMPL_OFFSET>,
+            TransmissionStart::<Impl, IMPL_OFFSET>,
+            TransmissionEnd::<Impl, IMPL_OFFSET>,
+            CSID::<Impl, IMPL_OFFSET>,
+            TSID::<Impl, IMPL_OFFSET>,
+            GroupBroadcastReceipts::<Impl, IMPL_OFFSET>,
+            Pause::<Impl, IMPL_OFFSET>,
+            Resume::<Impl, IMPL_OFFSET>,
+            Restart::<Impl, IMPL_OFFSET>,
+            CopyTiff::<Impl, IMPL_OFFSET>,
+            Refresh::<Impl, IMPL_OFFSET>,
+            Cancel::<Impl, IMPL_OFFSET>,
+            HasCoverPage::<Impl, IMPL_OFFSET>,
+            ReceiptAddress::<Impl, IMPL_OFFSET>,
+            ScheduleType::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxOutgoingJob2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxOutgoingJobsImpl: Sized + IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxOutgoingJobsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingJobsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxOutgoingJobsVtbl {
+        unsafe extern "system" fn _NewEnum<Impl: IFaxOutgoingJobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: IFaxOutgoingJobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vindex: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pfaxoutgoingjob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Count<Impl: IFaxOutgoingJobsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, _NewEnum::<Impl, IMPL_OFFSET>, Item::<Impl, IMPL_OFFSET>, Count::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxOutgoingJobs as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxOutgoingMessageImpl: Sized + IDispatchImpl {
+    fn SubmissionId();
+    fn Id();
+    fn Subject();
+    fn DocumentName();
+    fn Retries();
+    fn Pages();
+    fn Size();
+    fn OriginalScheduledTime();
+    fn SubmissionTime();
+    fn Priority();
+    fn Sender();
+    fn Recipient();
+    fn DeviceName();
+    fn TransmissionStart();
+    fn TransmissionEnd();
+    fn CSID();
+    fn TSID();
+    fn CopyTiff();
+    fn Delete();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxOutgoingMessageVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingMessageImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxOutgoingMessageVtbl {
+        unsafe extern "system" fn SubmissionId<Impl: IFaxOutgoingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubmissionid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Id<Impl: IFaxOutgoingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Subject<Impl: IFaxOutgoingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsubject: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DocumentName<Impl: IFaxOutgoingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdocumentname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Retries<Impl: IFaxOutgoingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plretries: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Pages<Impl: IFaxOutgoingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plpages: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Size<Impl: IFaxOutgoingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plsize: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OriginalScheduledTime<Impl: IFaxOutgoingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdateoriginalscheduledtime: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SubmissionTime<Impl: IFaxOutgoingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdatesubmissiontime: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Priority<Impl: IFaxOutgoingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppriority: *mut FAX_PRIORITY_TYPE_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Sender<Impl: IFaxOutgoingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfaxsender: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Recipient<Impl: IFaxOutgoingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfaxrecipient: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DeviceName<Impl: IFaxOutgoingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdevicename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TransmissionStart<Impl: IFaxOutgoingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdatetransmissionstart: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TransmissionEnd<Impl: IFaxOutgoingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdatetransmissionend: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CSID<Impl: IFaxOutgoingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TSID<Impl: IFaxOutgoingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CopyTiff<Impl: IFaxOutgoingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtiffpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Delete<Impl: IFaxOutgoingMessageImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            SubmissionId::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            Subject::<Impl, IMPL_OFFSET>,
+            DocumentName::<Impl, IMPL_OFFSET>,
+            Retries::<Impl, IMPL_OFFSET>,
+            Pages::<Impl, IMPL_OFFSET>,
+            Size::<Impl, IMPL_OFFSET>,
+            OriginalScheduledTime::<Impl, IMPL_OFFSET>,
+            SubmissionTime::<Impl, IMPL_OFFSET>,
+            Priority::<Impl, IMPL_OFFSET>,
+            Sender::<Impl, IMPL_OFFSET>,
+            Recipient::<Impl, IMPL_OFFSET>,
+            DeviceName::<Impl, IMPL_OFFSET>,
+            TransmissionStart::<Impl, IMPL_OFFSET>,
+            TransmissionEnd::<Impl, IMPL_OFFSET>,
+            CSID::<Impl, IMPL_OFFSET>,
+            TSID::<Impl, IMPL_OFFSET>,
+            CopyTiff::<Impl, IMPL_OFFSET>,
+            Delete::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxOutgoingMessage as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxOutgoingMessage2Impl: Sized + IFaxOutgoingMessageImpl + IDispatchImpl {
+    fn HasCoverPage();
+    fn ReceiptType();
+    fn ReceiptAddress();
+    fn Read();
+    fn SetRead();
+    fn Save();
+    fn Refresh();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxOutgoingMessage2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingMessage2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxOutgoingMessage2Vtbl {
+        unsafe extern "system" fn HasCoverPage<Impl: IFaxOutgoingMessage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbhascoverpage: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReceiptType<Impl: IFaxOutgoingMessage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preceipttype: *mut FAX_RECEIPT_TYPE_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReceiptAddress<Impl: IFaxOutgoingMessage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrreceiptaddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Read<Impl: IFaxOutgoingMessage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbread: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRead<Impl: IFaxOutgoingMessage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bread: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Save<Impl: IFaxOutgoingMessage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Refresh<Impl: IFaxOutgoingMessage2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            SubmissionId::<Impl, IMPL_OFFSET>,
+            Id::<Impl, IMPL_OFFSET>,
+            Subject::<Impl, IMPL_OFFSET>,
+            DocumentName::<Impl, IMPL_OFFSET>,
+            Retries::<Impl, IMPL_OFFSET>,
+            Pages::<Impl, IMPL_OFFSET>,
+            Size::<Impl, IMPL_OFFSET>,
+            OriginalScheduledTime::<Impl, IMPL_OFFSET>,
+            SubmissionTime::<Impl, IMPL_OFFSET>,
+            Priority::<Impl, IMPL_OFFSET>,
+            Sender::<Impl, IMPL_OFFSET>,
+            Recipient::<Impl, IMPL_OFFSET>,
+            DeviceName::<Impl, IMPL_OFFSET>,
+            TransmissionStart::<Impl, IMPL_OFFSET>,
+            TransmissionEnd::<Impl, IMPL_OFFSET>,
+            CSID::<Impl, IMPL_OFFSET>,
+            TSID::<Impl, IMPL_OFFSET>,
+            CopyTiff::<Impl, IMPL_OFFSET>,
+            Delete::<Impl, IMPL_OFFSET>,
+            HasCoverPage::<Impl, IMPL_OFFSET>,
+            ReceiptType::<Impl, IMPL_OFFSET>,
+            ReceiptAddress::<Impl, IMPL_OFFSET>,
+            Read::<Impl, IMPL_OFFSET>,
+            SetRead::<Impl, IMPL_OFFSET>,
+            Save::<Impl, IMPL_OFFSET>,
+            Refresh::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxOutgoingMessage2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxOutgoingMessageIteratorImpl: Sized + IDispatchImpl {
+    fn Message();
+    fn AtEOF();
+    fn PrefetchSize();
+    fn SetPrefetchSize();
+    fn MoveFirst();
+    fn MoveNext();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxOutgoingMessageIteratorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingMessageIteratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxOutgoingMessageIteratorVtbl {
+        unsafe extern "system" fn Message<Impl: IFaxOutgoingMessageIteratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxoutgoingmessage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AtEOF<Impl: IFaxOutgoingMessageIteratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbeof: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PrefetchSize<Impl: IFaxOutgoingMessageIteratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plprefetchsize: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetPrefetchSize<Impl: IFaxOutgoingMessageIteratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lprefetchsize: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MoveFirst<Impl: IFaxOutgoingMessageIteratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MoveNext<Impl: IFaxOutgoingMessageIteratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            Message::<Impl, IMPL_OFFSET>,
+            AtEOF::<Impl, IMPL_OFFSET>,
+            PrefetchSize::<Impl, IMPL_OFFSET>,
+            SetPrefetchSize::<Impl, IMPL_OFFSET>,
+            MoveFirst::<Impl, IMPL_OFFSET>,
+            MoveNext::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxOutgoingMessageIterator as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxOutgoingQueueImpl: Sized + IDispatchImpl {
+    fn Blocked();
+    fn SetBlocked();
+    fn Paused();
+    fn SetPaused();
+    fn AllowPersonalCoverPages();
+    fn SetAllowPersonalCoverPages();
+    fn UseDeviceTSID();
+    fn SetUseDeviceTSID();
+    fn Retries();
+    fn SetRetries();
+    fn RetryDelay();
+    fn SetRetryDelay();
+    fn DiscountRateStart();
+    fn SetDiscountRateStart();
+    fn DiscountRateEnd();
+    fn SetDiscountRateEnd();
+    fn AgeLimit();
+    fn SetAgeLimit();
+    fn Branding();
+    fn SetBranding();
+    fn Refresh();
+    fn Save();
+    fn GetJobs();
+    fn GetJob();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxOutgoingQueueVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxOutgoingQueueImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxOutgoingQueueVtbl {
+        unsafe extern "system" fn Blocked<Impl: IFaxOutgoingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbblocked: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetBlocked<Impl: IFaxOutgoingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bblocked: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Paused<Impl: IFaxOutgoingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbpaused: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetPaused<Impl: IFaxOutgoingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bpaused: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AllowPersonalCoverPages<Impl: IFaxOutgoingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pballowpersonalcoverpages: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAllowPersonalCoverPages<Impl: IFaxOutgoingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ballowpersonalcoverpages: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UseDeviceTSID<Impl: IFaxOutgoingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbusedevicetsid: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetUseDeviceTSID<Impl: IFaxOutgoingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, busedevicetsid: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Retries<Impl: IFaxOutgoingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plretries: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRetries<Impl: IFaxOutgoingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lretries: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RetryDelay<Impl: IFaxOutgoingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plretrydelay: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRetryDelay<Impl: IFaxOutgoingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lretrydelay: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DiscountRateStart<Impl: IFaxOutgoingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdatediscountratestart: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDiscountRateStart<Impl: IFaxOutgoingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datediscountratestart: f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DiscountRateEnd<Impl: IFaxOutgoingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdatediscountrateend: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDiscountRateEnd<Impl: IFaxOutgoingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datediscountrateend: f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AgeLimit<Impl: IFaxOutgoingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plagelimit: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAgeLimit<Impl: IFaxOutgoingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lagelimit: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Branding<Impl: IFaxOutgoingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbbranding: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetBranding<Impl: IFaxOutgoingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bbranding: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Refresh<Impl: IFaxOutgoingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Save<Impl: IFaxOutgoingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetJobs<Impl: IFaxOutgoingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxoutgoingjobs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetJob<Impl: IFaxOutgoingQueueImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfaxoutgoingjob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            Blocked::<Impl, IMPL_OFFSET>,
+            SetBlocked::<Impl, IMPL_OFFSET>,
+            Paused::<Impl, IMPL_OFFSET>,
+            SetPaused::<Impl, IMPL_OFFSET>,
+            AllowPersonalCoverPages::<Impl, IMPL_OFFSET>,
+            SetAllowPersonalCoverPages::<Impl, IMPL_OFFSET>,
+            UseDeviceTSID::<Impl, IMPL_OFFSET>,
+            SetUseDeviceTSID::<Impl, IMPL_OFFSET>,
+            Retries::<Impl, IMPL_OFFSET>,
+            SetRetries::<Impl, IMPL_OFFSET>,
+            RetryDelay::<Impl, IMPL_OFFSET>,
+            SetRetryDelay::<Impl, IMPL_OFFSET>,
+            DiscountRateStart::<Impl, IMPL_OFFSET>,
+            SetDiscountRateStart::<Impl, IMPL_OFFSET>,
+            DiscountRateEnd::<Impl, IMPL_OFFSET>,
+            SetDiscountRateEnd::<Impl, IMPL_OFFSET>,
+            AgeLimit::<Impl, IMPL_OFFSET>,
+            SetAgeLimit::<Impl, IMPL_OFFSET>,
+            Branding::<Impl, IMPL_OFFSET>,
+            SetBranding::<Impl, IMPL_OFFSET>,
+            Refresh::<Impl, IMPL_OFFSET>,
+            Save::<Impl, IMPL_OFFSET>,
+            GetJobs::<Impl, IMPL_OFFSET>,
+            GetJob::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxOutgoingQueue as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxReceiptOptionsImpl: Sized + IDispatchImpl {
+    fn AuthenticationType();
+    fn SetAuthenticationType();
+    fn SMTPServer();
+    fn SetSMTPServer();
+    fn SMTPPort();
+    fn SetSMTPPort();
+    fn SMTPSender();
+    fn SetSMTPSender();
+    fn SMTPUser();
+    fn SetSMTPUser();
+    fn AllowedReceipts();
+    fn SetAllowedReceipts();
+    fn SMTPPassword();
+    fn SetSMTPPassword();
+    fn Refresh();
+    fn Save();
+    fn UseForInboundRouting();
+    fn SetUseForInboundRouting();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxReceiptOptionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxReceiptOptionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxReceiptOptionsVtbl {
+        unsafe extern "system" fn AuthenticationType<Impl: IFaxReceiptOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptype: *mut FAX_SMTP_AUTHENTICATION_TYPE_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAuthenticationType<Impl: IFaxReceiptOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: FAX_SMTP_AUTHENTICATION_TYPE_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SMTPServer<Impl: IFaxReceiptOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsmtpserver: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSMTPServer<Impl: IFaxReceiptOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsmtpserver: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SMTPPort<Impl: IFaxReceiptOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plsmtpport: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSMTPPort<Impl: IFaxReceiptOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lsmtpport: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SMTPSender<Impl: IFaxReceiptOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsmtpsender: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSMTPSender<Impl: IFaxReceiptOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsmtpsender: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SMTPUser<Impl: IFaxReceiptOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsmtpuser: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSMTPUser<Impl: IFaxReceiptOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsmtpuser: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AllowedReceipts<Impl: IFaxReceiptOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pallowedreceipts: *mut FAX_RECEIPT_TYPE_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAllowedReceipts<Impl: IFaxReceiptOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allowedreceipts: FAX_RECEIPT_TYPE_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SMTPPassword<Impl: IFaxReceiptOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsmtppassword: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSMTPPassword<Impl: IFaxReceiptOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsmtppassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Refresh<Impl: IFaxReceiptOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Save<Impl: IFaxReceiptOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UseForInboundRouting<Impl: IFaxReceiptOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuseforinboundrouting: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetUseForInboundRouting<Impl: IFaxReceiptOptionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buseforinboundrouting: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            AuthenticationType::<Impl, IMPL_OFFSET>,
+            SetAuthenticationType::<Impl, IMPL_OFFSET>,
+            SMTPServer::<Impl, IMPL_OFFSET>,
+            SetSMTPServer::<Impl, IMPL_OFFSET>,
+            SMTPPort::<Impl, IMPL_OFFSET>,
+            SetSMTPPort::<Impl, IMPL_OFFSET>,
+            SMTPSender::<Impl, IMPL_OFFSET>,
+            SetSMTPSender::<Impl, IMPL_OFFSET>,
+            SMTPUser::<Impl, IMPL_OFFSET>,
+            SetSMTPUser::<Impl, IMPL_OFFSET>,
+            AllowedReceipts::<Impl, IMPL_OFFSET>,
+            SetAllowedReceipts::<Impl, IMPL_OFFSET>,
+            SMTPPassword::<Impl, IMPL_OFFSET>,
+            SetSMTPPassword::<Impl, IMPL_OFFSET>,
+            Refresh::<Impl, IMPL_OFFSET>,
+            Save::<Impl, IMPL_OFFSET>,
+            UseForInboundRouting::<Impl, IMPL_OFFSET>,
+            SetUseForInboundRouting::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxReceiptOptions as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxRecipientImpl: Sized + IDispatchImpl {
+    fn FaxNumber();
+    fn SetFaxNumber();
+    fn Name();
+    fn SetName();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxRecipientVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxRecipientImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxRecipientVtbl {
+        unsafe extern "system" fn FaxNumber<Impl: IFaxRecipientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfaxnumber: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetFaxNumber<Impl: IFaxRecipientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfaxnumber: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Name<Impl: IFaxRecipientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetName<Impl: IFaxRecipientImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, FaxNumber::<Impl, IMPL_OFFSET>, SetFaxNumber::<Impl, IMPL_OFFSET>, Name::<Impl, IMPL_OFFSET>, SetName::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxRecipient as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxRecipientsImpl: Sized + IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+    fn Add();
+    fn Remove();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxRecipientsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxRecipientsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxRecipientsVtbl {
+        unsafe extern "system" fn _NewEnum<Impl: IFaxRecipientsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: IFaxRecipientsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, ppfaxrecipient: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Count<Impl: IFaxRecipientsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Add<Impl: IFaxRecipientsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfaxnumber: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrrecipientname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppfaxrecipient: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Remove<Impl: IFaxRecipientsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, _NewEnum::<Impl, IMPL_OFFSET>, Item::<Impl, IMPL_OFFSET>, Count::<Impl, IMPL_OFFSET>, Add::<Impl, IMPL_OFFSET>, Remove::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxRecipients as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxSecurityImpl: Sized + IDispatchImpl {
+    fn Descriptor();
+    fn SetDescriptor();
+    fn GrantedRights();
+    fn Refresh();
+    fn Save();
+    fn InformationType();
+    fn SetInformationType();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxSecurityVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSecurityImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxSecurityVtbl {
+        unsafe extern "system" fn Descriptor<Impl: IFaxSecurityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvdescriptor: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDescriptor<Impl: IFaxSecurityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vdescriptor: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GrantedRights<Impl: IFaxSecurityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgrantedrights: *mut FAX_ACCESS_RIGHTS_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Refresh<Impl: IFaxSecurityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Save<Impl: IFaxSecurityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn InformationType<Impl: IFaxSecurityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plinformationtype: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetInformationType<Impl: IFaxSecurityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, linformationtype: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            Descriptor::<Impl, IMPL_OFFSET>,
+            SetDescriptor::<Impl, IMPL_OFFSET>,
+            GrantedRights::<Impl, IMPL_OFFSET>,
+            Refresh::<Impl, IMPL_OFFSET>,
+            Save::<Impl, IMPL_OFFSET>,
+            InformationType::<Impl, IMPL_OFFSET>,
+            SetInformationType::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxSecurity as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxSecurity2Impl: Sized + IDispatchImpl {
+    fn Descriptor();
+    fn SetDescriptor();
+    fn GrantedRights();
+    fn Refresh();
+    fn Save();
+    fn InformationType();
+    fn SetInformationType();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxSecurity2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSecurity2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxSecurity2Vtbl {
+        unsafe extern "system" fn Descriptor<Impl: IFaxSecurity2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvdescriptor: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDescriptor<Impl: IFaxSecurity2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vdescriptor: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GrantedRights<Impl: IFaxSecurity2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgrantedrights: *mut FAX_ACCESS_RIGHTS_ENUM_2) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Refresh<Impl: IFaxSecurity2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Save<Impl: IFaxSecurity2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn InformationType<Impl: IFaxSecurity2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plinformationtype: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetInformationType<Impl: IFaxSecurity2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, linformationtype: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            Descriptor::<Impl, IMPL_OFFSET>,
+            SetDescriptor::<Impl, IMPL_OFFSET>,
+            GrantedRights::<Impl, IMPL_OFFSET>,
+            Refresh::<Impl, IMPL_OFFSET>,
+            Save::<Impl, IMPL_OFFSET>,
+            InformationType::<Impl, IMPL_OFFSET>,
+            SetInformationType::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxSecurity2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxSenderImpl: Sized + IDispatchImpl {
+    fn BillingCode();
+    fn SetBillingCode();
+    fn City();
+    fn SetCity();
+    fn Company();
+    fn SetCompany();
+    fn Country();
+    fn SetCountry();
+    fn Department();
+    fn SetDepartment();
+    fn Email();
+    fn SetEmail();
+    fn FaxNumber();
+    fn SetFaxNumber();
+    fn HomePhone();
+    fn SetHomePhone();
+    fn Name();
+    fn SetName();
+    fn TSID();
+    fn SetTSID();
+    fn OfficePhone();
+    fn SetOfficePhone();
+    fn OfficeLocation();
+    fn SetOfficeLocation();
+    fn State();
+    fn SetState();
+    fn StreetAddress();
+    fn SetStreetAddress();
+    fn Title();
+    fn SetTitle();
+    fn ZipCode();
+    fn SetZipCode();
+    fn LoadDefaultSender();
+    fn SaveDefaultSender();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxSenderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxSenderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxSenderVtbl {
+        unsafe extern "system" fn BillingCode<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbillingcode: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetBillingCode<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrbillingcode: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn City<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcity: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetCity<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcity: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Company<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcompany: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetCompany<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcompany: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Country<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcountry: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetCountry<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcountry: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Department<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdepartment: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDepartment<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdepartment: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Email<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstremail: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetEmail<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstremail: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FaxNumber<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfaxnumber: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetFaxNumber<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfaxnumber: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn HomePhone<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrhomephone: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetHomePhone<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrhomephone: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Name<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetName<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TSID<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetTSID<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OfficePhone<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrofficephone: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetOfficePhone<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrofficephone: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OfficeLocation<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrofficelocation: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetOfficeLocation<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrofficelocation: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn State<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstate: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetState<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrstate: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn StreetAddress<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstreetaddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetStreetAddress<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrstreetaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Title<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtitle: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetTitle<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtitle: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ZipCode<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrzipcode: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetZipCode<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrzipcode: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LoadDefaultSender<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SaveDefaultSender<Impl: IFaxSenderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            BillingCode::<Impl, IMPL_OFFSET>,
+            SetBillingCode::<Impl, IMPL_OFFSET>,
+            City::<Impl, IMPL_OFFSET>,
+            SetCity::<Impl, IMPL_OFFSET>,
+            Company::<Impl, IMPL_OFFSET>,
+            SetCompany::<Impl, IMPL_OFFSET>,
+            Country::<Impl, IMPL_OFFSET>,
+            SetCountry::<Impl, IMPL_OFFSET>,
+            Department::<Impl, IMPL_OFFSET>,
+            SetDepartment::<Impl, IMPL_OFFSET>,
+            Email::<Impl, IMPL_OFFSET>,
+            SetEmail::<Impl, IMPL_OFFSET>,
+            FaxNumber::<Impl, IMPL_OFFSET>,
+            SetFaxNumber::<Impl, IMPL_OFFSET>,
+            HomePhone::<Impl, IMPL_OFFSET>,
+            SetHomePhone::<Impl, IMPL_OFFSET>,
+            Name::<Impl, IMPL_OFFSET>,
+            SetName::<Impl, IMPL_OFFSET>,
+            TSID::<Impl, IMPL_OFFSET>,
+            SetTSID::<Impl, IMPL_OFFSET>,
+            OfficePhone::<Impl, IMPL_OFFSET>,
+            SetOfficePhone::<Impl, IMPL_OFFSET>,
+            OfficeLocation::<Impl, IMPL_OFFSET>,
+            SetOfficeLocation::<Impl, IMPL_OFFSET>,
+            State::<Impl, IMPL_OFFSET>,
+            SetState::<Impl, IMPL_OFFSET>,
+            StreetAddress::<Impl, IMPL_OFFSET>,
+            SetStreetAddress::<Impl, IMPL_OFFSET>,
+            Title::<Impl, IMPL_OFFSET>,
+            SetTitle::<Impl, IMPL_OFFSET>,
+            ZipCode::<Impl, IMPL_OFFSET>,
+            SetZipCode::<Impl, IMPL_OFFSET>,
+            LoadDefaultSender::<Impl, IMPL_OFFSET>,
+            SaveDefaultSender::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxSender as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxServerImpl: Sized + IDispatchImpl {
+    fn Connect();
+    fn ServerName();
+    fn GetDeviceProviders();
+    fn GetDevices();
+    fn InboundRouting();
+    fn Folders();
+    fn LoggingOptions();
+    fn MajorVersion();
+    fn MinorVersion();
+    fn MajorBuild();
+    fn MinorBuild();
+    fn Debug();
+    fn Activity();
+    fn OutboundRouting();
+    fn ReceiptOptions();
+    fn Security();
+    fn Disconnect();
+    fn GetExtensionProperty();
+    fn SetExtensionProperty();
+    fn ListenToServerEvents();
+    fn RegisterDeviceProvider();
+    fn UnregisterDeviceProvider();
+    fn RegisterInboundRoutingExtension();
+    fn UnregisterInboundRoutingExtension();
+    fn RegisteredEvents();
+    fn APIVersion();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxServerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxServerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxServerVtbl {
+        unsafe extern "system" fn Connect<Impl: IFaxServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrservername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ServerName<Impl: IFaxServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrservername: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDeviceProviders<Impl: IFaxServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfaxdeviceproviders: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDevices<Impl: IFaxServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfaxdevices: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn InboundRouting<Impl: IFaxServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfaxinboundrouting: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Folders<Impl: IFaxServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxfolders: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LoggingOptions<Impl: IFaxServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfaxloggingoptions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MajorVersion<Impl: IFaxServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plmajorversion: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MinorVersion<Impl: IFaxServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plminorversion: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MajorBuild<Impl: IFaxServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plmajorbuild: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MinorBuild<Impl: IFaxServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plminorbuild: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Debug<Impl: IFaxServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbdebug: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Activity<Impl: IFaxServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfaxactivity: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OutboundRouting<Impl: IFaxServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfaxoutboundrouting: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReceiptOptions<Impl: IFaxServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfaxreceiptoptions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Security<Impl: IFaxServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfaxsecurity: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Disconnect<Impl: IFaxServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetExtensionProperty<Impl: IFaxServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvproperty: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetExtensionProperty<Impl: IFaxServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, vproperty: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ListenToServerEvents<Impl: IFaxServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventtypes: FAX_SERVER_EVENTS_TYPE_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RegisterDeviceProvider<Impl: IFaxServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrfriendlyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrimagename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, tspname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lfspiversion: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UnregisterDeviceProvider<Impl: IFaxServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstruniquename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RegisterInboundRoutingExtension<Impl: IFaxServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrextensionname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrfriendlyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrimagename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, vmethods: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UnregisterInboundRoutingExtension<Impl: IFaxServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrextensionuniquename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RegisteredEvents<Impl: IFaxServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peventtypes: *mut FAX_SERVER_EVENTS_TYPE_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn APIVersion<Impl: IFaxServerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, papiversion: *mut FAX_SERVER_APIVERSION_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            Connect::<Impl, IMPL_OFFSET>,
+            ServerName::<Impl, IMPL_OFFSET>,
+            GetDeviceProviders::<Impl, IMPL_OFFSET>,
+            GetDevices::<Impl, IMPL_OFFSET>,
+            InboundRouting::<Impl, IMPL_OFFSET>,
+            Folders::<Impl, IMPL_OFFSET>,
+            LoggingOptions::<Impl, IMPL_OFFSET>,
+            MajorVersion::<Impl, IMPL_OFFSET>,
+            MinorVersion::<Impl, IMPL_OFFSET>,
+            MajorBuild::<Impl, IMPL_OFFSET>,
+            MinorBuild::<Impl, IMPL_OFFSET>,
+            Debug::<Impl, IMPL_OFFSET>,
+            Activity::<Impl, IMPL_OFFSET>,
+            OutboundRouting::<Impl, IMPL_OFFSET>,
+            ReceiptOptions::<Impl, IMPL_OFFSET>,
+            Security::<Impl, IMPL_OFFSET>,
+            Disconnect::<Impl, IMPL_OFFSET>,
+            GetExtensionProperty::<Impl, IMPL_OFFSET>,
+            SetExtensionProperty::<Impl, IMPL_OFFSET>,
+            ListenToServerEvents::<Impl, IMPL_OFFSET>,
+            RegisterDeviceProvider::<Impl, IMPL_OFFSET>,
+            UnregisterDeviceProvider::<Impl, IMPL_OFFSET>,
+            RegisterInboundRoutingExtension::<Impl, IMPL_OFFSET>,
+            UnregisterInboundRoutingExtension::<Impl, IMPL_OFFSET>,
+            RegisteredEvents::<Impl, IMPL_OFFSET>,
+            APIVersion::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxServer as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxServer2Impl: Sized + IFaxServerImpl + IDispatchImpl {
+    fn Configuration();
+    fn CurrentAccount();
+    fn FaxAccountSet();
+    fn Security2();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxServer2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxServer2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxServer2Vtbl {
+        unsafe extern "system" fn Configuration<Impl: IFaxServer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfaxconfiguration: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CurrentAccount<Impl: IFaxServer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcurrentaccount: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FaxAccountSet<Impl: IFaxServer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfaxaccountset: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Security2<Impl: IFaxServer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfaxsecurity2: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            Connect::<Impl, IMPL_OFFSET>,
+            ServerName::<Impl, IMPL_OFFSET>,
+            GetDeviceProviders::<Impl, IMPL_OFFSET>,
+            GetDevices::<Impl, IMPL_OFFSET>,
+            InboundRouting::<Impl, IMPL_OFFSET>,
+            Folders::<Impl, IMPL_OFFSET>,
+            LoggingOptions::<Impl, IMPL_OFFSET>,
+            MajorVersion::<Impl, IMPL_OFFSET>,
+            MinorVersion::<Impl, IMPL_OFFSET>,
+            MajorBuild::<Impl, IMPL_OFFSET>,
+            MinorBuild::<Impl, IMPL_OFFSET>,
+            Debug::<Impl, IMPL_OFFSET>,
+            Activity::<Impl, IMPL_OFFSET>,
+            OutboundRouting::<Impl, IMPL_OFFSET>,
+            ReceiptOptions::<Impl, IMPL_OFFSET>,
+            Security::<Impl, IMPL_OFFSET>,
+            Disconnect::<Impl, IMPL_OFFSET>,
+            GetExtensionProperty::<Impl, IMPL_OFFSET>,
+            SetExtensionProperty::<Impl, IMPL_OFFSET>,
+            ListenToServerEvents::<Impl, IMPL_OFFSET>,
+            RegisterDeviceProvider::<Impl, IMPL_OFFSET>,
+            UnregisterDeviceProvider::<Impl, IMPL_OFFSET>,
+            RegisterInboundRoutingExtension::<Impl, IMPL_OFFSET>,
+            UnregisterInboundRoutingExtension::<Impl, IMPL_OFFSET>,
+            RegisteredEvents::<Impl, IMPL_OFFSET>,
+            APIVersion::<Impl, IMPL_OFFSET>,
+            Configuration::<Impl, IMPL_OFFSET>,
+            CurrentAccount::<Impl, IMPL_OFFSET>,
+            FaxAccountSet::<Impl, IMPL_OFFSET>,
+            Security2::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxServer2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxServerNotifyImpl: Sized + IDispatchImpl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxServerNotifyVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxServerNotifyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxServerNotifyVtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxServerNotify as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IFaxServerNotify2Impl: Sized + IDispatchImpl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IFaxServerNotify2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IFaxServerNotify2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IFaxServerNotify2Vtbl {
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IFaxServerNotify2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+pub trait IStiDeviceImpl: Sized {
+    fn Initialize();
+    fn GetCapabilities();
+    fn GetStatus();
+    fn DeviceReset();
+    fn Diagnostic();
+    fn Escape();
+    fn GetLastError();
+    fn LockDevice();
+    fn UnLockDevice();
+    fn RawReadData();
+    fn RawWriteData();
+    fn RawReadCommand();
+    fn RawWriteCommand();
+    fn Subscribe();
+    fn GetLastNotificationData();
+    fn UnSubscribe();
+    fn GetLastErrorInfo();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl IStiDeviceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStiDeviceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStiDeviceVtbl {
+        unsafe extern "system" fn Initialize<Impl: IStiDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hinst: super::super::Foundation::HINSTANCE, pwszdevicename: super::super::Foundation::PWSTR, dwversion: u32, dwmode: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCapabilities<Impl: IStiDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevcaps: *mut STI_DEV_CAPS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetStatus<Impl: IStiDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevstatus: *mut STI_DEVICE_STATUS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DeviceReset<Impl: IStiDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Diagnostic<Impl: IStiDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffer: *mut STI_DIAG) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Escape<Impl: IStiDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, escapefunction: u32, lpindata: *const ::core::ffi::c_void, cbindatasize: u32, poutdata: *mut ::core::ffi::c_void, dwoutdatasize: u32, pdwactualdata: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetLastError<Impl: IStiDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwlastdeviceerror: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LockDevice<Impl: IStiDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwtimeout: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UnLockDevice<Impl: IStiDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RawReadData<Impl: IStiDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RawWriteData<Impl: IStiDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpbuffer: *const ::core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RawReadCommand<Impl: IStiDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RawWriteCommand<Impl: IStiDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpbuffer: *const ::core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Subscribe<Impl: IStiDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpsubsribe: *mut STISUBSCRIBE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetLastNotificationData<Impl: IStiDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpnotify: *mut STINOTIFY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UnSubscribe<Impl: IStiDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetLastErrorInfo<Impl: IStiDeviceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plasterrorinfo: *mut _ERROR_INFOW) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            Initialize::<Impl, IMPL_OFFSET>,
+            GetCapabilities::<Impl, IMPL_OFFSET>,
+            GetStatus::<Impl, IMPL_OFFSET>,
+            DeviceReset::<Impl, IMPL_OFFSET>,
+            Diagnostic::<Impl, IMPL_OFFSET>,
+            Escape::<Impl, IMPL_OFFSET>,
+            GetLastError::<Impl, IMPL_OFFSET>,
+            LockDevice::<Impl, IMPL_OFFSET>,
+            UnLockDevice::<Impl, IMPL_OFFSET>,
+            RawReadData::<Impl, IMPL_OFFSET>,
+            RawWriteData::<Impl, IMPL_OFFSET>,
+            RawReadCommand::<Impl, IMPL_OFFSET>,
+            RawWriteCommand::<Impl, IMPL_OFFSET>,
+            Subscribe::<Impl, IMPL_OFFSET>,
+            GetLastNotificationData::<Impl, IMPL_OFFSET>,
+            UnSubscribe::<Impl, IMPL_OFFSET>,
+            GetLastErrorInfo::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStiDevice as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+pub trait IStiDeviceControlImpl: Sized {
+    fn Initialize();
+    fn RawReadData();
+    fn RawWriteData();
+    fn RawReadCommand();
+    fn RawWriteCommand();
+    fn RawDeviceControl();
+    fn GetLastError();
+    fn GetMyDevicePortName();
+    fn GetMyDeviceHandle();
+    fn GetMyDeviceOpenMode();
+    fn WriteToErrorLog();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl IStiDeviceControlVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStiDeviceControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStiDeviceControlVtbl {
+        unsafe extern "system" fn Initialize<Impl: IStiDeviceControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwdevicetype: u32, dwmode: u32, pwszportname: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RawReadData<Impl: IStiDeviceControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RawWriteData<Impl: IStiDeviceControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RawReadCommand<Impl: IStiDeviceControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RawWriteCommand<Impl: IStiDeviceControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RawDeviceControl<Impl: IStiDeviceControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, escapefunction: u32, lpindata: *mut ::core::ffi::c_void, cbindatasize: u32, poutdata: *mut ::core::ffi::c_void, dwoutdatasize: u32, pdwactualdata: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetLastError<Impl: IStiDeviceControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpdwlasterror: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMyDevicePortName<Impl: IStiDeviceControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpszdevicepath: super::super::Foundation::PWSTR, cwdevicepathsize: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMyDeviceHandle<Impl: IStiDeviceControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lph: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMyDeviceOpenMode<Impl: IStiDeviceControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwopenmode: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn WriteToErrorLog<Impl: IStiDeviceControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwmessagetype: u32, pszmessage: super::super::Foundation::PWSTR, dwerrorcode: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            Initialize::<Impl, IMPL_OFFSET>,
+            RawReadData::<Impl, IMPL_OFFSET>,
+            RawWriteData::<Impl, IMPL_OFFSET>,
+            RawReadCommand::<Impl, IMPL_OFFSET>,
+            RawWriteCommand::<Impl, IMPL_OFFSET>,
+            RawDeviceControl::<Impl, IMPL_OFFSET>,
+            GetLastError::<Impl, IMPL_OFFSET>,
+            GetMyDevicePortName::<Impl, IMPL_OFFSET>,
+            GetMyDeviceHandle::<Impl, IMPL_OFFSET>,
+            GetMyDeviceOpenMode::<Impl, IMPL_OFFSET>,
+            WriteToErrorLog::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStiDeviceControl as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO", feature = "Win32_System_Registry"))]
+pub trait IStiUSDImpl: Sized {
+    fn Initialize();
+    fn GetCapabilities();
+    fn GetStatus();
+    fn DeviceReset();
+    fn Diagnostic();
+    fn Escape();
+    fn GetLastError();
+    fn LockDevice();
+    fn UnLockDevice();
+    fn RawReadData();
+    fn RawWriteData();
+    fn RawReadCommand();
+    fn RawWriteCommand();
+    fn SetNotificationHandle();
+    fn GetNotificationData();
+    fn GetLastErrorInfo();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO", feature = "Win32_System_Registry"))]
+impl IStiUSDVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStiUSDImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStiUSDVtbl {
+        unsafe extern "system" fn Initialize<Impl: IStiUSDImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pheldcb: ::windows::core::RawPtr, dwstiversion: u32, hparameterskey: super::super::System::Registry::HKEY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCapabilities<Impl: IStiUSDImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevcaps: *mut STI_USD_CAPS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetStatus<Impl: IStiUSDImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevstatus: *mut STI_DEVICE_STATUS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DeviceReset<Impl: IStiUSDImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Diagnostic<Impl: IStiUSDImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffer: *mut STI_DIAG) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Escape<Impl: IStiUSDImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, escapefunction: u32, lpindata: *const ::core::ffi::c_void, cbindatasize: u32, poutdata: *mut ::core::ffi::c_void, cboutdatasize: u32, pdwactualdata: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetLastError<Impl: IStiUSDImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwlastdeviceerror: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LockDevice<Impl: IStiUSDImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UnLockDevice<Impl: IStiUSDImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RawReadData<Impl: IStiUSDImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RawWriteData<Impl: IStiUSDImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpbuffer: *const ::core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RawReadCommand<Impl: IStiUSDImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpbuffer: *mut ::core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RawWriteCommand<Impl: IStiUSDImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpbuffer: *const ::core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetNotificationHandle<Impl: IStiUSDImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hevent: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetNotificationData<Impl: IStiUSDImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpnotify: *mut STINOTIFY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetLastErrorInfo<Impl: IStiUSDImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plasterrorinfo: *mut _ERROR_INFOW) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            Initialize::<Impl, IMPL_OFFSET>,
+            GetCapabilities::<Impl, IMPL_OFFSET>,
+            GetStatus::<Impl, IMPL_OFFSET>,
+            DeviceReset::<Impl, IMPL_OFFSET>,
+            Diagnostic::<Impl, IMPL_OFFSET>,
+            Escape::<Impl, IMPL_OFFSET>,
+            GetLastError::<Impl, IMPL_OFFSET>,
+            LockDevice::<Impl, IMPL_OFFSET>,
+            UnLockDevice::<Impl, IMPL_OFFSET>,
+            RawReadData::<Impl, IMPL_OFFSET>,
+            RawWriteData::<Impl, IMPL_OFFSET>,
+            RawReadCommand::<Impl, IMPL_OFFSET>,
+            RawWriteCommand::<Impl, IMPL_OFFSET>,
+            SetNotificationHandle::<Impl, IMPL_OFFSET>,
+            GetNotificationData::<Impl, IMPL_OFFSET>,
+            GetLastErrorInfo::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStiUSD as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IStillImageWImpl: Sized {
+    fn Initialize();
+    fn GetDeviceList();
+    fn GetDeviceInfo();
+    fn CreateDevice();
+    fn GetDeviceValue();
+    fn SetDeviceValue();
+    fn GetSTILaunchInformation();
+    fn RegisterLaunchApplication();
+    fn UnregisterLaunchApplication();
+    fn EnableHwNotifications();
+    fn GetHwNotificationState();
+    fn RefreshDeviceBus();
+    fn LaunchApplicationForDevice();
+    fn SetupDeviceParameters();
+    fn WriteToErrorLog();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IStillImageWVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStillImageWImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStillImageWVtbl {
+        unsafe extern "system" fn Initialize<Impl: IStillImageWImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hinst: super::super::Foundation::HINSTANCE, dwversion: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDeviceList<Impl: IStillImageWImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwtype: u32, dwflags: u32, pdwitemsreturned: *mut u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDeviceInfo<Impl: IStillImageWImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: super::super::Foundation::PWSTR, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateDevice<Impl: IStillImageWImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: super::super::Foundation::PWSTR, dwmode: u32, pdevice: *mut ::windows::core::RawPtr, punkouter: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDeviceValue<Impl: IStillImageWImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: super::super::Foundation::PWSTR, pvaluename: super::super::Foundation::PWSTR, ptype: *mut u32, pdata: *mut u8, cbdata: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDeviceValue<Impl: IStillImageWImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: super::super::Foundation::PWSTR, pvaluename: super::super::Foundation::PWSTR, r#type: u32, pdata: *const u8, cbdata: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSTILaunchInformation<Impl: IStillImageWImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: super::super::Foundation::PWSTR, pdweventcode: *mut u32, pwszeventname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RegisterLaunchApplication<Impl: IStillImageWImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszappname: super::super::Foundation::PWSTR, pwszcommandline: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UnregisterLaunchApplication<Impl: IStillImageWImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszappname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnableHwNotifications<Impl: IStillImageWImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: super::super::Foundation::PWSTR, bnewstate: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetHwNotificationState<Impl: IStillImageWImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: super::super::Foundation::PWSTR, pbcurrentstate: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RefreshDeviceBus<Impl: IStillImageWImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LaunchApplicationForDevice<Impl: IStillImageWImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdevicename: super::super::Foundation::PWSTR, pwszappname: super::super::Foundation::PWSTR, pstinotify: *const STINOTIFY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetupDeviceParameters<Impl: IStillImageWImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, param0: *mut STI_DEVICE_INFORMATIONW) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn WriteToErrorLog<Impl: IStillImageWImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwmessagetype: u32, pszmessage: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            Initialize::<Impl, IMPL_OFFSET>,
+            GetDeviceList::<Impl, IMPL_OFFSET>,
+            GetDeviceInfo::<Impl, IMPL_OFFSET>,
+            CreateDevice::<Impl, IMPL_OFFSET>,
+            GetDeviceValue::<Impl, IMPL_OFFSET>,
+            SetDeviceValue::<Impl, IMPL_OFFSET>,
+            GetSTILaunchInformation::<Impl, IMPL_OFFSET>,
+            RegisterLaunchApplication::<Impl, IMPL_OFFSET>,
+            UnregisterLaunchApplication::<Impl, IMPL_OFFSET>,
+            EnableHwNotifications::<Impl, IMPL_OFFSET>,
+            GetHwNotificationState::<Impl, IMPL_OFFSET>,
+            RefreshDeviceBus::<Impl, IMPL_OFFSET>,
+            LaunchApplicationForDevice::<Impl, IMPL_OFFSET>,
+            SetupDeviceParameters::<Impl, IMPL_OFFSET>,
+            WriteToErrorLog::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStillImageW as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait _IFaxAccountNotifyImpl: Sized + IDispatchImpl {
+    fn OnIncomingJobAdded();
+    fn OnIncomingJobRemoved();
+    fn OnIncomingJobChanged();
+    fn OnOutgoingJobAdded();
+    fn OnOutgoingJobRemoved();
+    fn OnOutgoingJobChanged();
+    fn OnIncomingMessageAdded();
+    fn OnIncomingMessageRemoved();
+    fn OnOutgoingMessageAdded();
+    fn OnOutgoingMessageRemoved();
+    fn OnServerShutDown();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl _IFaxAccountNotifyVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxAccountNotifyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> _IFaxAccountNotifyVtbl {
+        unsafe extern "system" fn OnIncomingJobAdded<Impl: _IFaxAccountNotifyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: ::windows::core::RawPtr, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnIncomingJobRemoved<Impl: _IFaxAccountNotifyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: ::windows::core::RawPtr, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnIncomingJobChanged<Impl: _IFaxAccountNotifyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: ::windows::core::RawPtr, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pjobstatus: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnOutgoingJobAdded<Impl: _IFaxAccountNotifyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: ::windows::core::RawPtr, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnOutgoingJobRemoved<Impl: _IFaxAccountNotifyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: ::windows::core::RawPtr, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnOutgoingJobChanged<Impl: _IFaxAccountNotifyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: ::windows::core::RawPtr, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pjobstatus: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnIncomingMessageAdded<Impl: _IFaxAccountNotifyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: ::windows::core::RawPtr, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, faddedtoreceivefolder: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnIncomingMessageRemoved<Impl: _IFaxAccountNotifyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: ::windows::core::RawPtr, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fremovedfromreceivefolder: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnOutgoingMessageAdded<Impl: _IFaxAccountNotifyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: ::windows::core::RawPtr, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnOutgoingMessageRemoved<Impl: _IFaxAccountNotifyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxaccount: ::windows::core::RawPtr, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnServerShutDown<Impl: _IFaxAccountNotifyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            OnIncomingJobAdded::<Impl, IMPL_OFFSET>,
+            OnIncomingJobRemoved::<Impl, IMPL_OFFSET>,
+            OnIncomingJobChanged::<Impl, IMPL_OFFSET>,
+            OnOutgoingJobAdded::<Impl, IMPL_OFFSET>,
+            OnOutgoingJobRemoved::<Impl, IMPL_OFFSET>,
+            OnOutgoingJobChanged::<Impl, IMPL_OFFSET>,
+            OnIncomingMessageAdded::<Impl, IMPL_OFFSET>,
+            OnIncomingMessageRemoved::<Impl, IMPL_OFFSET>,
+            OnOutgoingMessageAdded::<Impl, IMPL_OFFSET>,
+            OnOutgoingMessageRemoved::<Impl, IMPL_OFFSET>,
+            OnServerShutDown::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<_IFaxAccountNotify as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait _IFaxServerNotify2Impl: Sized + IDispatchImpl {
+    fn OnIncomingJobAdded();
+    fn OnIncomingJobRemoved();
+    fn OnIncomingJobChanged();
+    fn OnOutgoingJobAdded();
+    fn OnOutgoingJobRemoved();
+    fn OnOutgoingJobChanged();
+    fn OnIncomingMessageAdded();
+    fn OnIncomingMessageRemoved();
+    fn OnOutgoingMessageAdded();
+    fn OnOutgoingMessageRemoved();
+    fn OnReceiptOptionsChange();
+    fn OnActivityLoggingConfigChange();
+    fn OnSecurityConfigChange();
+    fn OnEventLoggingConfigChange();
+    fn OnOutgoingQueueConfigChange();
+    fn OnOutgoingArchiveConfigChange();
+    fn OnIncomingArchiveConfigChange();
+    fn OnDevicesConfigChange();
+    fn OnOutboundRoutingGroupsConfigChange();
+    fn OnOutboundRoutingRulesConfigChange();
+    fn OnServerActivityChange();
+    fn OnQueuesStatusChange();
+    fn OnNewCall();
+    fn OnServerShutDown();
+    fn OnDeviceStatusChange();
+    fn OnGeneralServerConfigChanged();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl _IFaxServerNotify2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _IFaxServerNotify2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> _IFaxServerNotify2Vtbl {
+        unsafe extern "system" fn OnIncomingJobAdded<Impl: _IFaxServerNotify2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnIncomingJobRemoved<Impl: _IFaxServerNotify2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnIncomingJobChanged<Impl: _IFaxServerNotify2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pjobstatus: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnOutgoingJobAdded<Impl: _IFaxServerNotify2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnOutgoingJobRemoved<Impl: _IFaxServerNotify2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnOutgoingJobChanged<Impl: _IFaxServerNotify2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, bstrjobid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pjobstatus: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnIncomingMessageAdded<Impl: _IFaxServerNotify2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnIncomingMessageRemoved<Impl: _IFaxServerNotify2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnOutgoingMessageAdded<Impl: _IFaxServerNotify2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnOutgoingMessageRemoved<Impl: _IFaxServerNotify2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, bstrmessageid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnReceiptOptionsChange<Impl: _IFaxServerNotify2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnActivityLoggingConfigChange<Impl: _IFaxServerNotify2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnSecurityConfigChange<Impl: _IFaxServerNotify2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnEventLoggingConfigChange<Impl: _IFaxServerNotify2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnOutgoingQueueConfigChange<Impl: _IFaxServerNotify2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnOutgoingArchiveConfigChange<Impl: _IFaxServerNotify2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnIncomingArchiveConfigChange<Impl: _IFaxServerNotify2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnDevicesConfigChange<Impl: _IFaxServerNotify2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnOutboundRoutingGroupsConfigChange<Impl: _IFaxServerNotify2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnOutboundRoutingRulesConfigChange<Impl: _IFaxServerNotify2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnServerActivityChange<Impl: _IFaxServerNotify2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, lincomingmessages: i32, lroutingmessages: i32, loutgoingmessages: i32, lqueuedmessages: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnQueuesStatusChange<Impl: _IFaxServerNotify2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, boutgoingqueueblocked: i16, boutgoingqueuepaused: i16, bincomingqueueblocked: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnNewCall<Impl: _IFaxServerNotify2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, lcallid: i32, ldeviceid: i32, bstrcallerid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnServerShutDown<Impl: _IFaxServerNotify2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnDeviceStatusChange<Impl: _IFaxServerNotify2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr, ldeviceid: i32, bpoweredoff: i16, bsending: i16, breceiving: i16, bringing: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnGeneralServerConfigChanged<Impl: _IFaxServerNotify2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfaxserver: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            OnIncomingJobAdded::<Impl, IMPL_OFFSET>,
+            OnIncomingJobRemoved::<Impl, IMPL_OFFSET>,
+            OnIncomingJobChanged::<Impl, IMPL_OFFSET>,
+            OnOutgoingJobAdded::<Impl, IMPL_OFFSET>,
+            OnOutgoingJobRemoved::<Impl, IMPL_OFFSET>,
+            OnOutgoingJobChanged::<Impl, IMPL_OFFSET>,
+            OnIncomingMessageAdded::<Impl, IMPL_OFFSET>,
+            OnIncomingMessageRemoved::<Impl, IMPL_OFFSET>,
+            OnOutgoingMessageAdded::<Impl, IMPL_OFFSET>,
+            OnOutgoingMessageRemoved::<Impl, IMPL_OFFSET>,
+            OnReceiptOptionsChange::<Impl, IMPL_OFFSET>,
+            OnActivityLoggingConfigChange::<Impl, IMPL_OFFSET>,
+            OnSecurityConfigChange::<Impl, IMPL_OFFSET>,
+            OnEventLoggingConfigChange::<Impl, IMPL_OFFSET>,
+            OnOutgoingQueueConfigChange::<Impl, IMPL_OFFSET>,
+            OnOutgoingArchiveConfigChange::<Impl, IMPL_OFFSET>,
+            OnIncomingArchiveConfigChange::<Impl, IMPL_OFFSET>,
+            OnDevicesConfigChange::<Impl, IMPL_OFFSET>,
+            OnOutboundRoutingGroupsConfigChange::<Impl, IMPL_OFFSET>,
+            OnOutboundRoutingRulesConfigChange::<Impl, IMPL_OFFSET>,
+            OnServerActivityChange::<Impl, IMPL_OFFSET>,
+            OnQueuesStatusChange::<Impl, IMPL_OFFSET>,
+            OnNewCall::<Impl, IMPL_OFFSET>,
+            OnServerShutDown::<Impl, IMPL_OFFSET>,
+            OnDeviceStatusChange::<Impl, IMPL_OFFSET>,
+            OnGeneralServerConfigChanged::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<_IFaxServerNotify2 as ::windows::core::Interface>::IID
+    }
+}

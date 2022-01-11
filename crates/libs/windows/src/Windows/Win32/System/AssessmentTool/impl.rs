@@ -1,1 +1,244 @@
-
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
+pub trait IAccessibleWinSATImpl: Sized + IAccessibleImpl + IDispatchImpl {
+    fn SetAccessiblityData();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_UI_Accessibility"))]
+impl IAccessibleWinSATVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessibleWinSATImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAccessibleWinSATVtbl {
+        unsafe extern "system" fn SetAccessiblityData<Impl: IAccessibleWinSATImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wsname: super::super::Foundation::PWSTR, wsvalue: super::super::Foundation::PWSTR, wsdesc: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            accParent::<Impl, IMPL_OFFSET>,
+            accChildCount::<Impl, IMPL_OFFSET>,
+            accChild::<Impl, IMPL_OFFSET>,
+            accName::<Impl, IMPL_OFFSET>,
+            accValue::<Impl, IMPL_OFFSET>,
+            accDescription::<Impl, IMPL_OFFSET>,
+            accRole::<Impl, IMPL_OFFSET>,
+            accState::<Impl, IMPL_OFFSET>,
+            accHelp::<Impl, IMPL_OFFSET>,
+            accHelpTopic::<Impl, IMPL_OFFSET>,
+            accKeyboardShortcut::<Impl, IMPL_OFFSET>,
+            accFocus::<Impl, IMPL_OFFSET>,
+            accSelection::<Impl, IMPL_OFFSET>,
+            accDefaultAction::<Impl, IMPL_OFFSET>,
+            accSelect::<Impl, IMPL_OFFSET>,
+            accLocation::<Impl, IMPL_OFFSET>,
+            accNavigate::<Impl, IMPL_OFFSET>,
+            accHitTest::<Impl, IMPL_OFFSET>,
+            accDoDefaultAction::<Impl, IMPL_OFFSET>,
+            SetaccName::<Impl, IMPL_OFFSET>,
+            SetaccValue::<Impl, IMPL_OFFSET>,
+            SetAccessiblityData::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAccessibleWinSAT as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IInitiateWinSATAssessmentImpl: Sized {
+    fn InitiateAssessment();
+    fn InitiateFormalAssessment();
+    fn CancelAssessment();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IInitiateWinSATAssessmentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInitiateWinSATAssessmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInitiateWinSATAssessmentVtbl {
+        unsafe extern "system" fn InitiateAssessment<Impl: IInitiateWinSATAssessmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cmdline: super::super::Foundation::PWSTR, pcallbacks: ::windows::core::RawPtr, callerhwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn InitiateFormalAssessment<Impl: IInitiateWinSATAssessmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcallbacks: ::windows::core::RawPtr, callerhwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CancelAssessment<Impl: IInitiateWinSATAssessmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, InitiateAssessment::<Impl, IMPL_OFFSET>, InitiateFormalAssessment::<Impl, IMPL_OFFSET>, CancelAssessment::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInitiateWinSATAssessment as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IProvideWinSATAssessmentInfoImpl: Sized + IDispatchImpl {
+    fn Score();
+    fn Title();
+    fn Description();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IProvideWinSATAssessmentInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProvideWinSATAssessmentInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProvideWinSATAssessmentInfoVtbl {
+        unsafe extern "system" fn Score<Impl: IProvideWinSATAssessmentInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, score: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Title<Impl: IProvideWinSATAssessmentInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, title: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Description<Impl: IProvideWinSATAssessmentInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, description: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, Score::<Impl, IMPL_OFFSET>, Title::<Impl, IMPL_OFFSET>, Description::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProvideWinSATAssessmentInfo as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IProvideWinSATResultsInfoImpl: Sized + IDispatchImpl {
+    fn GetAssessmentInfo();
+    fn AssessmentState();
+    fn AssessmentDateTime();
+    fn SystemRating();
+    fn RatingStateDesc();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IProvideWinSATResultsInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProvideWinSATResultsInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProvideWinSATResultsInfoVtbl {
+        unsafe extern "system" fn GetAssessmentInfo<Impl: IProvideWinSATResultsInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, assessment: WINSAT_ASSESSMENT_TYPE, ppinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AssessmentState<Impl: IProvideWinSATResultsInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: *mut WINSAT_ASSESSMENT_STATE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AssessmentDateTime<Impl: IProvideWinSATResultsInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filetime: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SystemRating<Impl: IProvideWinSATResultsInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RatingStateDesc<Impl: IProvideWinSATResultsInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, description: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(
+            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
+            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
+            ::windows::core::Release::<Identity, BASE_OFFSET>,
+            GetTypeInfoCount::<Impl, IMPL_OFFSET>,
+            GetTypeInfo::<Impl, IMPL_OFFSET>,
+            GetIDsOfNames::<Impl, IMPL_OFFSET>,
+            Invoke::<Impl, IMPL_OFFSET>,
+            GetAssessmentInfo::<Impl, IMPL_OFFSET>,
+            AssessmentState::<Impl, IMPL_OFFSET>,
+            AssessmentDateTime::<Impl, IMPL_OFFSET>,
+            SystemRating::<Impl, IMPL_OFFSET>,
+            RatingStateDesc::<Impl, IMPL_OFFSET>,
+        )
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProvideWinSATResultsInfo as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub trait IProvideWinSATVisualsImpl: Sized {
+    fn Bitmap();
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl IProvideWinSATVisualsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProvideWinSATVisualsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProvideWinSATVisualsVtbl {
+        unsafe extern "system" fn Bitmap<Impl: IProvideWinSATVisualsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitmapsize: WINSAT_BITMAP_SIZE, state: WINSAT_ASSESSMENT_STATE, rating: f32, pbitmap: *mut super::super::Graphics::Gdi::HBITMAP) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, Bitmap::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProvideWinSATVisuals as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IQueryAllWinSATAssessmentsImpl: Sized + IDispatchImpl {
+    fn AllXML();
+}
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IQueryAllWinSATAssessmentsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQueryAllWinSATAssessmentsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQueryAllWinSATAssessmentsVtbl {
+        unsafe extern "system" fn AllXML<Impl: IQueryAllWinSATAssessmentsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, namespaces: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppdomnodelist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, AllXML::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IQueryAllWinSATAssessments as ::windows::core::Interface>::IID
+    }
+}
+pub trait IQueryOEMWinSATCustomizationImpl: Sized {
+    fn GetOEMPrePopulationInfo();
+}
+impl IQueryOEMWinSATCustomizationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQueryOEMWinSATCustomizationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQueryOEMWinSATCustomizationVtbl {
+        unsafe extern "system" fn GetOEMPrePopulationInfo<Impl: IQueryOEMWinSATCustomizationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: *mut WINSAT_OEM_DATA_TYPE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetOEMPrePopulationInfo::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IQueryOEMWinSATCustomization as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IQueryRecentWinSATAssessmentImpl: Sized + IDispatchImpl {
+    fn XML();
+    fn Info();
+}
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IQueryRecentWinSATAssessmentVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQueryRecentWinSATAssessmentImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQueryRecentWinSATAssessmentVtbl {
+        unsafe extern "system" fn XML<Impl: IQueryRecentWinSATAssessmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, namespaces: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppdomnodelist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Info<Impl: IQueryRecentWinSATAssessmentImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwinsatassessmentinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, GetTypeInfoCount::<Impl, IMPL_OFFSET>, GetTypeInfo::<Impl, IMPL_OFFSET>, GetIDsOfNames::<Impl, IMPL_OFFSET>, Invoke::<Impl, IMPL_OFFSET>, XML::<Impl, IMPL_OFFSET>, Info::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IQueryRecentWinSATAssessment as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IWinSATInitiateEventsImpl: Sized {
+    fn WinSATComplete();
+    fn WinSATUpdate();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IWinSATInitiateEventsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWinSATInitiateEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWinSATInitiateEventsVtbl {
+        unsafe extern "system" fn WinSATComplete<Impl: IWinSATInitiateEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hresult: ::windows::core::HRESULT, strdescription: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn WinSATUpdate<Impl: IWinSATInitiateEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ucurrenttick: u32, uticktotal: u32, strcurrentstate: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, WinSATComplete::<Impl, IMPL_OFFSET>, WinSATUpdate::<Impl, IMPL_OFFSET>)
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWinSATInitiateEvents as ::windows::core::Interface>::IID
+    }
+}
