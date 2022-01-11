@@ -185,26 +185,6 @@ pub struct IEnumEventObjectVtbl {
 #[repr(transparent)]
 pub struct IEventClass(::windows::core::IUnknown);
 impl IEventClass {
-    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
-    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTypeInfoCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
-    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::ITypeInfo> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::ITypeInfo>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation', 'Win32_System_Ole'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::DISPPARAMS, pvarresult: *mut super::VARIANT, pexcepinfo: *mut super::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
-    }
     #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EventClassID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
@@ -281,6 +261,26 @@ impl IEventClass {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTypeLib<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrtypelib: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetTypeLib)(::core::mem::transmute_copy(self), bstrtypelib.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTypeInfoCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::ITypeInfo> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::ITypeInfo>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation', 'Win32_System_Ole'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::DISPPARAMS, pvarresult: *mut super::VARIANT, pexcepinfo: *mut super::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
 impl ::core::convert::From<IEventClass> for super::IDispatch {
@@ -408,103 +408,6 @@ pub struct IEventClassVtbl {
 #[repr(transparent)]
 pub struct IEventClass2(::windows::core::IUnknown);
 impl IEventClass2 {
-    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
-    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTypeInfoCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
-    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::ITypeInfo> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::ITypeInfo>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation', 'Win32_System_Ole'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::DISPPARAMS, pvarresult: *mut super::VARIANT, pexcepinfo: *mut super::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EventClassID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EventClassID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventClassID<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstreventclassid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEventClassID)(::core::mem::transmute_copy(self), bstreventclassid.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EventClassName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EventClassName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventClassName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstreventclassname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEventClassName)(::core::mem::transmute_copy(self), bstreventclassname.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OwnerSID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OwnerSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetOwnerSID<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrownersid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOwnerSID)(::core::mem::transmute_copy(self), bstrownersid.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FiringInterfaceID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FiringInterfaceID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFiringInterfaceID<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrfiringinterfaceid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFiringInterfaceID)(::core::mem::transmute_copy(self), bstrfiringinterfaceid.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::core::mem::transmute_copy(self), bstrdescription.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CustomConfigCLSID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CustomConfigCLSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCustomConfigCLSID<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrcustomconfigclsid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCustomConfigCLSID)(::core::mem::transmute_copy(self), bstrcustomconfigclsid.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TypeLib(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TypeLib)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTypeLib<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrtypelib: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTypeLib)(::core::mem::transmute_copy(self), bstrtypelib.into_param().abi()).ok()
-    }
     #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PublisherID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
@@ -548,6 +451,103 @@ impl IEventClass2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFireInParallel<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, ffireinparallel: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetFireInParallel)(::core::mem::transmute_copy(self), ffireinparallel.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn EventClassID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.EventClassID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetEventClassID<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstreventclassid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetEventClassID)(::core::mem::transmute_copy(self), bstreventclassid.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn EventClassName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.EventClassName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetEventClassName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstreventclassname: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetEventClassName)(::core::mem::transmute_copy(self), bstreventclassname.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn OwnerSID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.OwnerSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetOwnerSID<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrownersid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetOwnerSID)(::core::mem::transmute_copy(self), bstrownersid.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn FiringInterfaceID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.FiringInterfaceID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetFiringInterfaceID<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrfiringinterfaceid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetFiringInterfaceID)(::core::mem::transmute_copy(self), bstrfiringinterfaceid.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetDescription)(::core::mem::transmute_copy(self), bstrdescription.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CustomConfigCLSID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CustomConfigCLSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetCustomConfigCLSID<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrcustomconfigclsid: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetCustomConfigCLSID)(::core::mem::transmute_copy(self), bstrcustomconfigclsid.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn TypeLib(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.TypeLib)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetTypeLib<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrtypelib: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetTypeLib)(::core::mem::transmute_copy(self), bstrtypelib.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetTypeInfoCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::ITypeInfo> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::ITypeInfo>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation', 'Win32_System_Ole'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::DISPPARAMS, pvarresult: *mut super::VARIANT, pexcepinfo: *mut super::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
 impl ::core::convert::From<IEventClass2> for IEventClass {
@@ -671,26 +671,6 @@ pub struct IEventClass2Vtbl {
 #[repr(transparent)]
 pub struct IEventControl(::windows::core::IUnknown);
 impl IEventControl {
-    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
-    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTypeInfoCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
-    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::ITypeInfo> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::ITypeInfo>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation', 'Win32_System_Ole'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::DISPPARAMS, pvarresult: *mut super::VARIANT, pexcepinfo: *mut super::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
-    }
     #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPublisherFilter<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, IPublisherFilter>>(&self, methodname: Param0, ppublisherfilter: Param1) -> ::windows::core::Result<()> {
@@ -718,6 +698,26 @@ impl IEventControl {
     pub unsafe fn SetDefaultQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, methodname: Param0, criteria: Param1) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).SetDefaultQuery)(::core::mem::transmute_copy(self), methodname.into_param().abi(), criteria.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTypeInfoCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::ITypeInfo> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::ITypeInfo>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation', 'Win32_System_Ole'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::DISPPARAMS, pvarresult: *mut super::VARIANT, pexcepinfo: *mut super::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
 impl ::core::convert::From<IEventControl> for super::IDispatch {
@@ -955,26 +955,6 @@ pub struct IEventObjectChange2Vtbl {
 pub struct IEventObjectCollection(::windows::core::IUnknown);
 impl IEventObjectCollection {
     #[doc = "*Required features: 'Win32_System_Com_Events'*"]
-    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTypeInfoCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
-    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::ITypeInfo> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::ITypeInfo>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation', 'Win32_System_Ole'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::DISPPARAMS, pvarresult: *mut super::VARIANT, pexcepinfo: *mut super::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
@@ -1004,6 +984,26 @@ impl IEventObjectCollection {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Remove<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, objectid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Remove)(::core::mem::transmute_copy(self), objectid.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTypeInfoCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::ITypeInfo> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::ITypeInfo>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation', 'Win32_System_Ole'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::DISPPARAMS, pvarresult: *mut super::VARIANT, pexcepinfo: *mut super::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
 impl ::core::convert::From<IEventObjectCollection> for super::IDispatch {
@@ -1090,26 +1090,6 @@ pub struct IEventObjectCollectionVtbl {
 #[repr(transparent)]
 pub struct IEventProperty(::windows::core::IUnknown);
 impl IEventProperty {
-    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
-    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTypeInfoCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
-    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::ITypeInfo> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::ITypeInfo>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation', 'Win32_System_Ole'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::DISPPARAMS, pvarresult: *mut super::VARIANT, pexcepinfo: *mut super::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
-    }
     #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
@@ -1131,6 +1111,26 @@ impl IEventProperty {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn SetValue(&self, propertyvalue: *const super::VARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(propertyvalue)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTypeInfoCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::ITypeInfo> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::ITypeInfo>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation', 'Win32_System_Ole'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::DISPPARAMS, pvarresult: *mut super::VARIANT, pexcepinfo: *mut super::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
 impl ::core::convert::From<IEventProperty> for super::IDispatch {
@@ -1218,26 +1218,6 @@ pub struct IEventPropertyVtbl {
 #[repr(transparent)]
 pub struct IEventPublisher(::windows::core::IUnknown);
 impl IEventPublisher {
-    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
-    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTypeInfoCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
-    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::ITypeInfo> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::ITypeInfo>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation', 'Win32_System_Ole'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::DISPPARAMS, pvarresult: *mut super::VARIANT, pexcepinfo: *mut super::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
-    }
     #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PublisherID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
@@ -1313,6 +1293,26 @@ impl IEventPublisher {
     pub unsafe fn GetDefaultPropertyCollection(&self) -> ::windows::core::Result<IEventObjectCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDefaultPropertyCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEventObjectCollection>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTypeInfoCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::ITypeInfo> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::ITypeInfo>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation', 'Win32_System_Ole'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::DISPPARAMS, pvarresult: *mut super::VARIANT, pexcepinfo: *mut super::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
 impl ::core::convert::From<IEventPublisher> for super::IDispatch {
@@ -1437,26 +1437,6 @@ pub struct IEventPublisherVtbl {
 #[repr(transparent)]
 pub struct IEventSubscription(::windows::core::IUnknown);
 impl IEventSubscription {
-    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
-    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTypeInfoCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
-    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::ITypeInfo> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::ITypeInfo>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation', 'Win32_System_Ole'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::DISPPARAMS, pvarresult: *mut super::VARIANT, pexcepinfo: *mut super::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
-    }
     #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SubscriptionID(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
@@ -1639,6 +1619,26 @@ impl IEventSubscription {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetInterfaceID<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, bstrinterfaceid: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetInterfaceID)(::core::mem::transmute_copy(self), bstrinterfaceid.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTypeInfoCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::ITypeInfo> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::ITypeInfo>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation', 'Win32_System_Ole'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::DISPPARAMS, pvarresult: *mut super::VARIANT, pexcepinfo: *mut super::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
 impl ::core::convert::From<IEventSubscription> for super::IDispatch {
@@ -1834,26 +1834,6 @@ pub struct IEventSubscriptionVtbl {
 #[repr(transparent)]
 pub struct IEventSystem(::windows::core::IUnknown);
 impl IEventSystem {
-    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
-    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTypeInfoCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
-    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::ITypeInfo> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::ITypeInfo>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation', 'Win32_System_Ole'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
-    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::DISPPARAMS, pvarresult: *mut super::VARIANT, pexcepinfo: *mut super::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
-    }
     #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Query<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, progid: Param0, querycriteria: Param1, errorindex: *mut i32, ppinterface: *mut ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
@@ -1886,6 +1866,26 @@ impl IEventSystem {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoveS<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BSTR>>(&self, progid: Param0, querycriteria: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveS)(::core::mem::transmute_copy(self), progid.into_param().abi(), querycriteria.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTypeInfoCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::ITypeInfo> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::ITypeInfo>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation', 'Win32_System_Ole'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::DISPPARAMS, pvarresult: *mut super::VARIANT, pexcepinfo: *mut super::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
 impl ::core::convert::From<IEventSystem> for super::IDispatch {
@@ -1982,28 +1982,28 @@ pub struct IEventSystemVtbl {
 pub struct IFiringControl(::windows::core::IUnknown);
 impl IFiringControl {
     #[doc = "*Required features: 'Win32_System_Com_Events'*"]
+    pub unsafe fn FireSubscription<'a, Param0: ::windows::core::IntoParam<'a, IEventSubscription>>(&self, subscription: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FireSubscription)(::core::mem::transmute_copy(self), subscription.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTypeInfoCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base.GetTypeInfoCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Com_Events'*"]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::ITypeInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::ITypeInfo>(result__)
+        (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::ITypeInfo>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_Events', 'Win32_Foundation', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::DISPPARAMS, pvarresult: *mut super::VARIANT, pexcepinfo: *mut super::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Events'*"]
-    pub unsafe fn FireSubscription<'a, Param0: ::windows::core::IntoParam<'a, IEventSubscription>>(&self, subscription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FireSubscription)(::core::mem::transmute_copy(self), subscription.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
 impl ::core::convert::From<IFiringControl> for super::IDispatch {

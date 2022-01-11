@@ -58,16 +58,16 @@ pub struct IWebApplicationActivationVtbl {
 #[repr(transparent)]
 pub struct IWebApplicationAuthoringMode(::windows::core::IUnknown);
 impl IWebApplicationAuthoringMode {
-    #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn QueryService(&self, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).QueryService)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidservice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
-    }
     #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AuthoringClientBinary(&self) -> ::windows::core::Result<super::super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).AuthoringClientBinary)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Diagnostics_Debug_WebApp', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn QueryService(&self, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.QueryService)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidservice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

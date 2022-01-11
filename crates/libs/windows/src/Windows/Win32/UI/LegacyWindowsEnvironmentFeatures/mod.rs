@@ -320,31 +320,31 @@ pub struct IEmptyVolumeCache2(::windows::core::IUnknown);
 impl IEmptyVolumeCache2 {
     #[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+    pub unsafe fn InitializeEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hkregkey: Param0, pcwszvolume: Param1, pcwszkeyname: Param2, ppwszdisplayname: *mut super::super::Foundation::PWSTR, ppwszdescription: *mut super::super::Foundation::PWSTR, ppwszbtntext: *mut super::super::Foundation::PWSTR, pdwflags: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InitializeEx)(::core::mem::transmute_copy(self), hkregkey.into_param().abi(), pcwszvolume.into_param().abi(), pcwszkeyname.into_param().abi(), ::core::mem::transmute(ppwszdisplayname), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(ppwszbtntext), ::core::mem::transmute(pdwflags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures', 'Win32_Foundation', 'Win32_System_Registry'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hkregkey: Param0, pcwszvolume: Param1, ppwszdisplayname: *mut super::super::Foundation::PWSTR, ppwszdescription: *mut super::super::Foundation::PWSTR, pdwflags: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), hkregkey.into_param().abi(), pcwszvolume.into_param().abi(), ::core::mem::transmute(ppwszdisplayname), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(pdwflags)).ok()
+        (::windows::core::Interface::vtable(self).base.Initialize)(::core::mem::transmute_copy(self), hkregkey.into_param().abi(), pcwszvolume.into_param().abi(), ::core::mem::transmute(ppwszdisplayname), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(pdwflags)).ok()
     }
     #[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
     pub unsafe fn GetSpaceUsed<'a, Param1: ::windows::core::IntoParam<'a, IEmptyVolumeCacheCallBack>>(&self, pdwlspaceused: *mut u64, picb: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSpaceUsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwlspaceused), picb.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.GetSpaceUsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwlspaceused), picb.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
     pub unsafe fn Purge<'a, Param1: ::windows::core::IntoParam<'a, IEmptyVolumeCacheCallBack>>(&self, dwlspacetofree: u64, picb: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Purge)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlspacetofree), picb.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.Purge)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlspacetofree), picb.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwnd: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ShowProperties)(::core::mem::transmute_copy(self), hwnd.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.ShowProperties)(::core::mem::transmute_copy(self), hwnd.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
     pub unsafe fn Deactivate(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Deactivate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures', 'Win32_Foundation', 'Win32_System_Registry'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub unsafe fn InitializeEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, hkregkey: Param0, pcwszvolume: Param1, pcwszkeyname: Param2, ppwszdisplayname: *mut super::super::Foundation::PWSTR, ppwszdescription: *mut super::super::Foundation::PWSTR, ppwszbtntext: *mut super::super::Foundation::PWSTR, pdwflags: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InitializeEx)(::core::mem::transmute_copy(self), hkregkey.into_param().abi(), pcwszvolume.into_param().abi(), pcwszkeyname.into_param().abi(), ::core::mem::transmute(ppwszdisplayname), ::core::mem::transmute(ppwszdescription), ::core::mem::transmute(ppwszbtntext), ::core::mem::transmute(pdwflags)).ok()
+        (::windows::core::Interface::vtable(self).base.Deactivate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IEmptyVolumeCache2> for IEmptyVolumeCache {

@@ -112,7 +112,7 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
     }
 }
 
-pub fn gen_com_method(def: &TypeDef, method: &MethodDef,  method_names: &mut BTreeMap<String, u32>, gen: &Gen) -> TokenStream {
+pub fn gen_com_method(def: &TypeDef, method: &MethodDef,  method_names: &mut BTreeMap<String, u32>, bases: &TokenStream, gen: &Gen) -> TokenStream {
     let signature = method.signature(&def.generics);
 
     let name = method.rust_name();
@@ -133,7 +133,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef,  method_names: &mut BTr
                 #cfg
                 pub unsafe fn #name<#constraints T: ::windows::core::Interface>(&self, #params) -> ::windows::core::Result<T> {
                     let mut result__ = ::core::option::Option::None;
-                    (::windows::core::Interface::vtable(self).#name)(::core::mem::transmute_copy(self), #(#args,)* &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+                    (::windows::core::Interface::vtable(self)#bases.#name)(::core::mem::transmute_copy(self), #(#args,)* &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
                 }
             }
         }
@@ -145,7 +145,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef,  method_names: &mut BTr
             quote! {
                 #cfg
                 pub unsafe fn #name<#constraints T: ::windows::core::Interface>(&self, #params result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
-                    (::windows::core::Interface::vtable(self).#name)(::core::mem::transmute_copy(self), #(#args,)* &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+                    (::windows::core::Interface::vtable(self)#bases.#name)(::core::mem::transmute_copy(self), #(#args,)* &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
                 }
             }
         }
@@ -163,7 +163,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef,  method_names: &mut BTr
                 #cfg
                 pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::core::Result<#return_type_tokens> {
                     let mut result__: #abi_return_type_tokens = ::core::mem::zeroed();
-                    (::windows::core::Interface::vtable(self).#name)(::core::mem::transmute_copy(self), #(#args,)* ::core::mem::transmute(&mut result__))
+                    (::windows::core::Interface::vtable(self)#bases.#name)(::core::mem::transmute_copy(self), #(#args,)* ::core::mem::transmute(&mut result__))
                     .from_abi::<#return_type_tokens>(result__ )
                 }
             }
@@ -175,7 +175,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef,  method_names: &mut BTr
             quote! {
                 #cfg
                 pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::core::Result<()> {
-                    (::windows::core::Interface::vtable(self).#name)(::core::mem::transmute_copy(self), #(#args,)*).ok()
+                    (::windows::core::Interface::vtable(self)#bases.#name)(::core::mem::transmute_copy(self), #(#args,)*).ok()
                 }
             }
         }
@@ -188,7 +188,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef,  method_names: &mut BTr
                 #cfg
                 pub unsafe fn #name<#constraints>(&self, #params) -> #return_sig {
                     let mut result__: #return_sig = :: core::mem::zeroed();
-                    (::windows::core::Interface::vtable(self).#name)(::core::mem::transmute_copy(self), &mut result__ #(,#args)*);
+                    (::windows::core::Interface::vtable(self)#bases.#name)(::core::mem::transmute_copy(self), &mut result__ #(,#args)*);
                     result__
                 }
             }
@@ -201,7 +201,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef,  method_names: &mut BTr
             quote! {
                 #cfg
                 pub unsafe fn #name<#constraints>(&self, #params) #return_sig {
-                    ::core::mem::transmute((::windows::core::Interface::vtable(self).#name)(::core::mem::transmute_copy(self), #(#args,)*))
+                    ::core::mem::transmute((::windows::core::Interface::vtable(self)#bases.#name)(::core::mem::transmute_copy(self), #(#args,)*))
                 }
             }
         }
@@ -212,7 +212,7 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef,  method_names: &mut BTr
             quote! {
                 #cfg
                 pub unsafe fn #name<#constraints>(&self, #params) {
-                    (::windows::core::Interface::vtable(self).#name)(::core::mem::transmute_copy(self), #(#args,)*)
+                    (::windows::core::Interface::vtable(self)#bases.#name)(::core::mem::transmute_copy(self), #(#args,)*)
                 }
             }
         }

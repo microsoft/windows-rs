@@ -233,21 +233,6 @@ pub struct IRdcFileReaderVtbl {
 pub struct IRdcFileWriter(::windows::core::IUnknown);
 impl IRdcFileWriter {
     #[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
-    pub unsafe fn GetFileSize(&self) -> ::windows::core::Result<u64> {
-        let mut result__: u64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetFileSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Read(&self, offsetfilestart: u64, bytestoread: u32, bytesactuallyread: *mut u32, buffer: *mut u8, eof: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(offsetfilestart), ::core::mem::transmute(bytestoread), ::core::mem::transmute(bytesactuallyread), ::core::mem::transmute(buffer), ::core::mem::transmute(eof)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
-    pub unsafe fn GetFilePosition(&self) -> ::windows::core::Result<u64> {
-        let mut result__: u64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetFilePosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
     pub unsafe fn Write(&self, offsetfilestart: u64, bytestowrite: u32) -> ::windows::core::Result<u8> {
         let mut result__: u8 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Write)(::core::mem::transmute_copy(self), ::core::mem::transmute(offsetfilestart), ::core::mem::transmute(bytestowrite), ::core::mem::transmute(&mut result__)).from_abi::<u8>(result__)
@@ -259,6 +244,21 @@ impl IRdcFileWriter {
     #[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
     pub unsafe fn DeleteOnClose(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).DeleteOnClose)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
+    pub unsafe fn GetFileSize(&self) -> ::windows::core::Result<u64> {
+        let mut result__: u64 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetFileSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn Read(&self, offsetfilestart: u64, bytestoread: u32, bytesactuallyread: *mut u32, buffer: *mut u8, eof: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(offsetfilestart), ::core::mem::transmute(bytestoread), ::core::mem::transmute(bytesactuallyread), ::core::mem::transmute(buffer), ::core::mem::transmute(eof)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
+    pub unsafe fn GetFilePosition(&self) -> ::windows::core::Result<u64> {
+        let mut result__: u64 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetFilePosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
 }
 impl ::core::convert::From<IRdcFileWriter> for IRdcFileReader {

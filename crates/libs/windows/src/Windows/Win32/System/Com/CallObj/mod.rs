@@ -601,25 +601,6 @@ pub struct ICallIndirectVtbl {
 pub struct ICallInterceptor(::windows::core::IUnknown);
 impl ICallInterceptor {
     #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
-    pub unsafe fn CallIndirect(&self, phrreturn: *mut ::windows::core::HRESULT, imethod: u32, pvargs: *const ::core::ffi::c_void, cbargs: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CallIndirect)(::core::mem::transmute_copy(self), ::core::mem::transmute(phrreturn), ::core::mem::transmute(imethod), ::core::mem::transmute(pvargs), ::core::mem::transmute(cbargs)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_CallObj', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetMethodInfo(&self, imethod: u32, pinfo: *mut CALLFRAMEINFO, pwszmethod: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetMethodInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(imethod), ::core::mem::transmute(pinfo), ::core::mem::transmute(pwszmethod)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
-    pub unsafe fn GetStackSize(&self, imethod: u32) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetStackSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(imethod), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_CallObj', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIID(&self, piid: *mut ::windows::core::GUID, pfderivesfromidispatch: *mut super::super::super::Foundation::BOOL, pcmethod: *mut u32, pwszinterface: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetIID)(::core::mem::transmute_copy(self), ::core::mem::transmute(piid), ::core::mem::transmute(pfderivesfromidispatch), ::core::mem::transmute(pcmethod), ::core::mem::transmute(pwszinterface)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
     pub unsafe fn RegisterSink<'a, Param0: ::windows::core::IntoParam<'a, ICallFrameEvents>>(&self, psink: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RegisterSink)(::core::mem::transmute_copy(self), psink.into_param().abi()).ok()
     }
@@ -627,6 +608,25 @@ impl ICallInterceptor {
     pub unsafe fn GetRegisteredSink(&self) -> ::windows::core::Result<ICallFrameEvents> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetRegisteredSink)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ICallFrameEvents>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
+    pub unsafe fn CallIndirect(&self, phrreturn: *mut ::windows::core::HRESULT, imethod: u32, pvargs: *const ::core::ffi::c_void, cbargs: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.CallIndirect)(::core::mem::transmute_copy(self), ::core::mem::transmute(phrreturn), ::core::mem::transmute(imethod), ::core::mem::transmute(pvargs), ::core::mem::transmute(cbargs)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_CallObj', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetMethodInfo(&self, imethod: u32, pinfo: *mut CALLFRAMEINFO, pwszmethod: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetMethodInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(imethod), ::core::mem::transmute(pinfo), ::core::mem::transmute(pwszmethod)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
+    pub unsafe fn GetStackSize(&self, imethod: u32) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetStackSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(imethod), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_CallObj', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIID(&self, piid: *mut ::windows::core::GUID, pfderivesfromidispatch: *mut super::super::super::Foundation::BOOL, pcmethod: *mut u32, pwszinterface: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIID)(::core::mem::transmute_copy(self), ::core::mem::transmute(piid), ::core::mem::transmute(pfderivesfromidispatch), ::core::mem::transmute(pcmethod), ::core::mem::transmute(pwszinterface)).ok()
     }
 }
 impl ::core::convert::From<ICallInterceptor> for ICallIndirect {

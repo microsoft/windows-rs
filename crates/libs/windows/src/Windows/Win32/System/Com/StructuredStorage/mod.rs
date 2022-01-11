@@ -1491,11 +1491,6 @@ pub struct ILockBytesVtbl {
 pub struct IPersistStorage(::windows::core::IUnknown);
 impl IPersistStorage {
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-    pub unsafe fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetClassID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub unsafe fn IsDirty(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).IsDirty)(::core::mem::transmute_copy(self)).ok()
     }
@@ -1519,6 +1514,11 @@ impl IPersistStorage {
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub unsafe fn HandsOffStorage(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).HandsOffStorage)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+    pub unsafe fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetClassID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
 }
 impl ::core::convert::From<IPersistStorage> for super::IPersist {

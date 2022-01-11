@@ -74,21 +74,21 @@ pub struct IDesktopWindowXamlSourceNativeVtbl {
 #[repr(transparent)]
 pub struct IDesktopWindowXamlSourceNative2(::windows::core::IUnknown);
 impl IDesktopWindowXamlSourceNative2 {
+    #[doc = "*Required features: 'Win32_System_WinRT_Xaml', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+    pub unsafe fn PreTranslateMessage(&self, message: *const super::super::super::UI::WindowsAndMessaging::MSG, result: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PreTranslateMessage)(::core::mem::transmute_copy(self), ::core::mem::transmute(message), ::core::mem::transmute(result)).ok()
+    }
     #[doc = "*Required features: 'Win32_System_WinRT_Xaml', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AttachToWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, parentwnd: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AttachToWindow)(::core::mem::transmute_copy(self), parentwnd.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.AttachToWindow)(::core::mem::transmute_copy(self), parentwnd.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_WinRT_Xaml', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WindowHandle(&self) -> ::windows::core::Result<super::super::super::Foundation::HWND> {
         let mut result__: super::super::super::Foundation::HWND = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).WindowHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::HWND>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_WinRT_Xaml', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
-    pub unsafe fn PreTranslateMessage(&self, message: *const super::super::super::UI::WindowsAndMessaging::MSG, result: *mut super::super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PreTranslateMessage)(::core::mem::transmute_copy(self), ::core::mem::transmute(message), ::core::mem::transmute(result)).ok()
+        (::windows::core::Interface::vtable(self).base.WindowHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
 }
 impl ::core::convert::From<IDesktopWindowXamlSourceNative2> for IDesktopWindowXamlSourceNative {
@@ -900,15 +900,15 @@ pub struct ISwapChainPanelNativeVtbl {
 #[repr(transparent)]
 pub struct ISwapChainPanelNative2(::windows::core::IUnknown);
 impl ISwapChainPanelNative2 {
-    #[doc = "*Required features: 'Win32_System_WinRT_Xaml', 'Win32_Graphics_Dxgi'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub unsafe fn SetSwapChain<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Dxgi::IDXGISwapChain>>(&self, swapchain: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSwapChain)(::core::mem::transmute_copy(self), swapchain.into_param().abi()).ok()
-    }
     #[doc = "*Required features: 'Win32_System_WinRT_Xaml', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSwapChainHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(&self, swapchainhandle: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSwapChainHandle)(::core::mem::transmute_copy(self), swapchainhandle.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_WinRT_Xaml', 'Win32_Graphics_Dxgi'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi")]
+    pub unsafe fn SetSwapChain<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Dxgi::IDXGISwapChain>>(&self, swapchain: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetSwapChain)(::core::mem::transmute_copy(self), swapchain.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<ISwapChainPanelNative2> for ISwapChainPanelNative {
@@ -1055,20 +1055,6 @@ pub struct ITrackerOwnerVtbl {
 #[repr(transparent)]
 pub struct IVirtualSurfaceImageSourceNative(::windows::core::IUnknown);
 impl IVirtualSurfaceImageSourceNative {
-    #[doc = "*Required features: 'Win32_System_WinRT_Xaml', 'Win32_Graphics_Dxgi'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub unsafe fn SetDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Dxgi::IDXGIDevice>>(&self, device: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDevice)(::core::mem::transmute_copy(self), device.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_WinRT_Xaml', 'Win32_Foundation', 'Win32_Graphics_Dxgi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
-    pub unsafe fn BeginDraw<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::RECT>>(&self, updaterect: Param0, surface: *mut ::core::option::Option<super::super::super::Graphics::Dxgi::IDXGISurface>, offset: *mut super::super::super::Foundation::POINT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeginDraw)(::core::mem::transmute_copy(self), updaterect.into_param().abi(), ::core::mem::transmute(surface), ::core::mem::transmute(offset)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_WinRT_Xaml'*"]
-    pub unsafe fn EndDraw(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EndDraw)(::core::mem::transmute_copy(self)).ok()
-    }
     #[doc = "*Required features: 'Win32_System_WinRT_Xaml', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Invalidate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::RECT>>(&self, updaterect: Param0) -> ::windows::core::Result<()> {
@@ -1097,6 +1083,20 @@ impl IVirtualSurfaceImageSourceNative {
     #[doc = "*Required features: 'Win32_System_WinRT_Xaml'*"]
     pub unsafe fn Resize(&self, newwidth: i32, newheight: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Resize)(::core::mem::transmute_copy(self), ::core::mem::transmute(newwidth), ::core::mem::transmute(newheight)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_WinRT_Xaml', 'Win32_Graphics_Dxgi'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi")]
+    pub unsafe fn SetDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Dxgi::IDXGIDevice>>(&self, device: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetDevice)(::core::mem::transmute_copy(self), device.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_WinRT_Xaml', 'Win32_Foundation', 'Win32_Graphics_Dxgi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi"))]
+    pub unsafe fn BeginDraw<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::RECT>>(&self, updaterect: Param0, surface: *mut ::core::option::Option<super::super::super::Graphics::Dxgi::IDXGISurface>, offset: *mut super::super::super::Foundation::POINT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.BeginDraw)(::core::mem::transmute_copy(self), updaterect.into_param().abi(), ::core::mem::transmute(surface), ::core::mem::transmute(offset)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_WinRT_Xaml'*"]
+    pub unsafe fn EndDraw(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.EndDraw)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IVirtualSurfaceImageSourceNative> for ISurfaceImageSourceNative {

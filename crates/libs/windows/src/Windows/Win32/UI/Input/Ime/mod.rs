@@ -787,90 +787,6 @@ pub struct IActiveIMEVtbl {
 #[repr(transparent)]
 pub struct IActiveIME2(::windows::core::IUnknown);
 impl IActiveIME2 {
-    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Inquire(&self, dwsysteminfoflags: u32, pimeinfo: *mut IMEINFO, szwndclass: super::super::super::Foundation::PWSTR, pdwprivate: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Inquire)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsysteminfoflags), ::core::mem::transmute(pimeinfo), ::core::mem::transmute(szwndclass), ::core::mem::transmute(pdwprivate)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub unsafe fn ConversionList<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, himc: Param0, szsource: Param1, uflag: u32, ubuflen: u32, pdest: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConversionList)(::core::mem::transmute_copy(self), himc.into_param().abi(), szsource.into_param().abi(), ::core::mem::transmute(uflag), ::core::mem::transmute(ubuflen), ::core::mem::transmute(pdest), ::core::mem::transmute(pucopied)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
-    pub unsafe fn Configure<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hkl: Param0, hwnd: Param1, dwmode: u32, pregisterword: *const REGISTERWORDW) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Configure)(::core::mem::transmute_copy(self), hkl.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(dwmode), ::core::mem::transmute(pregisterword)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-    pub unsafe fn Destroy(&self, ureserved: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Destroy)(::core::mem::transmute_copy(self), ::core::mem::transmute(ureserved)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub unsafe fn Escape<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Escape)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(uescape), ::core::mem::transmute(pdata), ::core::mem::transmute(plresult)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub unsafe fn SetActiveContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, himc: Param0, fflag: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetActiveContext)(::core::mem::transmute_copy(self), himc.into_param().abi(), fflag.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
-    #[cfg(feature = "Win32_Globalization")]
-    pub unsafe fn ProcessKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, uvirkey: u32, lparam: u32, pbkeystate: *const u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ProcessKey)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(uvirkey), ::core::mem::transmute(lparam), ::core::mem::transmute(pbkeystate)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
-    #[cfg(feature = "Win32_Globalization")]
-    pub unsafe fn Notify<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwaction: u32, dwindex: u32, dwvalue: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Notify)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwaction), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwvalue)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
-    pub unsafe fn Select<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, himc: Param0, fselect: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Select)(::core::mem::transmute_copy(self), himc.into_param().abi(), fselect.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
-    #[cfg(feature = "Win32_Globalization")]
-    pub unsafe fn SetCompositionString<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCompositionString)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(pcomp), ::core::mem::transmute(dwcomplen), ::core::mem::transmute(pread), ::core::mem::transmute(dwreadlen)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
-    #[cfg(feature = "Win32_Globalization")]
-    pub unsafe fn ToAsciiEx<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, uvirkey: u32, uscancode: u32, pbkeystate: *const u8, fustate: u32, himc: Param4, pdwtransbuf: *mut u32, pusize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ToAsciiEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(uvirkey), ::core::mem::transmute(uscancode), ::core::mem::transmute(pbkeystate), ::core::mem::transmute(fustate), himc.into_param().abi(), ::core::mem::transmute(pdwtransbuf), ::core::mem::transmute(pusize)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterWord<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szreading: Param0, dwstyle: u32, szstring: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RegisterWord)(::core::mem::transmute_copy(self), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szstring.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UnregisterWord<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szreading: Param0, dwstyle: u32, szstring: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnregisterWord)(::core::mem::transmute_copy(self), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szstring.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-    pub unsafe fn GetRegisterWordStyle(&self, nitem: u32, pstylebuf: *mut STYLEBUFW, pubufsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetRegisterWordStyle)(::core::mem::transmute_copy(self), ::core::mem::transmute(nitem), ::core::mem::transmute(pstylebuf), ::core::mem::transmute(pubufsize)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumRegisterWord<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szreading: Param0, dwstyle: u32, szregister: Param2, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordW> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnumRegisterWord)(::core::mem::transmute_copy(self), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szregister.into_param().abi(), ::core::mem::transmute(pdata), ::core::mem::transmute(&mut result__)).from_abi::<IEnumRegisterWordW>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-    pub unsafe fn GetCodePageA(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetCodePageA)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-    pub unsafe fn GetLangId(&self) -> ::windows::core::Result<u16> {
-        let mut result__: u16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetLangId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u16>(result__)
-    }
     #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
     pub unsafe fn Sleep(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Sleep)(::core::mem::transmute_copy(self)).ok()
@@ -879,6 +795,90 @@ impl IActiveIME2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Unsleep<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fdead: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Unsleep)(::core::mem::transmute_copy(self), fdead.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn Inquire(&self, dwsysteminfoflags: u32, pimeinfo: *mut IMEINFO, szwndclass: super::super::super::Foundation::PWSTR, pdwprivate: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Inquire)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsysteminfoflags), ::core::mem::transmute(pimeinfo), ::core::mem::transmute(szwndclass), ::core::mem::transmute(pdwprivate)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub unsafe fn ConversionList<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, himc: Param0, szsource: Param1, uflag: u32, ubuflen: u32, pdest: *mut CANDIDATELIST, pucopied: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.ConversionList)(::core::mem::transmute_copy(self), himc.into_param().abi(), szsource.into_param().abi(), ::core::mem::transmute(uflag), ::core::mem::transmute(ubuflen), ::core::mem::transmute(pdest), ::core::mem::transmute(pucopied)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_UI_TextServices'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_TextServices"))]
+    pub unsafe fn Configure<'a, Param0: ::windows::core::IntoParam<'a, super::super::TextServices::HKL>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hkl: Param0, hwnd: Param1, dwmode: u32, pregisterword: *const REGISTERWORDW) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Configure)(::core::mem::transmute_copy(self), hkl.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(dwmode), ::core::mem::transmute(pregisterword)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+    pub unsafe fn Destroy(&self, ureserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Destroy)(::core::mem::transmute_copy(self), ::core::mem::transmute(ureserved)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub unsafe fn Escape<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, uescape: u32, pdata: *mut ::core::ffi::c_void, plresult: *mut super::super::super::Foundation::LRESULT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Escape)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(uescape), ::core::mem::transmute(pdata), ::core::mem::transmute(plresult)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub unsafe fn SetActiveContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, himc: Param0, fflag: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetActiveContext)(::core::mem::transmute_copy(self), himc.into_param().abi(), fflag.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
+    #[cfg(feature = "Win32_Globalization")]
+    pub unsafe fn ProcessKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, uvirkey: u32, lparam: u32, pbkeystate: *const u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.ProcessKey)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(uvirkey), ::core::mem::transmute(lparam), ::core::mem::transmute(pbkeystate)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
+    #[cfg(feature = "Win32_Globalization")]
+    pub unsafe fn Notify<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwaction: u32, dwindex: u32, dwvalue: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Notify)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwaction), ::core::mem::transmute(dwindex), ::core::mem::transmute(dwvalue)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization"))]
+    pub unsafe fn Select<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, himc: Param0, fselect: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Select)(::core::mem::transmute_copy(self), himc.into_param().abi(), fselect.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
+    #[cfg(feature = "Win32_Globalization")]
+    pub unsafe fn SetCompositionString<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, himc: Param0, dwindex: u32, pcomp: *const ::core::ffi::c_void, dwcomplen: u32, pread: *const ::core::ffi::c_void, dwreadlen: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetCompositionString)(::core::mem::transmute_copy(self), himc.into_param().abi(), ::core::mem::transmute(dwindex), ::core::mem::transmute(pcomp), ::core::mem::transmute(dwcomplen), ::core::mem::transmute(pread), ::core::mem::transmute(dwreadlen)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Globalization'*"]
+    #[cfg(feature = "Win32_Globalization")]
+    pub unsafe fn ToAsciiEx<'a, Param4: ::windows::core::IntoParam<'a, super::super::super::Globalization::HIMC>>(&self, uvirkey: u32, uscancode: u32, pbkeystate: *const u8, fustate: u32, himc: Param4, pdwtransbuf: *mut u32, pusize: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.ToAsciiEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(uvirkey), ::core::mem::transmute(uscancode), ::core::mem::transmute(pbkeystate), ::core::mem::transmute(fustate), himc.into_param().abi(), ::core::mem::transmute(pdwtransbuf), ::core::mem::transmute(pusize)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn RegisterWord<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szreading: Param0, dwstyle: u32, szstring: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.RegisterWord)(::core::mem::transmute_copy(self), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szstring.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn UnregisterWord<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szreading: Param0, dwstyle: u32, szstring: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.UnregisterWord)(::core::mem::transmute_copy(self), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szstring.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+    pub unsafe fn GetRegisterWordStyle(&self, nitem: u32, pstylebuf: *mut STYLEBUFW, pubufsize: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetRegisterWordStyle)(::core::mem::transmute_copy(self), ::core::mem::transmute(nitem), ::core::mem::transmute(pstylebuf), ::core::mem::transmute(pubufsize)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn EnumRegisterWord<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szreading: Param0, dwstyle: u32, szregister: Param2, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<IEnumRegisterWordW> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.EnumRegisterWord)(::core::mem::transmute_copy(self), szreading.into_param().abi(), ::core::mem::transmute(dwstyle), szregister.into_param().abi(), ::core::mem::transmute(pdata), ::core::mem::transmute(&mut result__)).from_abi::<IEnumRegisterWordW>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+    pub unsafe fn GetCodePageA(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetCodePageA)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+    pub unsafe fn GetLangId(&self) -> ::windows::core::Result<u16> {
+        let mut result__: u16 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetLangId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u16>(result__)
     }
 }
 impl ::core::convert::From<IActiveIME2> for IActiveIME {
@@ -2842,12 +2842,12 @@ impl IFEClassFactory {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, T: ::windows::core::Interface>(&self, punkouter: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateInstance)(::core::mem::transmute_copy(self), punkouter.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base.CreateInstance)(::core::mem::transmute_copy(self), punkouter.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn LockServer<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, flock: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LockServer)(::core::mem::transmute_copy(self), flock.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.LockServer)(::core::mem::transmute_copy(self), flock.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

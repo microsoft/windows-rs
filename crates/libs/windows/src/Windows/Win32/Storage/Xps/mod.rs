@@ -473,16 +473,6 @@ pub struct IXpsDocumentPackageTarget3DVtbl {
 pub struct IXpsOMBrush(::windows::core::IUnknown);
 impl IXpsOMBrush {
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
-        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn GetOpacity(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
@@ -490,6 +480,16 @@ impl IXpsOMBrush {
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn SetOpacity(&self, opacity: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
+        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
     }
 }
 impl ::core::convert::From<IXpsOMBrush> for IXpsOMShareable {
@@ -564,144 +564,6 @@ pub struct IXpsOMBrushVtbl {
 pub struct IXpsOMCanvas(::windows::core::IUnknown);
 impl IXpsOMCanvas {
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
-        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetTransform(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetTransformLocal(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTransformLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetTransformLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMMatrixTransform>>(&self, matrixtransform: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTransformLocal)(::core::mem::transmute_copy(self), matrixtransform.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetTransformLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
-        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTransformLookup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTransformLookup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, key: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTransformLookup)(::core::mem::transmute_copy(self), key.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetClipGeometry(&self) -> ::windows::core::Result<IXpsOMGeometry> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetClipGeometry)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGeometry>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetClipGeometryLocal(&self) -> ::windows::core::Result<IXpsOMGeometry> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetClipGeometryLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGeometry>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetClipGeometryLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMGeometry>>(&self, clipgeometry: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClipGeometryLocal)(::core::mem::transmute_copy(self), clipgeometry.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetClipGeometryLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
-        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetClipGeometryLookup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClipGeometryLookup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, key: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClipGeometryLookup)(::core::mem::transmute_copy(self), key.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOpacity(&self) -> ::windows::core::Result<f32> {
-        let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetOpacity(&self, opacity: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOpacityMaskBrush(&self) -> ::windows::core::Result<IXpsOMBrush> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOpacityMaskBrush)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMBrush>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOpacityMaskBrushLocal(&self) -> ::windows::core::Result<IXpsOMBrush> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOpacityMaskBrushLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMBrush>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetOpacityMaskBrushLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMBrush>>(&self, opacitymaskbrush: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOpacityMaskBrushLocal)(::core::mem::transmute_copy(self), opacitymaskbrush.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetOpacityMaskBrushLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
-        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOpacityMaskBrushLookup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetOpacityMaskBrushLookup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, key: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOpacityMaskBrushLookup)(::core::mem::transmute_copy(self), key.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
-        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIsHyperlinkTarget(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetIsHyperlinkTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsHyperlinkTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ishyperlink: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIsHyperlinkTarget)(::core::mem::transmute_copy(self), ishyperlink.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetHyperlinkNavigateUri(&self) -> ::windows::core::Result<super::super::System::Com::IUri> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetHyperlinkNavigateUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IUri>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetHyperlinkNavigateUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IUri>>(&self, hyperlinkuri: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHyperlinkNavigateUri)(::core::mem::transmute_copy(self), hyperlinkuri.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetLanguage(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
-        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetLanguage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLanguage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, language: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLanguage)(::core::mem::transmute_copy(self), language.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn GetVisuals(&self) -> ::windows::core::Result<IXpsOMVisualCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetVisuals)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMVisualCollection>(result__)
@@ -766,6 +628,144 @@ impl IXpsOMCanvas {
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IXpsOMCanvas> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMCanvas>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetTransform(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetTransformLocal(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTransformLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetTransformLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMMatrixTransform>>(&self, matrixtransform: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetTransformLocal)(::core::mem::transmute_copy(self), matrixtransform.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetTransformLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTransformLookup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetTransformLookup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, key: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetTransformLookup)(::core::mem::transmute_copy(self), key.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetClipGeometry(&self) -> ::windows::core::Result<IXpsOMGeometry> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetClipGeometry)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGeometry>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetClipGeometryLocal(&self) -> ::windows::core::Result<IXpsOMGeometry> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetClipGeometryLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGeometry>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetClipGeometryLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMGeometry>>(&self, clipgeometry: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetClipGeometryLocal)(::core::mem::transmute_copy(self), clipgeometry.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetClipGeometryLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetClipGeometryLookup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetClipGeometryLookup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, key: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetClipGeometryLookup)(::core::mem::transmute_copy(self), key.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOpacity(&self) -> ::windows::core::Result<f32> {
+        let mut result__: f32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetOpacity(&self, opacity: f32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOpacityMaskBrush(&self) -> ::windows::core::Result<IXpsOMBrush> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetOpacityMaskBrush)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMBrush>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOpacityMaskBrushLocal(&self) -> ::windows::core::Result<IXpsOMBrush> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetOpacityMaskBrushLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMBrush>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetOpacityMaskBrushLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMBrush>>(&self, opacitymaskbrush: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetOpacityMaskBrushLocal)(::core::mem::transmute_copy(self), opacitymaskbrush.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetOpacityMaskBrushLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetOpacityMaskBrushLookup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetOpacityMaskBrushLookup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, key: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetOpacityMaskBrushLookup)(::core::mem::transmute_copy(self), key.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIsHyperlinkTarget(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetIsHyperlinkTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetIsHyperlinkTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ishyperlink: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetIsHyperlinkTarget)(::core::mem::transmute_copy(self), ishyperlink.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetHyperlinkNavigateUri(&self) -> ::windows::core::Result<super::super::System::Com::IUri> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetHyperlinkNavigateUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IUri>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn SetHyperlinkNavigateUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IUri>>(&self, hyperlinkuri: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetHyperlinkNavigateUri)(::core::mem::transmute_copy(self), hyperlinkuri.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetLanguage(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetLanguage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetLanguage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, language: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetLanguage)(::core::mem::transmute_copy(self), language.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
+        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
     }
 }
 impl ::core::convert::From<IXpsOMCanvas> for IXpsOMVisual {
@@ -888,17 +888,6 @@ pub struct IXpsOMCanvasVtbl {
 #[repr(transparent)]
 pub struct IXpsOMColorProfileResource(::windows::core::IUnknown);
 impl IXpsOMColorProfileResource {
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
-    }
     #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::System::Com::IStream> {
@@ -909,6 +898,17 @@ impl IXpsOMColorProfileResource {
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetContent<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, sourcestream: Param0, partname: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetContent)(::core::mem::transmute_copy(self), sourcestream.into_param().abi(), partname.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IXpsOMColorProfileResource> for IXpsOMResource {
@@ -1100,17 +1100,6 @@ pub struct IXpsOMColorProfileResourceCollectionVtbl {
 #[repr(transparent)]
 pub struct IXpsOMCoreProperties(::windows::core::IUnknown);
 impl IXpsOMCoreProperties {
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
-    }
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn GetOwner(&self) -> ::windows::core::Result<IXpsOMPackage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1296,6 +1285,17 @@ impl IXpsOMCoreProperties {
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IXpsOMCoreProperties> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMCoreProperties>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IXpsOMCoreProperties> for IXpsOMPart {
@@ -1704,17 +1704,6 @@ pub struct IXpsOMDictionaryVtbl {
 #[repr(transparent)]
 pub struct IXpsOMDocument(::windows::core::IUnknown);
 impl IXpsOMDocument {
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
-    }
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn GetOwner(&self) -> ::windows::core::Result<IXpsOMDocumentSequence> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1752,6 +1741,17 @@ impl IXpsOMDocument {
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IXpsOMDocument> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMDocument>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IXpsOMDocument> for IXpsOMPart {
@@ -1913,17 +1913,6 @@ pub struct IXpsOMDocumentCollectionVtbl {
 #[repr(transparent)]
 pub struct IXpsOMDocumentSequence(::windows::core::IUnknown);
 impl IXpsOMDocumentSequence {
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
-    }
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn GetOwner(&self) -> ::windows::core::Result<IXpsOMPackage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1942,6 +1931,17 @@ impl IXpsOMDocumentSequence {
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn SetPrintTicketResource<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>>(&self, printticketresource: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetPrintTicketResource)(::core::mem::transmute_copy(self), printticketresource.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IXpsOMDocumentSequence> for IXpsOMPart {
@@ -2017,17 +2017,6 @@ pub struct IXpsOMDocumentSequenceVtbl {
 #[repr(transparent)]
 pub struct IXpsOMDocumentStructureResource(::windows::core::IUnknown);
 impl IXpsOMDocumentStructureResource {
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
-    }
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn GetOwner(&self) -> ::windows::core::Result<IXpsOMDocument> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2043,6 +2032,17 @@ impl IXpsOMDocumentStructureResource {
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetContent<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, sourcestream: Param0, partname: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetContent)(::core::mem::transmute_copy(self), sourcestream.into_param().abi(), partname.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IXpsOMDocumentStructureResource> for IXpsOMResource {
@@ -2143,17 +2143,6 @@ pub struct IXpsOMDocumentStructureResourceVtbl {
 #[repr(transparent)]
 pub struct IXpsOMFontResource(::windows::core::IUnknown);
 impl IXpsOMFontResource {
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
-    }
     #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::System::Com::IStream> {
@@ -2169,6 +2158,17 @@ impl IXpsOMFontResource {
     pub unsafe fn GetEmbeddingOption(&self) -> ::windows::core::Result<XPS_FONT_EMBEDDING> {
         let mut result__: XPS_FONT_EMBEDDING = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetEmbeddingOption)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_FONT_EMBEDDING>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IXpsOMFontResource> for IXpsOMResource {
@@ -2362,16 +2362,6 @@ pub struct IXpsOMFontResourceCollectionVtbl {
 pub struct IXpsOMGeometry(::windows::core::IUnknown);
 impl IXpsOMGeometry {
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
-        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn GetFigures(&self) -> ::windows::core::Result<IXpsOMGeometryFigureCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetFigures)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGeometryFigureCollection>(result__)
@@ -2414,6 +2404,16 @@ impl IXpsOMGeometry {
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IXpsOMGeometry> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGeometry>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
+        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
     }
 }
 impl ::core::convert::From<IXpsOMGeometry> for IXpsOMShareable {
@@ -2739,144 +2739,6 @@ pub struct IXpsOMGeometryFigureCollectionVtbl {
 #[repr(transparent)]
 pub struct IXpsOMGlyphs(::windows::core::IUnknown);
 impl IXpsOMGlyphs {
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
-        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetTransform(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetTransformLocal(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTransformLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetTransformLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMMatrixTransform>>(&self, matrixtransform: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTransformLocal)(::core::mem::transmute_copy(self), matrixtransform.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetTransformLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
-        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTransformLookup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTransformLookup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, key: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTransformLookup)(::core::mem::transmute_copy(self), key.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetClipGeometry(&self) -> ::windows::core::Result<IXpsOMGeometry> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetClipGeometry)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGeometry>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetClipGeometryLocal(&self) -> ::windows::core::Result<IXpsOMGeometry> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetClipGeometryLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGeometry>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetClipGeometryLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMGeometry>>(&self, clipgeometry: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClipGeometryLocal)(::core::mem::transmute_copy(self), clipgeometry.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetClipGeometryLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
-        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetClipGeometryLookup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClipGeometryLookup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, key: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClipGeometryLookup)(::core::mem::transmute_copy(self), key.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOpacity(&self) -> ::windows::core::Result<f32> {
-        let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetOpacity(&self, opacity: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOpacityMaskBrush(&self) -> ::windows::core::Result<IXpsOMBrush> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOpacityMaskBrush)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMBrush>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOpacityMaskBrushLocal(&self) -> ::windows::core::Result<IXpsOMBrush> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOpacityMaskBrushLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMBrush>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetOpacityMaskBrushLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMBrush>>(&self, opacitymaskbrush: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOpacityMaskBrushLocal)(::core::mem::transmute_copy(self), opacitymaskbrush.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetOpacityMaskBrushLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
-        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOpacityMaskBrushLookup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetOpacityMaskBrushLookup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, key: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOpacityMaskBrushLookup)(::core::mem::transmute_copy(self), key.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
-        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIsHyperlinkTarget(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetIsHyperlinkTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsHyperlinkTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ishyperlink: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIsHyperlinkTarget)(::core::mem::transmute_copy(self), ishyperlink.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetHyperlinkNavigateUri(&self) -> ::windows::core::Result<super::super::System::Com::IUri> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetHyperlinkNavigateUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IUri>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetHyperlinkNavigateUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IUri>>(&self, hyperlinkuri: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHyperlinkNavigateUri)(::core::mem::transmute_copy(self), hyperlinkuri.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetLanguage(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
-        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetLanguage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLanguage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, language: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLanguage)(::core::mem::transmute_copy(self), language.into_param().abi()).ok()
-    }
     #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUnicodeString(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
@@ -3006,6 +2868,144 @@ impl IXpsOMGlyphs {
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IXpsOMGlyphs> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGlyphs>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetTransform(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetTransformLocal(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTransformLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetTransformLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMMatrixTransform>>(&self, matrixtransform: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetTransformLocal)(::core::mem::transmute_copy(self), matrixtransform.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetTransformLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTransformLookup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetTransformLookup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, key: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetTransformLookup)(::core::mem::transmute_copy(self), key.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetClipGeometry(&self) -> ::windows::core::Result<IXpsOMGeometry> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetClipGeometry)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGeometry>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetClipGeometryLocal(&self) -> ::windows::core::Result<IXpsOMGeometry> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetClipGeometryLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGeometry>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetClipGeometryLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMGeometry>>(&self, clipgeometry: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetClipGeometryLocal)(::core::mem::transmute_copy(self), clipgeometry.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetClipGeometryLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetClipGeometryLookup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetClipGeometryLookup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, key: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetClipGeometryLookup)(::core::mem::transmute_copy(self), key.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOpacity(&self) -> ::windows::core::Result<f32> {
+        let mut result__: f32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetOpacity(&self, opacity: f32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOpacityMaskBrush(&self) -> ::windows::core::Result<IXpsOMBrush> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetOpacityMaskBrush)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMBrush>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOpacityMaskBrushLocal(&self) -> ::windows::core::Result<IXpsOMBrush> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetOpacityMaskBrushLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMBrush>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetOpacityMaskBrushLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMBrush>>(&self, opacitymaskbrush: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetOpacityMaskBrushLocal)(::core::mem::transmute_copy(self), opacitymaskbrush.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetOpacityMaskBrushLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetOpacityMaskBrushLookup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetOpacityMaskBrushLookup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, key: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetOpacityMaskBrushLookup)(::core::mem::transmute_copy(self), key.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIsHyperlinkTarget(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetIsHyperlinkTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetIsHyperlinkTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ishyperlink: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetIsHyperlinkTarget)(::core::mem::transmute_copy(self), ishyperlink.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetHyperlinkNavigateUri(&self) -> ::windows::core::Result<super::super::System::Com::IUri> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetHyperlinkNavigateUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IUri>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn SetHyperlinkNavigateUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IUri>>(&self, hyperlinkuri: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetHyperlinkNavigateUri)(::core::mem::transmute_copy(self), hyperlinkuri.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetLanguage(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetLanguage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetLanguage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, language: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetLanguage)(::core::mem::transmute_copy(self), language.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
+        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
     }
 }
 impl ::core::convert::From<IXpsOMGlyphs> for IXpsOMVisual {
@@ -3311,25 +3311,6 @@ pub struct IXpsOMGlyphsEditorVtbl {
 pub struct IXpsOMGradientBrush(::windows::core::IUnknown);
 impl IXpsOMGradientBrush {
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
-        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOpacity(&self) -> ::windows::core::Result<f32> {
-        let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetOpacity(&self, opacity: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn GetGradientStops(&self) -> ::windows::core::Result<IXpsOMGradientStopCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetGradientStops)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGradientStopCollection>(result__)
@@ -3376,6 +3357,25 @@ impl IXpsOMGradientBrush {
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn SetColorInterpolationMode(&self, colorinterpolationmode: XPS_COLOR_INTERPOLATION) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetColorInterpolationMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(colorinterpolationmode)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOpacity(&self) -> ::windows::core::Result<f32> {
+        let mut result__: f32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetOpacity(&self, opacity: f32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
+        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
     }
 }
 impl ::core::convert::From<IXpsOMGradientBrush> for IXpsOMBrush {
@@ -3649,77 +3649,6 @@ pub struct IXpsOMGradientStopCollectionVtbl {
 pub struct IXpsOMImageBrush(::windows::core::IUnknown);
 impl IXpsOMImageBrush {
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
-        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOpacity(&self) -> ::windows::core::Result<f32> {
-        let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetOpacity(&self, opacity: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetTransform(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetTransformLocal(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTransformLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetTransformLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMMatrixTransform>>(&self, transform: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTransformLocal)(::core::mem::transmute_copy(self), transform.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetTransformLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
-        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTransformLookup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTransformLookup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, key: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTransformLookup)(::core::mem::transmute_copy(self), key.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetViewbox(&self) -> ::windows::core::Result<XPS_RECT> {
-        let mut result__: XPS_RECT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetViewbox)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_RECT>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetViewbox(&self, viewbox: *const XPS_RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetViewbox)(::core::mem::transmute_copy(self), ::core::mem::transmute(viewbox)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetViewport(&self) -> ::windows::core::Result<XPS_RECT> {
-        let mut result__: XPS_RECT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetViewport)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_RECT>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetViewport(&self, viewport: *const XPS_RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetViewport)(::core::mem::transmute_copy(self), ::core::mem::transmute(viewport)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetTileMode(&self) -> ::windows::core::Result<XPS_TILE_MODE> {
-        let mut result__: XPS_TILE_MODE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTileMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_TILE_MODE>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetTileMode(&self, tilemode: XPS_TILE_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTileMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(tilemode)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn GetImageResource(&self) -> ::windows::core::Result<IXpsOMImageResource> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetImageResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMImageResource>(result__)
@@ -3741,6 +3670,77 @@ impl IXpsOMImageBrush {
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IXpsOMImageBrush> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMImageBrush>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetTransform(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetTransformLocal(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTransformLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetTransformLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMMatrixTransform>>(&self, transform: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetTransformLocal)(::core::mem::transmute_copy(self), transform.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetTransformLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTransformLookup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetTransformLookup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, key: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetTransformLookup)(::core::mem::transmute_copy(self), key.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetViewbox(&self) -> ::windows::core::Result<XPS_RECT> {
+        let mut result__: XPS_RECT = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetViewbox)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_RECT>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetViewbox(&self, viewbox: *const XPS_RECT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetViewbox)(::core::mem::transmute_copy(self), ::core::mem::transmute(viewbox)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetViewport(&self) -> ::windows::core::Result<XPS_RECT> {
+        let mut result__: XPS_RECT = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetViewport)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_RECT>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetViewport(&self, viewport: *const XPS_RECT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetViewport)(::core::mem::transmute_copy(self), ::core::mem::transmute(viewport)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetTileMode(&self) -> ::windows::core::Result<XPS_TILE_MODE> {
+        let mut result__: XPS_TILE_MODE = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTileMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_TILE_MODE>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetTileMode(&self, tilemode: XPS_TILE_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetTileMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(tilemode)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOpacity(&self) -> ::windows::core::Result<f32> {
+        let mut result__: f32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetOpacity(&self, opacity: f32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
+        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
     }
 }
 impl ::core::convert::From<IXpsOMImageBrush> for IXpsOMTileBrush {
@@ -3857,17 +3857,6 @@ pub struct IXpsOMImageBrushVtbl {
 #[repr(transparent)]
 pub struct IXpsOMImageResource(::windows::core::IUnknown);
 impl IXpsOMImageResource {
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
-    }
     #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::System::Com::IStream> {
@@ -3883,6 +3872,17 @@ impl IXpsOMImageResource {
     pub unsafe fn GetImageType(&self) -> ::windows::core::Result<XPS_IMAGE_TYPE> {
         let mut result__: XPS_IMAGE_TYPE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetImageType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_IMAGE_TYPE>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IXpsOMImageResource> for IXpsOMResource {
@@ -4076,73 +4076,6 @@ pub struct IXpsOMImageResourceCollectionVtbl {
 pub struct IXpsOMLinearGradientBrush(::windows::core::IUnknown);
 impl IXpsOMLinearGradientBrush {
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
-        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOpacity(&self) -> ::windows::core::Result<f32> {
-        let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetOpacity(&self, opacity: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetGradientStops(&self) -> ::windows::core::Result<IXpsOMGradientStopCollection> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetGradientStops)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGradientStopCollection>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetTransform(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetTransformLocal(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTransformLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetTransformLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMMatrixTransform>>(&self, transform: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTransformLocal)(::core::mem::transmute_copy(self), transform.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetTransformLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
-        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTransformLookup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTransformLookup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, key: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTransformLookup)(::core::mem::transmute_copy(self), key.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetSpreadMethod(&self) -> ::windows::core::Result<XPS_SPREAD_METHOD> {
-        let mut result__: XPS_SPREAD_METHOD = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSpreadMethod)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_SPREAD_METHOD>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetSpreadMethod(&self, spreadmethod: XPS_SPREAD_METHOD) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSpreadMethod)(::core::mem::transmute_copy(self), ::core::mem::transmute(spreadmethod)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetColorInterpolationMode(&self) -> ::windows::core::Result<XPS_COLOR_INTERPOLATION> {
-        let mut result__: XPS_COLOR_INTERPOLATION = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetColorInterpolationMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_COLOR_INTERPOLATION>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetColorInterpolationMode(&self, colorinterpolationmode: XPS_COLOR_INTERPOLATION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetColorInterpolationMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(colorinterpolationmode)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn GetStartPoint(&self) -> ::windows::core::Result<XPS_POINT> {
         let mut result__: XPS_POINT = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetStartPoint)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_POINT>(result__)
@@ -4164,6 +4097,73 @@ impl IXpsOMLinearGradientBrush {
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IXpsOMLinearGradientBrush> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMLinearGradientBrush>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetGradientStops(&self) -> ::windows::core::Result<IXpsOMGradientStopCollection> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetGradientStops)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGradientStopCollection>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetTransform(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetTransformLocal(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTransformLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetTransformLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMMatrixTransform>>(&self, transform: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetTransformLocal)(::core::mem::transmute_copy(self), transform.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetTransformLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTransformLookup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetTransformLookup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, key: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetTransformLookup)(::core::mem::transmute_copy(self), key.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetSpreadMethod(&self) -> ::windows::core::Result<XPS_SPREAD_METHOD> {
+        let mut result__: XPS_SPREAD_METHOD = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetSpreadMethod)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_SPREAD_METHOD>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetSpreadMethod(&self, spreadmethod: XPS_SPREAD_METHOD) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetSpreadMethod)(::core::mem::transmute_copy(self), ::core::mem::transmute(spreadmethod)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetColorInterpolationMode(&self) -> ::windows::core::Result<XPS_COLOR_INTERPOLATION> {
+        let mut result__: XPS_COLOR_INTERPOLATION = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetColorInterpolationMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_COLOR_INTERPOLATION>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetColorInterpolationMode(&self, colorinterpolationmode: XPS_COLOR_INTERPOLATION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetColorInterpolationMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(colorinterpolationmode)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOpacity(&self) -> ::windows::core::Result<f32> {
+        let mut result__: f32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetOpacity(&self, opacity: f32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
+        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
     }
 }
 impl ::core::convert::From<IXpsOMLinearGradientBrush> for IXpsOMGradientBrush {
@@ -4281,16 +4281,6 @@ pub struct IXpsOMLinearGradientBrushVtbl {
 pub struct IXpsOMMatrixTransform(::windows::core::IUnknown);
 impl IXpsOMMatrixTransform {
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
-        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn GetMatrix(&self) -> ::windows::core::Result<XPS_MATRIX> {
         let mut result__: XPS_MATRIX = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetMatrix)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_MATRIX>(result__)
@@ -4303,6 +4293,16 @@ impl IXpsOMMatrixTransform {
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
+        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
     }
 }
 impl ::core::convert::From<IXpsOMMatrixTransform> for IXpsOMShareable {
@@ -4817,233 +4817,6 @@ pub struct IXpsOMObjectFactoryVtbl {
 #[repr(transparent)]
 pub struct IXpsOMObjectFactory1(::windows::core::IUnknown);
 impl IXpsOMObjectFactory1 {
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn CreatePackage(&self) -> ::windows::core::Result<IXpsOMPackage> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePackage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPackage>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreatePackageFromFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, filename: Param0, reuseobjects: Param1) -> ::windows::core::Result<IXpsOMPackage> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePackageFromFile)(::core::mem::transmute_copy(self), filename.into_param().abi(), reuseobjects.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPackage>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreatePackageFromStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, stream: Param0, reuseobjects: Param1) -> ::windows::core::Result<IXpsOMPackage> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePackageFromStream)(::core::mem::transmute_copy(self), stream.into_param().abi(), reuseobjects.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPackage>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateStoryFragmentsResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, acquiredstream: Param0, parturi: Param1) -> ::windows::core::Result<IXpsOMStoryFragmentsResource> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateStoryFragmentsResource)(::core::mem::transmute_copy(self), acquiredstream.into_param().abi(), parturi.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMStoryFragmentsResource>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateDocumentStructureResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, acquiredstream: Param0, parturi: Param1) -> ::windows::core::Result<IXpsOMDocumentStructureResource> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDocumentStructureResource)(::core::mem::transmute_copy(self), acquiredstream.into_param().abi(), parturi.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMDocumentStructureResource>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateSignatureBlockResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, acquiredstream: Param0, parturi: Param1) -> ::windows::core::Result<IXpsOMSignatureBlockResource> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSignatureBlockResource)(::core::mem::transmute_copy(self), acquiredstream.into_param().abi(), parturi.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMSignatureBlockResource>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn CreateRemoteDictionaryResource<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMDictionary>, Param1: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, dictionary: Param0, parturi: Param1) -> ::windows::core::Result<IXpsOMRemoteDictionaryResource> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateRemoteDictionaryResource)(::core::mem::transmute_copy(self), dictionary.into_param().abi(), parturi.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMRemoteDictionaryResource>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateRemoteDictionaryResourceFromStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param2: ::windows::core::IntoParam<'a, IXpsOMPartResources>>(&self, dictionarymarkupstream: Param0, dictionaryparturi: Param1, resources: Param2) -> ::windows::core::Result<IXpsOMRemoteDictionaryResource> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateRemoteDictionaryResourceFromStream)(::core::mem::transmute_copy(self), dictionarymarkupstream.into_param().abi(), dictionaryparturi.into_param().abi(), resources.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMRemoteDictionaryResource>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn CreatePartResources(&self) -> ::windows::core::Result<IXpsOMPartResources> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePartResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPartResources>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn CreateDocumentSequence<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<IXpsOMDocumentSequence> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDocumentSequence)(::core::mem::transmute_copy(self), parturi.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMDocumentSequence>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn CreateDocument<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<IXpsOMDocument> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDocument)(::core::mem::transmute_copy(self), parturi.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMDocument>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn CreatePageReference(&self, advisorypagedimensions: *const XPS_SIZE) -> ::windows::core::Result<IXpsOMPageReference> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePageReference)(::core::mem::transmute_copy(self), ::core::mem::transmute(advisorypagedimensions), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPageReference>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc"))]
-    pub unsafe fn CreatePage<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, pagedimensions: *const XPS_SIZE, language: Param1, parturi: Param2) -> ::windows::core::Result<IXpsOMPage> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePage)(::core::mem::transmute_copy(self), ::core::mem::transmute(pagedimensions), language.into_param().abi(), parturi.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPage>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub unsafe fn CreatePageFromStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param2: ::windows::core::IntoParam<'a, IXpsOMPartResources>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pagemarkupstream: Param0, parturi: Param1, resources: Param2, reuseobjects: Param3) -> ::windows::core::Result<IXpsOMPage> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePageFromStream)(::core::mem::transmute_copy(self), pagemarkupstream.into_param().abi(), parturi.into_param().abi(), resources.into_param().abi(), reuseobjects.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPage>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn CreateCanvas(&self) -> ::windows::core::Result<IXpsOMCanvas> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateCanvas)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMCanvas>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn CreateGlyphs<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMFontResource>>(&self, fontresource: Param0) -> ::windows::core::Result<IXpsOMGlyphs> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateGlyphs)(::core::mem::transmute_copy(self), fontresource.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGlyphs>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn CreatePath(&self) -> ::windows::core::Result<IXpsOMPath> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPath>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn CreateGeometry(&self) -> ::windows::core::Result<IXpsOMGeometry> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateGeometry)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGeometry>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn CreateGeometryFigure(&self, startpoint: *const XPS_POINT) -> ::windows::core::Result<IXpsOMGeometryFigure> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateGeometryFigure)(::core::mem::transmute_copy(self), ::core::mem::transmute(startpoint), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGeometryFigure>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn CreateMatrixTransform(&self, matrix: *const XPS_MATRIX) -> ::windows::core::Result<IXpsOMMatrixTransform> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateMatrixTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(matrix), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn CreateSolidColorBrush<'a, Param1: ::windows::core::IntoParam<'a, IXpsOMColorProfileResource>>(&self, color: *const XPS_COLOR, colorprofile: Param1) -> ::windows::core::Result<IXpsOMSolidColorBrush> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSolidColorBrush)(::core::mem::transmute_copy(self), ::core::mem::transmute(color), colorprofile.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMSolidColorBrush>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateColorProfileResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, acquiredstream: Param0, parturi: Param1) -> ::windows::core::Result<IXpsOMColorProfileResource> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateColorProfileResource)(::core::mem::transmute_copy(self), acquiredstream.into_param().abi(), parturi.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMColorProfileResource>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn CreateImageBrush<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMImageResource>>(&self, image: Param0, viewbox: *const XPS_RECT, viewport: *const XPS_RECT) -> ::windows::core::Result<IXpsOMImageBrush> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateImageBrush)(::core::mem::transmute_copy(self), image.into_param().abi(), ::core::mem::transmute(viewbox), ::core::mem::transmute(viewport), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMImageBrush>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn CreateVisualBrush(&self, viewbox: *const XPS_RECT, viewport: *const XPS_RECT) -> ::windows::core::Result<IXpsOMVisualBrush> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateVisualBrush)(::core::mem::transmute_copy(self), ::core::mem::transmute(viewbox), ::core::mem::transmute(viewport), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMVisualBrush>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateImageResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, acquiredstream: Param0, contenttype: XPS_IMAGE_TYPE, parturi: Param2) -> ::windows::core::Result<IXpsOMImageResource> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateImageResource)(::core::mem::transmute_copy(self), acquiredstream.into_param().abi(), ::core::mem::transmute(contenttype), parturi.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMImageResource>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub unsafe fn CreatePrintTicketResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, acquiredstream: Param0, parturi: Param1) -> ::windows::core::Result<IXpsOMPrintTicketResource> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePrintTicketResource)(::core::mem::transmute_copy(self), acquiredstream.into_param().abi(), parturi.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPrintTicketResource>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateFontResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, acquiredstream: Param0, fontembedding: XPS_FONT_EMBEDDING, parturi: Param2, isobfsourcestream: Param3) -> ::windows::core::Result<IXpsOMFontResource> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateFontResource)(::core::mem::transmute_copy(self), acquiredstream.into_param().abi(), ::core::mem::transmute(fontembedding), parturi.into_param().abi(), isobfsourcestream.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMFontResource>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn CreateGradientStop<'a, Param1: ::windows::core::IntoParam<'a, IXpsOMColorProfileResource>>(&self, color: *const XPS_COLOR, colorprofile: Param1, offset: f32) -> ::windows::core::Result<IXpsOMGradientStop> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateGradientStop)(::core::mem::transmute_copy(self), ::core::mem::transmute(color), colorprofile.into_param().abi(), ::core::mem::transmute(offset), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGradientStop>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn CreateLinearGradientBrush<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMGradientStop>, Param1: ::windows::core::IntoParam<'a, IXpsOMGradientStop>>(&self, gradstop1: Param0, gradstop2: Param1, startpoint: *const XPS_POINT, endpoint: *const XPS_POINT) -> ::windows::core::Result<IXpsOMLinearGradientBrush> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateLinearGradientBrush)(::core::mem::transmute_copy(self), gradstop1.into_param().abi(), gradstop2.into_param().abi(), ::core::mem::transmute(startpoint), ::core::mem::transmute(endpoint), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMLinearGradientBrush>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn CreateRadialGradientBrush<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMGradientStop>, Param1: ::windows::core::IntoParam<'a, IXpsOMGradientStop>>(&self, gradstop1: Param0, gradstop2: Param1, centerpoint: *const XPS_POINT, gradientorigin: *const XPS_POINT, radiisizes: *const XPS_SIZE) -> ::windows::core::Result<IXpsOMRadialGradientBrush> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateRadialGradientBrush)(::core::mem::transmute_copy(self), gradstop1.into_param().abi(), gradstop2.into_param().abi(), ::core::mem::transmute(centerpoint), ::core::mem::transmute(gradientorigin), ::core::mem::transmute(radiisizes), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMRadialGradientBrush>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn CreateCoreProperties<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<IXpsOMCoreProperties> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateCoreProperties)(::core::mem::transmute_copy(self), parturi.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMCoreProperties>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn CreateDictionary(&self) -> ::windows::core::Result<IXpsOMDictionary> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDictionary)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMDictionary>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn CreatePartUriCollection(&self) -> ::windows::core::Result<IXpsOMPartUriCollection> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePartUriCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPartUriCollection>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Security', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc"))]
-    pub unsafe fn CreatePackageWriterOnFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param6: ::windows::core::IntoParam<'a, IXpsOMCoreProperties>, Param7: ::windows::core::IntoParam<'a, IXpsOMImageResource>, Param8: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>, Param9: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(
-        &self,
-        filename: Param0,
-        securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-        flagsandattributes: u32,
-        optimizemarkupsize: Param3,
-        interleaving: XPS_INTERLEAVING,
-        documentsequencepartname: Param5,
-        coreproperties: Param6,
-        packagethumbnail: Param7,
-        documentsequenceprintticket: Param8,
-        discardcontrolpartname: Param9,
-    ) -> ::windows::core::Result<IXpsOMPackageWriter> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePackageWriterOnFile)(::core::mem::transmute_copy(self), filename.into_param().abi(), ::core::mem::transmute(securityattributes), ::core::mem::transmute(flagsandattributes), optimizemarkupsize.into_param().abi(), ::core::mem::transmute(interleaving), documentsequencepartname.into_param().abi(), coreproperties.into_param().abi(), packagethumbnail.into_param().abi(), documentsequenceprintticket.into_param().abi(), discardcontrolpartname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPackageWriter>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
-    pub unsafe fn CreatePackageWriterOnStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::ISequentialStream>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param4: ::windows::core::IntoParam<'a, IXpsOMCoreProperties>, Param5: ::windows::core::IntoParam<'a, IXpsOMImageResource>, Param6: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>, Param7: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(
-        &self,
-        outputstream: Param0,
-        optimizemarkupsize: Param1,
-        interleaving: XPS_INTERLEAVING,
-        documentsequencepartname: Param3,
-        coreproperties: Param4,
-        packagethumbnail: Param5,
-        documentsequenceprintticket: Param6,
-        discardcontrolpartname: Param7,
-    ) -> ::windows::core::Result<IXpsOMPackageWriter> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePackageWriterOnStream)(::core::mem::transmute_copy(self), outputstream.into_param().abi(), optimizemarkupsize.into_param().abi(), ::core::mem::transmute(interleaving), documentsequencepartname.into_param().abi(), coreproperties.into_param().abi(), packagethumbnail.into_param().abi(), documentsequenceprintticket.into_param().abi(), discardcontrolpartname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPackageWriter>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc"))]
-    pub unsafe fn CreatePartUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, uri: Param0) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePartUri)(::core::mem::transmute_copy(self), uri.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn CreateReadOnlyStreamOnFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, filename: Param0) -> ::windows::core::Result<super::super::System::Com::IStream> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateReadOnlyStreamOnFile)(::core::mem::transmute_copy(self), filename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IStream>(result__)
-    }
     #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDocumentTypeFromFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, filename: Param0) -> ::windows::core::Result<XPS_DOCUMENT_TYPE> {
@@ -5149,6 +4922,233 @@ impl IXpsOMObjectFactory1 {
     pub unsafe fn CreateRemoteDictionaryResourceFromStream1<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param2: ::windows::core::IntoParam<'a, IXpsOMPartResources>>(&self, dictionarymarkupstream: Param0, parturi: Param1, resources: Param2) -> ::windows::core::Result<IXpsOMRemoteDictionaryResource> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateRemoteDictionaryResourceFromStream1)(::core::mem::transmute_copy(self), dictionarymarkupstream.into_param().abi(), parturi.into_param().abi(), resources.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMRemoteDictionaryResource>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn CreatePackage(&self) -> ::windows::core::Result<IXpsOMPackage> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreatePackage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPackage>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreatePackageFromFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, filename: Param0, reuseobjects: Param1) -> ::windows::core::Result<IXpsOMPackage> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreatePackageFromFile)(::core::mem::transmute_copy(self), filename.into_param().abi(), reuseobjects.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPackage>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub unsafe fn CreatePackageFromStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, stream: Param0, reuseobjects: Param1) -> ::windows::core::Result<IXpsOMPackage> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreatePackageFromStream)(::core::mem::transmute_copy(self), stream.into_param().abi(), reuseobjects.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPackage>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+    pub unsafe fn CreateStoryFragmentsResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, acquiredstream: Param0, parturi: Param1) -> ::windows::core::Result<IXpsOMStoryFragmentsResource> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateStoryFragmentsResource)(::core::mem::transmute_copy(self), acquiredstream.into_param().abi(), parturi.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMStoryFragmentsResource>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+    pub unsafe fn CreateDocumentStructureResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, acquiredstream: Param0, parturi: Param1) -> ::windows::core::Result<IXpsOMDocumentStructureResource> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateDocumentStructureResource)(::core::mem::transmute_copy(self), acquiredstream.into_param().abi(), parturi.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMDocumentStructureResource>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+    pub unsafe fn CreateSignatureBlockResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, acquiredstream: Param0, parturi: Param1) -> ::windows::core::Result<IXpsOMSignatureBlockResource> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateSignatureBlockResource)(::core::mem::transmute_copy(self), acquiredstream.into_param().abi(), parturi.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMSignatureBlockResource>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn CreateRemoteDictionaryResource<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMDictionary>, Param1: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, dictionary: Param0, parturi: Param1) -> ::windows::core::Result<IXpsOMRemoteDictionaryResource> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateRemoteDictionaryResource)(::core::mem::transmute_copy(self), dictionary.into_param().abi(), parturi.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMRemoteDictionaryResource>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+    pub unsafe fn CreateRemoteDictionaryResourceFromStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param2: ::windows::core::IntoParam<'a, IXpsOMPartResources>>(&self, dictionarymarkupstream: Param0, dictionaryparturi: Param1, resources: Param2) -> ::windows::core::Result<IXpsOMRemoteDictionaryResource> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateRemoteDictionaryResourceFromStream)(::core::mem::transmute_copy(self), dictionarymarkupstream.into_param().abi(), dictionaryparturi.into_param().abi(), resources.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMRemoteDictionaryResource>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn CreatePartResources(&self) -> ::windows::core::Result<IXpsOMPartResources> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreatePartResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPartResources>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn CreateDocumentSequence<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<IXpsOMDocumentSequence> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateDocumentSequence)(::core::mem::transmute_copy(self), parturi.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMDocumentSequence>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn CreateDocument<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<IXpsOMDocument> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateDocument)(::core::mem::transmute_copy(self), parturi.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMDocument>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn CreatePageReference(&self, advisorypagedimensions: *const XPS_SIZE) -> ::windows::core::Result<IXpsOMPageReference> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreatePageReference)(::core::mem::transmute_copy(self), ::core::mem::transmute(advisorypagedimensions), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPageReference>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc"))]
+    pub unsafe fn CreatePage<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, pagedimensions: *const XPS_SIZE, language: Param1, parturi: Param2) -> ::windows::core::Result<IXpsOMPage> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreatePage)(::core::mem::transmute_copy(self), ::core::mem::transmute(pagedimensions), language.into_param().abi(), parturi.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPage>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+    pub unsafe fn CreatePageFromStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param2: ::windows::core::IntoParam<'a, IXpsOMPartResources>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pagemarkupstream: Param0, parturi: Param1, resources: Param2, reuseobjects: Param3) -> ::windows::core::Result<IXpsOMPage> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreatePageFromStream)(::core::mem::transmute_copy(self), pagemarkupstream.into_param().abi(), parturi.into_param().abi(), resources.into_param().abi(), reuseobjects.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPage>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn CreateCanvas(&self) -> ::windows::core::Result<IXpsOMCanvas> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateCanvas)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMCanvas>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn CreateGlyphs<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMFontResource>>(&self, fontresource: Param0) -> ::windows::core::Result<IXpsOMGlyphs> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateGlyphs)(::core::mem::transmute_copy(self), fontresource.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGlyphs>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn CreatePath(&self) -> ::windows::core::Result<IXpsOMPath> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreatePath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPath>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn CreateGeometry(&self) -> ::windows::core::Result<IXpsOMGeometry> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateGeometry)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGeometry>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn CreateGeometryFigure(&self, startpoint: *const XPS_POINT) -> ::windows::core::Result<IXpsOMGeometryFigure> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateGeometryFigure)(::core::mem::transmute_copy(self), ::core::mem::transmute(startpoint), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGeometryFigure>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn CreateMatrixTransform(&self, matrix: *const XPS_MATRIX) -> ::windows::core::Result<IXpsOMMatrixTransform> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateMatrixTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(matrix), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn CreateSolidColorBrush<'a, Param1: ::windows::core::IntoParam<'a, IXpsOMColorProfileResource>>(&self, color: *const XPS_COLOR, colorprofile: Param1) -> ::windows::core::Result<IXpsOMSolidColorBrush> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateSolidColorBrush)(::core::mem::transmute_copy(self), ::core::mem::transmute(color), colorprofile.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMSolidColorBrush>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+    pub unsafe fn CreateColorProfileResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, acquiredstream: Param0, parturi: Param1) -> ::windows::core::Result<IXpsOMColorProfileResource> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateColorProfileResource)(::core::mem::transmute_copy(self), acquiredstream.into_param().abi(), parturi.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMColorProfileResource>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn CreateImageBrush<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMImageResource>>(&self, image: Param0, viewbox: *const XPS_RECT, viewport: *const XPS_RECT) -> ::windows::core::Result<IXpsOMImageBrush> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateImageBrush)(::core::mem::transmute_copy(self), image.into_param().abi(), ::core::mem::transmute(viewbox), ::core::mem::transmute(viewport), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMImageBrush>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn CreateVisualBrush(&self, viewbox: *const XPS_RECT, viewport: *const XPS_RECT) -> ::windows::core::Result<IXpsOMVisualBrush> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateVisualBrush)(::core::mem::transmute_copy(self), ::core::mem::transmute(viewbox), ::core::mem::transmute(viewport), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMVisualBrush>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+    pub unsafe fn CreateImageResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, acquiredstream: Param0, contenttype: XPS_IMAGE_TYPE, parturi: Param2) -> ::windows::core::Result<IXpsOMImageResource> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateImageResource)(::core::mem::transmute_copy(self), acquiredstream.into_param().abi(), ::core::mem::transmute(contenttype), parturi.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMImageResource>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+    pub unsafe fn CreatePrintTicketResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, acquiredstream: Param0, parturi: Param1) -> ::windows::core::Result<IXpsOMPrintTicketResource> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreatePrintTicketResource)(::core::mem::transmute_copy(self), acquiredstream.into_param().abi(), parturi.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPrintTicketResource>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+    pub unsafe fn CreateFontResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, acquiredstream: Param0, fontembedding: XPS_FONT_EMBEDDING, parturi: Param2, isobfsourcestream: Param3) -> ::windows::core::Result<IXpsOMFontResource> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateFontResource)(::core::mem::transmute_copy(self), acquiredstream.into_param().abi(), ::core::mem::transmute(fontembedding), parturi.into_param().abi(), isobfsourcestream.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMFontResource>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn CreateGradientStop<'a, Param1: ::windows::core::IntoParam<'a, IXpsOMColorProfileResource>>(&self, color: *const XPS_COLOR, colorprofile: Param1, offset: f32) -> ::windows::core::Result<IXpsOMGradientStop> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateGradientStop)(::core::mem::transmute_copy(self), ::core::mem::transmute(color), colorprofile.into_param().abi(), ::core::mem::transmute(offset), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGradientStop>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn CreateLinearGradientBrush<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMGradientStop>, Param1: ::windows::core::IntoParam<'a, IXpsOMGradientStop>>(&self, gradstop1: Param0, gradstop2: Param1, startpoint: *const XPS_POINT, endpoint: *const XPS_POINT) -> ::windows::core::Result<IXpsOMLinearGradientBrush> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateLinearGradientBrush)(::core::mem::transmute_copy(self), gradstop1.into_param().abi(), gradstop2.into_param().abi(), ::core::mem::transmute(startpoint), ::core::mem::transmute(endpoint), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMLinearGradientBrush>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn CreateRadialGradientBrush<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMGradientStop>, Param1: ::windows::core::IntoParam<'a, IXpsOMGradientStop>>(&self, gradstop1: Param0, gradstop2: Param1, centerpoint: *const XPS_POINT, gradientorigin: *const XPS_POINT, radiisizes: *const XPS_SIZE) -> ::windows::core::Result<IXpsOMRadialGradientBrush> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateRadialGradientBrush)(::core::mem::transmute_copy(self), gradstop1.into_param().abi(), gradstop2.into_param().abi(), ::core::mem::transmute(centerpoint), ::core::mem::transmute(gradientorigin), ::core::mem::transmute(radiisizes), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMRadialGradientBrush>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn CreateCoreProperties<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<IXpsOMCoreProperties> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateCoreProperties)(::core::mem::transmute_copy(self), parturi.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMCoreProperties>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn CreateDictionary(&self) -> ::windows::core::Result<IXpsOMDictionary> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateDictionary)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMDictionary>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn CreatePartUriCollection(&self) -> ::windows::core::Result<IXpsOMPartUriCollection> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreatePartUriCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPartUriCollection>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Security', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Storage_Packaging_Opc"))]
+    pub unsafe fn CreatePackageWriterOnFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param6: ::windows::core::IntoParam<'a, IXpsOMCoreProperties>, Param7: ::windows::core::IntoParam<'a, IXpsOMImageResource>, Param8: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>, Param9: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(
+        &self,
+        filename: Param0,
+        securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
+        flagsandattributes: u32,
+        optimizemarkupsize: Param3,
+        interleaving: XPS_INTERLEAVING,
+        documentsequencepartname: Param5,
+        coreproperties: Param6,
+        packagethumbnail: Param7,
+        documentsequenceprintticket: Param8,
+        discardcontrolpartname: Param9,
+    ) -> ::windows::core::Result<IXpsOMPackageWriter> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreatePackageWriterOnFile)(::core::mem::transmute_copy(self), filename.into_param().abi(), ::core::mem::transmute(securityattributes), ::core::mem::transmute(flagsandattributes), optimizemarkupsize.into_param().abi(), ::core::mem::transmute(interleaving), documentsequencepartname.into_param().abi(), coreproperties.into_param().abi(), packagethumbnail.into_param().abi(), documentsequenceprintticket.into_param().abi(), discardcontrolpartname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPackageWriter>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
+    pub unsafe fn CreatePackageWriterOnStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::ISequentialStream>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param4: ::windows::core::IntoParam<'a, IXpsOMCoreProperties>, Param5: ::windows::core::IntoParam<'a, IXpsOMImageResource>, Param6: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>, Param7: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(
+        &self,
+        outputstream: Param0,
+        optimizemarkupsize: Param1,
+        interleaving: XPS_INTERLEAVING,
+        documentsequencepartname: Param3,
+        coreproperties: Param4,
+        packagethumbnail: Param5,
+        documentsequenceprintticket: Param6,
+        discardcontrolpartname: Param7,
+    ) -> ::windows::core::Result<IXpsOMPackageWriter> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreatePackageWriterOnStream)(::core::mem::transmute_copy(self), outputstream.into_param().abi(), optimizemarkupsize.into_param().abi(), ::core::mem::transmute(interleaving), documentsequencepartname.into_param().abi(), coreproperties.into_param().abi(), packagethumbnail.into_param().abi(), documentsequenceprintticket.into_param().abi(), discardcontrolpartname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPackageWriter>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc"))]
+    pub unsafe fn CreatePartUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, uri: Param0) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreatePartUri)(::core::mem::transmute_copy(self), uri.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub unsafe fn CreateReadOnlyStreamOnFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, filename: Param0) -> ::windows::core::Result<super::super::System::Com::IStream> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateReadOnlyStreamOnFile)(::core::mem::transmute_copy(self), filename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IStream>(result__)
     }
 }
 impl ::core::convert::From<IXpsOMObjectFactory1> for IXpsOMObjectFactory {
@@ -5380,54 +5380,6 @@ pub struct IXpsOMPackageVtbl {
 pub struct IXpsOMPackage1(::windows::core::IUnknown);
 impl IXpsOMPackage1 {
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetDocumentSequence(&self) -> ::windows::core::Result<IXpsOMDocumentSequence> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDocumentSequence)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMDocumentSequence>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetDocumentSequence<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMDocumentSequence>>(&self, documentsequence: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDocumentSequence)(::core::mem::transmute_copy(self), documentsequence.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetCoreProperties(&self) -> ::windows::core::Result<IXpsOMCoreProperties> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetCoreProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMCoreProperties>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetCoreProperties<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMCoreProperties>>(&self, coreproperties: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCoreProperties)(::core::mem::transmute_copy(self), coreproperties.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn GetDiscardControlPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDiscardControlPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn SetDiscardControlPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, discardcontrolparturi: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDiscardControlPartName)(::core::mem::transmute_copy(self), discardcontrolparturi.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetThumbnailResource(&self) -> ::windows::core::Result<IXpsOMImageResource> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetThumbnailResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMImageResource>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetThumbnailResource<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMImageResource>>(&self, imageresource: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetThumbnailResource)(::core::mem::transmute_copy(self), imageresource.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Security'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub unsafe fn WriteToFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, filename: Param0, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteToFile)(::core::mem::transmute_copy(self), filename.into_param().abi(), ::core::mem::transmute(securityattributes), ::core::mem::transmute(flagsandattributes), optimizemarkupsize.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn WriteToStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::ISequentialStream>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, stream: Param0, optimizemarkupsize: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteToStream)(::core::mem::transmute_copy(self), stream.into_param().abi(), optimizemarkupsize.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn GetDocumentType(&self) -> ::windows::core::Result<XPS_DOCUMENT_TYPE> {
         let mut result__: XPS_DOCUMENT_TYPE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDocumentType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_DOCUMENT_TYPE>(result__)
@@ -5441,6 +5393,54 @@ impl IXpsOMPackage1 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn WriteToStream1<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::ISequentialStream>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, outputstream: Param0, optimizemarkupsize: Param1, documenttype: XPS_DOCUMENT_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).WriteToStream1)(::core::mem::transmute_copy(self), outputstream.into_param().abi(), optimizemarkupsize.into_param().abi(), ::core::mem::transmute(documenttype)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetDocumentSequence(&self) -> ::windows::core::Result<IXpsOMDocumentSequence> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetDocumentSequence)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMDocumentSequence>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetDocumentSequence<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMDocumentSequence>>(&self, documentsequence: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetDocumentSequence)(::core::mem::transmute_copy(self), documentsequence.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetCoreProperties(&self) -> ::windows::core::Result<IXpsOMCoreProperties> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetCoreProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMCoreProperties>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetCoreProperties<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMCoreProperties>>(&self, coreproperties: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetCoreProperties)(::core::mem::transmute_copy(self), coreproperties.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn GetDiscardControlPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetDiscardControlPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn SetDiscardControlPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, discardcontrolparturi: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetDiscardControlPartName)(::core::mem::transmute_copy(self), discardcontrolparturi.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetThumbnailResource(&self) -> ::windows::core::Result<IXpsOMImageResource> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetThumbnailResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMImageResource>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetThumbnailResource<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMImageResource>>(&self, imageresource: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetThumbnailResource)(::core::mem::transmute_copy(self), imageresource.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Security'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+    pub unsafe fn WriteToFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, filename: Param0, securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, flagsandattributes: u32, optimizemarkupsize: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.WriteToFile)(::core::mem::transmute_copy(self), filename.into_param().abi(), ::core::mem::transmute(securityattributes), ::core::mem::transmute(flagsandattributes), optimizemarkupsize.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub unsafe fn WriteToStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::ISequentialStream>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, stream: Param0, optimizemarkupsize: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.WriteToStream)(::core::mem::transmute_copy(self), stream.into_param().abi(), optimizemarkupsize.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IXpsOMPackage1> for IXpsOMPackage {
@@ -5665,29 +5665,6 @@ pub struct IXpsOMPackageWriterVtbl {
 #[repr(transparent)]
 pub struct IXpsOMPackageWriter3D(::windows::core::IUnknown);
 impl IXpsOMPackageWriter3D {
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn StartNewDocument<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param1: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>, Param2: ::windows::core::IntoParam<'a, IXpsOMDocumentStructureResource>, Param3: ::windows::core::IntoParam<'a, IXpsOMSignatureBlockResourceCollection>, Param4: ::windows::core::IntoParam<'a, IXpsOMPartUriCollection>>(&self, documentpartname: Param0, documentprintticket: Param1, documentstructure: Param2, signatureblockresources: Param3, restrictedfonts: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StartNewDocument)(::core::mem::transmute_copy(self), documentpartname.into_param().abi(), documentprintticket.into_param().abi(), documentstructure.into_param().abi(), signatureblockresources.into_param().abi(), restrictedfonts.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn AddPage<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMPage>, Param2: ::windows::core::IntoParam<'a, IXpsOMPartUriCollection>, Param3: ::windows::core::IntoParam<'a, IXpsOMStoryFragmentsResource>, Param4: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>, Param5: ::windows::core::IntoParam<'a, IXpsOMImageResource>>(&self, page: Param0, advisorypagedimensions: *const XPS_SIZE, discardableresourceparts: Param2, storyfragments: Param3, pageprintticket: Param4, pagethumbnail: Param5) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddPage)(::core::mem::transmute_copy(self), page.into_param().abi(), ::core::mem::transmute(advisorypagedimensions), discardableresourceparts.into_param().abi(), storyfragments.into_param().abi(), pageprintticket.into_param().abi(), pagethumbnail.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn AddResource<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMResource>>(&self, resource: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddResource)(::core::mem::transmute_copy(self), resource.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Close)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsClosed(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsClosed)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
     #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn AddModelTexture<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, texturepartname: Param0, texturedata: Param1) -> ::windows::core::Result<()> {
@@ -5697,6 +5674,29 @@ impl IXpsOMPackageWriter3D {
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetModelPrintTicket<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, printticketpartname: Param0, printticketdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetModelPrintTicket)(::core::mem::transmute_copy(self), printticketpartname.into_param().abi(), printticketdata.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn StartNewDocument<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>, Param1: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>, Param2: ::windows::core::IntoParam<'a, IXpsOMDocumentStructureResource>, Param3: ::windows::core::IntoParam<'a, IXpsOMSignatureBlockResourceCollection>, Param4: ::windows::core::IntoParam<'a, IXpsOMPartUriCollection>>(&self, documentpartname: Param0, documentprintticket: Param1, documentstructure: Param2, signatureblockresources: Param3, restrictedfonts: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.StartNewDocument)(::core::mem::transmute_copy(self), documentpartname.into_param().abi(), documentprintticket.into_param().abi(), documentstructure.into_param().abi(), signatureblockresources.into_param().abi(), restrictedfonts.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn AddPage<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMPage>, Param2: ::windows::core::IntoParam<'a, IXpsOMPartUriCollection>, Param3: ::windows::core::IntoParam<'a, IXpsOMStoryFragmentsResource>, Param4: ::windows::core::IntoParam<'a, IXpsOMPrintTicketResource>, Param5: ::windows::core::IntoParam<'a, IXpsOMImageResource>>(&self, page: Param0, advisorypagedimensions: *const XPS_SIZE, discardableresourceparts: Param2, storyfragments: Param3, pageprintticket: Param4, pagethumbnail: Param5) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.AddPage)(::core::mem::transmute_copy(self), page.into_param().abi(), ::core::mem::transmute(advisorypagedimensions), discardableresourceparts.into_param().abi(), storyfragments.into_param().abi(), pageprintticket.into_param().abi(), pagethumbnail.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn AddResource<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMResource>>(&self, resource: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.AddResource)(::core::mem::transmute_copy(self), resource.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Close)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsClosed(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.IsClosed)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
 impl ::core::convert::From<IXpsOMPackageWriter3D> for IXpsOMPackageWriter {
@@ -5776,17 +5776,6 @@ pub struct IXpsOMPackageWriter3DVtbl {
 #[repr(transparent)]
 pub struct IXpsOMPage(::windows::core::IUnknown);
 impl IXpsOMPage {
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
-    }
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn GetOwner(&self) -> ::windows::core::Result<IXpsOMPageReference> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5895,6 +5884,17 @@ impl IXpsOMPage {
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IXpsOMPage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPage>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IXpsOMPage> for IXpsOMPart {
@@ -6012,126 +6012,6 @@ pub struct IXpsOMPageVtbl {
 #[repr(transparent)]
 pub struct IXpsOMPage1(::windows::core::IUnknown);
 impl IXpsOMPage1 {
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<IXpsOMPageReference> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPageReference>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetVisuals(&self) -> ::windows::core::Result<IXpsOMVisualCollection> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetVisuals)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMVisualCollection>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetPageDimensions(&self) -> ::windows::core::Result<XPS_SIZE> {
-        let mut result__: XPS_SIZE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPageDimensions)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_SIZE>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetPageDimensions(&self, pagedimensions: *const XPS_SIZE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPageDimensions)(::core::mem::transmute_copy(self), ::core::mem::transmute(pagedimensions)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetContentBox(&self) -> ::windows::core::Result<XPS_RECT> {
-        let mut result__: XPS_RECT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetContentBox)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_RECT>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetContentBox(&self, contentbox: *const XPS_RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetContentBox)(::core::mem::transmute_copy(self), ::core::mem::transmute(contentbox)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetBleedBox(&self) -> ::windows::core::Result<XPS_RECT> {
-        let mut result__: XPS_RECT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetBleedBox)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_RECT>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetBleedBox(&self, bleedbox: *const XPS_RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBleedBox)(::core::mem::transmute_copy(self), ::core::mem::transmute(bleedbox)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetLanguage(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
-        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetLanguage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLanguage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, language: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLanguage)(::core::mem::transmute_copy(self), language.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
-        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIsHyperlinkTarget(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetIsHyperlinkTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsHyperlinkTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ishyperlinktarget: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIsHyperlinkTarget)(::core::mem::transmute_copy(self), ishyperlinktarget.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetDictionary(&self) -> ::windows::core::Result<IXpsOMDictionary> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDictionary)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMDictionary>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetDictionaryLocal(&self) -> ::windows::core::Result<IXpsOMDictionary> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDictionaryLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMDictionary>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetDictionaryLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMDictionary>>(&self, resourcedictionary: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDictionaryLocal)(::core::mem::transmute_copy(self), resourcedictionary.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetDictionaryResource(&self) -> ::windows::core::Result<IXpsOMRemoteDictionaryResource> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDictionaryResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMRemoteDictionaryResource>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetDictionaryResource<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMRemoteDictionaryResource>>(&self, remotedictionaryresource: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDictionaryResource)(::core::mem::transmute_copy(self), remotedictionaryresource.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Write<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::ISequentialStream>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, stream: Param0, optimizemarkupsize: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Write)(::core::mem::transmute_copy(self), stream.into_param().abi(), optimizemarkupsize.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GenerateUnusedLookupKey(&self, r#type: XPS_OBJECT_TYPE) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
-        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GenerateUnusedLookupKey)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn Clone(&self) -> ::windows::core::Result<IXpsOMPage> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPage>(result__)
-    }
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn GetDocumentType(&self) -> ::windows::core::Result<XPS_DOCUMENT_TYPE> {
         let mut result__: XPS_DOCUMENT_TYPE = ::core::mem::zeroed();
@@ -6141,6 +6021,126 @@ impl IXpsOMPage1 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Write1<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::ISequentialStream>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, stream: Param0, optimizemarkupsize: Param1, documenttype: XPS_DOCUMENT_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Write1)(::core::mem::transmute_copy(self), stream.into_param().abi(), optimizemarkupsize.into_param().abi(), ::core::mem::transmute(documenttype)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<IXpsOMPageReference> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPageReference>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetVisuals(&self) -> ::windows::core::Result<IXpsOMVisualCollection> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetVisuals)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMVisualCollection>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetPageDimensions(&self) -> ::windows::core::Result<XPS_SIZE> {
+        let mut result__: XPS_SIZE = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetPageDimensions)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_SIZE>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetPageDimensions(&self, pagedimensions: *const XPS_SIZE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPageDimensions)(::core::mem::transmute_copy(self), ::core::mem::transmute(pagedimensions)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetContentBox(&self) -> ::windows::core::Result<XPS_RECT> {
+        let mut result__: XPS_RECT = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetContentBox)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_RECT>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetContentBox(&self, contentbox: *const XPS_RECT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetContentBox)(::core::mem::transmute_copy(self), ::core::mem::transmute(contentbox)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetBleedBox(&self) -> ::windows::core::Result<XPS_RECT> {
+        let mut result__: XPS_RECT = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetBleedBox)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_RECT>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetBleedBox(&self, bleedbox: *const XPS_RECT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetBleedBox)(::core::mem::transmute_copy(self), ::core::mem::transmute(bleedbox)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetLanguage(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetLanguage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetLanguage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, language: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetLanguage)(::core::mem::transmute_copy(self), language.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIsHyperlinkTarget(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetIsHyperlinkTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetIsHyperlinkTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ishyperlinktarget: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetIsHyperlinkTarget)(::core::mem::transmute_copy(self), ishyperlinktarget.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetDictionary(&self) -> ::windows::core::Result<IXpsOMDictionary> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetDictionary)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMDictionary>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetDictionaryLocal(&self) -> ::windows::core::Result<IXpsOMDictionary> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetDictionaryLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMDictionary>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetDictionaryLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMDictionary>>(&self, resourcedictionary: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetDictionaryLocal)(::core::mem::transmute_copy(self), resourcedictionary.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetDictionaryResource(&self) -> ::windows::core::Result<IXpsOMRemoteDictionaryResource> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetDictionaryResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMRemoteDictionaryResource>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetDictionaryResource<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMRemoteDictionaryResource>>(&self, remotedictionaryresource: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetDictionaryResource)(::core::mem::transmute_copy(self), remotedictionaryresource.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub unsafe fn Write<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::ISequentialStream>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, stream: Param0, optimizemarkupsize: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Write)(::core::mem::transmute_copy(self), stream.into_param().abi(), optimizemarkupsize.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GenerateUnusedLookupKey(&self, r#type: XPS_OBJECT_TYPE) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GenerateUnusedLookupKey)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn Clone(&self) -> ::windows::core::Result<IXpsOMPage> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPage>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IXpsOMPage1> for IXpsOMPage {
@@ -6715,144 +6715,6 @@ pub struct IXpsOMPartUriCollectionVtbl {
 pub struct IXpsOMPath(::windows::core::IUnknown);
 impl IXpsOMPath {
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
-        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetTransform(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetTransformLocal(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTransformLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetTransformLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMMatrixTransform>>(&self, matrixtransform: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTransformLocal)(::core::mem::transmute_copy(self), matrixtransform.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetTransformLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
-        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTransformLookup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTransformLookup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, key: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTransformLookup)(::core::mem::transmute_copy(self), key.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetClipGeometry(&self) -> ::windows::core::Result<IXpsOMGeometry> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetClipGeometry)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGeometry>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetClipGeometryLocal(&self) -> ::windows::core::Result<IXpsOMGeometry> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetClipGeometryLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGeometry>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetClipGeometryLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMGeometry>>(&self, clipgeometry: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClipGeometryLocal)(::core::mem::transmute_copy(self), clipgeometry.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetClipGeometryLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
-        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetClipGeometryLookup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetClipGeometryLookup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, key: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClipGeometryLookup)(::core::mem::transmute_copy(self), key.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOpacity(&self) -> ::windows::core::Result<f32> {
-        let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetOpacity(&self, opacity: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOpacityMaskBrush(&self) -> ::windows::core::Result<IXpsOMBrush> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOpacityMaskBrush)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMBrush>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOpacityMaskBrushLocal(&self) -> ::windows::core::Result<IXpsOMBrush> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOpacityMaskBrushLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMBrush>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetOpacityMaskBrushLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMBrush>>(&self, opacitymaskbrush: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOpacityMaskBrushLocal)(::core::mem::transmute_copy(self), opacitymaskbrush.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetOpacityMaskBrushLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
-        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOpacityMaskBrushLookup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetOpacityMaskBrushLookup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, key: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOpacityMaskBrushLookup)(::core::mem::transmute_copy(self), key.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
-        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIsHyperlinkTarget(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetIsHyperlinkTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetIsHyperlinkTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ishyperlink: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIsHyperlinkTarget)(::core::mem::transmute_copy(self), ishyperlink.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetHyperlinkNavigateUri(&self) -> ::windows::core::Result<super::super::System::Com::IUri> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetHyperlinkNavigateUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IUri>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetHyperlinkNavigateUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IUri>>(&self, hyperlinkuri: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHyperlinkNavigateUri)(::core::mem::transmute_copy(self), hyperlinkuri.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetLanguage(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
-        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetLanguage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLanguage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, language: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLanguage)(::core::mem::transmute_copy(self), language.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn GetGeometry(&self) -> ::windows::core::Result<IXpsOMGeometry> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetGeometry)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGeometry>(result__)
@@ -7033,6 +6895,144 @@ impl IXpsOMPath {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMPath>(result__)
     }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetTransform(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetTransformLocal(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTransformLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetTransformLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMMatrixTransform>>(&self, matrixtransform: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetTransformLocal)(::core::mem::transmute_copy(self), matrixtransform.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetTransformLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTransformLookup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetTransformLookup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, key: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetTransformLookup)(::core::mem::transmute_copy(self), key.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetClipGeometry(&self) -> ::windows::core::Result<IXpsOMGeometry> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetClipGeometry)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGeometry>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetClipGeometryLocal(&self) -> ::windows::core::Result<IXpsOMGeometry> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetClipGeometryLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGeometry>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetClipGeometryLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMGeometry>>(&self, clipgeometry: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetClipGeometryLocal)(::core::mem::transmute_copy(self), clipgeometry.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetClipGeometryLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetClipGeometryLookup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetClipGeometryLookup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, key: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetClipGeometryLookup)(::core::mem::transmute_copy(self), key.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOpacity(&self) -> ::windows::core::Result<f32> {
+        let mut result__: f32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetOpacity(&self, opacity: f32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOpacityMaskBrush(&self) -> ::windows::core::Result<IXpsOMBrush> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetOpacityMaskBrush)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMBrush>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOpacityMaskBrushLocal(&self) -> ::windows::core::Result<IXpsOMBrush> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetOpacityMaskBrushLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMBrush>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetOpacityMaskBrushLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMBrush>>(&self, opacitymaskbrush: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetOpacityMaskBrushLocal)(::core::mem::transmute_copy(self), opacitymaskbrush.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetOpacityMaskBrushLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetOpacityMaskBrushLookup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetOpacityMaskBrushLookup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, key: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetOpacityMaskBrushLookup)(::core::mem::transmute_copy(self), key.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetIsHyperlinkTarget(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetIsHyperlinkTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetIsHyperlinkTarget<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ishyperlink: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetIsHyperlinkTarget)(::core::mem::transmute_copy(self), ishyperlink.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetHyperlinkNavigateUri(&self) -> ::windows::core::Result<super::super::System::Com::IUri> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetHyperlinkNavigateUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IUri>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn SetHyperlinkNavigateUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IUri>>(&self, hyperlinkuri: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetHyperlinkNavigateUri)(::core::mem::transmute_copy(self), hyperlinkuri.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetLanguage(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetLanguage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetLanguage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, language: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetLanguage)(::core::mem::transmute_copy(self), language.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
+        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
+    }
 }
 impl ::core::convert::From<IXpsOMPath> for IXpsOMVisual {
     fn from(value: IXpsOMPath) -> Self {
@@ -7196,17 +7196,6 @@ pub struct IXpsOMPathVtbl {
 #[repr(transparent)]
 pub struct IXpsOMPrintTicketResource(::windows::core::IUnknown);
 impl IXpsOMPrintTicketResource {
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
-    }
     #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(&self) -> ::windows::core::Result<super::super::System::Com::IStream> {
@@ -7217,6 +7206,17 @@ impl IXpsOMPrintTicketResource {
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetContent<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, sourcestream: Param0, partname: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetContent)(::core::mem::transmute_copy(self), sourcestream.into_param().abi(), partname.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IXpsOMPrintTicketResource> for IXpsOMResource {
@@ -7317,73 +7317,6 @@ pub struct IXpsOMPrintTicketResourceVtbl {
 pub struct IXpsOMRadialGradientBrush(::windows::core::IUnknown);
 impl IXpsOMRadialGradientBrush {
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
-        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOpacity(&self) -> ::windows::core::Result<f32> {
-        let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetOpacity(&self, opacity: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetGradientStops(&self) -> ::windows::core::Result<IXpsOMGradientStopCollection> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetGradientStops)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGradientStopCollection>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetTransform(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetTransformLocal(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTransformLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetTransformLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMMatrixTransform>>(&self, transform: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTransformLocal)(::core::mem::transmute_copy(self), transform.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetTransformLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
-        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTransformLookup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTransformLookup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, key: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTransformLookup)(::core::mem::transmute_copy(self), key.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetSpreadMethod(&self) -> ::windows::core::Result<XPS_SPREAD_METHOD> {
-        let mut result__: XPS_SPREAD_METHOD = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSpreadMethod)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_SPREAD_METHOD>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetSpreadMethod(&self, spreadmethod: XPS_SPREAD_METHOD) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSpreadMethod)(::core::mem::transmute_copy(self), ::core::mem::transmute(spreadmethod)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetColorInterpolationMode(&self) -> ::windows::core::Result<XPS_COLOR_INTERPOLATION> {
-        let mut result__: XPS_COLOR_INTERPOLATION = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetColorInterpolationMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_COLOR_INTERPOLATION>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetColorInterpolationMode(&self, colorinterpolationmode: XPS_COLOR_INTERPOLATION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetColorInterpolationMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(colorinterpolationmode)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn GetCenter(&self) -> ::windows::core::Result<XPS_POINT> {
         let mut result__: XPS_POINT = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetCenter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_POINT>(result__)
@@ -7414,6 +7347,73 @@ impl IXpsOMRadialGradientBrush {
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IXpsOMRadialGradientBrush> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMRadialGradientBrush>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetGradientStops(&self) -> ::windows::core::Result<IXpsOMGradientStopCollection> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetGradientStops)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMGradientStopCollection>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetTransform(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetTransformLocal(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTransformLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetTransformLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMMatrixTransform>>(&self, transform: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetTransformLocal)(::core::mem::transmute_copy(self), transform.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetTransformLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTransformLookup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetTransformLookup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, key: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetTransformLookup)(::core::mem::transmute_copy(self), key.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetSpreadMethod(&self) -> ::windows::core::Result<XPS_SPREAD_METHOD> {
+        let mut result__: XPS_SPREAD_METHOD = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetSpreadMethod)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_SPREAD_METHOD>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetSpreadMethod(&self, spreadmethod: XPS_SPREAD_METHOD) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetSpreadMethod)(::core::mem::transmute_copy(self), ::core::mem::transmute(spreadmethod)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetColorInterpolationMode(&self) -> ::windows::core::Result<XPS_COLOR_INTERPOLATION> {
+        let mut result__: XPS_COLOR_INTERPOLATION = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetColorInterpolationMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_COLOR_INTERPOLATION>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetColorInterpolationMode(&self, colorinterpolationmode: XPS_COLOR_INTERPOLATION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetColorInterpolationMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(colorinterpolationmode)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOpacity(&self) -> ::windows::core::Result<f32> {
+        let mut result__: f32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetOpacity(&self, opacity: f32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
+        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
     }
 }
 impl ::core::convert::From<IXpsOMRadialGradientBrush> for IXpsOMGradientBrush {
@@ -7532,17 +7532,6 @@ pub struct IXpsOMRadialGradientBrushVtbl {
 #[repr(transparent)]
 pub struct IXpsOMRemoteDictionaryResource(::windows::core::IUnknown);
 impl IXpsOMRemoteDictionaryResource {
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
-    }
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn GetDictionary(&self) -> ::windows::core::Result<IXpsOMDictionary> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -7551,6 +7540,17 @@ impl IXpsOMRemoteDictionaryResource {
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn SetDictionary<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMDictionary>>(&self, dictionary: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetDictionary)(::core::mem::transmute_copy(self), dictionary.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IXpsOMRemoteDictionaryResource> for IXpsOMResource {
@@ -7644,26 +7644,6 @@ pub struct IXpsOMRemoteDictionaryResourceVtbl {
 #[repr(transparent)]
 pub struct IXpsOMRemoteDictionaryResource1(::windows::core::IUnknown);
 impl IXpsOMRemoteDictionaryResource1 {
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetDictionary(&self) -> ::windows::core::Result<IXpsOMDictionary> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDictionary)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMDictionary>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetDictionary<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMDictionary>>(&self, dictionary: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDictionary)(::core::mem::transmute_copy(self), dictionary.into_param().abi()).ok()
-    }
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn GetDocumentType(&self) -> ::windows::core::Result<XPS_DOCUMENT_TYPE> {
         let mut result__: XPS_DOCUMENT_TYPE = ::core::mem::zeroed();
@@ -7673,6 +7653,26 @@ impl IXpsOMRemoteDictionaryResource1 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Write1<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::ISequentialStream>>(&self, stream: Param0, documenttype: XPS_DOCUMENT_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Write1)(::core::mem::transmute_copy(self), stream.into_param().abi(), ::core::mem::transmute(documenttype)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetDictionary(&self) -> ::windows::core::Result<IXpsOMDictionary> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetDictionary)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMDictionary>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetDictionary<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMDictionary>>(&self, dictionary: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetDictionary)(::core::mem::transmute_copy(self), dictionary.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IXpsOMRemoteDictionaryResource1> for IXpsOMRemoteDictionaryResource {
@@ -7885,12 +7885,12 @@ impl IXpsOMResource {
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
+        (::windows::core::Interface::vtable(self).base.GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
     #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IXpsOMResource> for IXpsOMPart {
@@ -8024,17 +8024,6 @@ pub struct IXpsOMShareableVtbl {
 #[repr(transparent)]
 pub struct IXpsOMSignatureBlockResource(::windows::core::IUnknown);
 impl IXpsOMSignatureBlockResource {
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
-    }
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn GetOwner(&self) -> ::windows::core::Result<IXpsOMDocument> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -8050,6 +8039,17 @@ impl IXpsOMSignatureBlockResource {
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetContent<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, sourcestream: Param0, partname: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetContent)(::core::mem::transmute_copy(self), sourcestream.into_param().abi(), partname.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IXpsOMSignatureBlockResource> for IXpsOMResource {
@@ -8243,25 +8243,6 @@ pub struct IXpsOMSignatureBlockResourceCollectionVtbl {
 pub struct IXpsOMSolidColorBrush(::windows::core::IUnknown);
 impl IXpsOMSolidColorBrush {
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
-        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOpacity(&self) -> ::windows::core::Result<f32> {
-        let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetOpacity(&self, opacity: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn GetColor(&self, color: *mut XPS_COLOR, colorprofile: *mut ::core::option::Option<IXpsOMColorProfileResource>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(color), ::core::mem::transmute(colorprofile)).ok()
     }
@@ -8273,6 +8254,25 @@ impl IXpsOMSolidColorBrush {
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IXpsOMSolidColorBrush> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMSolidColorBrush>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOpacity(&self) -> ::windows::core::Result<f32> {
+        let mut result__: f32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetOpacity(&self, opacity: f32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
+        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
     }
 }
 impl ::core::convert::From<IXpsOMSolidColorBrush> for IXpsOMBrush {
@@ -8367,17 +8367,6 @@ pub struct IXpsOMSolidColorBrushVtbl {
 #[repr(transparent)]
 pub struct IXpsOMStoryFragmentsResource(::windows::core::IUnknown);
 impl IXpsOMStoryFragmentsResource {
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
-    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
-    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
-    }
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn GetOwner(&self) -> ::windows::core::Result<IXpsOMPageReference> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -8393,6 +8382,17 @@ impl IXpsOMStoryFragmentsResource {
     #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetContent<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, sourcestream: Param0, partname: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetContent)(::core::mem::transmute_copy(self), sourcestream.into_param().abi(), partname.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn GetPartName(&self) -> ::windows::core::Result<super::Packaging::Opc::IOpcPartUri> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetPartName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Storage_Packaging_Opc'*"]
+    #[cfg(feature = "Win32_Storage_Packaging_Opc")]
+    pub unsafe fn SetPartName<'a, Param0: ::windows::core::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>>(&self, parturi: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPartName)(::core::mem::transmute_copy(self), parturi.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IXpsOMStoryFragmentsResource> for IXpsOMResource {
@@ -8554,25 +8554,6 @@ pub struct IXpsOMThumbnailGeneratorVtbl {
 pub struct IXpsOMTileBrush(::windows::core::IUnknown);
 impl IXpsOMTileBrush {
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
-        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOpacity(&self) -> ::windows::core::Result<f32> {
-        let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetOpacity(&self, opacity: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn GetTransform(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
@@ -8623,6 +8604,25 @@ impl IXpsOMTileBrush {
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn SetTileMode(&self, tilemode: XPS_TILE_MODE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetTileMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(tilemode)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOpacity(&self) -> ::windows::core::Result<f32> {
+        let mut result__: f32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetOpacity(&self, opacity: f32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
+        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
     }
 }
 impl ::core::convert::From<IXpsOMTileBrush> for IXpsOMBrush {
@@ -8731,16 +8731,6 @@ pub struct IXpsOMTileBrushVtbl {
 #[repr(transparent)]
 pub struct IXpsOMVisual(::windows::core::IUnknown);
 impl IXpsOMVisual {
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
-        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
-    }
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn GetTransform(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -8868,6 +8858,16 @@ impl IXpsOMVisual {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLanguage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, language: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetLanguage)(::core::mem::transmute_copy(self), language.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
+        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
     }
 }
 impl ::core::convert::From<IXpsOMVisual> for IXpsOMShareable {
@@ -9007,77 +9007,6 @@ pub struct IXpsOMVisualVtbl {
 pub struct IXpsOMVisualBrush(::windows::core::IUnknown);
 impl IXpsOMVisualBrush {
     #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
-        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetOpacity(&self) -> ::windows::core::Result<f32> {
-        let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetOpacity(&self, opacity: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetTransform(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetTransformLocal(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTransformLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetTransformLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMMatrixTransform>>(&self, transform: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTransformLocal)(::core::mem::transmute_copy(self), transform.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetTransformLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
-        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTransformLookup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetTransformLookup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, key: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTransformLookup)(::core::mem::transmute_copy(self), key.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetViewbox(&self) -> ::windows::core::Result<XPS_RECT> {
-        let mut result__: XPS_RECT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetViewbox)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_RECT>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetViewbox(&self, viewbox: *const XPS_RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetViewbox)(::core::mem::transmute_copy(self), ::core::mem::transmute(viewbox)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetViewport(&self) -> ::windows::core::Result<XPS_RECT> {
-        let mut result__: XPS_RECT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetViewport)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_RECT>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetViewport(&self, viewport: *const XPS_RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetViewport)(::core::mem::transmute_copy(self), ::core::mem::transmute(viewport)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn GetTileMode(&self) -> ::windows::core::Result<XPS_TILE_MODE> {
-        let mut result__: XPS_TILE_MODE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTileMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_TILE_MODE>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-    pub unsafe fn SetTileMode(&self, tilemode: XPS_TILE_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTileMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(tilemode)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
     pub unsafe fn GetVisual(&self) -> ::windows::core::Result<IXpsOMVisual> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetVisual)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMVisual>(result__)
@@ -9106,6 +9035,77 @@ impl IXpsOMVisualBrush {
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IXpsOMVisualBrush> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMVisualBrush>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetTransform(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetTransformLocal(&self) -> ::windows::core::Result<IXpsOMMatrixTransform> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTransformLocal)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXpsOMMatrixTransform>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetTransformLocal<'a, Param0: ::windows::core::IntoParam<'a, IXpsOMMatrixTransform>>(&self, transform: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetTransformLocal)(::core::mem::transmute_copy(self), transform.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetTransformLookup(&self) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTransformLookup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetTransformLookup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, key: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetTransformLookup)(::core::mem::transmute_copy(self), key.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetViewbox(&self) -> ::windows::core::Result<XPS_RECT> {
+        let mut result__: XPS_RECT = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetViewbox)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_RECT>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetViewbox(&self, viewbox: *const XPS_RECT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetViewbox)(::core::mem::transmute_copy(self), ::core::mem::transmute(viewbox)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetViewport(&self) -> ::windows::core::Result<XPS_RECT> {
+        let mut result__: XPS_RECT = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetViewport)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_RECT>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetViewport(&self, viewport: *const XPS_RECT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetViewport)(::core::mem::transmute_copy(self), ::core::mem::transmute(viewport)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetTileMode(&self) -> ::windows::core::Result<XPS_TILE_MODE> {
+        let mut result__: XPS_TILE_MODE = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTileMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_TILE_MODE>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetTileMode(&self, tilemode: XPS_TILE_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetTileMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(tilemode)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOpacity(&self) -> ::windows::core::Result<f32> {
+        let mut result__: f32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn SetOpacity(&self, opacity: f32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetOpacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetOwner(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_Xps'*"]
+    pub unsafe fn GetType(&self) -> ::windows::core::Result<XPS_OBJECT_TYPE> {
+        let mut result__: XPS_OBJECT_TYPE = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_OBJECT_TYPE>(result__)
     }
 }
 impl ::core::convert::From<IXpsOMVisualBrush> for IXpsOMTileBrush {

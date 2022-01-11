@@ -7457,18 +7457,6 @@ pub unsafe fn HandleLogFull<'a, Param0: ::windows::core::IntoParam<'a, super::su
 #[repr(transparent)]
 pub struct IDiskQuotaControl(::windows::core::IUnknown);
 impl IDiskQuotaControl {
-    #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EnumConnectionPoints(&self) -> ::windows::core::Result<super::super::System::Com::IEnumConnectionPoints> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnumConnectionPoints)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IEnumConnectionPoints>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn FindConnectionPoint(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::IConnectionPoint> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FindConnectionPoint)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IConnectionPoint>(result__)
-    }
     #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pszpath: Param0, breadwrite: Param1) -> ::windows::core::Result<()> {
@@ -7565,6 +7553,18 @@ impl IDiskQuotaControl {
     #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn ShutdownNameResolution(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ShutdownNameResolution)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn EnumConnectionPoints(&self) -> ::windows::core::Result<super::super::System::Com::IEnumConnectionPoints> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.EnumConnectionPoints)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IEnumConnectionPoints>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn FindConnectionPoint(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::IConnectionPoint> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.FindConnectionPoint)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IConnectionPoint>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]

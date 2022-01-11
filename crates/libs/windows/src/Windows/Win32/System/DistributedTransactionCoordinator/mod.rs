@@ -1329,76 +1329,6 @@ pub struct IDtcNetworkAccessConfig2(::windows::core::IUnknown);
 impl IDtcNetworkAccessConfig2 {
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAnyNetworkAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetAnyNetworkAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAnyNetworkAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, banynetworkaccess: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAnyNetworkAccess)(::core::mem::transmute_copy(self), banynetworkaccess.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetNetworkAdministrationAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetNetworkAdministrationAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNetworkAdministrationAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworkadministrationaccess: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNetworkAdministrationAccess)(::core::mem::transmute_copy(self), bnetworkadministrationaccess.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetNetworkTransactionAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetNetworkTransactionAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNetworkTransactionAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworktransactionaccess: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNetworkTransactionAccess)(::core::mem::transmute_copy(self), bnetworktransactionaccess.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetNetworkClientAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetNetworkClientAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNetworkClientAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworkclientaccess: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNetworkClientAccess)(::core::mem::transmute_copy(self), bnetworkclientaccess.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetNetworkTIPAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetNetworkTIPAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNetworkTIPAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworktipaccess: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNetworkTIPAccess)(::core::mem::transmute_copy(self), bnetworktipaccess.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetXAAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetXAAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetXAAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bxaaccess: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetXAAccess)(::core::mem::transmute_copy(self), bxaaccess.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn RestartDtcService(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RestartDtcService)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNetworkInboundAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetNetworkInboundAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -1427,6 +1357,76 @@ impl IDtcNetworkAccessConfig2 {
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
     pub unsafe fn SetAuthenticationLevel(&self, authlevel: AUTHENTICATION_LEVEL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAuthenticationLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(authlevel)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetAnyNetworkAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetAnyNetworkAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetAnyNetworkAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, banynetworkaccess: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetAnyNetworkAccess)(::core::mem::transmute_copy(self), banynetworkaccess.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetNetworkAdministrationAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetNetworkAdministrationAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetNetworkAdministrationAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworkadministrationaccess: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetNetworkAdministrationAccess)(::core::mem::transmute_copy(self), bnetworkadministrationaccess.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetNetworkTransactionAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetNetworkTransactionAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetNetworkTransactionAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworktransactionaccess: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetNetworkTransactionAccess)(::core::mem::transmute_copy(self), bnetworktransactionaccess.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetNetworkClientAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetNetworkClientAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetNetworkClientAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworkclientaccess: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetNetworkClientAccess)(::core::mem::transmute_copy(self), bnetworkclientaccess.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetNetworkTIPAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetNetworkTIPAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetNetworkTIPAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworktipaccess: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetNetworkTIPAccess)(::core::mem::transmute_copy(self), bnetworktipaccess.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetXAAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetXAAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetXAAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bxaaccess: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetXAAccess)(::core::mem::transmute_copy(self), bxaaccess.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
+    pub unsafe fn RestartDtcService(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.RestartDtcService)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IDtcNetworkAccessConfig2> for IDtcNetworkAccessConfig {
@@ -1518,107 +1518,6 @@ pub struct IDtcNetworkAccessConfig3(::windows::core::IUnknown);
 impl IDtcNetworkAccessConfig3 {
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAnyNetworkAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetAnyNetworkAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAnyNetworkAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, banynetworkaccess: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAnyNetworkAccess)(::core::mem::transmute_copy(self), banynetworkaccess.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetNetworkAdministrationAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetNetworkAdministrationAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNetworkAdministrationAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworkadministrationaccess: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNetworkAdministrationAccess)(::core::mem::transmute_copy(self), bnetworkadministrationaccess.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetNetworkTransactionAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetNetworkTransactionAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNetworkTransactionAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworktransactionaccess: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNetworkTransactionAccess)(::core::mem::transmute_copy(self), bnetworktransactionaccess.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetNetworkClientAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetNetworkClientAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNetworkClientAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworkclientaccess: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNetworkClientAccess)(::core::mem::transmute_copy(self), bnetworkclientaccess.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetNetworkTIPAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetNetworkTIPAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNetworkTIPAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworktipaccess: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNetworkTIPAccess)(::core::mem::transmute_copy(self), bnetworktipaccess.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetXAAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetXAAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetXAAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bxaaccess: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetXAAccess)(::core::mem::transmute_copy(self), bxaaccess.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn RestartDtcService(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RestartDtcService)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetNetworkInboundAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetNetworkInboundAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetNetworkOutboundAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetNetworkOutboundAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNetworkInboundAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, binbound: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNetworkInboundAccess)(::core::mem::transmute_copy(self), binbound.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNetworkOutboundAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, boutbound: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNetworkOutboundAccess)(::core::mem::transmute_copy(self), boutbound.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn GetAuthenticationLevel(&self) -> ::windows::core::Result<AUTHENTICATION_LEVEL> {
-        let mut result__: AUTHENTICATION_LEVEL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetAuthenticationLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<AUTHENTICATION_LEVEL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn SetAuthenticationLevel(&self, authlevel: AUTHENTICATION_LEVEL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthenticationLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(authlevel)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLUAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetLUAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -1627,6 +1526,107 @@ impl IDtcNetworkAccessConfig3 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLUAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bluaccess: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetLUAccess)(::core::mem::transmute_copy(self), bluaccess.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetNetworkInboundAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetNetworkInboundAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetNetworkOutboundAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetNetworkOutboundAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetNetworkInboundAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, binbound: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetNetworkInboundAccess)(::core::mem::transmute_copy(self), binbound.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetNetworkOutboundAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, boutbound: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetNetworkOutboundAccess)(::core::mem::transmute_copy(self), boutbound.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
+    pub unsafe fn GetAuthenticationLevel(&self) -> ::windows::core::Result<AUTHENTICATION_LEVEL> {
+        let mut result__: AUTHENTICATION_LEVEL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetAuthenticationLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<AUTHENTICATION_LEVEL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
+    pub unsafe fn SetAuthenticationLevel(&self, authlevel: AUTHENTICATION_LEVEL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetAuthenticationLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(authlevel)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetAnyNetworkAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetAnyNetworkAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetAnyNetworkAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, banynetworkaccess: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetAnyNetworkAccess)(::core::mem::transmute_copy(self), banynetworkaccess.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetNetworkAdministrationAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetNetworkAdministrationAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetNetworkAdministrationAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworkadministrationaccess: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetNetworkAdministrationAccess)(::core::mem::transmute_copy(self), bnetworkadministrationaccess.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetNetworkTransactionAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetNetworkTransactionAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetNetworkTransactionAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworktransactionaccess: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetNetworkTransactionAccess)(::core::mem::transmute_copy(self), bnetworktransactionaccess.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetNetworkClientAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetNetworkClientAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetNetworkClientAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworkclientaccess: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetNetworkClientAccess)(::core::mem::transmute_copy(self), bnetworkclientaccess.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetNetworkTIPAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetNetworkTIPAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetNetworkTIPAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bnetworktipaccess: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetNetworkTIPAccess)(::core::mem::transmute_copy(self), bnetworktipaccess.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetXAAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetXAAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetXAAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bxaaccess: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetXAAccess)(::core::mem::transmute_copy(self), bxaaccess.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
+    pub unsafe fn RestartDtcService(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.RestartDtcService)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IDtcNetworkAccessConfig3> for IDtcNetworkAccessConfig2 {
@@ -2446,23 +2446,6 @@ pub struct IResourceManagerVtbl {
 #[repr(transparent)]
 pub struct IResourceManager2(::windows::core::IUnknown);
 impl IResourceManager2 {
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn Enlist<'a, Param0: ::windows::core::IntoParam<'a, ITransaction>, Param1: ::windows::core::IntoParam<'a, ITransactionResourceAsync>>(&self, ptransaction: Param0, pres: Param1, puow: *mut BOID, pisolevel: *mut i32, ppenlist: *mut ::core::option::Option<ITransactionEnlistmentAsync>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Enlist)(::core::mem::transmute_copy(self), ptransaction.into_param().abi(), pres.into_param().abi(), ::core::mem::transmute(puow), ::core::mem::transmute(pisolevel), ::core::mem::transmute(ppenlist)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn Reenlist(&self, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32) -> ::windows::core::Result<XACTSTAT> {
-        let mut result__: XACTSTAT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Reenlist)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprepinfo), ::core::mem::transmute(cbprepinfo), ::core::mem::transmute(ltimeout), ::core::mem::transmute(&mut result__)).from_abi::<XACTSTAT>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn ReenlistmentComplete(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReenlistmentComplete)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn GetDistributedTransactionManager(&self, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDistributedTransactionManager)(::core::mem::transmute_copy(self), ::core::mem::transmute(iid), ::core::mem::transmute(ppvobject)).ok()
-    }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enlist2<'a, Param0: ::windows::core::IntoParam<'a, ITransaction>, Param1: ::windows::core::IntoParam<'a, ITransactionResourceAsync>>(&self, ptransaction: Param0, presasync: Param1, puow: *mut BOID, pisolevel: *mut i32, pxid: *mut xid_t, ppenlist: *mut ::core::option::Option<ITransactionEnlistmentAsync>) -> ::windows::core::Result<()> {
@@ -2473,6 +2456,23 @@ impl IResourceManager2 {
     pub unsafe fn Reenlist2(&self, pxid: *const xid_t, dwtimeout: u32) -> ::windows::core::Result<XACTSTAT> {
         let mut result__: XACTSTAT = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Reenlist2)(::core::mem::transmute_copy(self), ::core::mem::transmute(pxid), ::core::mem::transmute(dwtimeout), ::core::mem::transmute(&mut result__)).from_abi::<XACTSTAT>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
+    pub unsafe fn Enlist<'a, Param0: ::windows::core::IntoParam<'a, ITransaction>, Param1: ::windows::core::IntoParam<'a, ITransactionResourceAsync>>(&self, ptransaction: Param0, pres: Param1, puow: *mut BOID, pisolevel: *mut i32, ppenlist: *mut ::core::option::Option<ITransactionEnlistmentAsync>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Enlist)(::core::mem::transmute_copy(self), ptransaction.into_param().abi(), pres.into_param().abi(), ::core::mem::transmute(puow), ::core::mem::transmute(pisolevel), ::core::mem::transmute(ppenlist)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
+    pub unsafe fn Reenlist(&self, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32) -> ::windows::core::Result<XACTSTAT> {
+        let mut result__: XACTSTAT = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.Reenlist)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprepinfo), ::core::mem::transmute(cbprepinfo), ::core::mem::transmute(ltimeout), ::core::mem::transmute(&mut result__)).from_abi::<XACTSTAT>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
+    pub unsafe fn ReenlistmentComplete(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.ReenlistmentComplete)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
+    pub unsafe fn GetDistributedTransactionManager(&self, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetDistributedTransactionManager)(::core::mem::transmute_copy(self), ::core::mem::transmute(iid), ::core::mem::transmute(ppvobject)).ok()
     }
 }
 impl ::core::convert::From<IResourceManager2> for IResourceManager {
@@ -2614,14 +2614,14 @@ pub struct IResourceManagerFactory2(::windows::core::IUnknown);
 impl IResourceManagerFactory2 {
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Create<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, IResourceManagerSink>>(&self, pguidrm: *const ::windows::core::GUID, pszrmname: Param1, piresmgrsink: Param2) -> ::windows::core::Result<IResourceManager> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidrm), pszrmname.into_param().abi(), piresmgrsink.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IResourceManager>(result__)
+    pub unsafe fn CreateEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, IResourceManagerSink>>(&self, pguidrm: *const ::windows::core::GUID, pszrmname: Param1, piresmgrsink: Param2, riidrequested: *const ::windows::core::GUID, ppvresmgr: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidrm), pszrmname.into_param().abi(), piresmgrsink.into_param().abi(), ::core::mem::transmute(riidrequested), ::core::mem::transmute(ppvresmgr)).ok()
     }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, IResourceManagerSink>>(&self, pguidrm: *const ::windows::core::GUID, pszrmname: Param1, piresmgrsink: Param2, riidrequested: *const ::windows::core::GUID, ppvresmgr: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidrm), pszrmname.into_param().abi(), piresmgrsink.into_param().abi(), ::core::mem::transmute(riidrequested), ::core::mem::transmute(ppvresmgr)).ok()
+    pub unsafe fn Create<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, IResourceManagerSink>>(&self, pguidrm: *const ::windows::core::GUID, pszrmname: Param1, piresmgrsink: Param2) -> ::windows::core::Result<IResourceManager> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.Create)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidrm), pszrmname.into_param().abi(), piresmgrsink.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IResourceManager>(result__)
     }
 }
 impl ::core::convert::From<IResourceManagerFactory2> for IResourceManagerFactory {
@@ -2698,37 +2698,37 @@ pub struct IResourceManagerFactory2Vtbl {
 pub struct IResourceManagerRejoinable(::windows::core::IUnknown);
 impl IResourceManagerRejoinable {
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn Enlist<'a, Param0: ::windows::core::IntoParam<'a, ITransaction>, Param1: ::windows::core::IntoParam<'a, ITransactionResourceAsync>>(&self, ptransaction: Param0, pres: Param1, puow: *mut BOID, pisolevel: *mut i32, ppenlist: *mut ::core::option::Option<ITransactionEnlistmentAsync>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Enlist)(::core::mem::transmute_copy(self), ptransaction.into_param().abi(), pres.into_param().abi(), ::core::mem::transmute(puow), ::core::mem::transmute(pisolevel), ::core::mem::transmute(ppenlist)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn Reenlist(&self, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32) -> ::windows::core::Result<XACTSTAT> {
+    pub unsafe fn Rejoin(&self, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32) -> ::windows::core::Result<XACTSTAT> {
         let mut result__: XACTSTAT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Reenlist)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprepinfo), ::core::mem::transmute(cbprepinfo), ::core::mem::transmute(ltimeout), ::core::mem::transmute(&mut result__)).from_abi::<XACTSTAT>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn ReenlistmentComplete(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReenlistmentComplete)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn GetDistributedTransactionManager(&self, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDistributedTransactionManager)(::core::mem::transmute_copy(self), ::core::mem::transmute(iid), ::core::mem::transmute(ppvobject)).ok()
+        (::windows::core::Interface::vtable(self).Rejoin)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprepinfo), ::core::mem::transmute(cbprepinfo), ::core::mem::transmute(ltimeout), ::core::mem::transmute(&mut result__)).from_abi::<XACTSTAT>(result__)
     }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enlist2<'a, Param0: ::windows::core::IntoParam<'a, ITransaction>, Param1: ::windows::core::IntoParam<'a, ITransactionResourceAsync>>(&self, ptransaction: Param0, presasync: Param1, puow: *mut BOID, pisolevel: *mut i32, pxid: *mut xid_t, ppenlist: *mut ::core::option::Option<ITransactionEnlistmentAsync>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Enlist2)(::core::mem::transmute_copy(self), ptransaction.into_param().abi(), presasync.into_param().abi(), ::core::mem::transmute(puow), ::core::mem::transmute(pisolevel), ::core::mem::transmute(pxid), ::core::mem::transmute(ppenlist)).ok()
+        (::windows::core::Interface::vtable(self).base.Enlist2)(::core::mem::transmute_copy(self), ptransaction.into_param().abi(), presasync.into_param().abi(), ::core::mem::transmute(puow), ::core::mem::transmute(pisolevel), ::core::mem::transmute(pxid), ::core::mem::transmute(ppenlist)).ok()
     }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Reenlist2(&self, pxid: *const xid_t, dwtimeout: u32) -> ::windows::core::Result<XACTSTAT> {
         let mut result__: XACTSTAT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Reenlist2)(::core::mem::transmute_copy(self), ::core::mem::transmute(pxid), ::core::mem::transmute(dwtimeout), ::core::mem::transmute(&mut result__)).from_abi::<XACTSTAT>(result__)
+        (::windows::core::Interface::vtable(self).base.Reenlist2)(::core::mem::transmute_copy(self), ::core::mem::transmute(pxid), ::core::mem::transmute(dwtimeout), ::core::mem::transmute(&mut result__)).from_abi::<XACTSTAT>(result__)
     }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn Rejoin(&self, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32) -> ::windows::core::Result<XACTSTAT> {
+    pub unsafe fn Enlist<'a, Param0: ::windows::core::IntoParam<'a, ITransaction>, Param1: ::windows::core::IntoParam<'a, ITransactionResourceAsync>>(&self, ptransaction: Param0, pres: Param1, puow: *mut BOID, pisolevel: *mut i32, ppenlist: *mut ::core::option::Option<ITransactionEnlistmentAsync>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.Enlist)(::core::mem::transmute_copy(self), ptransaction.into_param().abi(), pres.into_param().abi(), ::core::mem::transmute(puow), ::core::mem::transmute(pisolevel), ::core::mem::transmute(ppenlist)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
+    pub unsafe fn Reenlist(&self, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32) -> ::windows::core::Result<XACTSTAT> {
         let mut result__: XACTSTAT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Rejoin)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprepinfo), ::core::mem::transmute(cbprepinfo), ::core::mem::transmute(ltimeout), ::core::mem::transmute(&mut result__)).from_abi::<XACTSTAT>(result__)
+        (::windows::core::Interface::vtable(self).base.base.Reenlist)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprepinfo), ::core::mem::transmute(cbprepinfo), ::core::mem::transmute(ltimeout), ::core::mem::transmute(&mut result__)).from_abi::<XACTSTAT>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
+    pub unsafe fn ReenlistmentComplete(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.ReenlistmentComplete)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
+    pub unsafe fn GetDistributedTransactionManager(&self, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetDistributedTransactionManager)(::core::mem::transmute_copy(self), ::core::mem::transmute(iid), ::core::mem::transmute(ppvobject)).ok()
     }
 }
 impl ::core::convert::From<IResourceManagerRejoinable> for IResourceManager2 {
@@ -3252,30 +3252,30 @@ pub struct ITransactionVtbl {
 #[repr(transparent)]
 pub struct ITransaction2(::windows::core::IUnknown);
 impl ITransaction2 {
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Commit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fretaining: Param0, grftc: u32, grfrm: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Commit)(::core::mem::transmute_copy(self), fretaining.into_param().abi(), ::core::mem::transmute(grftc), ::core::mem::transmute(grfrm)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Abort<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pboidreason: *const BOID, fretaining: Param1, fasync: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Abort)(::core::mem::transmute_copy(self), ::core::mem::transmute(pboidreason), fretaining.into_param().abi(), fasync.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn GetTransactionInfo(&self) -> ::windows::core::Result<XACTTRANSINFO> {
-        let mut result__: XACTTRANSINFO = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTransactionInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XACTTRANSINFO>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn CloneWithCommitDisabled(&self) -> ::windows::core::Result<ITransaction> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CloneWithCommitDisabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ITransaction>(result__)
-    }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
     pub unsafe fn GetTransactionInfo2(&self) -> ::windows::core::Result<XACTTRANSINFO> {
         let mut result__: XACTTRANSINFO = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetTransactionInfo2)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XACTTRANSINFO>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
+    pub unsafe fn CloneWithCommitDisabled(&self) -> ::windows::core::Result<ITransaction> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CloneWithCommitDisabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ITransaction>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn Commit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fretaining: Param0, grftc: u32, grfrm: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.Commit)(::core::mem::transmute_copy(self), fretaining.into_param().abi(), ::core::mem::transmute(grftc), ::core::mem::transmute(grfrm)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn Abort<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pboidreason: *const BOID, fretaining: Param1, fasync: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.Abort)(::core::mem::transmute_copy(self), ::core::mem::transmute(pboidreason), fretaining.into_param().abi(), fasync.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
+    pub unsafe fn GetTransactionInfo(&self) -> ::windows::core::Result<XACTTRANSINFO> {
+        let mut result__: XACTTRANSINFO = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetTransactionInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XACTTRANSINFO>(result__)
     }
 }
 impl ::core::convert::From<ITransaction2> for ITransactionCloner {
@@ -3368,25 +3368,25 @@ pub struct ITransaction2Vtbl {
 #[repr(transparent)]
 pub struct ITransactionCloner(::windows::core::IUnknown);
 impl ITransactionCloner {
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Commit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fretaining: Param0, grftc: u32, grfrm: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Commit)(::core::mem::transmute_copy(self), fretaining.into_param().abi(), ::core::mem::transmute(grftc), ::core::mem::transmute(grfrm)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Abort<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pboidreason: *const BOID, fretaining: Param1, fasync: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Abort)(::core::mem::transmute_copy(self), ::core::mem::transmute(pboidreason), fretaining.into_param().abi(), fasync.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn GetTransactionInfo(&self) -> ::windows::core::Result<XACTTRANSINFO> {
-        let mut result__: XACTTRANSINFO = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTransactionInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XACTTRANSINFO>(result__)
-    }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
     pub unsafe fn CloneWithCommitDisabled(&self) -> ::windows::core::Result<ITransaction> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CloneWithCommitDisabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ITransaction>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn Commit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fretaining: Param0, grftc: u32, grfrm: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Commit)(::core::mem::transmute_copy(self), fretaining.into_param().abi(), ::core::mem::transmute(grftc), ::core::mem::transmute(grfrm)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn Abort<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pboidreason: *const BOID, fretaining: Param1, fasync: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Abort)(::core::mem::transmute_copy(self), ::core::mem::transmute(pboidreason), fretaining.into_param().abi(), fasync.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
+    pub unsafe fn GetTransactionInfo(&self) -> ::windows::core::Result<XACTTRANSINFO> {
+        let mut result__: XACTTRANSINFO = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTransactionInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XACTTRANSINFO>(result__)
     }
 }
 impl ::core::convert::From<ITransactionCloner> for ITransaction {
@@ -4806,27 +4806,27 @@ pub struct ITransactionVoterFactory2Vtbl {
 #[repr(transparent)]
 pub struct ITransactionVoterNotifyAsync2(::windows::core::IUnknown);
 impl ITransactionVoterNotifyAsync2 {
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
+    pub unsafe fn VoteRequest(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).VoteRequest)(::core::mem::transmute_copy(self)).ok()
+    }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Committed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fretaining: Param0, pnewuow: *const BOID, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Committed)(::core::mem::transmute_copy(self), fretaining.into_param().abi(), ::core::mem::transmute(pnewuow), ::core::mem::transmute(hr)).ok()
+        (::windows::core::Interface::vtable(self).base.Committed)(::core::mem::transmute_copy(self), fretaining.into_param().abi(), ::core::mem::transmute(pnewuow), ::core::mem::transmute(hr)).ok()
     }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Aborted<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pboidreason: *const BOID, fretaining: Param1, pnewuow: *const BOID, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Aborted)(::core::mem::transmute_copy(self), ::core::mem::transmute(pboidreason), fretaining.into_param().abi(), ::core::mem::transmute(pnewuow), ::core::mem::transmute(hr)).ok()
+        (::windows::core::Interface::vtable(self).base.Aborted)(::core::mem::transmute_copy(self), ::core::mem::transmute(pboidreason), fretaining.into_param().abi(), ::core::mem::transmute(pnewuow), ::core::mem::transmute(hr)).ok()
     }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
     pub unsafe fn HeuristicDecision(&self, dwdecision: u32, pboidreason: *const BOID, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HeuristicDecision)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdecision), ::core::mem::transmute(pboidreason), ::core::mem::transmute(hr)).ok()
+        (::windows::core::Interface::vtable(self).base.HeuristicDecision)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdecision), ::core::mem::transmute(pboidreason), ::core::mem::transmute(hr)).ok()
     }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
     pub unsafe fn Indoubt(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Indoubt)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn VoteRequest(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).VoteRequest)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base.Indoubt)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<ITransactionVoterNotifyAsync2> for ITransactionOutcomeEvents {

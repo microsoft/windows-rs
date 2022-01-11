@@ -1522,14 +1522,14 @@ pub struct ICodeInstall(::windows::core::IUnknown);
 impl ICodeInstall {
     #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetWindow(&self, rguidreason: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::HWND> {
-        let mut result__: super::super::super::Foundation::HWND = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetWindow)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguidreason), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::HWND>(result__)
+    pub unsafe fn OnCodeInstallProblem<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, ulstatuscode: u32, szdestination: Param1, szsource: Param2, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnCodeInstallProblem)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstatuscode), szdestination.into_param().abi(), szsource.into_param().abi(), ::core::mem::transmute(dwreserved)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OnCodeInstallProblem<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, ulstatuscode: u32, szdestination: Param1, szsource: Param2, dwreserved: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnCodeInstallProblem)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstatuscode), szdestination.into_param().abi(), szsource.into_param().abi(), ::core::mem::transmute(dwreserved)).ok()
+    pub unsafe fn GetWindow(&self, rguidreason: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::HWND> {
+        let mut result__: super::super::super::Foundation::HWND = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetWindow)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguidreason), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
 }
 impl ::core::convert::From<ICodeInstall> for IWindowForBindingUI {
@@ -1918,21 +1918,21 @@ pub struct IHttpNegotiateVtbl {
 #[repr(transparent)]
 pub struct IHttpNegotiate2(::windows::core::IUnknown);
 impl IHttpNegotiate2 {
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn GetRootSecurityId(&self, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetRootSecurityId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
+    }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginningTransaction<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szurl: Param0, szheaders: Param1, dwreserved: u32) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
         let mut result__: super::super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).BeginningTransaction)(::core::mem::transmute_copy(self), szurl.into_param().abi(), szheaders.into_param().abi(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base.BeginningTransaction)(::core::mem::transmute_copy(self), szurl.into_param().abi(), szheaders.into_param().abi(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnResponse<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwresponsecode: u32, szresponseheaders: Param1, szrequestheaders: Param2) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
         let mut result__: super::super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OnResponse)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwresponsecode), szresponseheaders.into_param().abi(), szrequestheaders.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::PWSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn GetRootSecurityId(&self, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetRootSecurityId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
+        (::windows::core::Interface::vtable(self).base.OnResponse)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwresponsecode), szresponseheaders.into_param().abi(), szrequestheaders.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
 }
 impl ::core::convert::From<IHttpNegotiate2> for IHttpNegotiate {
@@ -2005,25 +2005,25 @@ pub struct IHttpNegotiate2Vtbl {
 #[repr(transparent)]
 pub struct IHttpNegotiate3(::windows::core::IUnknown);
 impl IHttpNegotiate3 {
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn GetSerializedClientCertContext(&self, ppbcert: *mut *mut u8, pcbcert: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetSerializedClientCertContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppbcert), ::core::mem::transmute(pcbcert)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn GetRootSecurityId(&self, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetRootSecurityId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
+    }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginningTransaction<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, szurl: Param0, szheaders: Param1, dwreserved: u32) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
         let mut result__: super::super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).BeginningTransaction)(::core::mem::transmute_copy(self), szurl.into_param().abi(), szheaders.into_param().abi(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base.base.BeginningTransaction)(::core::mem::transmute_copy(self), szurl.into_param().abi(), szheaders.into_param().abi(), ::core::mem::transmute(dwreserved), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnResponse<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwresponsecode: u32, szresponseheaders: Param1, szrequestheaders: Param2) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
         let mut result__: super::super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OnResponse)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwresponsecode), szresponseheaders.into_param().abi(), szrequestheaders.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::PWSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn GetRootSecurityId(&self, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetRootSecurityId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn GetSerializedClientCertContext(&self, ppbcert: *mut *mut u8, pcbcert: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSerializedClientCertContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppbcert), ::core::mem::transmute(pcbcert)).ok()
+        (::windows::core::Interface::vtable(self).base.base.OnResponse)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwresponsecode), szresponseheaders.into_param().abi(), szrequestheaders.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
 }
 impl ::core::convert::From<IHttpNegotiate3> for IHttpNegotiate2 {
@@ -2116,15 +2116,15 @@ pub struct IHttpNegotiate3Vtbl {
 #[repr(transparent)]
 pub struct IHttpSecurity(::windows::core::IUnknown);
 impl IHttpSecurity {
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn OnSecurityProblem(&self, dwproblem: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnSecurityProblem)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwproblem)).ok()
+    }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindow(&self, rguidreason: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::super::Foundation::HWND> {
         let mut result__: super::super::super::Foundation::HWND = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetWindow)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguidreason), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::HWND>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn OnSecurityProblem(&self, dwproblem: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnSecurityProblem)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwproblem)).ok()
+        (::windows::core::Interface::vtable(self).base.GetWindow)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguidreason), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::HWND>(result__)
     }
 }
 impl ::core::convert::From<IHttpSecurity> for IWindowForBindingUI {
@@ -2316,18 +2316,18 @@ pub struct IInternetBindInfoEx(::windows::core::IUnknown);
 impl IInternetBindInfoEx {
     #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_Security', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+    pub unsafe fn GetBindInfoEx(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetBindInfoEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfbindf), ::core::mem::transmute(pbindinfo), ::core::mem::transmute(grfbindf2), ::core::mem::transmute(pdwreserved)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_Security', 'Win32_System_Com_StructuredStorage'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn GetBindInfo(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetBindInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfbindf), ::core::mem::transmute(pbindinfo)).ok()
+        (::windows::core::Interface::vtable(self).base.GetBindInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfbindf), ::core::mem::transmute(pbindinfo)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetBindString(&self, ulstringtype: u32, ppwzstr: *mut super::super::super::Foundation::PWSTR, cel: u32, pcelfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetBindString)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstringtype), ::core::mem::transmute(ppwzstr), ::core::mem::transmute(cel), ::core::mem::transmute(pcelfetched)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_Security', 'Win32_System_Com_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetBindInfoEx(&self, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetBindInfoEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfbindf), ::core::mem::transmute(pbindinfo), ::core::mem::transmute(grfbindf2), ::core::mem::transmute(pdwreserved)).ok()
+        (::windows::core::Interface::vtable(self).base.GetBindString)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulstringtype), ::core::mem::transmute(ppwzstr), ::core::mem::transmute(cel), ::core::mem::transmute(pcelfetched)).ok()
     }
 }
 impl ::core::convert::From<IInternetBindInfoEx> for IInternetBindInfo {
@@ -2529,31 +2529,6 @@ pub struct IInternetPriorityVtbl {
 #[repr(transparent)]
 pub struct IInternetProtocol(::windows::core::IUnknown);
 impl IInternetProtocol {
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Start<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IInternetProtocolSink>, Param2: ::windows::core::IntoParam<'a, IInternetBindInfo>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE_PTR>>(&self, szurl: Param0, poiprotsink: Param1, poibindinfo: Param2, grfpi: u32, dwreserved: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Start)(::core::mem::transmute_copy(self), szurl.into_param().abi(), poiprotsink.into_param().abi(), poibindinfo.into_param().abi(), ::core::mem::transmute(grfpi), dwreserved.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn Continue(&self, pprotocoldata: *const PROTOCOLDATA) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Continue)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprotocoldata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn Abort(&self, hrreason: ::windows::core::HRESULT, dwoptions: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Abort)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrreason), ::core::mem::transmute(dwoptions)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn Terminate(&self, dwoptions: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Terminate)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoptions)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn Suspend(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Suspend)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Resume)(::core::mem::transmute_copy(self)).ok()
-    }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread)).ok()
@@ -2570,6 +2545,31 @@ impl IInternetProtocol {
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub unsafe fn UnlockRequest(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UnlockRequest)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn Start<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IInternetProtocolSink>, Param2: ::windows::core::IntoParam<'a, IInternetBindInfo>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE_PTR>>(&self, szurl: Param0, poiprotsink: Param1, poibindinfo: Param2, grfpi: u32, dwreserved: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Start)(::core::mem::transmute_copy(self), szurl.into_param().abi(), poiprotsink.into_param().abi(), poibindinfo.into_param().abi(), ::core::mem::transmute(grfpi), dwreserved.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn Continue(&self, pprotocoldata: *const PROTOCOLDATA) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Continue)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprotocoldata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn Abort(&self, hrreason: ::windows::core::HRESULT, dwoptions: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Abort)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrreason), ::core::mem::transmute(dwoptions)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn Terminate(&self, dwoptions: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Terminate)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoptions)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn Suspend(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Suspend)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Resume)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IInternetProtocol> for IInternetProtocolRoot {
@@ -2647,50 +2647,50 @@ pub struct IInternetProtocolEx(::windows::core::IUnknown);
 impl IInternetProtocolEx {
     #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Start<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IInternetProtocolSink>, Param2: ::windows::core::IntoParam<'a, IInternetBindInfo>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE_PTR>>(&self, szurl: Param0, poiprotsink: Param1, poibindinfo: Param2, grfpi: u32, dwreserved: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Start)(::core::mem::transmute_copy(self), szurl.into_param().abi(), poiprotsink.into_param().abi(), poibindinfo.into_param().abi(), ::core::mem::transmute(grfpi), dwreserved.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn Continue(&self, pprotocoldata: *const PROTOCOLDATA) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Continue)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprotocoldata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn Abort(&self, hrreason: ::windows::core::HRESULT, dwoptions: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Abort)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrreason), ::core::mem::transmute(dwoptions)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn Terminate(&self, dwoptions: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Terminate)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoptions)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn Suspend(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Suspend)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Resume)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn StartEx<'a, Param0: ::windows::core::IntoParam<'a, super::IUri>, Param1: ::windows::core::IntoParam<'a, IInternetProtocolSink>, Param2: ::windows::core::IntoParam<'a, IInternetBindInfo>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE_PTR>>(&self, puri: Param0, poiprotsink: Param1, poibindinfo: Param2, grfpi: u32, dwreserved: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).StartEx)(::core::mem::transmute_copy(self), puri.into_param().abi(), poiprotsink.into_param().abi(), poibindinfo.into_param().abi(), ::core::mem::transmute(grfpi), dwreserved.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread)).ok()
+        (::windows::core::Interface::vtable(self).base.Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub unsafe fn Seek(&self, dlibmove: i64, dworigin: u32) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Seek)(::core::mem::transmute_copy(self), ::core::mem::transmute(dlibmove), ::core::mem::transmute(dworigin), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).base.Seek)(::core::mem::transmute_copy(self), ::core::mem::transmute(dlibmove), ::core::mem::transmute(dworigin), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub unsafe fn LockRequest(&self, dwoptions: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LockRequest)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoptions)).ok()
+        (::windows::core::Interface::vtable(self).base.LockRequest)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoptions)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub unsafe fn UnlockRequest(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnlockRequest)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base.UnlockRequest)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn StartEx<'a, Param0: ::windows::core::IntoParam<'a, super::IUri>, Param1: ::windows::core::IntoParam<'a, IInternetProtocolSink>, Param2: ::windows::core::IntoParam<'a, IInternetBindInfo>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE_PTR>>(&self, puri: Param0, poiprotsink: Param1, poibindinfo: Param2, grfpi: u32, dwreserved: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StartEx)(::core::mem::transmute_copy(self), puri.into_param().abi(), poiprotsink.into_param().abi(), poibindinfo.into_param().abi(), ::core::mem::transmute(grfpi), dwreserved.into_param().abi()).ok()
+    pub unsafe fn Start<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IInternetProtocolSink>, Param2: ::windows::core::IntoParam<'a, IInternetBindInfo>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE_PTR>>(&self, szurl: Param0, poiprotsink: Param1, poibindinfo: Param2, grfpi: u32, dwreserved: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.Start)(::core::mem::transmute_copy(self), szurl.into_param().abi(), poiprotsink.into_param().abi(), poibindinfo.into_param().abi(), ::core::mem::transmute(grfpi), dwreserved.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn Continue(&self, pprotocoldata: *const PROTOCOLDATA) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.Continue)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprotocoldata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn Abort(&self, hrreason: ::windows::core::HRESULT, dwoptions: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.Abort)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrreason), ::core::mem::transmute(dwoptions)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn Terminate(&self, dwoptions: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.Terminate)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoptions)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn Suspend(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.Suspend)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.Resume)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IInternetProtocolEx> for IInternetProtocol {
@@ -3210,48 +3210,48 @@ pub struct IInternetSecurityManagerVtbl {
 #[repr(transparent)]
 pub struct IInternetSecurityManagerEx(::windows::core::IUnknown);
 impl IInternetSecurityManagerEx {
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn SetSecuritySite<'a, Param0: ::windows::core::IntoParam<'a, IInternetSecurityMgrSite>>(&self, psite: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSecuritySite)(::core::mem::transmute_copy(self), psite.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn GetSecuritySite(&self) -> ::windows::core::Result<IInternetSecurityMgrSite> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSecuritySite)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IInternetSecurityMgrSite>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MapUrlToZone<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, pdwzone: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MapUrlToZone)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pdwzone), ::core::mem::transmute(dwflags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSecurityId<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSecurityId)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ProcessUrlAction<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ProcessUrlAction)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn QueryCustomPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).QueryCustomPolicy)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwreserved)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetZoneMapping<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwzone: u32, lpszpattern: Param1, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetZoneMapping)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), lpszpattern.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn GetZoneMappings(&self, dwzone: u32, ppenumstring: *mut ::core::option::Option<super::IEnumString>, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetZoneMappings)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(ppenumstring), ::core::mem::transmute(dwflags)).ok()
-    }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProcessUrlActionEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32, pdwoutflags: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ProcessUrlActionEx)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved), ::core::mem::transmute(pdwoutflags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn SetSecuritySite<'a, Param0: ::windows::core::IntoParam<'a, IInternetSecurityMgrSite>>(&self, psite: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetSecuritySite)(::core::mem::transmute_copy(self), psite.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn GetSecuritySite(&self) -> ::windows::core::Result<IInternetSecurityMgrSite> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetSecuritySite)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IInternetSecurityMgrSite>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn MapUrlToZone<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, pdwzone: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.MapUrlToZone)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pdwzone), ::core::mem::transmute(dwflags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetSecurityId<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetSecurityId)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn ProcessUrlAction<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.ProcessUrlAction)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn QueryCustomPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.QueryCustomPolicy)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwreserved)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetZoneMapping<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwzone: u32, lpszpattern: Param1, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetZoneMapping)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), lpszpattern.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn GetZoneMappings(&self, dwzone: u32, ppenumstring: *mut ::core::option::Option<super::IEnumString>, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetZoneMappings)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(ppenumstring), ::core::mem::transmute(dwflags)).ok()
     }
 }
 impl ::core::convert::From<IInternetSecurityManagerEx> for IInternetSecurityManager {
@@ -3327,49 +3327,6 @@ pub struct IInternetSecurityManagerExVtbl {
 #[repr(transparent)]
 pub struct IInternetSecurityManagerEx2(::windows::core::IUnknown);
 impl IInternetSecurityManagerEx2 {
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn SetSecuritySite<'a, Param0: ::windows::core::IntoParam<'a, IInternetSecurityMgrSite>>(&self, psite: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSecuritySite)(::core::mem::transmute_copy(self), psite.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn GetSecuritySite(&self) -> ::windows::core::Result<IInternetSecurityMgrSite> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSecuritySite)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IInternetSecurityMgrSite>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MapUrlToZone<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, pdwzone: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MapUrlToZone)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pdwzone), ::core::mem::transmute(dwflags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSecurityId<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSecurityId)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ProcessUrlAction<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ProcessUrlAction)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn QueryCustomPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).QueryCustomPolicy)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwreserved)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetZoneMapping<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwzone: u32, lpszpattern: Param1, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetZoneMapping)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), lpszpattern.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn GetZoneMappings(&self, dwzone: u32, ppenumstring: *mut ::core::option::Option<super::IEnumString>, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetZoneMappings)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(ppenumstring), ::core::mem::transmute(dwflags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ProcessUrlActionEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32, pdwoutflags: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ProcessUrlActionEx)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved), ::core::mem::transmute(pdwoutflags)).ok()
-    }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MapUrlToZoneEx2<'a, Param0: ::windows::core::IntoParam<'a, super::IUri>>(&self, puri: Param0, pdwzone: *mut u32, dwflags: u32, ppwszmappedurl: *mut super::super::super::Foundation::PWSTR, pdwoutflags: *mut u32) -> ::windows::core::Result<()> {
@@ -3386,6 +3343,49 @@ impl IInternetSecurityManagerEx2 {
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub unsafe fn QueryCustomPolicyEx2<'a, Param0: ::windows::core::IntoParam<'a, super::IUri>>(&self, puri: Param0, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).QueryCustomPolicyEx2)(::core::mem::transmute_copy(self), puri.into_param().abi(), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwreserved)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn ProcessUrlActionEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32, pdwoutflags: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.ProcessUrlActionEx)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved), ::core::mem::transmute(pdwoutflags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn SetSecuritySite<'a, Param0: ::windows::core::IntoParam<'a, IInternetSecurityMgrSite>>(&self, psite: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetSecuritySite)(::core::mem::transmute_copy(self), psite.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn GetSecuritySite(&self) -> ::windows::core::Result<IInternetSecurityMgrSite> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetSecuritySite)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IInternetSecurityMgrSite>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn MapUrlToZone<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, pdwzone: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.MapUrlToZone)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pdwzone), ::core::mem::transmute(dwflags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetSecurityId<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetSecurityId)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(pbsecurityid), ::core::mem::transmute(pcbsecurityid), ::core::mem::transmute(dwreserved)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn ProcessUrlAction<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.ProcessUrlAction)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwflags), ::core::mem::transmute(dwreserved)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn QueryCustomPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwszurl: Param0, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.QueryCustomPolicy)(::core::mem::transmute_copy(self), pwszurl.into_param().abi(), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(pcontext), ::core::mem::transmute(cbcontext), ::core::mem::transmute(dwreserved)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetZoneMapping<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwzone: u32, lpszpattern: Param1, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetZoneMapping)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), lpszpattern.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn GetZoneMappings(&self, dwzone: u32, ppenumstring: *mut ::core::option::Option<super::IEnumString>, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetZoneMappings)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(ppenumstring), ::core::mem::transmute(dwflags)).ok()
     }
 }
 impl ::core::convert::From<IInternetSecurityManagerEx2> for IInternetSecurityManagerEx {
@@ -3838,63 +3838,63 @@ pub struct IInternetZoneManagerVtbl {
 pub struct IInternetZoneManagerEx(::windows::core::IUnknown);
 impl IInternetZoneManagerEx {
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn GetZoneAttributes(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetZoneAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(pzoneattributes)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn SetZoneAttributes(&self, dwzone: u32, pzoneattributes: *const ZONEATTRIBUTES) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetZoneAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(pzoneattributes)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn GetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetZoneCustomPolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(urlzonereg)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn SetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetZoneCustomPolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn GetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetZoneActionPolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn SetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetZoneActionPolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PromptAction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwaction: u32, hwndparent: Param1, pwszurl: Param2, pwsztext: Param3, dwpromptflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PromptAction)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaction), hwndparent.into_param().abi(), pwszurl.into_param().abi(), pwsztext.into_param().abi(), ::core::mem::transmute(dwpromptflags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LogAction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwaction: u32, pwszurl: Param1, pwsztext: Param2, dwlogflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LogAction)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaction), pwszurl.into_param().abi(), pwsztext.into_param().abi(), ::core::mem::transmute(dwlogflags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn CreateZoneEnumerator(&self, pdwenum: *mut u32, pdwcount: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateZoneEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwenum), ::core::mem::transmute(pdwcount), ::core::mem::transmute(dwflags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn GetZoneAt(&self, dwenum: u32, dwindex: u32) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetZoneAt)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwenum), ::core::mem::transmute(dwindex), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn DestroyZoneEnumerator(&self, dwenum: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DestroyZoneEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwenum)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn CopyTemplatePoliciesToZone(&self, dwtemplate: u32, dwzone: u32, dwreserved: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyTemplatePoliciesToZone)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwtemplate), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwreserved)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub unsafe fn GetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetZoneActionPolicyEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub unsafe fn SetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetZoneActionPolicyEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg), ::core::mem::transmute(dwflags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn GetZoneAttributes(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetZoneAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(pzoneattributes)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn SetZoneAttributes(&self, dwzone: u32, pzoneattributes: *const ZONEATTRIBUTES) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetZoneAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(pzoneattributes)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn GetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetZoneCustomPolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(urlzonereg)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn SetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetZoneCustomPolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn GetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetZoneActionPolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn SetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetZoneActionPolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn PromptAction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwaction: u32, hwndparent: Param1, pwszurl: Param2, pwsztext: Param3, dwpromptflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.PromptAction)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaction), hwndparent.into_param().abi(), pwszurl.into_param().abi(), pwsztext.into_param().abi(), ::core::mem::transmute(dwpromptflags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn LogAction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwaction: u32, pwszurl: Param1, pwsztext: Param2, dwlogflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.LogAction)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaction), pwszurl.into_param().abi(), pwsztext.into_param().abi(), ::core::mem::transmute(dwlogflags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn CreateZoneEnumerator(&self, pdwenum: *mut u32, pdwcount: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.CreateZoneEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwenum), ::core::mem::transmute(pdwcount), ::core::mem::transmute(dwflags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn GetZoneAt(&self, dwenum: u32, dwindex: u32) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetZoneAt)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwenum), ::core::mem::transmute(dwindex), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn DestroyZoneEnumerator(&self, dwenum: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.DestroyZoneEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwenum)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn CopyTemplatePoliciesToZone(&self, dwtemplate: u32, dwzone: u32, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.CopyTemplatePoliciesToZone)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwtemplate), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwreserved)).ok()
     }
 }
 impl ::core::convert::From<IInternetZoneManagerEx> for IInternetZoneManager {
@@ -3969,65 +3969,6 @@ pub struct IInternetZoneManagerExVtbl {
 pub struct IInternetZoneManagerEx2(::windows::core::IUnknown);
 impl IInternetZoneManagerEx2 {
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn GetZoneAttributes(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetZoneAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(pzoneattributes)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn SetZoneAttributes(&self, dwzone: u32, pzoneattributes: *const ZONEATTRIBUTES) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetZoneAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(pzoneattributes)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn GetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetZoneCustomPolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(urlzonereg)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn SetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetZoneCustomPolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn GetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetZoneActionPolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn SetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetZoneActionPolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PromptAction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwaction: u32, hwndparent: Param1, pwszurl: Param2, pwsztext: Param3, dwpromptflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PromptAction)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaction), hwndparent.into_param().abi(), pwszurl.into_param().abi(), pwsztext.into_param().abi(), ::core::mem::transmute(dwpromptflags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LogAction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwaction: u32, pwszurl: Param1, pwsztext: Param2, dwlogflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LogAction)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaction), pwszurl.into_param().abi(), pwsztext.into_param().abi(), ::core::mem::transmute(dwlogflags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn CreateZoneEnumerator(&self, pdwenum: *mut u32, pdwcount: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateZoneEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwenum), ::core::mem::transmute(pdwcount), ::core::mem::transmute(dwflags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn GetZoneAt(&self, dwenum: u32, dwindex: u32) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetZoneAt)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwenum), ::core::mem::transmute(dwindex), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn DestroyZoneEnumerator(&self, dwenum: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DestroyZoneEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwenum)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn CopyTemplatePoliciesToZone(&self, dwtemplate: u32, dwzone: u32, dwreserved: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyTemplatePoliciesToZone)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwtemplate), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwreserved)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn GetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetZoneActionPolicyEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg), ::core::mem::transmute(dwflags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn SetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetZoneActionPolicyEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg), ::core::mem::transmute(dwflags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub unsafe fn GetZoneAttributesEx(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetZoneAttributesEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(pzoneattributes), ::core::mem::transmute(dwflags)).ok()
     }
@@ -4044,6 +3985,65 @@ impl IInternetZoneManagerEx2 {
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub unsafe fn FixUnsecureSettings(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).FixUnsecureSettings)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn GetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetZoneActionPolicyEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg), ::core::mem::transmute(dwflags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn SetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetZoneActionPolicyEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg), ::core::mem::transmute(dwflags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn GetZoneAttributes(&self, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetZoneAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(pzoneattributes)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn SetZoneAttributes(&self, dwzone: u32, pzoneattributes: *const ZONEATTRIBUTES) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetZoneAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(pzoneattributes)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn GetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetZoneCustomPolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(pppolicy), ::core::mem::transmute(pcbpolicy), ::core::mem::transmute(urlzonereg)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn SetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const ::windows::core::GUID, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetZoneCustomPolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(guidkey), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn GetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetZoneActionPolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn SetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetZoneActionPolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwaction), ::core::mem::transmute(ppolicy), ::core::mem::transmute(cbpolicy), ::core::mem::transmute(urlzonereg)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn PromptAction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwaction: u32, hwndparent: Param1, pwszurl: Param2, pwsztext: Param3, dwpromptflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.PromptAction)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaction), hwndparent.into_param().abi(), pwszurl.into_param().abi(), pwsztext.into_param().abi(), ::core::mem::transmute(dwpromptflags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn LogAction<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwaction: u32, pwszurl: Param1, pwsztext: Param2, dwlogflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.LogAction)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwaction), pwszurl.into_param().abi(), pwsztext.into_param().abi(), ::core::mem::transmute(dwlogflags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn CreateZoneEnumerator(&self, pdwenum: *mut u32, pdwcount: *mut u32, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.CreateZoneEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwenum), ::core::mem::transmute(pdwcount), ::core::mem::transmute(dwflags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn GetZoneAt(&self, dwenum: u32, dwindex: u32) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetZoneAt)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwenum), ::core::mem::transmute(dwindex), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn DestroyZoneEnumerator(&self, dwenum: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.DestroyZoneEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwenum)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn CopyTemplatePoliciesToZone(&self, dwtemplate: u32, dwzone: u32, dwreserved: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.CopyTemplatePoliciesToZone)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwtemplate), ::core::mem::transmute(dwzone), ::core::mem::transmute(dwreserved)).ok()
     }
 }
 impl ::core::convert::From<IInternetZoneManagerEx2> for IInternetZoneManagerEx {
@@ -4725,13 +4725,13 @@ pub struct IWinInetCacheHints2(::windows::core::IUnknown);
 impl IWinInetCacheHints2 {
     #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCacheExtension<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwzext: Param0, pszcachefile: *mut ::core::ffi::c_void, pcbcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCacheExtension)(::core::mem::transmute_copy(self), pwzext.into_param().abi(), ::core::mem::transmute(pszcachefile), ::core::mem::transmute(pcbcachefile), ::core::mem::transmute(pdwwinineterror), ::core::mem::transmute(pdwreserved)).ok()
+    pub unsafe fn SetCacheExtension2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwzext: Param0, pwzcachefile: super::super::super::Foundation::PWSTR, pcchcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCacheExtension2)(::core::mem::transmute_copy(self), pwzext.into_param().abi(), ::core::mem::transmute(pwzcachefile), ::core::mem::transmute(pcchcachefile), ::core::mem::transmute(pdwwinineterror), ::core::mem::transmute(pdwreserved)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCacheExtension2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwzext: Param0, pwzcachefile: super::super::super::Foundation::PWSTR, pcchcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCacheExtension2)(::core::mem::transmute_copy(self), pwzext.into_param().abi(), ::core::mem::transmute(pwzcachefile), ::core::mem::transmute(pcchcachefile), ::core::mem::transmute(pdwwinineterror), ::core::mem::transmute(pdwreserved)).ok()
+    pub unsafe fn SetCacheExtension<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwzext: Param0, pszcachefile: *mut ::core::ffi::c_void, pcbcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetCacheExtension)(::core::mem::transmute_copy(self), pwzext.into_param().abi(), ::core::mem::transmute(pszcachefile), ::core::mem::transmute(pcbcachefile), ::core::mem::transmute(pdwwinineterror), ::core::mem::transmute(pdwreserved)).ok()
     }
 }
 impl ::core::convert::From<IWinInetCacheHints2> for IWinInetCacheHints {
@@ -4868,12 +4868,12 @@ pub struct IWinInetFileStreamVtbl {
 pub struct IWinInetHttpInfo(::windows::core::IUnknown);
 impl IWinInetHttpInfo {
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn QueryOption(&self, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).QueryOption)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoption), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbbuf)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub unsafe fn QueryInfo(&self, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32, pdwflags: *mut u32, pdwreserved: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).QueryInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoption), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbbuf), ::core::mem::transmute(pdwflags), ::core::mem::transmute(pdwreserved)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn QueryOption(&self, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.QueryOption)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoption), ::core::mem::transmute(pbuffer), ::core::mem::transmute(pcbbuf)).ok()
     }
 }
 impl ::core::convert::From<IWinInetHttpInfo> for IWinInetInfo {
@@ -5237,19 +5237,6 @@ pub struct IZoneIdentifierVtbl {
 #[repr(transparent)]
 pub struct IZoneIdentifier2(::windows::core::IUnknown);
 impl IZoneIdentifier2 {
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn GetId(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn SetId(&self, dwzone: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetId)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
-    pub unsafe fn Remove(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::core::mem::transmute_copy(self)).ok()
-    }
     #[doc = "*Required features: 'Win32_System_Com_Urlmon', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLastWriterPackageFamilyName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
@@ -5277,6 +5264,19 @@ impl IZoneIdentifier2 {
     #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
     pub unsafe fn RemoveAppZoneId(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveAppZoneId)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn GetId(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn SetId(&self, dwzone: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetId)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwzone)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Urlmon'*"]
+    pub unsafe fn Remove(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Remove)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IZoneIdentifier2> for IZoneIdentifier {

@@ -155,6 +155,15 @@ impl Gen<'_> {
                     self.add_namespace(def.namespace(), namespaces);
                 }
             }
+            TypeKind::Interface => {
+                if !def.is_winrt() {
+                    for def in def.vtable_types().iter().rev().skip(1) {
+                        if let ElementType::TypeDef(def) = def {
+                            self.add_namespace(def.namespace(), namespaces);
+                        }
+                    }
+                }
+            }
             TypeKind::Struct => {
                 def.fields().for_each(|field| self.field_requirements(&field, Some(def), namespaces, keys));
 

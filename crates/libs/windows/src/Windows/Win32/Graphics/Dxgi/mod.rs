@@ -2410,23 +2410,6 @@ pub const DXGI_USAGE_UNORDERED_ACCESS: u32 = 1024u32;
 pub struct IDXGIAdapter(::windows::core::IUnknown);
 impl IDXGIAdapter {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn EnumOutputs(&self, output: u32) -> ::windows::core::Result<IDXGIOutput> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EnumOutputs)(::core::mem::transmute_copy(self), ::core::mem::transmute(output), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutput>(result__)
@@ -2441,6 +2424,23 @@ impl IDXGIAdapter {
     pub unsafe fn CheckInterfaceSupport(&self, interfacename: *const ::windows::core::GUID) -> ::windows::core::Result<i64> {
         let mut result__: i64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CheckInterfaceSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(interfacename), ::core::mem::transmute(&mut result__)).from_abi::<i64>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIAdapter> for IDXGIObject {
@@ -2518,44 +2518,44 @@ pub struct IDXGIAdapterVtbl {
 #[repr(transparent)]
 pub struct IDXGIAdapter1(::windows::core::IUnknown);
 impl IDXGIAdapter1 {
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn EnumOutputs(&self, output: u32) -> ::windows::core::Result<IDXGIOutput> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnumOutputs)(::core::mem::transmute_copy(self), ::core::mem::transmute(output), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutput>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC> {
-        let mut result__: DXGI_ADAPTER_DESC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_ADAPTER_DESC>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn CheckInterfaceSupport(&self, interfacename: *const ::windows::core::GUID) -> ::windows::core::Result<i64> {
-        let mut result__: i64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CheckInterfaceSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(interfacename), ::core::mem::transmute(&mut result__)).from_abi::<i64>(result__)
-    }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDesc1(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC1> {
         let mut result__: DXGI_ADAPTER_DESC1 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_ADAPTER_DESC1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn EnumOutputs(&self, output: u32) -> ::windows::core::Result<IDXGIOutput> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.EnumOutputs)(::core::mem::transmute_copy(self), ::core::mem::transmute(output), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutput>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC> {
+        let mut result__: DXGI_ADAPTER_DESC = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_ADAPTER_DESC>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn CheckInterfaceSupport(&self, interfacename: *const ::windows::core::GUID) -> ::windows::core::Result<i64> {
+        let mut result__: i64 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CheckInterfaceSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(interfacename), ::core::mem::transmute(&mut result__)).from_abi::<i64>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIAdapter1> for IDXGIAdapter {
@@ -2651,50 +2651,50 @@ pub struct IDXGIAdapter1Vtbl {
 #[repr(transparent)]
 pub struct IDXGIAdapter2(::windows::core::IUnknown);
 impl IDXGIAdapter2 {
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn EnumOutputs(&self, output: u32) -> ::windows::core::Result<IDXGIOutput> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnumOutputs)(::core::mem::transmute_copy(self), ::core::mem::transmute(output), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutput>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC> {
-        let mut result__: DXGI_ADAPTER_DESC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_ADAPTER_DESC>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn CheckInterfaceSupport(&self, interfacename: *const ::windows::core::GUID) -> ::windows::core::Result<i64> {
-        let mut result__: i64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CheckInterfaceSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(interfacename), ::core::mem::transmute(&mut result__)).from_abi::<i64>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDesc1(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC1> {
-        let mut result__: DXGI_ADAPTER_DESC1 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_ADAPTER_DESC1>(result__)
-    }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDesc2(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC2> {
         let mut result__: DXGI_ADAPTER_DESC2 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDesc2)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_ADAPTER_DESC2>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDesc1(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC1> {
+        let mut result__: DXGI_ADAPTER_DESC1 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_ADAPTER_DESC1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn EnumOutputs(&self, output: u32) -> ::windows::core::Result<IDXGIOutput> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.EnumOutputs)(::core::mem::transmute_copy(self), ::core::mem::transmute(output), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutput>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC> {
+        let mut result__: DXGI_ADAPTER_DESC = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_ADAPTER_DESC>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn CheckInterfaceSupport(&self, interfacename: *const ::windows::core::GUID) -> ::windows::core::Result<i64> {
+        let mut result__: i64 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CheckInterfaceSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(interfacename), ::core::mem::transmute(&mut result__)).from_abi::<i64>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIAdapter2> for IDXGIAdapter1 {
@@ -2810,51 +2810,6 @@ pub struct IDXGIAdapter2Vtbl {
 #[repr(transparent)]
 pub struct IDXGIAdapter3(::windows::core::IUnknown);
 impl IDXGIAdapter3 {
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn EnumOutputs(&self, output: u32) -> ::windows::core::Result<IDXGIOutput> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnumOutputs)(::core::mem::transmute_copy(self), ::core::mem::transmute(output), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutput>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC> {
-        let mut result__: DXGI_ADAPTER_DESC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_ADAPTER_DESC>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn CheckInterfaceSupport(&self, interfacename: *const ::windows::core::GUID) -> ::windows::core::Result<i64> {
-        let mut result__: i64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CheckInterfaceSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(interfacename), ::core::mem::transmute(&mut result__)).from_abi::<i64>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDesc1(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC1> {
-        let mut result__: DXGI_ADAPTER_DESC1 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_ADAPTER_DESC1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDesc2(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC2> {
-        let mut result__: DXGI_ADAPTER_DESC2 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDesc2)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_ADAPTER_DESC2>(result__)
-    }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterHardwareContentProtectionTeardownStatusEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
@@ -2883,6 +2838,51 @@ impl IDXGIAdapter3 {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn UnregisterVideoMemoryBudgetChangeNotification(&self, dwcookie: u32) {
         (::windows::core::Interface::vtable(self).UnregisterVideoMemoryBudgetChangeNotification)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDesc2(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC2> {
+        let mut result__: DXGI_ADAPTER_DESC2 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetDesc2)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_ADAPTER_DESC2>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDesc1(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC1> {
+        let mut result__: DXGI_ADAPTER_DESC1 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_ADAPTER_DESC1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn EnumOutputs(&self, output: u32) -> ::windows::core::Result<IDXGIOutput> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.EnumOutputs)(::core::mem::transmute_copy(self), ::core::mem::transmute(output), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutput>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC> {
+        let mut result__: DXGI_ADAPTER_DESC = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_ADAPTER_DESC>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn CheckInterfaceSupport(&self, interfacename: *const ::windows::core::GUID) -> ::windows::core::Result<i64> {
+        let mut result__: i64 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CheckInterfaceSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(interfacename), ::core::mem::transmute(&mut result__)).from_abi::<i64>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIAdapter3> for IDXGIAdapter2 {
@@ -3026,85 +3026,85 @@ pub struct IDXGIAdapter3Vtbl {
 #[repr(transparent)]
 pub struct IDXGIAdapter4(::windows::core::IUnknown);
 impl IDXGIAdapter4 {
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn EnumOutputs(&self, output: u32) -> ::windows::core::Result<IDXGIOutput> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnumOutputs)(::core::mem::transmute_copy(self), ::core::mem::transmute(output), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutput>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC> {
-        let mut result__: DXGI_ADAPTER_DESC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_ADAPTER_DESC>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn CheckInterfaceSupport(&self, interfacename: *const ::windows::core::GUID) -> ::windows::core::Result<i64> {
-        let mut result__: i64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CheckInterfaceSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(interfacename), ::core::mem::transmute(&mut result__)).from_abi::<i64>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDesc1(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC1> {
-        let mut result__: DXGI_ADAPTER_DESC1 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_ADAPTER_DESC1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDesc2(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC2> {
-        let mut result__: DXGI_ADAPTER_DESC2 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDesc2)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_ADAPTER_DESC2>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterHardwareContentProtectionTeardownStatusEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterHardwareContentProtectionTeardownStatusEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn UnregisterHardwareContentProtectionTeardownStatus(&self, dwcookie: u32) {
-        (::windows::core::Interface::vtable(self).UnregisterHardwareContentProtectionTeardownStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn QueryVideoMemoryInfo(&self, nodeindex: u32, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP) -> ::windows::core::Result<DXGI_QUERY_VIDEO_MEMORY_INFO> {
-        let mut result__: DXGI_QUERY_VIDEO_MEMORY_INFO = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).QueryVideoMemoryInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodeindex), ::core::mem::transmute(memorysegmentgroup), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_QUERY_VIDEO_MEMORY_INFO>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetVideoMemoryReservation(&self, nodeindex: u32, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP, reservation: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVideoMemoryReservation)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodeindex), ::core::mem::transmute(memorysegmentgroup), ::core::mem::transmute(reservation)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterVideoMemoryBudgetChangeNotificationEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterVideoMemoryBudgetChangeNotificationEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn UnregisterVideoMemoryBudgetChangeNotification(&self, dwcookie: u32) {
-        (::windows::core::Interface::vtable(self).UnregisterVideoMemoryBudgetChangeNotification)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
-    }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDesc3(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC3> {
         let mut result__: DXGI_ADAPTER_DESC3 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetDesc3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_ADAPTER_DESC3>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn RegisterHardwareContentProtectionTeardownStatusEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.RegisterHardwareContentProtectionTeardownStatusEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn UnregisterHardwareContentProtectionTeardownStatus(&self, dwcookie: u32) {
+        (::windows::core::Interface::vtable(self).base.UnregisterHardwareContentProtectionTeardownStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn QueryVideoMemoryInfo(&self, nodeindex: u32, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP) -> ::windows::core::Result<DXGI_QUERY_VIDEO_MEMORY_INFO> {
+        let mut result__: DXGI_QUERY_VIDEO_MEMORY_INFO = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.QueryVideoMemoryInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodeindex), ::core::mem::transmute(memorysegmentgroup), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_QUERY_VIDEO_MEMORY_INFO>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetVideoMemoryReservation(&self, nodeindex: u32, memorysegmentgroup: DXGI_MEMORY_SEGMENT_GROUP, reservation: u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetVideoMemoryReservation)(::core::mem::transmute_copy(self), ::core::mem::transmute(nodeindex), ::core::mem::transmute(memorysegmentgroup), ::core::mem::transmute(reservation)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn RegisterVideoMemoryBudgetChangeNotificationEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.RegisterVideoMemoryBudgetChangeNotificationEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn UnregisterVideoMemoryBudgetChangeNotification(&self, dwcookie: u32) {
+        (::windows::core::Interface::vtable(self).base.UnregisterVideoMemoryBudgetChangeNotification)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDesc2(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC2> {
+        let mut result__: DXGI_ADAPTER_DESC2 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetDesc2)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_ADAPTER_DESC2>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDesc1(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC1> {
+        let mut result__: DXGI_ADAPTER_DESC1 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_ADAPTER_DESC1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn EnumOutputs(&self, output: u32) -> ::windows::core::Result<IDXGIOutput> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.EnumOutputs)(::core::mem::transmute_copy(self), ::core::mem::transmute(output), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutput>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_ADAPTER_DESC> {
+        let mut result__: DXGI_ADAPTER_DESC = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_ADAPTER_DESC>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn CheckInterfaceSupport(&self, interfacename: *const ::windows::core::GUID) -> ::windows::core::Result<i64> {
+        let mut result__: i64 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CheckInterfaceSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(interfacename), ::core::mem::transmute(&mut result__)).from_abi::<i64>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIAdapter4> for IDXGIAdapter3 {
@@ -3316,10 +3316,6 @@ pub struct IDXGIDebugVtbl {
 pub struct IDXGIDebug1(::windows::core::IUnknown);
 impl IDXGIDebug1 {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn ReportLiveObjects<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, apiid: Param0, flags: DXGI_DEBUG_RLO_FLAGS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReportLiveObjects)(::core::mem::transmute_copy(self), apiid.into_param().abi(), ::core::mem::transmute(flags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn EnableLeakTrackingForThread(&self) {
         (::windows::core::Interface::vtable(self).EnableLeakTrackingForThread)(::core::mem::transmute_copy(self))
     }
@@ -3331,6 +3327,10 @@ impl IDXGIDebug1 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsLeakTrackingEnabledForThread(&self) -> super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).IsLeakTrackingEnabledForThread)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn ReportLiveObjects<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, apiid: Param0, flags: DXGI_DEBUG_RLO_FLAGS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.ReportLiveObjects)(::core::mem::transmute_copy(self), apiid.into_param().abi(), ::core::mem::transmute(flags)).ok()
     }
 }
 impl ::core::convert::From<IDXGIDebug1> for IDXGIDebug {
@@ -3522,23 +3522,6 @@ pub struct IDXGIDecodeSwapChainVtbl {
 pub struct IDXGIDevice(::windows::core::IUnknown);
 impl IDXGIDevice {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn GetAdapter(&self) -> ::windows::core::Result<IDXGIAdapter> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetAdapter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
@@ -3560,6 +3543,23 @@ impl IDXGIDevice {
     pub unsafe fn GetGPUThreadPriority(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetGPUThreadPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIDevice> for IDXGIObject {
@@ -3640,46 +3640,6 @@ pub struct IDXGIDeviceVtbl {
 pub struct IDXGIDevice1(::windows::core::IUnknown);
 impl IDXGIDevice1 {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetAdapter(&self) -> ::windows::core::Result<IDXGIAdapter> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetAdapter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::core::option::Option<IDXGISurface>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateSurface)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numsurfaces), ::core::mem::transmute(usage), ::core::mem::transmute(psharedresource), ::core::mem::transmute(ppsurface)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn QueryResourceResidency(&self, ppresources: *const ::core::option::Option<::windows::core::IUnknown>, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).QueryResourceResidency)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources), ::core::mem::transmute(presidencystatus), ::core::mem::transmute(numresources)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetGPUThreadPriority(&self, priority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGPUThreadPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(priority)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetGPUThreadPriority(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetGPUThreadPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn SetMaximumFrameLatency(&self, maxlatency: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMaximumFrameLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(maxlatency)).ok()
     }
@@ -3687,6 +3647,46 @@ impl IDXGIDevice1 {
     pub unsafe fn GetMaximumFrameLatency(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetMaximumFrameLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetAdapter(&self) -> ::windows::core::Result<IDXGIAdapter> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetAdapter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::core::option::Option<IDXGISurface>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.CreateSurface)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numsurfaces), ::core::mem::transmute(usage), ::core::mem::transmute(psharedresource), ::core::mem::transmute(ppsurface)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn QueryResourceResidency(&self, ppresources: *const ::core::option::Option<::windows::core::IUnknown>, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.QueryResourceResidency)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources), ::core::mem::transmute(presidencystatus), ::core::mem::transmute(numresources)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetGPUThreadPriority(&self, priority: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetGPUThreadPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(priority)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetGPUThreadPriority(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetGPUThreadPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIDevice1> for IDXGIDevice {
@@ -3781,55 +3781,6 @@ pub struct IDXGIDevice1Vtbl {
 pub struct IDXGIDevice2(::windows::core::IUnknown);
 impl IDXGIDevice2 {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetAdapter(&self) -> ::windows::core::Result<IDXGIAdapter> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetAdapter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::core::option::Option<IDXGISurface>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateSurface)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numsurfaces), ::core::mem::transmute(usage), ::core::mem::transmute(psharedresource), ::core::mem::transmute(ppsurface)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn QueryResourceResidency(&self, ppresources: *const ::core::option::Option<::windows::core::IUnknown>, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).QueryResourceResidency)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources), ::core::mem::transmute(presidencystatus), ::core::mem::transmute(numresources)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetGPUThreadPriority(&self, priority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGPUThreadPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(priority)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetGPUThreadPriority(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetGPUThreadPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetMaximumFrameLatency(&self, maxlatency: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaximumFrameLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(maxlatency)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetMaximumFrameLatency(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetMaximumFrameLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn OfferResources(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>, priority: DXGI_OFFER_RESOURCE_PRIORITY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OfferResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(numresources), ::core::mem::transmute(ppresources), ::core::mem::transmute(priority)).ok()
     }
@@ -3843,6 +3794,55 @@ impl IDXGIDevice2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnqueueSetEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).EnqueueSetEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetMaximumFrameLatency(&self, maxlatency: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetMaximumFrameLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(maxlatency)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetMaximumFrameLatency(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetMaximumFrameLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetAdapter(&self) -> ::windows::core::Result<IDXGIAdapter> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetAdapter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::core::option::Option<IDXGISurface>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.CreateSurface)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numsurfaces), ::core::mem::transmute(usage), ::core::mem::transmute(psharedresource), ::core::mem::transmute(ppsurface)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn QueryResourceResidency(&self, ppresources: *const ::core::option::Option<::windows::core::IUnknown>, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.QueryResourceResidency)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources), ::core::mem::transmute(presidencystatus), ::core::mem::transmute(numresources)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetGPUThreadPriority(&self, priority: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetGPUThreadPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(priority)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetGPUThreadPriority(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetGPUThreadPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIDevice2> for IDXGIDevice1 {
@@ -3964,72 +3964,72 @@ pub struct IDXGIDevice2Vtbl {
 pub struct IDXGIDevice3(::windows::core::IUnknown);
 impl IDXGIDevice3 {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetAdapter(&self) -> ::windows::core::Result<IDXGIAdapter> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetAdapter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::core::option::Option<IDXGISurface>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateSurface)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numsurfaces), ::core::mem::transmute(usage), ::core::mem::transmute(psharedresource), ::core::mem::transmute(ppsurface)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn QueryResourceResidency(&self, ppresources: *const ::core::option::Option<::windows::core::IUnknown>, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).QueryResourceResidency)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources), ::core::mem::transmute(presidencystatus), ::core::mem::transmute(numresources)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetGPUThreadPriority(&self, priority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGPUThreadPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(priority)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetGPUThreadPriority(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetGPUThreadPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetMaximumFrameLatency(&self, maxlatency: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaximumFrameLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(maxlatency)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetMaximumFrameLatency(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetMaximumFrameLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    pub unsafe fn Trim(&self) {
+        (::windows::core::Interface::vtable(self).Trim)(::core::mem::transmute_copy(self))
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn OfferResources(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>, priority: DXGI_OFFER_RESOURCE_PRIORITY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OfferResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(numresources), ::core::mem::transmute(ppresources), ::core::mem::transmute(priority)).ok()
+        (::windows::core::Interface::vtable(self).base.OfferResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(numresources), ::core::mem::transmute(ppresources), ::core::mem::transmute(priority)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReclaimResources(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ReclaimResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(numresources), ::core::mem::transmute(ppresources), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).base.ReclaimResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(numresources), ::core::mem::transmute(ppresources), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnqueueSetEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnqueueSetEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.EnqueueSetEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn Trim(&self) {
-        (::windows::core::Interface::vtable(self).Trim)(::core::mem::transmute_copy(self))
+    pub unsafe fn SetMaximumFrameLatency(&self, maxlatency: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetMaximumFrameLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(maxlatency)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetMaximumFrameLatency(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetMaximumFrameLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetAdapter(&self) -> ::windows::core::Result<IDXGIAdapter> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetAdapter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::core::option::Option<IDXGISurface>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.CreateSurface)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numsurfaces), ::core::mem::transmute(usage), ::core::mem::transmute(psharedresource), ::core::mem::transmute(ppsurface)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn QueryResourceResidency(&self, ppresources: *const ::core::option::Option<::windows::core::IUnknown>, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.QueryResourceResidency)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources), ::core::mem::transmute(presidencystatus), ::core::mem::transmute(numresources)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetGPUThreadPriority(&self, priority: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetGPUThreadPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(priority)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetGPUThreadPriority(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetGPUThreadPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIDevice3> for IDXGIDevice2 {
@@ -4163,74 +4163,6 @@ pub struct IDXGIDevice3Vtbl {
 pub struct IDXGIDevice4(::windows::core::IUnknown);
 impl IDXGIDevice4 {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetAdapter(&self) -> ::windows::core::Result<IDXGIAdapter> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetAdapter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::core::option::Option<IDXGISurface>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateSurface)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numsurfaces), ::core::mem::transmute(usage), ::core::mem::transmute(psharedresource), ::core::mem::transmute(ppsurface)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn QueryResourceResidency(&self, ppresources: *const ::core::option::Option<::windows::core::IUnknown>, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).QueryResourceResidency)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources), ::core::mem::transmute(presidencystatus), ::core::mem::transmute(numresources)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetGPUThreadPriority(&self, priority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGPUThreadPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(priority)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetGPUThreadPriority(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetGPUThreadPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetMaximumFrameLatency(&self, maxlatency: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaximumFrameLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(maxlatency)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetMaximumFrameLatency(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetMaximumFrameLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn OfferResources(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>, priority: DXGI_OFFER_RESOURCE_PRIORITY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OfferResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(numresources), ::core::mem::transmute(ppresources), ::core::mem::transmute(priority)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ReclaimResources(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ReclaimResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(numresources), ::core::mem::transmute(ppresources), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnqueueSetEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnqueueSetEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn Trim(&self) {
-        (::windows::core::Interface::vtable(self).Trim)(::core::mem::transmute_copy(self))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn OfferResources1(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>, priority: DXGI_OFFER_RESOURCE_PRIORITY, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).OfferResources1)(::core::mem::transmute_copy(self), ::core::mem::transmute(numresources), ::core::mem::transmute(ppresources), ::core::mem::transmute(priority), ::core::mem::transmute(flags)).ok()
     }
@@ -4238,6 +4170,74 @@ impl IDXGIDevice4 {
     pub unsafe fn ReclaimResources1(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>) -> ::windows::core::Result<DXGI_RECLAIM_RESOURCE_RESULTS> {
         let mut result__: DXGI_RECLAIM_RESOURCE_RESULTS = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ReclaimResources1)(::core::mem::transmute_copy(self), ::core::mem::transmute(numresources), ::core::mem::transmute(ppresources), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_RECLAIM_RESOURCE_RESULTS>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn Trim(&self) {
+        (::windows::core::Interface::vtable(self).base.Trim)(::core::mem::transmute_copy(self))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn OfferResources(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>, priority: DXGI_OFFER_RESOURCE_PRIORITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.OfferResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(numresources), ::core::mem::transmute(ppresources), ::core::mem::transmute(priority)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn ReclaimResources(&self, numresources: u32, ppresources: *const ::core::option::Option<IDXGIResource>) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.ReclaimResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(numresources), ::core::mem::transmute(ppresources), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn EnqueueSetEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.EnqueueSetEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetMaximumFrameLatency(&self, maxlatency: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetMaximumFrameLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(maxlatency)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetMaximumFrameLatency(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetMaximumFrameLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetAdapter(&self) -> ::windows::core::Result<IDXGIAdapter> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetAdapter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, numsurfaces: u32, usage: u32, psharedresource: *const DXGI_SHARED_RESOURCE, ppsurface: *mut ::core::option::Option<IDXGISurface>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.CreateSurface)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(numsurfaces), ::core::mem::transmute(usage), ::core::mem::transmute(psharedresource), ::core::mem::transmute(ppsurface)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn QueryResourceResidency(&self, ppresources: *const ::core::option::Option<::windows::core::IUnknown>, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.QueryResourceResidency)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresources), ::core::mem::transmute(presidencystatus), ::core::mem::transmute(numresources)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetGPUThreadPriority(&self, priority: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetGPUThreadPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(priority)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetGPUThreadPriority(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetGPUThreadPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIDevice4> for IDXGIDevice3 {
@@ -4392,26 +4392,26 @@ pub struct IDXGIDevice4Vtbl {
 pub struct IDXGIDeviceSubObject(::windows::core::IUnknown);
 impl IDXGIDeviceSubObject {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+        (::windows::core::Interface::vtable(self).base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+        (::windows::core::Interface::vtable(self).base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIDeviceSubObject> for IDXGIObject {
@@ -4553,23 +4553,6 @@ pub struct IDXGIDisplayControlVtbl {
 pub struct IDXGIFactory(::windows::core::IUnknown);
 impl IDXGIFactory {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn EnumAdapters(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EnumAdapters)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
@@ -4596,6 +4579,23 @@ impl IDXGIFactory {
     pub unsafe fn CreateSoftwareAdapter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, module: Param0) -> ::windows::core::Result<IDXGIAdapter> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateSoftwareAdapter)(::core::mem::transmute_copy(self), module.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIFactory> for IDXGIObject {
@@ -4685,51 +4685,6 @@ pub struct IDXGIFactoryVtbl {
 pub struct IDXGIFactory1(::windows::core::IUnknown);
 impl IDXGIFactory1 {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn EnumAdapters(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnumAdapters)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MakeWindowAssociation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MakeWindowAssociation)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(flags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetWindowAssociation(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
-        let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetWindowAssociation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::core::Result<IDXGISwapChain> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSwapChain)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSoftwareAdapter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, module: Param0) -> ::windows::core::Result<IDXGIAdapter> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSoftwareAdapter)(::core::mem::transmute_copy(self), module.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn EnumAdapters1(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).EnumAdapters1)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter1>(result__)
@@ -4738,6 +4693,51 @@ impl IDXGIFactory1 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsCurrent(&self) -> super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).IsCurrent)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn EnumAdapters(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.EnumAdapters)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn MakeWindowAssociation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.MakeWindowAssociation)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(flags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetWindowAssociation(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
+        let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetWindowAssociation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::core::Result<IDXGISwapChain> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateSwapChain)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateSoftwareAdapter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, module: Param0) -> ::windows::core::Result<IDXGIAdapter> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateSoftwareAdapter)(::core::mem::transmute_copy(self), module.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIFactory1> for IDXGIFactory {
@@ -4834,61 +4834,6 @@ pub struct IDXGIFactory1Vtbl {
 #[repr(transparent)]
 pub struct IDXGIFactory2(::windows::core::IUnknown);
 impl IDXGIFactory2 {
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn EnumAdapters(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnumAdapters)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MakeWindowAssociation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MakeWindowAssociation)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(flags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetWindowAssociation(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
-        let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetWindowAssociation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::core::Result<IDXGISwapChain> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSwapChain)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSoftwareAdapter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, module: Param0) -> ::windows::core::Result<IDXGIAdapter> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSoftwareAdapter)(::core::mem::transmute_copy(self), module.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn EnumAdapters1(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnumAdapters1)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsCurrent(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsCurrent)(::core::mem::transmute_copy(self)))
-    }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsWindowedStereoEnabled(&self) -> super::super::Foundation::BOOL {
@@ -4949,6 +4894,61 @@ impl IDXGIFactory2 {
     pub unsafe fn CreateSwapChainForComposition<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param2) -> ::windows::core::Result<IDXGISwapChain1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateSwapChainForComposition)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn EnumAdapters1(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.EnumAdapters1)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsCurrent(&self) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.IsCurrent)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn EnumAdapters(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.EnumAdapters)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn MakeWindowAssociation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.MakeWindowAssociation)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(flags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetWindowAssociation(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
+        let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetWindowAssociation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::core::Result<IDXGISwapChain> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CreateSwapChain)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateSoftwareAdapter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, module: Param0) -> ::windows::core::Result<IDXGIAdapter> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CreateSoftwareAdapter)(::core::mem::transmute_copy(self), module.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIFactory2> for IDXGIFactory1 {
@@ -5099,124 +5099,124 @@ pub struct IDXGIFactory2Vtbl {
 pub struct IDXGIFactory3(::windows::core::IUnknown);
 impl IDXGIFactory3 {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn EnumAdapters(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnumAdapters)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MakeWindowAssociation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MakeWindowAssociation)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(flags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetWindowAssociation(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
-        let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetWindowAssociation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::core::Result<IDXGISwapChain> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSwapChain)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSoftwareAdapter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, module: Param0) -> ::windows::core::Result<IDXGIAdapter> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSoftwareAdapter)(::core::mem::transmute_copy(self), module.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn EnumAdapters1(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnumAdapters1)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsCurrent(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsCurrent)(::core::mem::transmute_copy(self)))
+    pub unsafe fn GetCreationFlags(&self) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetCreationFlags)(::core::mem::transmute_copy(self)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsWindowedStereoEnabled(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsWindowedStereoEnabled)(::core::mem::transmute_copy(self)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.IsWindowedStereoEnabled)(::core::mem::transmute_copy(self)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateSwapChainForHwnd<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, hwnd: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: Param4) -> ::windows::core::Result<IDXGISwapChain1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSwapChainForHwnd)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(pfullscreendesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateSwapChainForHwnd)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(pfullscreendesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateSwapChainForCoreWindow<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pwindow: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param3) -> ::windows::core::Result<IDXGISwapChain1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSwapChainForCoreWindow)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), pwindow.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateSwapChainForCoreWindow)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), pwindow.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSharedResourceAdapterLuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hresource: Param0) -> ::windows::core::Result<super::super::Foundation::LUID> {
         let mut result__: super::super::Foundation::LUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSharedResourceAdapterLuid)(::core::mem::transmute_copy(self), hresource.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::LUID>(result__)
+        (::windows::core::Interface::vtable(self).base.GetSharedResourceAdapterLuid)(::core::mem::transmute_copy(self), hresource.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::LUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterStereoStatusWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, wmsg: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterStereoStatusWindow)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(wmsg), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base.RegisterStereoStatusWindow)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(wmsg), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterStereoStatusEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterStereoStatusEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base.RegisterStereoStatusEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn UnregisterStereoStatus(&self, dwcookie: u32) {
-        (::windows::core::Interface::vtable(self).UnregisterStereoStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
+        (::windows::core::Interface::vtable(self).base.UnregisterStereoStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterOcclusionStatusWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, wmsg: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterOcclusionStatusWindow)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(wmsg), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base.RegisterOcclusionStatusWindow)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(wmsg), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterOcclusionStatusEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterOcclusionStatusEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base.RegisterOcclusionStatusEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn UnregisterOcclusionStatus(&self, dwcookie: u32) {
-        (::windows::core::Interface::vtable(self).UnregisterOcclusionStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
+        (::windows::core::Interface::vtable(self).base.UnregisterOcclusionStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateSwapChainForComposition<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param2) -> ::windows::core::Result<IDXGISwapChain1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSwapChainForComposition)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateSwapChainForComposition)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetCreationFlags(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetCreationFlags)(::core::mem::transmute_copy(self)))
+    pub unsafe fn EnumAdapters1(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.EnumAdapters1)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsCurrent(&self) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.IsCurrent)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn EnumAdapters(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.EnumAdapters)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn MakeWindowAssociation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.MakeWindowAssociation)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(flags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetWindowAssociation(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
+        let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetWindowAssociation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::core::Result<IDXGISwapChain> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CreateSwapChain)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateSoftwareAdapter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, module: Param0) -> ::windows::core::Result<IDXGIAdapter> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CreateSoftwareAdapter)(::core::mem::transmute_copy(self), module.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIFactory3> for IDXGIFactory2 {
@@ -5349,126 +5349,6 @@ pub struct IDXGIFactory3Vtbl {
 #[repr(transparent)]
 pub struct IDXGIFactory4(::windows::core::IUnknown);
 impl IDXGIFactory4 {
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn EnumAdapters(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnumAdapters)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MakeWindowAssociation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MakeWindowAssociation)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(flags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetWindowAssociation(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
-        let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetWindowAssociation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::core::Result<IDXGISwapChain> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSwapChain)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSoftwareAdapter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, module: Param0) -> ::windows::core::Result<IDXGIAdapter> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSoftwareAdapter)(::core::mem::transmute_copy(self), module.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn EnumAdapters1(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnumAdapters1)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsCurrent(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsCurrent)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsWindowedStereoEnabled(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsWindowedStereoEnabled)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForHwnd<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, hwnd: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: Param4) -> ::windows::core::Result<IDXGISwapChain1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSwapChainForHwnd)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(pfullscreendesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForCoreWindow<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pwindow: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param3) -> ::windows::core::Result<IDXGISwapChain1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSwapChainForCoreWindow)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), pwindow.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSharedResourceAdapterLuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hresource: Param0) -> ::windows::core::Result<super::super::Foundation::LUID> {
-        let mut result__: super::super::Foundation::LUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSharedResourceAdapterLuid)(::core::mem::transmute_copy(self), hresource.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::LUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterStereoStatusWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, wmsg: u32) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterStereoStatusWindow)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(wmsg), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterStereoStatusEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterStereoStatusEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn UnregisterStereoStatus(&self, dwcookie: u32) {
-        (::windows::core::Interface::vtable(self).UnregisterStereoStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterOcclusionStatusWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, wmsg: u32) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterOcclusionStatusWindow)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(wmsg), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterOcclusionStatusEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterOcclusionStatusEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn UnregisterOcclusionStatus(&self, dwcookie: u32) {
-        (::windows::core::Interface::vtable(self).UnregisterOcclusionStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForComposition<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param2) -> ::windows::core::Result<IDXGISwapChain1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSwapChainForComposition)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetCreationFlags(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetCreationFlags)(::core::mem::transmute_copy(self)))
-    }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumAdapterByLuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::LUID>, T: ::windows::core::Interface>(&self, adapterluid: Param0) -> ::windows::core::Result<T> {
@@ -5479,6 +5359,126 @@ impl IDXGIFactory4 {
     pub unsafe fn EnumWarpAdapter<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).EnumWarpAdapter)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetCreationFlags(&self) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetCreationFlags)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsWindowedStereoEnabled(&self) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.IsWindowedStereoEnabled)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CreateSwapChainForHwnd<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, hwnd: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: Param4) -> ::windows::core::Result<IDXGISwapChain1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CreateSwapChainForHwnd)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(pfullscreendesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CreateSwapChainForCoreWindow<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pwindow: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param3) -> ::windows::core::Result<IDXGISwapChain1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CreateSwapChainForCoreWindow)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), pwindow.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetSharedResourceAdapterLuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hresource: Param0) -> ::windows::core::Result<super::super::Foundation::LUID> {
+        let mut result__: super::super::Foundation::LUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetSharedResourceAdapterLuid)(::core::mem::transmute_copy(self), hresource.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::LUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn RegisterStereoStatusWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, wmsg: u32) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.RegisterStereoStatusWindow)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(wmsg), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn RegisterStereoStatusEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.RegisterStereoStatusEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn UnregisterStereoStatus(&self, dwcookie: u32) {
+        (::windows::core::Interface::vtable(self).base.base.UnregisterStereoStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn RegisterOcclusionStatusWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, wmsg: u32) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.RegisterOcclusionStatusWindow)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(wmsg), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn RegisterOcclusionStatusEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.RegisterOcclusionStatusEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn UnregisterOcclusionStatus(&self, dwcookie: u32) {
+        (::windows::core::Interface::vtable(self).base.base.UnregisterOcclusionStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CreateSwapChainForComposition<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param2) -> ::windows::core::Result<IDXGISwapChain1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CreateSwapChainForComposition)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn EnumAdapters1(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.EnumAdapters1)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsCurrent(&self) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.base.IsCurrent)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn EnumAdapters(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.EnumAdapters)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn MakeWindowAssociation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.MakeWindowAssociation)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(flags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetWindowAssociation(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
+        let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetWindowAssociation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::core::Result<IDXGISwapChain> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CreateSwapChain)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateSoftwareAdapter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, module: Param0) -> ::windows::core::Result<IDXGIAdapter> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CreateSoftwareAdapter)(::core::mem::transmute_copy(self), module.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIFactory4> for IDXGIFactory3 {
@@ -5636,139 +5636,139 @@ pub struct IDXGIFactory4Vtbl {
 pub struct IDXGIFactory5(::windows::core::IUnknown);
 impl IDXGIFactory5 {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn EnumAdapters(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnumAdapters)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MakeWindowAssociation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MakeWindowAssociation)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(flags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetWindowAssociation(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
-        let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetWindowAssociation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::core::Result<IDXGISwapChain> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSwapChain)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSoftwareAdapter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, module: Param0) -> ::windows::core::Result<IDXGIAdapter> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSoftwareAdapter)(::core::mem::transmute_copy(self), module.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn EnumAdapters1(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnumAdapters1)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsCurrent(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsCurrent)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsWindowedStereoEnabled(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsWindowedStereoEnabled)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForHwnd<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, hwnd: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: Param4) -> ::windows::core::Result<IDXGISwapChain1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSwapChainForHwnd)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(pfullscreendesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForCoreWindow<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pwindow: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param3) -> ::windows::core::Result<IDXGISwapChain1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSwapChainForCoreWindow)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), pwindow.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSharedResourceAdapterLuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hresource: Param0) -> ::windows::core::Result<super::super::Foundation::LUID> {
-        let mut result__: super::super::Foundation::LUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSharedResourceAdapterLuid)(::core::mem::transmute_copy(self), hresource.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::LUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterStereoStatusWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, wmsg: u32) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterStereoStatusWindow)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(wmsg), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterStereoStatusEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterStereoStatusEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn UnregisterStereoStatus(&self, dwcookie: u32) {
-        (::windows::core::Interface::vtable(self).UnregisterStereoStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterOcclusionStatusWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, wmsg: u32) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterOcclusionStatusWindow)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(wmsg), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterOcclusionStatusEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterOcclusionStatusEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn UnregisterOcclusionStatus(&self, dwcookie: u32) {
-        (::windows::core::Interface::vtable(self).UnregisterOcclusionStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForComposition<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param2) -> ::windows::core::Result<IDXGISwapChain1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSwapChainForComposition)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetCreationFlags(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetCreationFlags)(::core::mem::transmute_copy(self)))
+    pub unsafe fn CheckFeatureSupport(&self, feature: DXGI_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CheckFeatureSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(feature), ::core::mem::transmute(pfeaturesupportdata), ::core::mem::transmute(featuresupportdatasize)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumAdapterByLuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::LUID>, T: ::windows::core::Interface>(&self, adapterluid: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).EnumAdapterByLuid)(::core::mem::transmute_copy(self), adapterluid.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base.EnumAdapterByLuid)(::core::mem::transmute_copy(self), adapterluid.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn EnumWarpAdapter<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).EnumWarpAdapter)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base.EnumWarpAdapter)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn CheckFeatureSupport(&self, feature: DXGI_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CheckFeatureSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(feature), ::core::mem::transmute(pfeaturesupportdata), ::core::mem::transmute(featuresupportdatasize)).ok()
+    pub unsafe fn GetCreationFlags(&self) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.GetCreationFlags)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsWindowedStereoEnabled(&self) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.base.IsWindowedStereoEnabled)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CreateSwapChainForHwnd<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, hwnd: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: Param4) -> ::windows::core::Result<IDXGISwapChain1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CreateSwapChainForHwnd)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(pfullscreendesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CreateSwapChainForCoreWindow<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pwindow: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param3) -> ::windows::core::Result<IDXGISwapChain1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CreateSwapChainForCoreWindow)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), pwindow.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetSharedResourceAdapterLuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hresource: Param0) -> ::windows::core::Result<super::super::Foundation::LUID> {
+        let mut result__: super::super::Foundation::LUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetSharedResourceAdapterLuid)(::core::mem::transmute_copy(self), hresource.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::LUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn RegisterStereoStatusWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, wmsg: u32) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.RegisterStereoStatusWindow)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(wmsg), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn RegisterStereoStatusEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.RegisterStereoStatusEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn UnregisterStereoStatus(&self, dwcookie: u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.UnregisterStereoStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn RegisterOcclusionStatusWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, wmsg: u32) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.RegisterOcclusionStatusWindow)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(wmsg), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn RegisterOcclusionStatusEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.RegisterOcclusionStatusEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn UnregisterOcclusionStatus(&self, dwcookie: u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.UnregisterOcclusionStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CreateSwapChainForComposition<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param2) -> ::windows::core::Result<IDXGISwapChain1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CreateSwapChainForComposition)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn EnumAdapters1(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.EnumAdapters1)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsCurrent(&self) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.base.base.IsCurrent)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn EnumAdapters(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.EnumAdapters)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn MakeWindowAssociation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.MakeWindowAssociation)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(flags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetWindowAssociation(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
+        let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetWindowAssociation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::core::Result<IDXGISwapChain> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CreateSwapChain)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateSoftwareAdapter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, module: Param0) -> ::windows::core::Result<IDXGIAdapter> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CreateSoftwareAdapter)(::core::mem::transmute_copy(self), module.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIFactory5> for IDXGIFactory4 {
@@ -5942,144 +5942,144 @@ pub struct IDXGIFactory5Vtbl {
 pub struct IDXGIFactory6(::windows::core::IUnknown);
 impl IDXGIFactory6 {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+    pub unsafe fn EnumAdapterByGpuPreference<T: ::windows::core::Interface>(&self, adapter: u32, gpupreference: DXGI_GPU_PREFERENCE) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).EnumAdapterByGpuPreference)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(gpupreference), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn EnumAdapters(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnumAdapters)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MakeWindowAssociation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MakeWindowAssociation)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(flags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetWindowAssociation(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
-        let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetWindowAssociation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::core::Result<IDXGISwapChain> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSwapChain)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSoftwareAdapter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, module: Param0) -> ::windows::core::Result<IDXGIAdapter> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSoftwareAdapter)(::core::mem::transmute_copy(self), module.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn EnumAdapters1(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnumAdapters1)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsCurrent(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsCurrent)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsWindowedStereoEnabled(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsWindowedStereoEnabled)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForHwnd<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, hwnd: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: Param4) -> ::windows::core::Result<IDXGISwapChain1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSwapChainForHwnd)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(pfullscreendesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForCoreWindow<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pwindow: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param3) -> ::windows::core::Result<IDXGISwapChain1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSwapChainForCoreWindow)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), pwindow.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSharedResourceAdapterLuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hresource: Param0) -> ::windows::core::Result<super::super::Foundation::LUID> {
-        let mut result__: super::super::Foundation::LUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSharedResourceAdapterLuid)(::core::mem::transmute_copy(self), hresource.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::LUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterStereoStatusWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, wmsg: u32) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterStereoStatusWindow)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(wmsg), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterStereoStatusEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterStereoStatusEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn UnregisterStereoStatus(&self, dwcookie: u32) {
-        (::windows::core::Interface::vtable(self).UnregisterStereoStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterOcclusionStatusWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, wmsg: u32) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterOcclusionStatusWindow)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(wmsg), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterOcclusionStatusEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterOcclusionStatusEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn UnregisterOcclusionStatus(&self, dwcookie: u32) {
-        (::windows::core::Interface::vtable(self).UnregisterOcclusionStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForComposition<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param2) -> ::windows::core::Result<IDXGISwapChain1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSwapChainForComposition)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetCreationFlags(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetCreationFlags)(::core::mem::transmute_copy(self)))
+    pub unsafe fn CheckFeatureSupport(&self, feature: DXGI_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.CheckFeatureSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(feature), ::core::mem::transmute(pfeaturesupportdata), ::core::mem::transmute(featuresupportdatasize)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumAdapterByLuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::LUID>, T: ::windows::core::Interface>(&self, adapterluid: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).EnumAdapterByLuid)(::core::mem::transmute_copy(self), adapterluid.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base.base.EnumAdapterByLuid)(::core::mem::transmute_copy(self), adapterluid.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn EnumWarpAdapter<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).EnumWarpAdapter)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base.base.EnumWarpAdapter)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn CheckFeatureSupport(&self, feature: DXGI_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CheckFeatureSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(feature), ::core::mem::transmute(pfeaturesupportdata), ::core::mem::transmute(featuresupportdatasize)).ok()
+    pub unsafe fn GetCreationFlags(&self) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.base.GetCreationFlags)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsWindowedStereoEnabled(&self) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.base.base.IsWindowedStereoEnabled)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CreateSwapChainForHwnd<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, hwnd: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: Param4) -> ::windows::core::Result<IDXGISwapChain1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CreateSwapChainForHwnd)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(pfullscreendesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CreateSwapChainForCoreWindow<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pwindow: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param3) -> ::windows::core::Result<IDXGISwapChain1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CreateSwapChainForCoreWindow)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), pwindow.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetSharedResourceAdapterLuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hresource: Param0) -> ::windows::core::Result<super::super::Foundation::LUID> {
+        let mut result__: super::super::Foundation::LUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetSharedResourceAdapterLuid)(::core::mem::transmute_copy(self), hresource.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::LUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn RegisterStereoStatusWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, wmsg: u32) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.RegisterStereoStatusWindow)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(wmsg), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn RegisterStereoStatusEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.RegisterStereoStatusEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn EnumAdapterByGpuPreference<T: ::windows::core::Interface>(&self, adapter: u32, gpupreference: DXGI_GPU_PREFERENCE) -> ::windows::core::Result<T> {
+    pub unsafe fn UnregisterStereoStatus(&self, dwcookie: u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.UnregisterStereoStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn RegisterOcclusionStatusWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, wmsg: u32) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.RegisterOcclusionStatusWindow)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(wmsg), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn RegisterOcclusionStatusEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.RegisterOcclusionStatusEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn UnregisterOcclusionStatus(&self, dwcookie: u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.UnregisterOcclusionStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CreateSwapChainForComposition<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param2) -> ::windows::core::Result<IDXGISwapChain1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CreateSwapChainForComposition)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn EnumAdapters1(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.EnumAdapters1)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsCurrent(&self) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.base.base.base.IsCurrent)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn EnumAdapters(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.EnumAdapters)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn MakeWindowAssociation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.MakeWindowAssociation)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(flags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetWindowAssociation(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
+        let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.GetWindowAssociation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::core::Result<IDXGISwapChain> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CreateSwapChain)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateSoftwareAdapter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, module: Param0) -> ::windows::core::Result<IDXGIAdapter> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CreateSoftwareAdapter)(::core::mem::transmute_copy(self), module.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).EnumAdapterByGpuPreference)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(gpupreference), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIFactory6> for IDXGIFactory5 {
@@ -6272,146 +6272,6 @@ pub struct IDXGIFactory6Vtbl {
 #[repr(transparent)]
 pub struct IDXGIFactory7(::windows::core::IUnknown);
 impl IDXGIFactory7 {
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn EnumAdapters(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnumAdapters)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MakeWindowAssociation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MakeWindowAssociation)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(flags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetWindowAssociation(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
-        let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetWindowAssociation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::core::Result<IDXGISwapChain> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSwapChain)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSoftwareAdapter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, module: Param0) -> ::windows::core::Result<IDXGIAdapter> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSoftwareAdapter)(::core::mem::transmute_copy(self), module.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn EnumAdapters1(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnumAdapters1)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsCurrent(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsCurrent)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsWindowedStereoEnabled(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsWindowedStereoEnabled)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForHwnd<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, hwnd: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: Param4) -> ::windows::core::Result<IDXGISwapChain1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSwapChainForHwnd)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(pfullscreendesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForCoreWindow<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pwindow: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param3) -> ::windows::core::Result<IDXGISwapChain1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSwapChainForCoreWindow)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), pwindow.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSharedResourceAdapterLuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hresource: Param0) -> ::windows::core::Result<super::super::Foundation::LUID> {
-        let mut result__: super::super::Foundation::LUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSharedResourceAdapterLuid)(::core::mem::transmute_copy(self), hresource.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::LUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterStereoStatusWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, wmsg: u32) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterStereoStatusWindow)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(wmsg), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterStereoStatusEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterStereoStatusEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn UnregisterStereoStatus(&self, dwcookie: u32) {
-        (::windows::core::Interface::vtable(self).UnregisterStereoStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterOcclusionStatusWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, wmsg: u32) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterOcclusionStatusWindow)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(wmsg), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterOcclusionStatusEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterOcclusionStatusEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn UnregisterOcclusionStatus(&self, dwcookie: u32) {
-        (::windows::core::Interface::vtable(self).UnregisterOcclusionStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateSwapChainForComposition<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param2) -> ::windows::core::Result<IDXGISwapChain1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSwapChainForComposition)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetCreationFlags(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetCreationFlags)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumAdapterByLuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::LUID>, T: ::windows::core::Interface>(&self, adapterluid: Param0) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).EnumAdapterByLuid)(::core::mem::transmute_copy(self), adapterluid.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn EnumWarpAdapter<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).EnumWarpAdapter)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn CheckFeatureSupport(&self, feature: DXGI_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CheckFeatureSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(feature), ::core::mem::transmute(pfeaturesupportdata), ::core::mem::transmute(featuresupportdatasize)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn EnumAdapterByGpuPreference<T: ::windows::core::Interface>(&self, adapter: u32, gpupreference: DXGI_GPU_PREFERENCE) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).EnumAdapterByGpuPreference)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(gpupreference), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterAdaptersChangedEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
@@ -6421,6 +6281,146 @@ impl IDXGIFactory7 {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn UnregisterAdaptersChangedEvent(&self, dwcookie: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).UnregisterAdaptersChangedEvent)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn EnumAdapterByGpuPreference<T: ::windows::core::Interface>(&self, adapter: u32, gpupreference: DXGI_GPU_PREFERENCE) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.EnumAdapterByGpuPreference)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(gpupreference), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn CheckFeatureSupport(&self, feature: DXGI_FEATURE, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.CheckFeatureSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(feature), ::core::mem::transmute(pfeaturesupportdata), ::core::mem::transmute(featuresupportdatasize)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn EnumAdapterByLuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::LUID>, T: ::windows::core::Interface>(&self, adapterluid: Param0) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.EnumAdapterByLuid)(::core::mem::transmute_copy(self), adapterluid.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn EnumWarpAdapter<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.EnumWarpAdapter)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetCreationFlags(&self) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.base.base.GetCreationFlags)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsWindowedStereoEnabled(&self) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.base.base.base.IsWindowedStereoEnabled)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CreateSwapChainForHwnd<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param4: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, hwnd: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, pfullscreendesc: *const DXGI_SWAP_CHAIN_FULLSCREEN_DESC, prestricttooutput: Param4) -> ::windows::core::Result<IDXGISwapChain1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CreateSwapChainForHwnd)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), hwnd.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(pfullscreendesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CreateSwapChainForCoreWindow<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param3: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pwindow: Param1, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param3) -> ::windows::core::Result<IDXGISwapChain1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CreateSwapChainForCoreWindow)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), pwindow.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetSharedResourceAdapterLuid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hresource: Param0) -> ::windows::core::Result<super::super::Foundation::LUID> {
+        let mut result__: super::super::Foundation::LUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetSharedResourceAdapterLuid)(::core::mem::transmute_copy(self), hresource.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::LUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn RegisterStereoStatusWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, wmsg: u32) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.RegisterStereoStatusWindow)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(wmsg), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn RegisterStereoStatusEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.RegisterStereoStatusEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn UnregisterStereoStatus(&self, dwcookie: u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.UnregisterStereoStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn RegisterOcclusionStatusWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, wmsg: u32) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.RegisterOcclusionStatusWindow)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(wmsg), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn RegisterOcclusionStatusEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.RegisterOcclusionStatusEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn UnregisterOcclusionStatus(&self, dwcookie: u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.UnregisterOcclusionStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CreateSwapChainForComposition<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param2: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC1, prestricttooutput: Param2) -> ::windows::core::Result<IDXGISwapChain1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CreateSwapChainForComposition)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), prestricttooutput.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn EnumAdapters1(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.EnumAdapters1)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsCurrent(&self) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.base.base.base.base.IsCurrent)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn EnumAdapters(&self, adapter: u32) -> ::windows::core::Result<IDXGIAdapter> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.EnumAdapters)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn MakeWindowAssociation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, windowhandle: Param0, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.MakeWindowAssociation)(::core::mem::transmute_copy(self), windowhandle.into_param().abi(), ::core::mem::transmute(flags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetWindowAssociation(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
+        let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.GetWindowAssociation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CreateSwapChain<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, pdesc: *const DXGI_SWAP_CHAIN_DESC) -> ::windows::core::Result<IDXGISwapChain> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.CreateSwapChain)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pdesc), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISwapChain>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateSoftwareAdapter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, module: Param0) -> ::windows::core::Result<IDXGIAdapter> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.CreateSoftwareAdapter)(::core::mem::transmute_copy(self), module.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIAdapter>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIFactory7> for IDXGIFactory6 {
@@ -6983,34 +6983,34 @@ pub struct IDXGIInfoQueueVtbl {
 pub struct IDXGIKeyedMutex(::windows::core::IUnknown);
 impl IDXGIKeyedMutex {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn AcquireSync(&self, key: u64, dwmilliseconds: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).AcquireSync)(::core::mem::transmute_copy(self), ::core::mem::transmute(key), ::core::mem::transmute(dwmilliseconds)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn ReleaseSync(&self, key: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ReleaseSync)(::core::mem::transmute_copy(self), ::core::mem::transmute(key)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIKeyedMutex> for IDXGIDeviceSubObject {
@@ -7175,23 +7175,6 @@ pub struct IDXGIObjectVtbl {
 #[repr(transparent)]
 pub struct IDXGIOutput(::windows::core::IUnknown);
 impl IDXGIOutput {
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_OUTPUT_DESC> {
@@ -7250,6 +7233,23 @@ impl IDXGIOutput {
     pub unsafe fn GetFrameStatistics(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS> {
         let mut result__: DXGI_FRAME_STATISTICS = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetFrameStatistics)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_FRAME_STATISTICS>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIOutput> for IDXGIObject {
@@ -7354,82 +7354,6 @@ pub struct IDXGIOutputVtbl {
 #[repr(transparent)]
 pub struct IDXGIOutput1(::windows::core::IUnknown);
 impl IDXGIOutput1 {
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_OUTPUT_DESC> {
-        let mut result__: DXGI_OUTPUT_DESC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_OUTPUT_DESC>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplayModeList)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn FindClosestMatchingMode<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindClosestMatchingMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn WaitForVBlank(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WaitForVBlank)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TakeOwnership<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pdevice: Param0, exclusive: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TakeOwnership)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), exclusive.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn ReleaseOwnership(&self) {
-        (::windows::core::Interface::vtable(self).ReleaseOwnership)(::core::mem::transmute_copy(self))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetGammaControlCapabilities(&self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL_CAPABILITIES> {
-        let mut result__: Common::DXGI_GAMMA_CONTROL_CAPABILITIES = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetGammaControlCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_GAMMA_CONTROL_CAPABILITIES>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn SetGammaControl(&self, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGammaControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(parray)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetGammaControl(&self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL> {
-        let mut result__: Common::DXGI_GAMMA_CONTROL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetGammaControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_GAMMA_CONTROL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetDisplaySurface<'a, Param0: ::windows::core::IntoParam<'a, IDXGISurface>>(&self, pscanoutsurface: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplaySurface)(::core::mem::transmute_copy(self), pscanoutsurface.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetDisplaySurfaceData<'a, Param0: ::windows::core::IntoParam<'a, IDXGISurface>>(&self, pdestination: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplaySurfaceData)(::core::mem::transmute_copy(self), pdestination.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetFrameStatistics(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS> {
-        let mut result__: DXGI_FRAME_STATISTICS = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetFrameStatistics)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_FRAME_STATISTICS>(result__)
-    }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::Result<()> {
@@ -7448,6 +7372,82 @@ impl IDXGIOutput1 {
     pub unsafe fn DuplicateOutput<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0) -> ::windows::core::Result<IDXGIOutputDuplication> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).DuplicateOutput)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutputDuplication>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_OUTPUT_DESC> {
+        let mut result__: DXGI_OUTPUT_DESC = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_OUTPUT_DESC>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetDisplayModeList)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn FindClosestMatchingMode<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.FindClosestMatchingMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn WaitForVBlank(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.WaitForVBlank)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn TakeOwnership<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pdevice: Param0, exclusive: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.TakeOwnership)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), exclusive.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn ReleaseOwnership(&self) {
+        (::windows::core::Interface::vtable(self).base.ReleaseOwnership)(::core::mem::transmute_copy(self))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn GetGammaControlCapabilities(&self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL_CAPABILITIES> {
+        let mut result__: Common::DXGI_GAMMA_CONTROL_CAPABILITIES = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetGammaControlCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_GAMMA_CONTROL_CAPABILITIES>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn SetGammaControl(&self, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetGammaControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(parray)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetGammaControl(&self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL> {
+        let mut result__: Common::DXGI_GAMMA_CONTROL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetGammaControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_GAMMA_CONTROL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetDisplaySurface<'a, Param0: ::windows::core::IntoParam<'a, IDXGISurface>>(&self, pscanoutsurface: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetDisplaySurface)(::core::mem::transmute_copy(self), pscanoutsurface.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetDisplaySurfaceData<'a, Param0: ::windows::core::IntoParam<'a, IDXGISurface>>(&self, pdestination: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetDisplaySurfaceData)(::core::mem::transmute_copy(self), pdestination.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetFrameStatistics(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS> {
+        let mut result__: DXGI_FRAME_STATISTICS = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetFrameStatistics)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_FRAME_STATISTICS>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIOutput1> for IDXGIOutput {
@@ -7549,105 +7549,105 @@ pub struct IDXGIOutput1Vtbl {
 #[repr(transparent)]
 pub struct IDXGIOutput2(::windows::core::IUnknown);
 impl IDXGIOutput2 {
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SupportsOverlays(&self) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).SupportsOverlays)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetDisplayModeList1)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn FindClosestMatchingMode1<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.FindClosestMatchingMode1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    pub unsafe fn GetDisplaySurfaceData1<'a, Param0: ::windows::core::IntoParam<'a, IDXGIResource>>(&self, pdestination: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetDisplaySurfaceData1)(::core::mem::transmute_copy(self), pdestination.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    pub unsafe fn DuplicateOutput<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0) -> ::windows::core::Result<IDXGIOutputDuplication> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.DuplicateOutput)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutputDuplication>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_OUTPUT_DESC> {
         let mut result__: DXGI_OUTPUT_DESC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_OUTPUT_DESC>(result__)
+        (::windows::core::Interface::vtable(self).base.base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_OUTPUT_DESC>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplayModeList)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
+        (::windows::core::Interface::vtable(self).base.base.GetDisplayModeList)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn FindClosestMatchingMode<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindClosestMatchingMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.base.FindClosestMatchingMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn WaitForVBlank(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WaitForVBlank)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base.base.WaitForVBlank)(::core::mem::transmute_copy(self)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TakeOwnership<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pdevice: Param0, exclusive: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TakeOwnership)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), exclusive.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.base.TakeOwnership)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), exclusive.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn ReleaseOwnership(&self) {
-        (::windows::core::Interface::vtable(self).ReleaseOwnership)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base.base.ReleaseOwnership)(::core::mem::transmute_copy(self))
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn GetGammaControlCapabilities(&self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL_CAPABILITIES> {
         let mut result__: Common::DXGI_GAMMA_CONTROL_CAPABILITIES = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetGammaControlCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_GAMMA_CONTROL_CAPABILITIES>(result__)
+        (::windows::core::Interface::vtable(self).base.base.GetGammaControlCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_GAMMA_CONTROL_CAPABILITIES>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn SetGammaControl(&self, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGammaControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(parray)).ok()
+        (::windows::core::Interface::vtable(self).base.base.SetGammaControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(parray)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetGammaControl(&self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL> {
         let mut result__: Common::DXGI_GAMMA_CONTROL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetGammaControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_GAMMA_CONTROL>(result__)
+        (::windows::core::Interface::vtable(self).base.base.GetGammaControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_GAMMA_CONTROL>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn SetDisplaySurface<'a, Param0: ::windows::core::IntoParam<'a, IDXGISurface>>(&self, pscanoutsurface: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplaySurface)(::core::mem::transmute_copy(self), pscanoutsurface.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.base.SetDisplaySurface)(::core::mem::transmute_copy(self), pscanoutsurface.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn GetDisplaySurfaceData<'a, Param0: ::windows::core::IntoParam<'a, IDXGISurface>>(&self, pdestination: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplaySurfaceData)(::core::mem::transmute_copy(self), pdestination.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.base.GetDisplaySurfaceData)(::core::mem::transmute_copy(self), pdestination.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn GetFrameStatistics(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS> {
         let mut result__: DXGI_FRAME_STATISTICS = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetFrameStatistics)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_FRAME_STATISTICS>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplayModeList1)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn FindClosestMatchingMode1<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindClosestMatchingMode1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.base.GetFrameStatistics)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_FRAME_STATISTICS>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetDisplaySurfaceData1<'a, Param0: ::windows::core::IntoParam<'a, IDXGIResource>>(&self, pdestination: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplaySurfaceData1)(::core::mem::transmute_copy(self), pdestination.into_param().abi()).ok()
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn DuplicateOutput<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0) -> ::windows::core::Result<IDXGIOutputDuplication> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DuplicateOutput)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutputDuplication>(result__)
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SupportsOverlays(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).SupportsOverlays)(::core::mem::transmute_copy(self)))
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIOutput2> for IDXGIOutput1 {
@@ -7763,111 +7763,111 @@ pub struct IDXGIOutput2Vtbl {
 #[repr(transparent)]
 pub struct IDXGIOutput3(::windows::core::IUnknown);
 impl IDXGIOutput3 {
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_OUTPUT_DESC> {
-        let mut result__: DXGI_OUTPUT_DESC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_OUTPUT_DESC>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplayModeList)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn FindClosestMatchingMode<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindClosestMatchingMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn WaitForVBlank(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WaitForVBlank)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TakeOwnership<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pdevice: Param0, exclusive: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TakeOwnership)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), exclusive.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn ReleaseOwnership(&self) {
-        (::windows::core::Interface::vtable(self).ReleaseOwnership)(::core::mem::transmute_copy(self))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetGammaControlCapabilities(&self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL_CAPABILITIES> {
-        let mut result__: Common::DXGI_GAMMA_CONTROL_CAPABILITIES = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetGammaControlCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_GAMMA_CONTROL_CAPABILITIES>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn SetGammaControl(&self, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGammaControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(parray)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetGammaControl(&self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL> {
-        let mut result__: Common::DXGI_GAMMA_CONTROL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetGammaControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_GAMMA_CONTROL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetDisplaySurface<'a, Param0: ::windows::core::IntoParam<'a, IDXGISurface>>(&self, pscanoutsurface: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplaySurface)(::core::mem::transmute_copy(self), pscanoutsurface.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetDisplaySurfaceData<'a, Param0: ::windows::core::IntoParam<'a, IDXGISurface>>(&self, pdestination: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplaySurfaceData)(::core::mem::transmute_copy(self), pdestination.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetFrameStatistics(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS> {
-        let mut result__: DXGI_FRAME_STATISTICS = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetFrameStatistics)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_FRAME_STATISTICS>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplayModeList1)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn FindClosestMatchingMode1<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindClosestMatchingMode1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetDisplaySurfaceData1<'a, Param0: ::windows::core::IntoParam<'a, IDXGIResource>>(&self, pdestination: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplaySurfaceData1)(::core::mem::transmute_copy(self), pdestination.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn DuplicateOutput<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0) -> ::windows::core::Result<IDXGIOutputDuplication> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DuplicateOutput)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutputDuplication>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SupportsOverlays(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).SupportsOverlays)(::core::mem::transmute_copy(self)))
-    }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CheckOverlaySupport<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: Param1) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CheckOverlaySupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), pconcerneddevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SupportsOverlays(&self) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.SupportsOverlays)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetDisplayModeList1)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn FindClosestMatchingMode1<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.FindClosestMatchingMode1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetDisplaySurfaceData1<'a, Param0: ::windows::core::IntoParam<'a, IDXGIResource>>(&self, pdestination: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetDisplaySurfaceData1)(::core::mem::transmute_copy(self), pdestination.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn DuplicateOutput<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0) -> ::windows::core::Result<IDXGIOutputDuplication> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.DuplicateOutput)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutputDuplication>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_OUTPUT_DESC> {
+        let mut result__: DXGI_OUTPUT_DESC = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_OUTPUT_DESC>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetDisplayModeList)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn FindClosestMatchingMode<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.FindClosestMatchingMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn WaitForVBlank(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.WaitForVBlank)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn TakeOwnership<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pdevice: Param0, exclusive: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.TakeOwnership)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), exclusive.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn ReleaseOwnership(&self) {
+        (::windows::core::Interface::vtable(self).base.base.base.ReleaseOwnership)(::core::mem::transmute_copy(self))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn GetGammaControlCapabilities(&self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL_CAPABILITIES> {
+        let mut result__: Common::DXGI_GAMMA_CONTROL_CAPABILITIES = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetGammaControlCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_GAMMA_CONTROL_CAPABILITIES>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn SetGammaControl(&self, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetGammaControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(parray)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetGammaControl(&self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL> {
+        let mut result__: Common::DXGI_GAMMA_CONTROL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetGammaControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_GAMMA_CONTROL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetDisplaySurface<'a, Param0: ::windows::core::IntoParam<'a, IDXGISurface>>(&self, pscanoutsurface: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetDisplaySurface)(::core::mem::transmute_copy(self), pscanoutsurface.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetDisplaySurfaceData<'a, Param0: ::windows::core::IntoParam<'a, IDXGISurface>>(&self, pdestination: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetDisplaySurfaceData)(::core::mem::transmute_copy(self), pdestination.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetFrameStatistics(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS> {
+        let mut result__: DXGI_FRAME_STATISTICS = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetFrameStatistics)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_FRAME_STATISTICS>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIOutput3> for IDXGIOutput2 {
@@ -8003,117 +8003,117 @@ pub struct IDXGIOutput3Vtbl {
 #[repr(transparent)]
 pub struct IDXGIOutput4(::windows::core::IUnknown);
 impl IDXGIOutput4 {
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_OUTPUT_DESC> {
-        let mut result__: DXGI_OUTPUT_DESC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_OUTPUT_DESC>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplayModeList)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn FindClosestMatchingMode<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindClosestMatchingMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn WaitForVBlank(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WaitForVBlank)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TakeOwnership<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pdevice: Param0, exclusive: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TakeOwnership)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), exclusive.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn ReleaseOwnership(&self) {
-        (::windows::core::Interface::vtable(self).ReleaseOwnership)(::core::mem::transmute_copy(self))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetGammaControlCapabilities(&self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL_CAPABILITIES> {
-        let mut result__: Common::DXGI_GAMMA_CONTROL_CAPABILITIES = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetGammaControlCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_GAMMA_CONTROL_CAPABILITIES>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn SetGammaControl(&self, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGammaControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(parray)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetGammaControl(&self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL> {
-        let mut result__: Common::DXGI_GAMMA_CONTROL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetGammaControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_GAMMA_CONTROL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetDisplaySurface<'a, Param0: ::windows::core::IntoParam<'a, IDXGISurface>>(&self, pscanoutsurface: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplaySurface)(::core::mem::transmute_copy(self), pscanoutsurface.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetDisplaySurfaceData<'a, Param0: ::windows::core::IntoParam<'a, IDXGISurface>>(&self, pdestination: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplaySurfaceData)(::core::mem::transmute_copy(self), pdestination.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetFrameStatistics(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS> {
-        let mut result__: DXGI_FRAME_STATISTICS = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetFrameStatistics)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_FRAME_STATISTICS>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplayModeList1)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn FindClosestMatchingMode1<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindClosestMatchingMode1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetDisplaySurfaceData1<'a, Param0: ::windows::core::IntoParam<'a, IDXGIResource>>(&self, pdestination: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplaySurfaceData1)(::core::mem::transmute_copy(self), pdestination.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn DuplicateOutput<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0) -> ::windows::core::Result<IDXGIOutputDuplication> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DuplicateOutput)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutputDuplication>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SupportsOverlays(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).SupportsOverlays)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckOverlaySupport<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: Param1) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CheckOverlaySupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), pconcerneddevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CheckOverlayColorSpaceSupport<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: Param2) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CheckOverlayColorSpaceSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(format), ::core::mem::transmute(colorspace), pconcerneddevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn CheckOverlaySupport<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: Param1) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CheckOverlaySupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), pconcerneddevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SupportsOverlays(&self) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.SupportsOverlays)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetDisplayModeList1)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn FindClosestMatchingMode1<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.FindClosestMatchingMode1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetDisplaySurfaceData1<'a, Param0: ::windows::core::IntoParam<'a, IDXGIResource>>(&self, pdestination: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetDisplaySurfaceData1)(::core::mem::transmute_copy(self), pdestination.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn DuplicateOutput<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0) -> ::windows::core::Result<IDXGIOutputDuplication> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.DuplicateOutput)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutputDuplication>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_OUTPUT_DESC> {
+        let mut result__: DXGI_OUTPUT_DESC = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_OUTPUT_DESC>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetDisplayModeList)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn FindClosestMatchingMode<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.FindClosestMatchingMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn WaitForVBlank(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.WaitForVBlank)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn TakeOwnership<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pdevice: Param0, exclusive: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.TakeOwnership)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), exclusive.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn ReleaseOwnership(&self) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.ReleaseOwnership)(::core::mem::transmute_copy(self))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn GetGammaControlCapabilities(&self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL_CAPABILITIES> {
+        let mut result__: Common::DXGI_GAMMA_CONTROL_CAPABILITIES = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetGammaControlCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_GAMMA_CONTROL_CAPABILITIES>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn SetGammaControl(&self, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetGammaControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(parray)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetGammaControl(&self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL> {
+        let mut result__: Common::DXGI_GAMMA_CONTROL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetGammaControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_GAMMA_CONTROL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetDisplaySurface<'a, Param0: ::windows::core::IntoParam<'a, IDXGISurface>>(&self, pscanoutsurface: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetDisplaySurface)(::core::mem::transmute_copy(self), pscanoutsurface.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetDisplaySurfaceData<'a, Param0: ::windows::core::IntoParam<'a, IDXGISurface>>(&self, pdestination: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetDisplaySurfaceData)(::core::mem::transmute_copy(self), pdestination.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetFrameStatistics(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS> {
+        let mut result__: DXGI_FRAME_STATISTICS = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetFrameStatistics)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_FRAME_STATISTICS>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIOutput4> for IDXGIOutput3 {
@@ -8269,123 +8269,123 @@ pub struct IDXGIOutput4Vtbl {
 #[repr(transparent)]
 pub struct IDXGIOutput5(::windows::core::IUnknown);
 impl IDXGIOutput5 {
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_OUTPUT_DESC> {
-        let mut result__: DXGI_OUTPUT_DESC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_OUTPUT_DESC>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplayModeList)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn FindClosestMatchingMode<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindClosestMatchingMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn WaitForVBlank(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WaitForVBlank)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TakeOwnership<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pdevice: Param0, exclusive: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TakeOwnership)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), exclusive.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn ReleaseOwnership(&self) {
-        (::windows::core::Interface::vtable(self).ReleaseOwnership)(::core::mem::transmute_copy(self))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetGammaControlCapabilities(&self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL_CAPABILITIES> {
-        let mut result__: Common::DXGI_GAMMA_CONTROL_CAPABILITIES = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetGammaControlCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_GAMMA_CONTROL_CAPABILITIES>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn SetGammaControl(&self, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGammaControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(parray)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetGammaControl(&self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL> {
-        let mut result__: Common::DXGI_GAMMA_CONTROL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetGammaControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_GAMMA_CONTROL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetDisplaySurface<'a, Param0: ::windows::core::IntoParam<'a, IDXGISurface>>(&self, pscanoutsurface: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplaySurface)(::core::mem::transmute_copy(self), pscanoutsurface.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetDisplaySurfaceData<'a, Param0: ::windows::core::IntoParam<'a, IDXGISurface>>(&self, pdestination: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplaySurfaceData)(::core::mem::transmute_copy(self), pdestination.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetFrameStatistics(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS> {
-        let mut result__: DXGI_FRAME_STATISTICS = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetFrameStatistics)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_FRAME_STATISTICS>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplayModeList1)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn FindClosestMatchingMode1<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindClosestMatchingMode1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetDisplaySurfaceData1<'a, Param0: ::windows::core::IntoParam<'a, IDXGIResource>>(&self, pdestination: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplaySurfaceData1)(::core::mem::transmute_copy(self), pdestination.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn DuplicateOutput<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0) -> ::windows::core::Result<IDXGIOutputDuplication> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DuplicateOutput)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutputDuplication>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SupportsOverlays(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).SupportsOverlays)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckOverlaySupport<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: Param1) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CheckOverlaySupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), pconcerneddevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckOverlayColorSpaceSupport<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: Param2) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CheckOverlayColorSpaceSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(format), ::core::mem::transmute(colorspace), pconcerneddevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn DuplicateOutput1<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, flags: u32, supportedformatscount: u32, psupportedformats: *const Common::DXGI_FORMAT) -> ::windows::core::Result<IDXGIOutputDuplication> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).DuplicateOutput1)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(supportedformatscount), ::core::mem::transmute(psupportedformats), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutputDuplication>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn CheckOverlayColorSpaceSupport<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: Param2) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CheckOverlayColorSpaceSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(format), ::core::mem::transmute(colorspace), pconcerneddevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn CheckOverlaySupport<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: Param1) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CheckOverlaySupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), pconcerneddevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SupportsOverlays(&self) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.base.SupportsOverlays)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetDisplayModeList1)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn FindClosestMatchingMode1<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.FindClosestMatchingMode1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetDisplaySurfaceData1<'a, Param0: ::windows::core::IntoParam<'a, IDXGIResource>>(&self, pdestination: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetDisplaySurfaceData1)(::core::mem::transmute_copy(self), pdestination.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn DuplicateOutput<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0) -> ::windows::core::Result<IDXGIOutputDuplication> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.DuplicateOutput)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutputDuplication>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_OUTPUT_DESC> {
+        let mut result__: DXGI_OUTPUT_DESC = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_OUTPUT_DESC>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetDisplayModeList)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn FindClosestMatchingMode<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.FindClosestMatchingMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn WaitForVBlank(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.WaitForVBlank)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn TakeOwnership<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pdevice: Param0, exclusive: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.TakeOwnership)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), exclusive.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn ReleaseOwnership(&self) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.ReleaseOwnership)(::core::mem::transmute_copy(self))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn GetGammaControlCapabilities(&self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL_CAPABILITIES> {
+        let mut result__: Common::DXGI_GAMMA_CONTROL_CAPABILITIES = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetGammaControlCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_GAMMA_CONTROL_CAPABILITIES>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn SetGammaControl(&self, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.SetGammaControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(parray)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetGammaControl(&self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL> {
+        let mut result__: Common::DXGI_GAMMA_CONTROL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetGammaControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_GAMMA_CONTROL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetDisplaySurface<'a, Param0: ::windows::core::IntoParam<'a, IDXGISurface>>(&self, pscanoutsurface: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.SetDisplaySurface)(::core::mem::transmute_copy(self), pscanoutsurface.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetDisplaySurfaceData<'a, Param0: ::windows::core::IntoParam<'a, IDXGISurface>>(&self, pdestination: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetDisplaySurfaceData)(::core::mem::transmute_copy(self), pdestination.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetFrameStatistics(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS> {
+        let mut result__: DXGI_FRAME_STATISTICS = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetFrameStatistics)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_FRAME_STATISTICS>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIOutput5> for IDXGIOutput4 {
@@ -8561,124 +8561,6 @@ pub struct IDXGIOutput5Vtbl {
 #[repr(transparent)]
 pub struct IDXGIOutput6(::windows::core::IUnknown);
 impl IDXGIOutput6 {
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_OUTPUT_DESC> {
-        let mut result__: DXGI_OUTPUT_DESC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_OUTPUT_DESC>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplayModeList)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn FindClosestMatchingMode<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindClosestMatchingMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn WaitForVBlank(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WaitForVBlank)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TakeOwnership<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pdevice: Param0, exclusive: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TakeOwnership)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), exclusive.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn ReleaseOwnership(&self) {
-        (::windows::core::Interface::vtable(self).ReleaseOwnership)(::core::mem::transmute_copy(self))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetGammaControlCapabilities(&self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL_CAPABILITIES> {
-        let mut result__: Common::DXGI_GAMMA_CONTROL_CAPABILITIES = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetGammaControlCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_GAMMA_CONTROL_CAPABILITIES>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn SetGammaControl(&self, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGammaControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(parray)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetGammaControl(&self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL> {
-        let mut result__: Common::DXGI_GAMMA_CONTROL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetGammaControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_GAMMA_CONTROL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetDisplaySurface<'a, Param0: ::windows::core::IntoParam<'a, IDXGISurface>>(&self, pscanoutsurface: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplaySurface)(::core::mem::transmute_copy(self), pscanoutsurface.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetDisplaySurfaceData<'a, Param0: ::windows::core::IntoParam<'a, IDXGISurface>>(&self, pdestination: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplaySurfaceData)(::core::mem::transmute_copy(self), pdestination.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetFrameStatistics(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS> {
-        let mut result__: DXGI_FRAME_STATISTICS = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetFrameStatistics)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_FRAME_STATISTICS>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplayModeList1)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn FindClosestMatchingMode1<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FindClosestMatchingMode1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetDisplaySurfaceData1<'a, Param0: ::windows::core::IntoParam<'a, IDXGIResource>>(&self, pdestination: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplaySurfaceData1)(::core::mem::transmute_copy(self), pdestination.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn DuplicateOutput<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0) -> ::windows::core::Result<IDXGIOutputDuplication> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DuplicateOutput)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutputDuplication>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SupportsOverlays(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).SupportsOverlays)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckOverlaySupport<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: Param1) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CheckOverlaySupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), pconcerneddevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckOverlayColorSpaceSupport<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: Param2) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CheckOverlayColorSpaceSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(format), ::core::mem::transmute(colorspace), pconcerneddevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn DuplicateOutput1<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, flags: u32, supportedformatscount: u32, psupportedformats: *const Common::DXGI_FORMAT) -> ::windows::core::Result<IDXGIOutputDuplication> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DuplicateOutput1)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(supportedformatscount), ::core::mem::transmute(psupportedformats), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutputDuplication>(result__)
-    }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetDesc1(&self) -> ::windows::core::Result<DXGI_OUTPUT_DESC1> {
@@ -8689,6 +8571,124 @@ impl IDXGIOutput6 {
     pub unsafe fn CheckHardwareCompositionSupport(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CheckHardwareCompositionSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn DuplicateOutput1<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0, flags: u32, supportedformatscount: u32, psupportedformats: *const Common::DXGI_FORMAT) -> ::windows::core::Result<IDXGIOutputDuplication> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.DuplicateOutput1)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(supportedformatscount), ::core::mem::transmute(psupportedformats), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutputDuplication>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn CheckOverlayColorSpaceSupport<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, format: Common::DXGI_FORMAT, colorspace: Common::DXGI_COLOR_SPACE_TYPE, pconcerneddevice: Param2) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CheckOverlayColorSpaceSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(format), ::core::mem::transmute(colorspace), pconcerneddevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn CheckOverlaySupport<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, enumformat: Common::DXGI_FORMAT, pconcerneddevice: Param1) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CheckOverlaySupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), pconcerneddevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SupportsOverlays(&self) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.base.base.SupportsOverlays)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn GetDisplayModeList1(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut DXGI_MODE_DESC1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetDisplayModeList1)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn FindClosestMatchingMode1<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pmodetomatch: *const DXGI_MODE_DESC1, pclosestmatch: *mut DXGI_MODE_DESC1, pconcerneddevice: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.FindClosestMatchingMode1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetDisplaySurfaceData1<'a, Param0: ::windows::core::IntoParam<'a, IDXGIResource>>(&self, pdestination: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetDisplaySurfaceData1)(::core::mem::transmute_copy(self), pdestination.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn DuplicateOutput<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pdevice: Param0) -> ::windows::core::Result<IDXGIOutputDuplication> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.DuplicateOutput)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutputDuplication>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Gdi"))]
+    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_OUTPUT_DESC> {
+        let mut result__: DXGI_OUTPUT_DESC = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_OUTPUT_DESC>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetDisplayModeList(&self, enumformat: Common::DXGI_FORMAT, flags: u32, pnummodes: *mut u32, pdesc: *mut Common::DXGI_MODE_DESC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.GetDisplayModeList)(::core::mem::transmute_copy(self), ::core::mem::transmute(enumformat), ::core::mem::transmute(flags), ::core::mem::transmute(pnummodes), ::core::mem::transmute(pdesc)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn FindClosestMatchingMode<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pmodetomatch: *const Common::DXGI_MODE_DESC, pclosestmatch: *mut Common::DXGI_MODE_DESC, pconcerneddevice: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.FindClosestMatchingMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmodetomatch), ::core::mem::transmute(pclosestmatch), pconcerneddevice.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn WaitForVBlank(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.WaitForVBlank)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn TakeOwnership<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pdevice: Param0, exclusive: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.TakeOwnership)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), exclusive.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn ReleaseOwnership(&self) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.ReleaseOwnership)(::core::mem::transmute_copy(self))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn GetGammaControlCapabilities(&self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL_CAPABILITIES> {
+        let mut result__: Common::DXGI_GAMMA_CONTROL_CAPABILITIES = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.GetGammaControlCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_GAMMA_CONTROL_CAPABILITIES>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn SetGammaControl(&self, parray: *const Common::DXGI_GAMMA_CONTROL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.SetGammaControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(parray)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetGammaControl(&self) -> ::windows::core::Result<Common::DXGI_GAMMA_CONTROL> {
+        let mut result__: Common::DXGI_GAMMA_CONTROL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.GetGammaControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_GAMMA_CONTROL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetDisplaySurface<'a, Param0: ::windows::core::IntoParam<'a, IDXGISurface>>(&self, pscanoutsurface: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.SetDisplaySurface)(::core::mem::transmute_copy(self), pscanoutsurface.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetDisplaySurfaceData<'a, Param0: ::windows::core::IntoParam<'a, IDXGISurface>>(&self, pdestination: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.GetDisplaySurfaceData)(::core::mem::transmute_copy(self), pdestination.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetFrameStatistics(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS> {
+        let mut result__: DXGI_FRAME_STATISTICS = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.GetFrameStatistics)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_FRAME_STATISTICS>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIOutput6> for IDXGIOutput5 {
@@ -8885,23 +8885,6 @@ pub struct IDXGIOutput6Vtbl {
 #[repr(transparent)]
 pub struct IDXGIOutputDuplication(::windows::core::IUnknown);
 impl IDXGIOutputDuplication {
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn GetDesc(&self, pdesc: *mut DXGI_OUTDUPL_DESC) {
@@ -8939,6 +8922,23 @@ impl IDXGIOutputDuplication {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn ReleaseFrame(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ReleaseFrame)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIOutputDuplication> for IDXGIObject {
@@ -9033,28 +9033,6 @@ pub struct IDXGIOutputDuplicationVtbl {
 #[repr(transparent)]
 pub struct IDXGIResource(::windows::core::IUnknown);
 impl IDXGIResource {
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSharedHandle(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
@@ -9074,6 +9052,28 @@ impl IDXGIResource {
     pub unsafe fn GetEvictionPriority(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetEvictionPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIResource> for IDXGIDeviceSubObject {
@@ -9173,48 +9173,6 @@ pub struct IDXGIResourceVtbl {
 pub struct IDXGIResource1(::windows::core::IUnknown);
 impl IDXGIResource1 {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSharedHandle(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-        let mut result__: super::super::Foundation::HANDLE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSharedHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HANDLE>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetUsage(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetUsage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetEvictionPriority(&self, evictionpriority: DXGI_RESOURCE_PRIORITY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEvictionPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(evictionpriority)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetEvictionPriority(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetEvictionPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn CreateSubresourceSurface(&self, index: u32) -> ::windows::core::Result<IDXGISurface2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateSubresourceSurface)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<IDXGISurface2>(result__)
@@ -9224,6 +9182,48 @@ impl IDXGIResource1 {
     pub unsafe fn CreateSharedHandle<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwaccess: u32, lpname: Param2) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__: super::super::Foundation::HANDLE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateSharedHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(pattributes), ::core::mem::transmute(dwaccess), lpname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HANDLE>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetSharedHandle(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+        let mut result__: super::super::Foundation::HANDLE = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetSharedHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HANDLE>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetUsage(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetUsage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetEvictionPriority(&self, evictionpriority: DXGI_RESOURCE_PRIORITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetEvictionPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(evictionpriority)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetEvictionPriority(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetEvictionPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGIResource1> for IDXGIResource {
@@ -9340,28 +9340,6 @@ pub struct IDXGIResource1Vtbl {
 #[repr(transparent)]
 pub struct IDXGISurface(::windows::core::IUnknown);
 impl IDXGISurface {
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_SURFACE_DESC> {
@@ -9375,6 +9353,28 @@ impl IDXGISurface {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn Unmap(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Unmap)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGISurface> for IDXGIDeviceSubObject {
@@ -9472,42 +9472,6 @@ pub struct IDXGISurfaceVtbl {
 #[repr(transparent)]
 pub struct IDXGISurface1(::windows::core::IUnknown);
 impl IDXGISurface1 {
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_SURFACE_DESC> {
-        let mut result__: DXGI_SURFACE_DESC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_SURFACE_DESC>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn Map(&self, plockedrect: *mut DXGI_MAPPED_RECT, mapflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Map)(::core::mem::transmute_copy(self), ::core::mem::transmute(plockedrect), ::core::mem::transmute(mapflags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn Unmap(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Unmap)(::core::mem::transmute_copy(self)).ok()
-    }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetDC<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, discard: Param0) -> ::windows::core::Result<super::Gdi::HDC> {
@@ -9518,6 +9482,42 @@ impl IDXGISurface1 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReleaseDC(&self, pdirtyrect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ReleaseDC)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdirtyrect)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_SURFACE_DESC> {
+        let mut result__: DXGI_SURFACE_DESC = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_SURFACE_DESC>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn Map(&self, plockedrect: *mut DXGI_MAPPED_RECT, mapflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Map)(::core::mem::transmute_copy(self), ::core::mem::transmute(plockedrect), ::core::mem::transmute(mapflags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn Unmap(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Unmap)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGISurface1> for IDXGISurface {
@@ -9638,55 +9638,55 @@ pub struct IDXGISurface1Vtbl {
 pub struct IDXGISurface2(::windows::core::IUnknown);
 impl IDXGISurface2 {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_SURFACE_DESC> {
-        let mut result__: DXGI_SURFACE_DESC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_SURFACE_DESC>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn Map(&self, plockedrect: *mut DXGI_MAPPED_RECT, mapflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Map)(::core::mem::transmute_copy(self), ::core::mem::transmute(plockedrect), ::core::mem::transmute(mapflags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn Unmap(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Unmap)(::core::mem::transmute_copy(self)).ok()
+    pub unsafe fn GetResource(&self, riid: *const ::windows::core::GUID, ppparentresource: *mut *mut ::core::ffi::c_void, psubresourceindex: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppparentresource), ::core::mem::transmute(psubresourceindex)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn GetDC<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, discard: Param0) -> ::windows::core::Result<super::Gdi::HDC> {
         let mut result__: super::Gdi::HDC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDC)(::core::mem::transmute_copy(self), discard.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::Gdi::HDC>(result__)
+        (::windows::core::Interface::vtable(self).base.GetDC)(::core::mem::transmute_copy(self), discard.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::Gdi::HDC>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReleaseDC(&self, pdirtyrect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReleaseDC)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdirtyrect)).ok()
+        (::windows::core::Interface::vtable(self).base.ReleaseDC)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdirtyrect)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_SURFACE_DESC> {
+        let mut result__: DXGI_SURFACE_DESC = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_SURFACE_DESC>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetResource(&self, riid: *const ::windows::core::GUID, ppparentresource: *mut *mut ::core::ffi::c_void, psubresourceindex: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppparentresource), ::core::mem::transmute(psubresourceindex)).ok()
+    pub unsafe fn Map(&self, plockedrect: *mut DXGI_MAPPED_RECT, mapflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.Map)(::core::mem::transmute_copy(self), ::core::mem::transmute(plockedrect), ::core::mem::transmute(mapflags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn Unmap(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.Unmap)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGISurface2> for IDXGISurface1 {
@@ -9820,28 +9820,6 @@ pub struct IDXGISurface2Vtbl {
 pub struct IDXGISwapChain(::windows::core::IUnknown);
 impl IDXGISwapChain {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn Present(&self, syncinterval: u32, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Present)(::core::mem::transmute_copy(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(flags)).ok()
     }
@@ -9890,6 +9868,28 @@ impl IDXGISwapChain {
     pub unsafe fn GetLastPresentCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetLastPresentCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGISwapChain> for IDXGIDeviceSubObject {
@@ -10006,78 +10006,6 @@ pub struct IDXGISwapChainVtbl {
 #[repr(transparent)]
 pub struct IDXGISwapChain1(::windows::core::IUnknown);
 impl IDXGISwapChain1 {
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn Present(&self, syncinterval: u32, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Present)(::core::mem::transmute_copy(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(flags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetBuffer<T: ::windows::core::Interface>(&self, buffer: u32) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetBuffer)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffer), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFullscreenState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, fullscreen: Param0, ptarget: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFullscreenState)(::core::mem::transmute_copy(self), fullscreen.into_param().abi(), ptarget.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFullscreenState(&self, pfullscreen: *mut super::super::Foundation::BOOL, pptarget: *mut ::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFullscreenState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfullscreen), ::core::mem::transmute(pptarget)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_DESC> {
-        let mut result__: DXGI_SWAP_CHAIN_DESC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_SWAP_CHAIN_DESC>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ResizeBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(newformat), ::core::mem::transmute(swapchainflags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn ResizeTarget(&self, pnewtargetparameters: *const Common::DXGI_MODE_DESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ResizeTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(pnewtargetparameters)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetContainingOutput(&self) -> ::windows::core::Result<IDXGIOutput> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetContainingOutput)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutput>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetFrameStatistics(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS> {
-        let mut result__: DXGI_FRAME_STATISTICS = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetFrameStatistics)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_FRAME_STATISTICS>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetLastPresentCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetLastPresentCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn GetDesc1(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_DESC1> {
@@ -10135,6 +10063,78 @@ impl IDXGISwapChain1 {
     pub unsafe fn GetRotation(&self) -> ::windows::core::Result<Common::DXGI_MODE_ROTATION> {
         let mut result__: Common::DXGI_MODE_ROTATION = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetRotation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_MODE_ROTATION>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn Present(&self, syncinterval: u32, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Present)(::core::mem::transmute_copy(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(flags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetBuffer<T: ::windows::core::Interface>(&self, buffer: u32) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.GetBuffer)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffer), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetFullscreenState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, fullscreen: Param0, ptarget: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetFullscreenState)(::core::mem::transmute_copy(self), fullscreen.into_param().abi(), ptarget.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetFullscreenState(&self, pfullscreen: *mut super::super::Foundation::BOOL, pptarget: *mut ::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetFullscreenState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfullscreen), ::core::mem::transmute(pptarget)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_DESC> {
+        let mut result__: DXGI_SWAP_CHAIN_DESC = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_SWAP_CHAIN_DESC>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.ResizeBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(newformat), ::core::mem::transmute(swapchainflags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn ResizeTarget(&self, pnewtargetparameters: *const Common::DXGI_MODE_DESC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.ResizeTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(pnewtargetparameters)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetContainingOutput(&self) -> ::windows::core::Result<IDXGIOutput> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetContainingOutput)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutput>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetFrameStatistics(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS> {
+        let mut result__: DXGI_FRAME_STATISTICS = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetFrameStatistics)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_FRAME_STATISTICS>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetLastPresentCount(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetLastPresentCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGISwapChain1> for IDXGISwapChain {
@@ -10279,136 +10279,6 @@ pub struct IDXGISwapChain1Vtbl {
 pub struct IDXGISwapChain2(::windows::core::IUnknown);
 impl IDXGISwapChain2 {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn Present(&self, syncinterval: u32, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Present)(::core::mem::transmute_copy(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(flags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetBuffer<T: ::windows::core::Interface>(&self, buffer: u32) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetBuffer)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffer), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFullscreenState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, fullscreen: Param0, ptarget: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFullscreenState)(::core::mem::transmute_copy(self), fullscreen.into_param().abi(), ptarget.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFullscreenState(&self, pfullscreen: *mut super::super::Foundation::BOOL, pptarget: *mut ::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFullscreenState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfullscreen), ::core::mem::transmute(pptarget)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_DESC> {
-        let mut result__: DXGI_SWAP_CHAIN_DESC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_SWAP_CHAIN_DESC>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ResizeBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(newformat), ::core::mem::transmute(swapchainflags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn ResizeTarget(&self, pnewtargetparameters: *const Common::DXGI_MODE_DESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ResizeTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(pnewtargetparameters)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetContainingOutput(&self) -> ::windows::core::Result<IDXGIOutput> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetContainingOutput)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutput>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetFrameStatistics(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS> {
-        let mut result__: DXGI_FRAME_STATISTICS = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetFrameStatistics)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_FRAME_STATISTICS>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetLastPresentCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetLastPresentCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetDesc1(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_DESC1> {
-        let mut result__: DXGI_SWAP_CHAIN_DESC1 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_SWAP_CHAIN_DESC1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetFullscreenDesc(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_FULLSCREEN_DESC> {
-        let mut result__: DXGI_SWAP_CHAIN_FULLSCREEN_DESC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetFullscreenDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_SWAP_CHAIN_FULLSCREEN_DESC>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetHwnd(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
-        let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetHwnd)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetCoreWindow<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetCoreWindow)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Present1(&self, syncinterval: u32, presentflags: u32, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Present1)(::core::mem::transmute_copy(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(presentflags), ::core::mem::transmute(ppresentparameters)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsTemporaryMonoSupported(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsTemporaryMonoSupported)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetRestrictToOutput(&self) -> ::windows::core::Result<IDXGIOutput> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetRestrictToOutput)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutput>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetBackgroundColor(&self, pcolor: *const DXGI_RGBA) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBackgroundColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcolor)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetBackgroundColor(&self) -> ::windows::core::Result<DXGI_RGBA> {
-        let mut result__: DXGI_RGBA = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetBackgroundColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_RGBA>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn SetRotation(&self, rotation: Common::DXGI_MODE_ROTATION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRotation)(::core::mem::transmute_copy(self), ::core::mem::transmute(rotation)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetRotation(&self) -> ::windows::core::Result<Common::DXGI_MODE_ROTATION> {
-        let mut result__: Common::DXGI_MODE_ROTATION = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetRotation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_MODE_ROTATION>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn SetSourceSize(&self, width: u32, height: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSourceSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height)).ok()
     }
@@ -10438,6 +10308,136 @@ impl IDXGISwapChain2 {
     pub unsafe fn GetMatrixTransform(&self) -> ::windows::core::Result<DXGI_MATRIX_3X2_F> {
         let mut result__: DXGI_MATRIX_3X2_F = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetMatrixTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_MATRIX_3X2_F>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn GetDesc1(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_DESC1> {
+        let mut result__: DXGI_SWAP_CHAIN_DESC1 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_SWAP_CHAIN_DESC1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn GetFullscreenDesc(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_FULLSCREEN_DESC> {
+        let mut result__: DXGI_SWAP_CHAIN_FULLSCREEN_DESC = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetFullscreenDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_SWAP_CHAIN_FULLSCREEN_DESC>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetHwnd(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
+        let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetHwnd)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetCoreWindow<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.GetCoreWindow)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn Present1(&self, syncinterval: u32, presentflags: u32, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Present1)(::core::mem::transmute_copy(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(presentflags), ::core::mem::transmute(ppresentparameters)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsTemporaryMonoSupported(&self) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.IsTemporaryMonoSupported)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetRestrictToOutput(&self) -> ::windows::core::Result<IDXGIOutput> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetRestrictToOutput)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutput>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetBackgroundColor(&self, pcolor: *const DXGI_RGBA) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetBackgroundColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcolor)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetBackgroundColor(&self) -> ::windows::core::Result<DXGI_RGBA> {
+        let mut result__: DXGI_RGBA = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetBackgroundColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_RGBA>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn SetRotation(&self, rotation: Common::DXGI_MODE_ROTATION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetRotation)(::core::mem::transmute_copy(self), ::core::mem::transmute(rotation)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetRotation(&self) -> ::windows::core::Result<Common::DXGI_MODE_ROTATION> {
+        let mut result__: Common::DXGI_MODE_ROTATION = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetRotation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_MODE_ROTATION>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn Present(&self, syncinterval: u32, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.Present)(::core::mem::transmute_copy(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(flags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetBuffer<T: ::windows::core::Interface>(&self, buffer: u32) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.GetBuffer)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffer), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetFullscreenState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, fullscreen: Param0, ptarget: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetFullscreenState)(::core::mem::transmute_copy(self), fullscreen.into_param().abi(), ptarget.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetFullscreenState(&self, pfullscreen: *mut super::super::Foundation::BOOL, pptarget: *mut ::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetFullscreenState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfullscreen), ::core::mem::transmute(pptarget)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_DESC> {
+        let mut result__: DXGI_SWAP_CHAIN_DESC = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_SWAP_CHAIN_DESC>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.ResizeBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(newformat), ::core::mem::transmute(swapchainflags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn ResizeTarget(&self, pnewtargetparameters: *const Common::DXGI_MODE_DESC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.ResizeTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(pnewtargetparameters)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetContainingOutput(&self) -> ::windows::core::Result<IDXGIOutput> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetContainingOutput)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutput>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetFrameStatistics(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS> {
+        let mut result__: DXGI_FRAME_STATISTICS = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetFrameStatistics)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_FRAME_STATISTICS>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetLastPresentCount(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetLastPresentCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGISwapChain2> for IDXGISwapChain1 {
@@ -10580,167 +10580,6 @@ pub struct IDXGISwapChain2Vtbl {
 pub struct IDXGISwapChain3(::windows::core::IUnknown);
 impl IDXGISwapChain3 {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn Present(&self, syncinterval: u32, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Present)(::core::mem::transmute_copy(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(flags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetBuffer<T: ::windows::core::Interface>(&self, buffer: u32) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetBuffer)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffer), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFullscreenState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, fullscreen: Param0, ptarget: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFullscreenState)(::core::mem::transmute_copy(self), fullscreen.into_param().abi(), ptarget.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFullscreenState(&self, pfullscreen: *mut super::super::Foundation::BOOL, pptarget: *mut ::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFullscreenState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfullscreen), ::core::mem::transmute(pptarget)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_DESC> {
-        let mut result__: DXGI_SWAP_CHAIN_DESC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_SWAP_CHAIN_DESC>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ResizeBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(newformat), ::core::mem::transmute(swapchainflags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn ResizeTarget(&self, pnewtargetparameters: *const Common::DXGI_MODE_DESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ResizeTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(pnewtargetparameters)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetContainingOutput(&self) -> ::windows::core::Result<IDXGIOutput> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetContainingOutput)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutput>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetFrameStatistics(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS> {
-        let mut result__: DXGI_FRAME_STATISTICS = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetFrameStatistics)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_FRAME_STATISTICS>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetLastPresentCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetLastPresentCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetDesc1(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_DESC1> {
-        let mut result__: DXGI_SWAP_CHAIN_DESC1 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_SWAP_CHAIN_DESC1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetFullscreenDesc(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_FULLSCREEN_DESC> {
-        let mut result__: DXGI_SWAP_CHAIN_FULLSCREEN_DESC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetFullscreenDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_SWAP_CHAIN_FULLSCREEN_DESC>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetHwnd(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
-        let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetHwnd)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetCoreWindow<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetCoreWindow)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Present1(&self, syncinterval: u32, presentflags: u32, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Present1)(::core::mem::transmute_copy(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(presentflags), ::core::mem::transmute(ppresentparameters)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsTemporaryMonoSupported(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsTemporaryMonoSupported)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetRestrictToOutput(&self) -> ::windows::core::Result<IDXGIOutput> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetRestrictToOutput)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutput>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetBackgroundColor(&self, pcolor: *const DXGI_RGBA) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBackgroundColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcolor)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetBackgroundColor(&self) -> ::windows::core::Result<DXGI_RGBA> {
-        let mut result__: DXGI_RGBA = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetBackgroundColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_RGBA>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn SetRotation(&self, rotation: Common::DXGI_MODE_ROTATION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRotation)(::core::mem::transmute_copy(self), ::core::mem::transmute(rotation)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetRotation(&self) -> ::windows::core::Result<Common::DXGI_MODE_ROTATION> {
-        let mut result__: Common::DXGI_MODE_ROTATION = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetRotation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_MODE_ROTATION>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetSourceSize(&self, width: u32, height: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSourceSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetSourceSize(&self, pwidth: *mut u32, pheight: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSourceSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwidth), ::core::mem::transmute(pheight)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetMaximumFrameLatency(&self, maxlatency: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaximumFrameLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(maxlatency)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetMaximumFrameLatency(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetMaximumFrameLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFrameLatencyWaitableObject(&self) -> super::super::Foundation::HANDLE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetFrameLatencyWaitableObject)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetMatrixTransform(&self, pmatrix: *const DXGI_MATRIX_3X2_F) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMatrixTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmatrix)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetMatrixTransform(&self) -> ::windows::core::Result<DXGI_MATRIX_3X2_F> {
-        let mut result__: DXGI_MATRIX_3X2_F = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetMatrixTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_MATRIX_3X2_F>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn GetCurrentBackBufferIndex(&self) -> u32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).GetCurrentBackBufferIndex)(::core::mem::transmute_copy(self)))
     }
@@ -10759,6 +10598,167 @@ impl IDXGISwapChain3 {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn ResizeBuffers1(&self, buffercount: u32, width: u32, height: u32, format: Common::DXGI_FORMAT, swapchainflags: u32, pcreationnodemask: *const u32, pppresentqueue: *const ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ResizeBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(swapchainflags), ::core::mem::transmute(pcreationnodemask), ::core::mem::transmute(pppresentqueue)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetSourceSize(&self, width: u32, height: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetSourceSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetSourceSize(&self, pwidth: *mut u32, pheight: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetSourceSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwidth), ::core::mem::transmute(pheight)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetMaximumFrameLatency(&self, maxlatency: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetMaximumFrameLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(maxlatency)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetMaximumFrameLatency(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetMaximumFrameLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetFrameLatencyWaitableObject(&self) -> super::super::Foundation::HANDLE {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetFrameLatencyWaitableObject)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetMatrixTransform(&self, pmatrix: *const DXGI_MATRIX_3X2_F) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetMatrixTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmatrix)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetMatrixTransform(&self) -> ::windows::core::Result<DXGI_MATRIX_3X2_F> {
+        let mut result__: DXGI_MATRIX_3X2_F = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetMatrixTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_MATRIX_3X2_F>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn GetDesc1(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_DESC1> {
+        let mut result__: DXGI_SWAP_CHAIN_DESC1 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_SWAP_CHAIN_DESC1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn GetFullscreenDesc(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_FULLSCREEN_DESC> {
+        let mut result__: DXGI_SWAP_CHAIN_FULLSCREEN_DESC = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetFullscreenDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_SWAP_CHAIN_FULLSCREEN_DESC>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetHwnd(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
+        let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetHwnd)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetCoreWindow<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.GetCoreWindow)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn Present1(&self, syncinterval: u32, presentflags: u32, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.Present1)(::core::mem::transmute_copy(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(presentflags), ::core::mem::transmute(ppresentparameters)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsTemporaryMonoSupported(&self) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.IsTemporaryMonoSupported)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetRestrictToOutput(&self) -> ::windows::core::Result<IDXGIOutput> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetRestrictToOutput)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutput>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetBackgroundColor(&self, pcolor: *const DXGI_RGBA) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetBackgroundColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcolor)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetBackgroundColor(&self) -> ::windows::core::Result<DXGI_RGBA> {
+        let mut result__: DXGI_RGBA = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetBackgroundColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_RGBA>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn SetRotation(&self, rotation: Common::DXGI_MODE_ROTATION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetRotation)(::core::mem::transmute_copy(self), ::core::mem::transmute(rotation)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetRotation(&self) -> ::windows::core::Result<Common::DXGI_MODE_ROTATION> {
+        let mut result__: Common::DXGI_MODE_ROTATION = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetRotation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_MODE_ROTATION>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn Present(&self, syncinterval: u32, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.Present)(::core::mem::transmute_copy(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(flags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetBuffer<T: ::windows::core::Interface>(&self, buffer: u32) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.GetBuffer)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffer), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetFullscreenState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, fullscreen: Param0, ptarget: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetFullscreenState)(::core::mem::transmute_copy(self), fullscreen.into_param().abi(), ptarget.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetFullscreenState(&self, pfullscreen: *mut super::super::Foundation::BOOL, pptarget: *mut ::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetFullscreenState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfullscreen), ::core::mem::transmute(pptarget)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_DESC> {
+        let mut result__: DXGI_SWAP_CHAIN_DESC = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_SWAP_CHAIN_DESC>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.ResizeBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(newformat), ::core::mem::transmute(swapchainflags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn ResizeTarget(&self, pnewtargetparameters: *const Common::DXGI_MODE_DESC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.ResizeTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(pnewtargetparameters)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetContainingOutput(&self) -> ::windows::core::Result<IDXGIOutput> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetContainingOutput)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutput>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetFrameStatistics(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS> {
+        let mut result__: DXGI_FRAME_STATISTICS = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetFrameStatistics)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_FRAME_STATISTICS>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetLastPresentCount(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetLastPresentCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGISwapChain3> for IDXGISwapChain2 {
@@ -10924,189 +10924,189 @@ pub struct IDXGISwapChain3Vtbl {
 pub struct IDXGISwapChain4(::windows::core::IUnknown);
 impl IDXGISwapChain4 {
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn Present(&self, syncinterval: u32, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Present)(::core::mem::transmute_copy(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(flags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetBuffer<T: ::windows::core::Interface>(&self, buffer: u32) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetBuffer)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffer), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetFullscreenState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, fullscreen: Param0, ptarget: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFullscreenState)(::core::mem::transmute_copy(self), fullscreen.into_param().abi(), ptarget.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFullscreenState(&self, pfullscreen: *mut super::super::Foundation::BOOL, pptarget: *mut ::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFullscreenState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfullscreen), ::core::mem::transmute(pptarget)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_DESC> {
-        let mut result__: DXGI_SWAP_CHAIN_DESC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_SWAP_CHAIN_DESC>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ResizeBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(newformat), ::core::mem::transmute(swapchainflags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn ResizeTarget(&self, pnewtargetparameters: *const Common::DXGI_MODE_DESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ResizeTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(pnewtargetparameters)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetContainingOutput(&self) -> ::windows::core::Result<IDXGIOutput> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetContainingOutput)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutput>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetFrameStatistics(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS> {
-        let mut result__: DXGI_FRAME_STATISTICS = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetFrameStatistics)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_FRAME_STATISTICS>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetLastPresentCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetLastPresentCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetDesc1(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_DESC1> {
-        let mut result__: DXGI_SWAP_CHAIN_DESC1 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_SWAP_CHAIN_DESC1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetFullscreenDesc(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_FULLSCREEN_DESC> {
-        let mut result__: DXGI_SWAP_CHAIN_FULLSCREEN_DESC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetFullscreenDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_SWAP_CHAIN_FULLSCREEN_DESC>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetHwnd(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
-        let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetHwnd)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetCoreWindow<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetCoreWindow)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Present1(&self, syncinterval: u32, presentflags: u32, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Present1)(::core::mem::transmute_copy(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(presentflags), ::core::mem::transmute(ppresentparameters)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsTemporaryMonoSupported(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsTemporaryMonoSupported)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetRestrictToOutput(&self) -> ::windows::core::Result<IDXGIOutput> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetRestrictToOutput)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutput>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetBackgroundColor(&self, pcolor: *const DXGI_RGBA) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBackgroundColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcolor)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetBackgroundColor(&self) -> ::windows::core::Result<DXGI_RGBA> {
-        let mut result__: DXGI_RGBA = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetBackgroundColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_RGBA>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn SetRotation(&self, rotation: Common::DXGI_MODE_ROTATION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRotation)(::core::mem::transmute_copy(self), ::core::mem::transmute(rotation)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetRotation(&self) -> ::windows::core::Result<Common::DXGI_MODE_ROTATION> {
-        let mut result__: Common::DXGI_MODE_ROTATION = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetRotation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_MODE_ROTATION>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetSourceSize(&self, width: u32, height: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSourceSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetSourceSize(&self, pwidth: *mut u32, pheight: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSourceSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwidth), ::core::mem::transmute(pheight)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetMaximumFrameLatency(&self, maxlatency: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaximumFrameLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(maxlatency)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetMaximumFrameLatency(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetMaximumFrameLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFrameLatencyWaitableObject(&self) -> super::super::Foundation::HANDLE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetFrameLatencyWaitableObject)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetMatrixTransform(&self, pmatrix: *const DXGI_MATRIX_3X2_F) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMatrixTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmatrix)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn GetMatrixTransform(&self) -> ::windows::core::Result<DXGI_MATRIX_3X2_F> {
-        let mut result__: DXGI_MATRIX_3X2_F = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetMatrixTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_MATRIX_3X2_F>(result__)
+    pub unsafe fn SetHDRMetaData(&self, r#type: DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetHDRMetaData)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(size), ::core::mem::transmute(pmetadata)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
     pub unsafe fn GetCurrentBackBufferIndex(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetCurrentBackBufferIndex)(::core::mem::transmute_copy(self)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetCurrentBackBufferIndex)(::core::mem::transmute_copy(self)))
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CheckColorSpaceSupport(&self, colorspace: Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CheckColorSpaceSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(colorspace), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base.CheckColorSpaceSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(colorspace), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn SetColorSpace1(&self, colorspace: Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetColorSpace1)(::core::mem::transmute_copy(self), ::core::mem::transmute(colorspace)).ok()
+        (::windows::core::Interface::vtable(self).base.SetColorSpace1)(::core::mem::transmute_copy(self), ::core::mem::transmute(colorspace)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn ResizeBuffers1(&self, buffercount: u32, width: u32, height: u32, format: Common::DXGI_FORMAT, swapchainflags: u32, pcreationnodemask: *const u32, pppresentqueue: *const ::core::option::Option<::windows::core::IUnknown>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ResizeBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(swapchainflags), ::core::mem::transmute(pcreationnodemask), ::core::mem::transmute(pppresentqueue)).ok()
+        (::windows::core::Interface::vtable(self).base.ResizeBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(swapchainflags), ::core::mem::transmute(pcreationnodemask), ::core::mem::transmute(pppresentqueue)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
-    pub unsafe fn SetHDRMetaData(&self, r#type: DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHDRMetaData)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(size), ::core::mem::transmute(pmetadata)).ok()
+    pub unsafe fn SetSourceSize(&self, width: u32, height: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetSourceSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetSourceSize(&self, pwidth: *mut u32, pheight: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetSourceSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwidth), ::core::mem::transmute(pheight)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetMaximumFrameLatency(&self, maxlatency: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetMaximumFrameLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(maxlatency)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetMaximumFrameLatency(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetMaximumFrameLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetFrameLatencyWaitableObject(&self) -> super::super::Foundation::HANDLE {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.GetFrameLatencyWaitableObject)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetMatrixTransform(&self, pmatrix: *const DXGI_MATRIX_3X2_F) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetMatrixTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmatrix)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetMatrixTransform(&self) -> ::windows::core::Result<DXGI_MATRIX_3X2_F> {
+        let mut result__: DXGI_MATRIX_3X2_F = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetMatrixTransform)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_MATRIX_3X2_F>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn GetDesc1(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_DESC1> {
+        let mut result__: DXGI_SWAP_CHAIN_DESC1 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_SWAP_CHAIN_DESC1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn GetFullscreenDesc(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_FULLSCREEN_DESC> {
+        let mut result__: DXGI_SWAP_CHAIN_FULLSCREEN_DESC = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetFullscreenDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_SWAP_CHAIN_FULLSCREEN_DESC>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetHwnd(&self) -> ::windows::core::Result<super::super::Foundation::HWND> {
+        let mut result__: super::super::Foundation::HWND = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetHwnd)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HWND>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetCoreWindow<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.GetCoreWindow)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn Present1(&self, syncinterval: u32, presentflags: u32, ppresentparameters: *const DXGI_PRESENT_PARAMETERS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.Present1)(::core::mem::transmute_copy(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(presentflags), ::core::mem::transmute(ppresentparameters)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsTemporaryMonoSupported(&self) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.base.IsTemporaryMonoSupported)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetRestrictToOutput(&self) -> ::windows::core::Result<IDXGIOutput> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetRestrictToOutput)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutput>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetBackgroundColor(&self, pcolor: *const DXGI_RGBA) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetBackgroundColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcolor)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetBackgroundColor(&self) -> ::windows::core::Result<DXGI_RGBA> {
+        let mut result__: DXGI_RGBA = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetBackgroundColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_RGBA>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn SetRotation(&self, rotation: Common::DXGI_MODE_ROTATION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetRotation)(::core::mem::transmute_copy(self), ::core::mem::transmute(rotation)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetRotation(&self) -> ::windows::core::Result<Common::DXGI_MODE_ROTATION> {
+        let mut result__: Common::DXGI_MODE_ROTATION = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.GetRotation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<Common::DXGI_MODE_ROTATION>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn Present(&self, syncinterval: u32, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.Present)(::core::mem::transmute_copy(self), ::core::mem::transmute(syncinterval), ::core::mem::transmute(flags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetBuffer<T: ::windows::core::Interface>(&self, buffer: u32) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetBuffer)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffer), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetFullscreenState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param1: ::windows::core::IntoParam<'a, IDXGIOutput>>(&self, fullscreen: Param0, ptarget: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetFullscreenState)(::core::mem::transmute_copy(self), fullscreen.into_param().abi(), ptarget.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetFullscreenState(&self, pfullscreen: *mut super::super::Foundation::BOOL, pptarget: *mut ::core::option::Option<IDXGIOutput>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetFullscreenState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfullscreen), ::core::mem::transmute(pptarget)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn GetDesc(&self) -> ::windows::core::Result<DXGI_SWAP_CHAIN_DESC> {
+        let mut result__: DXGI_SWAP_CHAIN_DESC = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_SWAP_CHAIN_DESC>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn ResizeBuffers(&self, buffercount: u32, width: u32, height: u32, newformat: Common::DXGI_FORMAT, swapchainflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.ResizeBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffercount), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(newformat), ::core::mem::transmute(swapchainflags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn ResizeTarget(&self, pnewtargetparameters: *const Common::DXGI_MODE_DESC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.ResizeTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(pnewtargetparameters)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetContainingOutput(&self) -> ::windows::core::Result<IDXGIOutput> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetContainingOutput)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDXGIOutput>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetFrameStatistics(&self) -> ::windows::core::Result<DXGI_FRAME_STATISTICS> {
+        let mut result__: DXGI_FRAME_STATISTICS = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetFrameStatistics)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DXGI_FRAME_STATISTICS>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetLastPresentCount(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetLastPresentCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetDevice<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetDevice)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateData(&self, name: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, name: *const ::windows::core::GUID, punknown: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), punknown.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetPrivateData(&self, name: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(name), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Dxgi'*"]
+    pub unsafe fn GetParent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.GetParent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IDXGISwapChain4> for IDXGISwapChain3 {

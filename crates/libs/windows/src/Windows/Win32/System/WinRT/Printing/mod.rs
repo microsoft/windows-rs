@@ -389,33 +389,33 @@ pub struct IPrintWorkflowXpsReceiverVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowXpsReceiver2(::windows::core::IUnknown);
 impl IPrintWorkflowXpsReceiver2 {
+    #[doc = "*Required features: 'Win32_System_WinRT_Printing'*"]
+    pub unsafe fn Failed(&self, xpserror: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Failed)(::core::mem::transmute_copy(self), ::core::mem::transmute(xpserror)).ok()
+    }
     #[doc = "*Required features: 'Win32_System_WinRT_Printing', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDocumentSequencePrintTicket<'a, Param0: ::windows::core::IntoParam<'a, super::super::Com::IStream>>(&self, documentsequenceprintticket: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDocumentSequencePrintTicket)(::core::mem::transmute_copy(self), documentsequenceprintticket.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.SetDocumentSequencePrintTicket)(::core::mem::transmute_copy(self), documentsequenceprintticket.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_WinRT_Printing', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDocumentSequenceUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, documentsequenceuri: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDocumentSequenceUri)(::core::mem::transmute_copy(self), documentsequenceuri.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.SetDocumentSequenceUri)(::core::mem::transmute_copy(self), documentsequenceuri.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_WinRT_Printing', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddDocumentData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, documentid: u32, documentprintticket: Param1, documenturi: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddDocumentData)(::core::mem::transmute_copy(self), ::core::mem::transmute(documentid), documentprintticket.into_param().abi(), documenturi.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.AddDocumentData)(::core::mem::transmute_copy(self), ::core::mem::transmute(documentid), documentprintticket.into_param().abi(), documenturi.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_WinRT_Printing', 'Win32_Foundation', 'Win32_Storage_Xps'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Xps"))]
     pub unsafe fn AddPage<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Storage::Xps::IXpsOMPageReference>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, documentid: u32, pageid: u32, pagereference: Param2, pageuri: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddPage)(::core::mem::transmute_copy(self), ::core::mem::transmute(documentid), ::core::mem::transmute(pageid), pagereference.into_param().abi(), pageuri.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.AddPage)(::core::mem::transmute_copy(self), ::core::mem::transmute(documentid), ::core::mem::transmute(pageid), pagereference.into_param().abi(), pageuri.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_System_WinRT_Printing'*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Close)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_WinRT_Printing'*"]
-    pub unsafe fn Failed(&self, xpserror: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Failed)(::core::mem::transmute_copy(self), ::core::mem::transmute(xpserror)).ok()
+        (::windows::core::Interface::vtable(self).base.Close)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IPrintWorkflowXpsReceiver2> for IPrintWorkflowXpsReceiver {

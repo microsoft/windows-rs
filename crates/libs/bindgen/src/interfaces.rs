@@ -66,18 +66,20 @@ fn gen_methods(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let is_winrt = def.is_winrt();
     let mut method_names = BTreeMap::<String, u32>::new();
     let cfg = cfg.gen(gen);
+    let mut bases = quote! {};
 
-    for def in def.vtable_types() {
+    for def in def.vtable_types().iter().rev() {
         match def {
             ElementType::IUnknown | ElementType::IInspectable => {},
             ElementType::TypeDef(def) => {
                 for method in def.methods() {
                     if is_winrt {
-                        methods.combine(&gen_winrt_method(&def, InterfaceKind::Default, &method,  &mut method_names, gen));
+                        methods.combine(&gen_winrt_method(&def, InterfaceKind::Default, &method, &mut method_names, gen));
                     } else {
-                        methods.combine(&gen_com_method(&def, &method,  &mut method_names, gen));
+                        methods.combine(&gen_com_method(&def, &method,  &mut method_names, &bases, gen));
                     }
                 }
+                bases.combine(&quote!{ .base });
             }
             _ => unimplemented!(),
         }

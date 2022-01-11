@@ -5041,145 +5041,6 @@ pub struct IImageListVtbl {
 #[repr(transparent)]
 pub struct IImageList2(::windows::core::IUnknown);
 impl IImageList2 {
-    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Graphics_Gdi'*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HBITMAP>, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HBITMAP>>(&self, hbmimage: Param0, hbmmask: Param1) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Add)(::core::mem::transmute_copy(self), hbmimage.into_param().abi(), hbmmask.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_UI_WindowsAndMessaging'*"]
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn ReplaceIcon<'a, Param1: ::windows::core::IntoParam<'a, super::WindowsAndMessaging::HICON>>(&self, i: i32, hicon: Param1) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ReplaceIcon)(::core::mem::transmute_copy(self), ::core::mem::transmute(i), hicon.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls'*"]
-    pub unsafe fn SetOverlayImage(&self, iimage: i32, ioverlay: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOverlayImage)(::core::mem::transmute_copy(self), ::core::mem::transmute(iimage), ::core::mem::transmute(ioverlay)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Graphics_Gdi'*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn Replace<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HBITMAP>, Param2: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HBITMAP>>(&self, i: i32, hbmimage: Param1, hbmmask: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Replace)(::core::mem::transmute_copy(self), ::core::mem::transmute(i), hbmimage.into_param().abi(), hbmmask.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Graphics_Gdi'*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn AddMasked<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HBITMAP>>(&self, hbmimage: Param0, crmask: u32) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AddMasked)(::core::mem::transmute_copy(self), hbmimage.into_param().abi(), ::core::mem::transmute(crmask), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Graphics_Gdi'*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn Draw(&self, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Draw)(::core::mem::transmute_copy(self), ::core::mem::transmute(pimldp)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls'*"]
-    pub unsafe fn Remove(&self, i: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::core::mem::transmute_copy(self), ::core::mem::transmute(i)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_UI_WindowsAndMessaging'*"]
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn GetIcon(&self, i: i32, flags: u32) -> ::windows::core::Result<super::WindowsAndMessaging::HICON> {
-        let mut result__: super::WindowsAndMessaging::HICON = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetIcon)(::core::mem::transmute_copy(self), ::core::mem::transmute(i), ::core::mem::transmute(flags), ::core::mem::transmute(&mut result__)).from_abi::<super::WindowsAndMessaging::HICON>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn GetImageInfo(&self, i: i32) -> ::windows::core::Result<IMAGEINFO> {
-        let mut result__: IMAGEINFO = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetImageInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(i), ::core::mem::transmute(&mut result__)).from_abi::<IMAGEINFO>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls'*"]
-    pub unsafe fn Copy<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, idst: i32, punksrc: Param1, isrc: i32, uflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Copy)(::core::mem::transmute_copy(self), ::core::mem::transmute(idst), punksrc.into_param().abi(), ::core::mem::transmute(isrc), ::core::mem::transmute(uflags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls'*"]
-    pub unsafe fn Merge<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, i1: i32, punk2: Param1, i2: i32, dx: i32, dy: i32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Merge)(::core::mem::transmute_copy(self), ::core::mem::transmute(i1), punk2.into_param().abi(), ::core::mem::transmute(i2), ::core::mem::transmute(dx), ::core::mem::transmute(dy), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls'*"]
-    pub unsafe fn Clone(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetImageRect(&self, i: i32) -> ::windows::core::Result<super::super::Foundation::RECT> {
-        let mut result__: super::super::Foundation::RECT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetImageRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(i), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::RECT>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls'*"]
-    pub unsafe fn GetIconSize(&self, cx: *mut i32, cy: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetIconSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(cx), ::core::mem::transmute(cy)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls'*"]
-    pub unsafe fn SetIconSize(&self, cx: i32, cy: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIconSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(cx), ::core::mem::transmute(cy)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls'*"]
-    pub unsafe fn GetImageCount(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetImageCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls'*"]
-    pub unsafe fn SetImageCount(&self, unewcount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetImageCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(unewcount)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls'*"]
-    pub unsafe fn SetBkColor(&self, clrbk: u32) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SetBkColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(clrbk), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls'*"]
-    pub unsafe fn GetBkColor(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetBkColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls'*"]
-    pub unsafe fn BeginDrag(&self, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BeginDrag)(::core::mem::transmute_copy(self), ::core::mem::transmute(itrack), ::core::mem::transmute(dxhotspot), ::core::mem::transmute(dyhotspot)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls'*"]
-    pub unsafe fn EndDrag(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EndDrag)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DragEnter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndlock: Param0, x: i32, y: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DragEnter)(::core::mem::transmute_copy(self), hwndlock.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DragLeave<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndlock: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DragLeave)(::core::mem::transmute_copy(self), hwndlock.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls'*"]
-    pub unsafe fn DragMove(&self, x: i32, y: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DragMove)(::core::mem::transmute_copy(self), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls'*"]
-    pub unsafe fn SetDragCursorImage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, punk: Param0, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDragCursorImage)(::core::mem::transmute_copy(self), punk.into_param().abi(), ::core::mem::transmute(idrag), ::core::mem::transmute(dxhotspot), ::core::mem::transmute(dyhotspot)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DragShowNolock<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fshow: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DragShowNolock)(::core::mem::transmute_copy(self), fshow.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDragImage(&self, ppt: *mut super::super::Foundation::POINT, ppthotspot: *mut super::super::Foundation::POINT, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDragImage)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppt), ::core::mem::transmute(ppthotspot), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls'*"]
-    pub unsafe fn GetItemFlags(&self, i: i32) -> ::windows::core::Result<IMAGE_LIST_ITEM_FLAGS> {
-        let mut result__: IMAGE_LIST_ITEM_FLAGS = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetItemFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(i), ::core::mem::transmute(&mut result__)).from_abi::<IMAGE_LIST_ITEM_FLAGS>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Controls'*"]
-    pub unsafe fn GetOverlayImage(&self, ioverlay: i32) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOverlayImage)(::core::mem::transmute_copy(self), ::core::mem::transmute(ioverlay), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
     #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub unsafe fn Resize(&self, cxnewiconsize: i32, cynewiconsize: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Resize)(::core::mem::transmute_copy(self), ::core::mem::transmute(cxnewiconsize), ::core::mem::transmute(cynewiconsize)).ok()
@@ -5229,6 +5090,145 @@ impl IImageList2 {
     #[doc = "*Required features: 'Win32_UI_Controls'*"]
     pub unsafe fn ReplaceFromImageList<'a, Param1: ::windows::core::IntoParam<'a, IImageList>, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, i: i32, pil: Param1, isrc: i32, punk: Param3, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).ReplaceFromImageList)(::core::mem::transmute_copy(self), ::core::mem::transmute(i), pil.into_param().abi(), ::core::mem::transmute(isrc), punk.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HBITMAP>, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HBITMAP>>(&self, hbmimage: Param0, hbmmask: Param1) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.Add)(::core::mem::transmute_copy(self), hbmimage.into_param().abi(), hbmmask.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_UI_WindowsAndMessaging'*"]
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    pub unsafe fn ReplaceIcon<'a, Param1: ::windows::core::IntoParam<'a, super::WindowsAndMessaging::HICON>>(&self, i: i32, hicon: Param1) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.ReplaceIcon)(::core::mem::transmute_copy(self), ::core::mem::transmute(i), hicon.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
+    pub unsafe fn SetOverlayImage(&self, iimage: i32, ioverlay: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetOverlayImage)(::core::mem::transmute_copy(self), ::core::mem::transmute(iimage), ::core::mem::transmute(ioverlay)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub unsafe fn Replace<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HBITMAP>, Param2: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HBITMAP>>(&self, i: i32, hbmimage: Param1, hbmmask: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Replace)(::core::mem::transmute_copy(self), ::core::mem::transmute(i), hbmimage.into_param().abi(), hbmmask.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub unsafe fn AddMasked<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HBITMAP>>(&self, hbmimage: Param0, crmask: u32) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.AddMasked)(::core::mem::transmute_copy(self), hbmimage.into_param().abi(), ::core::mem::transmute(crmask), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub unsafe fn Draw(&self, pimldp: *const IMAGELISTDRAWPARAMS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Draw)(::core::mem::transmute_copy(self), ::core::mem::transmute(pimldp)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
+    pub unsafe fn Remove(&self, i: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Remove)(::core::mem::transmute_copy(self), ::core::mem::transmute(i)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_UI_WindowsAndMessaging'*"]
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    pub unsafe fn GetIcon(&self, i: i32, flags: u32) -> ::windows::core::Result<super::WindowsAndMessaging::HICON> {
+        let mut result__: super::WindowsAndMessaging::HICON = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetIcon)(::core::mem::transmute_copy(self), ::core::mem::transmute(i), ::core::mem::transmute(flags), ::core::mem::transmute(&mut result__)).from_abi::<super::WindowsAndMessaging::HICON>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub unsafe fn GetImageInfo(&self, i: i32) -> ::windows::core::Result<IMAGEINFO> {
+        let mut result__: IMAGEINFO = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetImageInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(i), ::core::mem::transmute(&mut result__)).from_abi::<IMAGEINFO>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
+    pub unsafe fn Copy<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, idst: i32, punksrc: Param1, isrc: i32, uflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Copy)(::core::mem::transmute_copy(self), ::core::mem::transmute(idst), punksrc.into_param().abi(), ::core::mem::transmute(isrc), ::core::mem::transmute(uflags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
+    pub unsafe fn Merge<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, i1: i32, punk2: Param1, i2: i32, dx: i32, dy: i32, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Merge)(::core::mem::transmute_copy(self), ::core::mem::transmute(i1), punk2.into_param().abi(), ::core::mem::transmute(i2), ::core::mem::transmute(dx), ::core::mem::transmute(dy), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
+    pub unsafe fn Clone(&self, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetImageRect(&self, i: i32) -> ::windows::core::Result<super::super::Foundation::RECT> {
+        let mut result__: super::super::Foundation::RECT = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetImageRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(i), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::RECT>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
+    pub unsafe fn GetIconSize(&self, cx: *mut i32, cy: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIconSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(cx), ::core::mem::transmute(cy)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
+    pub unsafe fn SetIconSize(&self, cx: i32, cy: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetIconSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(cx), ::core::mem::transmute(cy)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
+    pub unsafe fn GetImageCount(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetImageCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
+    pub unsafe fn SetImageCount(&self, unewcount: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetImageCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(unewcount)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
+    pub unsafe fn SetBkColor(&self, clrbk: u32) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.SetBkColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(clrbk), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
+    pub unsafe fn GetBkColor(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetBkColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
+    pub unsafe fn BeginDrag(&self, itrack: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.BeginDrag)(::core::mem::transmute_copy(self), ::core::mem::transmute(itrack), ::core::mem::transmute(dxhotspot), ::core::mem::transmute(dyhotspot)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
+    pub unsafe fn EndDrag(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.EndDrag)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn DragEnter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndlock: Param0, x: i32, y: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.DragEnter)(::core::mem::transmute_copy(self), hwndlock.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn DragLeave<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndlock: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.DragLeave)(::core::mem::transmute_copy(self), hwndlock.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
+    pub unsafe fn DragMove(&self, x: i32, y: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.DragMove)(::core::mem::transmute_copy(self), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
+    pub unsafe fn SetDragCursorImage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, punk: Param0, idrag: i32, dxhotspot: i32, dyhotspot: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetDragCursorImage)(::core::mem::transmute_copy(self), punk.into_param().abi(), ::core::mem::transmute(idrag), ::core::mem::transmute(dxhotspot), ::core::mem::transmute(dyhotspot)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn DragShowNolock<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fshow: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.DragShowNolock)(::core::mem::transmute_copy(self), fshow.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDragImage(&self, ppt: *mut super::super::Foundation::POINT, ppthotspot: *mut super::super::Foundation::POINT, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetDragImage)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppt), ::core::mem::transmute(ppthotspot), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
+    pub unsafe fn GetItemFlags(&self, i: i32) -> ::windows::core::Result<IMAGE_LIST_ITEM_FLAGS> {
+        let mut result__: IMAGE_LIST_ITEM_FLAGS = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetItemFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(i), ::core::mem::transmute(&mut result__)).from_abi::<IMAGE_LIST_ITEM_FLAGS>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Controls'*"]
+    pub unsafe fn GetOverlayImage(&self, ioverlay: i32) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetOverlayImage)(::core::mem::transmute_copy(self), ::core::mem::transmute(ioverlay), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
 }
 impl ::core::convert::From<IImageList2> for IImageList {

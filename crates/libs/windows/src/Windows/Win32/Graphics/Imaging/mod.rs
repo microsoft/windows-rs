@@ -273,27 +273,6 @@ pub const GUID_WICPixelFormatDontCare: ::windows::core::GUID = ::windows::core::
 pub struct IWICBitmap(::windows::core::IUnknown);
 impl IWICBitmap {
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(puiwidth), ::core::mem::transmute(puiheight)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPixelFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetResolution(&self, pdpix: *mut f64, pdpiy: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetResolution)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CopyPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyPalette)(::core::mem::transmute_copy(self), pipalette.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyPixels)(::core::mem::transmute_copy(self), ::core::mem::transmute(prc), ::core::mem::transmute(cbstride), ::core::mem::transmute(cbbuffersize), ::core::mem::transmute(pbbuffer)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn Lock(&self, prclock: *const WICRect, flags: u32) -> ::windows::core::Result<IWICBitmapLock> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).Lock)(::core::mem::transmute_copy(self), ::core::mem::transmute(prclock), ::core::mem::transmute(flags), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmapLock>(result__)
@@ -305,6 +284,27 @@ impl IWICBitmap {
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn SetResolution(&self, dpix: f64, dpiy: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetResolution)(::core::mem::transmute_copy(self), ::core::mem::transmute(dpix), ::core::mem::transmute(dpiy)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(puiwidth), ::core::mem::transmute(puiheight)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetPixelFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetResolution(&self, pdpix: *mut f64, pdpiy: *mut f64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetResolution)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CopyPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.CopyPalette)(::core::mem::transmute_copy(self), pipalette.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.CopyPixels)(::core::mem::transmute_copy(self), ::core::mem::transmute(prc), ::core::mem::transmute(cbstride), ::core::mem::transmute(cbbuffersize), ::core::mem::transmute(pbbuffer)).ok()
     }
 }
 impl ::core::convert::From<IWICBitmap> for IWICBitmapSource {
@@ -380,29 +380,29 @@ pub struct IWICBitmapVtbl {
 pub struct IWICBitmapClipper(::windows::core::IUnknown);
 impl IWICBitmapClipper {
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapSource>>(&self, pisource: Param0, prc: *const WICRect) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), pisource.into_param().abi(), ::core::mem::transmute(prc)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(puiwidth), ::core::mem::transmute(puiheight)).ok()
+        (::windows::core::Interface::vtable(self).base.GetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(puiwidth), ::core::mem::transmute(puiheight)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn GetPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPixelFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).base.GetPixelFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn GetResolution(&self, pdpix: *mut f64, pdpiy: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetResolution)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
+        (::windows::core::Interface::vtable(self).base.GetResolution)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn CopyPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyPalette)(::core::mem::transmute_copy(self), pipalette.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.CopyPalette)(::core::mem::transmute_copy(self), pipalette.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyPixels)(::core::mem::transmute_copy(self), ::core::mem::transmute(prc), ::core::mem::transmute(cbstride), ::core::mem::transmute(cbbuffersize), ::core::mem::transmute(pbbuffer)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapSource>>(&self, pisource: Param0, prc: *const WICRect) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), pisource.into_param().abi(), ::core::mem::transmute(prc)).ok()
+        (::windows::core::Interface::vtable(self).base.CopyPixels)(::core::mem::transmute_copy(self), ::core::mem::transmute(prc), ::core::mem::transmute(cbstride), ::core::mem::transmute(cbbuffersize), ::core::mem::transmute(pbbuffer)).ok()
     }
 }
 impl ::core::convert::From<IWICBitmapClipper> for IWICBitmapSource {
@@ -476,46 +476,6 @@ pub struct IWICBitmapClipperVtbl {
 pub struct IWICBitmapCodecInfo(::windows::core::IUnknown);
 impl IWICBitmapCodecInfo {
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
-        let mut result__: WICComponentType = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetComponentType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WICComponentType>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetCLSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSigningStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAuthor<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchauthor: u32, wzauthor: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAuthor)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchauthor), wzauthor.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetVendorGUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchversion: u32, wzversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchversion), wzversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSpecVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchspecversion: u32, wzspecversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSpecVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchspecversion), wzspecversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFriendlyName<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchfriendlyname: u32, wzfriendlyname: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFriendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchfriendlyname), wzfriendlyname.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn GetContainerFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetContainerFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
@@ -578,6 +538,46 @@ impl IWICBitmapCodecInfo {
     pub unsafe fn MatchesMimeType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wzmimetype: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).MatchesMimeType)(::core::mem::transmute_copy(self), wzmimetype.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
+        let mut result__: WICComponentType = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetComponentType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WICComponentType>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetCLSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetSigningStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetAuthor<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchauthor: u32, wzauthor: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetAuthor)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchauthor), wzauthor.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetVendorGUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchversion: u32, wzversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchversion), wzversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetSpecVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchspecversion: u32, wzspecversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetSpecVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchspecversion), wzspecversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetFriendlyName<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchfriendlyname: u32, wzfriendlyname: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetFriendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchfriendlyname), wzfriendlyname.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
     }
 }
 impl ::core::convert::From<IWICBitmapCodecInfo> for IWICComponentInfo {
@@ -867,110 +867,6 @@ pub struct IWICBitmapDecoderVtbl {
 #[repr(transparent)]
 pub struct IWICBitmapDecoderInfo(::windows::core::IUnknown);
 impl IWICBitmapDecoderInfo {
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
-        let mut result__: WICComponentType = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetComponentType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WICComponentType>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetCLSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSigningStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAuthor<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchauthor: u32, wzauthor: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAuthor)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchauthor), wzauthor.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetVendorGUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchversion: u32, wzversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchversion), wzversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSpecVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchspecversion: u32, wzspecversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSpecVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchspecversion), wzspecversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFriendlyName<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchfriendlyname: u32, wzfriendlyname: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFriendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchfriendlyname), wzfriendlyname.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetContainerFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetContainerFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetPixelFormats(&self, cformats: u32, pguidpixelformats: *mut ::windows::core::GUID, pcactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPixelFormats)(::core::mem::transmute_copy(self), ::core::mem::transmute(cformats), ::core::mem::transmute(pguidpixelformats), ::core::mem::transmute(pcactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetColorManagementVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchcolormanagementversion: u32, wzcolormanagementversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetColorManagementVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchcolormanagementversion), wzcolormanagementversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDeviceManufacturer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchdevicemanufacturer: u32, wzdevicemanufacturer: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDeviceManufacturer)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchdevicemanufacturer), wzdevicemanufacturer.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDeviceModels<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchdevicemodels: u32, wzdevicemodels: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDeviceModels)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchdevicemodels), wzdevicemodels.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetMimeTypes<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchmimetypes: u32, wzmimetypes: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetMimeTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchmimetypes), wzmimetypes.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFileExtensions<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchfileextensions: u32, wzfileextensions: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFileExtensions)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchfileextensions), wzfileextensions.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DoesSupportAnimation(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DoesSupportAnimation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DoesSupportChromakey(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DoesSupportChromakey)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DoesSupportLossless(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DoesSupportLossless)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DoesSupportMultiframe(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DoesSupportMultiframe)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MatchesMimeType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wzmimetype: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MatchesMimeType)(::core::mem::transmute_copy(self), wzmimetype.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
     #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPatterns(&self, cbsizepatterns: u32, ppatterns: *mut WICBitmapPattern, pcpatterns: *mut u32, pcbpatternsactual: *mut u32) -> ::windows::core::Result<()> {
@@ -986,6 +882,110 @@ impl IWICBitmapDecoderInfo {
     pub unsafe fn CreateInstance(&self) -> ::windows::core::Result<IWICBitmapDecoder> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateInstance)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmapDecoder>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetContainerFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetContainerFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetPixelFormats(&self, cformats: u32, pguidpixelformats: *mut ::windows::core::GUID, pcactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetPixelFormats)(::core::mem::transmute_copy(self), ::core::mem::transmute(cformats), ::core::mem::transmute(pguidpixelformats), ::core::mem::transmute(pcactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetColorManagementVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchcolormanagementversion: u32, wzcolormanagementversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetColorManagementVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchcolormanagementversion), wzcolormanagementversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDeviceManufacturer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchdevicemanufacturer: u32, wzdevicemanufacturer: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetDeviceManufacturer)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchdevicemanufacturer), wzdevicemanufacturer.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDeviceModels<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchdevicemodels: u32, wzdevicemodels: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetDeviceModels)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchdevicemodels), wzdevicemodels.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetMimeTypes<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchmimetypes: u32, wzmimetypes: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetMimeTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchmimetypes), wzmimetypes.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetFileExtensions<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchfileextensions: u32, wzfileextensions: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetFileExtensions)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchfileextensions), wzfileextensions.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn DoesSupportAnimation(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.DoesSupportAnimation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn DoesSupportChromakey(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.DoesSupportChromakey)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn DoesSupportLossless(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.DoesSupportLossless)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn DoesSupportMultiframe(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.DoesSupportMultiframe)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn MatchesMimeType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wzmimetype: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.MatchesMimeType)(::core::mem::transmute_copy(self), wzmimetype.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
+        let mut result__: WICComponentType = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetComponentType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WICComponentType>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetCLSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetSigningStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetAuthor<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchauthor: u32, wzauthor: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetAuthor)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchauthor), wzauthor.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetVendorGUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchversion: u32, wzversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchversion), wzversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetSpecVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchspecversion: u32, wzspecversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetSpecVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchspecversion), wzspecversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetFriendlyName<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchfriendlyname: u32, wzfriendlyname: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetFriendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchfriendlyname), wzfriendlyname.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
     }
 }
 impl ::core::convert::From<IWICBitmapDecoderInfo> for IWICBitmapCodecInfo {
@@ -1198,113 +1198,113 @@ pub struct IWICBitmapEncoderVtbl {
 pub struct IWICBitmapEncoderInfo(::windows::core::IUnknown);
 impl IWICBitmapEncoderInfo {
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
-        let mut result__: WICComponentType = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetComponentType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WICComponentType>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetCLSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSigningStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAuthor<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchauthor: u32, wzauthor: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAuthor)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchauthor), wzauthor.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetVendorGUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchversion: u32, wzversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchversion), wzversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSpecVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchspecversion: u32, wzspecversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSpecVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchspecversion), wzspecversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFriendlyName<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchfriendlyname: u32, wzfriendlyname: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFriendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchfriendlyname), wzfriendlyname.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    pub unsafe fn CreateInstance(&self) -> ::windows::core::Result<IWICBitmapEncoder> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateInstance)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmapEncoder>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn GetContainerFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetContainerFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).base.GetContainerFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn GetPixelFormats(&self, cformats: u32, pguidpixelformats: *mut ::windows::core::GUID, pcactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPixelFormats)(::core::mem::transmute_copy(self), ::core::mem::transmute(cformats), ::core::mem::transmute(pguidpixelformats), ::core::mem::transmute(pcactual)).ok()
+        (::windows::core::Interface::vtable(self).base.GetPixelFormats)(::core::mem::transmute_copy(self), ::core::mem::transmute(cformats), ::core::mem::transmute(pguidpixelformats), ::core::mem::transmute(pcactual)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetColorManagementVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchcolormanagementversion: u32, wzcolormanagementversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetColorManagementVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchcolormanagementversion), wzcolormanagementversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+        (::windows::core::Interface::vtable(self).base.GetColorManagementVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchcolormanagementversion), wzcolormanagementversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDeviceManufacturer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchdevicemanufacturer: u32, wzdevicemanufacturer: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDeviceManufacturer)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchdevicemanufacturer), wzdevicemanufacturer.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+        (::windows::core::Interface::vtable(self).base.GetDeviceManufacturer)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchdevicemanufacturer), wzdevicemanufacturer.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDeviceModels<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchdevicemodels: u32, wzdevicemodels: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDeviceModels)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchdevicemodels), wzdevicemodels.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+        (::windows::core::Interface::vtable(self).base.GetDeviceModels)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchdevicemodels), wzdevicemodels.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMimeTypes<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchmimetypes: u32, wzmimetypes: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetMimeTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchmimetypes), wzmimetypes.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+        (::windows::core::Interface::vtable(self).base.GetMimeTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchmimetypes), wzmimetypes.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFileExtensions<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchfileextensions: u32, wzfileextensions: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFileExtensions)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchfileextensions), wzfileextensions.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+        (::windows::core::Interface::vtable(self).base.GetFileExtensions)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchfileextensions), wzfileextensions.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesSupportAnimation(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DoesSupportAnimation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).base.DoesSupportAnimation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesSupportChromakey(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DoesSupportChromakey)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).base.DoesSupportChromakey)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesSupportLossless(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DoesSupportLossless)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).base.DoesSupportLossless)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DoesSupportMultiframe(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DoesSupportMultiframe)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).base.DoesSupportMultiframe)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MatchesMimeType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wzmimetype: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MatchesMimeType)(::core::mem::transmute_copy(self), wzmimetype.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).base.MatchesMimeType)(::core::mem::transmute_copy(self), wzmimetype.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CreateInstance(&self) -> ::windows::core::Result<IWICBitmapEncoder> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateInstance)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmapEncoder>(result__)
+    pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
+        let mut result__: WICComponentType = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetComponentType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WICComponentType>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetCLSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetSigningStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetAuthor<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchauthor: u32, wzauthor: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetAuthor)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchauthor), wzauthor.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetVendorGUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchversion: u32, wzversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchversion), wzversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetSpecVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchspecversion: u32, wzspecversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetSpecVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchspecversion), wzspecversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetFriendlyName<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchfriendlyname: u32, wzfriendlyname: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetFriendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchfriendlyname), wzfriendlyname.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
     }
 }
 impl ::core::convert::From<IWICBitmapEncoderInfo> for IWICBitmapCodecInfo {
@@ -1398,29 +1398,29 @@ pub struct IWICBitmapEncoderInfoVtbl {
 pub struct IWICBitmapFlipRotator(::windows::core::IUnknown);
 impl IWICBitmapFlipRotator {
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapSource>>(&self, pisource: Param0, options: WICBitmapTransformOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), pisource.into_param().abi(), ::core::mem::transmute(options)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(puiwidth), ::core::mem::transmute(puiheight)).ok()
+        (::windows::core::Interface::vtable(self).base.GetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(puiwidth), ::core::mem::transmute(puiheight)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn GetPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPixelFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).base.GetPixelFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn GetResolution(&self, pdpix: *mut f64, pdpiy: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetResolution)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
+        (::windows::core::Interface::vtable(self).base.GetResolution)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn CopyPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyPalette)(::core::mem::transmute_copy(self), pipalette.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.CopyPalette)(::core::mem::transmute_copy(self), pipalette.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyPixels)(::core::mem::transmute_copy(self), ::core::mem::transmute(prc), ::core::mem::transmute(cbstride), ::core::mem::transmute(cbbuffersize), ::core::mem::transmute(pbbuffer)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapSource>>(&self, pisource: Param0, options: WICBitmapTransformOptions) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), pisource.into_param().abi(), ::core::mem::transmute(options)).ok()
+        (::windows::core::Interface::vtable(self).base.CopyPixels)(::core::mem::transmute_copy(self), ::core::mem::transmute(prc), ::core::mem::transmute(cbstride), ::core::mem::transmute(cbbuffersize), ::core::mem::transmute(pbbuffer)).ok()
     }
 }
 impl ::core::convert::From<IWICBitmapFlipRotator> for IWICBitmapSource {
@@ -1494,27 +1494,6 @@ pub struct IWICBitmapFlipRotatorVtbl {
 pub struct IWICBitmapFrameDecode(::windows::core::IUnknown);
 impl IWICBitmapFrameDecode {
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(puiwidth), ::core::mem::transmute(puiheight)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPixelFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetResolution(&self, pdpix: *mut f64, pdpiy: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetResolution)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CopyPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyPalette)(::core::mem::transmute_copy(self), pipalette.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyPixels)(::core::mem::transmute_copy(self), ::core::mem::transmute(prc), ::core::mem::transmute(cbstride), ::core::mem::transmute(cbbuffersize), ::core::mem::transmute(pbbuffer)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn GetMetadataQueryReader(&self) -> ::windows::core::Result<IWICMetadataQueryReader> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetMetadataQueryReader)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICMetadataQueryReader>(result__)
@@ -1527,6 +1506,27 @@ impl IWICBitmapFrameDecode {
     pub unsafe fn GetThumbnail(&self) -> ::windows::core::Result<IWICBitmapSource> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetThumbnail)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmapSource>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(puiwidth), ::core::mem::transmute(puiheight)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetPixelFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetResolution(&self, pdpix: *mut f64, pdpiy: *mut f64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetResolution)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CopyPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.CopyPalette)(::core::mem::transmute_copy(self), pipalette.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.CopyPixels)(::core::mem::transmute_copy(self), ::core::mem::transmute(prc), ::core::mem::transmute(cbstride), ::core::mem::transmute(cbbuffersize), ::core::mem::transmute(pbbuffer)).ok()
     }
 }
 impl ::core::convert::From<IWICBitmapFrameDecode> for IWICBitmapSource {
@@ -1784,29 +1784,29 @@ pub struct IWICBitmapLockVtbl {
 pub struct IWICBitmapScaler(::windows::core::IUnknown);
 impl IWICBitmapScaler {
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapSource>>(&self, pisource: Param0, uiwidth: u32, uiheight: u32, mode: WICBitmapInterpolationMode) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), pisource.into_param().abi(), ::core::mem::transmute(uiwidth), ::core::mem::transmute(uiheight), ::core::mem::transmute(mode)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(puiwidth), ::core::mem::transmute(puiheight)).ok()
+        (::windows::core::Interface::vtable(self).base.GetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(puiwidth), ::core::mem::transmute(puiheight)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn GetPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPixelFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).base.GetPixelFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn GetResolution(&self, pdpix: *mut f64, pdpiy: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetResolution)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
+        (::windows::core::Interface::vtable(self).base.GetResolution)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn CopyPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyPalette)(::core::mem::transmute_copy(self), pipalette.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.CopyPalette)(::core::mem::transmute_copy(self), pipalette.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyPixels)(::core::mem::transmute_copy(self), ::core::mem::transmute(prc), ::core::mem::transmute(cbstride), ::core::mem::transmute(cbbuffersize), ::core::mem::transmute(pbbuffer)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapSource>>(&self, pisource: Param0, uiwidth: u32, uiheight: u32, mode: WICBitmapInterpolationMode) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), pisource.into_param().abi(), ::core::mem::transmute(uiwidth), ::core::mem::transmute(uiheight), ::core::mem::transmute(mode)).ok()
+        (::windows::core::Interface::vtable(self).base.CopyPixels)(::core::mem::transmute_copy(self), ::core::mem::transmute(prc), ::core::mem::transmute(cbstride), ::core::mem::transmute(cbbuffersize), ::core::mem::transmute(pbbuffer)).ok()
     }
 }
 impl ::core::convert::From<IWICBitmapScaler> for IWICBitmapSource {
@@ -2117,29 +2117,29 @@ pub struct IWICColorContextVtbl {
 pub struct IWICColorTransform(::windows::core::IUnknown);
 impl IWICColorTransform {
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapSource>, Param1: ::windows::core::IntoParam<'a, IWICColorContext>, Param2: ::windows::core::IntoParam<'a, IWICColorContext>>(&self, pibitmapsource: Param0, picontextsource: Param1, picontextdest: Param2, pixelfmtdest: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), pibitmapsource.into_param().abi(), picontextsource.into_param().abi(), picontextdest.into_param().abi(), ::core::mem::transmute(pixelfmtdest)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(puiwidth), ::core::mem::transmute(puiheight)).ok()
+        (::windows::core::Interface::vtable(self).base.GetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(puiwidth), ::core::mem::transmute(puiheight)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn GetPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPixelFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).base.GetPixelFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn GetResolution(&self, pdpix: *mut f64, pdpiy: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetResolution)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
+        (::windows::core::Interface::vtable(self).base.GetResolution)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn CopyPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyPalette)(::core::mem::transmute_copy(self), pipalette.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base.CopyPalette)(::core::mem::transmute_copy(self), pipalette.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyPixels)(::core::mem::transmute_copy(self), ::core::mem::transmute(prc), ::core::mem::transmute(cbstride), ::core::mem::transmute(cbbuffersize), ::core::mem::transmute(pbbuffer)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapSource>, Param1: ::windows::core::IntoParam<'a, IWICColorContext>, Param2: ::windows::core::IntoParam<'a, IWICColorContext>>(&self, pibitmapsource: Param0, picontextsource: Param1, picontextdest: Param2, pixelfmtdest: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), pibitmapsource.into_param().abi(), picontextsource.into_param().abi(), picontextdest.into_param().abi(), ::core::mem::transmute(pixelfmtdest)).ok()
+        (::windows::core::Interface::vtable(self).base.CopyPixels)(::core::mem::transmute_copy(self), ::core::mem::transmute(prc), ::core::mem::transmute(cbstride), ::core::mem::transmute(cbbuffersize), ::core::mem::transmute(pbbuffer)).ok()
     }
 }
 impl ::core::convert::From<IWICColorTransform> for IWICBitmapSource {
@@ -2212,136 +2212,6 @@ pub struct IWICColorTransformVtbl {
 #[repr(transparent)]
 pub struct IWICComponentFactory(::windows::core::IUnknown);
 impl IWICComponentFactory {
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateDecoderFromFilename<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wzfilename: Param0, pguidvendor: *const ::windows::core::GUID, dwdesiredaccess: u32, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDecoderFromFilename)(::core::mem::transmute_copy(self), wzfilename.into_param().abi(), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(metadataoptions), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmapDecoder>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateDecoderFromStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pistream: Param0, pguidvendor: *const ::windows::core::GUID, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDecoderFromStream)(::core::mem::transmute_copy(self), pistream.into_param().abi(), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(metadataoptions), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmapDecoder>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CreateDecoderFromFileHandle(&self, hfile: usize, pguidvendor: *const ::windows::core::GUID, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDecoderFromFileHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(hfile), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(metadataoptions), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmapDecoder>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CreateComponentInfo(&self, clsidcomponent: *const ::windows::core::GUID) -> ::windows::core::Result<IWICComponentInfo> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateComponentInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(clsidcomponent), ::core::mem::transmute(&mut result__)).from_abi::<IWICComponentInfo>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CreateDecoder(&self, guidcontainerformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICBitmapDecoder> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDecoder)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidcontainerformat), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmapDecoder>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CreateEncoder(&self, guidcontainerformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICBitmapEncoder> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateEncoder)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidcontainerformat), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmapEncoder>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CreatePalette(&self) -> ::windows::core::Result<IWICPalette> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePalette)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICPalette>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CreateFormatConverter(&self) -> ::windows::core::Result<IWICFormatConverter> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateFormatConverter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICFormatConverter>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CreateBitmapScaler(&self) -> ::windows::core::Result<IWICBitmapScaler> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateBitmapScaler)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmapScaler>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CreateBitmapClipper(&self) -> ::windows::core::Result<IWICBitmapClipper> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateBitmapClipper)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmapClipper>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CreateBitmapFlipRotator(&self) -> ::windows::core::Result<IWICBitmapFlipRotator> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateBitmapFlipRotator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmapFlipRotator>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CreateStream(&self) -> ::windows::core::Result<IWICStream> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICStream>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CreateColorContext(&self) -> ::windows::core::Result<IWICColorContext> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateColorContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICColorContext>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CreateColorTransformer(&self) -> ::windows::core::Result<IWICColorTransform> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateColorTransformer)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICColorTransform>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CreateBitmap(&self, uiwidth: u32, uiheight: u32, pixelformat: *const ::windows::core::GUID, option: WICBitmapCreateCacheOption) -> ::windows::core::Result<IWICBitmap> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateBitmap)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiwidth), ::core::mem::transmute(uiheight), ::core::mem::transmute(pixelformat), ::core::mem::transmute(option), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmap>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CreateBitmapFromSource<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapSource>>(&self, pibitmapsource: Param0, option: WICBitmapCreateCacheOption) -> ::windows::core::Result<IWICBitmap> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateBitmapFromSource)(::core::mem::transmute_copy(self), pibitmapsource.into_param().abi(), ::core::mem::transmute(option), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmap>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CreateBitmapFromSourceRect<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapSource>>(&self, pibitmapsource: Param0, x: u32, y: u32, width: u32, height: u32) -> ::windows::core::Result<IWICBitmap> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateBitmapFromSourceRect)(::core::mem::transmute_copy(self), pibitmapsource.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmap>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CreateBitmapFromMemory(&self, uiwidth: u32, uiheight: u32, pixelformat: *const ::windows::core::GUID, cbstride: u32, cbbuffersize: u32, pbbuffer: *const u8) -> ::windows::core::Result<IWICBitmap> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateBitmapFromMemory)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiwidth), ::core::mem::transmute(uiheight), ::core::mem::transmute(pixelformat), ::core::mem::transmute(cbstride), ::core::mem::transmute(cbbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmap>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Graphics_Gdi'*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn CreateBitmapFromHBITMAP<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HBITMAP>, Param1: ::windows::core::IntoParam<'a, super::Gdi::HPALETTE>>(&self, hbitmap: Param0, hpalette: Param1, options: WICBitmapAlphaChannelOption) -> ::windows::core::Result<IWICBitmap> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateBitmapFromHBITMAP)(::core::mem::transmute_copy(self), hbitmap.into_param().abi(), hpalette.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmap>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_UI_WindowsAndMessaging'*"]
-    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-    pub unsafe fn CreateBitmapFromHICON<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::WindowsAndMessaging::HICON>>(&self, hicon: Param0) -> ::windows::core::Result<IWICBitmap> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateBitmapFromHICON)(::core::mem::transmute_copy(self), hicon.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmap>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateComponentEnumerator(&self, componenttypes: u32, options: u32) -> ::windows::core::Result<super::super::System::Com::IEnumUnknown> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateComponentEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(componenttypes), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IEnumUnknown>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CreateFastMetadataEncoderFromDecoder<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapDecoder>>(&self, pidecoder: Param0) -> ::windows::core::Result<IWICFastMetadataEncoder> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateFastMetadataEncoderFromDecoder)(::core::mem::transmute_copy(self), pidecoder.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWICFastMetadataEncoder>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CreateFastMetadataEncoderFromFrameDecode<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapFrameDecode>>(&self, piframedecoder: Param0) -> ::windows::core::Result<IWICFastMetadataEncoder> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateFastMetadataEncoderFromFrameDecode)(::core::mem::transmute_copy(self), piframedecoder.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWICFastMetadataEncoder>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CreateQueryWriter(&self, guidmetadataformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICMetadataQueryWriter> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateQueryWriter)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidmetadataformat), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(&mut result__)).from_abi::<IWICMetadataQueryWriter>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CreateQueryWriterFromReader<'a, Param0: ::windows::core::IntoParam<'a, IWICMetadataQueryReader>>(&self, piqueryreader: Param0, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICMetadataQueryWriter> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateQueryWriterFromReader)(::core::mem::transmute_copy(self), piqueryreader.into_param().abi(), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(&mut result__)).from_abi::<IWICMetadataQueryWriter>(result__)
-    }
     #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateMetadataReader<'a, Param3: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, guidmetadataformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID, dwoptions: u32, pistream: Param3) -> ::windows::core::Result<IWICMetadataReader> {
@@ -2379,6 +2249,136 @@ impl IWICComponentFactory {
     pub unsafe fn CreateEncoderPropertyBag(&self, ppropoptions: *const super::super::System::Com::StructuredStorage::PROPBAG2, ccount: u32) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::IPropertyBag2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateEncoderPropertyBag)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppropoptions), ::core::mem::transmute(ccount), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::StructuredStorage::IPropertyBag2>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateDecoderFromFilename<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wzfilename: Param0, pguidvendor: *const ::windows::core::GUID, dwdesiredaccess: u32, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateDecoderFromFilename)(::core::mem::transmute_copy(self), wzfilename.into_param().abi(), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(dwdesiredaccess), ::core::mem::transmute(metadataoptions), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmapDecoder>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateDecoderFromStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pistream: Param0, pguidvendor: *const ::windows::core::GUID, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateDecoderFromStream)(::core::mem::transmute_copy(self), pistream.into_param().abi(), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(metadataoptions), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmapDecoder>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CreateDecoderFromFileHandle(&self, hfile: usize, pguidvendor: *const ::windows::core::GUID, metadataoptions: WICDecodeOptions) -> ::windows::core::Result<IWICBitmapDecoder> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateDecoderFromFileHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(hfile), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(metadataoptions), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmapDecoder>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CreateComponentInfo(&self, clsidcomponent: *const ::windows::core::GUID) -> ::windows::core::Result<IWICComponentInfo> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateComponentInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(clsidcomponent), ::core::mem::transmute(&mut result__)).from_abi::<IWICComponentInfo>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CreateDecoder(&self, guidcontainerformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICBitmapDecoder> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateDecoder)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidcontainerformat), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmapDecoder>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CreateEncoder(&self, guidcontainerformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICBitmapEncoder> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateEncoder)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidcontainerformat), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmapEncoder>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CreatePalette(&self) -> ::windows::core::Result<IWICPalette> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreatePalette)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICPalette>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CreateFormatConverter(&self) -> ::windows::core::Result<IWICFormatConverter> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateFormatConverter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICFormatConverter>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CreateBitmapScaler(&self) -> ::windows::core::Result<IWICBitmapScaler> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateBitmapScaler)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmapScaler>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CreateBitmapClipper(&self) -> ::windows::core::Result<IWICBitmapClipper> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateBitmapClipper)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmapClipper>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CreateBitmapFlipRotator(&self) -> ::windows::core::Result<IWICBitmapFlipRotator> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateBitmapFlipRotator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmapFlipRotator>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CreateStream(&self) -> ::windows::core::Result<IWICStream> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICStream>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CreateColorContext(&self) -> ::windows::core::Result<IWICColorContext> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateColorContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICColorContext>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CreateColorTransformer(&self) -> ::windows::core::Result<IWICColorTransform> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateColorTransformer)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICColorTransform>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CreateBitmap(&self, uiwidth: u32, uiheight: u32, pixelformat: *const ::windows::core::GUID, option: WICBitmapCreateCacheOption) -> ::windows::core::Result<IWICBitmap> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateBitmap)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiwidth), ::core::mem::transmute(uiheight), ::core::mem::transmute(pixelformat), ::core::mem::transmute(option), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmap>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CreateBitmapFromSource<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapSource>>(&self, pibitmapsource: Param0, option: WICBitmapCreateCacheOption) -> ::windows::core::Result<IWICBitmap> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateBitmapFromSource)(::core::mem::transmute_copy(self), pibitmapsource.into_param().abi(), ::core::mem::transmute(option), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmap>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CreateBitmapFromSourceRect<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapSource>>(&self, pibitmapsource: Param0, x: u32, y: u32, width: u32, height: u32) -> ::windows::core::Result<IWICBitmap> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateBitmapFromSourceRect)(::core::mem::transmute_copy(self), pibitmapsource.into_param().abi(), ::core::mem::transmute(x), ::core::mem::transmute(y), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmap>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CreateBitmapFromMemory(&self, uiwidth: u32, uiheight: u32, pixelformat: *const ::windows::core::GUID, cbstride: u32, cbbuffersize: u32, pbbuffer: *const u8) -> ::windows::core::Result<IWICBitmap> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateBitmapFromMemory)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiwidth), ::core::mem::transmute(uiheight), ::core::mem::transmute(pixelformat), ::core::mem::transmute(cbstride), ::core::mem::transmute(cbbuffersize), ::core::mem::transmute(pbbuffer), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmap>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub unsafe fn CreateBitmapFromHBITMAP<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HBITMAP>, Param1: ::windows::core::IntoParam<'a, super::Gdi::HPALETTE>>(&self, hbitmap: Param0, hpalette: Param1, options: WICBitmapAlphaChannelOption) -> ::windows::core::Result<IWICBitmap> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateBitmapFromHBITMAP)(::core::mem::transmute_copy(self), hbitmap.into_param().abi(), hpalette.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmap>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_UI_WindowsAndMessaging'*"]
+    #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+    pub unsafe fn CreateBitmapFromHICON<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::WindowsAndMessaging::HICON>>(&self, hicon: Param0) -> ::windows::core::Result<IWICBitmap> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateBitmapFromHICON)(::core::mem::transmute_copy(self), hicon.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmap>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CreateComponentEnumerator(&self, componenttypes: u32, options: u32) -> ::windows::core::Result<super::super::System::Com::IEnumUnknown> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateComponentEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(componenttypes), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IEnumUnknown>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CreateFastMetadataEncoderFromDecoder<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapDecoder>>(&self, pidecoder: Param0) -> ::windows::core::Result<IWICFastMetadataEncoder> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateFastMetadataEncoderFromDecoder)(::core::mem::transmute_copy(self), pidecoder.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWICFastMetadataEncoder>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CreateFastMetadataEncoderFromFrameDecode<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapFrameDecode>>(&self, piframedecoder: Param0) -> ::windows::core::Result<IWICFastMetadataEncoder> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateFastMetadataEncoderFromFrameDecode)(::core::mem::transmute_copy(self), piframedecoder.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWICFastMetadataEncoder>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CreateQueryWriter(&self, guidmetadataformat: *const ::windows::core::GUID, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICMetadataQueryWriter> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateQueryWriter)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidmetadataformat), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(&mut result__)).from_abi::<IWICMetadataQueryWriter>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CreateQueryWriterFromReader<'a, Param0: ::windows::core::IntoParam<'a, IWICMetadataQueryReader>>(&self, piqueryreader: Param0, pguidvendor: *const ::windows::core::GUID) -> ::windows::core::Result<IWICMetadataQueryWriter> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateQueryWriterFromReader)(::core::mem::transmute_copy(self), piqueryreader.into_param().abi(), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(&mut result__)).from_abi::<IWICMetadataQueryWriter>(result__)
     }
 }
 impl ::core::convert::From<IWICComponentFactory> for IWICImagingFactory {
@@ -2787,41 +2787,6 @@ pub struct IWICDdsFrameDecodeVtbl {
 pub struct IWICDevelopRaw(::windows::core::IUnknown);
 impl IWICDevelopRaw {
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(puiwidth), ::core::mem::transmute(puiheight)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPixelFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetResolution(&self, pdpix: *mut f64, pdpiy: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetResolution)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CopyPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyPalette)(::core::mem::transmute_copy(self), pipalette.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyPixels)(::core::mem::transmute_copy(self), ::core::mem::transmute(prc), ::core::mem::transmute(cbstride), ::core::mem::transmute(cbbuffersize), ::core::mem::transmute(pbbuffer)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetMetadataQueryReader(&self) -> ::windows::core::Result<IWICMetadataQueryReader> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetMetadataQueryReader)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICMetadataQueryReader>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetColorContexts(&self, ccount: u32, ppicolorcontexts: *mut ::core::option::Option<IWICColorContext>, pcactualcount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetColorContexts)(::core::mem::transmute_copy(self), ::core::mem::transmute(ccount), ::core::mem::transmute(ppicolorcontexts), ::core::mem::transmute(pcactualcount)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetThumbnail(&self) -> ::windows::core::Result<IWICBitmapSource> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetThumbnail)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmapSource>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn QueryRawCapabilitiesInfo(&self, pinfo: *mut WICRawCapabilitiesInfo) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).QueryRawCapabilitiesInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinfo)).ok()
     }
@@ -2961,6 +2926,41 @@ impl IWICDevelopRaw {
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn SetNotificationCallback<'a, Param0: ::windows::core::IntoParam<'a, IWICDevelopRawNotificationCallback>>(&self, pcallback: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetNotificationCallback)(::core::mem::transmute_copy(self), pcallback.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetMetadataQueryReader(&self) -> ::windows::core::Result<IWICMetadataQueryReader> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetMetadataQueryReader)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICMetadataQueryReader>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetColorContexts(&self, ccount: u32, ppicolorcontexts: *mut ::core::option::Option<IWICColorContext>, pcactualcount: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetColorContexts)(::core::mem::transmute_copy(self), ::core::mem::transmute(ccount), ::core::mem::transmute(ppicolorcontexts), ::core::mem::transmute(pcactualcount)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetThumbnail(&self) -> ::windows::core::Result<IWICBitmapSource> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetThumbnail)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICBitmapSource>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(puiwidth), ::core::mem::transmute(puiheight)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetPixelFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetResolution(&self, pdpix: *mut f64, pdpiy: *mut f64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetResolution)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CopyPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.CopyPalette)(::core::mem::transmute_copy(self), pipalette.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.CopyPixels)(::core::mem::transmute_copy(self), ::core::mem::transmute(prc), ::core::mem::transmute(cbstride), ::core::mem::transmute(cbbuffersize), ::core::mem::transmute(pbbuffer)).ok()
     }
 }
 impl ::core::convert::From<IWICDevelopRaw> for IWICBitmapFrameDecode {
@@ -3279,27 +3279,6 @@ pub struct IWICFastMetadataEncoderVtbl {
 pub struct IWICFormatConverter(::windows::core::IUnknown);
 impl IWICFormatConverter {
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(puiwidth), ::core::mem::transmute(puiheight)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPixelFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetResolution(&self, pdpix: *mut f64, pdpiy: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetResolution)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CopyPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyPalette)(::core::mem::transmute_copy(self), pipalette.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyPixels)(::core::mem::transmute_copy(self), ::core::mem::transmute(prc), ::core::mem::transmute(cbstride), ::core::mem::transmute(cbbuffersize), ::core::mem::transmute(pbbuffer)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, IWICBitmapSource>, Param3: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pisource: Param0, dstformat: *const ::windows::core::GUID, dither: WICBitmapDitherType, pipalette: Param3, alphathresholdpercent: f64, palettetranslate: WICBitmapPaletteType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), pisource.into_param().abi(), ::core::mem::transmute(dstformat), ::core::mem::transmute(dither), pipalette.into_param().abi(), ::core::mem::transmute(alphathresholdpercent), ::core::mem::transmute(palettetranslate)).ok()
     }
@@ -3308,6 +3287,27 @@ impl IWICFormatConverter {
     pub unsafe fn CanConvert(&self, srcpixelformat: *const ::windows::core::GUID, dstpixelformat: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CanConvert)(::core::mem::transmute_copy(self), ::core::mem::transmute(srcpixelformat), ::core::mem::transmute(dstpixelformat), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(puiwidth), ::core::mem::transmute(puiheight)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetPixelFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetResolution(&self, pdpix: *mut f64, pdpiy: *mut f64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetResolution)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CopyPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.CopyPalette)(::core::mem::transmute_copy(self), pipalette.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.CopyPixels)(::core::mem::transmute_copy(self), ::core::mem::transmute(prc), ::core::mem::transmute(cbstride), ::core::mem::transmute(cbbuffersize), ::core::mem::transmute(pbbuffer)).ok()
     }
 }
 impl ::core::convert::From<IWICFormatConverter> for IWICBitmapSource {
@@ -3385,46 +3385,6 @@ pub struct IWICFormatConverterVtbl {
 pub struct IWICFormatConverterInfo(::windows::core::IUnknown);
 impl IWICFormatConverterInfo {
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
-        let mut result__: WICComponentType = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetComponentType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WICComponentType>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetCLSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSigningStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAuthor<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchauthor: u32, wzauthor: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAuthor)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchauthor), wzauthor.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetVendorGUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchversion: u32, wzversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchversion), wzversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSpecVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchspecversion: u32, wzspecversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSpecVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchspecversion), wzspecversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFriendlyName<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchfriendlyname: u32, wzfriendlyname: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFriendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchfriendlyname), wzfriendlyname.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn GetPixelFormats(&self, cformats: u32, ppixelformatguids: *mut ::windows::core::GUID, pcactual: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPixelFormats)(::core::mem::transmute_copy(self), ::core::mem::transmute(cformats), ::core::mem::transmute(ppixelformatguids), ::core::mem::transmute(pcactual)).ok()
     }
@@ -3432,6 +3392,46 @@ impl IWICFormatConverterInfo {
     pub unsafe fn CreateInstance(&self) -> ::windows::core::Result<IWICFormatConverter> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateInstance)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICFormatConverter>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
+        let mut result__: WICComponentType = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetComponentType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WICComponentType>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetCLSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetSigningStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetAuthor<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchauthor: u32, wzauthor: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetAuthor)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchauthor), wzauthor.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetVendorGUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchversion: u32, wzversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchversion), wzversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetSpecVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchspecversion: u32, wzspecversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetSpecVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchspecversion), wzspecversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetFriendlyName<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchfriendlyname: u32, wzfriendlyname: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetFriendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchfriendlyname), wzfriendlyname.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
     }
 }
 impl ::core::convert::From<IWICFormatConverterInfo> for IWICComponentInfo {
@@ -4011,27 +4011,6 @@ pub struct IWICMetadataBlockReaderVtbl {
 pub struct IWICMetadataBlockWriter(::windows::core::IUnknown);
 impl IWICMetadataBlockWriter {
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetContainerFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetContainerFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetReaderByIndex(&self, nindex: u32) -> ::windows::core::Result<IWICMetadataReader> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetReaderByIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(nindex), ::core::mem::transmute(&mut result__)).from_abi::<IWICMetadataReader>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<super::super::System::Com::IEnumUnknown> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IEnumUnknown>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn InitializeFromBlockReader<'a, Param0: ::windows::core::IntoParam<'a, IWICMetadataBlockReader>>(&self, pimdblockreader: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InitializeFromBlockReader)(::core::mem::transmute_copy(self), pimdblockreader.into_param().abi()).ok()
     }
@@ -4051,6 +4030,27 @@ impl IWICMetadataBlockWriter {
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn RemoveWriterByIndex(&self, nindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveWriterByIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(nindex)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetContainerFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetContainerFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetReaderByIndex(&self, nindex: u32) -> ::windows::core::Result<IWICMetadataReader> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetReaderByIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(nindex), ::core::mem::transmute(&mut result__)).from_abi::<IWICMetadataReader>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<super::super::System::Com::IEnumUnknown> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IEnumUnknown>(result__)
     }
 }
 impl ::core::convert::From<IWICMetadataBlockWriter> for IWICMetadataBlockReader {
@@ -4128,46 +4128,6 @@ pub struct IWICMetadataBlockWriterVtbl {
 pub struct IWICMetadataHandlerInfo(::windows::core::IUnknown);
 impl IWICMetadataHandlerInfo {
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
-        let mut result__: WICComponentType = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetComponentType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WICComponentType>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetCLSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSigningStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAuthor<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchauthor: u32, wzauthor: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAuthor)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchauthor), wzauthor.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetVendorGUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchversion: u32, wzversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchversion), wzversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSpecVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchspecversion: u32, wzspecversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSpecVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchspecversion), wzspecversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFriendlyName<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchfriendlyname: u32, wzfriendlyname: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFriendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchfriendlyname), wzfriendlyname.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn GetMetadataFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetMetadataFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
@@ -4203,6 +4163,46 @@ impl IWICMetadataHandlerInfo {
     pub unsafe fn DoesRequireFixedSize(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).DoesRequireFixedSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
+        let mut result__: WICComponentType = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetComponentType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WICComponentType>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetCLSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetSigningStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetAuthor<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchauthor: u32, wzauthor: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetAuthor)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchauthor), wzauthor.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetVendorGUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchversion: u32, wzversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchversion), wzversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetSpecVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchspecversion: u32, wzspecversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetSpecVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchspecversion), wzspecversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetFriendlyName<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchfriendlyname: u32, wzfriendlyname: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetFriendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchfriendlyname), wzfriendlyname.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
     }
 }
 impl ::core::convert::From<IWICMetadataHandlerInfo> for IWICComponentInfo {
@@ -4380,27 +4380,6 @@ pub struct IWICMetadataQueryReaderVtbl {
 #[repr(transparent)]
 pub struct IWICMetadataQueryWriter(::windows::core::IUnknown);
 impl IWICMetadataQueryWriter {
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetContainerFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetContainerFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetLocation<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchmaxlength: u32, wznamespace: Param1, pcchactuallength: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetLocation)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchmaxlength), wznamespace.into_param().abi(), ::core::mem::transmute(pcchactuallength)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetMetadataByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wzname: Param0, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetMetadataByName)(::core::mem::transmute_copy(self), wzname.into_param().abi(), ::core::mem::transmute(pvarvalue)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<super::super::System::Com::IEnumString> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IEnumString>(result__)
-    }
     #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetMetadataByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wzname: Param0, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
@@ -4410,6 +4389,27 @@ impl IWICMetadataQueryWriter {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoveMetadataByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wzname: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveMetadataByName)(::core::mem::transmute_copy(self), wzname.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetContainerFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetContainerFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetLocation<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchmaxlength: u32, wznamespace: Param1, pcchactuallength: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetLocation)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchmaxlength), wznamespace.into_param().abi(), ::core::mem::transmute(pcchactuallength)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+    pub unsafe fn GetMetadataByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wzname: Param0, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetMetadataByName)(::core::mem::transmute_copy(self), wzname.into_param().abi(), ::core::mem::transmute(pvarvalue)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<super::super::System::Com::IEnumString> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IEnumString>(result__)
     }
 }
 impl ::core::convert::From<IWICMetadataQueryWriter> for IWICMetadataQueryReader {
@@ -4582,83 +4582,6 @@ pub struct IWICMetadataReaderVtbl {
 pub struct IWICMetadataReaderInfo(::windows::core::IUnknown);
 impl IWICMetadataReaderInfo {
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
-        let mut result__: WICComponentType = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetComponentType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WICComponentType>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetCLSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSigningStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAuthor<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchauthor: u32, wzauthor: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAuthor)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchauthor), wzauthor.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetVendorGUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchversion: u32, wzversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchversion), wzversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSpecVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchspecversion: u32, wzspecversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSpecVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchspecversion), wzspecversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFriendlyName<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchfriendlyname: u32, wzfriendlyname: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFriendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchfriendlyname), wzfriendlyname.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetMetadataFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetMetadataFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetContainerFormats(&self, ccontainerformats: u32, pguidcontainerformats: *mut ::windows::core::GUID, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetContainerFormats)(::core::mem::transmute_copy(self), ::core::mem::transmute(ccontainerformats), ::core::mem::transmute(pguidcontainerformats), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDeviceManufacturer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchdevicemanufacturer: u32, wzdevicemanufacturer: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDeviceManufacturer)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchdevicemanufacturer), wzdevicemanufacturer.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDeviceModels<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchdevicemodels: u32, wzdevicemodels: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDeviceModels)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchdevicemodels), wzdevicemodels.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DoesRequireFullStream(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DoesRequireFullStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DoesSupportPadding(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DoesSupportPadding)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DoesRequireFixedSize(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DoesRequireFixedSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn GetPatterns(&self, guidcontainerformat: *const ::windows::core::GUID, cbsize: u32, ppattern: *mut WICMetadataPattern, pccount: *mut u32, pcbactual: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetPatterns)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidcontainerformat), ::core::mem::transmute(cbsize), ::core::mem::transmute(ppattern), ::core::mem::transmute(pccount), ::core::mem::transmute(pcbactual)).ok()
     }
@@ -4672,6 +4595,83 @@ impl IWICMetadataReaderInfo {
     pub unsafe fn CreateInstance(&self) -> ::windows::core::Result<IWICMetadataReader> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateInstance)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICMetadataReader>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetMetadataFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetMetadataFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetContainerFormats(&self, ccontainerformats: u32, pguidcontainerformats: *mut ::windows::core::GUID, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetContainerFormats)(::core::mem::transmute_copy(self), ::core::mem::transmute(ccontainerformats), ::core::mem::transmute(pguidcontainerformats), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDeviceManufacturer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchdevicemanufacturer: u32, wzdevicemanufacturer: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetDeviceManufacturer)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchdevicemanufacturer), wzdevicemanufacturer.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDeviceModels<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchdevicemodels: u32, wzdevicemodels: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetDeviceModels)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchdevicemodels), wzdevicemodels.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn DoesRequireFullStream(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.DoesRequireFullStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn DoesSupportPadding(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.DoesSupportPadding)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn DoesRequireFixedSize(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.DoesRequireFixedSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
+        let mut result__: WICComponentType = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetComponentType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WICComponentType>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetCLSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetSigningStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetAuthor<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchauthor: u32, wzauthor: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetAuthor)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchauthor), wzauthor.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetVendorGUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchversion: u32, wzversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchversion), wzversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetSpecVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchspecversion: u32, wzspecversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetSpecVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchspecversion), wzspecversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetFriendlyName<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchfriendlyname: u32, wzfriendlyname: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetFriendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchfriendlyname), wzfriendlyname.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
     }
 }
 impl ::core::convert::From<IWICMetadataReaderInfo> for IWICMetadataHandlerInfo {
@@ -4769,36 +4769,6 @@ pub struct IWICMetadataReaderInfoVtbl {
 #[repr(transparent)]
 pub struct IWICMetadataWriter(::windows::core::IUnknown);
 impl IWICMetadataWriter {
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetMetadataFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetMetadataFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetMetadataHandlerInfo(&self) -> ::windows::core::Result<IWICMetadataHandlerInfo> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetMetadataHandlerInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICMetadataHandlerInfo>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetValueByIndex(&self, nindex: u32, pvarschema: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetValueByIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(nindex), ::core::mem::transmute(pvarschema), ::core::mem::transmute(pvarid), ::core::mem::transmute(pvarvalue)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn GetValue(&self, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvarschema), ::core::mem::transmute(pvarid), ::core::mem::transmute(pvarvalue)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IWICEnumMetadataItem> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICEnumMetadataItem>(result__)
-    }
     #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn SetValue(&self, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
@@ -4817,6 +4787,36 @@ impl IWICMetadataWriter {
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn RemoveValueByIndex(&self, nindex: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).RemoveValueByIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(nindex)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetMetadataFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetMetadataFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetMetadataHandlerInfo(&self) -> ::windows::core::Result<IWICMetadataHandlerInfo> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetMetadataHandlerInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICMetadataHandlerInfo>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+    pub unsafe fn GetValueByIndex(&self, nindex: u32, pvarschema: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetValueByIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(nindex), ::core::mem::transmute(pvarschema), ::core::mem::transmute(pvarid), ::core::mem::transmute(pvarvalue)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+    pub unsafe fn GetValue(&self, pvarschema: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarid: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvarschema), ::core::mem::transmute(pvarid), ::core::mem::transmute(pvarvalue)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetEnumerator(&self) -> ::windows::core::Result<IWICEnumMetadataItem> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetEnumerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICEnumMetadataItem>(result__)
     }
 }
 impl ::core::convert::From<IWICMetadataWriter> for IWICMetadataReader {
@@ -4902,83 +4902,6 @@ pub struct IWICMetadataWriterVtbl {
 pub struct IWICMetadataWriterInfo(::windows::core::IUnknown);
 impl IWICMetadataWriterInfo {
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
-        let mut result__: WICComponentType = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetComponentType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WICComponentType>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetCLSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSigningStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAuthor<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchauthor: u32, wzauthor: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAuthor)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchauthor), wzauthor.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetVendorGUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchversion: u32, wzversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchversion), wzversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSpecVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchspecversion: u32, wzspecversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSpecVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchspecversion), wzspecversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFriendlyName<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchfriendlyname: u32, wzfriendlyname: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFriendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchfriendlyname), wzfriendlyname.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetMetadataFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetMetadataFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetContainerFormats(&self, ccontainerformats: u32, pguidcontainerformats: *mut ::windows::core::GUID, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetContainerFormats)(::core::mem::transmute_copy(self), ::core::mem::transmute(ccontainerformats), ::core::mem::transmute(pguidcontainerformats), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDeviceManufacturer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchdevicemanufacturer: u32, wzdevicemanufacturer: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDeviceManufacturer)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchdevicemanufacturer), wzdevicemanufacturer.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDeviceModels<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchdevicemodels: u32, wzdevicemodels: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDeviceModels)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchdevicemodels), wzdevicemodels.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DoesRequireFullStream(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DoesRequireFullStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DoesSupportPadding(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DoesSupportPadding)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DoesRequireFixedSize(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DoesRequireFixedSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn GetHeader(&self, guidcontainerformat: *const ::windows::core::GUID, cbsize: u32, pheader: *mut WICMetadataHeader, pcbactual: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetHeader)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidcontainerformat), ::core::mem::transmute(cbsize), ::core::mem::transmute(pheader), ::core::mem::transmute(pcbactual)).ok()
     }
@@ -4986,6 +4909,83 @@ impl IWICMetadataWriterInfo {
     pub unsafe fn CreateInstance(&self) -> ::windows::core::Result<IWICMetadataWriter> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CreateInstance)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICMetadataWriter>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetMetadataFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetMetadataFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetContainerFormats(&self, ccontainerformats: u32, pguidcontainerformats: *mut ::windows::core::GUID, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetContainerFormats)(::core::mem::transmute_copy(self), ::core::mem::transmute(ccontainerformats), ::core::mem::transmute(pguidcontainerformats), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDeviceManufacturer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchdevicemanufacturer: u32, wzdevicemanufacturer: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetDeviceManufacturer)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchdevicemanufacturer), wzdevicemanufacturer.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDeviceModels<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchdevicemodels: u32, wzdevicemodels: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetDeviceModels)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchdevicemodels), wzdevicemodels.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn DoesRequireFullStream(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.DoesRequireFullStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn DoesSupportPadding(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.DoesSupportPadding)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn DoesRequireFixedSize(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.DoesRequireFixedSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
+        let mut result__: WICComponentType = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetComponentType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WICComponentType>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetCLSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetSigningStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetAuthor<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchauthor: u32, wzauthor: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetAuthor)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchauthor), wzauthor.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetVendorGUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchversion: u32, wzversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchversion), wzversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetSpecVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchspecversion: u32, wzspecversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetSpecVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchspecversion), wzspecversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetFriendlyName<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchfriendlyname: u32, wzfriendlyname: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetFriendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchfriendlyname), wzfriendlyname.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
     }
 }
 impl ::core::convert::From<IWICMetadataWriterInfo> for IWICMetadataHandlerInfo {
@@ -5206,33 +5206,6 @@ pub struct IWICPersistStream(::windows::core::IUnknown);
 impl IWICPersistStream {
     #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetClassID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn IsDirty(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsDirty)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Load<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstm: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Load)(::core::mem::transmute_copy(self), pstm.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Save<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pstm: Param0, fcleardirty: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Save)(::core::mem::transmute_copy(self), pstm.into_param().abi(), fcleardirty.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetSizeMax(&self) -> ::windows::core::Result<u64> {
-        let mut result__: u64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSizeMax)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LoadEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pistream: Param0, pguidpreferredvendor: *const ::windows::core::GUID, dwpersistoptions: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).LoadEx)(::core::mem::transmute_copy(self), pistream.into_param().abi(), ::core::mem::transmute(pguidpreferredvendor), ::core::mem::transmute(dwpersistoptions)).ok()
     }
@@ -5240,6 +5213,33 @@ impl IWICPersistStream {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SaveEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pistream: Param0, dwpersistoptions: u32, fcleardirty: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SaveEx)(::core::mem::transmute_copy(self), pistream.into_param().abi(), ::core::mem::transmute(dwpersistoptions), fcleardirty.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn IsDirty(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.IsDirty)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn Load<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstm: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Load)(::core::mem::transmute_copy(self), pstm.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub unsafe fn Save<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pstm: Param0, fcleardirty: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Save)(::core::mem::transmute_copy(self), pstm.into_param().abi(), fcleardirty.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetSizeMax(&self) -> ::windows::core::Result<u64> {
+        let mut result__: u64 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetSizeMax)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetClassID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5348,46 +5348,6 @@ pub struct IWICPersistStreamVtbl {
 pub struct IWICPixelFormatInfo(::windows::core::IUnknown);
 impl IWICPixelFormatInfo {
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
-        let mut result__: WICComponentType = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetComponentType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WICComponentType>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetCLSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSigningStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAuthor<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchauthor: u32, wzauthor: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAuthor)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchauthor), wzauthor.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetVendorGUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchversion: u32, wzversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchversion), wzversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSpecVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchspecversion: u32, wzspecversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSpecVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchspecversion), wzspecversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFriendlyName<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchfriendlyname: u32, wzfriendlyname: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFriendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchfriendlyname), wzfriendlyname.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn GetFormatGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetFormatGUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
@@ -5410,6 +5370,46 @@ impl IWICPixelFormatInfo {
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn GetChannelMask(&self, uichannelindex: u32, cbmaskbuffer: u32, pbmaskbuffer: *mut u8, pcbactual: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetChannelMask)(::core::mem::transmute_copy(self), ::core::mem::transmute(uichannelindex), ::core::mem::transmute(cbmaskbuffer), ::core::mem::transmute(pbmaskbuffer), ::core::mem::transmute(pcbactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
+        let mut result__: WICComponentType = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetComponentType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WICComponentType>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetCLSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetSigningStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetAuthor<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchauthor: u32, wzauthor: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetAuthor)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchauthor), wzauthor.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetVendorGUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchversion: u32, wzversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchversion), wzversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetSpecVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchspecversion: u32, wzspecversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetSpecVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchspecversion), wzspecversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetFriendlyName<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchfriendlyname: u32, wzfriendlyname: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetFriendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchfriendlyname), wzfriendlyname.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
     }
 }
 impl ::core::convert::From<IWICPixelFormatInfo> for IWICComponentInfo {
@@ -5486,70 +5486,6 @@ pub struct IWICPixelFormatInfoVtbl {
 #[repr(transparent)]
 pub struct IWICPixelFormatInfo2(::windows::core::IUnknown);
 impl IWICPixelFormatInfo2 {
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
-        let mut result__: WICComponentType = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetComponentType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WICComponentType>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetCLSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSigningStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAuthor<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchauthor: u32, wzauthor: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAuthor)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchauthor), wzauthor.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetVendorGUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchversion: u32, wzversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchversion), wzversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSpecVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchspecversion: u32, wzspecversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSpecVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchspecversion), wzspecversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFriendlyName<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchfriendlyname: u32, wzfriendlyname: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFriendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchfriendlyname), wzfriendlyname.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetFormatGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetFormatGUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetColorContext(&self) -> ::windows::core::Result<IWICColorContext> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetColorContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICColorContext>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetBitsPerPixel(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetBitsPerPixel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetChannelCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetChannelCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetChannelMask(&self, uichannelindex: u32, cbmaskbuffer: u32, pbmaskbuffer: *mut u8, pcbactual: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetChannelMask)(::core::mem::transmute_copy(self), ::core::mem::transmute(uichannelindex), ::core::mem::transmute(cbmaskbuffer), ::core::mem::transmute(pbmaskbuffer), ::core::mem::transmute(pcbactual)).ok()
-    }
     #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SupportsTransparency(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
@@ -5560,6 +5496,70 @@ impl IWICPixelFormatInfo2 {
     pub unsafe fn GetNumericRepresentation(&self) -> ::windows::core::Result<WICPixelFormatNumericRepresentation> {
         let mut result__: WICPixelFormatNumericRepresentation = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetNumericRepresentation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WICPixelFormatNumericRepresentation>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetFormatGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetFormatGUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetColorContext(&self) -> ::windows::core::Result<IWICColorContext> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetColorContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWICColorContext>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetBitsPerPixel(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetBitsPerPixel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetChannelCount(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetChannelCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetChannelMask(&self, uichannelindex: u32, cbmaskbuffer: u32, pbmaskbuffer: *mut u8, pcbactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetChannelMask)(::core::mem::transmute_copy(self), ::core::mem::transmute(uichannelindex), ::core::mem::transmute(cbmaskbuffer), ::core::mem::transmute(pbmaskbuffer), ::core::mem::transmute(pcbactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetComponentType(&self) -> ::windows::core::Result<WICComponentType> {
+        let mut result__: WICComponentType = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetComponentType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WICComponentType>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetCLSID(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetCLSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetSigningStatus(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetSigningStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetAuthor<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchauthor: u32, wzauthor: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetAuthor)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchauthor), wzauthor.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetVendorGUID(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetVendorGUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchversion: u32, wzversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchversion), wzversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetSpecVersion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchspecversion: u32, wzspecversion: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetSpecVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchspecversion), wzspecversion.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetFriendlyName<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, cchfriendlyname: u32, wzfriendlyname: Param1, pcchactual: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetFriendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(cchfriendlyname), wzfriendlyname.into_param().abi(), ::core::mem::transmute(pcchactual)).ok()
     }
 }
 impl ::core::convert::From<IWICPixelFormatInfo2> for IWICPixelFormatInfo {
@@ -5781,27 +5781,6 @@ pub struct IWICPlanarBitmapSourceTransformVtbl {
 pub struct IWICPlanarFormatConverter(::windows::core::IUnknown);
 impl IWICPlanarFormatConverter {
     #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(puiwidth), ::core::mem::transmute(puiheight)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPixelFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn GetResolution(&self, pdpix: *mut f64, pdpiy: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetResolution)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CopyPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyPalette)(::core::mem::transmute_copy(self), pipalette.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-    pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyPixels)(::core::mem::transmute_copy(self), ::core::mem::transmute(prc), ::core::mem::transmute(cbstride), ::core::mem::transmute(cbbuffersize), ::core::mem::transmute(pbbuffer)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
     pub unsafe fn Initialize<'a, Param4: ::windows::core::IntoParam<'a, IWICPalette>>(&self, ppplanes: *const ::core::option::Option<IWICBitmapSource>, cplanes: u32, dstformat: *const ::windows::core::GUID, dither: WICBitmapDitherType, pipalette: Param4, alphathresholdpercent: f64, palettetranslate: WICBitmapPaletteType) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppplanes), ::core::mem::transmute(cplanes), ::core::mem::transmute(dstformat), ::core::mem::transmute(dither), pipalette.into_param().abi(), ::core::mem::transmute(alphathresholdpercent), ::core::mem::transmute(palettetranslate)).ok()
     }
@@ -5810,6 +5789,27 @@ impl IWICPlanarFormatConverter {
     pub unsafe fn CanConvert(&self, psrcpixelformats: *const ::windows::core::GUID, csrcplanes: u32, dstpixelformat: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CanConvert)(::core::mem::transmute_copy(self), ::core::mem::transmute(psrcpixelformats), ::core::mem::transmute(csrcplanes), ::core::mem::transmute(dstpixelformat), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetSize(&self, puiwidth: *mut u32, puiheight: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(puiwidth), ::core::mem::transmute(puiheight)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetPixelFormat(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetPixelFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn GetResolution(&self, pdpix: *mut f64, pdpiy: *mut f64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetResolution)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdpix), ::core::mem::transmute(pdpiy)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CopyPalette<'a, Param0: ::windows::core::IntoParam<'a, IWICPalette>>(&self, pipalette: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.CopyPalette)(::core::mem::transmute_copy(self), pipalette.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+    pub unsafe fn CopyPixels(&self, prc: *const WICRect, cbstride: u32, cbbuffersize: u32, pbbuffer: *mut u8) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.CopyPixels)(::core::mem::transmute_copy(self), ::core::mem::transmute(prc), ::core::mem::transmute(cbstride), ::core::mem::transmute(cbbuffersize), ::core::mem::transmute(pbbuffer)).ok()
     }
 }
 impl ::core::convert::From<IWICPlanarFormatConverter> for IWICBitmapSource {
@@ -6010,64 +6010,6 @@ pub struct IWICStream(::windows::core::IUnknown);
 impl IWICStream {
     #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Write(&self, pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Write)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Seek(&self, dlibmove: i64, dworigin: super::super::System::Com::STREAM_SEEK) -> ::windows::core::Result<u64> {
-        let mut result__: u64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Seek)(::core::mem::transmute_copy(self), ::core::mem::transmute(dlibmove), ::core::mem::transmute(dworigin), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSize(&self, libnewsize: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(libnewsize)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CopyTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstm: Param0, cb: u64, pcbread: *mut u64, pcbwritten: *mut u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyTo)(::core::mem::transmute_copy(self), pstm.into_param().abi(), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread), ::core::mem::transmute(pcbwritten)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
-    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
-    pub unsafe fn Commit(&self, grfcommitflags: super::super::System::Com::StructuredStorage::STGC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Commit)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfcommitflags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Revert(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Revert)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LockRegion)(::core::mem::transmute_copy(self), ::core::mem::transmute(liboffset), ::core::mem::transmute(cb), ::core::mem::transmute(dwlocktype)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnlockRegion)(::core::mem::transmute_copy(self), ::core::mem::transmute(liboffset), ::core::mem::transmute(cb), ::core::mem::transmute(dwlocktype)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Stat(&self, pstatstg: *mut super::super::System::Com::STATSTG, grfstatflag: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Stat)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstatstg), ::core::mem::transmute(grfstatflag)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Clone(&self) -> ::windows::core::Result<super::super::System::Com::IStream> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IStream>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromIStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pistream: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InitializeFromIStream)(::core::mem::transmute_copy(self), pistream.into_param().abi()).ok()
     }
@@ -6084,6 +6026,64 @@ impl IWICStream {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InitializeFromIStreamRegion<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pistream: Param0, uloffset: u64, ulmaxsize: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).InitializeFromIStreamRegion)(::core::mem::transmute_copy(self), pistream.into_param().abi(), ::core::mem::transmute(uloffset), ::core::mem::transmute(ulmaxsize)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn Seek(&self, dlibmove: i64, dworigin: super::super::System::Com::STREAM_SEEK) -> ::windows::core::Result<u64> {
+        let mut result__: u64 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.Seek)(::core::mem::transmute_copy(self), ::core::mem::transmute(dlibmove), ::core::mem::transmute(dworigin), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn SetSize(&self, libnewsize: u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(libnewsize)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CopyTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstm: Param0, cb: u64, pcbread: *mut u64, pcbwritten: *mut u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.CopyTo)(::core::mem::transmute_copy(self), pstm.into_param().abi(), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread), ::core::mem::transmute(pcbwritten)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
+    #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+    pub unsafe fn Commit(&self, grfcommitflags: super::super::System::Com::StructuredStorage::STGC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Commit)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfcommitflags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn Revert(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Revert)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.LockRegion)(::core::mem::transmute_copy(self), ::core::mem::transmute(liboffset), ::core::mem::transmute(cb), ::core::mem::transmute(dwlocktype)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.UnlockRegion)(::core::mem::transmute_copy(self), ::core::mem::transmute(liboffset), ::core::mem::transmute(cb), ::core::mem::transmute(dwlocktype)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub unsafe fn Stat(&self, pstatstg: *mut super::super::System::Com::STATSTG, grfstatflag: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Stat)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstatstg), ::core::mem::transmute(grfstatflag)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn Clone(&self) -> ::windows::core::Result<super::super::System::Com::IStream> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IStream>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn Write(&self, pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.Write)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]

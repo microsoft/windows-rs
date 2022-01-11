@@ -538,11 +538,6 @@ pub struct IFunctionDiscoveryServiceProviderVtbl {
 #[repr(transparent)]
 pub struct IFunctionInstance(::windows::core::IUnknown);
 impl IFunctionInstance {
-    #[doc = "*Required features: 'Win32_Devices_FunctionDiscovery', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn QueryService(&self, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).QueryService)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidservice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
-    }
     #[doc = "*Required features: 'Win32_Devices_FunctionDiscovery'*"]
     pub unsafe fn GetID(&self) -> ::windows::core::Result<*mut u16> {
         let mut result__: *mut u16 = ::core::mem::zeroed();
@@ -562,6 +557,11 @@ impl IFunctionInstance {
     #[doc = "*Required features: 'Win32_Devices_FunctionDiscovery'*"]
     pub unsafe fn GetCategory(&self, ppszcomemcategory: *mut *mut u16, ppszcomemsubcategory: *mut *mut u16) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetCategory)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppszcomemcategory), ::core::mem::transmute(ppszcomemsubcategory)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Devices_FunctionDiscovery', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn QueryService(&self, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.QueryService)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidservice), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
