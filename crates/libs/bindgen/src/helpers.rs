@@ -156,57 +156,52 @@ pub fn gen_vtbl(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let vtbl = gen_vtbl_ident(def, gen);
     let guid = gen_element_name(&ElementType::GUID, gen);
     let hresult = gen_element_name(&ElementType::HRESULT, gen);
-    let phantoms = gen_phantoms(def, gen);
+    let phantoms = gen_named_phantoms(def, gen);
     let constraints = gen_type_constraints(def, gen);
     let mut methods = quote! {};
 
-    for def in def.vtable_types() {
-        match def {
-            ElementType::TypeDef(def) => {
-                for method in def.methods() {
-                    if method.name() == ".ctor" {
-                        continue;
-                    }
+    match def.vtable_base() {
+        Some(ElementType::IUnknown) => methods.combine(&quote! { pub base: ::windows::core::IUnknownVtbl, }),
+        Some(ElementType::IInspectable) => methods.combine(&quote! { pub base: ::windows::core::IInspectableVtbl, }),
+        Some(ElementType::TypeDef(def)) => {
+            let vtbl = gen_vtbl_ident(&def, gen);
+            // TODO: need namespace?
+            methods.combine(&quote! { pub base: #vtbl, });
+        }
+        _ => {}
+    }
 
-                    let signature = gen_vtbl_signature(&def, &method, gen);
-                    let cfg = gen.method_cfg(&def, &method);
-                    let cfg_all = cfg.gen(gen);
-                    let cfg_not = cfg.gen_not(gen);
+    for method in def.methods() {
+        if method.name() == ".ctor" {
+            continue;
+        }
 
-                    let signature = quote! { pub unsafe extern "system" fn #signature, };
+        let name = gen_ident(&method.rust_name());
+        let signature = gen_vtbl_signature(&def, &method, gen);
+        let cfg = gen.method_cfg(&def, &method);
+        let cfg_all = cfg.gen(gen);
+        let cfg_not = cfg.gen_not(gen);
 
-                    if cfg_all.is_empty() {
-                        methods.combine(&signature);
-                    } else {
-                        methods.combine(&quote! {
-                            #cfg_all
-                            #signature
-                            #cfg_not
-                            usize,
-                        });
-                    }
-                }
-            }
-            ElementType::IInspectable => methods.combine(&quote! {
-                pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut #guid) -> #hresult,
-                pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> #hresult,
-                pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> #hresult,
-            }),
-            ElementType::IUnknown => methods.combine(&quote! {
-                pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &#guid, interface: *mut *mut ::core::ffi::c_void) -> #hresult,
-                pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-                pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-            }),
-            _ => unimplemented!(),
+        let signature = quote! { pub #name: unsafe extern "system" fn #signature, };
+
+        if cfg_all.is_empty() {
+            methods.combine(&signature);
+        } else {
+            methods.combine(&quote! {
+                #cfg_all
+                #signature
+                #cfg_not
+                usize,
+            });
         }
     }
 
     quote! {
         #cfg
-        #[repr(C)] #[doc(hidden)] pub struct #vtbl (
+        #[repr(C)] #[doc(hidden)] pub struct #vtbl where #(#constraints)* {
             #methods
             #(pub #phantoms)*
-        ) where #(#constraints)*;
+        }
     }
 }
 

@@ -27,7 +27,12 @@ impl IAsyncActionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetResults().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAsyncAction>, ::windows::core::GetTrustLevel, SetCompleted::<Impl, IMPL_OFFSET>, Completed::<Impl, IMPL_OFFSET>, GetResults::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAsyncAction, BASE_OFFSET>(),
+            SetCompleted: SetCompleted::<Impl, IMPL_OFFSET>,
+            Completed: Completed::<Impl, IMPL_OFFSET>,
+            GetResults: GetResults::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAsyncAction as ::windows::core::Interface>::IID
@@ -82,20 +87,15 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> IAsyncActionWithProgress
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetResults().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAsyncActionWithProgress<TProgress>>,
-            ::windows::core::GetTrustLevel,
-            SetProgress::<TProgress, Impl, IMPL_OFFSET>,
-            Progress::<TProgress, Impl, IMPL_OFFSET>,
-            SetCompleted::<TProgress, Impl, IMPL_OFFSET>,
-            Completed::<TProgress, Impl, IMPL_OFFSET>,
-            GetResults::<TProgress, Impl, IMPL_OFFSET>,
-            ::core::marker::PhantomData::<TProgress>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAsyncActionWithProgress<TProgress>, BASE_OFFSET>(),
+            SetProgress: SetProgress::<TProgress, Impl, IMPL_OFFSET>,
+            Progress: Progress::<TProgress, Impl, IMPL_OFFSET>,
+            SetCompleted: SetCompleted::<TProgress, Impl, IMPL_OFFSET>,
+            Completed: Completed::<TProgress, Impl, IMPL_OFFSET>,
+            GetResults: GetResults::<TProgress, Impl, IMPL_OFFSET>,
+            TProgress: ::core::marker::PhantomData::<TProgress>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAsyncActionWithProgress<TProgress> as ::windows::core::Interface>::IID
@@ -154,7 +154,14 @@ impl IAsyncInfoVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Close().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAsyncInfo>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>, Status::<Impl, IMPL_OFFSET>, ErrorCode::<Impl, IMPL_OFFSET>, Cancel::<Impl, IMPL_OFFSET>, Close::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAsyncInfo, BASE_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            ErrorCode: ErrorCode::<Impl, IMPL_OFFSET>,
+            Cancel: Cancel::<Impl, IMPL_OFFSET>,
+            Close: Close::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAsyncInfo as ::windows::core::Interface>::IID
@@ -199,7 +206,13 @@ impl<TResult: ::windows::core::RuntimeType + 'static> IAsyncOperationVtbl<TResul
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IAsyncOperation<TResult>>, ::windows::core::GetTrustLevel, SetCompleted::<TResult, Impl, IMPL_OFFSET>, Completed::<TResult, Impl, IMPL_OFFSET>, GetResults::<TResult, Impl, IMPL_OFFSET>, ::core::marker::PhantomData::<TResult>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAsyncOperation<TResult>, BASE_OFFSET>(),
+            SetCompleted: SetCompleted::<TResult, Impl, IMPL_OFFSET>,
+            Completed: Completed::<TResult, Impl, IMPL_OFFSET>,
+            GetResults: GetResults::<TResult, Impl, IMPL_OFFSET>,
+            TResult: ::core::marker::PhantomData::<TResult>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAsyncOperation<TResult> as ::windows::core::Interface>::IID
@@ -262,21 +275,16 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAsyncOperationWithProgress<TResult, TProgress>>,
-            ::windows::core::GetTrustLevel,
-            SetProgress::<TResult, TProgress, Impl, IMPL_OFFSET>,
-            Progress::<TResult, TProgress, Impl, IMPL_OFFSET>,
-            SetCompleted::<TResult, TProgress, Impl, IMPL_OFFSET>,
-            Completed::<TResult, TProgress, Impl, IMPL_OFFSET>,
-            GetResults::<TResult, TProgress, Impl, IMPL_OFFSET>,
-            ::core::marker::PhantomData::<TResult>,
-            ::core::marker::PhantomData::<TProgress>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAsyncOperationWithProgress<TResult, TProgress>, BASE_OFFSET>(),
+            SetProgress: SetProgress::<TResult, TProgress, Impl, IMPL_OFFSET>,
+            Progress: Progress::<TResult, TProgress, Impl, IMPL_OFFSET>,
+            SetCompleted: SetCompleted::<TResult, TProgress, Impl, IMPL_OFFSET>,
+            Completed: Completed::<TResult, TProgress, Impl, IMPL_OFFSET>,
+            GetResults: GetResults::<TResult, TProgress, Impl, IMPL_OFFSET>,
+            TResult: ::core::marker::PhantomData::<TResult>,
+            TProgress: ::core::marker::PhantomData::<TProgress>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAsyncOperationWithProgress<TResult, TProgress> as ::windows::core::Interface>::IID
@@ -294,7 +302,7 @@ impl IClosableVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Close().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IClosable>, ::windows::core::GetTrustLevel, Close::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IClosable, BASE_OFFSET>(), Close: Close::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IClosable as ::windows::core::Interface>::IID
@@ -315,7 +323,7 @@ impl IDeferralVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Complete().into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeferral>, ::windows::core::GetTrustLevel, Complete::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDeferral, BASE_OFFSET>(), Complete: Complete::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeferral as ::windows::core::Interface>::IID
@@ -343,7 +351,7 @@ impl IDeferralFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IDeferralFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IDeferralFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IDeferralFactory as ::windows::core::Interface>::IID
@@ -368,7 +376,10 @@ impl IGetActivationFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGetActivationFactory>, ::windows::core::GetTrustLevel, GetActivationFactory::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGetActivationFactory, BASE_OFFSET>(),
+            GetActivationFactory: GetActivationFactory::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGetActivationFactory as ::windows::core::Interface>::IID
@@ -420,7 +431,12 @@ impl IGuidHelperStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IGuidHelperStatics>, ::windows::core::GetTrustLevel, CreateNewGuid::<Impl, IMPL_OFFSET>, Empty::<Impl, IMPL_OFFSET>, Equals::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IGuidHelperStatics, BASE_OFFSET>(),
+            CreateNewGuid: CreateNewGuid::<Impl, IMPL_OFFSET>,
+            Empty: Empty::<Impl, IMPL_OFFSET>,
+            Equals: Equals::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IGuidHelperStatics as ::windows::core::Interface>::IID
@@ -445,7 +461,7 @@ impl IMemoryBufferVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMemoryBuffer>, ::windows::core::GetTrustLevel, CreateReference::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMemoryBuffer, BASE_OFFSET>(), CreateReference: CreateReference::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMemoryBuffer as ::windows::core::Interface>::IID
@@ -473,7 +489,7 @@ impl IMemoryBufferFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMemoryBufferFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IMemoryBufferFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMemoryBufferFactory as ::windows::core::Interface>::IID
@@ -515,7 +531,12 @@ impl IMemoryBufferReferenceVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveClosed(&*(&cookie as *const <EventRegistrationToken as ::windows::core::Abi>::Abi as *const <EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMemoryBufferReference>, ::windows::core::GetTrustLevel, Capacity::<Impl, IMPL_OFFSET>, Closed::<Impl, IMPL_OFFSET>, RemoveClosed::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMemoryBufferReference, BASE_OFFSET>(),
+            Capacity: Capacity::<Impl, IMPL_OFFSET>,
+            Closed: Closed::<Impl, IMPL_OFFSET>,
+            RemoveClosed: RemoveClosed::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMemoryBufferReference as ::windows::core::Interface>::IID
@@ -863,53 +884,48 @@ impl IPropertyValueVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).GetRectArray(::windows::core::ArrayProxy::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size).as_array()).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPropertyValue>,
-            ::windows::core::GetTrustLevel,
-            Type::<Impl, IMPL_OFFSET>,
-            IsNumericScalar::<Impl, IMPL_OFFSET>,
-            GetUInt8::<Impl, IMPL_OFFSET>,
-            GetInt16::<Impl, IMPL_OFFSET>,
-            GetUInt16::<Impl, IMPL_OFFSET>,
-            GetInt32::<Impl, IMPL_OFFSET>,
-            GetUInt32::<Impl, IMPL_OFFSET>,
-            GetInt64::<Impl, IMPL_OFFSET>,
-            GetUInt64::<Impl, IMPL_OFFSET>,
-            GetSingle::<Impl, IMPL_OFFSET>,
-            GetDouble::<Impl, IMPL_OFFSET>,
-            GetChar16::<Impl, IMPL_OFFSET>,
-            GetBoolean::<Impl, IMPL_OFFSET>,
-            GetString::<Impl, IMPL_OFFSET>,
-            GetGuid::<Impl, IMPL_OFFSET>,
-            GetDateTime::<Impl, IMPL_OFFSET>,
-            GetTimeSpan::<Impl, IMPL_OFFSET>,
-            GetPoint::<Impl, IMPL_OFFSET>,
-            GetSize::<Impl, IMPL_OFFSET>,
-            GetRect::<Impl, IMPL_OFFSET>,
-            GetUInt8Array::<Impl, IMPL_OFFSET>,
-            GetInt16Array::<Impl, IMPL_OFFSET>,
-            GetUInt16Array::<Impl, IMPL_OFFSET>,
-            GetInt32Array::<Impl, IMPL_OFFSET>,
-            GetUInt32Array::<Impl, IMPL_OFFSET>,
-            GetInt64Array::<Impl, IMPL_OFFSET>,
-            GetUInt64Array::<Impl, IMPL_OFFSET>,
-            GetSingleArray::<Impl, IMPL_OFFSET>,
-            GetDoubleArray::<Impl, IMPL_OFFSET>,
-            GetChar16Array::<Impl, IMPL_OFFSET>,
-            GetBooleanArray::<Impl, IMPL_OFFSET>,
-            GetStringArray::<Impl, IMPL_OFFSET>,
-            GetInspectableArray::<Impl, IMPL_OFFSET>,
-            GetGuidArray::<Impl, IMPL_OFFSET>,
-            GetDateTimeArray::<Impl, IMPL_OFFSET>,
-            GetTimeSpanArray::<Impl, IMPL_OFFSET>,
-            GetPointArray::<Impl, IMPL_OFFSET>,
-            GetSizeArray::<Impl, IMPL_OFFSET>,
-            GetRectArray::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPropertyValue, BASE_OFFSET>(),
+            Type: Type::<Impl, IMPL_OFFSET>,
+            IsNumericScalar: IsNumericScalar::<Impl, IMPL_OFFSET>,
+            GetUInt8: GetUInt8::<Impl, IMPL_OFFSET>,
+            GetInt16: GetInt16::<Impl, IMPL_OFFSET>,
+            GetUInt16: GetUInt16::<Impl, IMPL_OFFSET>,
+            GetInt32: GetInt32::<Impl, IMPL_OFFSET>,
+            GetUInt32: GetUInt32::<Impl, IMPL_OFFSET>,
+            GetInt64: GetInt64::<Impl, IMPL_OFFSET>,
+            GetUInt64: GetUInt64::<Impl, IMPL_OFFSET>,
+            GetSingle: GetSingle::<Impl, IMPL_OFFSET>,
+            GetDouble: GetDouble::<Impl, IMPL_OFFSET>,
+            GetChar16: GetChar16::<Impl, IMPL_OFFSET>,
+            GetBoolean: GetBoolean::<Impl, IMPL_OFFSET>,
+            GetString: GetString::<Impl, IMPL_OFFSET>,
+            GetGuid: GetGuid::<Impl, IMPL_OFFSET>,
+            GetDateTime: GetDateTime::<Impl, IMPL_OFFSET>,
+            GetTimeSpan: GetTimeSpan::<Impl, IMPL_OFFSET>,
+            GetPoint: GetPoint::<Impl, IMPL_OFFSET>,
+            GetSize: GetSize::<Impl, IMPL_OFFSET>,
+            GetRect: GetRect::<Impl, IMPL_OFFSET>,
+            GetUInt8Array: GetUInt8Array::<Impl, IMPL_OFFSET>,
+            GetInt16Array: GetInt16Array::<Impl, IMPL_OFFSET>,
+            GetUInt16Array: GetUInt16Array::<Impl, IMPL_OFFSET>,
+            GetInt32Array: GetInt32Array::<Impl, IMPL_OFFSET>,
+            GetUInt32Array: GetUInt32Array::<Impl, IMPL_OFFSET>,
+            GetInt64Array: GetInt64Array::<Impl, IMPL_OFFSET>,
+            GetUInt64Array: GetUInt64Array::<Impl, IMPL_OFFSET>,
+            GetSingleArray: GetSingleArray::<Impl, IMPL_OFFSET>,
+            GetDoubleArray: GetDoubleArray::<Impl, IMPL_OFFSET>,
+            GetChar16Array: GetChar16Array::<Impl, IMPL_OFFSET>,
+            GetBooleanArray: GetBooleanArray::<Impl, IMPL_OFFSET>,
+            GetStringArray: GetStringArray::<Impl, IMPL_OFFSET>,
+            GetInspectableArray: GetInspectableArray::<Impl, IMPL_OFFSET>,
+            GetGuidArray: GetGuidArray::<Impl, IMPL_OFFSET>,
+            GetDateTimeArray: GetDateTimeArray::<Impl, IMPL_OFFSET>,
+            GetTimeSpanArray: GetTimeSpanArray::<Impl, IMPL_OFFSET>,
+            GetPointArray: GetPointArray::<Impl, IMPL_OFFSET>,
+            GetSizeArray: GetSizeArray::<Impl, IMPL_OFFSET>,
+            GetRectArray: GetRectArray::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPropertyValue as ::windows::core::Interface>::IID
@@ -1393,53 +1409,48 @@ impl IPropertyValueStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IPropertyValueStatics>,
-            ::windows::core::GetTrustLevel,
-            CreateEmpty::<Impl, IMPL_OFFSET>,
-            CreateUInt8::<Impl, IMPL_OFFSET>,
-            CreateInt16::<Impl, IMPL_OFFSET>,
-            CreateUInt16::<Impl, IMPL_OFFSET>,
-            CreateInt32::<Impl, IMPL_OFFSET>,
-            CreateUInt32::<Impl, IMPL_OFFSET>,
-            CreateInt64::<Impl, IMPL_OFFSET>,
-            CreateUInt64::<Impl, IMPL_OFFSET>,
-            CreateSingle::<Impl, IMPL_OFFSET>,
-            CreateDouble::<Impl, IMPL_OFFSET>,
-            CreateChar16::<Impl, IMPL_OFFSET>,
-            CreateBoolean::<Impl, IMPL_OFFSET>,
-            CreateString::<Impl, IMPL_OFFSET>,
-            CreateInspectable::<Impl, IMPL_OFFSET>,
-            CreateGuid::<Impl, IMPL_OFFSET>,
-            CreateDateTime::<Impl, IMPL_OFFSET>,
-            CreateTimeSpan::<Impl, IMPL_OFFSET>,
-            CreatePoint::<Impl, IMPL_OFFSET>,
-            CreateSize::<Impl, IMPL_OFFSET>,
-            CreateRect::<Impl, IMPL_OFFSET>,
-            CreateUInt8Array::<Impl, IMPL_OFFSET>,
-            CreateInt16Array::<Impl, IMPL_OFFSET>,
-            CreateUInt16Array::<Impl, IMPL_OFFSET>,
-            CreateInt32Array::<Impl, IMPL_OFFSET>,
-            CreateUInt32Array::<Impl, IMPL_OFFSET>,
-            CreateInt64Array::<Impl, IMPL_OFFSET>,
-            CreateUInt64Array::<Impl, IMPL_OFFSET>,
-            CreateSingleArray::<Impl, IMPL_OFFSET>,
-            CreateDoubleArray::<Impl, IMPL_OFFSET>,
-            CreateChar16Array::<Impl, IMPL_OFFSET>,
-            CreateBooleanArray::<Impl, IMPL_OFFSET>,
-            CreateStringArray::<Impl, IMPL_OFFSET>,
-            CreateInspectableArray::<Impl, IMPL_OFFSET>,
-            CreateGuidArray::<Impl, IMPL_OFFSET>,
-            CreateDateTimeArray::<Impl, IMPL_OFFSET>,
-            CreateTimeSpanArray::<Impl, IMPL_OFFSET>,
-            CreatePointArray::<Impl, IMPL_OFFSET>,
-            CreateSizeArray::<Impl, IMPL_OFFSET>,
-            CreateRectArray::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IPropertyValueStatics, BASE_OFFSET>(),
+            CreateEmpty: CreateEmpty::<Impl, IMPL_OFFSET>,
+            CreateUInt8: CreateUInt8::<Impl, IMPL_OFFSET>,
+            CreateInt16: CreateInt16::<Impl, IMPL_OFFSET>,
+            CreateUInt16: CreateUInt16::<Impl, IMPL_OFFSET>,
+            CreateInt32: CreateInt32::<Impl, IMPL_OFFSET>,
+            CreateUInt32: CreateUInt32::<Impl, IMPL_OFFSET>,
+            CreateInt64: CreateInt64::<Impl, IMPL_OFFSET>,
+            CreateUInt64: CreateUInt64::<Impl, IMPL_OFFSET>,
+            CreateSingle: CreateSingle::<Impl, IMPL_OFFSET>,
+            CreateDouble: CreateDouble::<Impl, IMPL_OFFSET>,
+            CreateChar16: CreateChar16::<Impl, IMPL_OFFSET>,
+            CreateBoolean: CreateBoolean::<Impl, IMPL_OFFSET>,
+            CreateString: CreateString::<Impl, IMPL_OFFSET>,
+            CreateInspectable: CreateInspectable::<Impl, IMPL_OFFSET>,
+            CreateGuid: CreateGuid::<Impl, IMPL_OFFSET>,
+            CreateDateTime: CreateDateTime::<Impl, IMPL_OFFSET>,
+            CreateTimeSpan: CreateTimeSpan::<Impl, IMPL_OFFSET>,
+            CreatePoint: CreatePoint::<Impl, IMPL_OFFSET>,
+            CreateSize: CreateSize::<Impl, IMPL_OFFSET>,
+            CreateRect: CreateRect::<Impl, IMPL_OFFSET>,
+            CreateUInt8Array: CreateUInt8Array::<Impl, IMPL_OFFSET>,
+            CreateInt16Array: CreateInt16Array::<Impl, IMPL_OFFSET>,
+            CreateUInt16Array: CreateUInt16Array::<Impl, IMPL_OFFSET>,
+            CreateInt32Array: CreateInt32Array::<Impl, IMPL_OFFSET>,
+            CreateUInt32Array: CreateUInt32Array::<Impl, IMPL_OFFSET>,
+            CreateInt64Array: CreateInt64Array::<Impl, IMPL_OFFSET>,
+            CreateUInt64Array: CreateUInt64Array::<Impl, IMPL_OFFSET>,
+            CreateSingleArray: CreateSingleArray::<Impl, IMPL_OFFSET>,
+            CreateDoubleArray: CreateDoubleArray::<Impl, IMPL_OFFSET>,
+            CreateChar16Array: CreateChar16Array::<Impl, IMPL_OFFSET>,
+            CreateBooleanArray: CreateBooleanArray::<Impl, IMPL_OFFSET>,
+            CreateStringArray: CreateStringArray::<Impl, IMPL_OFFSET>,
+            CreateInspectableArray: CreateInspectableArray::<Impl, IMPL_OFFSET>,
+            CreateGuidArray: CreateGuidArray::<Impl, IMPL_OFFSET>,
+            CreateDateTimeArray: CreateDateTimeArray::<Impl, IMPL_OFFSET>,
+            CreateTimeSpanArray: CreateTimeSpanArray::<Impl, IMPL_OFFSET>,
+            CreatePointArray: CreatePointArray::<Impl, IMPL_OFFSET>,
+            CreateSizeArray: CreateSizeArray::<Impl, IMPL_OFFSET>,
+            CreateRectArray: CreateRectArray::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPropertyValueStatics as ::windows::core::Interface>::IID
@@ -1467,7 +1478,11 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceVtbl<T> {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IReference<T>>, ::windows::core::GetTrustLevel, Value::<T, Impl, IMPL_OFFSET>, ::core::marker::PhantomData::<T>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IReference<T>, BASE_OFFSET>(),
+            Value: Value::<T, Impl, IMPL_OFFSET>,
+            T: ::core::marker::PhantomData::<T>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IReference<T> as ::windows::core::Interface>::IID
@@ -1496,7 +1511,11 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArrayVtbl<T> {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IReferenceArray<T>>, ::windows::core::GetTrustLevel, Value::<T, Impl, IMPL_OFFSET>, ::core::marker::PhantomData::<T>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IReferenceArray<T>, BASE_OFFSET>(),
+            Value: Value::<T, Impl, IMPL_OFFSET>,
+            T: ::core::marker::PhantomData::<T>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IReferenceArray<T> as ::windows::core::Interface>::IID
@@ -1521,7 +1540,7 @@ impl IStringableVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IStringable>, ::windows::core::GetTrustLevel, ToString::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IStringable, BASE_OFFSET>(), ToString: ToString::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStringable as ::windows::core::Interface>::IID
@@ -1561,7 +1580,11 @@ impl IUriEscapeStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUriEscapeStatics>, ::windows::core::GetTrustLevel, UnescapeComponent::<Impl, IMPL_OFFSET>, EscapeComponent::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUriEscapeStatics, BASE_OFFSET>(),
+            UnescapeComponent: UnescapeComponent::<Impl, IMPL_OFFSET>,
+            EscapeComponent: EscapeComponent::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUriEscapeStatics as ::windows::core::Interface>::IID
@@ -1781,31 +1804,26 @@ impl IUriRuntimeClassVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IUriRuntimeClass>,
-            ::windows::core::GetTrustLevel,
-            AbsoluteUri::<Impl, IMPL_OFFSET>,
-            DisplayUri::<Impl, IMPL_OFFSET>,
-            Domain::<Impl, IMPL_OFFSET>,
-            Extension::<Impl, IMPL_OFFSET>,
-            Fragment::<Impl, IMPL_OFFSET>,
-            Host::<Impl, IMPL_OFFSET>,
-            Password::<Impl, IMPL_OFFSET>,
-            Path::<Impl, IMPL_OFFSET>,
-            Query::<Impl, IMPL_OFFSET>,
-            QueryParsed::<Impl, IMPL_OFFSET>,
-            RawUri::<Impl, IMPL_OFFSET>,
-            SchemeName::<Impl, IMPL_OFFSET>,
-            UserName::<Impl, IMPL_OFFSET>,
-            Port::<Impl, IMPL_OFFSET>,
-            Suspicious::<Impl, IMPL_OFFSET>,
-            Equals::<Impl, IMPL_OFFSET>,
-            CombineUri::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUriRuntimeClass, BASE_OFFSET>(),
+            AbsoluteUri: AbsoluteUri::<Impl, IMPL_OFFSET>,
+            DisplayUri: DisplayUri::<Impl, IMPL_OFFSET>,
+            Domain: Domain::<Impl, IMPL_OFFSET>,
+            Extension: Extension::<Impl, IMPL_OFFSET>,
+            Fragment: Fragment::<Impl, IMPL_OFFSET>,
+            Host: Host::<Impl, IMPL_OFFSET>,
+            Password: Password::<Impl, IMPL_OFFSET>,
+            Path: Path::<Impl, IMPL_OFFSET>,
+            Query: Query::<Impl, IMPL_OFFSET>,
+            QueryParsed: QueryParsed::<Impl, IMPL_OFFSET>,
+            RawUri: RawUri::<Impl, IMPL_OFFSET>,
+            SchemeName: SchemeName::<Impl, IMPL_OFFSET>,
+            UserName: UserName::<Impl, IMPL_OFFSET>,
+            Port: Port::<Impl, IMPL_OFFSET>,
+            Suspicious: Suspicious::<Impl, IMPL_OFFSET>,
+            Equals: Equals::<Impl, IMPL_OFFSET>,
+            CombineUri: CombineUri::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUriRuntimeClass as ::windows::core::Interface>::IID
@@ -1845,7 +1863,11 @@ impl IUriRuntimeClassFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUriRuntimeClassFactory>, ::windows::core::GetTrustLevel, CreateUri::<Impl, IMPL_OFFSET>, CreateWithRelativeUri::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUriRuntimeClassFactory, BASE_OFFSET>(),
+            CreateUri: CreateUri::<Impl, IMPL_OFFSET>,
+            CreateWithRelativeUri: CreateWithRelativeUri::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUriRuntimeClassFactory as ::windows::core::Interface>::IID
@@ -1885,7 +1907,11 @@ impl IUriRuntimeClassWithAbsoluteCanonicalUriVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IUriRuntimeClassWithAbsoluteCanonicalUri>, ::windows::core::GetTrustLevel, AbsoluteCanonicalUri::<Impl, IMPL_OFFSET>, DisplayIri::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IUriRuntimeClassWithAbsoluteCanonicalUri, BASE_OFFSET>(),
+            AbsoluteCanonicalUri: AbsoluteCanonicalUri::<Impl, IMPL_OFFSET>,
+            DisplayIri: DisplayIri::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IUriRuntimeClassWithAbsoluteCanonicalUri as ::windows::core::Interface>::IID
@@ -1922,7 +1948,11 @@ impl IWwwFormUrlDecoderEntryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWwwFormUrlDecoderEntry>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, Value::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWwwFormUrlDecoderEntry, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWwwFormUrlDecoderEntry as ::windows::core::Interface>::IID
@@ -1950,7 +1980,10 @@ impl IWwwFormUrlDecoderRuntimeClassVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWwwFormUrlDecoderRuntimeClass>, ::windows::core::GetTrustLevel, GetFirstValueByName::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWwwFormUrlDecoderRuntimeClass, BASE_OFFSET>(),
+            GetFirstValueByName: GetFirstValueByName::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWwwFormUrlDecoderRuntimeClass as ::windows::core::Interface>::IID
@@ -1978,7 +2011,10 @@ impl IWwwFormUrlDecoderRuntimeClassFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IWwwFormUrlDecoderRuntimeClassFactory>, ::windows::core::GetTrustLevel, CreateWwwFormUrlDecoder::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IWwwFormUrlDecoderRuntimeClassFactory, BASE_OFFSET>(),
+            CreateWwwFormUrlDecoder: CreateWwwFormUrlDecoder::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWwwFormUrlDecoderRuntimeClassFactory as ::windows::core::Interface>::IID

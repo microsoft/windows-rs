@@ -31,10 +31,8 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
             continue;
         }
 
-        let mut vtable_offset = 6;
         for method in def.methods() {
-            methods.combine(&gen_winrt_method(def, *kind, &method, vtable_offset, &mut method_names, gen));
-            vtable_offset += 1;
+            methods.combine(&gen_winrt_method(def, *kind, &method, &mut method_names, gen));
         }
     }
 

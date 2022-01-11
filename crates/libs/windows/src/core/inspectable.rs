@@ -1,5 +1,3 @@
-#![allow(non_snake_case)]
-
 use super::*;
 use bindings::*;
 
@@ -16,14 +14,19 @@ impl IInspectable {
     pub fn GetRuntimeClassName(&self) -> Result<HSTRING> {
         unsafe {
             let mut abi = core::ptr::null_mut();
-            (self.vtable().4)(core::mem::transmute_copy(self), &mut abi).ok()?;
+            (self.vtable().GetRuntimeClassName)(core::mem::transmute_copy(self), &mut abi).ok()?;
             Ok(core::mem::transmute(abi))
         }
     }
 }
 
 #[repr(C)]
-pub struct IInspectableVtbl(pub unsafe extern "system" fn(this: RawPtr, iid: &GUID, interface: *mut RawPtr) -> HRESULT, pub unsafe extern "system" fn(this: RawPtr) -> u32, pub unsafe extern "system" fn(this: RawPtr) -> u32, pub unsafe extern "system" fn(this: RawPtr, count: *mut u32, values: *mut *mut GUID) -> HRESULT, pub unsafe extern "system" fn(this: RawPtr, value: *mut RawPtr) -> HRESULT, pub unsafe extern "system" fn(this: RawPtr, value: *mut i32) -> HRESULT);
+pub struct IInspectableVtbl{
+    pub base: IUnknownVtbl,
+    pub GetIids: unsafe extern "system" fn(this: RawPtr, count: *mut u32, values: *mut *mut GUID) -> HRESULT, 
+    pub GetRuntimeClassName: unsafe extern "system" fn(this: RawPtr, value: *mut RawPtr) -> HRESULT, 
+    pub GetTrustLevel: unsafe extern "system" fn(this: RawPtr, value: *mut i32) -> HRESULT,
+}
 
 unsafe impl Interface for IInspectable {
     type Vtable = IInspectableVtbl;
@@ -121,32 +124,41 @@ impl core::convert::TryFrom<&IInspectable> for HSTRING {
     }
 }
 
-pub unsafe extern "system" fn GetRuntimeClassName<T: RuntimeName>(
-    _: RawPtr,
-    value: *mut RawPtr,
-) -> HRESULT {
-    let h : HSTRING = T::NAME.into(); // TODO: should be try_into
-    *value = ::core::mem::transmute(h);
-    HRESULT(0)
-}
-
-pub unsafe extern "system" fn GetIids(
-    _: RawPtr,
-    count: *mut u32,
-    values: *mut *mut GUID,
-) -> ::windows::core::HRESULT {
-    // Note: even if we end up implementing this in future, it still doesn't need a this pointer
-    // since the data to be returned is type- not instance-specific so can be shared for all
-    // interfaces.
-    *count = 0;
-    *values = core::ptr::null_mut();
-    HRESULT(0)
-}
-
-pub unsafe extern "system" fn GetTrustLevel(_: RawPtr, value: *mut i32) -> HRESULT {
-    // Note: even if we end up implementing this in future, it still doesn't need a this pointer
-    // since the data to be returned is type- not instance-specific so can be shared for all
-    // interfaces.
-    *value = 0;
-    HRESULT(0)
+#[cfg(feature = "implement")]
+impl IInspectableVtbl {
+    pub const fn new<Identity: IUnknownImpl, Name: RuntimeName, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn GetIids(
+            _: RawPtr,
+            count: *mut u32,
+            values: *mut *mut GUID,
+        ) -> ::windows::core::HRESULT {
+            // Note: even if we end up implementing this in future, it still doesn't need a this pointer
+            // since the data to be returned is type- not instance-specific so can be shared for all
+            // interfaces.
+            *count = 0;
+            *values = core::ptr::null_mut();
+            HRESULT(0)
+        }
+        unsafe extern "system" fn GetRuntimeClassName<T: RuntimeName>(
+            _: RawPtr,
+            value: *mut RawPtr,
+        ) -> HRESULT {
+            let h : HSTRING = T::NAME.into(); // TODO: should be try_into
+            *value = ::core::mem::transmute(h);
+            HRESULT(0)
+        }
+        unsafe extern "system" fn GetTrustLevel(_: RawPtr, value: *mut i32) -> HRESULT {
+            // Note: even if we end up implementing this in future, it still doesn't need a this pointer
+            // since the data to be returned is type- not instance-specific so can be shared for all
+            // interfaces.
+            *value = 0;
+            HRESULT(0)
+        }
+        Self { 
+            base: IUnknownVtbl::new::<Identity, OFFSET>(),
+            GetIids,
+            GetRuntimeClassName: GetRuntimeClassName::<Name>,
+            GetTrustLevel,
+        }
+    }
 }

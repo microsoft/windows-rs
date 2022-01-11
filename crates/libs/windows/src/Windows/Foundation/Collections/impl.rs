@@ -20,7 +20,11 @@ impl<T: ::windows::core::RuntimeType + 'static> IIterableVtbl<T> {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIterable<T>>, ::windows::core::GetTrustLevel, First::<T, Impl, IMPL_OFFSET>, ::core::marker::PhantomData::<T>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIterable<T>, BASE_OFFSET>(),
+            First: First::<T, Impl, IMPL_OFFSET>,
+            T: ::core::marker::PhantomData::<T>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIterable<T> as ::windows::core::Interface>::IID
@@ -84,7 +88,14 @@ impl<T: ::windows::core::RuntimeType + 'static> IIteratorVtbl<T> {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IIterator<T>>, ::windows::core::GetTrustLevel, Current::<T, Impl, IMPL_OFFSET>, HasCurrent::<T, Impl, IMPL_OFFSET>, MoveNext::<T, Impl, IMPL_OFFSET>, GetMany::<T, Impl, IMPL_OFFSET>, ::core::marker::PhantomData::<T>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IIterator<T>, BASE_OFFSET>(),
+            Current: Current::<T, Impl, IMPL_OFFSET>,
+            HasCurrent: HasCurrent::<T, Impl, IMPL_OFFSET>,
+            MoveNext: MoveNext::<T, Impl, IMPL_OFFSET>,
+            GetMany: GetMany::<T, Impl, IMPL_OFFSET>,
+            T: ::core::marker::PhantomData::<T>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IIterator<T> as ::windows::core::Interface>::IID
@@ -125,7 +136,13 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IKeyValuePair<K, V>>, ::windows::core::GetTrustLevel, Key::<K, V, Impl, IMPL_OFFSET>, Value::<K, V, Impl, IMPL_OFFSET>, ::core::marker::PhantomData::<K>, ::core::marker::PhantomData::<V>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IKeyValuePair<K, V>, BASE_OFFSET>(),
+            Key: Key::<K, V, Impl, IMPL_OFFSET>,
+            Value: Value::<K, V, Impl, IMPL_OFFSET>,
+            K: ::core::marker::PhantomData::<K>,
+            V: ::core::marker::PhantomData::<V>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IKeyValuePair<K, V> as ::windows::core::Interface>::IID
@@ -212,23 +229,18 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Clear().into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IMap<K, V>>,
-            ::windows::core::GetTrustLevel,
-            Lookup::<K, V, Impl, IMPL_OFFSET>,
-            Size::<K, V, Impl, IMPL_OFFSET>,
-            HasKey::<K, V, Impl, IMPL_OFFSET>,
-            GetView::<K, V, Impl, IMPL_OFFSET>,
-            Insert::<K, V, Impl, IMPL_OFFSET>,
-            Remove::<K, V, Impl, IMPL_OFFSET>,
-            Clear::<K, V, Impl, IMPL_OFFSET>,
-            ::core::marker::PhantomData::<K>,
-            ::core::marker::PhantomData::<V>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMap<K, V>, BASE_OFFSET>(),
+            Lookup: Lookup::<K, V, Impl, IMPL_OFFSET>,
+            Size: Size::<K, V, Impl, IMPL_OFFSET>,
+            HasKey: HasKey::<K, V, Impl, IMPL_OFFSET>,
+            GetView: GetView::<K, V, Impl, IMPL_OFFSET>,
+            Insert: Insert::<K, V, Impl, IMPL_OFFSET>,
+            Remove: Remove::<K, V, Impl, IMPL_OFFSET>,
+            Clear: Clear::<K, V, Impl, IMPL_OFFSET>,
+            K: ::core::marker::PhantomData::<K>,
+            V: ::core::marker::PhantomData::<V>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMap<K, V> as ::windows::core::Interface>::IID
@@ -268,7 +280,12 @@ impl<K: ::windows::core::RuntimeType + 'static> IMapChangedEventArgsVtbl<K> {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapChangedEventArgs<K>>, ::windows::core::GetTrustLevel, CollectionChange::<K, Impl, IMPL_OFFSET>, Key::<K, Impl, IMPL_OFFSET>, ::core::marker::PhantomData::<K>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapChangedEventArgs<K>, BASE_OFFSET>(),
+            CollectionChange: CollectionChange::<K, Impl, IMPL_OFFSET>,
+            Key: Key::<K, Impl, IMPL_OFFSET>,
+            K: ::core::marker::PhantomData::<K>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapChangedEventArgs<K> as ::windows::core::Interface>::IID
@@ -326,7 +343,15 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).Split(::core::mem::transmute_copy(&first), ::core::mem::transmute_copy(&second)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IMapView<K, V>>, ::windows::core::GetTrustLevel, Lookup::<K, V, Impl, IMPL_OFFSET>, Size::<K, V, Impl, IMPL_OFFSET>, HasKey::<K, V, Impl, IMPL_OFFSET>, Split::<K, V, Impl, IMPL_OFFSET>, ::core::marker::PhantomData::<K>, ::core::marker::PhantomData::<V>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMapView<K, V>, BASE_OFFSET>(),
+            Lookup: Lookup::<K, V, Impl, IMPL_OFFSET>,
+            Size: Size::<K, V, Impl, IMPL_OFFSET>,
+            HasKey: HasKey::<K, V, Impl, IMPL_OFFSET>,
+            Split: Split::<K, V, Impl, IMPL_OFFSET>,
+            K: ::core::marker::PhantomData::<K>,
+            V: ::core::marker::PhantomData::<V>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IMapView<K, V> as ::windows::core::Interface>::IID
@@ -360,7 +385,13 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveMapChanged(&*(&token as *const <super::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IObservableMap<K, V>>, ::windows::core::GetTrustLevel, MapChanged::<K, V, Impl, IMPL_OFFSET>, RemoveMapChanged::<K, V, Impl, IMPL_OFFSET>, ::core::marker::PhantomData::<K>, ::core::marker::PhantomData::<V>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IObservableMap<K, V>, BASE_OFFSET>(),
+            MapChanged: MapChanged::<K, V, Impl, IMPL_OFFSET>,
+            RemoveMapChanged: RemoveMapChanged::<K, V, Impl, IMPL_OFFSET>,
+            K: ::core::marker::PhantomData::<K>,
+            V: ::core::marker::PhantomData::<V>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IObservableMap<K, V> as ::windows::core::Interface>::IID
@@ -393,7 +424,12 @@ impl<T: ::windows::core::RuntimeType + 'static> IObservableVectorVtbl<T> {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveVectorChanged(&*(&token as *const <super::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IObservableVector<T>>, ::windows::core::GetTrustLevel, VectorChanged::<T, Impl, IMPL_OFFSET>, RemoveVectorChanged::<T, Impl, IMPL_OFFSET>, ::core::marker::PhantomData::<T>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IObservableVector<T>, BASE_OFFSET>(),
+            VectorChanged: VectorChanged::<T, Impl, IMPL_OFFSET>,
+            RemoveVectorChanged: RemoveVectorChanged::<T, Impl, IMPL_OFFSET>,
+            T: ::core::marker::PhantomData::<T>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IObservableVector<T> as ::windows::core::Interface>::IID
@@ -405,7 +441,7 @@ impl ::windows::core::RuntimeName for IPropertySet {
 }
 impl IPropertySetVtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPropertySetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPropertySetVtbl {
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IPropertySet>, ::windows::core::GetTrustLevel)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IPropertySet, BASE_OFFSET>() }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IPropertySet as ::windows::core::Interface>::IID
@@ -516,27 +552,22 @@ impl<T: ::windows::core::RuntimeType + 'static> IVectorVtbl<T> {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).ReplaceAll(::core::slice::from_raw_parts(::core::mem::transmute_copy(&items), items_array_size as _)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IVector<T>>,
-            ::windows::core::GetTrustLevel,
-            GetAt::<T, Impl, IMPL_OFFSET>,
-            Size::<T, Impl, IMPL_OFFSET>,
-            GetView::<T, Impl, IMPL_OFFSET>,
-            IndexOf::<T, Impl, IMPL_OFFSET>,
-            SetAt::<T, Impl, IMPL_OFFSET>,
-            InsertAt::<T, Impl, IMPL_OFFSET>,
-            RemoveAt::<T, Impl, IMPL_OFFSET>,
-            Append::<T, Impl, IMPL_OFFSET>,
-            RemoveAtEnd::<T, Impl, IMPL_OFFSET>,
-            Clear::<T, Impl, IMPL_OFFSET>,
-            GetMany::<T, Impl, IMPL_OFFSET>,
-            ReplaceAll::<T, Impl, IMPL_OFFSET>,
-            ::core::marker::PhantomData::<T>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVector<T>, BASE_OFFSET>(),
+            GetAt: GetAt::<T, Impl, IMPL_OFFSET>,
+            Size: Size::<T, Impl, IMPL_OFFSET>,
+            GetView: GetView::<T, Impl, IMPL_OFFSET>,
+            IndexOf: IndexOf::<T, Impl, IMPL_OFFSET>,
+            SetAt: SetAt::<T, Impl, IMPL_OFFSET>,
+            InsertAt: InsertAt::<T, Impl, IMPL_OFFSET>,
+            RemoveAt: RemoveAt::<T, Impl, IMPL_OFFSET>,
+            Append: Append::<T, Impl, IMPL_OFFSET>,
+            RemoveAtEnd: RemoveAtEnd::<T, Impl, IMPL_OFFSET>,
+            Clear: Clear::<T, Impl, IMPL_OFFSET>,
+            GetMany: GetMany::<T, Impl, IMPL_OFFSET>,
+            ReplaceAll: ReplaceAll::<T, Impl, IMPL_OFFSET>,
+            T: ::core::marker::PhantomData::<T>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVector<T> as ::windows::core::Interface>::IID
@@ -573,7 +604,11 @@ impl IVectorChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVectorChangedEventArgs>, ::windows::core::GetTrustLevel, CollectionChange::<Impl, IMPL_OFFSET>, Index::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVectorChangedEventArgs, BASE_OFFSET>(),
+            CollectionChange: CollectionChange::<Impl, IMPL_OFFSET>,
+            Index: Index::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVectorChangedEventArgs as ::windows::core::Interface>::IID
@@ -637,7 +672,14 @@ impl<T: ::windows::core::RuntimeType + 'static> IVectorViewVtbl<T> {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IVectorView<T>>, ::windows::core::GetTrustLevel, GetAt::<T, Impl, IMPL_OFFSET>, Size::<T, Impl, IMPL_OFFSET>, IndexOf::<T, Impl, IMPL_OFFSET>, GetMany::<T, Impl, IMPL_OFFSET>, ::core::marker::PhantomData::<T>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IVectorView<T>, BASE_OFFSET>(),
+            GetAt: GetAt::<T, Impl, IMPL_OFFSET>,
+            Size: Size::<T, Impl, IMPL_OFFSET>,
+            IndexOf: IndexOf::<T, Impl, IMPL_OFFSET>,
+            GetMany: GetMany::<T, Impl, IMPL_OFFSET>,
+            T: ::core::marker::PhantomData::<T>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IVectorView<T> as ::windows::core::Interface>::IID

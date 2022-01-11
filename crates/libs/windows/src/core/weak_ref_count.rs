@@ -1,5 +1,3 @@
-#![allow(non_upper_case_globals, non_snake_case, non_camel_case_types, dead_code, unused_variables)]
-
 use super::*;
 use bindings::*;
 use core::sync::atomic::{AtomicIsize, Ordering};
@@ -116,7 +114,7 @@ impl TearOff {
     }
 
     unsafe fn query_interface(&self, iid: &GUID, interface: *mut RawPtr) -> HRESULT {
-        ((*(*(self.object as *mut *mut _) as *mut IUnknownVtbl)).0)(self.object, iid, interface)
+        ((*(*(self.object as *mut *mut _) as *mut IUnknownVtbl)).QueryInterface)(self.object, iid, interface)
     }
 
     unsafe extern "system" fn StrongQueryInterface(ptr: RawPtr, iid: &GUID, interface: *mut RawPtr) -> HRESULT {
@@ -173,7 +171,7 @@ impl TearOff {
 
         // Forward strong `Release` to the object so that it can destroy itself. It will then
         // decrement its weak reference and allow the tear-off to be released as needed.
-        ((*(*(this.object as *mut *mut _) as *mut IUnknownVtbl)).2)((*this).object)
+        ((*(*(this.object as *mut *mut _) as *mut IUnknownVtbl)).Release)((*this).object)
     }
 
     unsafe extern "system" fn WeakRelease(ptr: ::windows::core::RawPtr) -> u32 {

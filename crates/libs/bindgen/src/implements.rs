@@ -14,7 +14,7 @@ fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     let vtbl_ident = type_ident.join("Vtbl");
     let constraints = gen_type_constraints(def, gen);
     let generics = gen_type_generics(def, gen);
-    let phantoms = gen_phantoms(def, gen);
+    let phantoms = gen_named_phantoms(def, gen);
     let cfg = gen.type_impl_cfg(def);
     let mut requires = vec![];
 
@@ -61,26 +61,19 @@ fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
 
     let mut methods = quote! {};
 
-    for def in def.vtable_types() {
-        match def {
-            ElementType::TypeDef(def) => {
-                for method in def.methods() {
-                    let name = gen_ident(&method.rust_name());
-                    methods.combine(&quote! { #name::<#(#generics)* Impl, IMPL_OFFSET>, });
-                }
-            }
-            ElementType::IInspectable => methods.combine(&quote! {
-                ::windows::core::GetIids,
-                ::windows::core::GetRuntimeClassName::<#type_ident<#(#generics)*>>,
-                ::windows::core::GetTrustLevel,
-            }),
-            ElementType::IUnknown => methods.combine(&quote! {
-                ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-                ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-                ::windows::core::Release::<Identity, BASE_OFFSET>,
-            }),
-            _ => unimplemented!(),
+    match def.vtable_base() {
+        Some(ElementType::IUnknown) => methods.combine(&quote! { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), }),
+        Some(ElementType::IInspectable) => methods.combine(&quote! { base: ::windows::core::IInspectableVtbl::new::<Identity, #type_ident<#(#generics)*>, BASE_OFFSET>(), }),
+        Some(ElementType::TypeDef(def)) => {
+            let vtbl = gen_vtbl_ident(&def, gen);
+            methods.combine(&quote! {vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), });
         }
+        _ => {}
+    }
+
+    for method in def.methods() {
+        let name = gen_ident(&method.rust_name());
+        methods.combine(&quote! { #name: #name::<#(#generics)* Impl, IMPL_OFFSET>, });
     }
 
     quote!{
@@ -93,10 +86,10 @@ fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
         impl<#(#constraints)*> #vtbl_ident<#(#generics)*> {
             pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: #impl_ident<#(#generics)*>, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> #vtbl_ident<#(#generics)*> {
                 #(#method_impls)*
-                Self(
+                Self{
                     #methods
                     #(#phantoms)*
-                )
+                }
             }
             pub fn matches(iid: &windows::core::GUID) -> bool {
                 // TODO: match this vtable's IID as well as any base IIDs for COM interfaces

@@ -64,21 +64,19 @@ fn gen_methods(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let constraints = gen_type_constraints(def, gen);
     let mut methods = quote! {};
     let is_winrt = def.is_winrt();
-    let mut vtable_offset = 0;
     let mut method_names = BTreeMap::<String, u32>::new();
     let cfg = cfg.gen(gen);
 
     for def in def.vtable_types() {
         match def {
-            ElementType::IUnknown | ElementType::IInspectable => vtable_offset += 3,
+            ElementType::IUnknown | ElementType::IInspectable => {},
             ElementType::TypeDef(def) => {
                 for method in def.methods() {
                     if is_winrt {
-                        methods.combine(&gen_winrt_method(&def, InterfaceKind::Default, &method, vtable_offset, &mut method_names, gen));
+                        methods.combine(&gen_winrt_method(&def, InterfaceKind::Default, &method,  &mut method_names, gen));
                     } else {
-                        methods.combine(&gen_com_method(&def, &method, vtable_offset, &mut method_names, gen));
+                        methods.combine(&gen_com_method(&def, &method,  &mut method_names, gen));
                     }
-                    vtable_offset += 1;
                 }
             }
             _ => unimplemented!(),
@@ -87,10 +85,8 @@ fn gen_methods(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
 
     if is_winrt && !gen.min_inherit {
         for def in def.required_interfaces() {
-            let mut vtable_offset = 6;
             for method in def.methods() {
-                methods.combine(&gen_winrt_method(&def, InterfaceKind::NonDefault, &method, vtable_offset, &mut method_names, gen));
-                vtable_offset += 1;
+                methods.combine(&gen_winrt_method(&def, InterfaceKind::NonDefault, &method,  &mut method_names, gen));
             }
         }
     }

@@ -431,6 +431,18 @@ impl TypeDef {
         (result, inspectable)
     }
 
+    pub fn vtable_base(&self) -> Option<ElementType> {
+        if self.is_winrt() {
+            if self.kind() == TypeKind::Delegate {
+                Some(ElementType::IUnknown)
+            } else {
+                Some(ElementType::IInspectable)
+            }
+        } else {
+            self.interface_impls().map(|i| i.generic_interface(&[])).next()
+        }
+    }
+
     pub fn vtable_types(&self) -> Vec<ElementType> {
         let mut result = Vec::new();
 

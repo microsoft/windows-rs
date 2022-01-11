@@ -128,24 +128,19 @@ impl IApiInformationStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IApiInformationStatics>,
-            ::windows::core::GetTrustLevel,
-            IsTypePresent::<Impl, IMPL_OFFSET>,
-            IsMethodPresent::<Impl, IMPL_OFFSET>,
-            IsMethodPresentWithArity::<Impl, IMPL_OFFSET>,
-            IsEventPresent::<Impl, IMPL_OFFSET>,
-            IsPropertyPresent::<Impl, IMPL_OFFSET>,
-            IsReadOnlyPropertyPresent::<Impl, IMPL_OFFSET>,
-            IsWriteablePropertyPresent::<Impl, IMPL_OFFSET>,
-            IsEnumNamedValuePresent::<Impl, IMPL_OFFSET>,
-            IsApiContractPresentByMajor::<Impl, IMPL_OFFSET>,
-            IsApiContractPresentByMajorAndMinor::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IApiInformationStatics, BASE_OFFSET>(),
+            IsTypePresent: IsTypePresent::<Impl, IMPL_OFFSET>,
+            IsMethodPresent: IsMethodPresent::<Impl, IMPL_OFFSET>,
+            IsMethodPresentWithArity: IsMethodPresentWithArity::<Impl, IMPL_OFFSET>,
+            IsEventPresent: IsEventPresent::<Impl, IMPL_OFFSET>,
+            IsPropertyPresent: IsPropertyPresent::<Impl, IMPL_OFFSET>,
+            IsReadOnlyPropertyPresent: IsReadOnlyPropertyPresent::<Impl, IMPL_OFFSET>,
+            IsWriteablePropertyPresent: IsWriteablePropertyPresent::<Impl, IMPL_OFFSET>,
+            IsEnumNamedValuePresent: IsEnumNamedValuePresent::<Impl, IMPL_OFFSET>,
+            IsApiContractPresentByMajor: IsApiContractPresentByMajor::<Impl, IMPL_OFFSET>,
+            IsApiContractPresentByMajorAndMinor: IsApiContractPresentByMajorAndMinor::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IApiInformationStatics as ::windows::core::Interface>::IID

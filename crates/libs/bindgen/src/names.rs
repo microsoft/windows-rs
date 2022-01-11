@@ -59,6 +59,16 @@ pub fn gen_phantoms(def: &TypeDef, gen: &Gen) -> Vec<TokenStream> {
         .collect()
 }
 
+pub fn gen_named_phantoms(def: &TypeDef, gen: &Gen) -> Vec<TokenStream> {
+    def.generics
+        .iter()
+        .map(|g| {
+            let name = gen_element_name(g, gen);
+            quote! { #name: ::core::marker::PhantomData::<#name>, }
+        })
+        .collect()
+}
+
 pub fn gen_type_generics(def: &TypeDef, gen: &Gen) -> Vec<TokenStream> {
     def.generics
         .iter()

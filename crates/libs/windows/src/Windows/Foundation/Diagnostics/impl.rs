@@ -50,21 +50,16 @@ impl IAsyncCausalityTracerStaticsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveTracingStatusChanged(&*(&cookie as *const <super::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IAsyncCausalityTracerStatics>,
-            ::windows::core::GetTrustLevel,
-            TraceOperationCreation::<Impl, IMPL_OFFSET>,
-            TraceOperationCompletion::<Impl, IMPL_OFFSET>,
-            TraceOperationRelation::<Impl, IMPL_OFFSET>,
-            TraceSynchronousWorkStart::<Impl, IMPL_OFFSET>,
-            TraceSynchronousWorkCompletion::<Impl, IMPL_OFFSET>,
-            TracingStatusChanged::<Impl, IMPL_OFFSET>,
-            RemoveTracingStatusChanged::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IAsyncCausalityTracerStatics, BASE_OFFSET>(),
+            TraceOperationCreation: TraceOperationCreation::<Impl, IMPL_OFFSET>,
+            TraceOperationCompletion: TraceOperationCompletion::<Impl, IMPL_OFFSET>,
+            TraceOperationRelation: TraceOperationRelation::<Impl, IMPL_OFFSET>,
+            TraceSynchronousWorkStart: TraceSynchronousWorkStart::<Impl, IMPL_OFFSET>,
+            TraceSynchronousWorkCompletion: TraceSynchronousWorkCompletion::<Impl, IMPL_OFFSET>,
+            TracingStatusChanged: TracingStatusChanged::<Impl, IMPL_OFFSET>,
+            RemoveTracingStatusChanged: RemoveTracingStatusChanged::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IAsyncCausalityTracerStatics as ::windows::core::Interface>::IID
@@ -116,7 +111,12 @@ impl IErrorDetailsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IErrorDetails>, ::windows::core::GetTrustLevel, Description::<Impl, IMPL_OFFSET>, LongDescription::<Impl, IMPL_OFFSET>, HelpUri::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IErrorDetails, BASE_OFFSET>(),
+            Description: Description::<Impl, IMPL_OFFSET>,
+            LongDescription: LongDescription::<Impl, IMPL_OFFSET>,
+            HelpUri: HelpUri::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IErrorDetails as ::windows::core::Interface>::IID
@@ -144,7 +144,10 @@ impl IErrorDetailsStaticsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IErrorDetailsStatics>, ::windows::core::GetTrustLevel, CreateFromHResultAsync::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IErrorDetailsStatics, BASE_OFFSET>(),
+            CreateFromHResultAsync: CreateFromHResultAsync::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IErrorDetailsStatics as ::windows::core::Interface>::IID
@@ -174,7 +177,11 @@ impl IErrorReportingSettingsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IErrorReportingSettings>, ::windows::core::GetTrustLevel, SetErrorOptions::<Impl, IMPL_OFFSET>, GetErrorOptions::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IErrorReportingSettings, BASE_OFFSET>(),
+            SetErrorOptions: SetErrorOptions::<Impl, IMPL_OFFSET>,
+            GetErrorOptions: GetErrorOptions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IErrorReportingSettings as ::windows::core::Interface>::IID
@@ -246,21 +253,16 @@ impl IFileLoggingSessionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveLogFileGenerated(&*(&token as *const <super::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<IFileLoggingSession>,
-            ::windows::core::GetTrustLevel,
-            Name::<Impl, IMPL_OFFSET>,
-            AddLoggingChannel::<Impl, IMPL_OFFSET>,
-            AddLoggingChannelWithLevel::<Impl, IMPL_OFFSET>,
-            RemoveLoggingChannel::<Impl, IMPL_OFFSET>,
-            CloseAndSaveToFileAsync::<Impl, IMPL_OFFSET>,
-            LogFileGenerated::<Impl, IMPL_OFFSET>,
-            RemoveLogFileGenerated::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IFileLoggingSession, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            AddLoggingChannel: AddLoggingChannel::<Impl, IMPL_OFFSET>,
+            AddLoggingChannelWithLevel: AddLoggingChannelWithLevel::<Impl, IMPL_OFFSET>,
+            RemoveLoggingChannel: RemoveLoggingChannel::<Impl, IMPL_OFFSET>,
+            CloseAndSaveToFileAsync: CloseAndSaveToFileAsync::<Impl, IMPL_OFFSET>,
+            LogFileGenerated: LogFileGenerated::<Impl, IMPL_OFFSET>,
+            RemoveLogFileGenerated: RemoveLogFileGenerated::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileLoggingSession as ::windows::core::Interface>::IID
@@ -288,7 +290,7 @@ impl IFileLoggingSessionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<IFileLoggingSessionFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IFileLoggingSessionFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IFileLoggingSessionFactory as ::windows::core::Interface>::IID
@@ -316,7 +318,7 @@ impl ILogFileGeneratedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILogFileGeneratedEventArgs>, ::windows::core::GetTrustLevel, File::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILogFileGeneratedEventArgs, BASE_OFFSET>(), File: File::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILogFileGeneratedEventArgs as ::windows::core::Interface>::IID
@@ -356,7 +358,11 @@ impl ILoggingActivityVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILoggingActivity>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, Id::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILoggingActivity, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILoggingActivity as ::windows::core::Interface>::IID
@@ -401,7 +407,13 @@ impl ILoggingActivity2Vtbl {
                 .StopActivityWithFieldsAndOptions(&*(&stopeventname as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), &*(&fields as *const <LoggingFields as ::windows::core::Abi>::Abi as *const <LoggingFields as ::windows::core::DefaultType>::DefaultType), &*(&options as *const <LoggingOptions as ::windows::core::Abi>::Abi as *const <LoggingOptions as ::windows::core::DefaultType>::DefaultType))
                 .into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILoggingActivity2>, ::windows::core::GetTrustLevel, Channel::<Impl, IMPL_OFFSET>, StopActivity::<Impl, IMPL_OFFSET>, StopActivityWithFields::<Impl, IMPL_OFFSET>, StopActivityWithFieldsAndOptions::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILoggingActivity2, BASE_OFFSET>(),
+            Channel: Channel::<Impl, IMPL_OFFSET>,
+            StopActivity: StopActivity::<Impl, IMPL_OFFSET>,
+            StopActivityWithFields: StopActivityWithFields::<Impl, IMPL_OFFSET>,
+            StopActivityWithFieldsAndOptions: StopActivityWithFieldsAndOptions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILoggingActivity2 as ::windows::core::Interface>::IID
@@ -441,7 +453,11 @@ impl ILoggingActivityFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILoggingActivityFactory>, ::windows::core::GetTrustLevel, CreateLoggingActivity::<Impl, IMPL_OFFSET>, CreateLoggingActivityWithLevel::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILoggingActivityFactory, BASE_OFFSET>(),
+            CreateLoggingActivity: CreateLoggingActivity::<Impl, IMPL_OFFSET>,
+            CreateLoggingActivityWithLevel: CreateLoggingActivityWithLevel::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILoggingActivityFactory as ::windows::core::Interface>::IID
@@ -527,23 +543,18 @@ impl ILoggingChannelVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveLoggingEnabled(&*(&token as *const <super::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILoggingChannel>,
-            ::windows::core::GetTrustLevel,
-            Name::<Impl, IMPL_OFFSET>,
-            Enabled::<Impl, IMPL_OFFSET>,
-            Level::<Impl, IMPL_OFFSET>,
-            LogMessage::<Impl, IMPL_OFFSET>,
-            LogMessageWithLevel::<Impl, IMPL_OFFSET>,
-            LogValuePair::<Impl, IMPL_OFFSET>,
-            LogValuePairWithLevel::<Impl, IMPL_OFFSET>,
-            LoggingEnabled::<Impl, IMPL_OFFSET>,
-            RemoveLoggingEnabled::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILoggingChannel, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Enabled: Enabled::<Impl, IMPL_OFFSET>,
+            Level: Level::<Impl, IMPL_OFFSET>,
+            LogMessage: LogMessage::<Impl, IMPL_OFFSET>,
+            LogMessageWithLevel: LogMessageWithLevel::<Impl, IMPL_OFFSET>,
+            LogValuePair: LogValuePair::<Impl, IMPL_OFFSET>,
+            LogValuePairWithLevel: LogValuePairWithLevel::<Impl, IMPL_OFFSET>,
+            LoggingEnabled: LoggingEnabled::<Impl, IMPL_OFFSET>,
+            RemoveLoggingEnabled: RemoveLoggingEnabled::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILoggingChannel as ::windows::core::Interface>::IID
@@ -571,7 +582,7 @@ impl ILoggingChannel2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILoggingChannel2>, ::windows::core::GetTrustLevel, Id::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILoggingChannel2, BASE_OFFSET>(), Id: Id::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILoggingChannel2 as ::windows::core::Interface>::IID
@@ -599,7 +610,7 @@ impl ILoggingChannelFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILoggingChannelFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILoggingChannelFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILoggingChannelFactory as ::windows::core::Interface>::IID
@@ -639,7 +650,11 @@ impl ILoggingChannelFactory2Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILoggingChannelFactory2>, ::windows::core::GetTrustLevel, CreateWithOptions::<Impl, IMPL_OFFSET>, CreateWithOptionsAndId::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILoggingChannelFactory2, BASE_OFFSET>(),
+            CreateWithOptions: CreateWithOptions::<Impl, IMPL_OFFSET>,
+            CreateWithOptionsAndId: CreateWithOptionsAndId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILoggingChannelFactory2 as ::windows::core::Interface>::IID
@@ -672,7 +687,11 @@ impl ILoggingChannelOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetGroup(&*(&value as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILoggingChannelOptions>, ::windows::core::GetTrustLevel, Group::<Impl, IMPL_OFFSET>, SetGroup::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILoggingChannelOptions, BASE_OFFSET>(),
+            Group: Group::<Impl, IMPL_OFFSET>,
+            SetGroup: SetGroup::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILoggingChannelOptions as ::windows::core::Interface>::IID
@@ -700,7 +719,7 @@ impl ILoggingChannelOptionsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILoggingChannelOptionsFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILoggingChannelOptionsFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILoggingChannelOptionsFactory as ::windows::core::Interface>::IID
@@ -1291,129 +1310,124 @@ impl ILoggingFieldsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).AddRectArrayWithFormatAndTags(&*(&name as *const <::windows::core::HSTRING as ::windows::core::Abi>::Abi as *const <::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType), ::core::slice::from_raw_parts(::core::mem::transmute_copy(&value), value_array_size as _), format, tags).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILoggingFields>,
-            ::windows::core::GetTrustLevel,
-            Clear::<Impl, IMPL_OFFSET>,
-            BeginStruct::<Impl, IMPL_OFFSET>,
-            BeginStructWithTags::<Impl, IMPL_OFFSET>,
-            EndStruct::<Impl, IMPL_OFFSET>,
-            AddEmpty::<Impl, IMPL_OFFSET>,
-            AddEmptyWithFormat::<Impl, IMPL_OFFSET>,
-            AddEmptyWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddUInt8::<Impl, IMPL_OFFSET>,
-            AddUInt8WithFormat::<Impl, IMPL_OFFSET>,
-            AddUInt8WithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddUInt8Array::<Impl, IMPL_OFFSET>,
-            AddUInt8ArrayWithFormat::<Impl, IMPL_OFFSET>,
-            AddUInt8ArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddInt16::<Impl, IMPL_OFFSET>,
-            AddInt16WithFormat::<Impl, IMPL_OFFSET>,
-            AddInt16WithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddInt16Array::<Impl, IMPL_OFFSET>,
-            AddInt16ArrayWithFormat::<Impl, IMPL_OFFSET>,
-            AddInt16ArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddUInt16::<Impl, IMPL_OFFSET>,
-            AddUInt16WithFormat::<Impl, IMPL_OFFSET>,
-            AddUInt16WithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddUInt16Array::<Impl, IMPL_OFFSET>,
-            AddUInt16ArrayWithFormat::<Impl, IMPL_OFFSET>,
-            AddUInt16ArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddInt32::<Impl, IMPL_OFFSET>,
-            AddInt32WithFormat::<Impl, IMPL_OFFSET>,
-            AddInt32WithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddInt32Array::<Impl, IMPL_OFFSET>,
-            AddInt32ArrayWithFormat::<Impl, IMPL_OFFSET>,
-            AddInt32ArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddUInt32::<Impl, IMPL_OFFSET>,
-            AddUInt32WithFormat::<Impl, IMPL_OFFSET>,
-            AddUInt32WithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddUInt32Array::<Impl, IMPL_OFFSET>,
-            AddUInt32ArrayWithFormat::<Impl, IMPL_OFFSET>,
-            AddUInt32ArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddInt64::<Impl, IMPL_OFFSET>,
-            AddInt64WithFormat::<Impl, IMPL_OFFSET>,
-            AddInt64WithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddInt64Array::<Impl, IMPL_OFFSET>,
-            AddInt64ArrayWithFormat::<Impl, IMPL_OFFSET>,
-            AddInt64ArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddUInt64::<Impl, IMPL_OFFSET>,
-            AddUInt64WithFormat::<Impl, IMPL_OFFSET>,
-            AddUInt64WithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddUInt64Array::<Impl, IMPL_OFFSET>,
-            AddUInt64ArrayWithFormat::<Impl, IMPL_OFFSET>,
-            AddUInt64ArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddSingle::<Impl, IMPL_OFFSET>,
-            AddSingleWithFormat::<Impl, IMPL_OFFSET>,
-            AddSingleWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddSingleArray::<Impl, IMPL_OFFSET>,
-            AddSingleArrayWithFormat::<Impl, IMPL_OFFSET>,
-            AddSingleArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddDouble::<Impl, IMPL_OFFSET>,
-            AddDoubleWithFormat::<Impl, IMPL_OFFSET>,
-            AddDoubleWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddDoubleArray::<Impl, IMPL_OFFSET>,
-            AddDoubleArrayWithFormat::<Impl, IMPL_OFFSET>,
-            AddDoubleArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddChar16::<Impl, IMPL_OFFSET>,
-            AddChar16WithFormat::<Impl, IMPL_OFFSET>,
-            AddChar16WithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddChar16Array::<Impl, IMPL_OFFSET>,
-            AddChar16ArrayWithFormat::<Impl, IMPL_OFFSET>,
-            AddChar16ArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddBoolean::<Impl, IMPL_OFFSET>,
-            AddBooleanWithFormat::<Impl, IMPL_OFFSET>,
-            AddBooleanWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddBooleanArray::<Impl, IMPL_OFFSET>,
-            AddBooleanArrayWithFormat::<Impl, IMPL_OFFSET>,
-            AddBooleanArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddString::<Impl, IMPL_OFFSET>,
-            AddStringWithFormat::<Impl, IMPL_OFFSET>,
-            AddStringWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddStringArray::<Impl, IMPL_OFFSET>,
-            AddStringArrayWithFormat::<Impl, IMPL_OFFSET>,
-            AddStringArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddGuid::<Impl, IMPL_OFFSET>,
-            AddGuidWithFormat::<Impl, IMPL_OFFSET>,
-            AddGuidWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddGuidArray::<Impl, IMPL_OFFSET>,
-            AddGuidArrayWithFormat::<Impl, IMPL_OFFSET>,
-            AddGuidArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddDateTime::<Impl, IMPL_OFFSET>,
-            AddDateTimeWithFormat::<Impl, IMPL_OFFSET>,
-            AddDateTimeWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddDateTimeArray::<Impl, IMPL_OFFSET>,
-            AddDateTimeArrayWithFormat::<Impl, IMPL_OFFSET>,
-            AddDateTimeArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddTimeSpan::<Impl, IMPL_OFFSET>,
-            AddTimeSpanWithFormat::<Impl, IMPL_OFFSET>,
-            AddTimeSpanWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddTimeSpanArray::<Impl, IMPL_OFFSET>,
-            AddTimeSpanArrayWithFormat::<Impl, IMPL_OFFSET>,
-            AddTimeSpanArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddPoint::<Impl, IMPL_OFFSET>,
-            AddPointWithFormat::<Impl, IMPL_OFFSET>,
-            AddPointWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddPointArray::<Impl, IMPL_OFFSET>,
-            AddPointArrayWithFormat::<Impl, IMPL_OFFSET>,
-            AddPointArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddSize::<Impl, IMPL_OFFSET>,
-            AddSizeWithFormat::<Impl, IMPL_OFFSET>,
-            AddSizeWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddSizeArray::<Impl, IMPL_OFFSET>,
-            AddSizeArrayWithFormat::<Impl, IMPL_OFFSET>,
-            AddSizeArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddRect::<Impl, IMPL_OFFSET>,
-            AddRectWithFormat::<Impl, IMPL_OFFSET>,
-            AddRectWithFormatAndTags::<Impl, IMPL_OFFSET>,
-            AddRectArray::<Impl, IMPL_OFFSET>,
-            AddRectArrayWithFormat::<Impl, IMPL_OFFSET>,
-            AddRectArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILoggingFields, BASE_OFFSET>(),
+            Clear: Clear::<Impl, IMPL_OFFSET>,
+            BeginStruct: BeginStruct::<Impl, IMPL_OFFSET>,
+            BeginStructWithTags: BeginStructWithTags::<Impl, IMPL_OFFSET>,
+            EndStruct: EndStruct::<Impl, IMPL_OFFSET>,
+            AddEmpty: AddEmpty::<Impl, IMPL_OFFSET>,
+            AddEmptyWithFormat: AddEmptyWithFormat::<Impl, IMPL_OFFSET>,
+            AddEmptyWithFormatAndTags: AddEmptyWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddUInt8: AddUInt8::<Impl, IMPL_OFFSET>,
+            AddUInt8WithFormat: AddUInt8WithFormat::<Impl, IMPL_OFFSET>,
+            AddUInt8WithFormatAndTags: AddUInt8WithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddUInt8Array: AddUInt8Array::<Impl, IMPL_OFFSET>,
+            AddUInt8ArrayWithFormat: AddUInt8ArrayWithFormat::<Impl, IMPL_OFFSET>,
+            AddUInt8ArrayWithFormatAndTags: AddUInt8ArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddInt16: AddInt16::<Impl, IMPL_OFFSET>,
+            AddInt16WithFormat: AddInt16WithFormat::<Impl, IMPL_OFFSET>,
+            AddInt16WithFormatAndTags: AddInt16WithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddInt16Array: AddInt16Array::<Impl, IMPL_OFFSET>,
+            AddInt16ArrayWithFormat: AddInt16ArrayWithFormat::<Impl, IMPL_OFFSET>,
+            AddInt16ArrayWithFormatAndTags: AddInt16ArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddUInt16: AddUInt16::<Impl, IMPL_OFFSET>,
+            AddUInt16WithFormat: AddUInt16WithFormat::<Impl, IMPL_OFFSET>,
+            AddUInt16WithFormatAndTags: AddUInt16WithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddUInt16Array: AddUInt16Array::<Impl, IMPL_OFFSET>,
+            AddUInt16ArrayWithFormat: AddUInt16ArrayWithFormat::<Impl, IMPL_OFFSET>,
+            AddUInt16ArrayWithFormatAndTags: AddUInt16ArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddInt32: AddInt32::<Impl, IMPL_OFFSET>,
+            AddInt32WithFormat: AddInt32WithFormat::<Impl, IMPL_OFFSET>,
+            AddInt32WithFormatAndTags: AddInt32WithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddInt32Array: AddInt32Array::<Impl, IMPL_OFFSET>,
+            AddInt32ArrayWithFormat: AddInt32ArrayWithFormat::<Impl, IMPL_OFFSET>,
+            AddInt32ArrayWithFormatAndTags: AddInt32ArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddUInt32: AddUInt32::<Impl, IMPL_OFFSET>,
+            AddUInt32WithFormat: AddUInt32WithFormat::<Impl, IMPL_OFFSET>,
+            AddUInt32WithFormatAndTags: AddUInt32WithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddUInt32Array: AddUInt32Array::<Impl, IMPL_OFFSET>,
+            AddUInt32ArrayWithFormat: AddUInt32ArrayWithFormat::<Impl, IMPL_OFFSET>,
+            AddUInt32ArrayWithFormatAndTags: AddUInt32ArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddInt64: AddInt64::<Impl, IMPL_OFFSET>,
+            AddInt64WithFormat: AddInt64WithFormat::<Impl, IMPL_OFFSET>,
+            AddInt64WithFormatAndTags: AddInt64WithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddInt64Array: AddInt64Array::<Impl, IMPL_OFFSET>,
+            AddInt64ArrayWithFormat: AddInt64ArrayWithFormat::<Impl, IMPL_OFFSET>,
+            AddInt64ArrayWithFormatAndTags: AddInt64ArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddUInt64: AddUInt64::<Impl, IMPL_OFFSET>,
+            AddUInt64WithFormat: AddUInt64WithFormat::<Impl, IMPL_OFFSET>,
+            AddUInt64WithFormatAndTags: AddUInt64WithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddUInt64Array: AddUInt64Array::<Impl, IMPL_OFFSET>,
+            AddUInt64ArrayWithFormat: AddUInt64ArrayWithFormat::<Impl, IMPL_OFFSET>,
+            AddUInt64ArrayWithFormatAndTags: AddUInt64ArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddSingle: AddSingle::<Impl, IMPL_OFFSET>,
+            AddSingleWithFormat: AddSingleWithFormat::<Impl, IMPL_OFFSET>,
+            AddSingleWithFormatAndTags: AddSingleWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddSingleArray: AddSingleArray::<Impl, IMPL_OFFSET>,
+            AddSingleArrayWithFormat: AddSingleArrayWithFormat::<Impl, IMPL_OFFSET>,
+            AddSingleArrayWithFormatAndTags: AddSingleArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddDouble: AddDouble::<Impl, IMPL_OFFSET>,
+            AddDoubleWithFormat: AddDoubleWithFormat::<Impl, IMPL_OFFSET>,
+            AddDoubleWithFormatAndTags: AddDoubleWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddDoubleArray: AddDoubleArray::<Impl, IMPL_OFFSET>,
+            AddDoubleArrayWithFormat: AddDoubleArrayWithFormat::<Impl, IMPL_OFFSET>,
+            AddDoubleArrayWithFormatAndTags: AddDoubleArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddChar16: AddChar16::<Impl, IMPL_OFFSET>,
+            AddChar16WithFormat: AddChar16WithFormat::<Impl, IMPL_OFFSET>,
+            AddChar16WithFormatAndTags: AddChar16WithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddChar16Array: AddChar16Array::<Impl, IMPL_OFFSET>,
+            AddChar16ArrayWithFormat: AddChar16ArrayWithFormat::<Impl, IMPL_OFFSET>,
+            AddChar16ArrayWithFormatAndTags: AddChar16ArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddBoolean: AddBoolean::<Impl, IMPL_OFFSET>,
+            AddBooleanWithFormat: AddBooleanWithFormat::<Impl, IMPL_OFFSET>,
+            AddBooleanWithFormatAndTags: AddBooleanWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddBooleanArray: AddBooleanArray::<Impl, IMPL_OFFSET>,
+            AddBooleanArrayWithFormat: AddBooleanArrayWithFormat::<Impl, IMPL_OFFSET>,
+            AddBooleanArrayWithFormatAndTags: AddBooleanArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddString: AddString::<Impl, IMPL_OFFSET>,
+            AddStringWithFormat: AddStringWithFormat::<Impl, IMPL_OFFSET>,
+            AddStringWithFormatAndTags: AddStringWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddStringArray: AddStringArray::<Impl, IMPL_OFFSET>,
+            AddStringArrayWithFormat: AddStringArrayWithFormat::<Impl, IMPL_OFFSET>,
+            AddStringArrayWithFormatAndTags: AddStringArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddGuid: AddGuid::<Impl, IMPL_OFFSET>,
+            AddGuidWithFormat: AddGuidWithFormat::<Impl, IMPL_OFFSET>,
+            AddGuidWithFormatAndTags: AddGuidWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddGuidArray: AddGuidArray::<Impl, IMPL_OFFSET>,
+            AddGuidArrayWithFormat: AddGuidArrayWithFormat::<Impl, IMPL_OFFSET>,
+            AddGuidArrayWithFormatAndTags: AddGuidArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddDateTime: AddDateTime::<Impl, IMPL_OFFSET>,
+            AddDateTimeWithFormat: AddDateTimeWithFormat::<Impl, IMPL_OFFSET>,
+            AddDateTimeWithFormatAndTags: AddDateTimeWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddDateTimeArray: AddDateTimeArray::<Impl, IMPL_OFFSET>,
+            AddDateTimeArrayWithFormat: AddDateTimeArrayWithFormat::<Impl, IMPL_OFFSET>,
+            AddDateTimeArrayWithFormatAndTags: AddDateTimeArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddTimeSpan: AddTimeSpan::<Impl, IMPL_OFFSET>,
+            AddTimeSpanWithFormat: AddTimeSpanWithFormat::<Impl, IMPL_OFFSET>,
+            AddTimeSpanWithFormatAndTags: AddTimeSpanWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddTimeSpanArray: AddTimeSpanArray::<Impl, IMPL_OFFSET>,
+            AddTimeSpanArrayWithFormat: AddTimeSpanArrayWithFormat::<Impl, IMPL_OFFSET>,
+            AddTimeSpanArrayWithFormatAndTags: AddTimeSpanArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddPoint: AddPoint::<Impl, IMPL_OFFSET>,
+            AddPointWithFormat: AddPointWithFormat::<Impl, IMPL_OFFSET>,
+            AddPointWithFormatAndTags: AddPointWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddPointArray: AddPointArray::<Impl, IMPL_OFFSET>,
+            AddPointArrayWithFormat: AddPointArrayWithFormat::<Impl, IMPL_OFFSET>,
+            AddPointArrayWithFormatAndTags: AddPointArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddSize: AddSize::<Impl, IMPL_OFFSET>,
+            AddSizeWithFormat: AddSizeWithFormat::<Impl, IMPL_OFFSET>,
+            AddSizeWithFormatAndTags: AddSizeWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddSizeArray: AddSizeArray::<Impl, IMPL_OFFSET>,
+            AddSizeArrayWithFormat: AddSizeArrayWithFormat::<Impl, IMPL_OFFSET>,
+            AddSizeArrayWithFormatAndTags: AddSizeArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddRect: AddRect::<Impl, IMPL_OFFSET>,
+            AddRectWithFormat: AddRectWithFormat::<Impl, IMPL_OFFSET>,
+            AddRectWithFormatAndTags: AddRectWithFormatAndTags::<Impl, IMPL_OFFSET>,
+            AddRectArray: AddRectArray::<Impl, IMPL_OFFSET>,
+            AddRectArrayWithFormat: AddRectArrayWithFormat::<Impl, IMPL_OFFSET>,
+            AddRectArrayWithFormatAndTags: AddRectArrayWithFormatAndTags::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILoggingFields as ::windows::core::Interface>::IID
@@ -1531,26 +1545,21 @@ impl ILoggingOptionsVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).SetRelatedActivityId(&*(&value as *const <::windows::core::GUID as ::windows::core::Abi>::Abi as *const <::windows::core::GUID as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILoggingOptions>,
-            ::windows::core::GetTrustLevel,
-            Keywords::<Impl, IMPL_OFFSET>,
-            SetKeywords::<Impl, IMPL_OFFSET>,
-            Tags::<Impl, IMPL_OFFSET>,
-            SetTags::<Impl, IMPL_OFFSET>,
-            Task::<Impl, IMPL_OFFSET>,
-            SetTask::<Impl, IMPL_OFFSET>,
-            Opcode::<Impl, IMPL_OFFSET>,
-            SetOpcode::<Impl, IMPL_OFFSET>,
-            ActivityId::<Impl, IMPL_OFFSET>,
-            SetActivityId::<Impl, IMPL_OFFSET>,
-            RelatedActivityId::<Impl, IMPL_OFFSET>,
-            SetRelatedActivityId::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILoggingOptions, BASE_OFFSET>(),
+            Keywords: Keywords::<Impl, IMPL_OFFSET>,
+            SetKeywords: SetKeywords::<Impl, IMPL_OFFSET>,
+            Tags: Tags::<Impl, IMPL_OFFSET>,
+            SetTags: SetTags::<Impl, IMPL_OFFSET>,
+            Task: Task::<Impl, IMPL_OFFSET>,
+            SetTask: SetTask::<Impl, IMPL_OFFSET>,
+            Opcode: Opcode::<Impl, IMPL_OFFSET>,
+            SetOpcode: SetOpcode::<Impl, IMPL_OFFSET>,
+            ActivityId: ActivityId::<Impl, IMPL_OFFSET>,
+            SetActivityId: SetActivityId::<Impl, IMPL_OFFSET>,
+            RelatedActivityId: RelatedActivityId::<Impl, IMPL_OFFSET>,
+            SetRelatedActivityId: SetRelatedActivityId::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILoggingOptions as ::windows::core::Interface>::IID
@@ -1578,7 +1587,10 @@ impl ILoggingOptionsFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILoggingOptionsFactory>, ::windows::core::GetTrustLevel, CreateWithKeywords::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILoggingOptionsFactory, BASE_OFFSET>(),
+            CreateWithKeywords: CreateWithKeywords::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILoggingOptionsFactory as ::windows::core::Interface>::IID
@@ -1633,7 +1645,14 @@ impl ILoggingSessionVtbl {
             let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
             (*this).RemoveLoggingChannel(&*(&loggingchannel as *const <ILoggingChannel as ::windows::core::Abi>::Abi as *const <ILoggingChannel as ::windows::core::DefaultType>::DefaultType)).into()
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILoggingSession>, ::windows::core::GetTrustLevel, Name::<Impl, IMPL_OFFSET>, SaveToFileAsync::<Impl, IMPL_OFFSET>, AddLoggingChannel::<Impl, IMPL_OFFSET>, AddLoggingChannelWithLevel::<Impl, IMPL_OFFSET>, RemoveLoggingChannel::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILoggingSession, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            SaveToFileAsync: SaveToFileAsync::<Impl, IMPL_OFFSET>,
+            AddLoggingChannel: AddLoggingChannel::<Impl, IMPL_OFFSET>,
+            AddLoggingChannelWithLevel: AddLoggingChannelWithLevel::<Impl, IMPL_OFFSET>,
+            RemoveLoggingChannel: RemoveLoggingChannel::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILoggingSession as ::windows::core::Interface>::IID
@@ -1661,7 +1680,7 @@ impl ILoggingSessionFactoryVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ILoggingSessionFactory>, ::windows::core::GetTrustLevel, Create::<Impl, IMPL_OFFSET>)
+        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, ILoggingSessionFactory, BASE_OFFSET>(), Create: Create::<Impl, IMPL_OFFSET> }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILoggingSessionFactory as ::windows::core::Interface>::IID
@@ -1780,25 +1799,20 @@ impl ILoggingTargetVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(
-            ::windows::core::QueryInterface::<Identity, BASE_OFFSET>,
-            ::windows::core::AddRef::<Identity, BASE_OFFSET>,
-            ::windows::core::Release::<Identity, BASE_OFFSET>,
-            ::windows::core::GetIids,
-            ::windows::core::GetRuntimeClassName::<ILoggingTarget>,
-            ::windows::core::GetTrustLevel,
-            IsEnabled::<Impl, IMPL_OFFSET>,
-            IsEnabledWithLevel::<Impl, IMPL_OFFSET>,
-            IsEnabledWithLevelAndKeywords::<Impl, IMPL_OFFSET>,
-            LogEvent::<Impl, IMPL_OFFSET>,
-            LogEventWithFields::<Impl, IMPL_OFFSET>,
-            LogEventWithFieldsAndLevel::<Impl, IMPL_OFFSET>,
-            LogEventWithFieldsAndOptions::<Impl, IMPL_OFFSET>,
-            StartActivity::<Impl, IMPL_OFFSET>,
-            StartActivityWithFields::<Impl, IMPL_OFFSET>,
-            StartActivityWithFieldsAndLevel::<Impl, IMPL_OFFSET>,
-            StartActivityWithFieldsAndOptions::<Impl, IMPL_OFFSET>,
-        )
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ILoggingTarget, BASE_OFFSET>(),
+            IsEnabled: IsEnabled::<Impl, IMPL_OFFSET>,
+            IsEnabledWithLevel: IsEnabledWithLevel::<Impl, IMPL_OFFSET>,
+            IsEnabledWithLevelAndKeywords: IsEnabledWithLevelAndKeywords::<Impl, IMPL_OFFSET>,
+            LogEvent: LogEvent::<Impl, IMPL_OFFSET>,
+            LogEventWithFields: LogEventWithFields::<Impl, IMPL_OFFSET>,
+            LogEventWithFieldsAndLevel: LogEventWithFieldsAndLevel::<Impl, IMPL_OFFSET>,
+            LogEventWithFieldsAndOptions: LogEventWithFieldsAndOptions::<Impl, IMPL_OFFSET>,
+            StartActivity: StartActivity::<Impl, IMPL_OFFSET>,
+            StartActivityWithFields: StartActivityWithFields::<Impl, IMPL_OFFSET>,
+            StartActivityWithFieldsAndLevel: StartActivityWithFieldsAndLevel::<Impl, IMPL_OFFSET>,
+            StartActivityWithFieldsAndOptions: StartActivityWithFieldsAndOptions::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ILoggingTarget as ::windows::core::Interface>::IID
@@ -1838,7 +1852,11 @@ impl ITracingStatusChangedEventArgsVtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        Self(::windows::core::QueryInterface::<Identity, BASE_OFFSET>, ::windows::core::AddRef::<Identity, BASE_OFFSET>, ::windows::core::Release::<Identity, BASE_OFFSET>, ::windows::core::GetIids, ::windows::core::GetRuntimeClassName::<ITracingStatusChangedEventArgs>, ::windows::core::GetTrustLevel, Enabled::<Impl, IMPL_OFFSET>, TraceLevel::<Impl, IMPL_OFFSET>)
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, ITracingStatusChangedEventArgs, BASE_OFFSET>(),
+            Enabled: Enabled::<Impl, IMPL_OFFSET>,
+            TraceLevel: TraceLevel::<Impl, IMPL_OFFSET>,
+        }
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<ITracingStatusChangedEventArgs as ::windows::core::Interface>::IID

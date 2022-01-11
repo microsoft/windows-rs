@@ -146,7 +146,7 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
 fn gen_method(vtable_offset: usize, method: &MethodDef, method_names: &mut BTreeMap<String, u32>, gen: &Gen) -> TokenStream {
     let signature = method.signature(&[]);
     let constraints = gen_method_constraints(&signature.params, gen);
-    let vtable_offset = Literal::usize_unsuffixed(vtable_offset + 3);
+    let vtable_offset = Literal::usize_unsuffixed(vtable_offset + 1);
 
     let name = method.rust_name();
     let overload = method_names.entry(name.to_string()).or_insert(0);

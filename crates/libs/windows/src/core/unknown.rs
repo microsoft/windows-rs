@@ -1,5 +1,3 @@
-#![allow(non_snake_case)]
-
 use super::*;
 
 /// All COM interfaces (and thus WinRT classes and interfaces) implement
@@ -11,7 +9,11 @@ pub struct IUnknown(core::ptr::NonNull<core::ffi::c_void>);
 
 #[doc(hidden)]
 #[repr(C)]
-pub struct IUnknownVtbl(pub unsafe extern "system" fn(this: RawPtr, iid: &GUID, interface: *mut RawPtr) -> HRESULT, pub unsafe extern "system" fn(this: RawPtr) -> u32, pub unsafe extern "system" fn(this: RawPtr) -> u32);
+pub struct IUnknownVtbl {
+    pub QueryInterface : unsafe extern "system" fn(this: RawPtr, iid: &GUID, interface: *mut RawPtr) -> HRESULT,
+    pub AddRef : unsafe extern "system" fn (this: RawPtr) -> u32,
+    pub Release : unsafe extern "system" fn (this: RawPtr) -> u32,
+}
 
 unsafe impl Interface for IUnknown {
     type Vtable = IUnknownVtbl;
@@ -22,7 +24,7 @@ unsafe impl Interface for IUnknown {
 impl Clone for IUnknown {
     fn clone(&self) -> Self {
         unsafe {
-            (self.vtable().1)(core::mem::transmute_copy(self)); // AddRef
+            (self.vtable().AddRef)(core::mem::transmute_copy(self));
         }
 
         Self(self.0)
@@ -32,7 +34,7 @@ impl Clone for IUnknown {
 impl Drop for IUnknown {
     fn drop(&mut self) {
         unsafe {
-            (self.vtable().2)(core::mem::transmute_copy(self)); // Release
+            (self.vtable().Release)(core::mem::transmute_copy(self));
         }
     }
 }
@@ -61,17 +63,25 @@ pub trait IUnknownImpl {
     fn Release(&mut self) -> u32;
 }
 
-pub unsafe extern "system" fn QueryInterface<T: IUnknownImpl, const OFFSET: isize>(this: RawPtr, iid: &GUID, interface: *mut RawPtr) -> HRESULT {
-    let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut T;
-    (*this).QueryInterface(iid, interface)
-}
-
-pub unsafe extern "system" fn AddRef<T: IUnknownImpl, const OFFSET: isize>(this: RawPtr) -> u32 {
-    let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut T;
-    (*this).AddRef()
-}
-
-pub unsafe extern "system" fn Release<T: IUnknownImpl, const OFFSET: isize>(this: RawPtr) -> u32 {
-    let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut T;
-    (*this).Release()
+#[cfg(feature = "implement")]
+impl IUnknownVtbl {
+    pub const fn new<T: IUnknownImpl, const OFFSET: isize>() -> Self {
+        unsafe extern "system" fn QueryInterface<T: IUnknownImpl, const OFFSET: isize>(this: RawPtr, iid: &GUID, interface: *mut RawPtr) -> HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut T;
+            (*this).QueryInterface(iid, interface)
+        }
+        unsafe extern "system" fn AddRef<T: IUnknownImpl, const OFFSET: isize>(this: RawPtr) -> u32 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut T;
+            (*this).AddRef()
+        }
+        unsafe extern "system" fn Release<T: IUnknownImpl, const OFFSET: isize>(this: RawPtr) -> u32 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut T;
+            (*this).Release()
+        }
+        Self { 
+            QueryInterface: QueryInterface::<T, OFFSET>,
+            AddRef: AddRef::<T, OFFSET>,
+            Release: Release::<T, OFFSET>,
+        }
+    }
 }
