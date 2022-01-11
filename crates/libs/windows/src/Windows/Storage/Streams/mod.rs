@@ -634,7 +634,7 @@ unsafe impl ::windows::core::Interface for DataReaderLoadOperation {
 impl ::windows::core::RuntimeName for DataReaderLoadOperation {
     const NAME: &'static str = "Windows.Storage.Streams.DataReaderLoadOperation";
 }
-#[cfg(all(feature = "Foundation", feature = "std"))]
+#[cfg(feature = "Foundation")]
 impl DataReaderLoadOperation {
     pub fn get(&self) -> ::windows::core::Result<u32> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
@@ -649,7 +649,7 @@ impl DataReaderLoadOperation {
         self.GetResults()
     }
 }
-#[cfg(all(feature = "Foundation", feature = "std"))]
+#[cfg(feature = "Foundation")]
 impl ::std::future::Future for DataReaderLoadOperation {
     type Output = ::windows::core::Result<u32>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -1184,7 +1184,7 @@ unsafe impl ::windows::core::Interface for DataWriterStoreOperation {
 impl ::windows::core::RuntimeName for DataWriterStoreOperation {
     const NAME: &'static str = "Windows.Storage.Streams.DataWriterStoreOperation";
 }
-#[cfg(all(feature = "Foundation", feature = "std"))]
+#[cfg(feature = "Foundation")]
 impl DataWriterStoreOperation {
     pub fn get(&self) -> ::windows::core::Result<u32> {
         if self.Status()? == super::super::Foundation::AsyncStatus::Started {
@@ -1199,7 +1199,7 @@ impl DataWriterStoreOperation {
         self.GetResults()
     }
 }
-#[cfg(all(feature = "Foundation", feature = "std"))]
+#[cfg(feature = "Foundation")]
 impl ::std::future::Future for DataWriterStoreOperation {
     type Output = ::windows::core::Result<u32>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {

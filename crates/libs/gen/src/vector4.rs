@@ -60,18 +60,15 @@ pub fn gen_vector4() -> TokenStream {
             pub fn length_squared(&self) -> f32 {
                 self.dot(self)
             }
-            #[cfg(feature = "std")]
             pub fn length(&self) -> f32 {
                 self.length_squared().sqrt()
             }
-            #[cfg(feature = "std")]
             pub fn distance(&self, value: &Self) -> f32 {
                 (self - value).length()
             }
             pub fn distance_squared(&self, value: &Self) -> f32 {
                 (self - value).length_squared()
             }
-            #[cfg(feature = "std")]
             pub fn normalize(&self) -> Self {
                 self / self.length()
             }

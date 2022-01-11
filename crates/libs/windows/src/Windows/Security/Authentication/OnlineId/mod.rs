@@ -1018,7 +1018,7 @@ unsafe impl ::windows::core::Interface for SignOutUserOperation {
 impl ::windows::core::RuntimeName for SignOutUserOperation {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.SignOutUserOperation";
 }
-#[cfg(all(feature = "Foundation", feature = "std"))]
+#[cfg(feature = "Foundation")]
 impl SignOutUserOperation {
     pub fn get(&self) -> ::windows::core::Result<()> {
         if self.Status()? == super::super::super::Foundation::AsyncStatus::Started {
@@ -1033,7 +1033,7 @@ impl SignOutUserOperation {
         self.GetResults()
     }
 }
-#[cfg(all(feature = "Foundation", feature = "std"))]
+#[cfg(feature = "Foundation")]
 impl ::std::future::Future for SignOutUserOperation {
     type Output = ::windows::core::Result<()>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -1256,7 +1256,7 @@ unsafe impl ::windows::core::Interface for UserAuthenticationOperation {
 impl ::windows::core::RuntimeName for UserAuthenticationOperation {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.UserAuthenticationOperation";
 }
-#[cfg(all(feature = "Foundation", feature = "std"))]
+#[cfg(feature = "Foundation")]
 impl UserAuthenticationOperation {
     pub fn get(&self) -> ::windows::core::Result<UserIdentity> {
         if self.Status()? == super::super::super::Foundation::AsyncStatus::Started {
@@ -1271,7 +1271,7 @@ impl UserAuthenticationOperation {
         self.GetResults()
     }
 }
-#[cfg(all(feature = "Foundation", feature = "std"))]
+#[cfg(feature = "Foundation")]
 impl ::std::future::Future for UserAuthenticationOperation {
     type Output = ::windows::core::Result<UserIdentity>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
