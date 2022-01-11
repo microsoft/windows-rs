@@ -13,7 +13,40 @@ pub const FAULT_INVALID_ARG: u32 = 402u32;
 pub const FAULT_INVALID_SEQUENCE_NUMBER: u32 = 403u32;
 #[doc = "*Required features: 'Win32_Devices_Enumeration_Pnp'*"]
 pub const FAULT_INVALID_VARIABLE: u32 = 404u32;
-pub type HSWDEVICE = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HSWDEVICE(pub isize);
+impl HSWDEVICE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HSWDEVICE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HSWDEVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HSWDEVICE {}
+impl ::core::fmt::Debug for HSWDEVICE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HSWDEVICE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HSWDEVICE {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Devices_Enumeration_Pnp'*"]
 #[repr(transparent)]
 pub struct IUPnPAddressFamilyControl(::windows::core::IUnknown);

@@ -1978,8 +1978,74 @@ impl ::core::default::Default for FEATURE_ERROR {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type FEATURE_STATE_CHANGE_SUBSCRIPTION = isize;
-pub type FH_SERVICE_PIPE_HANDLE = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FEATURE_STATE_CHANGE_SUBSCRIPTION(pub isize);
+impl FEATURE_STATE_CHANGE_SUBSCRIPTION {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for FEATURE_STATE_CHANGE_SUBSCRIPTION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for FEATURE_STATE_CHANGE_SUBSCRIPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for FEATURE_STATE_CHANGE_SUBSCRIPTION {}
+impl ::core::fmt::Debug for FEATURE_STATE_CHANGE_SUBSCRIPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEATURE_STATE_CHANGE_SUBSCRIPTION").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for FEATURE_STATE_CHANGE_SUBSCRIPTION {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FH_SERVICE_PIPE_HANDLE(pub isize);
+impl FH_SERVICE_PIPE_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for FH_SERVICE_PIPE_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for FH_SERVICE_PIPE_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for FH_SERVICE_PIPE_HANDLE {}
+impl ::core::fmt::Debug for FH_SERVICE_PIPE_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FH_SERVICE_PIPE_HANDLE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for FH_SERVICE_PIPE_HANDLE {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 pub const FIBER_FLAG_FLOAT_SWITCH: u32 = 1u32;
 #[repr(C)]
@@ -2930,7 +2996,40 @@ pub unsafe fn GlobalWire(hmem: isize) -> *mut ::core::ffi::c_void {
 pub const HANJA_WINDOW: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 pub const HINSTANCE_ERROR: u32 = 32u32;
-pub type HWINWATCH = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HWINWATCH(pub isize);
+impl HWINWATCH {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HWINWATCH {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HWINWATCH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HWINWATCH {}
+impl ::core::fmt::Debug for HWINWATCH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HWINWATCH").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HWINWATCH {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 pub const HW_PROFILE_GUIDLEN: u32 = 39u32;
 #[repr(C)]

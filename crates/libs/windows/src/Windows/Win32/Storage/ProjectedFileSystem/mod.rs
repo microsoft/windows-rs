@@ -240,7 +240,40 @@ pub type PRJ_COMPLETE_COMMAND_TYPE = i32;
 pub const PRJ_COMPLETE_COMMAND_TYPE_NOTIFICATION: PRJ_COMPLETE_COMMAND_TYPE = 1i32;
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
 pub const PRJ_COMPLETE_COMMAND_TYPE_ENUMERATION: PRJ_COMPLETE_COMMAND_TYPE = 2i32;
-pub type PRJ_DIR_ENTRY_BUFFER_HANDLE = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PRJ_DIR_ENTRY_BUFFER_HANDLE(pub isize);
+impl PRJ_DIR_ENTRY_BUFFER_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for PRJ_DIR_ENTRY_BUFFER_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for PRJ_DIR_ENTRY_BUFFER_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for PRJ_DIR_ENTRY_BUFFER_HANDLE {}
+impl ::core::fmt::Debug for PRJ_DIR_ENTRY_BUFFER_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PRJ_DIR_ENTRY_BUFFER_HANDLE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for PRJ_DIR_ENTRY_BUFFER_HANDLE {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_END_DIRECTORY_ENUMERATION_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows::core::GUID) -> ::windows::core::HRESULT>;
@@ -417,7 +450,40 @@ pub type PRJ_GET_FILE_DATA_CB = ::core::option::Option<unsafe extern "system" fn
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_GET_PLACEHOLDER_INFO_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ::windows::core::HRESULT>;
-pub type PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT(pub isize);
+impl PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {}
+impl ::core::fmt::Debug for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
 pub type PRJ_NOTIFICATION = i32;
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]

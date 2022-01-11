@@ -6689,7 +6689,40 @@ impl ::core::default::Default for MSIFILEHASHINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
-pub type MSIHANDLE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MSIHANDLE(pub u32);
+impl MSIHANDLE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for MSIHANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for MSIHANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for MSIHANDLE {}
+impl ::core::fmt::Debug for MSIHANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MSIHANDLE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for MSIHANDLE {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing'*"]
 pub type MSIINSTALLCONTEXT = i32;
 #[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing'*"]

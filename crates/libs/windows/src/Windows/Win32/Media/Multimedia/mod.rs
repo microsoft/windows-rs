@@ -3251,10 +3251,142 @@ pub unsafe fn GetSaveFileNamePreviewW(lpofn: *mut super::super::UI::Controls::Di
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type HDRVR = isize;
-pub type HIC = isize;
-pub type HMMIO = isize;
-pub type HVIDEO = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HDRVR(pub isize);
+impl HDRVR {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HDRVR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HDRVR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HDRVR {}
+impl ::core::fmt::Debug for HDRVR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HDRVR").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HDRVR {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HIC(pub isize);
+impl HIC {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HIC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HIC {}
+impl ::core::fmt::Debug for HIC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HIC").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HIC {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HMMIO(pub isize);
+impl HMMIO {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HMMIO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HMMIO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HMMIO {}
+impl ::core::fmt::Debug for HMMIO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HMMIO").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HMMIO {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HVIDEO(pub isize);
+impl HVIDEO {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HVIDEO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HVIDEO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HVIDEO {}
+impl ::core::fmt::Debug for HVIDEO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HVIDEO").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HVIDEO {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
 #[repr(transparent)]
 pub struct IAVIEditStream(::windows::core::IUnknown);

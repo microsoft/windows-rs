@@ -1293,7 +1293,40 @@ pub unsafe fn GetStdHandle(nstdhandle: STD_HANDLE) -> super::super::Foundation::
 }
 #[doc = "*Required features: 'Win32_System_Console'*"]
 pub const HISTORY_NO_DUP_FLAG: u32 = 1u32;
-pub type HPCON = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HPCON(pub isize);
+impl HPCON {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HPCON {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HPCON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HPCON {}
+impl ::core::fmt::Debug for HPCON {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HPCON").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HPCON {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

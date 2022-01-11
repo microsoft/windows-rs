@@ -2373,7 +2373,40 @@ pub unsafe fn GetUnicastIpAddressTable(family: u16, table: *mut *mut MIB_UNICAST
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type HIFTIMESTAMPCHANGE = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HIFTIMESTAMPCHANGE(pub isize);
+impl HIFTIMESTAMPCHANGE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HIFTIMESTAMPCHANGE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HIFTIMESTAMPCHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HIFTIMESTAMPCHANGE {}
+impl ::core::fmt::Debug for HIFTIMESTAMPCHANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HIFTIMESTAMPCHANGE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HIFTIMESTAMPCHANGE {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 pub const HYBRID_NODETYPE: u32 = 8u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
@@ -5078,7 +5111,40 @@ pub unsafe fn IcmpCreateFile() -> IcmpHandle {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type IcmpHandle = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct IcmpHandle(pub isize);
+impl IcmpHandle {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for IcmpHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for IcmpHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for IcmpHandle {}
+impl ::core::fmt::Debug for IcmpHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IcmpHandle").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for IcmpHandle {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
 #[inline]
 pub unsafe fn IcmpParseReplies(replybuffer: *mut ::core::ffi::c_void, replysize: u32) -> u32 {

@@ -11778,7 +11778,40 @@ pub unsafe fn PerfOpenQueryHandle<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type PerfProviderHandle = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PerfProviderHandle(pub isize);
+impl PerfProviderHandle {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for PerfProviderHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for PerfProviderHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for PerfProviderHandle {}
+impl ::core::fmt::Debug for PerfProviderHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerfProviderHandle").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for PerfProviderHandle {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -11823,7 +11856,40 @@ pub unsafe fn PerfQueryCounterSetRegistrationInfo<'a, Param0: ::windows::core::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type PerfQueryHandle = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PerfQueryHandle(pub isize);
+impl PerfQueryHandle {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for PerfQueryHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for PerfQueryHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for PerfQueryHandle {}
+impl ::core::fmt::Debug for PerfQueryHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerfQueryHandle").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for PerfQueryHandle {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

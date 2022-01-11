@@ -181,11 +181,12 @@ fn gen_conversions(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
 }
 
 fn gen_agile(def: &TypeDef, gen: &Gen) -> TokenStream {
-    if def.type_name() == TypeName::IRestrictedErrorInfo {
+    if def.type_name() == TypeName::IRestrictedErrorInfo || def.async_kind() != AsyncKind::None {
         let name = gen_type_ident(def, gen);
+        let constraints = gen_type_constraints(def, gen);
         quote! {
-            unsafe impl ::core::marker::Send for #name {}
-            unsafe impl ::core::marker::Sync for #name {}
+            unsafe impl<#(#constraints)*> ::core::marker::Send for #name {}
+            unsafe impl<#(#constraints)*> ::core::marker::Sync for #name {}
         }
     } else {
         TokenStream::new()

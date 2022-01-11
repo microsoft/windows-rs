@@ -2733,7 +2733,40 @@ pub type UI_ANIMATION_IDLE_BEHAVIOR = i32;
 pub const UI_ANIMATION_IDLE_BEHAVIOR_CONTINUE: UI_ANIMATION_IDLE_BEHAVIOR = 0i32;
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_IDLE_BEHAVIOR_DISABLE: UI_ANIMATION_IDLE_BEHAVIOR = 1i32;
-pub type UI_ANIMATION_KEYFRAME = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct UI_ANIMATION_KEYFRAME(pub isize);
+impl UI_ANIMATION_KEYFRAME {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for UI_ANIMATION_KEYFRAME {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for UI_ANIMATION_KEYFRAME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for UI_ANIMATION_KEYFRAME {}
+impl ::core::fmt::Debug for UI_ANIMATION_KEYFRAME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UI_ANIMATION_KEYFRAME").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for UI_ANIMATION_KEYFRAME {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub type UI_ANIMATION_MANAGER_STATUS = i32;
 #[doc = "*Required features: 'Win32_UI_Animation'*"]

@@ -631,7 +631,40 @@ pub unsafe fn FilterFindFirst(dwinformationclass: FILTER_INFORMATION_CLASS, lpbu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type FilterFindHandle = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FilterFindHandle(pub isize);
+impl FilterFindHandle {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for FilterFindHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for FilterFindHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for FilterFindHandle {}
+impl ::core::fmt::Debug for FilterFindHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FilterFindHandle").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for FilterFindHandle {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -751,7 +784,40 @@ pub unsafe fn FilterInstanceFindFirst<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type FilterInstanceFindHandle = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FilterInstanceFindHandle(pub isize);
+impl FilterInstanceFindHandle {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for FilterInstanceFindHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for FilterInstanceFindHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for FilterInstanceFindHandle {}
+impl ::core::fmt::Debug for FilterInstanceFindHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FilterInstanceFindHandle").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for FilterInstanceFindHandle {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -870,7 +936,40 @@ pub unsafe fn FilterVolumeFindFirst(dwinformationclass: FILTER_VOLUME_INFORMATIO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type FilterVolumeFindHandle = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FilterVolumeFindHandle(pub isize);
+impl FilterVolumeFindHandle {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for FilterVolumeFindHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for FilterVolumeFindHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for FilterVolumeFindHandle {}
+impl ::core::fmt::Debug for FilterVolumeFindHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FilterVolumeFindHandle").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for FilterVolumeFindHandle {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -916,7 +1015,40 @@ pub unsafe fn FilterVolumeInstanceFindFirst<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type FilterVolumeInstanceFindHandle = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FilterVolumeInstanceFindHandle(pub isize);
+impl FilterVolumeInstanceFindHandle {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for FilterVolumeInstanceFindHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for FilterVolumeInstanceFindHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for FilterVolumeInstanceFindHandle {}
+impl ::core::fmt::Debug for FilterVolumeInstanceFindHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FilterVolumeInstanceFindHandle").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for FilterVolumeInstanceFindHandle {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -932,8 +1064,74 @@ pub unsafe fn FilterVolumeInstanceFindNext<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type HFILTER = isize;
-pub type HFILTER_INSTANCE = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HFILTER(pub isize);
+impl HFILTER {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HFILTER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HFILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HFILTER {}
+impl ::core::fmt::Debug for HFILTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HFILTER").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HFILTER {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HFILTER_INSTANCE(pub isize);
+impl HFILTER_INSTANCE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HFILTER_INSTANCE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HFILTER_INSTANCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HFILTER_INSTANCE {}
+impl ::core::fmt::Debug for HFILTER_INSTANCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HFILTER_INSTANCE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HFILTER_INSTANCE {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
 pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION {

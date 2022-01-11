@@ -1572,7 +1572,40 @@ pub unsafe fn GetPixelFormat<'a, Param0: ::windows::core::IntoParam<'a, super::G
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type HGLRC = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HGLRC(pub isize);
+impl HGLRC {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HGLRC {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HGLRC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HGLRC {}
+impl ::core::fmt::Debug for HGLRC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HGLRC").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HGLRC {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_OpenGL'*"]
 pub struct LAYERPLANEDESCRIPTOR {

@@ -1394,7 +1394,40 @@ impl ::core::fmt::Debug for HANDLE {
 unsafe impl ::windows::core::Abi for HANDLE {
     type Abi = Self;
 }
-pub type HINSTANCE = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HINSTANCE(pub isize);
+impl HINSTANCE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HINSTANCE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HINSTANCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HINSTANCE {}
+impl ::core::fmt::Debug for HINSTANCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HINSTANCE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HINSTANCE {
+    type Abi = Self;
+}
 #[repr(transparent)]
 pub struct PSTR(pub *mut u8);
 impl PSTR {
@@ -1889,7 +1922,40 @@ pub unsafe fn HeapFree<'a, Param0: ::windows::core::IntoParam<'a, HeapHandle>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type HeapHandle = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HeapHandle(pub isize);
+impl HeapHandle {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HeapHandle {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HeapHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HeapHandle {}
+impl ::core::fmt::Debug for HeapHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HeapHandle").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HeapHandle {
+    type Abi = Self;
+}
 #[inline]
 pub unsafe fn CreateEventA<'a, Param1: ::windows::core::IntoParam<'a, BOOL>, Param2: ::windows::core::IntoParam<'a, BOOL>, Param3: ::windows::core::IntoParam<'a, PSTR>>(lpeventattributes: *const SECURITY_ATTRIBUTES, bmanualreset: Param1, binitialstate: Param2, lpname: Param3) -> HANDLE {
     #[cfg(windows)]

@@ -4949,7 +4949,40 @@ pub const TDH_CONTEXT_POINTERSIZE: TDH_CONTEXT_TYPE = 3i32;
 pub const TDH_CONTEXT_PDB_PATH: TDH_CONTEXT_TYPE = 4i32;
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub const TDH_CONTEXT_MAXIMUM: TDH_CONTEXT_TYPE = 5i32;
-pub type TDH_HANDLE = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TDH_HANDLE(pub isize);
+impl TDH_HANDLE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for TDH_HANDLE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for TDH_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for TDH_HANDLE {}
+impl ::core::fmt::Debug for TDH_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TDH_HANDLE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for TDH_HANDLE {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]
 pub type TEMPLATE_FLAGS = i32;
 #[doc = "*Required features: 'Win32_System_Diagnostics_Etw'*"]

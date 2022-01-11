@@ -45,6 +45,7 @@ impl ConstantValue {
         }
     }
 
+    #[must_use]
     pub fn next(&self) -> Self {
         match self {
             Self::U32(value) => Self::U32(value + 1),

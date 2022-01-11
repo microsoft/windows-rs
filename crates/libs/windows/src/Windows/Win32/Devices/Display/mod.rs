@@ -1418,8 +1418,74 @@ pub const DEVPKEY_Device_TerminalLuid: super::super::UI::Shell::PropertiesSystem
 #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_IndirectDisplay: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xc50a3f10_aa5c_4247_b830_d6a6f8eaa310), pid: 1u32 };
-pub type DHPDEV = isize;
-pub type DHSURF = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DHPDEV(pub isize);
+impl DHPDEV {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for DHPDEV {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for DHPDEV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for DHPDEV {}
+impl ::core::fmt::Debug for DHPDEV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DHPDEV").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DHPDEV {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DHSURF(pub isize);
+impl DHSURF {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for DHSURF {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for DHSURF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for DHSURF {}
+impl ::core::fmt::Debug for DHSURF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DHSURF").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for DHSURF {
+    type Abi = Self;
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub struct DISPLAYCONFIG_2DREGION {
@@ -6523,10 +6589,142 @@ pub unsafe fn GetVCPFeatureAndVCPFeatureReply<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type HBM = isize;
-pub type HDEV = isize;
-pub type HDRVOBJ = isize;
-pub type HFASTMUTEX = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HBM(pub isize);
+impl HBM {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HBM {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HBM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HBM {}
+impl ::core::fmt::Debug for HBM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HBM").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HBM {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HDEV(pub isize);
+impl HDEV {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HDEV {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HDEV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HDEV {}
+impl ::core::fmt::Debug for HDEV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HDEV").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HDEV {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HDRVOBJ(pub isize);
+impl HDRVOBJ {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HDRVOBJ {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HDRVOBJ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HDRVOBJ {}
+impl ::core::fmt::Debug for HDRVOBJ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HDRVOBJ").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HDRVOBJ {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HFASTMUTEX(pub isize);
+impl HFASTMUTEX {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HFASTMUTEX {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HFASTMUTEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HFASTMUTEX {}
+impl ::core::fmt::Debug for HFASTMUTEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HFASTMUTEX").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HFASTMUTEX {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub const HOOK_ALPHABLEND: u32 = 65536u32;
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
@@ -6583,8 +6781,74 @@ pub const HOST_DSI_TRANSMISSION_CANCELLED: u32 = 16u32;
 pub const HOST_DSI_TRANSMISSION_DROPPED: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub const HOST_DSI_TRANSMISSION_TIMEOUT: u32 = 64u32;
-pub type HSEMAPHORE = isize;
-pub type HSURF = isize;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HSEMAPHORE(pub isize);
+impl HSEMAPHORE {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HSEMAPHORE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HSEMAPHORE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HSEMAPHORE {}
+impl ::core::fmt::Debug for HSEMAPHORE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HSEMAPHORE").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HSEMAPHORE {
+    type Abi = Self;
+}
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HSURF(pub isize);
+impl HSURF {
+    pub fn is_invalid(&self) -> bool {
+        *self == unsafe { ::core::mem::zeroed() }
+    }
+    pub fn ok(self) -> ::windows::core::Result<Self> {
+        if !self.is_invalid() {
+            Ok(self)
+        } else {
+            Err(::windows::core::Error::from_win32())
+        }
+    }
+}
+impl ::core::default::Default for HSURF {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+impl ::core::clone::Clone for HSURF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for HSURF {}
+impl ::core::fmt::Debug for HSURF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HSURF").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Abi for HSURF {
+    type Abi = Self;
+}
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub const HS_DDI_MAX: u32 = 6u32;
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
