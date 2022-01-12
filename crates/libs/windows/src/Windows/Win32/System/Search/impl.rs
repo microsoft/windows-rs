@@ -1,1 +1,5703 @@
-pub trait DataSourceImpl < > : Sized where { fn getDataMember ( ) ; fn getDataMemberName ( ) ; fn getDataMemberCount ( ) ; fn addDataSourceListener ( ) ; fn removeDataSourceListener ( ) ; } impl < > DataSourceVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : DataSourceImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> DataSourceVtbl < > { unsafe extern "system" fn getDataMember < Impl : DataSourceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , bstrdm : * const u16 , riid : * const :: windows :: core :: GUID , ppunk : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn getDataMemberName < Impl : DataSourceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , lindex : i32 , pbstrdm : * mut * mut u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn getDataMemberCount < Impl : DataSourceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , plcount : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn addDataSourceListener < Impl : DataSourceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdsl : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn removeDataSourceListener < Impl : DataSourceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdsl : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , getDataMember : getDataMember :: < Impl , IMPL_OFFSET > , getDataMemberName : getDataMemberName :: < Impl , IMPL_OFFSET > , getDataMemberCount : getDataMemberCount :: < Impl , IMPL_OFFSET > , addDataSourceListener : addDataSourceListener :: < Impl , IMPL_OFFSET > , removeDataSourceListener : removeDataSourceListener :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < DataSource < > as :: windows :: core :: Interface > :: IID } } pub trait DataSourceListenerImpl < > : Sized where { fn dataMemberChanged ( ) ; fn dataMemberAdded ( ) ; fn dataMemberRemoved ( ) ; } impl < > DataSourceListenerVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : DataSourceListenerImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> DataSourceListenerVtbl < > { unsafe extern "system" fn dataMemberChanged < Impl : DataSourceListenerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , bstrdm : * const u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn dataMemberAdded < Impl : DataSourceListenerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , bstrdm : * const u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn dataMemberRemoved < Impl : DataSourceListenerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , bstrdm : * const u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , dataMemberChanged : dataMemberChanged :: < Impl , IMPL_OFFSET > , dataMemberAdded : dataMemberAdded :: < Impl , IMPL_OFFSET > , dataMemberRemoved : dataMemberRemoved :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < DataSourceListener < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait DataSourceObjectImpl < > : Sized + IDispatchImpl where { } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > DataSourceObjectVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : DataSourceObjectImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> DataSourceObjectVtbl < > { Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < DataSourceObject < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_System_Com" ) ] pub trait IAccessorImpl < > : Sized where { fn AddRefAccessor ( ) ; fn CreateAccessor ( ) ; fn GetBindings ( ) ; fn ReleaseAccessor ( ) ; } # [ cfg ( feature ="Win32_System_Com" ) ] impl < > IAccessorVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IAccessorImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IAccessorVtbl < > { unsafe extern "system" fn AddRefAccessor < Impl : IAccessorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , haccessor : usize , pcrefcount : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateAccessor < Impl : IAccessorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwaccessorflags : u32 , cbindings : usize , rgbindings : * const DBBINDING , cbrowsize : usize , phaccessor : * mut usize , rgstatus : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetBindings < Impl : IAccessorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , haccessor : usize , pdwaccessorflags : * mut u32 , pcbindings : * mut usize , prgbindings : * mut * mut DBBINDING , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ReleaseAccessor < Impl : IAccessorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , haccessor : usize , pcrefcount : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , AddRefAccessor : AddRefAccessor :: < Impl , IMPL_OFFSET > , CreateAccessor : CreateAccessor :: < Impl , IMPL_OFFSET > , GetBindings : GetBindings :: < Impl , IMPL_OFFSET > , ReleaseAccessor : ReleaseAccessor :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IAccessor < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IAlterIndexImpl < > : Sized where { fn AlterIndex ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IAlterIndexVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IAlterIndexImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IAlterIndexVtbl < > { unsafe extern "system" fn AlterIndex < Impl : IAlterIndexImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ptableid : * mut super::super::Storage::IndexServer:: DBID , pindexid : * mut super::super::Storage::IndexServer:: DBID , pnewindexid : * mut super::super::Storage::IndexServer:: DBID , cpropertysets : u32 , rgpropertysets : * mut DBPROPSET , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , AlterIndex : AlterIndex :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IAlterIndex < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IAlterTableImpl < > : Sized where { fn AlterColumn ( ) ; fn AlterTable ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IAlterTableVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IAlterTableImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IAlterTableVtbl < > { unsafe extern "system" fn AlterColumn < Impl : IAlterTableImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ptableid : * mut super::super::Storage::IndexServer:: DBID , pcolumnid : * mut super::super::Storage::IndexServer:: DBID , dwcolumndescflags : u32 , pcolumndesc : * mut DBCOLUMNDESC , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AlterTable < Impl : IAlterTableImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ptableid : * mut super::super::Storage::IndexServer:: DBID , pnewtableid : * mut super::super::Storage::IndexServer:: DBID , cpropertysets : u32 , rgpropertysets : * mut DBPROPSET , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , AlterColumn : AlterColumn :: < Impl , IMPL_OFFSET > , AlterTable : AlterTable :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IAlterTable < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" ) ) ] pub trait IBindResourceImpl < > : Sized where { fn Bind ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" ) ) ] impl < > IBindResourceVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IBindResourceImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IBindResourceVtbl < > { unsafe extern "system" fn Bind < Impl : IBindResourceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkouter : * mut :: core :: ffi :: c_void , pwszurl : super::super::Foundation:: PWSTR , dwbindurlflags : u32 , rguid : * const :: windows :: core :: GUID , riid : * const :: windows :: core :: GUID , pauthenticate : :: windows :: core :: RawPtr , pimplsession : * mut DBIMPLICITSESSION , pdwbindstatus : * mut u32 , ppunk : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Bind : Bind :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IBindResource < > as :: windows :: core :: Interface > :: IID } } pub trait IChapteredRowsetImpl < > : Sized where { fn AddRefChapter ( ) ; fn ReleaseChapter ( ) ; } impl < > IChapteredRowsetVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IChapteredRowsetImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IChapteredRowsetVtbl < > { unsafe extern "system" fn AddRefChapter < Impl : IChapteredRowsetImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hchapter : usize , pcrefcount : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ReleaseChapter < Impl : IChapteredRowsetImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hchapter : usize , pcrefcount : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , AddRefChapter : AddRefChapter :: < Impl , IMPL_OFFSET > , ReleaseChapter : ReleaseChapter :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IChapteredRowset < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" ) ) ] pub trait IColumnMapperImpl < > : Sized where { fn GetPropInfoFromName ( ) ; fn GetPropInfoFromId ( ) ; fn EnumPropInfo ( ) ; fn IsMapUpToDate ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" ) ) ] impl < > IColumnMapperVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IColumnMapperImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IColumnMapperVtbl < > { unsafe extern "system" fn GetPropInfoFromName < Impl : IColumnMapperImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , wcspropname : super::super::Foundation:: PWSTR , pppropid : * mut * mut super::super::Storage::IndexServer:: DBID , pproptype : * mut u16 , puiwidth : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetPropInfoFromId < Impl : IColumnMapperImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppropid : * const super::super::Storage::IndexServer:: DBID , pwcsname : * mut * mut u16 , pproptype : * mut u16 , puiwidth : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EnumPropInfo < Impl : IColumnMapperImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ientry : u32 , pwcsname : * const * const u16 , pppropid : * mut * mut super::super::Storage::IndexServer:: DBID , pproptype : * mut u16 , puiwidth : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsMapUpToDate < Impl : IColumnMapperImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetPropInfoFromName : GetPropInfoFromName :: < Impl , IMPL_OFFSET > , GetPropInfoFromId : GetPropInfoFromId :: < Impl , IMPL_OFFSET > , EnumPropInfo : EnumPropInfo :: < Impl , IMPL_OFFSET > , IsMapUpToDate : IsMapUpToDate :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IColumnMapper < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IColumnMapperCreatorImpl < > : Sized where { fn GetColumnMapper ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IColumnMapperCreatorVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IColumnMapperCreatorImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IColumnMapperCreatorVtbl < > { unsafe extern "system" fn GetColumnMapper < Impl : IColumnMapperCreatorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , wcsmachinename : super::super::Foundation:: PWSTR , wcscatalogname : super::super::Foundation:: PWSTR , ppcolumnmapper : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetColumnMapper : GetColumnMapper :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IColumnMapperCreator < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" ) ) ] pub trait IColumnsInfoImpl < > : Sized where { fn GetColumnInfo ( ) ; fn MapColumnIDs ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" ) ) ] impl < > IColumnsInfoVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IColumnsInfoImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IColumnsInfoVtbl < > { unsafe extern "system" fn GetColumnInfo < Impl : IColumnsInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pccolumns : * mut usize , prginfo : * mut * mut DBCOLUMNINFO , ppstringsbuffer : * mut * mut u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn MapColumnIDs < Impl : IColumnsInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ccolumnids : usize , rgcolumnids : * const super::super::Storage::IndexServer:: DBID , rgcolumns : * mut usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetColumnInfo : GetColumnInfo :: < Impl , IMPL_OFFSET > , MapColumnIDs : MapColumnIDs :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IColumnsInfo < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" ) ) ] pub trait IColumnsInfo2Impl < > : Sized + IColumnsInfoImpl where { fn GetRestrictedColumnInfo ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" ) ) ] impl < > IColumnsInfo2Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IColumnsInfo2Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IColumnsInfo2Vtbl < > { unsafe extern "system" fn GetRestrictedColumnInfo < Impl : IColumnsInfo2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ccolumnidmasks : usize , rgcolumnidmasks : * const super::super::Storage::IndexServer:: DBID , dwflags : u32 , pccolumns : * mut usize , prgcolumnids : * mut * mut super::super::Storage::IndexServer:: DBID , prgcolumninfo : * mut * mut DBCOLUMNINFO , ppstringsbuffer : * mut * mut u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IColumnsInfoVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetRestrictedColumnInfo : GetRestrictedColumnInfo :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IColumnsInfo2 < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IColumnsRowsetImpl < > : Sized where { fn GetAvailableColumns ( ) ; fn GetColumnsRowset ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IColumnsRowsetVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IColumnsRowsetImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IColumnsRowsetVtbl < > { unsafe extern "system" fn GetAvailableColumns < Impl : IColumnsRowsetImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcoptcolumns : * mut usize , prgoptcolumns : * mut * mut super::super::Storage::IndexServer:: DBID , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetColumnsRowset < Impl : IColumnsRowsetImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkouter : * mut :: core :: ffi :: c_void , coptcolumns : usize , rgoptcolumns : * const super::super::Storage::IndexServer:: DBID , riid : * const :: windows :: core :: GUID , cpropertysets : u32 , rgpropertysets : * mut DBPROPSET , ppcolrowset : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetAvailableColumns : GetAvailableColumns :: < Impl , IMPL_OFFSET > , GetColumnsRowset : GetColumnsRowset :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IColumnsRowset < > as :: windows :: core :: Interface > :: IID } } pub trait ICommandImpl < > : Sized where { fn Cancel ( ) ; fn Execute ( ) ; fn GetDBSession ( ) ; } impl < > ICommandVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ICommandImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ICommandVtbl < > { unsafe extern "system" fn Cancel < Impl : ICommandImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Execute < Impl : ICommandImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkouter : * mut :: core :: ffi :: c_void , riid : * const :: windows :: core :: GUID , pparams : * mut DBPARAMS , pcrowsaffected : * mut isize , pprowset : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetDBSession < Impl : ICommandImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , riid : * const :: windows :: core :: GUID , ppsession : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Cancel : Cancel :: < Impl , IMPL_OFFSET > , Execute : Execute :: < Impl , IMPL_OFFSET > , GetDBSession : GetDBSession :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ICommand < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ICommandCostImpl < > : Sized where { fn GetAccumulatedCost ( ) ; fn GetCostEstimate ( ) ; fn GetCostGoals ( ) ; fn GetCostLimits ( ) ; fn SetCostGoals ( ) ; fn SetCostLimits ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ICommandCostVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ICommandCostImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ICommandCostVtbl < > { unsafe extern "system" fn GetAccumulatedCost < Impl : ICommandCostImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwszrowsetname : super::super::Foundation:: PWSTR , pccostlimits : * mut u32 , prgcostlimits : * mut * mut DBCOST , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetCostEstimate < Impl : ICommandCostImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwszrowsetname : super::super::Foundation:: PWSTR , pccostestimates : * mut u32 , prgcostestimates : * mut DBCOST , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetCostGoals < Impl : ICommandCostImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwszrowsetname : super::super::Foundation:: PWSTR , pccostgoals : * mut u32 , prgcostgoals : * mut DBCOST , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetCostLimits < Impl : ICommandCostImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwszrowsetname : super::super::Foundation:: PWSTR , pccostlimits : * mut u32 , prgcostlimits : * mut DBCOST , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetCostGoals < Impl : ICommandCostImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwszrowsetname : super::super::Foundation:: PWSTR , ccostgoals : u32 , rgcostgoals : * const DBCOST , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetCostLimits < Impl : ICommandCostImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwszrowsetname : super::super::Foundation:: PWSTR , ccostlimits : u32 , prgcostlimits : * mut DBCOST , dwexecutionflags : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetAccumulatedCost : GetAccumulatedCost :: < Impl , IMPL_OFFSET > , GetCostEstimate : GetCostEstimate :: < Impl , IMPL_OFFSET > , GetCostGoals : GetCostGoals :: < Impl , IMPL_OFFSET > , GetCostLimits : GetCostLimits :: < Impl , IMPL_OFFSET > , SetCostGoals : SetCostGoals :: < Impl , IMPL_OFFSET > , SetCostLimits : SetCostLimits :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ICommandCost < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" ) ) ] pub trait ICommandPersistImpl < > : Sized where { fn DeleteCommand ( ) ; fn GetCurrentCommand ( ) ; fn LoadCommand ( ) ; fn SaveCommand ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" ) ) ] impl < > ICommandPersistVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ICommandPersistImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ICommandPersistVtbl < > { unsafe extern "system" fn DeleteCommand < Impl : ICommandPersistImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcommandid : * mut super::super::Storage::IndexServer:: DBID , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetCurrentCommand < Impl : ICommandPersistImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppcommandid : * mut * mut super::super::Storage::IndexServer:: DBID , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn LoadCommand < Impl : ICommandPersistImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcommandid : * mut super::super::Storage::IndexServer:: DBID , dwflags : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SaveCommand < Impl : ICommandPersistImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcommandid : * mut super::super::Storage::IndexServer:: DBID , dwflags : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , DeleteCommand : DeleteCommand :: < Impl , IMPL_OFFSET > , GetCurrentCommand : GetCurrentCommand :: < Impl , IMPL_OFFSET > , LoadCommand : LoadCommand :: < Impl , IMPL_OFFSET > , SaveCommand : SaveCommand :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ICommandPersist < > as :: windows :: core :: Interface > :: IID } } pub trait ICommandPrepareImpl < > : Sized where { fn Prepare ( ) ; fn Unprepare ( ) ; } impl < > ICommandPrepareVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ICommandPrepareImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ICommandPrepareVtbl < > { unsafe extern "system" fn Prepare < Impl : ICommandPrepareImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , cexpectedruns : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Unprepare < Impl : ICommandPrepareImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Prepare : Prepare :: < Impl , IMPL_OFFSET > , Unprepare : Unprepare :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ICommandPrepare < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ICommandPropertiesImpl < > : Sized where { fn GetProperties ( ) ; fn SetProperties ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ICommandPropertiesVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ICommandPropertiesImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ICommandPropertiesVtbl < > { unsafe extern "system" fn GetProperties < Impl : ICommandPropertiesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , cpropertyidsets : u32 , rgpropertyidsets : * const DBPROPIDSET , pcpropertysets : * mut u32 , prgpropertysets : * mut * mut DBPROPSET , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetProperties < Impl : ICommandPropertiesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , cpropertysets : u32 , rgpropertysets : * const DBPROPSET , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetProperties : GetProperties :: < Impl , IMPL_OFFSET > , SetProperties : SetProperties :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ICommandProperties < > as :: windows :: core :: Interface > :: IID } } pub trait ICommandStreamImpl < > : Sized where { fn GetCommandStream ( ) ; fn SetCommandStream ( ) ; } impl < > ICommandStreamVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ICommandStreamImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ICommandStreamVtbl < > { unsafe extern "system" fn GetCommandStream < Impl : ICommandStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , piid : * mut :: windows :: core :: GUID , pguiddialect : * mut :: windows :: core :: GUID , ppcommandstream : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetCommandStream < Impl : ICommandStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , riid : * const :: windows :: core :: GUID , rguiddialect : * const :: windows :: core :: GUID , pcommandstream : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetCommandStream : GetCommandStream :: < Impl , IMPL_OFFSET > , SetCommandStream : SetCommandStream :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ICommandStream < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ICommandTextImpl < > : Sized + ICommandImpl where { fn GetCommandText ( ) ; fn SetCommandText ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ICommandTextVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ICommandTextImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ICommandTextVtbl < > { unsafe extern "system" fn GetCommandText < Impl : ICommandTextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pguiddialect : * mut :: windows :: core :: GUID , ppwszcommand : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetCommandText < Impl : ICommandTextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , rguiddialect : * const :: windows :: core :: GUID , pwszcommand : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ICommandVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetCommandText : GetCommandText :: < Impl , IMPL_OFFSET > , SetCommandText : SetCommandText :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ICommandText < > as :: windows :: core :: Interface > :: IID } } pub trait ICommandValidateImpl < > : Sized where { fn ValidateCompletely ( ) ; fn ValidateSyntax ( ) ; } impl < > ICommandValidateVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ICommandValidateImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ICommandValidateVtbl < > { unsafe extern "system" fn ValidateCompletely < Impl : ICommandValidateImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ValidateSyntax < Impl : ICommandValidateImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , ValidateCompletely : ValidateCompletely :: < Impl , IMPL_OFFSET > , ValidateSyntax : ValidateSyntax :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ICommandValidate < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" ) ) ] pub trait ICommandWithParametersImpl < > : Sized where { fn GetParameterInfo ( ) ; fn MapParameterNames ( ) ; fn SetParameterInfo ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" ) ) ] impl < > ICommandWithParametersVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ICommandWithParametersImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ICommandWithParametersVtbl < > { unsafe extern "system" fn GetParameterInfo < Impl : ICommandWithParametersImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcparams : * mut usize , prgparaminfo : * mut * mut DBPARAMINFO , ppnamesbuffer : * mut * mut u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn MapParameterNames < Impl : ICommandWithParametersImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , cparamnames : usize , rgparamnames : * const super::super::Foundation:: PWSTR , rgparamordinals : * mut isize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetParameterInfo < Impl : ICommandWithParametersImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , cparams : usize , rgparamordinals : * const usize , rgparambindinfo : * const DBPARAMBINDINFO , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetParameterInfo : GetParameterInfo :: < Impl , IMPL_OFFSET > , MapParameterNames : MapParameterNames :: < Impl , IMPL_OFFSET > , SetParameterInfo : SetParameterInfo :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ICommandWithParameters < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" , feature ="Win32_System_Search_Common" ) ) ] pub trait IConditionImpl < > : Sized + IPersistImpl + IPersistStreamImpl where { fn GetConditionType ( ) ; fn GetSubConditions ( ) ; fn GetComparisonInfo ( ) ; fn GetValueType ( ) ; fn GetValueNormalization ( ) ; fn GetInputTerms ( ) ; fn Clone ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" , feature ="Win32_System_Search_Common" ) ) ] impl < > IConditionVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IConditionImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IConditionVtbl < > { unsafe extern "system" fn GetConditionType < Impl : IConditionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pnodetype : * mut Common:: CONDITION_TYPE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetSubConditions < Impl : IConditionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , riid : * const :: windows :: core :: GUID , ppv : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetComparisonInfo < Impl : IConditionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszpropertyname : * mut super::super::Foundation:: PWSTR , pcop : * mut Common:: CONDITION_OPERATION , ppropvar : * mut super::Com::StructuredStorage:: PROPVARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetValueType < Impl : IConditionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszvaluetypename : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetValueNormalization < Impl : IConditionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppsznormalization : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetInputTerms < Impl : IConditionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pppropertyterm : * mut :: windows :: core :: RawPtr , ppoperationterm : * mut :: windows :: core :: RawPtr , ppvalueterm : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Clone < Impl : IConditionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppc : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IPersistStreamVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetConditionType : GetConditionType :: < Impl , IMPL_OFFSET > , GetSubConditions : GetSubConditions :: < Impl , IMPL_OFFSET > , GetComparisonInfo : GetComparisonInfo :: < Impl , IMPL_OFFSET > , GetValueType : GetValueType :: < Impl , IMPL_OFFSET > , GetValueNormalization : GetValueNormalization :: < Impl , IMPL_OFFSET > , GetInputTerms : GetInputTerms :: < Impl , IMPL_OFFSET > , Clone : Clone :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ICondition < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" , feature ="Win32_System_Search_Common" , feature ="Win32_UI_Shell_PropertiesSystem" ) ) ] pub trait ICondition2Impl < > : Sized + IPersistImpl + IPersistStreamImpl + IConditionImpl where { fn GetLocale ( ) ; fn GetLeafConditionInfo ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" , feature ="Win32_System_Search_Common" , feature ="Win32_UI_Shell_PropertiesSystem" ) ) ] impl < > ICondition2Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ICondition2Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ICondition2Vtbl < > { unsafe extern "system" fn GetLocale < Impl : ICondition2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszlocalename : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetLeafConditionInfo < Impl : ICondition2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppropkey : * mut super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pcop : * mut Common:: CONDITION_OPERATION , ppropvar : * mut super::Com::StructuredStorage:: PROPVARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IConditionVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetLocale : GetLocale :: < Impl , IMPL_OFFSET > , GetLeafConditionInfo : GetLeafConditionInfo :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ICondition2 < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" , feature ="Win32_System_Search_Common" ) ) ] pub trait IConditionFactoryImpl < > : Sized where { fn MakeNot ( ) ; fn MakeAndOr ( ) ; fn MakeLeaf ( ) ; fn Resolve ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" , feature ="Win32_System_Search_Common" ) ) ] impl < > IConditionFactoryVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IConditionFactoryImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IConditionFactoryVtbl < > { unsafe extern "system" fn MakeNot < Impl : IConditionFactoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcsub : :: windows :: core :: RawPtr , fsimplify : super::super::Foundation:: BOOL , ppcresult : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn MakeAndOr < Impl : IConditionFactoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ct : Common:: CONDITION_TYPE , peusubs : :: windows :: core :: RawPtr , fsimplify : super::super::Foundation:: BOOL , ppcresult : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn MakeLeaf < Impl : IConditionFactoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszpropertyname : super::super::Foundation:: PWSTR , cop : Common:: CONDITION_OPERATION , pszvaluetype : super::super::Foundation:: PWSTR , ppropvar : * const super::Com::StructuredStorage:: PROPVARIANT , ppropertynameterm : :: windows :: core :: RawPtr , poperationterm : :: windows :: core :: RawPtr , pvalueterm : :: windows :: core :: RawPtr , fexpand : super::super::Foundation:: BOOL , ppcresult : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Resolve < Impl : IConditionFactoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pc : :: windows :: core :: RawPtr , sqro : STRUCTURED_QUERY_RESOLVE_OPTION , pstreferencetime : * const super::super::Foundation:: SYSTEMTIME , ppcresolved : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , MakeNot : MakeNot :: < Impl , IMPL_OFFSET > , MakeAndOr : MakeAndOr :: < Impl , IMPL_OFFSET > , MakeLeaf : MakeLeaf :: < Impl , IMPL_OFFSET > , Resolve : Resolve :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IConditionFactory < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" , feature ="Win32_System_Search_Common" , feature ="Win32_UI_Shell_Common" , feature ="Win32_UI_Shell_PropertiesSystem" ) ) ] pub trait IConditionFactory2Impl < > : Sized + IConditionFactoryImpl where { fn CreateTrueFalse ( ) ; fn CreateNegation ( ) ; fn CreateCompoundFromObjectArray ( ) ; fn CreateCompoundFromArray ( ) ; fn CreateStringLeaf ( ) ; fn CreateIntegerLeaf ( ) ; fn CreateBooleanLeaf ( ) ; fn CreateLeaf ( ) ; fn ResolveCondition ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" , feature ="Win32_System_Search_Common" , feature ="Win32_UI_Shell_Common" , feature ="Win32_UI_Shell_PropertiesSystem" ) ) ] impl < > IConditionFactory2Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IConditionFactory2Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IConditionFactory2Vtbl < > { unsafe extern "system" fn CreateTrueFalse < Impl : IConditionFactory2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , fval : super::super::Foundation:: BOOL , cco : CONDITION_CREATION_OPTIONS , riid : * const :: windows :: core :: GUID , ppv : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateNegation < Impl : IConditionFactory2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcsub : :: windows :: core :: RawPtr , cco : CONDITION_CREATION_OPTIONS , riid : * const :: windows :: core :: GUID , ppv : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateCompoundFromObjectArray < Impl : IConditionFactory2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ct : Common:: CONDITION_TYPE , poasubs : :: windows :: core :: RawPtr , cco : CONDITION_CREATION_OPTIONS , riid : * const :: windows :: core :: GUID , ppv : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateCompoundFromArray < Impl : IConditionFactory2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ct : Common:: CONDITION_TYPE , ppcondsubs : * const :: windows :: core :: RawPtr , csubs : u32 , cco : CONDITION_CREATION_OPTIONS , riid : * const :: windows :: core :: GUID , ppv : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateStringLeaf < Impl : IConditionFactory2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , propkey : * const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , cop : Common:: CONDITION_OPERATION , pszvalue : super::super::Foundation:: PWSTR , pszlocalename : super::super::Foundation:: PWSTR , cco : CONDITION_CREATION_OPTIONS , riid : * const :: windows :: core :: GUID , ppv : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateIntegerLeaf < Impl : IConditionFactory2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , propkey : * const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , cop : Common:: CONDITION_OPERATION , lvalue : i32 , cco : CONDITION_CREATION_OPTIONS , riid : * const :: windows :: core :: GUID , ppv : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateBooleanLeaf < Impl : IConditionFactory2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , propkey : * const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , cop : Common:: CONDITION_OPERATION , fvalue : super::super::Foundation:: BOOL , cco : CONDITION_CREATION_OPTIONS , riid : * const :: windows :: core :: GUID , ppv : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateLeaf < Impl : IConditionFactory2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , propkey : * const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , cop : Common:: CONDITION_OPERATION , propvar : * const super::Com::StructuredStorage:: PROPVARIANT , pszsemantictype : super::super::Foundation:: PWSTR , pszlocalename : super::super::Foundation:: PWSTR , ppropertynameterm : :: windows :: core :: RawPtr , poperationterm : :: windows :: core :: RawPtr , pvalueterm : :: windows :: core :: RawPtr , cco : CONDITION_CREATION_OPTIONS , riid : * const :: windows :: core :: GUID , ppv : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ResolveCondition < Impl : IConditionFactory2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pc : :: windows :: core :: RawPtr , sqro : STRUCTURED_QUERY_RESOLVE_OPTION , pstreferencetime : * const super::super::Foundation:: SYSTEMTIME , riid : * const :: windows :: core :: GUID , ppv : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IConditionFactoryVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , CreateTrueFalse : CreateTrueFalse :: < Impl , IMPL_OFFSET > , CreateNegation : CreateNegation :: < Impl , IMPL_OFFSET > , CreateCompoundFromObjectArray : CreateCompoundFromObjectArray :: < Impl , IMPL_OFFSET > , CreateCompoundFromArray : CreateCompoundFromArray :: < Impl , IMPL_OFFSET > , CreateStringLeaf : CreateStringLeaf :: < Impl , IMPL_OFFSET > , CreateIntegerLeaf : CreateIntegerLeaf :: < Impl , IMPL_OFFSET > , CreateBooleanLeaf : CreateBooleanLeaf :: < Impl , IMPL_OFFSET > , CreateLeaf : CreateLeaf :: < Impl , IMPL_OFFSET > , ResolveCondition : ResolveCondition :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IConditionFactory2 < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" , feature ="Win32_System_Search_Common" ) ) ] pub trait IConditionGeneratorImpl < > : Sized where { fn Initialize ( ) ; fn RecognizeNamedEntities ( ) ; fn GenerateForLeaf ( ) ; fn DefaultPhrase ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" , feature ="Win32_System_Search_Common" ) ) ] impl < > IConditionGeneratorVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IConditionGeneratorImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IConditionGeneratorVtbl < > { unsafe extern "system" fn Initialize < Impl : IConditionGeneratorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pschemaprovider : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RecognizeNamedEntities < Impl : IConditionGeneratorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszinputstring : super::super::Foundation:: PWSTR , lciduserlocale : u32 , ptokencollection : :: windows :: core :: RawPtr , pnamedentities : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GenerateForLeaf < Impl : IConditionGeneratorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pconditionfactory : :: windows :: core :: RawPtr , pszpropertyname : super::super::Foundation:: PWSTR , cop : Common:: CONDITION_OPERATION , pszvaluetype : super::super::Foundation:: PWSTR , pszvalue : super::super::Foundation:: PWSTR , pszvalue2 : super::super::Foundation:: PWSTR , ppropertynameterm : :: windows :: core :: RawPtr , poperationterm : :: windows :: core :: RawPtr , pvalueterm : :: windows :: core :: RawPtr , automaticwildcard : super::super::Foundation:: BOOL , pnostringquery : * mut super::super::Foundation:: BOOL , ppqueryexpression : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DefaultPhrase < Impl : IConditionGeneratorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszvaluetype : super::super::Foundation:: PWSTR , ppropvar : * const super::Com::StructuredStorage:: PROPVARIANT , fuseenglish : super::super::Foundation:: BOOL , ppszphrase : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Initialize : Initialize :: < Impl , IMPL_OFFSET > , RecognizeNamedEntities : RecognizeNamedEntities :: < Impl , IMPL_OFFSET > , GenerateForLeaf : GenerateForLeaf :: < Impl , IMPL_OFFSET > , DefaultPhrase : DefaultPhrase :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IConditionGenerator < > as :: windows :: core :: Interface > :: IID } } pub trait IConvertTypeImpl < > : Sized where { fn CanConvert ( ) ; } impl < > IConvertTypeVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IConvertTypeImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IConvertTypeVtbl < > { unsafe extern "system" fn CanConvert < Impl : IConvertTypeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , wfromtype : u16 , wtotype : u16 , dwconvertflags : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , CanConvert : CanConvert :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IConvertType < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" ) ) ] pub trait ICreateRowImpl < > : Sized where { fn CreateRow ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" ) ) ] impl < > ICreateRowVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ICreateRowImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ICreateRowVtbl < > { unsafe extern "system" fn CreateRow < Impl : ICreateRowImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkouter : * mut :: core :: ffi :: c_void , pwszurl : super::super::Foundation:: PWSTR , dwbindurlflags : u32 , rguid : * const :: windows :: core :: GUID , riid : * const :: windows :: core :: GUID , pauthenticate : :: windows :: core :: RawPtr , pimplsession : * mut DBIMPLICITSESSION , pdwbindstatus : * mut u32 , ppwsznewurl : * mut super::super::Foundation:: PWSTR , ppunk : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , CreateRow : CreateRow :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ICreateRow < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IDBAsynchNotifyImpl < > : Sized where { fn OnLowResource ( ) ; fn OnProgress ( ) ; fn OnStop ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IDBAsynchNotifyVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IDBAsynchNotifyImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IDBAsynchNotifyVtbl < > { unsafe extern "system" fn OnLowResource < Impl : IDBAsynchNotifyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwreserved : usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn OnProgress < Impl : IDBAsynchNotifyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hchapter : usize , eoperation : u32 , ulprogress : usize , ulprogressmax : usize , easynchphase : u32 , pwszstatustext : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn OnStop < Impl : IDBAsynchNotifyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hchapter : usize , eoperation : u32 , hrstatus : :: windows :: core :: HRESULT , pwszstatustext : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , OnLowResource : OnLowResource :: < Impl , IMPL_OFFSET > , OnProgress : OnProgress :: < Impl , IMPL_OFFSET > , OnStop : OnStop :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IDBAsynchNotify < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IDBAsynchStatusImpl < > : Sized where { fn Abort ( ) ; fn GetStatus ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IDBAsynchStatusVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IDBAsynchStatusImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IDBAsynchStatusVtbl < > { unsafe extern "system" fn Abort < Impl : IDBAsynchStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hchapter : usize , eoperation : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetStatus < Impl : IDBAsynchStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hchapter : usize , eoperation : u32 , pulprogress : * mut usize , pulprogressmax : * mut usize , peasynchphase : * mut u32 , ppwszstatustext : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Abort : Abort :: < Impl , IMPL_OFFSET > , GetStatus : GetStatus :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IDBAsynchStatus < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IDBBinderPropertiesImpl < > : Sized + IDBPropertiesImpl where { fn Reset ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IDBBinderPropertiesVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IDBBinderPropertiesImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IDBBinderPropertiesVtbl < > { unsafe extern "system" fn Reset < Impl : IDBBinderPropertiesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDBPropertiesVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Reset : Reset :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IDBBinderProperties < > as :: windows :: core :: Interface > :: IID } } pub trait IDBCreateCommandImpl < > : Sized where { fn CreateCommand ( ) ; } impl < > IDBCreateCommandVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IDBCreateCommandImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IDBCreateCommandVtbl < > { unsafe extern "system" fn CreateCommand < Impl : IDBCreateCommandImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkouter : * mut :: core :: ffi :: c_void , riid : * const :: windows :: core :: GUID , ppcommand : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , CreateCommand : CreateCommand :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IDBCreateCommand < > as :: windows :: core :: Interface > :: IID } } pub trait IDBCreateSessionImpl < > : Sized where { fn CreateSession ( ) ; } impl < > IDBCreateSessionVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IDBCreateSessionImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IDBCreateSessionVtbl < > { unsafe extern "system" fn CreateSession < Impl : IDBCreateSessionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkouter : * mut :: core :: ffi :: c_void , riid : * const :: windows :: core :: GUID , ppdbsession : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , CreateSession : CreateSession :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IDBCreateSession < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IDBDataSourceAdminImpl < > : Sized where { fn CreateDataSource ( ) ; fn DestroyDataSource ( ) ; fn GetCreationProperties ( ) ; fn ModifyDataSource ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IDBDataSourceAdminVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IDBDataSourceAdminImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IDBDataSourceAdminVtbl < > { unsafe extern "system" fn CreateDataSource < Impl : IDBDataSourceAdminImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , cpropertysets : u32 , rgpropertysets : * mut DBPROPSET , punkouter : * mut :: core :: ffi :: c_void , riid : * const :: windows :: core :: GUID , ppdbsession : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DestroyDataSource < Impl : IDBDataSourceAdminImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetCreationProperties < Impl : IDBDataSourceAdminImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , cpropertyidsets : u32 , rgpropertyidsets : * const DBPROPIDSET , pcpropertyinfosets : * mut u32 , prgpropertyinfosets : * mut * mut DBPROPINFOSET , ppdescbuffer : * mut * mut u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ModifyDataSource < Impl : IDBDataSourceAdminImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , cpropertysets : u32 , rgpropertysets : * mut DBPROPSET , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , CreateDataSource : CreateDataSource :: < Impl , IMPL_OFFSET > , DestroyDataSource : DestroyDataSource :: < Impl , IMPL_OFFSET > , GetCreationProperties : GetCreationProperties :: < Impl , IMPL_OFFSET > , ModifyDataSource : ModifyDataSource :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IDBDataSourceAdmin < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IDBInfoImpl < > : Sized where { fn GetKeywords ( ) ; fn GetLiteralInfo ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IDBInfoVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IDBInfoImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IDBInfoVtbl < > { unsafe extern "system" fn GetKeywords < Impl : IDBInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppwszkeywords : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetLiteralInfo < Impl : IDBInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , cliterals : u32 , rgliterals : * const u32 , pcliteralinfo : * mut u32 , prgliteralinfo : * mut * mut DBLITERALINFO , ppcharbuffer : * mut * mut u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetKeywords : GetKeywords :: < Impl , IMPL_OFFSET > , GetLiteralInfo : GetLiteralInfo :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IDBInfo < > as :: windows :: core :: Interface > :: IID } } pub trait IDBInitializeImpl < > : Sized where { fn Initialize ( ) ; fn Uninitialize ( ) ; } impl < > IDBInitializeVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IDBInitializeImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IDBInitializeVtbl < > { unsafe extern "system" fn Initialize < Impl : IDBInitializeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Uninitialize < Impl : IDBInitializeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Initialize : Initialize :: < Impl , IMPL_OFFSET > , Uninitialize : Uninitialize :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IDBInitialize < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IDBPromptInitializeImpl < > : Sized where { fn PromptDataSource ( ) ; fn PromptFileName ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IDBPromptInitializeVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IDBPromptInitializeImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IDBPromptInitializeVtbl < > { unsafe extern "system" fn PromptDataSource < Impl : IDBPromptInitializeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkouter : * mut :: core :: ffi :: c_void , hwndparent : super::super::Foundation:: HWND , dwpromptoptions : u32 , csourcetypefilter : u32 , rgsourcetypefilter : * const u32 , pwszszzproviderfilter : super::super::Foundation:: PWSTR , riid : * const :: windows :: core :: GUID , ppdatasource : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn PromptFileName < Impl : IDBPromptInitializeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hwndparent : super::super::Foundation:: HWND , dwpromptoptions : u32 , pwszinitialdirectory : super::super::Foundation:: PWSTR , pwszinitialfile : super::super::Foundation:: PWSTR , ppwszselectedfile : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , PromptDataSource : PromptDataSource :: < Impl , IMPL_OFFSET > , PromptFileName : PromptFileName :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IDBPromptInitialize < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IDBPropertiesImpl < > : Sized where { fn GetProperties ( ) ; fn GetPropertyInfo ( ) ; fn SetProperties ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IDBPropertiesVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IDBPropertiesImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IDBPropertiesVtbl < > { unsafe extern "system" fn GetProperties < Impl : IDBPropertiesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , cpropertyidsets : u32 , rgpropertyidsets : * const DBPROPIDSET , pcpropertysets : * mut u32 , prgpropertysets : * mut * mut DBPROPSET , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetPropertyInfo < Impl : IDBPropertiesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , cpropertyidsets : u32 , rgpropertyidsets : * const DBPROPIDSET , pcpropertyinfosets : * mut u32 , prgpropertyinfosets : * mut * mut DBPROPINFOSET , ppdescbuffer : * mut * mut u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetProperties < Impl : IDBPropertiesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , cpropertysets : u32 , rgpropertysets : * mut DBPROPSET , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetProperties : GetProperties :: < Impl , IMPL_OFFSET > , GetPropertyInfo : GetPropertyInfo :: < Impl , IMPL_OFFSET > , SetProperties : SetProperties :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IDBProperties < > as :: windows :: core :: Interface > :: IID } } pub trait IDBSchemaCommandImpl < > : Sized where { fn GetCommand ( ) ; fn GetSchemas ( ) ; } impl < > IDBSchemaCommandVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IDBSchemaCommandImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IDBSchemaCommandVtbl < > { unsafe extern "system" fn GetCommand < Impl : IDBSchemaCommandImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkouter : * mut :: core :: ffi :: c_void , rguidschema : * const :: windows :: core :: GUID , ppcommand : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetSchemas < Impl : IDBSchemaCommandImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcschemas : * mut u32 , prgschemas : * mut * mut :: windows :: core :: GUID , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetCommand : GetCommand :: < Impl , IMPL_OFFSET > , GetSchemas : GetSchemas :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IDBSchemaCommand < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IDBSchemaRowsetImpl < > : Sized where { fn GetRowset ( ) ; fn GetSchemas ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IDBSchemaRowsetVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IDBSchemaRowsetImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IDBSchemaRowsetVtbl < > { unsafe extern "system" fn GetRowset < Impl : IDBSchemaRowsetImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkouter : * mut :: core :: ffi :: c_void , rguidschema : * const :: windows :: core :: GUID , crestrictions : u32 , rgrestrictions : * const super::Com:: VARIANT , riid : * const :: windows :: core :: GUID , cpropertysets : u32 , rgpropertysets : * mut DBPROPSET , pprowset : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetSchemas < Impl : IDBSchemaRowsetImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcschemas : * mut u32 , prgschemas : * mut * mut :: windows :: core :: GUID , prgrestrictionsupport : * mut * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetRowset : GetRowset :: < Impl , IMPL_OFFSET > , GetSchemas : GetSchemas :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IDBSchemaRowset < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IDCInfoImpl < > : Sized where { fn GetInfo ( ) ; fn SetInfo ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IDCInfoVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IDCInfoImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IDCInfoVtbl < > { unsafe extern "system" fn GetInfo < Impl : IDCInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , cinfo : u32 , rgeinfotype : * const u32 , prginfo : * mut * mut DCINFO , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetInfo < Impl : IDCInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , cinfo : u32 , rginfo : * const DCINFO , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetInfo : GetInfo :: < Impl , IMPL_OFFSET > , SetInfo : SetInfo :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IDCInfo < > as :: windows :: core :: Interface > :: IID } } pub trait IDataConvertImpl < > : Sized where { fn DataConvert ( ) ; fn CanConvert ( ) ; fn GetConversionSize ( ) ; } impl < > IDataConvertVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IDataConvertImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IDataConvertVtbl < > { unsafe extern "system" fn DataConvert < Impl : IDataConvertImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , wsrctype : u16 , wdsttype : u16 , cbsrclength : usize , pcbdstlength : * mut usize , psrc : * const :: core :: ffi :: c_void , pdst : * mut :: core :: ffi :: c_void , cbdstmaxlength : usize , dbssrcstatus : u32 , pdbsstatus : * mut u32 , bprecision : u8 , bscale : u8 , dwflags : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CanConvert < Impl : IDataConvertImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , wsrctype : u16 , wdsttype : u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetConversionSize < Impl : IDataConvertImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , wsrctype : u16 , wdsttype : u16 , pcbsrclength : * const usize , pcbdstlength : * mut usize , psrc : * const :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , DataConvert : DataConvert :: < Impl , IMPL_OFFSET > , CanConvert : CanConvert :: < Impl , IMPL_OFFSET > , GetConversionSize : GetConversionSize :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IDataConvert < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" ) ) ] pub trait IDataInitializeImpl < > : Sized where { fn GetDataSource ( ) ; fn GetInitializationString ( ) ; fn CreateDBInstance ( ) ; fn CreateDBInstanceEx ( ) ; fn LoadStringFromStorage ( ) ; fn WriteStringToStorage ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" ) ) ] impl < > IDataInitializeVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IDataInitializeImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IDataInitializeVtbl < > { unsafe extern "system" fn GetDataSource < Impl : IDataInitializeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkouter : * mut :: core :: ffi :: c_void , dwclsctx : u32 , pwszinitializationstring : super::super::Foundation:: PWSTR , riid : * const :: windows :: core :: GUID , ppdatasource : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetInitializationString < Impl : IDataInitializeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdatasource : * mut :: core :: ffi :: c_void , fincludepassword : u8 , ppwszinitstring : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateDBInstance < Impl : IDataInitializeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , clsidprovider : * const :: windows :: core :: GUID , punkouter : * mut :: core :: ffi :: c_void , dwclsctx : u32 , pwszreserved : super::super::Foundation:: PWSTR , riid : * const :: windows :: core :: GUID , ppdatasource : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateDBInstanceEx < Impl : IDataInitializeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , clsidprovider : * const :: windows :: core :: GUID , punkouter : * mut :: core :: ffi :: c_void , dwclsctx : u32 , pwszreserved : super::super::Foundation:: PWSTR , pserverinfo : * const super::Com:: COSERVERINFO , cmq : u32 , rgmqresults : * mut super::Com:: MULTI_QI , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn LoadStringFromStorage < Impl : IDataInitializeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwszfilename : super::super::Foundation:: PWSTR , ppwszinitializationstring : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn WriteStringToStorage < Impl : IDataInitializeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwszfilename : super::super::Foundation:: PWSTR , pwszinitializationstring : super::super::Foundation:: PWSTR , dwcreationdisposition : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetDataSource : GetDataSource :: < Impl , IMPL_OFFSET > , GetInitializationString : GetInitializationString :: < Impl , IMPL_OFFSET > , CreateDBInstance : CreateDBInstance :: < Impl , IMPL_OFFSET > , CreateDBInstanceEx : CreateDBInstanceEx :: < Impl , IMPL_OFFSET > , LoadStringFromStorage : LoadStringFromStorage :: < Impl , IMPL_OFFSET > , WriteStringToStorage : WriteStringToStorage :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IDataInitialize < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IDataSourceLocatorImpl < > : Sized + IDispatchImpl where { fn hWnd ( ) ; fn SethWnd ( ) ; fn PromptNew ( ) ; fn PromptEdit ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IDataSourceLocatorVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IDataSourceLocatorImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IDataSourceLocatorVtbl < > { unsafe extern "system" fn hWnd < Impl : IDataSourceLocatorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , phwndparent : * mut i64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SethWnd < Impl : IDataSourceLocatorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hwndparent : i64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn PromptNew < Impl : IDataSourceLocatorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppadoconnection : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn PromptEdit < Impl : IDataSourceLocatorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppadoconnection : * mut :: windows :: core :: RawPtr , pbsuccess : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , hWnd : hWnd :: < Impl , IMPL_OFFSET > , SethWnd : SethWnd :: < Impl , IMPL_OFFSET > , PromptNew : PromptNew :: < Impl , IMPL_OFFSET > , PromptEdit : PromptEdit :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IDataSourceLocator < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IEntityImpl < > : Sized where { fn Name ( ) ; fn Base ( ) ; fn Relationships ( ) ; fn GetRelationship ( ) ; fn MetaData ( ) ; fn NamedEntities ( ) ; fn GetNamedEntity ( ) ; fn DefaultPhrase ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IEntityVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IEntityImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IEntityVtbl < > { unsafe extern "system" fn Name < Impl : IEntityImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszname : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Base < Impl : IEntityImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbaseentity : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Relationships < Impl : IEntityImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , riid : * const :: windows :: core :: GUID , prelationships : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetRelationship < Impl : IEntityImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszrelationname : super::super::Foundation:: PWSTR , prelationship : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn MetaData < Impl : IEntityImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , riid : * const :: windows :: core :: GUID , pmetadata : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn NamedEntities < Impl : IEntityImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , riid : * const :: windows :: core :: GUID , pnamedentities : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetNamedEntity < Impl : IEntityImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszvalue : super::super::Foundation:: PWSTR , ppnamedentity : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DefaultPhrase < Impl : IEntityImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszphrase : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Name : Name :: < Impl , IMPL_OFFSET > , Base : Base :: < Impl , IMPL_OFFSET > , Relationships : Relationships :: < Impl , IMPL_OFFSET > , GetRelationship : GetRelationship :: < Impl , IMPL_OFFSET > , MetaData : MetaData :: < Impl , IMPL_OFFSET > , NamedEntities : NamedEntities :: < Impl , IMPL_OFFSET > , GetNamedEntity : GetNamedEntity :: < Impl , IMPL_OFFSET > , DefaultPhrase : DefaultPhrase :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IEntity < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IEnumItemPropertiesImpl < > : Sized where { fn Next ( ) ; fn Skip ( ) ; fn Reset ( ) ; fn Clone ( ) ; fn GetCount ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IEnumItemPropertiesVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IEnumItemPropertiesImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IEnumItemPropertiesVtbl < > { unsafe extern "system" fn Next < Impl : IEnumItemPropertiesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , celt : u32 , rgelt : * mut ITEMPROP , pceltfetched : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Skip < Impl : IEnumItemPropertiesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , celt : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Reset < Impl : IEnumItemPropertiesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Clone < Impl : IEnumItemPropertiesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppenum : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetCount < Impl : IEnumItemPropertiesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pncount : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Next : Next :: < Impl , IMPL_OFFSET > , Skip : Skip :: < Impl , IMPL_OFFSET > , Reset : Reset :: < Impl , IMPL_OFFSET > , Clone : Clone :: < Impl , IMPL_OFFSET > , GetCount : GetCount :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IEnumItemProperties < > as :: windows :: core :: Interface > :: IID } } pub trait IEnumSearchRootsImpl < > : Sized where { fn Next ( ) ; fn Skip ( ) ; fn Reset ( ) ; fn Clone ( ) ; } impl < > IEnumSearchRootsVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IEnumSearchRootsImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IEnumSearchRootsVtbl < > { unsafe extern "system" fn Next < Impl : IEnumSearchRootsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , celt : u32 , rgelt : * mut :: windows :: core :: RawPtr , pceltfetched : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Skip < Impl : IEnumSearchRootsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , celt : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Reset < Impl : IEnumSearchRootsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Clone < Impl : IEnumSearchRootsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppenum : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Next : Next :: < Impl , IMPL_OFFSET > , Skip : Skip :: < Impl , IMPL_OFFSET > , Reset : Reset :: < Impl , IMPL_OFFSET > , Clone : Clone :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IEnumSearchRoots < > as :: windows :: core :: Interface > :: IID } } pub trait IEnumSearchScopeRulesImpl < > : Sized where { fn Next ( ) ; fn Skip ( ) ; fn Reset ( ) ; fn Clone ( ) ; } impl < > IEnumSearchScopeRulesVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IEnumSearchScopeRulesImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IEnumSearchScopeRulesVtbl < > { unsafe extern "system" fn Next < Impl : IEnumSearchScopeRulesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , celt : u32 , pprgelt : * mut :: windows :: core :: RawPtr , pceltfetched : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Skip < Impl : IEnumSearchScopeRulesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , celt : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Reset < Impl : IEnumSearchScopeRulesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Clone < Impl : IEnumSearchScopeRulesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppenum : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Next : Next :: < Impl , IMPL_OFFSET > , Skip : Skip :: < Impl , IMPL_OFFSET > , Reset : Reset :: < Impl , IMPL_OFFSET > , Clone : Clone :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IEnumSearchScopeRules < > as :: windows :: core :: Interface > :: IID } } pub trait IEnumSubscriptionImpl < > : Sized where { fn Next ( ) ; fn Skip ( ) ; fn Reset ( ) ; fn Clone ( ) ; fn GetCount ( ) ; } impl < > IEnumSubscriptionVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IEnumSubscriptionImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IEnumSubscriptionVtbl < > { unsafe extern "system" fn Next < Impl : IEnumSubscriptionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , celt : u32 , rgelt : * mut :: windows :: core :: GUID , pceltfetched : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Skip < Impl : IEnumSubscriptionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , celt : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Reset < Impl : IEnumSubscriptionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Clone < Impl : IEnumSubscriptionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppenum : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetCount < Impl : IEnumSubscriptionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pncount : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Next : Next :: < Impl , IMPL_OFFSET > , Skip : Skip :: < Impl , IMPL_OFFSET > , Reset : Reset :: < Impl , IMPL_OFFSET > , Clone : Clone :: < Impl , IMPL_OFFSET > , GetCount : GetCount :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IEnumSubscription < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IErrorLookupImpl < > : Sized where { fn GetErrorDescription ( ) ; fn GetHelpInfo ( ) ; fn ReleaseErrors ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IErrorLookupVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IErrorLookupImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IErrorLookupVtbl < > { unsafe extern "system" fn GetErrorDescription < Impl : IErrorLookupImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hrerror : :: windows :: core :: HRESULT , dwlookupid : u32 , pdispparams : * const super::Com:: DISPPARAMS , lcid : u32 , pbstrsource : * mut super::super::Foundation:: BSTR , pbstrdescription : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetHelpInfo < Impl : IErrorLookupImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hrerror : :: windows :: core :: HRESULT , dwlookupid : u32 , lcid : u32 , pbstrhelpfile : * mut super::super::Foundation:: BSTR , pdwhelpcontext : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ReleaseErrors < Impl : IErrorLookupImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwdynamicerrorid : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetErrorDescription : GetErrorDescription :: < Impl , IMPL_OFFSET > , GetHelpInfo : GetHelpInfo :: < Impl , IMPL_OFFSET > , ReleaseErrors : ReleaseErrors :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IErrorLookup < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IErrorRecordsImpl < > : Sized where { fn AddErrorRecord ( ) ; fn GetBasicErrorInfo ( ) ; fn GetCustomErrorObject ( ) ; fn GetErrorInfo ( ) ; fn GetErrorParameters ( ) ; fn GetRecordCount ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IErrorRecordsVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IErrorRecordsImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IErrorRecordsVtbl < > { unsafe extern "system" fn AddErrorRecord < Impl : IErrorRecordsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , perrorinfo : * const ERRORINFO , dwlookupid : u32 , pdispparams : * const super::Com:: DISPPARAMS , punkcustomerror : * mut :: core :: ffi :: c_void , dwdynamicerrorid : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetBasicErrorInfo < Impl : IErrorRecordsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ulrecordnum : u32 , perrorinfo : * mut ERRORINFO , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetCustomErrorObject < Impl : IErrorRecordsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ulrecordnum : u32 , riid : * const :: windows :: core :: GUID , ppobject : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetErrorInfo < Impl : IErrorRecordsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ulrecordnum : u32 , lcid : u32 , pperrorinfo : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetErrorParameters < Impl : IErrorRecordsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ulrecordnum : u32 , pdispparams : * mut super::Com:: DISPPARAMS , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetRecordCount < Impl : IErrorRecordsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcrecords : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , AddErrorRecord : AddErrorRecord :: < Impl , IMPL_OFFSET > , GetBasicErrorInfo : GetBasicErrorInfo :: < Impl , IMPL_OFFSET > , GetCustomErrorObject : GetCustomErrorObject :: < Impl , IMPL_OFFSET > , GetErrorInfo : GetErrorInfo :: < Impl , IMPL_OFFSET > , GetErrorParameters : GetErrorParameters :: < Impl , IMPL_OFFSET > , GetRecordCount : GetRecordCount :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IErrorRecords < > as :: windows :: core :: Interface > :: IID } } pub trait IGetDataSourceImpl < > : Sized where { fn GetDataSource ( ) ; } impl < > IGetDataSourceVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IGetDataSourceImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IGetDataSourceVtbl < > { unsafe extern "system" fn GetDataSource < Impl : IGetDataSourceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , riid : * const :: windows :: core :: GUID , ppdatasource : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetDataSource : GetDataSource :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IGetDataSource < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IGetRowImpl < > : Sized where { fn GetRowFromHROW ( ) ; fn GetURLFromHROW ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IGetRowVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IGetRowImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IGetRowVtbl < > { unsafe extern "system" fn GetRowFromHROW < Impl : IGetRowImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkouter : * mut :: core :: ffi :: c_void , hrow : usize , riid : * const :: windows :: core :: GUID , ppunk : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetURLFromHROW < Impl : IGetRowImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hrow : usize , ppwszurl : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetRowFromHROW : GetRowFromHROW :: < Impl , IMPL_OFFSET > , GetURLFromHROW : GetURLFromHROW :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IGetRow < > as :: windows :: core :: Interface > :: IID } } pub trait IGetSessionImpl < > : Sized where { fn GetSession ( ) ; } impl < > IGetSessionVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IGetSessionImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IGetSessionVtbl < > { unsafe extern "system" fn GetSession < Impl : IGetSessionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , riid : * const :: windows :: core :: GUID , ppsession : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetSession : GetSession :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IGetSession < > as :: windows :: core :: Interface > :: IID } } pub trait IGetSourceRowImpl < > : Sized where { fn GetSourceRow ( ) ; } impl < > IGetSourceRowVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IGetSourceRowImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IGetSourceRowVtbl < > { unsafe extern "system" fn GetSourceRow < Impl : IGetSourceRowImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , riid : * const :: windows :: core :: GUID , pprow : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetSourceRow : GetSourceRow :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IGetSourceRow < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IIndexDefinitionImpl < > : Sized where { fn CreateIndex ( ) ; fn DropIndex ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IIndexDefinitionVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IIndexDefinitionImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IIndexDefinitionVtbl < > { unsafe extern "system" fn CreateIndex < Impl : IIndexDefinitionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ptableid : * const super::super::Storage::IndexServer:: DBID , pindexid : * const super::super::Storage::IndexServer:: DBID , cindexcolumndescs : usize , rgindexcolumndescs : * const DBINDEXCOLUMNDESC , cpropertysets : u32 , rgpropertysets : * mut DBPROPSET , ppindexid : * mut * mut super::super::Storage::IndexServer:: DBID , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DropIndex < Impl : IIndexDefinitionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ptableid : * const super::super::Storage::IndexServer:: DBID , pindexid : * const super::super::Storage::IndexServer:: DBID , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , CreateIndex : CreateIndex :: < Impl , IMPL_OFFSET > , DropIndex : DropIndex :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IIndexDefinition < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] pub trait IIntervalImpl < > : Sized where { fn GetLimits ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] impl < > IIntervalVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IIntervalImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IIntervalVtbl < > { unsafe extern "system" fn GetLimits < Impl : IIntervalImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pilklower : * mut INTERVAL_LIMIT_KIND , ppropvarlower : * mut super::Com::StructuredStorage:: PROPVARIANT , pilkupper : * mut INTERVAL_LIMIT_KIND , ppropvarupper : * mut super::Com::StructuredStorage:: PROPVARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetLimits : GetLimits :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IInterval < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] pub trait ILoadFilterImpl < > : Sized where { fn LoadIFilter ( ) ; fn LoadIFilterFromStorage ( ) ; fn LoadIFilterFromStream ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] impl < > ILoadFilterVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ILoadFilterImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ILoadFilterVtbl < > { unsafe extern "system" fn LoadIFilter < Impl : ILoadFilterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwcspath : super::super::Foundation:: PWSTR , pfilteredsources : * const FILTERED_DATA_SOURCES , punkouter : * mut :: core :: ffi :: c_void , fusedefault : super::super::Foundation:: BOOL , pfilterclsid : * mut :: windows :: core :: GUID , searchdecsize : * mut i32 , pwcssearchdesc : * mut * mut u16 , ppifilt : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn LoadIFilterFromStorage < Impl : ILoadFilterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pstg : :: windows :: core :: RawPtr , punkouter : * mut :: core :: ffi :: c_void , pwcsoverride : super::super::Foundation:: PWSTR , fusedefault : super::super::Foundation:: BOOL , pfilterclsid : * mut :: windows :: core :: GUID , searchdecsize : * mut i32 , pwcssearchdesc : * mut * mut u16 , ppifilt : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn LoadIFilterFromStream < Impl : ILoadFilterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pstm : :: windows :: core :: RawPtr , pfilteredsources : * const FILTERED_DATA_SOURCES , punkouter : * mut :: core :: ffi :: c_void , fusedefault : super::super::Foundation:: BOOL , pfilterclsid : * mut :: windows :: core :: GUID , searchdecsize : * mut i32 , pwcssearchdesc : * mut * mut u16 , ppifilt : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , LoadIFilter : LoadIFilter :: < Impl , IMPL_OFFSET > , LoadIFilterFromStorage : LoadIFilterFromStorage :: < Impl , IMPL_OFFSET > , LoadIFilterFromStream : LoadIFilterFromStream :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ILoadFilter < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] pub trait ILoadFilterWithPrivateComActivationImpl < > : Sized + ILoadFilterImpl where { fn LoadIFilterWithPrivateComActivation ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] impl < > ILoadFilterWithPrivateComActivationVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ILoadFilterWithPrivateComActivationImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ILoadFilterWithPrivateComActivationVtbl < > { unsafe extern "system" fn LoadIFilterWithPrivateComActivation < Impl : ILoadFilterWithPrivateComActivationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , filteredsources : * const FILTERED_DATA_SOURCES , usedefault : super::super::Foundation:: BOOL , filterclsid : * mut :: windows :: core :: GUID , isfilterprivatecomactivated : * mut super::super::Foundation:: BOOL , filterobj : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ILoadFilterVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , LoadIFilterWithPrivateComActivation : LoadIFilterWithPrivateComActivation :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ILoadFilterWithPrivateComActivation < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IMDDatasetImpl < > : Sized where { fn FreeAxisInfo ( ) ; fn GetAxisInfo ( ) ; fn GetAxisRowset ( ) ; fn GetCellData ( ) ; fn GetSpecification ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IMDDatasetVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IMDDatasetImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IMDDatasetVtbl < > { unsafe extern "system" fn FreeAxisInfo < Impl : IMDDatasetImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , caxes : usize , rgaxisinfo : * mut MDAXISINFO , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetAxisInfo < Impl : IMDDatasetImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcaxes : * mut usize , prgaxisinfo : * mut * mut MDAXISINFO , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetAxisRowset < Impl : IMDDatasetImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkouter : * mut :: core :: ffi :: c_void , iaxis : usize , riid : * const :: windows :: core :: GUID , cpropertysets : u32 , rgpropertysets : * mut DBPROPSET , pprowset : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetCellData < Impl : IMDDatasetImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , haccessor : usize , ulstartcell : usize , ulendcell : usize , pdata : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetSpecification < Impl : IMDDatasetImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , riid : * const :: windows :: core :: GUID , ppspecification : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , FreeAxisInfo : FreeAxisInfo :: < Impl , IMPL_OFFSET > , GetAxisInfo : GetAxisInfo :: < Impl , IMPL_OFFSET > , GetAxisRowset : GetAxisRowset :: < Impl , IMPL_OFFSET > , GetCellData : GetCellData :: < Impl , IMPL_OFFSET > , GetSpecification : GetSpecification :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IMDDataset < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IMDFindImpl < > : Sized where { fn FindCell ( ) ; fn FindTuple ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IMDFindVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IMDFindImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IMDFindVtbl < > { unsafe extern "system" fn FindCell < Impl : IMDFindImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ulstartingordinal : usize , cmembers : usize , rgpwszmember : * mut super::super::Foundation:: PWSTR , pulcellordinal : * mut usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn FindTuple < Impl : IMDFindImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ulaxisidentifier : u32 , ulstartingordinal : usize , cmembers : usize , rgpwszmember : * mut super::super::Foundation:: PWSTR , pultupleordinal : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , FindCell : FindCell :: < Impl , IMPL_OFFSET > , FindTuple : FindTuple :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IMDFind < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IMDRangeRowsetImpl < > : Sized where { fn GetRangeRowset ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IMDRangeRowsetVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IMDRangeRowsetImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IMDRangeRowsetVtbl < > { unsafe extern "system" fn GetRangeRowset < Impl : IMDRangeRowsetImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkouter : * mut :: core :: ffi :: c_void , ulstartcell : usize , ulendcell : usize , riid : * const :: windows :: core :: GUID , cpropertysets : u32 , rgpropertysets : * mut DBPROPSET , pprowset : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetRangeRowset : GetRangeRowset :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IMDRangeRowset < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IMetaDataImpl < > : Sized where { fn GetData ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IMetaDataVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IMetaDataImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IMetaDataVtbl < > { unsafe extern "system" fn GetData < Impl : IMetaDataImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszkey : * mut super::super::Foundation:: PWSTR , ppszvalue : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetData : GetData :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IMetaData < > as :: windows :: core :: Interface > :: IID } } pub trait IMultipleResultsImpl < > : Sized where { fn GetResult ( ) ; } impl < > IMultipleResultsVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IMultipleResultsImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IMultipleResultsVtbl < > { unsafe extern "system" fn GetResult < Impl : IMultipleResultsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkouter : * mut :: core :: ffi :: c_void , lresultflag : isize , riid : * const :: windows :: core :: GUID , pcrowsaffected : * mut isize , pprowset : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetResult : GetResult :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IMultipleResults < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait INamedEntityImpl < > : Sized where { fn GetValue ( ) ; fn DefaultPhrase ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > INamedEntityVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : INamedEntityImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> INamedEntityVtbl < > { unsafe extern "system" fn GetValue < Impl : INamedEntityImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszvalue : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DefaultPhrase < Impl : INamedEntityImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszphrase : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetValue : GetValue :: < Impl , IMPL_OFFSET > , DefaultPhrase : DefaultPhrase :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < INamedEntity < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait INamedEntityCollectorImpl < > : Sized where { fn Add ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > INamedEntityCollectorVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : INamedEntityCollectorImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> INamedEntityCollectorVtbl < > { unsafe extern "system" fn Add < Impl : INamedEntityCollectorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , beginspan : u32 , endspan : u32 , beginactual : u32 , endactual : u32 , ptype : :: windows :: core :: RawPtr , pszvalue : super::super::Foundation:: PWSTR , certainty : NAMED_ENTITY_CERTAINTY , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Add : Add :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < INamedEntityCollector < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Security" , feature ="Win32_Security_Authorization" , feature ="Win32_Storage_IndexServer" ) ) ] pub trait IObjectAccessControlImpl < > : Sized where { fn GetObjectAccessRights ( ) ; fn GetObjectOwner ( ) ; fn IsObjectAccessAllowed ( ) ; fn SetObjectAccessRights ( ) ; fn SetObjectOwner ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Security" , feature ="Win32_Security_Authorization" , feature ="Win32_Storage_IndexServer" ) ) ] impl < > IObjectAccessControlVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IObjectAccessControlImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IObjectAccessControlVtbl < > { unsafe extern "system" fn GetObjectAccessRights < Impl : IObjectAccessControlImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pobject : * mut SEC_OBJECT , pcaccessentries : * mut u32 , prgaccessentries : * mut * mut super::super::Security::Authorization:: EXPLICIT_ACCESS_W , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetObjectOwner < Impl : IObjectAccessControlImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pobject : * mut SEC_OBJECT , ppowner : * mut * mut super::super::Security::Authorization:: TRUSTEE_W , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsObjectAccessAllowed < Impl : IObjectAccessControlImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pobject : * mut SEC_OBJECT , paccessentry : * mut super::super::Security::Authorization:: EXPLICIT_ACCESS_W , pfresult : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetObjectAccessRights < Impl : IObjectAccessControlImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pobject : * mut SEC_OBJECT , caccessentries : u32 , prgaccessentries : * mut super::super::Security::Authorization:: EXPLICIT_ACCESS_W , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetObjectOwner < Impl : IObjectAccessControlImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pobject : * mut SEC_OBJECT , powner : * mut super::super::Security::Authorization:: TRUSTEE_W , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetObjectAccessRights : GetObjectAccessRights :: < Impl , IMPL_OFFSET > , GetObjectOwner : GetObjectOwner :: < Impl , IMPL_OFFSET > , IsObjectAccessAllowed : IsObjectAccessAllowed :: < Impl , IMPL_OFFSET > , SetObjectAccessRights : SetObjectAccessRights :: < Impl , IMPL_OFFSET > , SetObjectOwner : SetObjectOwner :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IObjectAccessControl < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IOpLockStatusImpl < > : Sized where { fn IsOplockValid ( ) ; fn IsOplockBroken ( ) ; fn GetOplockEventHandle ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IOpLockStatusVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IOpLockStatusImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IOpLockStatusVtbl < > { unsafe extern "system" fn IsOplockValid < Impl : IOpLockStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pfisoplockvalid : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsOplockBroken < Impl : IOpLockStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pfisoplockbroken : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetOplockEventHandle < Impl : IOpLockStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , phoplockev : * mut super::super::Foundation:: HANDLE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , IsOplockValid : IsOplockValid :: < Impl , IMPL_OFFSET > , IsOplockBroken : IsOplockBroken :: < Impl , IMPL_OFFSET > , GetOplockEventHandle : GetOplockEventHandle :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IOpLockStatus < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IOpenRowsetImpl < > : Sized where { fn OpenRowset ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IOpenRowsetVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IOpenRowsetImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IOpenRowsetVtbl < > { unsafe extern "system" fn OpenRowset < Impl : IOpenRowsetImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkouter : * mut :: core :: ffi :: c_void , ptableid : * const super::super::Storage::IndexServer:: DBID , pindexid : * const super::super::Storage::IndexServer:: DBID , riid : * const :: windows :: core :: GUID , cpropertysets : u32 , rgpropertysets : * mut DBPROPSET , pprowset : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , OpenRowset : OpenRowset :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IOpenRowset < > as :: windows :: core :: Interface > :: IID } } pub trait IParentRowsetImpl < > : Sized where { fn GetChildRowset ( ) ; } impl < > IParentRowsetVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IParentRowsetImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IParentRowsetVtbl < > { unsafe extern "system" fn GetChildRowset < Impl : IParentRowsetImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkouter : * mut :: core :: ffi :: c_void , iordinal : usize , riid : * const :: windows :: core :: GUID , pprowset : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetChildRowset : GetChildRowset :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IParentRowset < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" ) ) ] pub trait IProtocolHandlerSiteImpl < > : Sized where { fn GetFilter ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" ) ) ] impl < > IProtocolHandlerSiteVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IProtocolHandlerSiteImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IProtocolHandlerSiteVtbl < > { unsafe extern "system" fn GetFilter < Impl : IProtocolHandlerSiteImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pclsidobj : * mut :: windows :: core :: GUID , pcwszcontenttype : super::super::Foundation:: PWSTR , pcwszextension : super::super::Foundation:: PWSTR , ppfilter : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetFilter : GetFilter :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IProtocolHandlerSite < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_System_Com" ) ] pub trait IProvideMonikerImpl < > : Sized where { fn GetMoniker ( ) ; } # [ cfg ( feature ="Win32_System_Com" ) ] impl < > IProvideMonikerVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IProvideMonikerImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IProvideMonikerVtbl < > { unsafe extern "system" fn GetMoniker < Impl : IProvideMonikerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppimoniker : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetMoniker : GetMoniker :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IProvideMoniker < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] pub trait IQueryParserImpl < > : Sized where { fn Parse ( ) ; fn SetOption ( ) ; fn GetOption ( ) ; fn SetMultiOption ( ) ; fn GetSchemaProvider ( ) ; fn RestateToString ( ) ; fn ParsePropertyValue ( ) ; fn RestatePropertyValueToString ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] impl < > IQueryParserVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IQueryParserImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IQueryParserVtbl < > { unsafe extern "system" fn Parse < Impl : IQueryParserImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszinputstring : super::super::Foundation:: PWSTR , pcustomproperties : :: windows :: core :: RawPtr , ppsolution : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetOption < Impl : IQueryParserImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , option : STRUCTURED_QUERY_SINGLE_OPTION , poptionvalue : * const super::Com::StructuredStorage:: PROPVARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetOption < Impl : IQueryParserImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , option : STRUCTURED_QUERY_SINGLE_OPTION , poptionvalue : * mut super::Com::StructuredStorage:: PROPVARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetMultiOption < Impl : IQueryParserImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , option : STRUCTURED_QUERY_MULTIOPTION , pszoptionkey : super::super::Foundation:: PWSTR , poptionvalue : * const super::Com::StructuredStorage:: PROPVARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetSchemaProvider < Impl : IQueryParserImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppschemaprovider : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RestateToString < Impl : IQueryParserImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcondition : :: windows :: core :: RawPtr , fuseenglish : super::super::Foundation:: BOOL , ppszquerystring : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ParsePropertyValue < Impl : IQueryParserImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszpropertyname : super::super::Foundation:: PWSTR , pszinputstring : super::super::Foundation:: PWSTR , ppsolution : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RestatePropertyValueToString < Impl : IQueryParserImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcondition : :: windows :: core :: RawPtr , fuseenglish : super::super::Foundation:: BOOL , ppszpropertyname : * mut super::super::Foundation:: PWSTR , ppszquerystring : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Parse : Parse :: < Impl , IMPL_OFFSET > , SetOption : SetOption :: < Impl , IMPL_OFFSET > , GetOption : GetOption :: < Impl , IMPL_OFFSET > , SetMultiOption : SetMultiOption :: < Impl , IMPL_OFFSET > , GetSchemaProvider : GetSchemaProvider :: < Impl , IMPL_OFFSET > , RestateToString : RestateToString :: < Impl , IMPL_OFFSET > , ParsePropertyValue : ParsePropertyValue :: < Impl , IMPL_OFFSET > , RestatePropertyValueToString : RestatePropertyValueToString :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IQueryParser < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] pub trait IQueryParserManagerImpl < > : Sized where { fn CreateLoadedParser ( ) ; fn InitializeOptions ( ) ; fn SetOption ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] impl < > IQueryParserManagerVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IQueryParserManagerImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IQueryParserManagerVtbl < > { unsafe extern "system" fn CreateLoadedParser < Impl : IQueryParserManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszcatalog : super::super::Foundation:: PWSTR , langidforkeywords : u16 , riid : * const :: windows :: core :: GUID , ppqueryparser : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn InitializeOptions < Impl : IQueryParserManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , funderstandnqs : super::super::Foundation:: BOOL , fautowildcard : super::super::Foundation:: BOOL , pqueryparser : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetOption < Impl : IQueryParserManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , option : QUERY_PARSER_MANAGER_OPTION , poptionvalue : * const super::Com::StructuredStorage:: PROPVARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , CreateLoadedParser : CreateLoadedParser :: < Impl , IMPL_OFFSET > , InitializeOptions : InitializeOptions :: < Impl , IMPL_OFFSET > , SetOption : SetOption :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IQueryParserManager < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" , feature ="Win32_System_Search_Common" ) ) ] pub trait IQuerySolutionImpl < > : Sized + IConditionFactoryImpl where { fn GetQuery ( ) ; fn GetErrors ( ) ; fn GetLexicalData ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" , feature ="Win32_System_Search_Common" ) ) ] impl < > IQuerySolutionVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IQuerySolutionImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IQuerySolutionVtbl < > { unsafe extern "system" fn GetQuery < Impl : IQuerySolutionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppquerynode : * mut :: windows :: core :: RawPtr , ppmaintype : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetErrors < Impl : IQuerySolutionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , riid : * const :: windows :: core :: GUID , ppparseerrors : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetLexicalData < Impl : IQuerySolutionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszinputstring : * mut super::super::Foundation:: PWSTR , pptokens : * mut :: windows :: core :: RawPtr , plcid : * mut u32 , ppwordbreaker : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IConditionFactoryVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetQuery : GetQuery :: < Impl , IMPL_OFFSET > , GetErrors : GetErrors :: < Impl , IMPL_OFFSET > , GetLexicalData : GetLexicalData :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IQuerySolution < > as :: windows :: core :: Interface > :: IID } } pub trait IReadDataImpl < > : Sized where { fn ReadData ( ) ; fn ReleaseChapter ( ) ; } impl < > IReadDataVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IReadDataImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IReadDataVtbl < > { unsafe extern "system" fn ReadData < Impl : IReadDataImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hchapter : usize , cbbookmark : usize , pbookmark : * const u8 , lrowsoffset : isize , haccessor : usize , crows : isize , pcrowsobtained : * mut usize , ppfixeddata : * mut * mut u8 , pcbvariabletotal : * mut usize , ppvariabledata : * mut * mut u8 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ReleaseChapter < Impl : IReadDataImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hchapter : usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , ReadData : ReadData :: < Impl , IMPL_OFFSET > , ReleaseChapter : ReleaseChapter :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IReadData < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IRegisterProviderImpl < > : Sized where { fn GetURLMapping ( ) ; fn SetURLMapping ( ) ; fn UnregisterProvider ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IRegisterProviderVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRegisterProviderImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRegisterProviderVtbl < > { unsafe extern "system" fn GetURLMapping < Impl : IRegisterProviderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwszurl : super::super::Foundation:: PWSTR , dwreserved : usize , pclsidprovider : * mut :: windows :: core :: GUID , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetURLMapping < Impl : IRegisterProviderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwszurl : super::super::Foundation:: PWSTR , dwreserved : usize , rclsidprovider : * const :: windows :: core :: GUID , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn UnregisterProvider < Impl : IRegisterProviderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwszurl : super::super::Foundation:: PWSTR , dwreserved : usize , rclsidprovider : * const :: windows :: core :: GUID , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetURLMapping : GetURLMapping :: < Impl , IMPL_OFFSET > , SetURLMapping : SetURLMapping :: < Impl , IMPL_OFFSET > , UnregisterProvider : UnregisterProvider :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRegisterProvider < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IRelationshipImpl < > : Sized where { fn Name ( ) ; fn IsReal ( ) ; fn Destination ( ) ; fn MetaData ( ) ; fn DefaultPhrase ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IRelationshipVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRelationshipImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRelationshipVtbl < > { unsafe extern "system" fn Name < Impl : IRelationshipImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszname : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsReal < Impl : IRelationshipImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pisreal : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Destination < Impl : IRelationshipImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdestinationentity : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn MetaData < Impl : IRelationshipImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , riid : * const :: windows :: core :: GUID , pmetadata : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DefaultPhrase < Impl : IRelationshipImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszphrase : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Name : Name :: < Impl , IMPL_OFFSET > , IsReal : IsReal :: < Impl , IMPL_OFFSET > , Destination : Destination :: < Impl , IMPL_OFFSET > , MetaData : MetaData :: < Impl , IMPL_OFFSET > , DefaultPhrase : DefaultPhrase :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRelationship < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] pub trait IRichChunkImpl < > : Sized where { fn GetData ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] impl < > IRichChunkVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRichChunkImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRichChunkVtbl < > { unsafe extern "system" fn GetData < Impl : IRichChunkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pfirstpos : * mut u32 , plength : * mut u32 , ppsz : * mut super::super::Foundation:: PWSTR , pvalue : * mut super::Com::StructuredStorage:: PROPVARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetData : GetData :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRichChunk < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" ) ) ] pub trait IRowImpl < > : Sized where { fn GetColumns ( ) ; fn GetSourceRowset ( ) ; fn Open ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" ) ) ] impl < > IRowVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowVtbl < > { unsafe extern "system" fn GetColumns < Impl : IRowImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ccolumns : usize , rgcolumns : * mut DBCOLUMNACCESS , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetSourceRowset < Impl : IRowImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , riid : * const :: windows :: core :: GUID , pprowset : * mut * mut :: core :: ffi :: c_void , phrow : * mut usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Open < Impl : IRowImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkouter : * mut :: core :: ffi :: c_void , pcolumnid : * const super::super::Storage::IndexServer:: DBID , rguidcolumntype : * const :: windows :: core :: GUID , dwbindflags : u32 , riid : * const :: windows :: core :: GUID , ppunk : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetColumns : GetColumns :: < Impl , IMPL_OFFSET > , GetSourceRowset : GetSourceRowset :: < Impl , IMPL_OFFSET > , Open : Open :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRow < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" ) ) ] pub trait IRowChangeImpl < > : Sized where { fn SetColumns ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" ) ) ] impl < > IRowChangeVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowChangeImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowChangeVtbl < > { unsafe extern "system" fn SetColumns < Impl : IRowChangeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ccolumns : usize , rgcolumns : * const DBCOLUMNACCESS , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , SetColumns : SetColumns :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowChange < > as :: windows :: core :: Interface > :: IID } } pub trait IRowPositionImpl < > : Sized where { fn ClearRowPosition ( ) ; fn GetRowPosition ( ) ; fn GetRowset ( ) ; fn Initialize ( ) ; fn SetRowPosition ( ) ; } impl < > IRowPositionVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowPositionImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowPositionVtbl < > { unsafe extern "system" fn ClearRowPosition < Impl : IRowPositionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetRowPosition < Impl : IRowPositionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , phchapter : * mut usize , phrow : * mut usize , pdwpositionflags : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetRowset < Impl : IRowPositionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , riid : * const :: windows :: core :: GUID , pprowset : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Initialize < Impl : IRowPositionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , prowset : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetRowPosition < Impl : IRowPositionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hchapter : usize , hrow : usize , dwpositionflags : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , ClearRowPosition : ClearRowPosition :: < Impl , IMPL_OFFSET > , GetRowPosition : GetRowPosition :: < Impl , IMPL_OFFSET > , GetRowset : GetRowset :: < Impl , IMPL_OFFSET > , Initialize : Initialize :: < Impl , IMPL_OFFSET > , SetRowPosition : SetRowPosition :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowPosition < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IRowPositionChangeImpl < > : Sized where { fn OnRowPositionChange ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IRowPositionChangeVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowPositionChangeImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowPositionChangeVtbl < > { unsafe extern "system" fn OnRowPositionChange < Impl : IRowPositionChangeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ereason : u32 , ephase : u32 , fcantdeny : super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , OnRowPositionChange : OnRowPositionChange :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowPositionChange < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" ) ) ] pub trait IRowSchemaChangeImpl < > : Sized + IRowChangeImpl where { fn DeleteColumns ( ) ; fn AddColumns ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" ) ) ] impl < > IRowSchemaChangeVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowSchemaChangeImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowSchemaChangeVtbl < > { unsafe extern "system" fn DeleteColumns < Impl : IRowSchemaChangeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ccolumns : usize , rgcolumnids : * const super::super::Storage::IndexServer:: DBID , rgdwstatus : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AddColumns < Impl : IRowSchemaChangeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ccolumns : usize , rgnewcolumninfo : * const DBCOLUMNINFO , rgcolumns : * mut DBCOLUMNACCESS , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IRowChangeVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , DeleteColumns : DeleteColumns :: < Impl , IMPL_OFFSET > , AddColumns : AddColumns :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowSchemaChange < > as :: windows :: core :: Interface > :: IID } } pub trait IRowsetImpl < > : Sized where { fn AddRefRows ( ) ; fn GetData ( ) ; fn GetNextRows ( ) ; fn ReleaseRows ( ) ; fn RestartPosition ( ) ; } impl < > IRowsetVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetVtbl < > { unsafe extern "system" fn AddRefRows < Impl : IRowsetImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , crows : usize , rghrows : * const usize , rgrefcounts : * mut u32 , rgrowstatus : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetData < Impl : IRowsetImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hrow : usize , haccessor : usize , pdata : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetNextRows < Impl : IRowsetImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hreserved : usize , lrowsoffset : isize , crows : isize , pcrowsobtained : * mut usize , prghrows : * mut * mut usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ReleaseRows < Impl : IRowsetImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , crows : usize , rghrows : * const usize , rgrowoptions : * mut u32 , rgrefcounts : * mut u32 , rgrowstatus : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RestartPosition < Impl : IRowsetImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hreserved : usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , AddRefRows : AddRefRows :: < Impl , IMPL_OFFSET > , GetData : GetData :: < Impl , IMPL_OFFSET > , GetNextRows : GetNextRows :: < Impl , IMPL_OFFSET > , ReleaseRows : ReleaseRows :: < Impl , IMPL_OFFSET > , RestartPosition : RestartPosition :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowset < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IRowsetAsynchImpl < > : Sized where { fn RatioFinished ( ) ; fn Stop ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IRowsetAsynchVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetAsynchImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetAsynchVtbl < > { unsafe extern "system" fn RatioFinished < Impl : IRowsetAsynchImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , puldenominator : * mut usize , pulnumerator : * mut usize , pcrows : * mut usize , pfnewrows : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Stop < Impl : IRowsetAsynchImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , RatioFinished : RatioFinished :: < Impl , IMPL_OFFSET > , Stop : Stop :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetAsynch < > as :: windows :: core :: Interface > :: IID } } pub trait IRowsetBookmarkImpl < > : Sized where { fn PositionOnBookmark ( ) ; } impl < > IRowsetBookmarkVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetBookmarkImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetBookmarkVtbl < > { unsafe extern "system" fn PositionOnBookmark < Impl : IRowsetBookmarkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hchapter : usize , cbbookmark : usize , pbookmark : * const u8 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , PositionOnBookmark : PositionOnBookmark :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetBookmark < > as :: windows :: core :: Interface > :: IID } } pub trait IRowsetChangeImpl < > : Sized where { fn DeleteRows ( ) ; fn SetData ( ) ; fn InsertRow ( ) ; } impl < > IRowsetChangeVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetChangeImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetChangeVtbl < > { unsafe extern "system" fn DeleteRows < Impl : IRowsetChangeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hreserved : usize , crows : usize , rghrows : * const usize , rgrowstatus : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetData < Impl : IRowsetChangeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hrow : usize , haccessor : usize , pdata : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn InsertRow < Impl : IRowsetChangeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hreserved : usize , haccessor : usize , pdata : * mut :: core :: ffi :: c_void , phrow : * mut usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , DeleteRows : DeleteRows :: < Impl , IMPL_OFFSET > , SetData : SetData :: < Impl , IMPL_OFFSET > , InsertRow : InsertRow :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetChange < > as :: windows :: core :: Interface > :: IID } } pub trait IRowsetChangeExtInfoImpl < > : Sized where { fn GetOriginalRow ( ) ; fn GetPendingColumns ( ) ; } impl < > IRowsetChangeExtInfoVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetChangeExtInfoImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetChangeExtInfoVtbl < > { unsafe extern "system" fn GetOriginalRow < Impl : IRowsetChangeExtInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hreserved : usize , hrow : usize , phroworiginal : * mut usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetPendingColumns < Impl : IRowsetChangeExtInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hreserved : usize , hrow : usize , ccolumnordinals : u32 , rgiordinals : * const u32 , rgcolumnstatus : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetOriginalRow : GetOriginalRow :: < Impl , IMPL_OFFSET > , GetPendingColumns : GetPendingColumns :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetChangeExtInfo < > as :: windows :: core :: Interface > :: IID } } pub trait IRowsetChapterMemberImpl < > : Sized where { fn IsRowInChapter ( ) ; } impl < > IRowsetChapterMemberVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetChapterMemberImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetChapterMemberVtbl < > { unsafe extern "system" fn IsRowInChapter < Impl : IRowsetChapterMemberImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hchapter : usize , hrow : usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , IsRowInChapter : IsRowInChapter :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetChapterMember < > as :: windows :: core :: Interface > :: IID } } pub trait IRowsetCopyRowsImpl < > : Sized where { fn CloseSource ( ) ; fn CopyByHROWS ( ) ; fn CopyRows ( ) ; fn DefineSource ( ) ; } impl < > IRowsetCopyRowsVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetCopyRowsImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetCopyRowsVtbl < > { unsafe extern "system" fn CloseSource < Impl : IRowsetCopyRowsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hsourceid : u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CopyByHROWS < Impl : IRowsetCopyRowsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hsourceid : u16 , hreserved : usize , crows : isize , rghrows : * const usize , bflags : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CopyRows < Impl : IRowsetCopyRowsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hsourceid : u16 , hreserved : usize , crows : isize , bflags : u32 , pcrowscopied : * mut usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DefineSource < Impl : IRowsetCopyRowsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , prowsetsource : :: windows :: core :: RawPtr , ccolids : usize , rgsourcecolumns : * const isize , rgtargetcolumns : * const isize , phsourceid : * mut u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , CloseSource : CloseSource :: < Impl , IMPL_OFFSET > , CopyByHROWS : CopyByHROWS :: < Impl , IMPL_OFFSET > , CopyRows : CopyRows :: < Impl , IMPL_OFFSET > , DefineSource : DefineSource :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetCopyRows < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IRowsetCurrentIndexImpl < > : Sized + IRowsetIndexImpl where { fn GetIndex ( ) ; fn SetIndex ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IRowsetCurrentIndexVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetCurrentIndexImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetCurrentIndexVtbl < > { unsafe extern "system" fn GetIndex < Impl : IRowsetCurrentIndexImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppindexid : * mut * mut super::super::Storage::IndexServer:: DBID , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetIndex < Impl : IRowsetCurrentIndexImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pindexid : * mut super::super::Storage::IndexServer:: DBID , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IRowsetIndexVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetIndex : GetIndex :: < Impl , IMPL_OFFSET > , SetIndex : SetIndex :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetCurrentIndex < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] pub trait IRowsetEventsImpl < > : Sized where { fn OnNewItem ( ) ; fn OnChangedItem ( ) ; fn OnDeletedItem ( ) ; fn OnRowsetEvent ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] impl < > IRowsetEventsVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetEventsImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetEventsVtbl < > { unsafe extern "system" fn OnNewItem < Impl : IRowsetEventsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , itemid : * const super::Com::StructuredStorage:: PROPVARIANT , newitemstate : ROWSETEVENT_ITEMSTATE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn OnChangedItem < Impl : IRowsetEventsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , itemid : * const super::Com::StructuredStorage:: PROPVARIANT , rowsetitemstate : ROWSETEVENT_ITEMSTATE , changeditemstate : ROWSETEVENT_ITEMSTATE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn OnDeletedItem < Impl : IRowsetEventsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , itemid : * const super::Com::StructuredStorage:: PROPVARIANT , deleteditemstate : ROWSETEVENT_ITEMSTATE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn OnRowsetEvent < Impl : IRowsetEventsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , eventtype : ROWSETEVENT_TYPE , eventdata : * const super::Com::StructuredStorage:: PROPVARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , OnNewItem : OnNewItem :: < Impl , IMPL_OFFSET > , OnChangedItem : OnChangedItem :: < Impl , IMPL_OFFSET > , OnDeletedItem : OnDeletedItem :: < Impl , IMPL_OFFSET > , OnRowsetEvent : OnRowsetEvent :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetEvents < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IRowsetFastLoadImpl < > : Sized where { fn InsertRow ( ) ; fn Commit ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IRowsetFastLoadVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetFastLoadImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetFastLoadVtbl < > { unsafe extern "system" fn InsertRow < Impl : IRowsetFastLoadImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , haccessor : usize , pdata : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Commit < Impl : IRowsetFastLoadImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , fdone : super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , InsertRow : InsertRow :: < Impl , IMPL_OFFSET > , Commit : Commit :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetFastLoad < > as :: windows :: core :: Interface > :: IID } } pub trait IRowsetFindImpl < > : Sized where { fn FindNextRow ( ) ; } impl < > IRowsetFindVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetFindImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetFindVtbl < > { unsafe extern "system" fn FindNextRow < Impl : IRowsetFindImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hchapter : usize , haccessor : usize , pfindvalue : * mut :: core :: ffi :: c_void , compareop : u32 , cbbookmark : usize , pbookmark : * const u8 , lrowsoffset : isize , crows : isize , pcrowsobtained : * mut usize , prghrows : * mut * mut usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , FindNextRow : FindNextRow :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetFind < > as :: windows :: core :: Interface > :: IID } } pub trait IRowsetIdentityImpl < > : Sized where { fn IsSameRow ( ) ; } impl < > IRowsetIdentityVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetIdentityImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetIdentityVtbl < > { unsafe extern "system" fn IsSameRow < Impl : IRowsetIdentityImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hthisrow : usize , hthatrow : usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , IsSameRow : IsSameRow :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetIdentity < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IRowsetIndexImpl < > : Sized where { fn GetIndexInfo ( ) ; fn Seek ( ) ; fn SetRange ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IRowsetIndexVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetIndexImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetIndexVtbl < > { unsafe extern "system" fn GetIndexInfo < Impl : IRowsetIndexImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pckeycolumns : * mut usize , prgindexcolumndesc : * mut * mut DBINDEXCOLUMNDESC , pcindexpropertysets : * mut u32 , prgindexpropertysets : * mut * mut DBPROPSET , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Seek < Impl : IRowsetIndexImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , haccessor : usize , ckeyvalues : usize , pdata : * mut :: core :: ffi :: c_void , dwseekoptions : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetRange < Impl : IRowsetIndexImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , haccessor : usize , cstartkeycolumns : usize , pstartdata : * mut :: core :: ffi :: c_void , cendkeycolumns : usize , penddata : * mut :: core :: ffi :: c_void , dwrangeoptions : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetIndexInfo : GetIndexInfo :: < Impl , IMPL_OFFSET > , Seek : Seek :: < Impl , IMPL_OFFSET > , SetRange : SetRange :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetIndex < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IRowsetInfoImpl < > : Sized where { fn GetProperties ( ) ; fn GetReferencedRowset ( ) ; fn GetSpecification ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IRowsetInfoVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetInfoImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetInfoVtbl < > { unsafe extern "system" fn GetProperties < Impl : IRowsetInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , cpropertyidsets : u32 , rgpropertyidsets : * const DBPROPIDSET , pcpropertysets : * mut u32 , prgpropertysets : * mut * mut DBPROPSET , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetReferencedRowset < Impl : IRowsetInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , iordinal : usize , riid : * const :: windows :: core :: GUID , ppreferencedrowset : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetSpecification < Impl : IRowsetInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , riid : * const :: windows :: core :: GUID , ppspecification : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetProperties : GetProperties :: < Impl , IMPL_OFFSET > , GetReferencedRowset : GetReferencedRowset :: < Impl , IMPL_OFFSET > , GetSpecification : GetSpecification :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetInfo < > as :: windows :: core :: Interface > :: IID } } pub trait IRowsetKeysImpl < > : Sized where { fn ListKeys ( ) ; } impl < > IRowsetKeysVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetKeysImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetKeysVtbl < > { unsafe extern "system" fn ListKeys < Impl : IRowsetKeysImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pccolumns : * mut usize , prgcolumns : * mut * mut usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , ListKeys : ListKeys :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetKeys < > as :: windows :: core :: Interface > :: IID } } pub trait IRowsetLocateImpl < > : Sized + IRowsetImpl where { fn Compare ( ) ; fn GetRowsAt ( ) ; fn GetRowsByBookmark ( ) ; fn Hash ( ) ; } impl < > IRowsetLocateVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetLocateImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetLocateVtbl < > { unsafe extern "system" fn Compare < Impl : IRowsetLocateImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hreserved : usize , cbbookmark1 : usize , pbookmark1 : * const u8 , cbbookmark2 : usize , pbookmark2 : * const u8 , pcomparison : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetRowsAt < Impl : IRowsetLocateImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hreserved1 : usize , hreserved2 : usize , cbbookmark : usize , pbookmark : * const u8 , lrowsoffset : isize , crows : isize , pcrowsobtained : * mut usize , prghrows : * mut * mut usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetRowsByBookmark < Impl : IRowsetLocateImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hreserved : usize , crows : usize , rgcbbookmarks : * const usize , rgpbookmarks : * const * const u8 , rghrows : * mut usize , rgrowstatus : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Hash < Impl : IRowsetLocateImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hreserved : usize , cbookmarks : usize , rgcbbookmarks : * const usize , rgpbookmarks : * const * const u8 , rghashedvalues : * mut usize , rgbookmarkstatus : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IRowsetVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Compare : Compare :: < Impl , IMPL_OFFSET > , GetRowsAt : GetRowsAt :: < Impl , IMPL_OFFSET > , GetRowsByBookmark : GetRowsByBookmark :: < Impl , IMPL_OFFSET > , Hash : Hash :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetLocate < > as :: windows :: core :: Interface > :: IID } } pub trait IRowsetNewRowAfterImpl < > : Sized where { fn SetNewDataAfter ( ) ; } impl < > IRowsetNewRowAfterVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetNewRowAfterImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetNewRowAfterVtbl < > { unsafe extern "system" fn SetNewDataAfter < Impl : IRowsetNewRowAfterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hchapter : usize , cbbmprevious : u32 , pbmprevious : * const u8 , haccessor : usize , pdata : * mut u8 , phrow : * mut usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , SetNewDataAfter : SetNewDataAfter :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetNewRowAfter < > as :: windows :: core :: Interface > :: IID } } pub trait IRowsetNextRowsetImpl < > : Sized where { fn GetNextRowset ( ) ; } impl < > IRowsetNextRowsetVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetNextRowsetImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetNextRowsetVtbl < > { unsafe extern "system" fn GetNextRowset < Impl : IRowsetNextRowsetImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkouter : * mut :: core :: ffi :: c_void , riid : * const :: windows :: core :: GUID , ppnextrowset : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetNextRowset : GetNextRowset :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetNextRowset < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IRowsetNotifyImpl < > : Sized where { fn OnFieldChange ( ) ; fn OnRowChange ( ) ; fn OnRowsetChange ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IRowsetNotifyVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetNotifyImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetNotifyVtbl < > { unsafe extern "system" fn OnFieldChange < Impl : IRowsetNotifyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , prowset : :: windows :: core :: RawPtr , hrow : usize , ccolumns : usize , rgcolumns : * const usize , ereason : u32 , ephase : u32 , fcantdeny : super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn OnRowChange < Impl : IRowsetNotifyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , prowset : :: windows :: core :: RawPtr , crows : usize , rghrows : * const usize , ereason : u32 , ephase : u32 , fcantdeny : super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn OnRowsetChange < Impl : IRowsetNotifyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , prowset : :: windows :: core :: RawPtr , ereason : u32 , ephase : u32 , fcantdeny : super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , OnFieldChange : OnFieldChange :: < Impl , IMPL_OFFSET > , OnRowChange : OnRowChange :: < Impl , IMPL_OFFSET > , OnRowsetChange : OnRowsetChange :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetNotify < > as :: windows :: core :: Interface > :: IID } } pub trait IRowsetPrioritizationImpl < > : Sized where { fn SetScopePriority ( ) ; fn GetScopePriority ( ) ; fn GetScopeStatistics ( ) ; } impl < > IRowsetPrioritizationVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetPrioritizationImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetPrioritizationVtbl < > { unsafe extern "system" fn SetScopePriority < Impl : IRowsetPrioritizationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , priority : PRIORITY_LEVEL , scopestatisticseventfrequency : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetScopePriority < Impl : IRowsetPrioritizationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , priority : * mut PRIORITY_LEVEL , scopestatisticseventfrequency : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetScopeStatistics < Impl : IRowsetPrioritizationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , indexeddocumentcount : * mut u32 , oustandingaddcount : * mut u32 , oustandingmodifycount : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , SetScopePriority : SetScopePriority :: < Impl , IMPL_OFFSET > , GetScopePriority : GetScopePriority :: < Impl , IMPL_OFFSET > , GetScopeStatistics : GetScopeStatistics :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetPrioritization < > as :: windows :: core :: Interface > :: IID } } pub trait IRowsetQueryStatusImpl < > : Sized where { fn GetStatus ( ) ; fn GetStatusEx ( ) ; } impl < > IRowsetQueryStatusVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetQueryStatusImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetQueryStatusVtbl < > { unsafe extern "system" fn GetStatus < Impl : IRowsetQueryStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdwstatus : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetStatusEx < Impl : IRowsetQueryStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdwstatus : * mut u32 , pcfiltereddocuments : * mut u32 , pcdocumentstofilter : * mut u32 , pdwratiofinisheddenominator : * mut usize , pdwratiofinishednumerator : * mut usize , cbbmk : usize , pbmk : * const u8 , pirowbmk : * mut usize , pcrowstotal : * mut usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetStatus : GetStatus :: < Impl , IMPL_OFFSET > , GetStatusEx : GetStatusEx :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetQueryStatus < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IRowsetRefreshImpl < > : Sized where { fn RefreshVisibleData ( ) ; fn GetLastVisibleData ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IRowsetRefreshVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetRefreshImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetRefreshVtbl < > { unsafe extern "system" fn RefreshVisibleData < Impl : IRowsetRefreshImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hchapter : usize , crows : usize , rghrows : * const usize , foverwrite : super::super::Foundation:: BOOL , pcrowsrefreshed : * mut usize , prghrowsrefreshed : * mut * mut usize , prgrowstatus : * mut * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetLastVisibleData < Impl : IRowsetRefreshImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hrow : usize , haccessor : usize , pdata : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , RefreshVisibleData : RefreshVisibleData :: < Impl , IMPL_OFFSET > , GetLastVisibleData : GetLastVisibleData :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetRefresh < > as :: windows :: core :: Interface > :: IID } } pub trait IRowsetResynchImpl < > : Sized where { fn GetVisibleData ( ) ; fn ResynchRows ( ) ; } impl < > IRowsetResynchVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetResynchImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetResynchVtbl < > { unsafe extern "system" fn GetVisibleData < Impl : IRowsetResynchImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hrow : usize , haccessor : usize , pdata : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ResynchRows < Impl : IRowsetResynchImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , crows : usize , rghrows : * const usize , pcrowsresynched : * mut usize , prghrowsresynched : * mut * mut usize , prgrowstatus : * mut * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetVisibleData : GetVisibleData :: < Impl , IMPL_OFFSET > , ResynchRows : ResynchRows :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetResynch < > as :: windows :: core :: Interface > :: IID } } pub trait IRowsetScrollImpl < > : Sized + IRowsetImpl + IRowsetLocateImpl where { fn GetApproximatePosition ( ) ; fn GetRowsAtRatio ( ) ; } impl < > IRowsetScrollVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetScrollImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetScrollVtbl < > { unsafe extern "system" fn GetApproximatePosition < Impl : IRowsetScrollImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hreserved : usize , cbbookmark : usize , pbookmark : * const u8 , pulposition : * mut usize , pcrows : * mut usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetRowsAtRatio < Impl : IRowsetScrollImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hreserved1 : usize , hreserved2 : usize , ulnumerator : usize , uldenominator : usize , crows : isize , pcrowsobtained : * mut usize , prghrows : * mut * mut usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IRowsetLocateVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetApproximatePosition : GetApproximatePosition :: < Impl , IMPL_OFFSET > , GetRowsAtRatio : GetRowsAtRatio :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetScroll < > as :: windows :: core :: Interface > :: IID } } pub trait IRowsetUpdateImpl < > : Sized + IRowsetChangeImpl where { fn GetOriginalData ( ) ; fn GetPendingRows ( ) ; fn GetRowStatus ( ) ; fn Undo ( ) ; fn Update ( ) ; } impl < > IRowsetUpdateVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetUpdateImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetUpdateVtbl < > { unsafe extern "system" fn GetOriginalData < Impl : IRowsetUpdateImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hrow : usize , haccessor : usize , pdata : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetPendingRows < Impl : IRowsetUpdateImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hreserved : usize , dwrowstatus : u32 , pcpendingrows : * mut usize , prgpendingrows : * mut * mut usize , prgpendingstatus : * mut * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetRowStatus < Impl : IRowsetUpdateImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hreserved : usize , crows : usize , rghrows : * const usize , rgpendingstatus : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Undo < Impl : IRowsetUpdateImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hreserved : usize , crows : usize , rghrows : * const usize , pcrowsundone : * mut usize , prgrowsundone : * mut * mut usize , prgrowstatus : * mut * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Update < Impl : IRowsetUpdateImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hreserved : usize , crows : usize , rghrows : * const usize , pcrows : * mut usize , prgrows : * mut * mut usize , prgrowstatus : * mut * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IRowsetChangeVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetOriginalData : GetOriginalData :: < Impl , IMPL_OFFSET > , GetPendingRows : GetPendingRows :: < Impl , IMPL_OFFSET > , GetRowStatus : GetRowStatus :: < Impl , IMPL_OFFSET > , Undo : Undo :: < Impl , IMPL_OFFSET > , Update : Update :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetUpdate < > as :: windows :: core :: Interface > :: IID } } pub trait IRowsetViewImpl < > : Sized where { fn CreateView ( ) ; fn GetView ( ) ; } impl < > IRowsetViewVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetViewImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetViewVtbl < > { unsafe extern "system" fn CreateView < Impl : IRowsetViewImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkouter : * mut :: core :: ffi :: c_void , riid : * const :: windows :: core :: GUID , ppview : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetView < Impl : IRowsetViewImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hchapter : usize , riid : * const :: windows :: core :: GUID , phchaptersource : * mut usize , ppview : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , CreateView : CreateView :: < Impl , IMPL_OFFSET > , GetView : GetView :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetView < > as :: windows :: core :: Interface > :: IID } } pub trait IRowsetWatchAllImpl < > : Sized where { fn Acknowledge ( ) ; fn Start ( ) ; fn StopWatching ( ) ; } impl < > IRowsetWatchAllVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetWatchAllImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetWatchAllVtbl < > { unsafe extern "system" fn Acknowledge < Impl : IRowsetWatchAllImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Start < Impl : IRowsetWatchAllImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn StopWatching < Impl : IRowsetWatchAllImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Acknowledge : Acknowledge :: < Impl , IMPL_OFFSET > , Start : Start :: < Impl , IMPL_OFFSET > , StopWatching : StopWatching :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetWatchAll < > as :: windows :: core :: Interface > :: IID } } pub trait IRowsetWatchNotifyImpl < > : Sized where { fn OnChange ( ) ; } impl < > IRowsetWatchNotifyVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetWatchNotifyImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetWatchNotifyVtbl < > { unsafe extern "system" fn OnChange < Impl : IRowsetWatchNotifyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , prowset : :: windows :: core :: RawPtr , echangereason : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , OnChange : OnChange :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetWatchNotify < > as :: windows :: core :: Interface > :: IID } } pub trait IRowsetWatchRegionImpl < > : Sized + IRowsetWatchAllImpl where { fn CreateWatchRegion ( ) ; fn ChangeWatchMode ( ) ; fn DeleteWatchRegion ( ) ; fn GetWatchRegionInfo ( ) ; fn Refresh ( ) ; fn ShrinkWatchRegion ( ) ; } impl < > IRowsetWatchRegionVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetWatchRegionImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetWatchRegionVtbl < > { unsafe extern "system" fn CreateWatchRegion < Impl : IRowsetWatchRegionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwwatchmode : u32 , phregion : * mut usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ChangeWatchMode < Impl : IRowsetWatchRegionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hregion : usize , dwwatchmode : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DeleteWatchRegion < Impl : IRowsetWatchRegionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hregion : usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetWatchRegionInfo < Impl : IRowsetWatchRegionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hregion : usize , pdwwatchmode : * mut u32 , phchapter : * mut usize , pcbbookmark : * mut usize , ppbookmark : * mut * mut u8 , pcrows : * mut isize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Refresh < Impl : IRowsetWatchRegionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcchangesobtained : * mut usize , prgchanges : * mut * mut tagDBROWWATCHRANGE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ShrinkWatchRegion < Impl : IRowsetWatchRegionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hregion : usize , hchapter : usize , cbbookmark : usize , pbookmark : * mut u8 , crows : isize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IRowsetWatchAllVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , CreateWatchRegion : CreateWatchRegion :: < Impl , IMPL_OFFSET > , ChangeWatchMode : ChangeWatchMode :: < Impl , IMPL_OFFSET > , DeleteWatchRegion : DeleteWatchRegion :: < Impl , IMPL_OFFSET > , GetWatchRegionInfo : GetWatchRegionInfo :: < Impl , IMPL_OFFSET > , Refresh : Refresh :: < Impl , IMPL_OFFSET > , ShrinkWatchRegion : ShrinkWatchRegion :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetWatchRegion < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" ) ) ] pub trait IRowsetWithParametersImpl < > : Sized where { fn GetParameterInfo ( ) ; fn Requery ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" ) ) ] impl < > IRowsetWithParametersVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRowsetWithParametersImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRowsetWithParametersVtbl < > { unsafe extern "system" fn GetParameterInfo < Impl : IRowsetWithParametersImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcparams : * mut usize , prgparaminfo : * mut * mut DBPARAMINFO , ppnamesbuffer : * mut * mut u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Requery < Impl : IRowsetWithParametersImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pparams : * mut DBPARAMS , pulerrorparam : * mut u32 , phreserved : * mut usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetParameterInfo : GetParameterInfo :: < Impl , IMPL_OFFSET > , Requery : Requery :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRowsetWithParameters < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISQLErrorInfoImpl < > : Sized where { fn GetSQLInfo ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISQLErrorInfoVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISQLErrorInfoImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISQLErrorInfoVtbl < > { unsafe extern "system" fn GetSQLInfo < Impl : ISQLErrorInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbstrsqlstate : * mut super::super::Foundation:: BSTR , plnativeerror : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetSQLInfo : GetSQLInfo :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISQLErrorInfo < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISQLGetDiagFieldImpl < > : Sized where { fn GetDiagField ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISQLGetDiagFieldVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISQLGetDiagFieldImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISQLGetDiagFieldVtbl < > { unsafe extern "system" fn GetDiagField < Impl : ISQLGetDiagFieldImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdiaginfo : * mut KAGGETDIAG , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetDiagField : GetDiagField :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISQLGetDiagField < > as :: windows :: core :: Interface > :: IID } } pub trait ISQLRequestDiagFieldsImpl < > : Sized where { fn RequestDiagFields ( ) ; } impl < > ISQLRequestDiagFieldsVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISQLRequestDiagFieldsImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISQLRequestDiagFieldsVtbl < > { unsafe extern "system" fn RequestDiagFields < Impl : ISQLRequestDiagFieldsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , cdiagfields : u32 , rgdiagfields : * const KAGREQDIAG , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , RequestDiagFields : RequestDiagFields :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISQLRequestDiagFields < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISQLServerErrorInfoImpl < > : Sized where { fn GetErrorInfo ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISQLServerErrorInfoVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISQLServerErrorInfoImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISQLServerErrorInfoVtbl < > { unsafe extern "system" fn GetErrorInfo < Impl : ISQLServerErrorInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pperrorinfo : * mut * mut tagSSErrorInfo , ppstringsbuffer : * mut * mut u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetErrorInfo : GetErrorInfo :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISQLServerErrorInfo < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISchemaLocalizerSupportImpl < > : Sized where { fn Localize ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISchemaLocalizerSupportVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISchemaLocalizerSupportImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISchemaLocalizerSupportVtbl < > { unsafe extern "system" fn Localize < Impl : ISchemaLocalizerSupportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszglobalstring : super::super::Foundation:: PWSTR , ppszlocalstring : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Localize : Localize :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISchemaLocalizerSupport < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" ) ) ] pub trait ISchemaLockImpl < > : Sized where { fn GetSchemaLock ( ) ; fn ReleaseSchemaLock ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" ) ) ] impl < > ISchemaLockVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISchemaLockImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISchemaLockVtbl < > { unsafe extern "system" fn GetSchemaLock < Impl : ISchemaLockImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ptableid : * mut super::super::Storage::IndexServer:: DBID , lmmode : u32 , phlockhandle : * mut super::super::Foundation:: HANDLE , ptableversion : * mut u64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ReleaseSchemaLock < Impl : ISchemaLockImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hlockhandle : super::super::Foundation:: HANDLE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetSchemaLock : GetSchemaLock :: < Impl , IMPL_OFFSET > , ReleaseSchemaLock : ReleaseSchemaLock :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISchemaLock < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISchemaProviderImpl < > : Sized where { fn Entities ( ) ; fn RootEntity ( ) ; fn GetEntity ( ) ; fn MetaData ( ) ; fn Localize ( ) ; fn SaveBinary ( ) ; fn LookupAuthoredNamedEntity ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISchemaProviderVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISchemaProviderImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISchemaProviderVtbl < > { unsafe extern "system" fn Entities < Impl : ISchemaProviderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , riid : * const :: windows :: core :: GUID , pentities : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RootEntity < Impl : ISchemaProviderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , prootentity : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetEntity < Impl : ISchemaProviderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszentityname : super::super::Foundation:: PWSTR , pentity : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn MetaData < Impl : ISchemaProviderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , riid : * const :: windows :: core :: GUID , pmetadata : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Localize < Impl : ISchemaProviderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , lcid : u32 , pschemalocalizersupport : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SaveBinary < Impl : ISchemaProviderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszschemabinarypath : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn LookupAuthoredNamedEntity < Impl : ISchemaProviderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pentity : :: windows :: core :: RawPtr , pszinputstring : super::super::Foundation:: PWSTR , ptokencollection : :: windows :: core :: RawPtr , ctokensbegin : u32 , pctokenslength : * mut u32 , ppszvalue : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Entities : Entities :: < Impl , IMPL_OFFSET > , RootEntity : RootEntity :: < Impl , IMPL_OFFSET > , GetEntity : GetEntity :: < Impl , IMPL_OFFSET > , MetaData : MetaData :: < Impl , IMPL_OFFSET > , Localize : Localize :: < Impl , IMPL_OFFSET > , SaveBinary : SaveBinary :: < Impl , IMPL_OFFSET > , LookupAuthoredNamedEntity : LookupAuthoredNamedEntity :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISchemaProvider < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IScopedOperationsImpl < > : Sized + IBindResourceImpl where { fn Copy ( ) ; fn Move ( ) ; fn Delete ( ) ; fn OpenRowset ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IScopedOperationsVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IScopedOperationsImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IScopedOperationsVtbl < > { unsafe extern "system" fn Copy < Impl : IScopedOperationsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , crows : usize , rgpwszsourceurls : * const super::super::Foundation:: PWSTR , rgpwszdesturls : * const super::super::Foundation:: PWSTR , dwcopyflags : u32 , pauthenticate : :: windows :: core :: RawPtr , rgdwstatus : * mut u32 , rgpwsznewurls : * mut super::super::Foundation:: PWSTR , ppstringsbuffer : * mut * mut u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Move < Impl : IScopedOperationsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , crows : usize , rgpwszsourceurls : * const super::super::Foundation:: PWSTR , rgpwszdesturls : * const super::super::Foundation:: PWSTR , dwmoveflags : u32 , pauthenticate : :: windows :: core :: RawPtr , rgdwstatus : * mut u32 , rgpwsznewurls : * mut super::super::Foundation:: PWSTR , ppstringsbuffer : * mut * mut u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Delete < Impl : IScopedOperationsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , crows : usize , rgpwszurls : * const super::super::Foundation:: PWSTR , dwdeleteflags : u32 , rgdwstatus : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn OpenRowset < Impl : IScopedOperationsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkouter : * mut :: core :: ffi :: c_void , ptableid : * const super::super::Storage::IndexServer:: DBID , pindexid : * const super::super::Storage::IndexServer:: DBID , riid : * const :: windows :: core :: GUID , cpropertysets : u32 , rgpropertysets : * mut DBPROPSET , pprowset : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IBindResourceVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Copy : Copy :: < Impl , IMPL_OFFSET > , Move : Move :: < Impl , IMPL_OFFSET > , Delete : Delete :: < Impl , IMPL_OFFSET > , OpenRowset : OpenRowset :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IScopedOperations < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] pub trait ISearchCatalogManagerImpl < > : Sized where { fn Name ( ) ; fn GetParameter ( ) ; fn SetParameter ( ) ; fn GetCatalogStatus ( ) ; fn Reset ( ) ; fn Reindex ( ) ; fn ReindexMatchingURLs ( ) ; fn ReindexSearchRoot ( ) ; fn SetConnectTimeout ( ) ; fn ConnectTimeout ( ) ; fn SetDataTimeout ( ) ; fn DataTimeout ( ) ; fn NumberOfItems ( ) ; fn NumberOfItemsToIndex ( ) ; fn URLBeingIndexed ( ) ; fn GetURLIndexingState ( ) ; fn GetPersistentItemsChangedSink ( ) ; fn RegisterViewForNotification ( ) ; fn GetItemsChangedSink ( ) ; fn UnregisterViewForNotification ( ) ; fn SetExtensionClusion ( ) ; fn EnumerateExcludedExtensions ( ) ; fn GetQueryHelper ( ) ; fn SetDiacriticSensitivity ( ) ; fn DiacriticSensitivity ( ) ; fn GetCrawlScopeManager ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] impl < > ISearchCatalogManagerVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISearchCatalogManagerImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISearchCatalogManagerVtbl < > { unsafe extern "system" fn Name < Impl : ISearchCatalogManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszname : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetParameter < Impl : ISearchCatalogManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszname : super::super::Foundation:: PWSTR , ppvalue : * mut * mut super::Com::StructuredStorage:: PROPVARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetParameter < Impl : ISearchCatalogManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszname : super::super::Foundation:: PWSTR , pvalue : * const super::Com::StructuredStorage:: PROPVARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetCatalogStatus < Impl : ISearchCatalogManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pstatus : * mut CatalogStatus , ppausedreason : * mut CatalogPausedReason , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Reset < Impl : ISearchCatalogManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Reindex < Impl : ISearchCatalogManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ReindexMatchingURLs < Impl : ISearchCatalogManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszpattern : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ReindexSearchRoot < Impl : ISearchCatalogManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszrooturl : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetConnectTimeout < Impl : ISearchCatalogManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwconnecttimeout : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ConnectTimeout < Impl : ISearchCatalogManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdwconnecttimeout : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetDataTimeout < Impl : ISearchCatalogManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwdatatimeout : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DataTimeout < Impl : ISearchCatalogManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdwdatatimeout : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn NumberOfItems < Impl : ISearchCatalogManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , plcount : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn NumberOfItemsToIndex < Impl : ISearchCatalogManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , plincrementalcount : * mut i32 , plnotificationqueue : * mut i32 , plhighpriorityqueue : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn URLBeingIndexed < Impl : ISearchCatalogManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszurl : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetURLIndexingState < Impl : ISearchCatalogManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszurl : super::super::Foundation:: PWSTR , pdwstate : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetPersistentItemsChangedSink < Impl : ISearchCatalogManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppisearchpersistentitemschangedsink : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RegisterViewForNotification < Impl : ISearchCatalogManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszview : super::super::Foundation:: PWSTR , pviewchangedsink : :: windows :: core :: RawPtr , pdwcookie : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetItemsChangedSink < Impl : ISearchCatalogManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pisearchnotifyinlinesite : :: windows :: core :: RawPtr , riid : * const :: windows :: core :: GUID , ppv : * mut * mut :: core :: ffi :: c_void , pguidcatalogresetsignature : * mut :: windows :: core :: GUID , pguidcheckpointsignature : * mut :: windows :: core :: GUID , pdwlastcheckpointnumber : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn UnregisterViewForNotification < Impl : ISearchCatalogManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwcookie : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetExtensionClusion < Impl : ISearchCatalogManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszextension : super::super::Foundation:: PWSTR , fexclude : super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EnumerateExcludedExtensions < Impl : ISearchCatalogManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppextensions : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetQueryHelper < Impl : ISearchCatalogManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppsearchqueryhelper : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetDiacriticSensitivity < Impl : ISearchCatalogManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , fdiacriticsensitive : super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DiacriticSensitivity < Impl : ISearchCatalogManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pfdiacriticsensitive : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetCrawlScopeManager < Impl : ISearchCatalogManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppcrawlscopemanager : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Name : Name :: < Impl , IMPL_OFFSET > , GetParameter : GetParameter :: < Impl , IMPL_OFFSET > , SetParameter : SetParameter :: < Impl , IMPL_OFFSET > , GetCatalogStatus : GetCatalogStatus :: < Impl , IMPL_OFFSET > , Reset : Reset :: < Impl , IMPL_OFFSET > , Reindex : Reindex :: < Impl , IMPL_OFFSET > , ReindexMatchingURLs : ReindexMatchingURLs :: < Impl , IMPL_OFFSET > , ReindexSearchRoot : ReindexSearchRoot :: < Impl , IMPL_OFFSET > , SetConnectTimeout : SetConnectTimeout :: < Impl , IMPL_OFFSET > , ConnectTimeout : ConnectTimeout :: < Impl , IMPL_OFFSET > , SetDataTimeout : SetDataTimeout :: < Impl , IMPL_OFFSET > , DataTimeout : DataTimeout :: < Impl , IMPL_OFFSET > , NumberOfItems : NumberOfItems :: < Impl , IMPL_OFFSET > , NumberOfItemsToIndex : NumberOfItemsToIndex :: < Impl , IMPL_OFFSET > , URLBeingIndexed : URLBeingIndexed :: < Impl , IMPL_OFFSET > , GetURLIndexingState : GetURLIndexingState :: < Impl , IMPL_OFFSET > , GetPersistentItemsChangedSink : GetPersistentItemsChangedSink :: < Impl , IMPL_OFFSET > , RegisterViewForNotification : RegisterViewForNotification :: < Impl , IMPL_OFFSET > , GetItemsChangedSink : GetItemsChangedSink :: < Impl , IMPL_OFFSET > , UnregisterViewForNotification : UnregisterViewForNotification :: < Impl , IMPL_OFFSET > , SetExtensionClusion : SetExtensionClusion :: < Impl , IMPL_OFFSET > , EnumerateExcludedExtensions : EnumerateExcludedExtensions :: < Impl , IMPL_OFFSET > , GetQueryHelper : GetQueryHelper :: < Impl , IMPL_OFFSET > , SetDiacriticSensitivity : SetDiacriticSensitivity :: < Impl , IMPL_OFFSET > , DiacriticSensitivity : DiacriticSensitivity :: < Impl , IMPL_OFFSET > , GetCrawlScopeManager : GetCrawlScopeManager :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISearchCatalogManager < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] pub trait ISearchCatalogManager2Impl < > : Sized + ISearchCatalogManagerImpl where { fn PrioritizeMatchingURLs ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] impl < > ISearchCatalogManager2Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISearchCatalogManager2Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISearchCatalogManager2Vtbl < > { unsafe extern "system" fn PrioritizeMatchingURLs < Impl : ISearchCatalogManager2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszpattern : super::super::Foundation:: PWSTR , dwprioritizeflags : PRIORITIZE_FLAGS , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISearchCatalogManagerVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , PrioritizeMatchingURLs : PrioritizeMatchingURLs :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISearchCatalogManager2 < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISearchCrawlScopeManagerImpl < > : Sized where { fn AddDefaultScopeRule ( ) ; fn AddRoot ( ) ; fn RemoveRoot ( ) ; fn EnumerateRoots ( ) ; fn AddHierarchicalScope ( ) ; fn AddUserScopeRule ( ) ; fn RemoveScopeRule ( ) ; fn EnumerateScopeRules ( ) ; fn HasParentScopeRule ( ) ; fn HasChildScopeRule ( ) ; fn IncludedInCrawlScope ( ) ; fn IncludedInCrawlScopeEx ( ) ; fn RevertToDefaultScopes ( ) ; fn SaveAll ( ) ; fn GetParentScopeVersionId ( ) ; fn RemoveDefaultScopeRule ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISearchCrawlScopeManagerVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISearchCrawlScopeManagerImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISearchCrawlScopeManagerVtbl < > { unsafe extern "system" fn AddDefaultScopeRule < Impl : ISearchCrawlScopeManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszurl : super::super::Foundation:: PWSTR , finclude : super::super::Foundation:: BOOL , ffollowflags : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AddRoot < Impl : ISearchCrawlScopeManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , psearchroot : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RemoveRoot < Impl : ISearchCrawlScopeManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszurl : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EnumerateRoots < Impl : ISearchCrawlScopeManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppsearchroots : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AddHierarchicalScope < Impl : ISearchCrawlScopeManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszurl : super::super::Foundation:: PWSTR , finclude : super::super::Foundation:: BOOL , fdefault : super::super::Foundation:: BOOL , foverridechildren : super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AddUserScopeRule < Impl : ISearchCrawlScopeManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszurl : super::super::Foundation:: PWSTR , finclude : super::super::Foundation:: BOOL , foverridechildren : super::super::Foundation:: BOOL , ffollowflags : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RemoveScopeRule < Impl : ISearchCrawlScopeManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszrule : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EnumerateScopeRules < Impl : ISearchCrawlScopeManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppsearchscoperules : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn HasParentScopeRule < Impl : ISearchCrawlScopeManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszurl : super::super::Foundation:: PWSTR , pfhasparentrule : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn HasChildScopeRule < Impl : ISearchCrawlScopeManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszurl : super::super::Foundation:: PWSTR , pfhaschildrule : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IncludedInCrawlScope < Impl : ISearchCrawlScopeManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszurl : super::super::Foundation:: PWSTR , pfisincluded : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IncludedInCrawlScopeEx < Impl : ISearchCrawlScopeManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszurl : super::super::Foundation:: PWSTR , pfisincluded : * mut super::super::Foundation:: BOOL , preason : * mut CLUSION_REASON , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RevertToDefaultScopes < Impl : ISearchCrawlScopeManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SaveAll < Impl : ISearchCrawlScopeManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetParentScopeVersionId < Impl : ISearchCrawlScopeManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszurl : super::super::Foundation:: PWSTR , plscopeid : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RemoveDefaultScopeRule < Impl : ISearchCrawlScopeManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszurl : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , AddDefaultScopeRule : AddDefaultScopeRule :: < Impl , IMPL_OFFSET > , AddRoot : AddRoot :: < Impl , IMPL_OFFSET > , RemoveRoot : RemoveRoot :: < Impl , IMPL_OFFSET > , EnumerateRoots : EnumerateRoots :: < Impl , IMPL_OFFSET > , AddHierarchicalScope : AddHierarchicalScope :: < Impl , IMPL_OFFSET > , AddUserScopeRule : AddUserScopeRule :: < Impl , IMPL_OFFSET > , RemoveScopeRule : RemoveScopeRule :: < Impl , IMPL_OFFSET > , EnumerateScopeRules : EnumerateScopeRules :: < Impl , IMPL_OFFSET > , HasParentScopeRule : HasParentScopeRule :: < Impl , IMPL_OFFSET > , HasChildScopeRule : HasChildScopeRule :: < Impl , IMPL_OFFSET > , IncludedInCrawlScope : IncludedInCrawlScope :: < Impl , IMPL_OFFSET > , IncludedInCrawlScopeEx : IncludedInCrawlScopeEx :: < Impl , IMPL_OFFSET > , RevertToDefaultScopes : RevertToDefaultScopes :: < Impl , IMPL_OFFSET > , SaveAll : SaveAll :: < Impl , IMPL_OFFSET > , GetParentScopeVersionId : GetParentScopeVersionId :: < Impl , IMPL_OFFSET > , RemoveDefaultScopeRule : RemoveDefaultScopeRule :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISearchCrawlScopeManager < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISearchCrawlScopeManager2Impl < > : Sized + ISearchCrawlScopeManagerImpl where { fn GetVersion ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISearchCrawlScopeManager2Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISearchCrawlScopeManager2Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISearchCrawlScopeManager2Vtbl < > { unsafe extern "system" fn GetVersion < Impl : ISearchCrawlScopeManager2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , plversion : * mut * mut i32 , phfilemapping : * mut super::super::Foundation:: HANDLE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISearchCrawlScopeManagerVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetVersion : GetVersion :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISearchCrawlScopeManager2 < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" ) ) ] pub trait ISearchItemsChangedSinkImpl < > : Sized where { fn StartedMonitoringScope ( ) ; fn StoppedMonitoringScope ( ) ; fn OnItemsChanged ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" ) ) ] impl < > ISearchItemsChangedSinkVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISearchItemsChangedSinkImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISearchItemsChangedSinkVtbl < > { unsafe extern "system" fn StartedMonitoringScope < Impl : ISearchItemsChangedSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszurl : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn StoppedMonitoringScope < Impl : ISearchItemsChangedSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszurl : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn OnItemsChanged < Impl : ISearchItemsChangedSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwnumberofchanges : u32 , rgdatachangeentries : * const SEARCH_ITEM_CHANGE , rgdwdocids : * mut u32 , rghrcompletioncodes : * mut :: windows :: core :: HRESULT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , StartedMonitoringScope : StartedMonitoringScope :: < Impl , IMPL_OFFSET > , StoppedMonitoringScope : StoppedMonitoringScope :: < Impl , IMPL_OFFSET > , OnItemsChanged : OnItemsChanged :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISearchItemsChangedSink < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISearchLanguageSupportImpl < > : Sized where { fn SetDiacriticSensitivity ( ) ; fn GetDiacriticSensitivity ( ) ; fn LoadWordBreaker ( ) ; fn LoadStemmer ( ) ; fn IsPrefixNormalized ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISearchLanguageSupportVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISearchLanguageSupportImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISearchLanguageSupportVtbl < > { unsafe extern "system" fn SetDiacriticSensitivity < Impl : ISearchLanguageSupportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , fdiacriticsensitive : super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetDiacriticSensitivity < Impl : ISearchLanguageSupportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pfdiacriticsensitive : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn LoadWordBreaker < Impl : ISearchLanguageSupportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , lcid : u32 , riid : * const :: windows :: core :: GUID , ppwordbreaker : * mut * mut :: core :: ffi :: c_void , plcidused : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn LoadStemmer < Impl : ISearchLanguageSupportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , lcid : u32 , riid : * const :: windows :: core :: GUID , ppstemmer : * mut * mut :: core :: ffi :: c_void , plcidused : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsPrefixNormalized < Impl : ISearchLanguageSupportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwcsquerytoken : super::super::Foundation:: PWSTR , cwcquerytoken : u32 , pwcsdocumenttoken : super::super::Foundation:: PWSTR , cwcdocumenttoken : u32 , pulprefixlength : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , SetDiacriticSensitivity : SetDiacriticSensitivity :: < Impl , IMPL_OFFSET > , GetDiacriticSensitivity : GetDiacriticSensitivity :: < Impl , IMPL_OFFSET > , LoadWordBreaker : LoadWordBreaker :: < Impl , IMPL_OFFSET > , LoadStemmer : LoadStemmer :: < Impl , IMPL_OFFSET > , IsPrefixNormalized : IsPrefixNormalized :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISearchLanguageSupport < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] pub trait ISearchManagerImpl < > : Sized where { fn GetIndexerVersionStr ( ) ; fn GetIndexerVersion ( ) ; fn GetParameter ( ) ; fn SetParameter ( ) ; fn ProxyName ( ) ; fn BypassList ( ) ; fn SetProxy ( ) ; fn GetCatalog ( ) ; fn UserAgent ( ) ; fn SetUserAgent ( ) ; fn UseProxy ( ) ; fn LocalBypass ( ) ; fn PortNumber ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] impl < > ISearchManagerVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISearchManagerImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISearchManagerVtbl < > { unsafe extern "system" fn GetIndexerVersionStr < Impl : ISearchManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszversionstring : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetIndexerVersion < Impl : ISearchManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdwmajor : * mut u32 , pdwminor : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetParameter < Impl : ISearchManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszname : super::super::Foundation:: PWSTR , ppvalue : * mut * mut super::Com::StructuredStorage:: PROPVARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetParameter < Impl : ISearchManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszname : super::super::Foundation:: PWSTR , pvalue : * const super::Com::StructuredStorage:: PROPVARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ProxyName < Impl : ISearchManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszproxyname : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn BypassList < Impl : ISearchManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszbypasslist : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetProxy < Impl : ISearchManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , suseproxy : PROXY_ACCESS , flocalbypassproxy : super::super::Foundation:: BOOL , dwportnumber : u32 , pszproxyname : super::super::Foundation:: PWSTR , pszbypasslist : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetCatalog < Impl : ISearchManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszcatalog : super::super::Foundation:: PWSTR , ppcatalogmanager : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn UserAgent < Impl : ISearchManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszuseragent : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetUserAgent < Impl : ISearchManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszuseragent : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn UseProxy < Impl : ISearchManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , puseproxy : * mut PROXY_ACCESS , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn LocalBypass < Impl : ISearchManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pflocalbypass : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn PortNumber < Impl : ISearchManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdwportnumber : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetIndexerVersionStr : GetIndexerVersionStr :: < Impl , IMPL_OFFSET > , GetIndexerVersion : GetIndexerVersion :: < Impl , IMPL_OFFSET > , GetParameter : GetParameter :: < Impl , IMPL_OFFSET > , SetParameter : SetParameter :: < Impl , IMPL_OFFSET > , ProxyName : ProxyName :: < Impl , IMPL_OFFSET > , BypassList : BypassList :: < Impl , IMPL_OFFSET > , SetProxy : SetProxy :: < Impl , IMPL_OFFSET > , GetCatalog : GetCatalog :: < Impl , IMPL_OFFSET > , UserAgent : UserAgent :: < Impl , IMPL_OFFSET > , SetUserAgent : SetUserAgent :: < Impl , IMPL_OFFSET > , UseProxy : UseProxy :: < Impl , IMPL_OFFSET > , LocalBypass : LocalBypass :: < Impl , IMPL_OFFSET > , PortNumber : PortNumber :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISearchManager < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] pub trait ISearchManager2Impl < > : Sized + ISearchManagerImpl where { fn CreateCatalog ( ) ; fn DeleteCatalog ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] impl < > ISearchManager2Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISearchManager2Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISearchManager2Vtbl < > { unsafe extern "system" fn CreateCatalog < Impl : ISearchManager2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszcatalog : super::super::Foundation:: PWSTR , ppcatalogmanager : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DeleteCatalog < Impl : ISearchManager2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszcatalog : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISearchManagerVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , CreateCatalog : CreateCatalog :: < Impl , IMPL_OFFSET > , DeleteCatalog : DeleteCatalog :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISearchManager2 < > as :: windows :: core :: Interface > :: IID } } pub trait ISearchNotifyInlineSiteImpl < > : Sized where { fn OnItemIndexedStatusChange ( ) ; fn OnCatalogStatusChange ( ) ; } impl < > ISearchNotifyInlineSiteVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISearchNotifyInlineSiteImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISearchNotifyInlineSiteVtbl < > { unsafe extern "system" fn OnItemIndexedStatusChange < Impl : ISearchNotifyInlineSiteImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , sipstatus : SEARCH_INDEXING_PHASE , dwnumentries : u32 , rgitemstatusentries : * const SEARCH_ITEM_INDEXING_STATUS , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn OnCatalogStatusChange < Impl : ISearchNotifyInlineSiteImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , guidcatalogresetsignature : * const :: windows :: core :: GUID , guidcheckpointsignature : * const :: windows :: core :: GUID , dwlastcheckpointnumber : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , OnItemIndexedStatusChange : OnItemIndexedStatusChange :: < Impl , IMPL_OFFSET > , OnCatalogStatusChange : OnCatalogStatusChange :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISearchNotifyInlineSite < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISearchPersistentItemsChangedSinkImpl < > : Sized where { fn StartedMonitoringScope ( ) ; fn StoppedMonitoringScope ( ) ; fn OnItemsChanged ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISearchPersistentItemsChangedSinkVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISearchPersistentItemsChangedSinkImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISearchPersistentItemsChangedSinkVtbl < > { unsafe extern "system" fn StartedMonitoringScope < Impl : ISearchPersistentItemsChangedSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszurl : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn StoppedMonitoringScope < Impl : ISearchPersistentItemsChangedSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszurl : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn OnItemsChanged < Impl : ISearchPersistentItemsChangedSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwnumberofchanges : u32 , datachangeentries : * const SEARCH_ITEM_PERSISTENT_CHANGE , hrcompletioncodes : * mut :: windows :: core :: HRESULT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , StartedMonitoringScope : StartedMonitoringScope :: < Impl , IMPL_OFFSET > , StoppedMonitoringScope : StoppedMonitoringScope :: < Impl , IMPL_OFFSET > , OnItemsChanged : OnItemsChanged :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISearchPersistentItemsChangedSink < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISearchProtocolImpl < > : Sized where { fn Init ( ) ; fn CreateAccessor ( ) ; fn CloseAccessor ( ) ; fn ShutDown ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISearchProtocolVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISearchProtocolImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISearchProtocolVtbl < > { unsafe extern "system" fn Init < Impl : ISearchProtocolImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ptimeoutinfo : * mut TIMEOUT_INFO , pprotocolhandlersite : :: windows :: core :: RawPtr , pproxyinfo : * mut PROXY_INFO , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateAccessor < Impl : ISearchProtocolImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcwszurl : super::super::Foundation:: PWSTR , pauthenticationinfo : * mut AUTHENTICATION_INFO , pincrementalaccessinfo : * mut INCREMENTAL_ACCESS_INFO , piteminfo : * mut ITEM_INFO , ppaccessor : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CloseAccessor < Impl : ISearchProtocolImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , paccessor : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ShutDown < Impl : ISearchProtocolImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Init : Init :: < Impl , IMPL_OFFSET > , CreateAccessor : CreateAccessor :: < Impl , IMPL_OFFSET > , CloseAccessor : CloseAccessor :: < Impl , IMPL_OFFSET > , ShutDown : ShutDown :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISearchProtocol < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" ) ) ] pub trait ISearchProtocol2Impl < > : Sized + ISearchProtocolImpl where { fn CreateAccessorEx ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" ) ) ] impl < > ISearchProtocol2Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISearchProtocol2Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISearchProtocol2Vtbl < > { unsafe extern "system" fn CreateAccessorEx < Impl : ISearchProtocol2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcwszurl : super::super::Foundation:: PWSTR , pauthenticationinfo : * mut AUTHENTICATION_INFO , pincrementalaccessinfo : * mut INCREMENTAL_ACCESS_INFO , piteminfo : * mut ITEM_INFO , puserdata : * const super::Com:: BLOB , ppaccessor : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISearchProtocolVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , CreateAccessorEx : CreateAccessorEx :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISearchProtocol2 < > as :: windows :: core :: Interface > :: IID } } pub trait ISearchProtocolThreadContextImpl < > : Sized where { fn ThreadInit ( ) ; fn ThreadShutdown ( ) ; fn ThreadIdle ( ) ; } impl < > ISearchProtocolThreadContextVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISearchProtocolThreadContextImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISearchProtocolThreadContextVtbl < > { unsafe extern "system" fn ThreadInit < Impl : ISearchProtocolThreadContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ThreadShutdown < Impl : ISearchProtocolThreadContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ThreadIdle < Impl : ISearchProtocolThreadContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwtimeelaspedsincelastcallinms : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , ThreadInit : ThreadInit :: < Impl , IMPL_OFFSET > , ThreadShutdown : ThreadShutdown :: < Impl , IMPL_OFFSET > , ThreadIdle : ThreadIdle :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISearchProtocolThreadContext < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" , feature ="Win32_UI_Shell_PropertiesSystem" ) ) ] pub trait ISearchQueryHelperImpl < > : Sized where { fn ConnectionString ( ) ; fn SetQueryContentLocale ( ) ; fn QueryContentLocale ( ) ; fn SetQueryKeywordLocale ( ) ; fn QueryKeywordLocale ( ) ; fn SetQueryTermExpansion ( ) ; fn QueryTermExpansion ( ) ; fn SetQuerySyntax ( ) ; fn QuerySyntax ( ) ; fn SetQueryContentProperties ( ) ; fn QueryContentProperties ( ) ; fn SetQuerySelectColumns ( ) ; fn QuerySelectColumns ( ) ; fn SetQueryWhereRestrictions ( ) ; fn QueryWhereRestrictions ( ) ; fn SetQuerySorting ( ) ; fn QuerySorting ( ) ; fn GenerateSQLFromUserQuery ( ) ; fn WriteProperties ( ) ; fn SetQueryMaxResults ( ) ; fn QueryMaxResults ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" , feature ="Win32_UI_Shell_PropertiesSystem" ) ) ] impl < > ISearchQueryHelperVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISearchQueryHelperImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISearchQueryHelperVtbl < > { unsafe extern "system" fn ConnectionString < Impl : ISearchQueryHelperImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszconnectionstring : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetQueryContentLocale < Impl : ISearchQueryHelperImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , lcid : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn QueryContentLocale < Impl : ISearchQueryHelperImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , plcid : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetQueryKeywordLocale < Impl : ISearchQueryHelperImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , lcid : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn QueryKeywordLocale < Impl : ISearchQueryHelperImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , plcid : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetQueryTermExpansion < Impl : ISearchQueryHelperImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , expandterms : SEARCH_TERM_EXPANSION , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn QueryTermExpansion < Impl : ISearchQueryHelperImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pexpandterms : * mut SEARCH_TERM_EXPANSION , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetQuerySyntax < Impl : ISearchQueryHelperImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , querysyntax : SEARCH_QUERY_SYNTAX , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn QuerySyntax < Impl : ISearchQueryHelperImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pquerysyntax : * mut SEARCH_QUERY_SYNTAX , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetQueryContentProperties < Impl : ISearchQueryHelperImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszcontentproperties : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn QueryContentProperties < Impl : ISearchQueryHelperImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszcontentproperties : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetQuerySelectColumns < Impl : ISearchQueryHelperImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszselectcolumns : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn QuerySelectColumns < Impl : ISearchQueryHelperImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszselectcolumns : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetQueryWhereRestrictions < Impl : ISearchQueryHelperImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszrestrictions : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn QueryWhereRestrictions < Impl : ISearchQueryHelperImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszrestrictions : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetQuerySorting < Impl : ISearchQueryHelperImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszsorting : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn QuerySorting < Impl : ISearchQueryHelperImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszsorting : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GenerateSQLFromUserQuery < Impl : ISearchQueryHelperImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszquery : super::super::Foundation:: PWSTR , ppszsql : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn WriteProperties < Impl : ISearchQueryHelperImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , itemid : i32 , dwnumberofcolumns : u32 , pcolumns : * const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pvalues : * const SEARCH_COLUMN_PROPERTIES , pftgathermodifiedtime : * const super::super::Foundation:: FILETIME , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetQueryMaxResults < Impl : ISearchQueryHelperImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , cmaxresults : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn QueryMaxResults < Impl : ISearchQueryHelperImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcmaxresults : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , ConnectionString : ConnectionString :: < Impl , IMPL_OFFSET > , SetQueryContentLocale : SetQueryContentLocale :: < Impl , IMPL_OFFSET > , QueryContentLocale : QueryContentLocale :: < Impl , IMPL_OFFSET > , SetQueryKeywordLocale : SetQueryKeywordLocale :: < Impl , IMPL_OFFSET > , QueryKeywordLocale : QueryKeywordLocale :: < Impl , IMPL_OFFSET > , SetQueryTermExpansion : SetQueryTermExpansion :: < Impl , IMPL_OFFSET > , QueryTermExpansion : QueryTermExpansion :: < Impl , IMPL_OFFSET > , SetQuerySyntax : SetQuerySyntax :: < Impl , IMPL_OFFSET > , QuerySyntax : QuerySyntax :: < Impl , IMPL_OFFSET > , SetQueryContentProperties : SetQueryContentProperties :: < Impl , IMPL_OFFSET > , QueryContentProperties : QueryContentProperties :: < Impl , IMPL_OFFSET > , SetQuerySelectColumns : SetQuerySelectColumns :: < Impl , IMPL_OFFSET > , QuerySelectColumns : QuerySelectColumns :: < Impl , IMPL_OFFSET > , SetQueryWhereRestrictions : SetQueryWhereRestrictions :: < Impl , IMPL_OFFSET > , QueryWhereRestrictions : QueryWhereRestrictions :: < Impl , IMPL_OFFSET > , SetQuerySorting : SetQuerySorting :: < Impl , IMPL_OFFSET > , QuerySorting : QuerySorting :: < Impl , IMPL_OFFSET > , GenerateSQLFromUserQuery : GenerateSQLFromUserQuery :: < Impl , IMPL_OFFSET > , WriteProperties : WriteProperties :: < Impl , IMPL_OFFSET > , SetQueryMaxResults : SetQueryMaxResults :: < Impl , IMPL_OFFSET > , QueryMaxResults : QueryMaxResults :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISearchQueryHelper < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" ) ) ] pub trait ISearchQueryHitsImpl < > : Sized where { fn Init ( ) ; fn NextHitMoniker ( ) ; fn NextHitOffset ( ) ; } # [ cfg ( all ( feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" ) ) ] impl < > ISearchQueryHitsVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISearchQueryHitsImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISearchQueryHitsVtbl < > { unsafe extern "system" fn Init < Impl : ISearchQueryHitsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pflt : :: windows :: core :: RawPtr , ulflags : u32 , ) -> i32 { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn NextHitMoniker < Impl : ISearchQueryHitsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcmnk : * mut u32 , papmnk : * mut * mut :: windows :: core :: RawPtr , ) -> i32 { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn NextHitOffset < Impl : ISearchQueryHitsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcregion : * mut u32 , paregion : * mut * mut super::super::Storage::IndexServer:: FILTERREGION , ) -> i32 { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Init : Init :: < Impl , IMPL_OFFSET > , NextHitMoniker : NextHitMoniker :: < Impl , IMPL_OFFSET > , NextHitOffset : NextHitOffset :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISearchQueryHits < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISearchRootImpl < > : Sized where { fn SetSchedule ( ) ; fn Schedule ( ) ; fn SetRootURL ( ) ; fn RootURL ( ) ; fn SetIsHierarchical ( ) ; fn IsHierarchical ( ) ; fn SetProvidesNotifications ( ) ; fn ProvidesNotifications ( ) ; fn SetUseNotificationsOnly ( ) ; fn UseNotificationsOnly ( ) ; fn SetEnumerationDepth ( ) ; fn EnumerationDepth ( ) ; fn SetHostDepth ( ) ; fn HostDepth ( ) ; fn SetFollowDirectories ( ) ; fn FollowDirectories ( ) ; fn SetAuthenticationType ( ) ; fn AuthenticationType ( ) ; fn SetUser ( ) ; fn User ( ) ; fn SetPassword ( ) ; fn Password ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISearchRootVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISearchRootImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISearchRootVtbl < > { unsafe extern "system" fn SetSchedule < Impl : ISearchRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , psztaskarg : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Schedule < Impl : ISearchRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppsztaskarg : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetRootURL < Impl : ISearchRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszurl : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RootURL < Impl : ISearchRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszurl : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetIsHierarchical < Impl : ISearchRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , fishierarchical : super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsHierarchical < Impl : ISearchRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pfishierarchical : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetProvidesNotifications < Impl : ISearchRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , fprovidesnotifications : super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ProvidesNotifications < Impl : ISearchRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pfprovidesnotifications : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetUseNotificationsOnly < Impl : ISearchRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , fusenotificationsonly : super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn UseNotificationsOnly < Impl : ISearchRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pfusenotificationsonly : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetEnumerationDepth < Impl : ISearchRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwdepth : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EnumerationDepth < Impl : ISearchRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdwdepth : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetHostDepth < Impl : ISearchRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwdepth : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn HostDepth < Impl : ISearchRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdwdepth : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetFollowDirectories < Impl : ISearchRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ffollowdirectories : super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn FollowDirectories < Impl : ISearchRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pffollowdirectories : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetAuthenticationType < Impl : ISearchRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , authtype : AUTH_TYPE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AuthenticationType < Impl : ISearchRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pauthtype : * mut AUTH_TYPE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetUser < Impl : ISearchRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszuser : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn User < Impl : ISearchRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszuser : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetPassword < Impl : ISearchRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszpassword : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Password < Impl : ISearchRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszpassword : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , SetSchedule : SetSchedule :: < Impl , IMPL_OFFSET > , Schedule : Schedule :: < Impl , IMPL_OFFSET > , SetRootURL : SetRootURL :: < Impl , IMPL_OFFSET > , RootURL : RootURL :: < Impl , IMPL_OFFSET > , SetIsHierarchical : SetIsHierarchical :: < Impl , IMPL_OFFSET > , IsHierarchical : IsHierarchical :: < Impl , IMPL_OFFSET > , SetProvidesNotifications : SetProvidesNotifications :: < Impl , IMPL_OFFSET > , ProvidesNotifications : ProvidesNotifications :: < Impl , IMPL_OFFSET > , SetUseNotificationsOnly : SetUseNotificationsOnly :: < Impl , IMPL_OFFSET > , UseNotificationsOnly : UseNotificationsOnly :: < Impl , IMPL_OFFSET > , SetEnumerationDepth : SetEnumerationDepth :: < Impl , IMPL_OFFSET > , EnumerationDepth : EnumerationDepth :: < Impl , IMPL_OFFSET > , SetHostDepth : SetHostDepth :: < Impl , IMPL_OFFSET > , HostDepth : HostDepth :: < Impl , IMPL_OFFSET > , SetFollowDirectories : SetFollowDirectories :: < Impl , IMPL_OFFSET > , FollowDirectories : FollowDirectories :: < Impl , IMPL_OFFSET > , SetAuthenticationType : SetAuthenticationType :: < Impl , IMPL_OFFSET > , AuthenticationType : AuthenticationType :: < Impl , IMPL_OFFSET > , SetUser : SetUser :: < Impl , IMPL_OFFSET > , User : User :: < Impl , IMPL_OFFSET > , SetPassword : SetPassword :: < Impl , IMPL_OFFSET > , Password : Password :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISearchRoot < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISearchScopeRuleImpl < > : Sized where { fn PatternOrURL ( ) ; fn IsIncluded ( ) ; fn IsDefault ( ) ; fn FollowFlags ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISearchScopeRuleVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISearchScopeRuleImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISearchScopeRuleVtbl < > { unsafe extern "system" fn PatternOrURL < Impl : ISearchScopeRuleImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszpatternorurl : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsIncluded < Impl : ISearchScopeRuleImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pfisincluded : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsDefault < Impl : ISearchScopeRuleImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pfisdefault : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn FollowFlags < Impl : ISearchScopeRuleImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pfollowflags : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , PatternOrURL : PatternOrURL :: < Impl , IMPL_OFFSET > , IsIncluded : IsIncluded :: < Impl , IMPL_OFFSET > , IsDefault : IsDefault :: < Impl , IMPL_OFFSET > , FollowFlags : FollowFlags :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISearchScopeRule < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" ) ) ] pub trait ISearchViewChangedSinkImpl < > : Sized where { fn OnChange ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" ) ) ] impl < > ISearchViewChangedSinkVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISearchViewChangedSinkImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISearchViewChangedSinkVtbl < > { unsafe extern "system" fn OnChange < Impl : ISearchViewChangedSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdwdocid : * const i32 , pchange : * const SEARCH_ITEM_CHANGE , pfinview : * const super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , OnChange : OnChange :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISearchViewChangedSink < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Security_Authorization" ) ) ] pub trait ISecurityInfoImpl < > : Sized where { fn GetCurrentTrustee ( ) ; fn GetObjectTypes ( ) ; fn GetPermissions ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Security_Authorization" ) ) ] impl < > ISecurityInfoVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISecurityInfoImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISecurityInfoVtbl < > { unsafe extern "system" fn GetCurrentTrustee < Impl : ISecurityInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pptrustee : * mut * mut super::super::Security::Authorization:: TRUSTEE_W , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetObjectTypes < Impl : ISecurityInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , cobjecttypes : * mut u32 , rgobjecttypes : * mut * mut :: windows :: core :: GUID , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetPermissions < Impl : ISecurityInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , objecttype : :: windows :: core :: GUID , ppermissions : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetCurrentTrustee : GetCurrentTrustee :: < Impl , IMPL_OFFSET > , GetObjectTypes : GetObjectTypes :: < Impl , IMPL_OFFSET > , GetPermissions : GetPermissions :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISecurityInfo < > as :: windows :: core :: Interface > :: IID } } pub trait IServiceImpl < > : Sized where { fn InvokeService ( ) ; } impl < > IServiceVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IServiceImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IServiceVtbl < > { unsafe extern "system" fn InvokeService < Impl : IServiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkinner : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , InvokeService : InvokeService :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IService < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISessionPropertiesImpl < > : Sized where { fn GetProperties ( ) ; fn SetProperties ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISessionPropertiesVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISessionPropertiesImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISessionPropertiesVtbl < > { unsafe extern "system" fn GetProperties < Impl : ISessionPropertiesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , cpropertyidsets : u32 , rgpropertyidsets : * const DBPROPIDSET , pcpropertysets : * mut u32 , prgpropertysets : * mut * mut DBPROPSET , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetProperties < Impl : ISessionPropertiesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , cpropertysets : u32 , rgpropertysets : * mut DBPROPSET , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetProperties : GetProperties :: < Impl , IMPL_OFFSET > , SetProperties : SetProperties :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISessionProperties < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISimpleCommandCreatorImpl < > : Sized where { fn CreateICommand ( ) ; fn VerifyCatalog ( ) ; fn GetDefaultCatalog ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISimpleCommandCreatorVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISimpleCommandCreatorImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISimpleCommandCreatorVtbl < > { unsafe extern "system" fn CreateICommand < Impl : ISimpleCommandCreatorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppiunknown : * mut * mut :: core :: ffi :: c_void , pouterunk : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn VerifyCatalog < Impl : ISimpleCommandCreatorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwszmachine : super::super::Foundation:: PWSTR , pwszcatalogname : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetDefaultCatalog < Impl : ISimpleCommandCreatorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwszcatalogname : super::super::Foundation:: PWSTR , cwcin : u32 , pcwcout : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , CreateICommand : CreateICommand :: < Impl , IMPL_OFFSET > , VerifyCatalog : VerifyCatalog :: < Impl , IMPL_OFFSET > , GetDefaultCatalog : GetDefaultCatalog :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISimpleCommandCreator < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISourcesRowsetImpl < > : Sized where { fn GetSourcesRowset ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISourcesRowsetVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISourcesRowsetImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISourcesRowsetVtbl < > { unsafe extern "system" fn GetSourcesRowset < Impl : ISourcesRowsetImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkouter : * mut :: core :: ffi :: c_void , riid : * const :: windows :: core :: GUID , cpropertysets : u32 , rgproperties : * mut DBPROPSET , ppsourcesrowset : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetSourcesRowset : GetSourcesRowset :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISourcesRowset < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IStemmerImpl < > : Sized where { fn Init ( ) ; fn GenerateWordForms ( ) ; fn GetLicenseToUse ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IStemmerVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IStemmerImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IStemmerVtbl < > { unsafe extern "system" fn Init < Impl : IStemmerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ulmaxtokensize : u32 , pflicense : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GenerateWordForms < Impl : IStemmerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwcinbuf : super::super::Foundation:: PWSTR , cwc : u32 , pstemsink : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetLicenseToUse < Impl : IStemmerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppwcslicense : * const * const u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Init : Init :: < Impl , IMPL_OFFSET > , GenerateWordForms : GenerateWordForms :: < Impl , IMPL_OFFSET > , GetLicenseToUse : GetLicenseToUse :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IStemmer < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISubscriptionItemImpl < > : Sized where { fn GetCookie ( ) ; fn GetSubscriptionItemInfo ( ) ; fn SetSubscriptionItemInfo ( ) ; fn ReadProperties ( ) ; fn WriteProperties ( ) ; fn EnumProperties ( ) ; fn NotifyChanged ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISubscriptionItemVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISubscriptionItemImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISubscriptionItemVtbl < > { unsafe extern "system" fn GetCookie < Impl : ISubscriptionItemImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcookie : * mut :: windows :: core :: GUID , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetSubscriptionItemInfo < Impl : ISubscriptionItemImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , psubscriptioniteminfo : * mut SUBSCRIPTIONITEMINFO , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetSubscriptionItemInfo < Impl : ISubscriptionItemImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , psubscriptioniteminfo : * const SUBSCRIPTIONITEMINFO , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ReadProperties < Impl : ISubscriptionItemImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ncount : u32 , rgwszname : * const super::super::Foundation:: PWSTR , rgvalue : * mut super::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn WriteProperties < Impl : ISubscriptionItemImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ncount : u32 , rgwszname : * const super::super::Foundation:: PWSTR , rgvalue : * const super::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EnumProperties < Impl : ISubscriptionItemImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppenumitemproperties : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn NotifyChanged < Impl : ISubscriptionItemImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetCookie : GetCookie :: < Impl , IMPL_OFFSET > , GetSubscriptionItemInfo : GetSubscriptionItemInfo :: < Impl , IMPL_OFFSET > , SetSubscriptionItemInfo : SetSubscriptionItemInfo :: < Impl , IMPL_OFFSET > , ReadProperties : ReadProperties :: < Impl , IMPL_OFFSET > , WriteProperties : WriteProperties :: < Impl , IMPL_OFFSET > , EnumProperties : EnumProperties :: < Impl , IMPL_OFFSET > , NotifyChanged : NotifyChanged :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISubscriptionItem < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISubscriptionMgrImpl < > : Sized where { fn DeleteSubscription ( ) ; fn UpdateSubscription ( ) ; fn UpdateAll ( ) ; fn IsSubscribed ( ) ; fn GetSubscriptionInfo ( ) ; fn GetDefaultInfo ( ) ; fn ShowSubscriptionProperties ( ) ; fn CreateSubscription ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISubscriptionMgrVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISubscriptionMgrImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISubscriptionMgrVtbl < > { unsafe extern "system" fn DeleteSubscription < Impl : ISubscriptionMgrImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwszurl : super::super::Foundation:: PWSTR , hwnd : super::super::Foundation:: HWND , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn UpdateSubscription < Impl : ISubscriptionMgrImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwszurl : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn UpdateAll < Impl : ISubscriptionMgrImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsSubscribed < Impl : ISubscriptionMgrImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwszurl : super::super::Foundation:: PWSTR , pfsubscribed : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetSubscriptionInfo < Impl : ISubscriptionMgrImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwszurl : super::super::Foundation:: PWSTR , pinfo : * mut SUBSCRIPTIONINFO , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetDefaultInfo < Impl : ISubscriptionMgrImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , subtype : SUBSCRIPTIONTYPE , pinfo : * mut SUBSCRIPTIONINFO , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ShowSubscriptionProperties < Impl : ISubscriptionMgrImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwszurl : super::super::Foundation:: PWSTR , hwnd : super::super::Foundation:: HWND , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateSubscription < Impl : ISubscriptionMgrImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hwnd : super::super::Foundation:: HWND , pwszurl : super::super::Foundation:: PWSTR , pwszfriendlyname : super::super::Foundation:: PWSTR , dwflags : u32 , substype : SUBSCRIPTIONTYPE , pinfo : * mut SUBSCRIPTIONINFO , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , DeleteSubscription : DeleteSubscription :: < Impl , IMPL_OFFSET > , UpdateSubscription : UpdateSubscription :: < Impl , IMPL_OFFSET > , UpdateAll : UpdateAll :: < Impl , IMPL_OFFSET > , IsSubscribed : IsSubscribed :: < Impl , IMPL_OFFSET > , GetSubscriptionInfo : GetSubscriptionInfo :: < Impl , IMPL_OFFSET > , GetDefaultInfo : GetDefaultInfo :: < Impl , IMPL_OFFSET > , ShowSubscriptionProperties : ShowSubscriptionProperties :: < Impl , IMPL_OFFSET > , CreateSubscription : CreateSubscription :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISubscriptionMgr < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISubscriptionMgr2Impl < > : Sized + ISubscriptionMgrImpl where { fn GetItemFromURL ( ) ; fn GetItemFromCookie ( ) ; fn GetSubscriptionRunState ( ) ; fn EnumSubscriptions ( ) ; fn UpdateItems ( ) ; fn AbortItems ( ) ; fn AbortAll ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISubscriptionMgr2Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISubscriptionMgr2Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISubscriptionMgr2Vtbl < > { unsafe extern "system" fn GetItemFromURL < Impl : ISubscriptionMgr2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwszurl : super::super::Foundation:: PWSTR , ppsubscriptionitem : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetItemFromCookie < Impl : ISubscriptionMgr2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , psubscriptioncookie : * const :: windows :: core :: GUID , ppsubscriptionitem : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetSubscriptionRunState < Impl : ISubscriptionMgr2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwnumcookies : u32 , pcookies : * const :: windows :: core :: GUID , pdwrunstate : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EnumSubscriptions < Impl : ISubscriptionMgr2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwflags : u32 , ppenumsubscriptions : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn UpdateItems < Impl : ISubscriptionMgr2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwflags : u32 , dwnumcookies : u32 , pcookies : * const :: windows :: core :: GUID , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AbortItems < Impl : ISubscriptionMgr2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwnumcookies : u32 , pcookies : * const :: windows :: core :: GUID , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AbortAll < Impl : ISubscriptionMgr2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISubscriptionMgrVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetItemFromURL : GetItemFromURL :: < Impl , IMPL_OFFSET > , GetItemFromCookie : GetItemFromCookie :: < Impl , IMPL_OFFSET > , GetSubscriptionRunState : GetSubscriptionRunState :: < Impl , IMPL_OFFSET > , EnumSubscriptions : EnumSubscriptions :: < Impl , IMPL_OFFSET > , UpdateItems : UpdateItems :: < Impl , IMPL_OFFSET > , AbortItems : AbortItems :: < Impl , IMPL_OFFSET > , AbortAll : AbortAll :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISubscriptionMgr2 < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ITableCreationImpl < > : Sized + ITableDefinitionImpl where { fn GetTableDefinition ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ITableCreationVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ITableCreationImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ITableCreationVtbl < > { unsafe extern "system" fn GetTableDefinition < Impl : ITableCreationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ptableid : * const super::super::Storage::IndexServer:: DBID , pccolumndescs : * mut usize , prgcolumndescs : * mut * mut DBCOLUMNDESC , pcpropertysets : * mut u32 , prgpropertysets : * mut * mut DBPROPSET , pcconstraintdescs : * mut u32 , prgconstraintdescs : * mut * mut DBCONSTRAINTDESC , ppwszstringbuffer : * mut * mut u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ITableDefinitionVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetTableDefinition : GetTableDefinition :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ITableCreation < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ITableDefinitionImpl < > : Sized where { fn CreateTable ( ) ; fn DropTable ( ) ; fn AddColumn ( ) ; fn DropColumn ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ITableDefinitionVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ITableDefinitionImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ITableDefinitionVtbl < > { unsafe extern "system" fn CreateTable < Impl : ITableDefinitionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkouter : * mut :: core :: ffi :: c_void , ptableid : * const super::super::Storage::IndexServer:: DBID , ccolumndescs : usize , rgcolumndescs : * const DBCOLUMNDESC , riid : * const :: windows :: core :: GUID , cpropertysets : u32 , rgpropertysets : * mut DBPROPSET , pptableid : * mut * mut super::super::Storage::IndexServer:: DBID , pprowset : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DropTable < Impl : ITableDefinitionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ptableid : * const super::super::Storage::IndexServer:: DBID , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AddColumn < Impl : ITableDefinitionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ptableid : * const super::super::Storage::IndexServer:: DBID , pcolumndesc : * const DBCOLUMNDESC , ppcolumnid : * mut * mut super::super::Storage::IndexServer:: DBID , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DropColumn < Impl : ITableDefinitionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ptableid : * const super::super::Storage::IndexServer:: DBID , pcolumnid : * const super::super::Storage::IndexServer:: DBID , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , CreateTable : CreateTable :: < Impl , IMPL_OFFSET > , DropTable : DropTable :: < Impl , IMPL_OFFSET > , AddColumn : AddColumn :: < Impl , IMPL_OFFSET > , DropColumn : DropColumn :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ITableDefinition < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ITableDefinitionWithConstraintsImpl < > : Sized + ITableDefinitionImpl + ITableCreationImpl where { fn AddConstraint ( ) ; fn CreateTableWithConstraints ( ) ; fn DropConstraint ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ITableDefinitionWithConstraintsVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ITableDefinitionWithConstraintsImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ITableDefinitionWithConstraintsVtbl < > { unsafe extern "system" fn AddConstraint < Impl : ITableDefinitionWithConstraintsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ptableid : * mut super::super::Storage::IndexServer:: DBID , pconstraintdesc : * mut DBCONSTRAINTDESC , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateTableWithConstraints < Impl : ITableDefinitionWithConstraintsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkouter : * mut :: core :: ffi :: c_void , ptableid : * mut super::super::Storage::IndexServer:: DBID , ccolumndescs : usize , rgcolumndescs : * mut DBCOLUMNDESC , cconstraintdescs : u32 , rgconstraintdescs : * mut DBCONSTRAINTDESC , riid : * const :: windows :: core :: GUID , cpropertysets : u32 , rgpropertysets : * mut DBPROPSET , pptableid : * mut * mut super::super::Storage::IndexServer:: DBID , pprowset : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DropConstraint < Impl : ITableDefinitionWithConstraintsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ptableid : * mut super::super::Storage::IndexServer:: DBID , pconstraintid : * mut super::super::Storage::IndexServer:: DBID , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ITableCreationVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , AddConstraint : AddConstraint :: < Impl , IMPL_OFFSET > , CreateTableWithConstraints : CreateTableWithConstraints :: < Impl , IMPL_OFFSET > , DropConstraint : DropConstraint :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ITableDefinitionWithConstraints < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" ) ) ] pub trait ITableRenameImpl < > : Sized where { fn RenameColumn ( ) ; fn RenameTable ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" ) ) ] impl < > ITableRenameVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ITableRenameImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ITableRenameVtbl < > { unsafe extern "system" fn RenameColumn < Impl : ITableRenameImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ptableid : * mut super::super::Storage::IndexServer:: DBID , poldcolumnid : * mut super::super::Storage::IndexServer:: DBID , pnewcolumnid : * mut super::super::Storage::IndexServer:: DBID , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RenameTable < Impl : ITableRenameImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , poldtableid : * mut super::super::Storage::IndexServer:: DBID , poldindexid : * mut super::super::Storage::IndexServer:: DBID , pnewtableid : * mut super::super::Storage::IndexServer:: DBID , pnewindexid : * mut super::super::Storage::IndexServer:: DBID , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , RenameColumn : RenameColumn :: < Impl , IMPL_OFFSET > , RenameTable : RenameTable :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ITableRename < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ITokenCollectionImpl < > : Sized where { fn NumberOfTokens ( ) ; fn GetToken ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ITokenCollectionVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ITokenCollectionImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ITokenCollectionVtbl < > { unsafe extern "system" fn NumberOfTokens < Impl : ITokenCollectionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcount : * const u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetToken < Impl : ITokenCollectionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , i : u32 , pbegin : * mut u32 , plength : * mut u32 , ppsz : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , NumberOfTokens : NumberOfTokens :: < Impl , IMPL_OFFSET > , GetToken : GetToken :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ITokenCollection < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_System_DistributedTransactionCoordinator" ) ] pub trait ITransactionJoinImpl < > : Sized where { fn GetOptionsObject ( ) ; fn JoinTransaction ( ) ; } # [ cfg ( feature ="Win32_System_DistributedTransactionCoordinator" ) ] impl < > ITransactionJoinVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ITransactionJoinImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ITransactionJoinVtbl < > { unsafe extern "system" fn GetOptionsObject < Impl : ITransactionJoinImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppoptions : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn JoinTransaction < Impl : ITransactionJoinImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punktransactioncoord : * mut :: core :: ffi :: c_void , isolevel : i32 , isoflags : u32 , potheroptions : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetOptionsObject : GetOptionsObject :: < Impl , IMPL_OFFSET > , JoinTransaction : JoinTransaction :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ITransactionJoin < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_DistributedTransactionCoordinator" ) ) ] pub trait ITransactionLocalImpl < > : Sized + ITransactionImpl where { fn GetOptionsObject ( ) ; fn StartTransaction ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_DistributedTransactionCoordinator" ) ) ] impl < > ITransactionLocalVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ITransactionLocalImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ITransactionLocalVtbl < > { unsafe extern "system" fn GetOptionsObject < Impl : ITransactionLocalImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppoptions : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn StartTransaction < Impl : ITransactionLocalImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , isolevel : i32 , isoflags : u32 , potheroptions : :: windows :: core :: RawPtr , pultransactionlevel : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ITransactionVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetOptionsObject : GetOptionsObject :: < Impl , IMPL_OFFSET > , StartTransaction : StartTransaction :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ITransactionLocal < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_System_DistributedTransactionCoordinator" ) ] pub trait ITransactionObjectImpl < > : Sized where { fn GetTransactionObject ( ) ; } # [ cfg ( feature ="Win32_System_DistributedTransactionCoordinator" ) ] impl < > ITransactionObjectVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ITransactionObjectImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ITransactionObjectVtbl < > { unsafe extern "system" fn GetTransactionObject < Impl : ITransactionObjectImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ultransactionlevel : u32 , pptransactionobject : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetTransactionObject : GetTransactionObject :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ITransactionObject < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Security_Authorization" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ITrusteeAdminImpl < > : Sized where { fn CompareTrustees ( ) ; fn CreateTrustee ( ) ; fn DeleteTrustee ( ) ; fn SetTrusteeProperties ( ) ; fn GetTrusteeProperties ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Security_Authorization" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ITrusteeAdminVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ITrusteeAdminImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ITrusteeAdminVtbl < > { unsafe extern "system" fn CompareTrustees < Impl : ITrusteeAdminImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ptrustee1 : * mut super::super::Security::Authorization:: TRUSTEE_W , ptrustee2 : * mut super::super::Security::Authorization:: TRUSTEE_W , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateTrustee < Impl : ITrusteeAdminImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ptrustee : * mut super::super::Security::Authorization:: TRUSTEE_W , cpropertysets : u32 , rgpropertysets : * mut DBPROPSET , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DeleteTrustee < Impl : ITrusteeAdminImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ptrustee : * mut super::super::Security::Authorization:: TRUSTEE_W , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetTrusteeProperties < Impl : ITrusteeAdminImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ptrustee : * mut super::super::Security::Authorization:: TRUSTEE_W , cpropertysets : u32 , rgpropertysets : * mut DBPROPSET , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetTrusteeProperties < Impl : ITrusteeAdminImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ptrustee : * mut super::super::Security::Authorization:: TRUSTEE_W , cpropertyidsets : u32 , rgpropertyidsets : * const DBPROPIDSET , pcpropertysets : * mut u32 , prgpropertysets : * mut * mut DBPROPSET , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , CompareTrustees : CompareTrustees :: < Impl , IMPL_OFFSET > , CreateTrustee : CreateTrustee :: < Impl , IMPL_OFFSET > , DeleteTrustee : DeleteTrustee :: < Impl , IMPL_OFFSET > , SetTrusteeProperties : SetTrusteeProperties :: < Impl , IMPL_OFFSET > , GetTrusteeProperties : GetTrusteeProperties :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ITrusteeAdmin < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Security_Authorization" ) ) ] pub trait ITrusteeGroupAdminImpl < > : Sized where { fn AddMember ( ) ; fn DeleteMember ( ) ; fn IsMember ( ) ; fn GetMembers ( ) ; fn GetMemberships ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Security_Authorization" ) ) ] impl < > ITrusteeGroupAdminVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ITrusteeGroupAdminImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ITrusteeGroupAdminVtbl < > { unsafe extern "system" fn AddMember < Impl : ITrusteeGroupAdminImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pmembershiptrustee : * mut super::super::Security::Authorization:: TRUSTEE_W , pmembertrustee : * mut super::super::Security::Authorization:: TRUSTEE_W , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DeleteMember < Impl : ITrusteeGroupAdminImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pmembershiptrustee : * mut super::super::Security::Authorization:: TRUSTEE_W , pmembertrustee : * mut super::super::Security::Authorization:: TRUSTEE_W , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsMember < Impl : ITrusteeGroupAdminImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pmembershiptrustee : * mut super::super::Security::Authorization:: TRUSTEE_W , pmembertrustee : * mut super::super::Security::Authorization:: TRUSTEE_W , pfstatus : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetMembers < Impl : ITrusteeGroupAdminImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pmembershiptrustee : * mut super::super::Security::Authorization:: TRUSTEE_W , pcmembers : * mut u32 , prgmembers : * mut * mut super::super::Security::Authorization:: TRUSTEE_W , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetMemberships < Impl : ITrusteeGroupAdminImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ptrustee : * mut super::super::Security::Authorization:: TRUSTEE_W , pcmemberships : * mut u32 , prgmemberships : * mut * mut super::super::Security::Authorization:: TRUSTEE_W , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , AddMember : AddMember :: < Impl , IMPL_OFFSET > , DeleteMember : DeleteMember :: < Impl , IMPL_OFFSET > , IsMember : IsMember :: < Impl , IMPL_OFFSET > , GetMembers : GetMembers :: < Impl , IMPL_OFFSET > , GetMemberships : GetMemberships :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ITrusteeGroupAdmin < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IUMSImpl < > : Sized where { fn SqlUmsSuspend ( ) ; fn SqlUmsYield ( ) ; fn SqlUmsSwitchPremptive ( ) ; fn SqlUmsSwitchNonPremptive ( ) ; fn SqlUmsFIsPremptive ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IUMSVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IUMSImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IUMSVtbl < > { unsafe extern "system" fn SqlUmsSuspend < Impl : IUMSImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ticks : u32 , ) { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SqlUmsYield < Impl : IUMSImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ticks : u32 , ) { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SqlUmsSwitchPremptive < Impl : IUMSImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SqlUmsSwitchNonPremptive < Impl : IUMSImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SqlUmsFIsPremptive < Impl : IUMSImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> super::super::Foundation:: BOOL { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { SqlUmsSuspend : SqlUmsSuspend :: < Impl , IMPL_OFFSET > , SqlUmsYield : SqlUmsYield :: < Impl , IMPL_OFFSET > , SqlUmsSwitchPremptive : SqlUmsSwitchPremptive :: < Impl , IMPL_OFFSET > , SqlUmsSwitchNonPremptive : SqlUmsSwitchNonPremptive :: < Impl , IMPL_OFFSET > , SqlUmsFIsPremptive : SqlUmsFIsPremptive :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IUMS < > as :: windows :: core :: Interface > :: IID } } pub trait IUMSInitializeImpl < > : Sized where { fn Initialize ( ) ; } impl < > IUMSInitializeVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IUMSInitializeImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IUMSInitializeVtbl < > { unsafe extern "system" fn Initialize < Impl : IUMSInitializeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pums : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Initialize : Initialize :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IUMSInitialize < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] pub trait IUrlAccessorImpl < > : Sized where { fn AddRequestParameter ( ) ; fn GetDocFormat ( ) ; fn GetCLSID ( ) ; fn GetHost ( ) ; fn IsDirectory ( ) ; fn GetSize ( ) ; fn GetLastModified ( ) ; fn GetFileName ( ) ; fn GetSecurityDescriptor ( ) ; fn GetRedirectedURL ( ) ; fn GetSecurityProvider ( ) ; fn BindToStream ( ) ; fn BindToFilter ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] impl < > IUrlAccessorVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IUrlAccessorImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IUrlAccessorVtbl < > { unsafe extern "system" fn AddRequestParameter < Impl : IUrlAccessorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pspec : * const super::Com::StructuredStorage:: PROPSPEC , pvar : * const super::Com::StructuredStorage:: PROPVARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetDocFormat < Impl : IUrlAccessorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , wszdocformat : super::super::Foundation:: PWSTR , dwsize : u32 , pdwlength : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetCLSID < Impl : IUrlAccessorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pclsid : * mut :: windows :: core :: GUID , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetHost < Impl : IUrlAccessorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , wszhost : super::super::Foundation:: PWSTR , dwsize : u32 , pdwlength : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsDirectory < Impl : IUrlAccessorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetSize < Impl : IUrlAccessorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pllsize : * mut u64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetLastModified < Impl : IUrlAccessorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pftlastmodified : * mut super::super::Foundation:: FILETIME , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetFileName < Impl : IUrlAccessorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , wszfilename : super::super::Foundation:: PWSTR , dwsize : u32 , pdwlength : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetSecurityDescriptor < Impl : IUrlAccessorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , psd : * mut u8 , dwsize : u32 , pdwlength : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetRedirectedURL < Impl : IUrlAccessorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , wszredirectedurl : super::super::Foundation:: PWSTR , dwsize : u32 , pdwlength : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetSecurityProvider < Impl : IUrlAccessorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pspclsid : * mut :: windows :: core :: GUID , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn BindToStream < Impl : IUrlAccessorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppstream : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn BindToFilter < Impl : IUrlAccessorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppfilter : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , AddRequestParameter : AddRequestParameter :: < Impl , IMPL_OFFSET > , GetDocFormat : GetDocFormat :: < Impl , IMPL_OFFSET > , GetCLSID : GetCLSID :: < Impl , IMPL_OFFSET > , GetHost : GetHost :: < Impl , IMPL_OFFSET > , IsDirectory : IsDirectory :: < Impl , IMPL_OFFSET > , GetSize : GetSize :: < Impl , IMPL_OFFSET > , GetLastModified : GetLastModified :: < Impl , IMPL_OFFSET > , GetFileName : GetFileName :: < Impl , IMPL_OFFSET > , GetSecurityDescriptor : GetSecurityDescriptor :: < Impl , IMPL_OFFSET > , GetRedirectedURL : GetRedirectedURL :: < Impl , IMPL_OFFSET > , GetSecurityProvider : GetSecurityProvider :: < Impl , IMPL_OFFSET > , BindToStream : BindToStream :: < Impl , IMPL_OFFSET > , BindToFilter : BindToFilter :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IUrlAccessor < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] pub trait IUrlAccessor2Impl < > : Sized + IUrlAccessorImpl where { fn GetDisplayUrl ( ) ; fn IsDocument ( ) ; fn GetCodePage ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] impl < > IUrlAccessor2Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IUrlAccessor2Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IUrlAccessor2Vtbl < > { unsafe extern "system" fn GetDisplayUrl < Impl : IUrlAccessor2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , wszdocurl : super::super::Foundation:: PWSTR , dwsize : u32 , pdwlength : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsDocument < Impl : IUrlAccessor2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetCodePage < Impl : IUrlAccessor2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , wszcodepage : super::super::Foundation:: PWSTR , dwsize : u32 , pdwlength : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IUrlAccessorVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetDisplayUrl : GetDisplayUrl :: < Impl , IMPL_OFFSET > , IsDocument : IsDocument :: < Impl , IMPL_OFFSET > , GetCodePage : GetCodePage :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IUrlAccessor2 < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] pub trait IUrlAccessor3Impl < > : Sized + IUrlAccessorImpl + IUrlAccessor2Impl where { fn GetImpersonationSidBlobs ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] impl < > IUrlAccessor3Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IUrlAccessor3Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IUrlAccessor3Vtbl < > { unsafe extern "system" fn GetImpersonationSidBlobs < Impl : IUrlAccessor3Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcwszurl : super::super::Foundation:: PWSTR , pcsidcount : * mut u32 , ppsidblobs : * mut * mut super::Com:: BLOB , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IUrlAccessor2Vtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetImpersonationSidBlobs : GetImpersonationSidBlobs :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IUrlAccessor3 < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" , feature ="Win32_UI_Shell_PropertiesSystem" ) ) ] pub trait IUrlAccessor4Impl < > : Sized + IUrlAccessorImpl + IUrlAccessor2Impl + IUrlAccessor3Impl where { fn ShouldIndexItemContent ( ) ; fn ShouldIndexProperty ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" , feature ="Win32_UI_Shell_PropertiesSystem" ) ) ] impl < > IUrlAccessor4Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IUrlAccessor4Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IUrlAccessor4Vtbl < > { unsafe extern "system" fn ShouldIndexItemContent < Impl : IUrlAccessor4Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pfindexcontent : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ShouldIndexProperty < Impl : IUrlAccessor4Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , key : * const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pfindexproperty : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IUrlAccessor3Vtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , ShouldIndexItemContent : ShouldIndexItemContent :: < Impl , IMPL_OFFSET > , ShouldIndexProperty : ShouldIndexProperty :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IUrlAccessor4 < > as :: windows :: core :: Interface > :: IID } } pub trait IViewChapterImpl < > : Sized where { fn GetSpecification ( ) ; fn OpenViewChapter ( ) ; } impl < > IViewChapterVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IViewChapterImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IViewChapterVtbl < > { unsafe extern "system" fn GetSpecification < Impl : IViewChapterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , riid : * const :: windows :: core :: GUID , pprowset : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn OpenViewChapter < Impl : IViewChapterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hsource : usize , phviewchapter : * mut usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetSpecification : GetSpecification :: < Impl , IMPL_OFFSET > , OpenViewChapter : OpenViewChapter :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IViewChapter < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_System_Com" ) ] pub trait IViewFilterImpl < > : Sized where { fn GetFilter ( ) ; fn GetFilterBindings ( ) ; fn SetFilter ( ) ; } # [ cfg ( feature ="Win32_System_Com" ) ] impl < > IViewFilterVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IViewFilterImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IViewFilterVtbl < > { unsafe extern "system" fn GetFilter < Impl : IViewFilterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , haccessor : usize , pcrows : * mut usize , pcompareops : * mut * mut u32 , pcriteriadata : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetFilterBindings < Impl : IViewFilterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcbindings : * mut usize , prgbindings : * mut * mut DBBINDING , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetFilter < Impl : IViewFilterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , haccessor : usize , crows : usize , compareops : * const u32 , pcriteriadata : * const :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetFilter : GetFilter :: < Impl , IMPL_OFFSET > , GetFilterBindings : GetFilterBindings :: < Impl , IMPL_OFFSET > , SetFilter : SetFilter :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IViewFilter < > as :: windows :: core :: Interface > :: IID } } pub trait IViewRowsetImpl < > : Sized where { fn GetSpecification ( ) ; fn OpenViewRowset ( ) ; } impl < > IViewRowsetVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IViewRowsetImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IViewRowsetVtbl < > { unsafe extern "system" fn GetSpecification < Impl : IViewRowsetImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , riid : * const :: windows :: core :: GUID , ppobject : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn OpenViewRowset < Impl : IViewRowsetImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkouter : * mut :: core :: ffi :: c_void , riid : * const :: windows :: core :: GUID , pprowset : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetSpecification : GetSpecification :: < Impl , IMPL_OFFSET > , OpenViewRowset : OpenViewRowset :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IViewRowset < > as :: windows :: core :: Interface > :: IID } } pub trait IViewSortImpl < > : Sized where { fn GetSortOrder ( ) ; fn SetSortOrder ( ) ; } impl < > IViewSortVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IViewSortImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IViewSortVtbl < > { unsafe extern "system" fn GetSortOrder < Impl : IViewSortImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcvalues : * mut usize , prgcolumns : * mut * mut usize , prgorders : * mut * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetSortOrder < Impl : IViewSortImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , cvalues : usize , rgcolumns : * const usize , rgorders : * const u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetSortOrder : GetSortOrder :: < Impl , IMPL_OFFSET > , SetSortOrder : SetSortOrder :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IViewSort < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" ) ) ] pub trait IWordBreakerImpl < > : Sized where { fn Init ( ) ; fn BreakText ( ) ; fn ComposePhrase ( ) ; fn GetLicenseToUse ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" ) ) ] impl < > IWordBreakerVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IWordBreakerImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IWordBreakerVtbl < > { unsafe extern "system" fn Init < Impl : IWordBreakerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , fquery : super::super::Foundation:: BOOL , ulmaxtokensize : u32 , pflicense : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn BreakText < Impl : IWordBreakerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ptextsource : * mut TEXT_SOURCE , pwordsink : :: windows :: core :: RawPtr , pphrasesink : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ComposePhrase < Impl : IWordBreakerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwcnoun : super::super::Foundation:: PWSTR , cwcnoun : u32 , pwcmodifier : super::super::Foundation:: PWSTR , cwcmodifier : u32 , ulattachmenttype : u32 , pwcphrase : super::super::Foundation:: PWSTR , pcwcphrase : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetLicenseToUse < Impl : IWordBreakerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppwcslicense : * const * const u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Init : Init :: < Impl , IMPL_OFFSET > , BreakText : BreakText :: < Impl , IMPL_OFFSET > , ComposePhrase : ComposePhrase :: < Impl , IMPL_OFFSET > , GetLicenseToUse : GetLicenseToUse :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IWordBreaker < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IWordFormSinkImpl < > : Sized where { fn PutAltWord ( ) ; fn PutWord ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IWordFormSinkVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IWordFormSinkImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IWordFormSinkVtbl < > { unsafe extern "system" fn PutAltWord < Impl : IWordFormSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwcinbuf : super::super::Foundation:: PWSTR , cwc : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn PutWord < Impl : IWordFormSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwcinbuf : super::super::Foundation:: PWSTR , cwc : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , PutAltWord : PutAltWord :: < Impl , IMPL_OFFSET > , PutWord : PutWord :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IWordFormSink < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" ) ) ] pub trait IWordSinkImpl < > : Sized where { fn PutWord ( ) ; fn PutAltWord ( ) ; fn StartAltPhrase ( ) ; fn EndAltPhrase ( ) ; fn PutBreak ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Storage_IndexServer" ) ) ] impl < > IWordSinkVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IWordSinkImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IWordSinkVtbl < > { unsafe extern "system" fn PutWord < Impl : IWordSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , cwc : u32 , pwcinbuf : super::super::Foundation:: PWSTR , cwcsrclen : u32 , cwcsrcpos : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn PutAltWord < Impl : IWordSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , cwc : u32 , pwcinbuf : super::super::Foundation:: PWSTR , cwcsrclen : u32 , cwcsrcpos : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn StartAltPhrase < Impl : IWordSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EndAltPhrase < Impl : IWordSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn PutBreak < Impl : IWordSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , breaktype : super::super::Storage::IndexServer:: WORDREP_BREAK_TYPE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , PutWord : PutWord :: < Impl , IMPL_OFFSET > , PutAltWord : PutAltWord :: < Impl , IMPL_OFFSET > , StartAltPhrase : StartAltPhrase :: < Impl , IMPL_OFFSET > , EndAltPhrase : EndAltPhrase :: < Impl , IMPL_OFFSET > , PutBreak : PutBreak :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IWordSink < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait OLEDBSimpleProviderImpl < > : Sized where { fn getRowCount ( ) ; fn getColumnCount ( ) ; fn getRWStatus ( ) ; fn getVariant ( ) ; fn setVariant ( ) ; fn getLocale ( ) ; fn deleteRows ( ) ; fn insertRows ( ) ; fn find ( ) ; fn addOLEDBSimpleProviderListener ( ) ; fn removeOLEDBSimpleProviderListener ( ) ; fn isAsync ( ) ; fn getEstimatedRows ( ) ; fn stopTransfer ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > OLEDBSimpleProviderVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : OLEDBSimpleProviderImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> OLEDBSimpleProviderVtbl < > { unsafe extern "system" fn getRowCount < Impl : OLEDBSimpleProviderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcrows : * mut isize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn getColumnCount < Impl : OLEDBSimpleProviderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pccolumns : * mut isize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn getRWStatus < Impl : OLEDBSimpleProviderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , irow : isize , icolumn : isize , prwstatus : * mut OSPRW , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn getVariant < Impl : OLEDBSimpleProviderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , irow : isize , icolumn : isize , format : OSPFORMAT , pvar : * mut super::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn setVariant < Impl : OLEDBSimpleProviderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , irow : isize , icolumn : isize , format : OSPFORMAT , var : :: core :: mem :: ManuallyDrop < super::Com:: VARIANT > , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn getLocale < Impl : OLEDBSimpleProviderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbstrlocale : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn deleteRows < Impl : OLEDBSimpleProviderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , irow : isize , crows : isize , pcrowsdeleted : * mut isize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn insertRows < Impl : OLEDBSimpleProviderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , irow : isize , crows : isize , pcrowsinserted : * mut isize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn find < Impl : OLEDBSimpleProviderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , irowstart : isize , icolumn : isize , val : :: core :: mem :: ManuallyDrop < super::Com:: VARIANT > , findflags : OSPFIND , comptype : OSPCOMP , pirowfound : * mut isize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn addOLEDBSimpleProviderListener < Impl : OLEDBSimpleProviderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pospilistener : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn removeOLEDBSimpleProviderListener < Impl : OLEDBSimpleProviderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pospilistener : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn isAsync < Impl : OLEDBSimpleProviderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbasynch : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn getEstimatedRows < Impl : OLEDBSimpleProviderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pirows : * mut isize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn stopTransfer < Impl : OLEDBSimpleProviderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , getRowCount : getRowCount :: < Impl , IMPL_OFFSET > , getColumnCount : getColumnCount :: < Impl , IMPL_OFFSET > , getRWStatus : getRWStatus :: < Impl , IMPL_OFFSET > , getVariant : getVariant :: < Impl , IMPL_OFFSET > , setVariant : setVariant :: < Impl , IMPL_OFFSET > , getLocale : getLocale :: < Impl , IMPL_OFFSET > , deleteRows : deleteRows :: < Impl , IMPL_OFFSET > , insertRows : insertRows :: < Impl , IMPL_OFFSET > , find : find :: < Impl , IMPL_OFFSET > , addOLEDBSimpleProviderListener : addOLEDBSimpleProviderListener :: < Impl , IMPL_OFFSET > , removeOLEDBSimpleProviderListener : removeOLEDBSimpleProviderListener :: < Impl , IMPL_OFFSET > , isAsync : isAsync :: < Impl , IMPL_OFFSET > , getEstimatedRows : getEstimatedRows :: < Impl , IMPL_OFFSET > , stopTransfer : stopTransfer :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < OLEDBSimpleProvider < > as :: windows :: core :: Interface > :: IID } } pub trait OLEDBSimpleProviderListenerImpl < > : Sized where { fn aboutToChangeCell ( ) ; fn cellChanged ( ) ; fn aboutToDeleteRows ( ) ; fn deletedRows ( ) ; fn aboutToInsertRows ( ) ; fn insertedRows ( ) ; fn rowsAvailable ( ) ; fn transferComplete ( ) ; } impl < > OLEDBSimpleProviderListenerVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : OLEDBSimpleProviderListenerImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> OLEDBSimpleProviderListenerVtbl < > { unsafe extern "system" fn aboutToChangeCell < Impl : OLEDBSimpleProviderListenerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , irow : isize , icolumn : isize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn cellChanged < Impl : OLEDBSimpleProviderListenerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , irow : isize , icolumn : isize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn aboutToDeleteRows < Impl : OLEDBSimpleProviderListenerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , irow : isize , crows : isize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn deletedRows < Impl : OLEDBSimpleProviderListenerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , irow : isize , crows : isize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn aboutToInsertRows < Impl : OLEDBSimpleProviderListenerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , irow : isize , crows : isize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn insertedRows < Impl : OLEDBSimpleProviderListenerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , irow : isize , crows : isize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn rowsAvailable < Impl : OLEDBSimpleProviderListenerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , irow : isize , crows : isize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn transferComplete < Impl : OLEDBSimpleProviderListenerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , xfer : OSPXFER , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , aboutToChangeCell : aboutToChangeCell :: < Impl , IMPL_OFFSET > , cellChanged : cellChanged :: < Impl , IMPL_OFFSET > , aboutToDeleteRows : aboutToDeleteRows :: < Impl , IMPL_OFFSET > , deletedRows : deletedRows :: < Impl , IMPL_OFFSET > , aboutToInsertRows : aboutToInsertRows :: < Impl , IMPL_OFFSET > , insertedRows : insertedRows :: < Impl , IMPL_OFFSET > , rowsAvailable : rowsAvailable :: < Impl , IMPL_OFFSET > , transferComplete : transferComplete :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < OLEDBSimpleProviderListener < > as :: windows :: core :: Interface > :: IID } } 
+pub trait DataSourceImpl: Sized {
+    fn getDataMember();
+    fn getDataMemberName();
+    fn getDataMemberCount();
+    fn addDataSourceListener();
+    fn removeDataSourceListener();
+}
+impl DataSourceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DataSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> DataSourceVtbl {
+        unsafe extern "system" fn getDataMember<Impl: DataSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdm: *const u16, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn getDataMemberName<Impl: DataSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lindex: i32, pbstrdm: *mut *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn getDataMemberCount<Impl: DataSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn addDataSourceListener<Impl: DataSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdsl: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn removeDataSourceListener<Impl: DataSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdsl: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            getDataMember: getDataMember::<Impl, IMPL_OFFSET>,
+            getDataMemberName: getDataMemberName::<Impl, IMPL_OFFSET>,
+            getDataMemberCount: getDataMemberCount::<Impl, IMPL_OFFSET>,
+            addDataSourceListener: addDataSourceListener::<Impl, IMPL_OFFSET>,
+            removeDataSourceListener: removeDataSourceListener::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<DataSource as ::windows::core::Interface>::IID
+    }
+}
+pub trait DataSourceListenerImpl: Sized {
+    fn dataMemberChanged();
+    fn dataMemberAdded();
+    fn dataMemberRemoved();
+}
+impl DataSourceListenerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DataSourceListenerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> DataSourceListenerVtbl {
+        unsafe extern "system" fn dataMemberChanged<Impl: DataSourceListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdm: *const u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn dataMemberAdded<Impl: DataSourceListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdm: *const u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn dataMemberRemoved<Impl: DataSourceListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdm: *const u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            dataMemberChanged: dataMemberChanged::<Impl, IMPL_OFFSET>,
+            dataMemberAdded: dataMemberAdded::<Impl, IMPL_OFFSET>,
+            dataMemberRemoved: dataMemberRemoved::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<DataSourceListener as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait DataSourceObjectImpl: Sized + IDispatchImpl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl DataSourceObjectVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: DataSourceObjectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> DataSourceObjectVtbl {
+        Self { base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<DataSourceObject as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IAccessorImpl: Sized {
+    fn AddRefAccessor();
+    fn CreateAccessor();
+    fn GetBindings();
+    fn ReleaseAccessor();
+}
+#[cfg(feature = "Win32_System_Com")]
+impl IAccessorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAccessorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAccessorVtbl {
+        unsafe extern "system" fn AddRefAccessor<Impl: IAccessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: usize, pcrefcount: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateAccessor<Impl: IAccessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwaccessorflags: u32, cbindings: usize, rgbindings: *const DBBINDING, cbrowsize: usize, phaccessor: *mut usize, rgstatus: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetBindings<Impl: IAccessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: usize, pdwaccessorflags: *mut u32, pcbindings: *mut usize, prgbindings: *mut *mut DBBINDING) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReleaseAccessor<Impl: IAccessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: usize, pcrefcount: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            AddRefAccessor: AddRefAccessor::<Impl, IMPL_OFFSET>,
+            CreateAccessor: CreateAccessor::<Impl, IMPL_OFFSET>,
+            GetBindings: GetBindings::<Impl, IMPL_OFFSET>,
+            ReleaseAccessor: ReleaseAccessor::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAccessor as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IAlterIndexImpl: Sized {
+    fn AlterIndex();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IAlterIndexVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAlterIndexImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAlterIndexVtbl {
+        unsafe extern "system" fn AlterIndex<Impl: IAlterIndexImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptableid: *mut super::super::Storage::IndexServer::DBID, pindexid: *mut super::super::Storage::IndexServer::DBID, pnewindexid: *mut super::super::Storage::IndexServer::DBID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), AlterIndex: AlterIndex::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAlterIndex as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IAlterTableImpl: Sized {
+    fn AlterColumn();
+    fn AlterTable();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IAlterTableVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IAlterTableImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IAlterTableVtbl {
+        unsafe extern "system" fn AlterColumn<Impl: IAlterTableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptableid: *mut super::super::Storage::IndexServer::DBID, pcolumnid: *mut super::super::Storage::IndexServer::DBID, dwcolumndescflags: u32, pcolumndesc: *mut DBCOLUMNDESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AlterTable<Impl: IAlterTableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptableid: *mut super::super::Storage::IndexServer::DBID, pnewtableid: *mut super::super::Storage::IndexServer::DBID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            AlterColumn: AlterColumn::<Impl, IMPL_OFFSET>,
+            AlterTable: AlterTable::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IAlterTable as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub trait IBindResourceImpl: Sized {
+    fn Bind();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl IBindResourceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBindResourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBindResourceVtbl {
+        unsafe extern "system" fn Bind<Impl: IBindResourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, dwbindurlflags: u32, rguid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pauthenticate: ::windows::core::RawPtr, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut u32, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), Bind: Bind::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBindResource as ::windows::core::Interface>::IID
+    }
+}
+pub trait IChapteredRowsetImpl: Sized {
+    fn AddRefChapter();
+    fn ReleaseChapter();
+}
+impl IChapteredRowsetVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IChapteredRowsetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IChapteredRowsetVtbl {
+        unsafe extern "system" fn AddRefChapter<Impl: IChapteredRowsetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize, pcrefcount: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReleaseChapter<Impl: IChapteredRowsetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize, pcrefcount: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            AddRefChapter: AddRefChapter::<Impl, IMPL_OFFSET>,
+            ReleaseChapter: ReleaseChapter::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IChapteredRowset as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+pub trait IColumnMapperImpl: Sized {
+    fn GetPropInfoFromName();
+    fn GetPropInfoFromId();
+    fn EnumPropInfo();
+    fn IsMapUpToDate();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+impl IColumnMapperVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColumnMapperImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColumnMapperVtbl {
+        unsafe extern "system" fn GetPropInfoFromName<Impl: IColumnMapperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wcspropname: super::super::Foundation::PWSTR, pppropid: *mut *mut super::super::Storage::IndexServer::DBID, pproptype: *mut u16, puiwidth: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetPropInfoFromId<Impl: IColumnMapperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropid: *const super::super::Storage::IndexServer::DBID, pwcsname: *mut *mut u16, pproptype: *mut u16, puiwidth: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnumPropInfo<Impl: IColumnMapperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ientry: u32, pwcsname: *const *const u16, pppropid: *mut *mut super::super::Storage::IndexServer::DBID, pproptype: *mut u16, puiwidth: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsMapUpToDate<Impl: IColumnMapperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetPropInfoFromName: GetPropInfoFromName::<Impl, IMPL_OFFSET>,
+            GetPropInfoFromId: GetPropInfoFromId::<Impl, IMPL_OFFSET>,
+            EnumPropInfo: EnumPropInfo::<Impl, IMPL_OFFSET>,
+            IsMapUpToDate: IsMapUpToDate::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IColumnMapper as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IColumnMapperCreatorImpl: Sized {
+    fn GetColumnMapper();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IColumnMapperCreatorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColumnMapperCreatorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColumnMapperCreatorVtbl {
+        unsafe extern "system" fn GetColumnMapper<Impl: IColumnMapperCreatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wcsmachinename: super::super::Foundation::PWSTR, wcscatalogname: super::super::Foundation::PWSTR, ppcolumnmapper: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetColumnMapper: GetColumnMapper::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IColumnMapperCreator as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+pub trait IColumnsInfoImpl: Sized {
+    fn GetColumnInfo();
+    fn MapColumnIDs();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+impl IColumnsInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColumnsInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColumnsInfoVtbl {
+        unsafe extern "system" fn GetColumnInfo<Impl: IColumnsInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pccolumns: *mut usize, prginfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MapColumnIDs<Impl: IColumnsInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ccolumnids: usize, rgcolumnids: *const super::super::Storage::IndexServer::DBID, rgcolumns: *mut usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetColumnInfo: GetColumnInfo::<Impl, IMPL_OFFSET>,
+            MapColumnIDs: MapColumnIDs::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IColumnsInfo as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+pub trait IColumnsInfo2Impl: Sized + IColumnsInfoImpl {
+    fn GetRestrictedColumnInfo();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+impl IColumnsInfo2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColumnsInfo2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColumnsInfo2Vtbl {
+        unsafe extern "system" fn GetRestrictedColumnInfo<Impl: IColumnsInfo2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ccolumnidmasks: usize, rgcolumnidmasks: *const super::super::Storage::IndexServer::DBID, dwflags: u32, pccolumns: *mut usize, prgcolumnids: *mut *mut super::super::Storage::IndexServer::DBID, prgcolumninfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: IColumnsInfoVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetRestrictedColumnInfo: GetRestrictedColumnInfo::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IColumnsInfo2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IColumnsRowsetImpl: Sized {
+    fn GetAvailableColumns();
+    fn GetColumnsRowset();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IColumnsRowsetVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IColumnsRowsetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IColumnsRowsetVtbl {
+        unsafe extern "system" fn GetAvailableColumns<Impl: IColumnsRowsetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcoptcolumns: *mut usize, prgoptcolumns: *mut *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetColumnsRowset<Impl: IColumnsRowsetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, coptcolumns: usize, rgoptcolumns: *const super::super::Storage::IndexServer::DBID, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, ppcolrowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetAvailableColumns: GetAvailableColumns::<Impl, IMPL_OFFSET>,
+            GetColumnsRowset: GetColumnsRowset::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IColumnsRowset as ::windows::core::Interface>::IID
+    }
+}
+pub trait ICommandImpl: Sized {
+    fn Cancel();
+    fn Execute();
+    fn GetDBSession();
+}
+impl ICommandVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommandImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommandVtbl {
+        unsafe extern "system" fn Cancel<Impl: ICommandImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Execute<Impl: ICommandImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pparams: *mut DBPARAMS, pcrowsaffected: *mut isize, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDBSession<Impl: ICommandImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Cancel: Cancel::<Impl, IMPL_OFFSET>,
+            Execute: Execute::<Impl, IMPL_OFFSET>,
+            GetDBSession: GetDBSession::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICommand as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ICommandCostImpl: Sized {
+    fn GetAccumulatedCost();
+    fn GetCostEstimate();
+    fn GetCostGoals();
+    fn GetCostLimits();
+    fn SetCostGoals();
+    fn SetCostLimits();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ICommandCostVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommandCostImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommandCostVtbl {
+        unsafe extern "system" fn GetAccumulatedCost<Impl: ICommandCostImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszrowsetname: super::super::Foundation::PWSTR, pccostlimits: *mut u32, prgcostlimits: *mut *mut DBCOST) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCostEstimate<Impl: ICommandCostImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszrowsetname: super::super::Foundation::PWSTR, pccostestimates: *mut u32, prgcostestimates: *mut DBCOST) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCostGoals<Impl: ICommandCostImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszrowsetname: super::super::Foundation::PWSTR, pccostgoals: *mut u32, prgcostgoals: *mut DBCOST) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCostLimits<Impl: ICommandCostImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszrowsetname: super::super::Foundation::PWSTR, pccostlimits: *mut u32, prgcostlimits: *mut DBCOST) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetCostGoals<Impl: ICommandCostImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszrowsetname: super::super::Foundation::PWSTR, ccostgoals: u32, rgcostgoals: *const DBCOST) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetCostLimits<Impl: ICommandCostImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszrowsetname: super::super::Foundation::PWSTR, ccostlimits: u32, prgcostlimits: *mut DBCOST, dwexecutionflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetAccumulatedCost: GetAccumulatedCost::<Impl, IMPL_OFFSET>,
+            GetCostEstimate: GetCostEstimate::<Impl, IMPL_OFFSET>,
+            GetCostGoals: GetCostGoals::<Impl, IMPL_OFFSET>,
+            GetCostLimits: GetCostLimits::<Impl, IMPL_OFFSET>,
+            SetCostGoals: SetCostGoals::<Impl, IMPL_OFFSET>,
+            SetCostLimits: SetCostLimits::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICommandCost as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+pub trait ICommandPersistImpl: Sized {
+    fn DeleteCommand();
+    fn GetCurrentCommand();
+    fn LoadCommand();
+    fn SaveCommand();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+impl ICommandPersistVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommandPersistImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommandPersistVtbl {
+        unsafe extern "system" fn DeleteCommand<Impl: ICommandPersistImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcommandid: *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCurrentCommand<Impl: ICommandPersistImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcommandid: *mut *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LoadCommand<Impl: ICommandPersistImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcommandid: *mut super::super::Storage::IndexServer::DBID, dwflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SaveCommand<Impl: ICommandPersistImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcommandid: *mut super::super::Storage::IndexServer::DBID, dwflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            DeleteCommand: DeleteCommand::<Impl, IMPL_OFFSET>,
+            GetCurrentCommand: GetCurrentCommand::<Impl, IMPL_OFFSET>,
+            LoadCommand: LoadCommand::<Impl, IMPL_OFFSET>,
+            SaveCommand: SaveCommand::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICommandPersist as ::windows::core::Interface>::IID
+    }
+}
+pub trait ICommandPrepareImpl: Sized {
+    fn Prepare();
+    fn Unprepare();
+}
+impl ICommandPrepareVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommandPrepareImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommandPrepareVtbl {
+        unsafe extern "system" fn Prepare<Impl: ICommandPrepareImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cexpectedruns: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Unprepare<Impl: ICommandPrepareImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Prepare: Prepare::<Impl, IMPL_OFFSET>,
+            Unprepare: Unprepare::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICommandPrepare as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ICommandPropertiesImpl: Sized {
+    fn GetProperties();
+    fn SetProperties();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ICommandPropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommandPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommandPropertiesVtbl {
+        unsafe extern "system" fn GetProperties<Impl: ICommandPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetProperties<Impl: ICommandPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpropertysets: u32, rgpropertysets: *const DBPROPSET) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetProperties: GetProperties::<Impl, IMPL_OFFSET>,
+            SetProperties: SetProperties::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICommandProperties as ::windows::core::Interface>::IID
+    }
+}
+pub trait ICommandStreamImpl: Sized {
+    fn GetCommandStream();
+    fn SetCommandStream();
+}
+impl ICommandStreamVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommandStreamImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommandStreamVtbl {
+        unsafe extern "system" fn GetCommandStream<Impl: ICommandStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piid: *mut ::windows::core::GUID, pguiddialect: *mut ::windows::core::GUID, ppcommandstream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetCommandStream<Impl: ICommandStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, rguiddialect: *const ::windows::core::GUID, pcommandstream: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetCommandStream: GetCommandStream::<Impl, IMPL_OFFSET>,
+            SetCommandStream: SetCommandStream::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICommandStream as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ICommandTextImpl: Sized + ICommandImpl {
+    fn GetCommandText();
+    fn SetCommandText();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ICommandTextVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommandTextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommandTextVtbl {
+        unsafe extern "system" fn GetCommandText<Impl: ICommandTextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguiddialect: *mut ::windows::core::GUID, ppwszcommand: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetCommandText<Impl: ICommandTextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguiddialect: *const ::windows::core::GUID, pwszcommand: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ICommandVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetCommandText: GetCommandText::<Impl, IMPL_OFFSET>,
+            SetCommandText: SetCommandText::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICommandText as ::windows::core::Interface>::IID
+    }
+}
+pub trait ICommandValidateImpl: Sized {
+    fn ValidateCompletely();
+    fn ValidateSyntax();
+}
+impl ICommandValidateVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommandValidateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommandValidateVtbl {
+        unsafe extern "system" fn ValidateCompletely<Impl: ICommandValidateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ValidateSyntax<Impl: ICommandValidateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            ValidateCompletely: ValidateCompletely::<Impl, IMPL_OFFSET>,
+            ValidateSyntax: ValidateSyntax::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICommandValidate as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub trait ICommandWithParametersImpl: Sized {
+    fn GetParameterInfo();
+    fn MapParameterNames();
+    fn SetParameterInfo();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ICommandWithParametersVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommandWithParametersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommandWithParametersVtbl {
+        unsafe extern "system" fn GetParameterInfo<Impl: ICommandWithParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcparams: *mut usize, prgparaminfo: *mut *mut DBPARAMINFO, ppnamesbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MapParameterNames<Impl: ICommandWithParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cparamnames: usize, rgparamnames: *const super::super::Foundation::PWSTR, rgparamordinals: *mut isize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetParameterInfo<Impl: ICommandWithParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cparams: usize, rgparamordinals: *const usize, rgparambindinfo: *const DBPARAMBINDINFO) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetParameterInfo: GetParameterInfo::<Impl, IMPL_OFFSET>,
+            MapParameterNames: MapParameterNames::<Impl, IMPL_OFFSET>,
+            SetParameterInfo: SetParameterInfo::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICommandWithParameters as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
+pub trait IConditionImpl: Sized + IPersistImpl + IPersistStreamImpl {
+    fn GetConditionType();
+    fn GetSubConditions();
+    fn GetComparisonInfo();
+    fn GetValueType();
+    fn GetValueNormalization();
+    fn GetInputTerms();
+    fn Clone();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
+impl IConditionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConditionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConditionVtbl {
+        unsafe extern "system" fn GetConditionType<Impl: IConditionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnodetype: *mut Common::CONDITION_TYPE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSubConditions<Impl: IConditionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetComparisonInfo<Impl: IConditionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszpropertyname: *mut super::super::Foundation::PWSTR, pcop: *mut Common::CONDITION_OPERATION, ppropvar: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetValueType<Impl: IConditionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszvaluetypename: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetValueNormalization<Impl: IConditionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsznormalization: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetInputTerms<Impl: IConditionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pppropertyterm: *mut ::windows::core::RawPtr, ppoperationterm: *mut ::windows::core::RawPtr, ppvalueterm: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Clone<Impl: IConditionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppc: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IPersistStreamVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetConditionType: GetConditionType::<Impl, IMPL_OFFSET>,
+            GetSubConditions: GetSubConditions::<Impl, IMPL_OFFSET>,
+            GetComparisonInfo: GetComparisonInfo::<Impl, IMPL_OFFSET>,
+            GetValueType: GetValueType::<Impl, IMPL_OFFSET>,
+            GetValueNormalization: GetValueNormalization::<Impl, IMPL_OFFSET>,
+            GetInputTerms: GetInputTerms::<Impl, IMPL_OFFSET>,
+            Clone: Clone::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICondition as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
+pub trait ICondition2Impl: Sized + IPersistImpl + IPersistStreamImpl + IConditionImpl {
+    fn GetLocale();
+    fn GetLeafConditionInfo();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ICondition2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICondition2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICondition2Vtbl {
+        unsafe extern "system" fn GetLocale<Impl: ICondition2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszlocalename: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetLeafConditionInfo<Impl: ICondition2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppropkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pcop: *mut Common::CONDITION_OPERATION, ppropvar: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IConditionVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetLocale: GetLocale::<Impl, IMPL_OFFSET>,
+            GetLeafConditionInfo: GetLeafConditionInfo::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICondition2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
+pub trait IConditionFactoryImpl: Sized {
+    fn MakeNot();
+    fn MakeAndOr();
+    fn MakeLeaf();
+    fn Resolve();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
+impl IConditionFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConditionFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConditionFactoryVtbl {
+        unsafe extern "system" fn MakeNot<Impl: IConditionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcsub: ::windows::core::RawPtr, fsimplify: super::super::Foundation::BOOL, ppcresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MakeAndOr<Impl: IConditionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ct: Common::CONDITION_TYPE, peusubs: ::windows::core::RawPtr, fsimplify: super::super::Foundation::BOOL, ppcresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MakeLeaf<Impl: IConditionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropertyname: super::super::Foundation::PWSTR, cop: Common::CONDITION_OPERATION, pszvaluetype: super::super::Foundation::PWSTR, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, ppropertynameterm: ::windows::core::RawPtr, poperationterm: ::windows::core::RawPtr, pvalueterm: ::windows::core::RawPtr, fexpand: super::super::Foundation::BOOL, ppcresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Resolve<Impl: IConditionFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pc: ::windows::core::RawPtr, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, pstreferencetime: *const super::super::Foundation::SYSTEMTIME, ppcresolved: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            MakeNot: MakeNot::<Impl, IMPL_OFFSET>,
+            MakeAndOr: MakeAndOr::<Impl, IMPL_OFFSET>,
+            MakeLeaf: MakeLeaf::<Impl, IMPL_OFFSET>,
+            Resolve: Resolve::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConditionFactory as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
+pub trait IConditionFactory2Impl: Sized + IConditionFactoryImpl {
+    fn CreateTrueFalse();
+    fn CreateNegation();
+    fn CreateCompoundFromObjectArray();
+    fn CreateCompoundFromArray();
+    fn CreateStringLeaf();
+    fn CreateIntegerLeaf();
+    fn CreateBooleanLeaf();
+    fn CreateLeaf();
+    fn ResolveCondition();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common", feature = "Win32_UI_Shell_Common", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl IConditionFactory2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConditionFactory2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConditionFactory2Vtbl {
+        unsafe extern "system" fn CreateTrueFalse<Impl: IConditionFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fval: super::super::Foundation::BOOL, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateNegation<Impl: IConditionFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcsub: ::windows::core::RawPtr, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateCompoundFromObjectArray<Impl: IConditionFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ct: Common::CONDITION_TYPE, poasubs: ::windows::core::RawPtr, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateCompoundFromArray<Impl: IConditionFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ct: Common::CONDITION_TYPE, ppcondsubs: *const ::windows::core::RawPtr, csubs: u32, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateStringLeaf<Impl: IConditionFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, cop: Common::CONDITION_OPERATION, pszvalue: super::super::Foundation::PWSTR, pszlocalename: super::super::Foundation::PWSTR, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateIntegerLeaf<Impl: IConditionFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, cop: Common::CONDITION_OPERATION, lvalue: i32, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateBooleanLeaf<Impl: IConditionFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, cop: Common::CONDITION_OPERATION, fvalue: super::super::Foundation::BOOL, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateLeaf<Impl: IConditionFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, cop: Common::CONDITION_OPERATION, propvar: *const super::Com::StructuredStorage::PROPVARIANT, pszsemantictype: super::super::Foundation::PWSTR, pszlocalename: super::super::Foundation::PWSTR, ppropertynameterm: ::windows::core::RawPtr, poperationterm: ::windows::core::RawPtr, pvalueterm: ::windows::core::RawPtr, cco: CONDITION_CREATION_OPTIONS, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ResolveCondition<Impl: IConditionFactory2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pc: ::windows::core::RawPtr, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, pstreferencetime: *const super::super::Foundation::SYSTEMTIME, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IConditionFactoryVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            CreateTrueFalse: CreateTrueFalse::<Impl, IMPL_OFFSET>,
+            CreateNegation: CreateNegation::<Impl, IMPL_OFFSET>,
+            CreateCompoundFromObjectArray: CreateCompoundFromObjectArray::<Impl, IMPL_OFFSET>,
+            CreateCompoundFromArray: CreateCompoundFromArray::<Impl, IMPL_OFFSET>,
+            CreateStringLeaf: CreateStringLeaf::<Impl, IMPL_OFFSET>,
+            CreateIntegerLeaf: CreateIntegerLeaf::<Impl, IMPL_OFFSET>,
+            CreateBooleanLeaf: CreateBooleanLeaf::<Impl, IMPL_OFFSET>,
+            CreateLeaf: CreateLeaf::<Impl, IMPL_OFFSET>,
+            ResolveCondition: ResolveCondition::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConditionFactory2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
+pub trait IConditionGeneratorImpl: Sized {
+    fn Initialize();
+    fn RecognizeNamedEntities();
+    fn GenerateForLeaf();
+    fn DefaultPhrase();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
+impl IConditionGeneratorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConditionGeneratorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConditionGeneratorVtbl {
+        unsafe extern "system" fn Initialize<Impl: IConditionGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pschemaprovider: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RecognizeNamedEntities<Impl: IConditionGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszinputstring: super::super::Foundation::PWSTR, lciduserlocale: u32, ptokencollection: ::windows::core::RawPtr, pnamedentities: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GenerateForLeaf<Impl: IConditionGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pconditionfactory: ::windows::core::RawPtr, pszpropertyname: super::super::Foundation::PWSTR, cop: Common::CONDITION_OPERATION, pszvaluetype: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR, pszvalue2: super::super::Foundation::PWSTR, ppropertynameterm: ::windows::core::RawPtr, poperationterm: ::windows::core::RawPtr, pvalueterm: ::windows::core::RawPtr, automaticwildcard: super::super::Foundation::BOOL, pnostringquery: *mut super::super::Foundation::BOOL, ppqueryexpression: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DefaultPhrase<Impl: IConditionGeneratorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszvaluetype: super::super::Foundation::PWSTR, ppropvar: *const super::Com::StructuredStorage::PROPVARIANT, fuseenglish: super::super::Foundation::BOOL, ppszphrase: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Initialize: Initialize::<Impl, IMPL_OFFSET>,
+            RecognizeNamedEntities: RecognizeNamedEntities::<Impl, IMPL_OFFSET>,
+            GenerateForLeaf: GenerateForLeaf::<Impl, IMPL_OFFSET>,
+            DefaultPhrase: DefaultPhrase::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConditionGenerator as ::windows::core::Interface>::IID
+    }
+}
+pub trait IConvertTypeImpl: Sized {
+    fn CanConvert();
+}
+impl IConvertTypeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IConvertTypeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IConvertTypeVtbl {
+        unsafe extern "system" fn CanConvert<Impl: IConvertTypeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wfromtype: u16, wtotype: u16, dwconvertflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), CanConvert: CanConvert::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IConvertType as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub trait ICreateRowImpl: Sized {
+    fn CreateRow();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ICreateRowVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICreateRowImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICreateRowVtbl {
+        unsafe extern "system" fn CreateRow<Impl: ICreateRowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, dwbindurlflags: u32, rguid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, pauthenticate: ::windows::core::RawPtr, pimplsession: *mut DBIMPLICITSESSION, pdwbindstatus: *mut u32, ppwsznewurl: *mut super::super::Foundation::PWSTR, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), CreateRow: CreateRow::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICreateRow as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IDBAsynchNotifyImpl: Sized {
+    fn OnLowResource();
+    fn OnProgress();
+    fn OnStop();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IDBAsynchNotifyVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDBAsynchNotifyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDBAsynchNotifyVtbl {
+        unsafe extern "system" fn OnLowResource<Impl: IDBAsynchNotifyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwreserved: usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnProgress<Impl: IDBAsynchNotifyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize, eoperation: u32, ulprogress: usize, ulprogressmax: usize, easynchphase: u32, pwszstatustext: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnStop<Impl: IDBAsynchNotifyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize, eoperation: u32, hrstatus: ::windows::core::HRESULT, pwszstatustext: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            OnLowResource: OnLowResource::<Impl, IMPL_OFFSET>,
+            OnProgress: OnProgress::<Impl, IMPL_OFFSET>,
+            OnStop: OnStop::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDBAsynchNotify as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IDBAsynchStatusImpl: Sized {
+    fn Abort();
+    fn GetStatus();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IDBAsynchStatusVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDBAsynchStatusImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDBAsynchStatusVtbl {
+        unsafe extern "system" fn Abort<Impl: IDBAsynchStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize, eoperation: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetStatus<Impl: IDBAsynchStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize, eoperation: u32, pulprogress: *mut usize, pulprogressmax: *mut usize, peasynchphase: *mut u32, ppwszstatustext: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Abort: Abort::<Impl, IMPL_OFFSET>,
+            GetStatus: GetStatus::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDBAsynchStatus as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IDBBinderPropertiesImpl: Sized + IDBPropertiesImpl {
+    fn Reset();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IDBBinderPropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDBBinderPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDBBinderPropertiesVtbl {
+        unsafe extern "system" fn Reset<Impl: IDBBinderPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: IDBPropertiesVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), Reset: Reset::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDBBinderProperties as ::windows::core::Interface>::IID
+    }
+}
+pub trait IDBCreateCommandImpl: Sized {
+    fn CreateCommand();
+}
+impl IDBCreateCommandVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDBCreateCommandImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDBCreateCommandVtbl {
+        unsafe extern "system" fn CreateCommand<Impl: IDBCreateCommandImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppcommand: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), CreateCommand: CreateCommand::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDBCreateCommand as ::windows::core::Interface>::IID
+    }
+}
+pub trait IDBCreateSessionImpl: Sized {
+    fn CreateSession();
+}
+impl IDBCreateSessionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDBCreateSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDBCreateSessionVtbl {
+        unsafe extern "system" fn CreateSession<Impl: IDBCreateSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppdbsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), CreateSession: CreateSession::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDBCreateSession as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IDBDataSourceAdminImpl: Sized {
+    fn CreateDataSource();
+    fn DestroyDataSource();
+    fn GetCreationProperties();
+    fn ModifyDataSource();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IDBDataSourceAdminVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDBDataSourceAdminImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDBDataSourceAdminVtbl {
+        unsafe extern "system" fn CreateDataSource<Impl: IDBDataSourceAdminImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppdbsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DestroyDataSource<Impl: IDBDataSourceAdminImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCreationProperties<Impl: IDBDataSourceAdminImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertyinfosets: *mut u32, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ModifyDataSource<Impl: IDBDataSourceAdminImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            CreateDataSource: CreateDataSource::<Impl, IMPL_OFFSET>,
+            DestroyDataSource: DestroyDataSource::<Impl, IMPL_OFFSET>,
+            GetCreationProperties: GetCreationProperties::<Impl, IMPL_OFFSET>,
+            ModifyDataSource: ModifyDataSource::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDBDataSourceAdmin as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IDBInfoImpl: Sized {
+    fn GetKeywords();
+    fn GetLiteralInfo();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IDBInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDBInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDBInfoVtbl {
+        unsafe extern "system" fn GetKeywords<Impl: IDBInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszkeywords: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetLiteralInfo<Impl: IDBInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cliterals: u32, rgliterals: *const u32, pcliteralinfo: *mut u32, prgliteralinfo: *mut *mut DBLITERALINFO, ppcharbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetKeywords: GetKeywords::<Impl, IMPL_OFFSET>,
+            GetLiteralInfo: GetLiteralInfo::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDBInfo as ::windows::core::Interface>::IID
+    }
+}
+pub trait IDBInitializeImpl: Sized {
+    fn Initialize();
+    fn Uninitialize();
+}
+impl IDBInitializeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDBInitializeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDBInitializeVtbl {
+        unsafe extern "system" fn Initialize<Impl: IDBInitializeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Uninitialize<Impl: IDBInitializeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Initialize: Initialize::<Impl, IMPL_OFFSET>,
+            Uninitialize: Uninitialize::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDBInitialize as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IDBPromptInitializeImpl: Sized {
+    fn PromptDataSource();
+    fn PromptFileName();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IDBPromptInitializeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDBPromptInitializeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDBPromptInitializeVtbl {
+        unsafe extern "system" fn PromptDataSource<Impl: IDBPromptInitializeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwpromptoptions: u32, csourcetypefilter: u32, rgsourcetypefilter: *const u32, pwszszzproviderfilter: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppdatasource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PromptFileName<Impl: IDBPromptInitializeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, dwpromptoptions: u32, pwszinitialdirectory: super::super::Foundation::PWSTR, pwszinitialfile: super::super::Foundation::PWSTR, ppwszselectedfile: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            PromptDataSource: PromptDataSource::<Impl, IMPL_OFFSET>,
+            PromptFileName: PromptFileName::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDBPromptInitialize as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IDBPropertiesImpl: Sized {
+    fn GetProperties();
+    fn GetPropertyInfo();
+    fn SetProperties();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IDBPropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDBPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDBPropertiesVtbl {
+        unsafe extern "system" fn GetProperties<Impl: IDBPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetPropertyInfo<Impl: IDBPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertyinfosets: *mut u32, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetProperties<Impl: IDBPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetProperties: GetProperties::<Impl, IMPL_OFFSET>,
+            GetPropertyInfo: GetPropertyInfo::<Impl, IMPL_OFFSET>,
+            SetProperties: SetProperties::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDBProperties as ::windows::core::Interface>::IID
+    }
+}
+pub trait IDBSchemaCommandImpl: Sized {
+    fn GetCommand();
+    fn GetSchemas();
+}
+impl IDBSchemaCommandVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDBSchemaCommandImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDBSchemaCommandVtbl {
+        unsafe extern "system" fn GetCommand<Impl: IDBSchemaCommandImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, rguidschema: *const ::windows::core::GUID, ppcommand: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSchemas<Impl: IDBSchemaCommandImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcschemas: *mut u32, prgschemas: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetCommand: GetCommand::<Impl, IMPL_OFFSET>,
+            GetSchemas: GetSchemas::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDBSchemaCommand as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IDBSchemaRowsetImpl: Sized {
+    fn GetRowset();
+    fn GetSchemas();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IDBSchemaRowsetVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDBSchemaRowsetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDBSchemaRowsetVtbl {
+        unsafe extern "system" fn GetRowset<Impl: IDBSchemaRowsetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, rguidschema: *const ::windows::core::GUID, crestrictions: u32, rgrestrictions: *const super::Com::VARIANT, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSchemas<Impl: IDBSchemaRowsetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcschemas: *mut u32, prgschemas: *mut *mut ::windows::core::GUID, prgrestrictionsupport: *mut *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetRowset: GetRowset::<Impl, IMPL_OFFSET>,
+            GetSchemas: GetSchemas::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDBSchemaRowset as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IDCInfoImpl: Sized {
+    fn GetInfo();
+    fn SetInfo();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IDCInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDCInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDCInfoVtbl {
+        unsafe extern "system" fn GetInfo<Impl: IDCInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cinfo: u32, rgeinfotype: *const u32, prginfo: *mut *mut DCINFO) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetInfo<Impl: IDCInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cinfo: u32, rginfo: *const DCINFO) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetInfo: GetInfo::<Impl, IMPL_OFFSET>,
+            SetInfo: SetInfo::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDCInfo as ::windows::core::Interface>::IID
+    }
+}
+pub trait IDataConvertImpl: Sized {
+    fn DataConvert();
+    fn CanConvert();
+    fn GetConversionSize();
+}
+impl IDataConvertVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataConvertImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataConvertVtbl {
+        unsafe extern "system" fn DataConvert<Impl: IDataConvertImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wsrctype: u16, wdsttype: u16, cbsrclength: usize, pcbdstlength: *mut usize, psrc: *const ::core::ffi::c_void, pdst: *mut ::core::ffi::c_void, cbdstmaxlength: usize, dbssrcstatus: u32, pdbsstatus: *mut u32, bprecision: u8, bscale: u8, dwflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CanConvert<Impl: IDataConvertImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wsrctype: u16, wdsttype: u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetConversionSize<Impl: IDataConvertImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wsrctype: u16, wdsttype: u16, pcbsrclength: *const usize, pcbdstlength: *mut usize, psrc: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            DataConvert: DataConvert::<Impl, IMPL_OFFSET>,
+            CanConvert: CanConvert::<Impl, IMPL_OFFSET>,
+            GetConversionSize: GetConversionSize::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDataConvert as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub trait IDataInitializeImpl: Sized {
+    fn GetDataSource();
+    fn GetInitializationString();
+    fn CreateDBInstance();
+    fn CreateDBInstanceEx();
+    fn LoadStringFromStorage();
+    fn WriteStringToStorage();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl IDataInitializeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataInitializeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataInitializeVtbl {
+        unsafe extern "system" fn GetDataSource<Impl: IDataInitializeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, dwclsctx: u32, pwszinitializationstring: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppdatasource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetInitializationString<Impl: IDataInitializeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdatasource: *mut ::core::ffi::c_void, fincludepassword: u8, ppwszinitstring: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateDBInstance<Impl: IDataInitializeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsidprovider: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, dwclsctx: u32, pwszreserved: super::super::Foundation::PWSTR, riid: *const ::windows::core::GUID, ppdatasource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateDBInstanceEx<Impl: IDataInitializeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsidprovider: *const ::windows::core::GUID, punkouter: *mut ::core::ffi::c_void, dwclsctx: u32, pwszreserved: super::super::Foundation::PWSTR, pserverinfo: *const super::Com::COSERVERINFO, cmq: u32, rgmqresults: *mut super::Com::MULTI_QI) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LoadStringFromStorage<Impl: IDataInitializeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszfilename: super::super::Foundation::PWSTR, ppwszinitializationstring: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn WriteStringToStorage<Impl: IDataInitializeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszfilename: super::super::Foundation::PWSTR, pwszinitializationstring: super::super::Foundation::PWSTR, dwcreationdisposition: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetDataSource: GetDataSource::<Impl, IMPL_OFFSET>,
+            GetInitializationString: GetInitializationString::<Impl, IMPL_OFFSET>,
+            CreateDBInstance: CreateDBInstance::<Impl, IMPL_OFFSET>,
+            CreateDBInstanceEx: CreateDBInstanceEx::<Impl, IMPL_OFFSET>,
+            LoadStringFromStorage: LoadStringFromStorage::<Impl, IMPL_OFFSET>,
+            WriteStringToStorage: WriteStringToStorage::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDataInitialize as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IDataSourceLocatorImpl: Sized + IDispatchImpl {
+    fn hWnd();
+    fn SethWnd();
+    fn PromptNew();
+    fn PromptEdit();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IDataSourceLocatorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataSourceLocatorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataSourceLocatorVtbl {
+        unsafe extern "system" fn hWnd<Impl: IDataSourceLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phwndparent: *mut i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SethWnd<Impl: IDataSourceLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PromptNew<Impl: IDataSourceLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppadoconnection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PromptEdit<Impl: IDataSourceLocatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppadoconnection: *mut ::windows::core::RawPtr, pbsuccess: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            hWnd: hWnd::<Impl, IMPL_OFFSET>,
+            SethWnd: SethWnd::<Impl, IMPL_OFFSET>,
+            PromptNew: PromptNew::<Impl, IMPL_OFFSET>,
+            PromptEdit: PromptEdit::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDataSourceLocator as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IEntityImpl: Sized {
+    fn Name();
+    fn Base();
+    fn Relationships();
+    fn GetRelationship();
+    fn MetaData();
+    fn NamedEntities();
+    fn GetNamedEntity();
+    fn DefaultPhrase();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IEntityVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEntityImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEntityVtbl {
+        unsafe extern "system" fn Name<Impl: IEntityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Base<Impl: IEntityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbaseentity: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Relationships<Impl: IEntityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, prelationships: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetRelationship<Impl: IEntityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszrelationname: super::super::Foundation::PWSTR, prelationship: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MetaData<Impl: IEntityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pmetadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn NamedEntities<Impl: IEntityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pnamedentities: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetNamedEntity<Impl: IEntityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszvalue: super::super::Foundation::PWSTR, ppnamedentity: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DefaultPhrase<Impl: IEntityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszphrase: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Base: Base::<Impl, IMPL_OFFSET>,
+            Relationships: Relationships::<Impl, IMPL_OFFSET>,
+            GetRelationship: GetRelationship::<Impl, IMPL_OFFSET>,
+            MetaData: MetaData::<Impl, IMPL_OFFSET>,
+            NamedEntities: NamedEntities::<Impl, IMPL_OFFSET>,
+            GetNamedEntity: GetNamedEntity::<Impl, IMPL_OFFSET>,
+            DefaultPhrase: DefaultPhrase::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEntity as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IEnumItemPropertiesImpl: Sized {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
+    fn GetCount();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IEnumItemPropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumItemPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEnumItemPropertiesVtbl {
+        unsafe extern "system" fn Next<Impl: IEnumItemPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ITEMPROP, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Skip<Impl: IEnumItemPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Reset<Impl: IEnumItemPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Clone<Impl: IEnumItemPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCount<Impl: IEnumItemPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pncount: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Next: Next::<Impl, IMPL_OFFSET>,
+            Skip: Skip::<Impl, IMPL_OFFSET>,
+            Reset: Reset::<Impl, IMPL_OFFSET>,
+            Clone: Clone::<Impl, IMPL_OFFSET>,
+            GetCount: GetCount::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEnumItemProperties as ::windows::core::Interface>::IID
+    }
+}
+pub trait IEnumSearchRootsImpl: Sized {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
+}
+impl IEnumSearchRootsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumSearchRootsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEnumSearchRootsVtbl {
+        unsafe extern "system" fn Next<Impl: IEnumSearchRootsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Skip<Impl: IEnumSearchRootsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Reset<Impl: IEnumSearchRootsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Clone<Impl: IEnumSearchRootsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Next: Next::<Impl, IMPL_OFFSET>,
+            Skip: Skip::<Impl, IMPL_OFFSET>,
+            Reset: Reset::<Impl, IMPL_OFFSET>,
+            Clone: Clone::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEnumSearchRoots as ::windows::core::Interface>::IID
+    }
+}
+pub trait IEnumSearchScopeRulesImpl: Sized {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
+}
+impl IEnumSearchScopeRulesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumSearchScopeRulesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEnumSearchScopeRulesVtbl {
+        unsafe extern "system" fn Next<Impl: IEnumSearchScopeRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, pprgelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Skip<Impl: IEnumSearchScopeRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Reset<Impl: IEnumSearchScopeRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Clone<Impl: IEnumSearchScopeRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Next: Next::<Impl, IMPL_OFFSET>,
+            Skip: Skip::<Impl, IMPL_OFFSET>,
+            Reset: Reset::<Impl, IMPL_OFFSET>,
+            Clone: Clone::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEnumSearchScopeRules as ::windows::core::Interface>::IID
+    }
+}
+pub trait IEnumSubscriptionImpl: Sized {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
+    fn GetCount();
+}
+impl IEnumSubscriptionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumSubscriptionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEnumSubscriptionVtbl {
+        unsafe extern "system" fn Next<Impl: IEnumSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, rgelt: *mut ::windows::core::GUID, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Skip<Impl: IEnumSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Reset<Impl: IEnumSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Clone<Impl: IEnumSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCount<Impl: IEnumSubscriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pncount: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Next: Next::<Impl, IMPL_OFFSET>,
+            Skip: Skip::<Impl, IMPL_OFFSET>,
+            Reset: Reset::<Impl, IMPL_OFFSET>,
+            Clone: Clone::<Impl, IMPL_OFFSET>,
+            GetCount: GetCount::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEnumSubscription as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IErrorLookupImpl: Sized {
+    fn GetErrorDescription();
+    fn GetHelpInfo();
+    fn ReleaseErrors();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IErrorLookupVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IErrorLookupImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IErrorLookupVtbl {
+        unsafe extern "system" fn GetErrorDescription<Impl: IErrorLookupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrerror: ::windows::core::HRESULT, dwlookupid: u32, pdispparams: *const super::Com::DISPPARAMS, lcid: u32, pbstrsource: *mut super::super::Foundation::BSTR, pbstrdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetHelpInfo<Impl: IErrorLookupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrerror: ::windows::core::HRESULT, dwlookupid: u32, lcid: u32, pbstrhelpfile: *mut super::super::Foundation::BSTR, pdwhelpcontext: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReleaseErrors<Impl: IErrorLookupImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwdynamicerrorid: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetErrorDescription: GetErrorDescription::<Impl, IMPL_OFFSET>,
+            GetHelpInfo: GetHelpInfo::<Impl, IMPL_OFFSET>,
+            ReleaseErrors: ReleaseErrors::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IErrorLookup as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IErrorRecordsImpl: Sized {
+    fn AddErrorRecord();
+    fn GetBasicErrorInfo();
+    fn GetCustomErrorObject();
+    fn GetErrorInfo();
+    fn GetErrorParameters();
+    fn GetRecordCount();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IErrorRecordsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IErrorRecordsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IErrorRecordsVtbl {
+        unsafe extern "system" fn AddErrorRecord<Impl: IErrorRecordsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, perrorinfo: *const ERRORINFO, dwlookupid: u32, pdispparams: *const super::Com::DISPPARAMS, punkcustomerror: *mut ::core::ffi::c_void, dwdynamicerrorid: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetBasicErrorInfo<Impl: IErrorRecordsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulrecordnum: u32, perrorinfo: *mut ERRORINFO) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCustomErrorObject<Impl: IErrorRecordsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulrecordnum: u32, riid: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetErrorInfo<Impl: IErrorRecordsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulrecordnum: u32, lcid: u32, pperrorinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetErrorParameters<Impl: IErrorRecordsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulrecordnum: u32, pdispparams: *mut super::Com::DISPPARAMS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetRecordCount<Impl: IErrorRecordsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcrecords: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            AddErrorRecord: AddErrorRecord::<Impl, IMPL_OFFSET>,
+            GetBasicErrorInfo: GetBasicErrorInfo::<Impl, IMPL_OFFSET>,
+            GetCustomErrorObject: GetCustomErrorObject::<Impl, IMPL_OFFSET>,
+            GetErrorInfo: GetErrorInfo::<Impl, IMPL_OFFSET>,
+            GetErrorParameters: GetErrorParameters::<Impl, IMPL_OFFSET>,
+            GetRecordCount: GetRecordCount::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IErrorRecords as ::windows::core::Interface>::IID
+    }
+}
+pub trait IGetDataSourceImpl: Sized {
+    fn GetDataSource();
+}
+impl IGetDataSourceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGetDataSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGetDataSourceVtbl {
+        unsafe extern "system" fn GetDataSource<Impl: IGetDataSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppdatasource: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetDataSource: GetDataSource::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGetDataSource as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IGetRowImpl: Sized {
+    fn GetRowFromHROW();
+    fn GetURLFromHROW();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IGetRowVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGetRowImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGetRowVtbl {
+        unsafe extern "system" fn GetRowFromHROW<Impl: IGetRowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, hrow: usize, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetURLFromHROW<Impl: IGetRowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrow: usize, ppwszurl: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetRowFromHROW: GetRowFromHROW::<Impl, IMPL_OFFSET>,
+            GetURLFromHROW: GetURLFromHROW::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGetRow as ::windows::core::Interface>::IID
+    }
+}
+pub trait IGetSessionImpl: Sized {
+    fn GetSession();
+}
+impl IGetSessionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGetSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGetSessionVtbl {
+        unsafe extern "system" fn GetSession<Impl: IGetSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetSession: GetSession::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGetSession as ::windows::core::Interface>::IID
+    }
+}
+pub trait IGetSourceRowImpl: Sized {
+    fn GetSourceRow();
+}
+impl IGetSourceRowVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGetSourceRowImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGetSourceRowVtbl {
+        unsafe extern "system" fn GetSourceRow<Impl: IGetSourceRowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pprow: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetSourceRow: GetSourceRow::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGetSourceRow as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IIndexDefinitionImpl: Sized {
+    fn CreateIndex();
+    fn DropIndex();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IIndexDefinitionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIndexDefinitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIndexDefinitionVtbl {
+        unsafe extern "system" fn CreateIndex<Impl: IIndexDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, cindexcolumndescs: usize, rgindexcolumndescs: *const DBINDEXCOLUMNDESC, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, ppindexid: *mut *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DropIndex<Impl: IIndexDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            CreateIndex: CreateIndex::<Impl, IMPL_OFFSET>,
+            DropIndex: DropIndex::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IIndexDefinition as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub trait IIntervalImpl: Sized {
+    fn GetLimits();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl IIntervalVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIntervalImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIntervalVtbl {
+        unsafe extern "system" fn GetLimits<Impl: IIntervalImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pilklower: *mut INTERVAL_LIMIT_KIND, ppropvarlower: *mut super::Com::StructuredStorage::PROPVARIANT, pilkupper: *mut INTERVAL_LIMIT_KIND, ppropvarupper: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetLimits: GetLimits::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInterval as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub trait ILoadFilterImpl: Sized {
+    fn LoadIFilter();
+    fn LoadIFilterFromStorage();
+    fn LoadIFilterFromStream();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ILoadFilterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoadFilterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoadFilterVtbl {
+        unsafe extern "system" fn LoadIFilter<Impl: ILoadFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcspath: super::super::Foundation::PWSTR, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: *mut ::core::ffi::c_void, fusedefault: super::super::Foundation::BOOL, pfilterclsid: *mut ::windows::core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LoadIFilterFromStorage<Impl: ILoadFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstg: ::windows::core::RawPtr, punkouter: *mut ::core::ffi::c_void, pwcsoverride: super::super::Foundation::PWSTR, fusedefault: super::super::Foundation::BOOL, pfilterclsid: *mut ::windows::core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LoadIFilterFromStream<Impl: ILoadFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstm: ::windows::core::RawPtr, pfilteredsources: *const FILTERED_DATA_SOURCES, punkouter: *mut ::core::ffi::c_void, fusedefault: super::super::Foundation::BOOL, pfilterclsid: *mut ::windows::core::GUID, searchdecsize: *mut i32, pwcssearchdesc: *mut *mut u16, ppifilt: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            LoadIFilter: LoadIFilter::<Impl, IMPL_OFFSET>,
+            LoadIFilterFromStorage: LoadIFilterFromStorage::<Impl, IMPL_OFFSET>,
+            LoadIFilterFromStream: LoadIFilterFromStream::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILoadFilter as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub trait ILoadFilterWithPrivateComActivationImpl: Sized + ILoadFilterImpl {
+    fn LoadIFilterWithPrivateComActivation();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ILoadFilterWithPrivateComActivationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILoadFilterWithPrivateComActivationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILoadFilterWithPrivateComActivationVtbl {
+        unsafe extern "system" fn LoadIFilterWithPrivateComActivation<Impl: ILoadFilterWithPrivateComActivationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filteredsources: *const FILTERED_DATA_SOURCES, usedefault: super::super::Foundation::BOOL, filterclsid: *mut ::windows::core::GUID, isfilterprivatecomactivated: *mut super::super::Foundation::BOOL, filterobj: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ILoadFilterVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            LoadIFilterWithPrivateComActivation: LoadIFilterWithPrivateComActivation::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILoadFilterWithPrivateComActivation as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IMDDatasetImpl: Sized {
+    fn FreeAxisInfo();
+    fn GetAxisInfo();
+    fn GetAxisRowset();
+    fn GetCellData();
+    fn GetSpecification();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IMDDatasetVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMDDatasetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMDDatasetVtbl {
+        unsafe extern "system" fn FreeAxisInfo<Impl: IMDDatasetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, caxes: usize, rgaxisinfo: *mut MDAXISINFO) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetAxisInfo<Impl: IMDDatasetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcaxes: *mut usize, prgaxisinfo: *mut *mut MDAXISINFO) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetAxisRowset<Impl: IMDDatasetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, iaxis: usize, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCellData<Impl: IMDDatasetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: usize, ulstartcell: usize, ulendcell: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSpecification<Impl: IMDDatasetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppspecification: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            FreeAxisInfo: FreeAxisInfo::<Impl, IMPL_OFFSET>,
+            GetAxisInfo: GetAxisInfo::<Impl, IMPL_OFFSET>,
+            GetAxisRowset: GetAxisRowset::<Impl, IMPL_OFFSET>,
+            GetCellData: GetCellData::<Impl, IMPL_OFFSET>,
+            GetSpecification: GetSpecification::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMDDataset as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IMDFindImpl: Sized {
+    fn FindCell();
+    fn FindTuple();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IMDFindVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMDFindImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMDFindVtbl {
+        unsafe extern "system" fn FindCell<Impl: IMDFindImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulstartingordinal: usize, cmembers: usize, rgpwszmember: *mut super::super::Foundation::PWSTR, pulcellordinal: *mut usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FindTuple<Impl: IMDFindImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulaxisidentifier: u32, ulstartingordinal: usize, cmembers: usize, rgpwszmember: *mut super::super::Foundation::PWSTR, pultupleordinal: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            FindCell: FindCell::<Impl, IMPL_OFFSET>,
+            FindTuple: FindTuple::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMDFind as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IMDRangeRowsetImpl: Sized {
+    fn GetRangeRowset();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IMDRangeRowsetVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMDRangeRowsetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMDRangeRowsetVtbl {
+        unsafe extern "system" fn GetRangeRowset<Impl: IMDRangeRowsetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, ulstartcell: usize, ulendcell: usize, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetRangeRowset: GetRangeRowset::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMDRangeRowset as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IMetaDataImpl: Sized {
+    fn GetData();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IMetaDataVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMetaDataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMetaDataVtbl {
+        unsafe extern "system" fn GetData<Impl: IMetaDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszkey: *mut super::super::Foundation::PWSTR, ppszvalue: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetData: GetData::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMetaData as ::windows::core::Interface>::IID
+    }
+}
+pub trait IMultipleResultsImpl: Sized {
+    fn GetResult();
+}
+impl IMultipleResultsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMultipleResultsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMultipleResultsVtbl {
+        unsafe extern "system" fn GetResult<Impl: IMultipleResultsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, lresultflag: isize, riid: *const ::windows::core::GUID, pcrowsaffected: *mut isize, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetResult: GetResult::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMultipleResults as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait INamedEntityImpl: Sized {
+    fn GetValue();
+    fn DefaultPhrase();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl INamedEntityVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INamedEntityImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INamedEntityVtbl {
+        unsafe extern "system" fn GetValue<Impl: INamedEntityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszvalue: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DefaultPhrase<Impl: INamedEntityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszphrase: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetValue: GetValue::<Impl, IMPL_OFFSET>,
+            DefaultPhrase: DefaultPhrase::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INamedEntity as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait INamedEntityCollectorImpl: Sized {
+    fn Add();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl INamedEntityCollectorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: INamedEntityCollectorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> INamedEntityCollectorVtbl {
+        unsafe extern "system" fn Add<Impl: INamedEntityCollectorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, beginspan: u32, endspan: u32, beginactual: u32, endactual: u32, ptype: ::windows::core::RawPtr, pszvalue: super::super::Foundation::PWSTR, certainty: NAMED_ENTITY_CERTAINTY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), Add: Add::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<INamedEntityCollector as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer"))]
+pub trait IObjectAccessControlImpl: Sized {
+    fn GetObjectAccessRights();
+    fn GetObjectOwner();
+    fn IsObjectAccessAllowed();
+    fn SetObjectAccessRights();
+    fn SetObjectOwner();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer"))]
+impl IObjectAccessControlVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IObjectAccessControlImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IObjectAccessControlVtbl {
+        unsafe extern "system" fn GetObjectAccessRights<Impl: IObjectAccessControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobject: *mut SEC_OBJECT, pcaccessentries: *mut u32, prgaccessentries: *mut *mut super::super::Security::Authorization::EXPLICIT_ACCESS_W) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetObjectOwner<Impl: IObjectAccessControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobject: *mut SEC_OBJECT, ppowner: *mut *mut super::super::Security::Authorization::TRUSTEE_W) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsObjectAccessAllowed<Impl: IObjectAccessControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobject: *mut SEC_OBJECT, paccessentry: *mut super::super::Security::Authorization::EXPLICIT_ACCESS_W, pfresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetObjectAccessRights<Impl: IObjectAccessControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobject: *mut SEC_OBJECT, caccessentries: u32, prgaccessentries: *mut super::super::Security::Authorization::EXPLICIT_ACCESS_W) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetObjectOwner<Impl: IObjectAccessControlImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobject: *mut SEC_OBJECT, powner: *mut super::super::Security::Authorization::TRUSTEE_W) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetObjectAccessRights: GetObjectAccessRights::<Impl, IMPL_OFFSET>,
+            GetObjectOwner: GetObjectOwner::<Impl, IMPL_OFFSET>,
+            IsObjectAccessAllowed: IsObjectAccessAllowed::<Impl, IMPL_OFFSET>,
+            SetObjectAccessRights: SetObjectAccessRights::<Impl, IMPL_OFFSET>,
+            SetObjectOwner: SetObjectOwner::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IObjectAccessControl as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IOpLockStatusImpl: Sized {
+    fn IsOplockValid();
+    fn IsOplockBroken();
+    fn GetOplockEventHandle();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IOpLockStatusVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpLockStatusImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOpLockStatusVtbl {
+        unsafe extern "system" fn IsOplockValid<Impl: IOpLockStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfisoplockvalid: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsOplockBroken<Impl: IOpLockStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfisoplockbroken: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetOplockEventHandle<Impl: IOpLockStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phoplockev: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            IsOplockValid: IsOplockValid::<Impl, IMPL_OFFSET>,
+            IsOplockBroken: IsOplockBroken::<Impl, IMPL_OFFSET>,
+            GetOplockEventHandle: GetOplockEventHandle::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IOpLockStatus as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IOpenRowsetImpl: Sized {
+    fn OpenRowset();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IOpenRowsetVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IOpenRowsetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IOpenRowsetVtbl {
+        unsafe extern "system" fn OpenRowset<Impl: IOpenRowsetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OpenRowset: OpenRowset::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IOpenRowset as ::windows::core::Interface>::IID
+    }
+}
+pub trait IParentRowsetImpl: Sized {
+    fn GetChildRowset();
+}
+impl IParentRowsetVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IParentRowsetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IParentRowsetVtbl {
+        unsafe extern "system" fn GetChildRowset<Impl: IParentRowsetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, iordinal: usize, riid: *const ::windows::core::GUID, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetChildRowset: GetChildRowset::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IParentRowset as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+pub trait IProtocolHandlerSiteImpl: Sized {
+    fn GetFilter();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+impl IProtocolHandlerSiteVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProtocolHandlerSiteImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProtocolHandlerSiteVtbl {
+        unsafe extern "system" fn GetFilter<Impl: IProtocolHandlerSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclsidobj: *mut ::windows::core::GUID, pcwszcontenttype: super::super::Foundation::PWSTR, pcwszextension: super::super::Foundation::PWSTR, ppfilter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetFilter: GetFilter::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProtocolHandlerSite as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IProvideMonikerImpl: Sized {
+    fn GetMoniker();
+}
+#[cfg(feature = "Win32_System_Com")]
+impl IProvideMonikerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IProvideMonikerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IProvideMonikerVtbl {
+        unsafe extern "system" fn GetMoniker<Impl: IProvideMonikerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppimoniker: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetMoniker: GetMoniker::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IProvideMoniker as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub trait IQueryParserImpl: Sized {
+    fn Parse();
+    fn SetOption();
+    fn GetOption();
+    fn SetMultiOption();
+    fn GetSchemaProvider();
+    fn RestateToString();
+    fn ParsePropertyValue();
+    fn RestatePropertyValueToString();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl IQueryParserVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQueryParserImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQueryParserVtbl {
+        unsafe extern "system" fn Parse<Impl: IQueryParserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszinputstring: super::super::Foundation::PWSTR, pcustomproperties: ::windows::core::RawPtr, ppsolution: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetOption<Impl: IQueryParserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, option: STRUCTURED_QUERY_SINGLE_OPTION, poptionvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetOption<Impl: IQueryParserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, option: STRUCTURED_QUERY_SINGLE_OPTION, poptionvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetMultiOption<Impl: IQueryParserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, option: STRUCTURED_QUERY_MULTIOPTION, pszoptionkey: super::super::Foundation::PWSTR, poptionvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSchemaProvider<Impl: IQueryParserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppschemaprovider: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RestateToString<Impl: IQueryParserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcondition: ::windows::core::RawPtr, fuseenglish: super::super::Foundation::BOOL, ppszquerystring: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ParsePropertyValue<Impl: IQueryParserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpropertyname: super::super::Foundation::PWSTR, pszinputstring: super::super::Foundation::PWSTR, ppsolution: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RestatePropertyValueToString<Impl: IQueryParserImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcondition: ::windows::core::RawPtr, fuseenglish: super::super::Foundation::BOOL, ppszpropertyname: *mut super::super::Foundation::PWSTR, ppszquerystring: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Parse: Parse::<Impl, IMPL_OFFSET>,
+            SetOption: SetOption::<Impl, IMPL_OFFSET>,
+            GetOption: GetOption::<Impl, IMPL_OFFSET>,
+            SetMultiOption: SetMultiOption::<Impl, IMPL_OFFSET>,
+            GetSchemaProvider: GetSchemaProvider::<Impl, IMPL_OFFSET>,
+            RestateToString: RestateToString::<Impl, IMPL_OFFSET>,
+            ParsePropertyValue: ParsePropertyValue::<Impl, IMPL_OFFSET>,
+            RestatePropertyValueToString: RestatePropertyValueToString::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IQueryParser as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub trait IQueryParserManagerImpl: Sized {
+    fn CreateLoadedParser();
+    fn InitializeOptions();
+    fn SetOption();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl IQueryParserManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQueryParserManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQueryParserManagerVtbl {
+        unsafe extern "system" fn CreateLoadedParser<Impl: IQueryParserManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcatalog: super::super::Foundation::PWSTR, langidforkeywords: u16, riid: *const ::windows::core::GUID, ppqueryparser: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn InitializeOptions<Impl: IQueryParserManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, funderstandnqs: super::super::Foundation::BOOL, fautowildcard: super::super::Foundation::BOOL, pqueryparser: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetOption<Impl: IQueryParserManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, option: QUERY_PARSER_MANAGER_OPTION, poptionvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            CreateLoadedParser: CreateLoadedParser::<Impl, IMPL_OFFSET>,
+            InitializeOptions: InitializeOptions::<Impl, IMPL_OFFSET>,
+            SetOption: SetOption::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IQueryParserManager as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
+pub trait IQuerySolutionImpl: Sized + IConditionFactoryImpl {
+    fn GetQuery();
+    fn GetErrors();
+    fn GetLexicalData();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Search_Common"))]
+impl IQuerySolutionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IQuerySolutionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IQuerySolutionVtbl {
+        unsafe extern "system" fn GetQuery<Impl: IQuerySolutionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppquerynode: *mut ::windows::core::RawPtr, ppmaintype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetErrors<Impl: IQuerySolutionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppparseerrors: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetLexicalData<Impl: IQuerySolutionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszinputstring: *mut super::super::Foundation::PWSTR, pptokens: *mut ::windows::core::RawPtr, plcid: *mut u32, ppwordbreaker: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IConditionFactoryVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetQuery: GetQuery::<Impl, IMPL_OFFSET>,
+            GetErrors: GetErrors::<Impl, IMPL_OFFSET>,
+            GetLexicalData: GetLexicalData::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IQuerySolution as ::windows::core::Interface>::IID
+    }
+}
+pub trait IReadDataImpl: Sized {
+    fn ReadData();
+    fn ReleaseChapter();
+}
+impl IReadDataVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IReadDataImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IReadDataVtbl {
+        unsafe extern "system" fn ReadData<Impl: IReadDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, haccessor: usize, crows: isize, pcrowsobtained: *mut usize, ppfixeddata: *mut *mut u8, pcbvariabletotal: *mut usize, ppvariabledata: *mut *mut u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReleaseChapter<Impl: IReadDataImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            ReadData: ReadData::<Impl, IMPL_OFFSET>,
+            ReleaseChapter: ReleaseChapter::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IReadData as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IRegisterProviderImpl: Sized {
+    fn GetURLMapping();
+    fn SetURLMapping();
+    fn UnregisterProvider();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IRegisterProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRegisterProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRegisterProviderVtbl {
+        unsafe extern "system" fn GetURLMapping<Impl: IRegisterProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, dwreserved: usize, pclsidprovider: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetURLMapping<Impl: IRegisterProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, dwreserved: usize, rclsidprovider: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UnregisterProvider<Impl: IRegisterProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, dwreserved: usize, rclsidprovider: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetURLMapping: GetURLMapping::<Impl, IMPL_OFFSET>,
+            SetURLMapping: SetURLMapping::<Impl, IMPL_OFFSET>,
+            UnregisterProvider: UnregisterProvider::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRegisterProvider as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IRelationshipImpl: Sized {
+    fn Name();
+    fn IsReal();
+    fn Destination();
+    fn MetaData();
+    fn DefaultPhrase();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IRelationshipVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRelationshipImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRelationshipVtbl {
+        unsafe extern "system" fn Name<Impl: IRelationshipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsReal<Impl: IRelationshipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pisreal: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Destination<Impl: IRelationshipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdestinationentity: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MetaData<Impl: IRelationshipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pmetadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DefaultPhrase<Impl: IRelationshipImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszphrase: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            IsReal: IsReal::<Impl, IMPL_OFFSET>,
+            Destination: Destination::<Impl, IMPL_OFFSET>,
+            MetaData: MetaData::<Impl, IMPL_OFFSET>,
+            DefaultPhrase: DefaultPhrase::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRelationship as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub trait IRichChunkImpl: Sized {
+    fn GetData();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl IRichChunkVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRichChunkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRichChunkVtbl {
+        unsafe extern "system" fn GetData<Impl: IRichChunkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfirstpos: *mut u32, plength: *mut u32, ppsz: *mut super::super::Foundation::PWSTR, pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetData: GetData::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRichChunk as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+pub trait IRowImpl: Sized {
+    fn GetColumns();
+    fn GetSourceRowset();
+    fn Open();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+impl IRowVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowVtbl {
+        unsafe extern "system" fn GetColumns<Impl: IRowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ccolumns: usize, rgcolumns: *mut DBCOLUMNACCESS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSourceRowset<Impl: IRowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pprowset: *mut *mut ::core::ffi::c_void, phrow: *mut usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Open<Impl: IRowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, pcolumnid: *const super::super::Storage::IndexServer::DBID, rguidcolumntype: *const ::windows::core::GUID, dwbindflags: u32, riid: *const ::windows::core::GUID, ppunk: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetColumns: GetColumns::<Impl, IMPL_OFFSET>,
+            GetSourceRowset: GetSourceRowset::<Impl, IMPL_OFFSET>,
+            Open: Open::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRow as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+pub trait IRowChangeImpl: Sized {
+    fn SetColumns();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+impl IRowChangeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowChangeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowChangeVtbl {
+        unsafe extern "system" fn SetColumns<Impl: IRowChangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ccolumns: usize, rgcolumns: *const DBCOLUMNACCESS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), SetColumns: SetColumns::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowChange as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRowPositionImpl: Sized {
+    fn ClearRowPosition();
+    fn GetRowPosition();
+    fn GetRowset();
+    fn Initialize();
+    fn SetRowPosition();
+}
+impl IRowPositionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowPositionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowPositionVtbl {
+        unsafe extern "system" fn ClearRowPosition<Impl: IRowPositionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetRowPosition<Impl: IRowPositionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phchapter: *mut usize, phrow: *mut usize, pdwpositionflags: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetRowset<Impl: IRowPositionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Initialize<Impl: IRowPositionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prowset: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRowPosition<Impl: IRowPositionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize, hrow: usize, dwpositionflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            ClearRowPosition: ClearRowPosition::<Impl, IMPL_OFFSET>,
+            GetRowPosition: GetRowPosition::<Impl, IMPL_OFFSET>,
+            GetRowset: GetRowset::<Impl, IMPL_OFFSET>,
+            Initialize: Initialize::<Impl, IMPL_OFFSET>,
+            SetRowPosition: SetRowPosition::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowPosition as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IRowPositionChangeImpl: Sized {
+    fn OnRowPositionChange();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IRowPositionChangeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowPositionChangeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowPositionChangeVtbl {
+        unsafe extern "system" fn OnRowPositionChange<Impl: IRowPositionChangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ereason: u32, ephase: u32, fcantdeny: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnRowPositionChange: OnRowPositionChange::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowPositionChange as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+pub trait IRowSchemaChangeImpl: Sized + IRowChangeImpl {
+    fn DeleteColumns();
+    fn AddColumns();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+impl IRowSchemaChangeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowSchemaChangeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowSchemaChangeVtbl {
+        unsafe extern "system" fn DeleteColumns<Impl: IRowSchemaChangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ccolumns: usize, rgcolumnids: *const super::super::Storage::IndexServer::DBID, rgdwstatus: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddColumns<Impl: IRowSchemaChangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ccolumns: usize, rgnewcolumninfo: *const DBCOLUMNINFO, rgcolumns: *mut DBCOLUMNACCESS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IRowChangeVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            DeleteColumns: DeleteColumns::<Impl, IMPL_OFFSET>,
+            AddColumns: AddColumns::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowSchemaChange as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRowsetImpl: Sized {
+    fn AddRefRows();
+    fn GetData();
+    fn GetNextRows();
+    fn ReleaseRows();
+    fn RestartPosition();
+}
+impl IRowsetVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetVtbl {
+        unsafe extern "system" fn AddRefRows<Impl: IRowsetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, crows: usize, rghrows: *const usize, rgrefcounts: *mut u32, rgrowstatus: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetData<Impl: IRowsetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetNextRows<Impl: IRowsetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hreserved: usize, lrowsoffset: isize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReleaseRows<Impl: IRowsetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, crows: usize, rghrows: *const usize, rgrowoptions: *mut u32, rgrefcounts: *mut u32, rgrowstatus: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RestartPosition<Impl: IRowsetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hreserved: usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            AddRefRows: AddRefRows::<Impl, IMPL_OFFSET>,
+            GetData: GetData::<Impl, IMPL_OFFSET>,
+            GetNextRows: GetNextRows::<Impl, IMPL_OFFSET>,
+            ReleaseRows: ReleaseRows::<Impl, IMPL_OFFSET>,
+            RestartPosition: RestartPosition::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowset as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IRowsetAsynchImpl: Sized {
+    fn RatioFinished();
+    fn Stop();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IRowsetAsynchVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetAsynchImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetAsynchVtbl {
+        unsafe extern "system" fn RatioFinished<Impl: IRowsetAsynchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puldenominator: *mut usize, pulnumerator: *mut usize, pcrows: *mut usize, pfnewrows: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Stop<Impl: IRowsetAsynchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            RatioFinished: RatioFinished::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetAsynch as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRowsetBookmarkImpl: Sized {
+    fn PositionOnBookmark();
+}
+impl IRowsetBookmarkVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetBookmarkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetBookmarkVtbl {
+        unsafe extern "system" fn PositionOnBookmark<Impl: IRowsetBookmarkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize, cbbookmark: usize, pbookmark: *const u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), PositionOnBookmark: PositionOnBookmark::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetBookmark as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRowsetChangeImpl: Sized {
+    fn DeleteRows();
+    fn SetData();
+    fn InsertRow();
+}
+impl IRowsetChangeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetChangeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetChangeVtbl {
+        unsafe extern "system" fn DeleteRows<Impl: IRowsetChangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hreserved: usize, crows: usize, rghrows: *const usize, rgrowstatus: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetData<Impl: IRowsetChangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn InsertRow<Impl: IRowsetChangeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hreserved: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void, phrow: *mut usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            DeleteRows: DeleteRows::<Impl, IMPL_OFFSET>,
+            SetData: SetData::<Impl, IMPL_OFFSET>,
+            InsertRow: InsertRow::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetChange as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRowsetChangeExtInfoImpl: Sized {
+    fn GetOriginalRow();
+    fn GetPendingColumns();
+}
+impl IRowsetChangeExtInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetChangeExtInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetChangeExtInfoVtbl {
+        unsafe extern "system" fn GetOriginalRow<Impl: IRowsetChangeExtInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hreserved: usize, hrow: usize, phroworiginal: *mut usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetPendingColumns<Impl: IRowsetChangeExtInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hreserved: usize, hrow: usize, ccolumnordinals: u32, rgiordinals: *const u32, rgcolumnstatus: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetOriginalRow: GetOriginalRow::<Impl, IMPL_OFFSET>,
+            GetPendingColumns: GetPendingColumns::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetChangeExtInfo as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRowsetChapterMemberImpl: Sized {
+    fn IsRowInChapter();
+}
+impl IRowsetChapterMemberVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetChapterMemberImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetChapterMemberVtbl {
+        unsafe extern "system" fn IsRowInChapter<Impl: IRowsetChapterMemberImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize, hrow: usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), IsRowInChapter: IsRowInChapter::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetChapterMember as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRowsetCopyRowsImpl: Sized {
+    fn CloseSource();
+    fn CopyByHROWS();
+    fn CopyRows();
+    fn DefineSource();
+}
+impl IRowsetCopyRowsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetCopyRowsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetCopyRowsVtbl {
+        unsafe extern "system" fn CloseSource<Impl: IRowsetCopyRowsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hsourceid: u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CopyByHROWS<Impl: IRowsetCopyRowsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hsourceid: u16, hreserved: usize, crows: isize, rghrows: *const usize, bflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CopyRows<Impl: IRowsetCopyRowsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hsourceid: u16, hreserved: usize, crows: isize, bflags: u32, pcrowscopied: *mut usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DefineSource<Impl: IRowsetCopyRowsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prowsetsource: ::windows::core::RawPtr, ccolids: usize, rgsourcecolumns: *const isize, rgtargetcolumns: *const isize, phsourceid: *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            CloseSource: CloseSource::<Impl, IMPL_OFFSET>,
+            CopyByHROWS: CopyByHROWS::<Impl, IMPL_OFFSET>,
+            CopyRows: CopyRows::<Impl, IMPL_OFFSET>,
+            DefineSource: DefineSource::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetCopyRows as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IRowsetCurrentIndexImpl: Sized + IRowsetIndexImpl {
+    fn GetIndex();
+    fn SetIndex();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IRowsetCurrentIndexVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetCurrentIndexImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetCurrentIndexVtbl {
+        unsafe extern "system" fn GetIndex<Impl: IRowsetCurrentIndexImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppindexid: *mut *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetIndex<Impl: IRowsetCurrentIndexImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pindexid: *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IRowsetIndexVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetIndex: GetIndex::<Impl, IMPL_OFFSET>,
+            SetIndex: SetIndex::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetCurrentIndex as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub trait IRowsetEventsImpl: Sized {
+    fn OnNewItem();
+    fn OnChangedItem();
+    fn OnDeletedItem();
+    fn OnRowsetEvent();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl IRowsetEventsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetEventsVtbl {
+        unsafe extern "system" fn OnNewItem<Impl: IRowsetEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itemid: *const super::Com::StructuredStorage::PROPVARIANT, newitemstate: ROWSETEVENT_ITEMSTATE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnChangedItem<Impl: IRowsetEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itemid: *const super::Com::StructuredStorage::PROPVARIANT, rowsetitemstate: ROWSETEVENT_ITEMSTATE, changeditemstate: ROWSETEVENT_ITEMSTATE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnDeletedItem<Impl: IRowsetEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itemid: *const super::Com::StructuredStorage::PROPVARIANT, deleteditemstate: ROWSETEVENT_ITEMSTATE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnRowsetEvent<Impl: IRowsetEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventtype: ROWSETEVENT_TYPE, eventdata: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            OnNewItem: OnNewItem::<Impl, IMPL_OFFSET>,
+            OnChangedItem: OnChangedItem::<Impl, IMPL_OFFSET>,
+            OnDeletedItem: OnDeletedItem::<Impl, IMPL_OFFSET>,
+            OnRowsetEvent: OnRowsetEvent::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetEvents as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IRowsetFastLoadImpl: Sized {
+    fn InsertRow();
+    fn Commit();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IRowsetFastLoadVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetFastLoadImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetFastLoadVtbl {
+        unsafe extern "system" fn InsertRow<Impl: IRowsetFastLoadImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Commit<Impl: IRowsetFastLoadImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fdone: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            InsertRow: InsertRow::<Impl, IMPL_OFFSET>,
+            Commit: Commit::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetFastLoad as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRowsetFindImpl: Sized {
+    fn FindNextRow();
+}
+impl IRowsetFindVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetFindImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetFindVtbl {
+        unsafe extern "system" fn FindNextRow<Impl: IRowsetFindImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize, haccessor: usize, pfindvalue: *mut ::core::ffi::c_void, compareop: u32, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), FindNextRow: FindNextRow::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetFind as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRowsetIdentityImpl: Sized {
+    fn IsSameRow();
+}
+impl IRowsetIdentityVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetIdentityImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetIdentityVtbl {
+        unsafe extern "system" fn IsSameRow<Impl: IRowsetIdentityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hthisrow: usize, hthatrow: usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), IsSameRow: IsSameRow::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetIdentity as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IRowsetIndexImpl: Sized {
+    fn GetIndexInfo();
+    fn Seek();
+    fn SetRange();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IRowsetIndexVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetIndexImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetIndexVtbl {
+        unsafe extern "system" fn GetIndexInfo<Impl: IRowsetIndexImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pckeycolumns: *mut usize, prgindexcolumndesc: *mut *mut DBINDEXCOLUMNDESC, pcindexpropertysets: *mut u32, prgindexpropertysets: *mut *mut DBPROPSET) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Seek<Impl: IRowsetIndexImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: usize, ckeyvalues: usize, pdata: *mut ::core::ffi::c_void, dwseekoptions: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRange<Impl: IRowsetIndexImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: usize, cstartkeycolumns: usize, pstartdata: *mut ::core::ffi::c_void, cendkeycolumns: usize, penddata: *mut ::core::ffi::c_void, dwrangeoptions: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetIndexInfo: GetIndexInfo::<Impl, IMPL_OFFSET>,
+            Seek: Seek::<Impl, IMPL_OFFSET>,
+            SetRange: SetRange::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetIndex as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IRowsetInfoImpl: Sized {
+    fn GetProperties();
+    fn GetReferencedRowset();
+    fn GetSpecification();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IRowsetInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetInfoVtbl {
+        unsafe extern "system" fn GetProperties<Impl: IRowsetInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetReferencedRowset<Impl: IRowsetInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iordinal: usize, riid: *const ::windows::core::GUID, ppreferencedrowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSpecification<Impl: IRowsetInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppspecification: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetProperties: GetProperties::<Impl, IMPL_OFFSET>,
+            GetReferencedRowset: GetReferencedRowset::<Impl, IMPL_OFFSET>,
+            GetSpecification: GetSpecification::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetInfo as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRowsetKeysImpl: Sized {
+    fn ListKeys();
+}
+impl IRowsetKeysVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetKeysImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetKeysVtbl {
+        unsafe extern "system" fn ListKeys<Impl: IRowsetKeysImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pccolumns: *mut usize, prgcolumns: *mut *mut usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), ListKeys: ListKeys::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetKeys as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRowsetLocateImpl: Sized + IRowsetImpl {
+    fn Compare();
+    fn GetRowsAt();
+    fn GetRowsByBookmark();
+    fn Hash();
+}
+impl IRowsetLocateVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetLocateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetLocateVtbl {
+        unsafe extern "system" fn Compare<Impl: IRowsetLocateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hreserved: usize, cbbookmark1: usize, pbookmark1: *const u8, cbbookmark2: usize, pbookmark2: *const u8, pcomparison: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetRowsAt<Impl: IRowsetLocateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hreserved1: usize, hreserved2: usize, cbbookmark: usize, pbookmark: *const u8, lrowsoffset: isize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetRowsByBookmark<Impl: IRowsetLocateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hreserved: usize, crows: usize, rgcbbookmarks: *const usize, rgpbookmarks: *const *const u8, rghrows: *mut usize, rgrowstatus: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Hash<Impl: IRowsetLocateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hreserved: usize, cbookmarks: usize, rgcbbookmarks: *const usize, rgpbookmarks: *const *const u8, rghashedvalues: *mut usize, rgbookmarkstatus: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IRowsetVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Compare: Compare::<Impl, IMPL_OFFSET>,
+            GetRowsAt: GetRowsAt::<Impl, IMPL_OFFSET>,
+            GetRowsByBookmark: GetRowsByBookmark::<Impl, IMPL_OFFSET>,
+            Hash: Hash::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetLocate as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRowsetNewRowAfterImpl: Sized {
+    fn SetNewDataAfter();
+}
+impl IRowsetNewRowAfterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetNewRowAfterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetNewRowAfterVtbl {
+        unsafe extern "system" fn SetNewDataAfter<Impl: IRowsetNewRowAfterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize, cbbmprevious: u32, pbmprevious: *const u8, haccessor: usize, pdata: *mut u8, phrow: *mut usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), SetNewDataAfter: SetNewDataAfter::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetNewRowAfter as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRowsetNextRowsetImpl: Sized {
+    fn GetNextRowset();
+}
+impl IRowsetNextRowsetVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetNextRowsetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetNextRowsetVtbl {
+        unsafe extern "system" fn GetNextRowset<Impl: IRowsetNextRowsetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppnextrowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetNextRowset: GetNextRowset::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetNextRowset as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IRowsetNotifyImpl: Sized {
+    fn OnFieldChange();
+    fn OnRowChange();
+    fn OnRowsetChange();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IRowsetNotifyVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetNotifyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetNotifyVtbl {
+        unsafe extern "system" fn OnFieldChange<Impl: IRowsetNotifyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prowset: ::windows::core::RawPtr, hrow: usize, ccolumns: usize, rgcolumns: *const usize, ereason: u32, ephase: u32, fcantdeny: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnRowChange<Impl: IRowsetNotifyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prowset: ::windows::core::RawPtr, crows: usize, rghrows: *const usize, ereason: u32, ephase: u32, fcantdeny: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnRowsetChange<Impl: IRowsetNotifyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prowset: ::windows::core::RawPtr, ereason: u32, ephase: u32, fcantdeny: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            OnFieldChange: OnFieldChange::<Impl, IMPL_OFFSET>,
+            OnRowChange: OnRowChange::<Impl, IMPL_OFFSET>,
+            OnRowsetChange: OnRowsetChange::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetNotify as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRowsetPrioritizationImpl: Sized {
+    fn SetScopePriority();
+    fn GetScopePriority();
+    fn GetScopeStatistics();
+}
+impl IRowsetPrioritizationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetPrioritizationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetPrioritizationVtbl {
+        unsafe extern "system" fn SetScopePriority<Impl: IRowsetPrioritizationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, priority: PRIORITY_LEVEL, scopestatisticseventfrequency: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetScopePriority<Impl: IRowsetPrioritizationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, priority: *mut PRIORITY_LEVEL, scopestatisticseventfrequency: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetScopeStatistics<Impl: IRowsetPrioritizationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, indexeddocumentcount: *mut u32, oustandingaddcount: *mut u32, oustandingmodifycount: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SetScopePriority: SetScopePriority::<Impl, IMPL_OFFSET>,
+            GetScopePriority: GetScopePriority::<Impl, IMPL_OFFSET>,
+            GetScopeStatistics: GetScopeStatistics::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetPrioritization as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRowsetQueryStatusImpl: Sized {
+    fn GetStatus();
+    fn GetStatusEx();
+}
+impl IRowsetQueryStatusVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetQueryStatusImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetQueryStatusVtbl {
+        unsafe extern "system" fn GetStatus<Impl: IRowsetQueryStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetStatusEx<Impl: IRowsetQueryStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32, pcfiltereddocuments: *mut u32, pcdocumentstofilter: *mut u32, pdwratiofinisheddenominator: *mut usize, pdwratiofinishednumerator: *mut usize, cbbmk: usize, pbmk: *const u8, pirowbmk: *mut usize, pcrowstotal: *mut usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetStatus: GetStatus::<Impl, IMPL_OFFSET>,
+            GetStatusEx: GetStatusEx::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetQueryStatus as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IRowsetRefreshImpl: Sized {
+    fn RefreshVisibleData();
+    fn GetLastVisibleData();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IRowsetRefreshVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetRefreshImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetRefreshVtbl {
+        unsafe extern "system" fn RefreshVisibleData<Impl: IRowsetRefreshImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize, crows: usize, rghrows: *const usize, foverwrite: super::super::Foundation::BOOL, pcrowsrefreshed: *mut usize, prghrowsrefreshed: *mut *mut usize, prgrowstatus: *mut *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetLastVisibleData<Impl: IRowsetRefreshImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            RefreshVisibleData: RefreshVisibleData::<Impl, IMPL_OFFSET>,
+            GetLastVisibleData: GetLastVisibleData::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetRefresh as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRowsetResynchImpl: Sized {
+    fn GetVisibleData();
+    fn ResynchRows();
+}
+impl IRowsetResynchVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetResynchImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetResynchVtbl {
+        unsafe extern "system" fn GetVisibleData<Impl: IRowsetResynchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ResynchRows<Impl: IRowsetResynchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, crows: usize, rghrows: *const usize, pcrowsresynched: *mut usize, prghrowsresynched: *mut *mut usize, prgrowstatus: *mut *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetVisibleData: GetVisibleData::<Impl, IMPL_OFFSET>,
+            ResynchRows: ResynchRows::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetResynch as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRowsetScrollImpl: Sized + IRowsetImpl + IRowsetLocateImpl {
+    fn GetApproximatePosition();
+    fn GetRowsAtRatio();
+}
+impl IRowsetScrollVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetScrollImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetScrollVtbl {
+        unsafe extern "system" fn GetApproximatePosition<Impl: IRowsetScrollImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hreserved: usize, cbbookmark: usize, pbookmark: *const u8, pulposition: *mut usize, pcrows: *mut usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetRowsAtRatio<Impl: IRowsetScrollImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hreserved1: usize, hreserved2: usize, ulnumerator: usize, uldenominator: usize, crows: isize, pcrowsobtained: *mut usize, prghrows: *mut *mut usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IRowsetLocateVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetApproximatePosition: GetApproximatePosition::<Impl, IMPL_OFFSET>,
+            GetRowsAtRatio: GetRowsAtRatio::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetScroll as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRowsetUpdateImpl: Sized + IRowsetChangeImpl {
+    fn GetOriginalData();
+    fn GetPendingRows();
+    fn GetRowStatus();
+    fn Undo();
+    fn Update();
+}
+impl IRowsetUpdateVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetUpdateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetUpdateVtbl {
+        unsafe extern "system" fn GetOriginalData<Impl: IRowsetUpdateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrow: usize, haccessor: usize, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetPendingRows<Impl: IRowsetUpdateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hreserved: usize, dwrowstatus: u32, pcpendingrows: *mut usize, prgpendingrows: *mut *mut usize, prgpendingstatus: *mut *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetRowStatus<Impl: IRowsetUpdateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hreserved: usize, crows: usize, rghrows: *const usize, rgpendingstatus: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Undo<Impl: IRowsetUpdateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hreserved: usize, crows: usize, rghrows: *const usize, pcrowsundone: *mut usize, prgrowsundone: *mut *mut usize, prgrowstatus: *mut *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Update<Impl: IRowsetUpdateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hreserved: usize, crows: usize, rghrows: *const usize, pcrows: *mut usize, prgrows: *mut *mut usize, prgrowstatus: *mut *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IRowsetChangeVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetOriginalData: GetOriginalData::<Impl, IMPL_OFFSET>,
+            GetPendingRows: GetPendingRows::<Impl, IMPL_OFFSET>,
+            GetRowStatus: GetRowStatus::<Impl, IMPL_OFFSET>,
+            Undo: Undo::<Impl, IMPL_OFFSET>,
+            Update: Update::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetUpdate as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRowsetViewImpl: Sized {
+    fn CreateView();
+    fn GetView();
+}
+impl IRowsetViewVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetViewImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetViewVtbl {
+        unsafe extern "system" fn CreateView<Impl: IRowsetViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetView<Impl: IRowsetViewImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hchapter: usize, riid: *const ::windows::core::GUID, phchaptersource: *mut usize, ppview: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            CreateView: CreateView::<Impl, IMPL_OFFSET>,
+            GetView: GetView::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetView as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRowsetWatchAllImpl: Sized {
+    fn Acknowledge();
+    fn Start();
+    fn StopWatching();
+}
+impl IRowsetWatchAllVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetWatchAllImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetWatchAllVtbl {
+        unsafe extern "system" fn Acknowledge<Impl: IRowsetWatchAllImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Start<Impl: IRowsetWatchAllImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn StopWatching<Impl: IRowsetWatchAllImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Acknowledge: Acknowledge::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            StopWatching: StopWatching::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetWatchAll as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRowsetWatchNotifyImpl: Sized {
+    fn OnChange();
+}
+impl IRowsetWatchNotifyVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetWatchNotifyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetWatchNotifyVtbl {
+        unsafe extern "system" fn OnChange<Impl: IRowsetWatchNotifyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prowset: ::windows::core::RawPtr, echangereason: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnChange: OnChange::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetWatchNotify as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRowsetWatchRegionImpl: Sized + IRowsetWatchAllImpl {
+    fn CreateWatchRegion();
+    fn ChangeWatchMode();
+    fn DeleteWatchRegion();
+    fn GetWatchRegionInfo();
+    fn Refresh();
+    fn ShrinkWatchRegion();
+}
+impl IRowsetWatchRegionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetWatchRegionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetWatchRegionVtbl {
+        unsafe extern "system" fn CreateWatchRegion<Impl: IRowsetWatchRegionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwwatchmode: u32, phregion: *mut usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ChangeWatchMode<Impl: IRowsetWatchRegionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hregion: usize, dwwatchmode: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DeleteWatchRegion<Impl: IRowsetWatchRegionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hregion: usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetWatchRegionInfo<Impl: IRowsetWatchRegionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hregion: usize, pdwwatchmode: *mut u32, phchapter: *mut usize, pcbbookmark: *mut usize, ppbookmark: *mut *mut u8, pcrows: *mut isize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Refresh<Impl: IRowsetWatchRegionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcchangesobtained: *mut usize, prgchanges: *mut *mut tagDBROWWATCHRANGE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ShrinkWatchRegion<Impl: IRowsetWatchRegionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hregion: usize, hchapter: usize, cbbookmark: usize, pbookmark: *mut u8, crows: isize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IRowsetWatchAllVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            CreateWatchRegion: CreateWatchRegion::<Impl, IMPL_OFFSET>,
+            ChangeWatchMode: ChangeWatchMode::<Impl, IMPL_OFFSET>,
+            DeleteWatchRegion: DeleteWatchRegion::<Impl, IMPL_OFFSET>,
+            GetWatchRegionInfo: GetWatchRegionInfo::<Impl, IMPL_OFFSET>,
+            Refresh: Refresh::<Impl, IMPL_OFFSET>,
+            ShrinkWatchRegion: ShrinkWatchRegion::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetWatchRegion as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub trait IRowsetWithParametersImpl: Sized {
+    fn GetParameterInfo();
+    fn Requery();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl IRowsetWithParametersVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRowsetWithParametersImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRowsetWithParametersVtbl {
+        unsafe extern "system" fn GetParameterInfo<Impl: IRowsetWithParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcparams: *mut usize, prgparaminfo: *mut *mut DBPARAMINFO, ppnamesbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Requery<Impl: IRowsetWithParametersImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pparams: *mut DBPARAMS, pulerrorparam: *mut u32, phreserved: *mut usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetParameterInfo: GetParameterInfo::<Impl, IMPL_OFFSET>,
+            Requery: Requery::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRowsetWithParameters as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISQLErrorInfoImpl: Sized {
+    fn GetSQLInfo();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISQLErrorInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISQLErrorInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISQLErrorInfoVtbl {
+        unsafe extern "system" fn GetSQLInfo<Impl: ISQLErrorInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrsqlstate: *mut super::super::Foundation::BSTR, plnativeerror: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetSQLInfo: GetSQLInfo::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISQLErrorInfo as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISQLGetDiagFieldImpl: Sized {
+    fn GetDiagField();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISQLGetDiagFieldVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISQLGetDiagFieldImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISQLGetDiagFieldVtbl {
+        unsafe extern "system" fn GetDiagField<Impl: ISQLGetDiagFieldImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdiaginfo: *mut KAGGETDIAG) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetDiagField: GetDiagField::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISQLGetDiagField as ::windows::core::Interface>::IID
+    }
+}
+pub trait ISQLRequestDiagFieldsImpl: Sized {
+    fn RequestDiagFields();
+}
+impl ISQLRequestDiagFieldsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISQLRequestDiagFieldsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISQLRequestDiagFieldsVtbl {
+        unsafe extern "system" fn RequestDiagFields<Impl: ISQLRequestDiagFieldsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cdiagfields: u32, rgdiagfields: *const KAGREQDIAG) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), RequestDiagFields: RequestDiagFields::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISQLRequestDiagFields as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISQLServerErrorInfoImpl: Sized {
+    fn GetErrorInfo();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISQLServerErrorInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISQLServerErrorInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISQLServerErrorInfoVtbl {
+        unsafe extern "system" fn GetErrorInfo<Impl: ISQLServerErrorInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pperrorinfo: *mut *mut tagSSErrorInfo, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetErrorInfo: GetErrorInfo::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISQLServerErrorInfo as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISchemaLocalizerSupportImpl: Sized {
+    fn Localize();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISchemaLocalizerSupportVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaLocalizerSupportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaLocalizerSupportVtbl {
+        unsafe extern "system" fn Localize<Impl: ISchemaLocalizerSupportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszglobalstring: super::super::Foundation::PWSTR, ppszlocalstring: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), Localize: Localize::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISchemaLocalizerSupport as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+pub trait ISchemaLockImpl: Sized {
+    fn GetSchemaLock();
+    fn ReleaseSchemaLock();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+impl ISchemaLockVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaLockImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaLockVtbl {
+        unsafe extern "system" fn GetSchemaLock<Impl: ISchemaLockImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptableid: *mut super::super::Storage::IndexServer::DBID, lmmode: u32, phlockhandle: *mut super::super::Foundation::HANDLE, ptableversion: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReleaseSchemaLock<Impl: ISchemaLockImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hlockhandle: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetSchemaLock: GetSchemaLock::<Impl, IMPL_OFFSET>,
+            ReleaseSchemaLock: ReleaseSchemaLock::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISchemaLock as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISchemaProviderImpl: Sized {
+    fn Entities();
+    fn RootEntity();
+    fn GetEntity();
+    fn MetaData();
+    fn Localize();
+    fn SaveBinary();
+    fn LookupAuthoredNamedEntity();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISchemaProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISchemaProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISchemaProviderVtbl {
+        unsafe extern "system" fn Entities<Impl: ISchemaProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pentities: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RootEntity<Impl: ISchemaProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prootentity: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetEntity<Impl: ISchemaProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszentityname: super::super::Foundation::PWSTR, pentity: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MetaData<Impl: ISchemaProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pmetadata: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Localize<Impl: ISchemaProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcid: u32, pschemalocalizersupport: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SaveBinary<Impl: ISchemaProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszschemabinarypath: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LookupAuthoredNamedEntity<Impl: ISchemaProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pentity: ::windows::core::RawPtr, pszinputstring: super::super::Foundation::PWSTR, ptokencollection: ::windows::core::RawPtr, ctokensbegin: u32, pctokenslength: *mut u32, ppszvalue: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Entities: Entities::<Impl, IMPL_OFFSET>,
+            RootEntity: RootEntity::<Impl, IMPL_OFFSET>,
+            GetEntity: GetEntity::<Impl, IMPL_OFFSET>,
+            MetaData: MetaData::<Impl, IMPL_OFFSET>,
+            Localize: Localize::<Impl, IMPL_OFFSET>,
+            SaveBinary: SaveBinary::<Impl, IMPL_OFFSET>,
+            LookupAuthoredNamedEntity: LookupAuthoredNamedEntity::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISchemaProvider as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IScopedOperationsImpl: Sized + IBindResourceImpl {
+    fn Copy();
+    fn Move();
+    fn Delete();
+    fn OpenRowset();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IScopedOperationsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IScopedOperationsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IScopedOperationsVtbl {
+        unsafe extern "system" fn Copy<Impl: IScopedOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, crows: usize, rgpwszsourceurls: *const super::super::Foundation::PWSTR, rgpwszdesturls: *const super::super::Foundation::PWSTR, dwcopyflags: u32, pauthenticate: ::windows::core::RawPtr, rgdwstatus: *mut u32, rgpwsznewurls: *mut super::super::Foundation::PWSTR, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Move<Impl: IScopedOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, crows: usize, rgpwszsourceurls: *const super::super::Foundation::PWSTR, rgpwszdesturls: *const super::super::Foundation::PWSTR, dwmoveflags: u32, pauthenticate: ::windows::core::RawPtr, rgdwstatus: *mut u32, rgpwsznewurls: *mut super::super::Foundation::PWSTR, ppstringsbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Delete<Impl: IScopedOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, crows: usize, rgpwszurls: *const super::super::Foundation::PWSTR, dwdeleteflags: u32, rgdwstatus: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OpenRowset<Impl: IScopedOperationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pindexid: *const super::super::Storage::IndexServer::DBID, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IBindResourceVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Copy: Copy::<Impl, IMPL_OFFSET>,
+            Move: Move::<Impl, IMPL_OFFSET>,
+            Delete: Delete::<Impl, IMPL_OFFSET>,
+            OpenRowset: OpenRowset::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IScopedOperations as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub trait ISearchCatalogManagerImpl: Sized {
+    fn Name();
+    fn GetParameter();
+    fn SetParameter();
+    fn GetCatalogStatus();
+    fn Reset();
+    fn Reindex();
+    fn ReindexMatchingURLs();
+    fn ReindexSearchRoot();
+    fn SetConnectTimeout();
+    fn ConnectTimeout();
+    fn SetDataTimeout();
+    fn DataTimeout();
+    fn NumberOfItems();
+    fn NumberOfItemsToIndex();
+    fn URLBeingIndexed();
+    fn GetURLIndexingState();
+    fn GetPersistentItemsChangedSink();
+    fn RegisterViewForNotification();
+    fn GetItemsChangedSink();
+    fn UnregisterViewForNotification();
+    fn SetExtensionClusion();
+    fn EnumerateExcludedExtensions();
+    fn GetQueryHelper();
+    fn SetDiacriticSensitivity();
+    fn DiacriticSensitivity();
+    fn GetCrawlScopeManager();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ISearchCatalogManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchCatalogManagerVtbl {
+        unsafe extern "system" fn Name<Impl: ISearchCatalogManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetParameter<Impl: ISearchCatalogManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, ppvalue: *mut *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetParameter<Impl: ISearchCatalogManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCatalogStatus<Impl: ISearchCatalogManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatus: *mut CatalogStatus, ppausedreason: *mut CatalogPausedReason) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Reset<Impl: ISearchCatalogManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Reindex<Impl: ISearchCatalogManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReindexMatchingURLs<Impl: ISearchCatalogManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpattern: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReindexSearchRoot<Impl: ISearchCatalogManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszrooturl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetConnectTimeout<Impl: ISearchCatalogManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwconnecttimeout: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ConnectTimeout<Impl: ISearchCatalogManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwconnecttimeout: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDataTimeout<Impl: ISearchCatalogManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwdatatimeout: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DataTimeout<Impl: ISearchCatalogManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwdatatimeout: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn NumberOfItems<Impl: ISearchCatalogManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn NumberOfItemsToIndex<Impl: ISearchCatalogManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plincrementalcount: *mut i32, plnotificationqueue: *mut i32, plhighpriorityqueue: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn URLBeingIndexed<Impl: ISearchCatalogManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetURLIndexingState<Impl: ISearchCatalogManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR, pdwstate: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetPersistentItemsChangedSink<Impl: ISearchCatalogManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppisearchpersistentitemschangedsink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RegisterViewForNotification<Impl: ISearchCatalogManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszview: super::super::Foundation::PWSTR, pviewchangedsink: ::windows::core::RawPtr, pdwcookie: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetItemsChangedSink<Impl: ISearchCatalogManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pisearchnotifyinlinesite: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void, pguidcatalogresetsignature: *mut ::windows::core::GUID, pguidcheckpointsignature: *mut ::windows::core::GUID, pdwlastcheckpointnumber: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UnregisterViewForNotification<Impl: ISearchCatalogManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwcookie: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetExtensionClusion<Impl: ISearchCatalogManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszextension: super::super::Foundation::PWSTR, fexclude: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnumerateExcludedExtensions<Impl: ISearchCatalogManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppextensions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetQueryHelper<Impl: ISearchCatalogManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsearchqueryhelper: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDiacriticSensitivity<Impl: ISearchCatalogManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fdiacriticsensitive: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DiacriticSensitivity<Impl: ISearchCatalogManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfdiacriticsensitive: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCrawlScopeManager<Impl: ISearchCatalogManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcrawlscopemanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            GetParameter: GetParameter::<Impl, IMPL_OFFSET>,
+            SetParameter: SetParameter::<Impl, IMPL_OFFSET>,
+            GetCatalogStatus: GetCatalogStatus::<Impl, IMPL_OFFSET>,
+            Reset: Reset::<Impl, IMPL_OFFSET>,
+            Reindex: Reindex::<Impl, IMPL_OFFSET>,
+            ReindexMatchingURLs: ReindexMatchingURLs::<Impl, IMPL_OFFSET>,
+            ReindexSearchRoot: ReindexSearchRoot::<Impl, IMPL_OFFSET>,
+            SetConnectTimeout: SetConnectTimeout::<Impl, IMPL_OFFSET>,
+            ConnectTimeout: ConnectTimeout::<Impl, IMPL_OFFSET>,
+            SetDataTimeout: SetDataTimeout::<Impl, IMPL_OFFSET>,
+            DataTimeout: DataTimeout::<Impl, IMPL_OFFSET>,
+            NumberOfItems: NumberOfItems::<Impl, IMPL_OFFSET>,
+            NumberOfItemsToIndex: NumberOfItemsToIndex::<Impl, IMPL_OFFSET>,
+            URLBeingIndexed: URLBeingIndexed::<Impl, IMPL_OFFSET>,
+            GetURLIndexingState: GetURLIndexingState::<Impl, IMPL_OFFSET>,
+            GetPersistentItemsChangedSink: GetPersistentItemsChangedSink::<Impl, IMPL_OFFSET>,
+            RegisterViewForNotification: RegisterViewForNotification::<Impl, IMPL_OFFSET>,
+            GetItemsChangedSink: GetItemsChangedSink::<Impl, IMPL_OFFSET>,
+            UnregisterViewForNotification: UnregisterViewForNotification::<Impl, IMPL_OFFSET>,
+            SetExtensionClusion: SetExtensionClusion::<Impl, IMPL_OFFSET>,
+            EnumerateExcludedExtensions: EnumerateExcludedExtensions::<Impl, IMPL_OFFSET>,
+            GetQueryHelper: GetQueryHelper::<Impl, IMPL_OFFSET>,
+            SetDiacriticSensitivity: SetDiacriticSensitivity::<Impl, IMPL_OFFSET>,
+            DiacriticSensitivity: DiacriticSensitivity::<Impl, IMPL_OFFSET>,
+            GetCrawlScopeManager: GetCrawlScopeManager::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchCatalogManager as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub trait ISearchCatalogManager2Impl: Sized + ISearchCatalogManagerImpl {
+    fn PrioritizeMatchingURLs();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ISearchCatalogManager2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCatalogManager2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchCatalogManager2Vtbl {
+        unsafe extern "system" fn PrioritizeMatchingURLs<Impl: ISearchCatalogManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpattern: super::super::Foundation::PWSTR, dwprioritizeflags: PRIORITIZE_FLAGS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ISearchCatalogManagerVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            PrioritizeMatchingURLs: PrioritizeMatchingURLs::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchCatalogManager2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISearchCrawlScopeManagerImpl: Sized {
+    fn AddDefaultScopeRule();
+    fn AddRoot();
+    fn RemoveRoot();
+    fn EnumerateRoots();
+    fn AddHierarchicalScope();
+    fn AddUserScopeRule();
+    fn RemoveScopeRule();
+    fn EnumerateScopeRules();
+    fn HasParentScopeRule();
+    fn HasChildScopeRule();
+    fn IncludedInCrawlScope();
+    fn IncludedInCrawlScopeEx();
+    fn RevertToDefaultScopes();
+    fn SaveAll();
+    fn GetParentScopeVersionId();
+    fn RemoveDefaultScopeRule();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISearchCrawlScopeManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchCrawlScopeManagerVtbl {
+        unsafe extern "system" fn AddDefaultScopeRule<Impl: ISearchCrawlScopeManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR, finclude: super::super::Foundation::BOOL, ffollowflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddRoot<Impl: ISearchCrawlScopeManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psearchroot: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RemoveRoot<Impl: ISearchCrawlScopeManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnumerateRoots<Impl: ISearchCrawlScopeManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsearchroots: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddHierarchicalScope<Impl: ISearchCrawlScopeManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR, finclude: super::super::Foundation::BOOL, fdefault: super::super::Foundation::BOOL, foverridechildren: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddUserScopeRule<Impl: ISearchCrawlScopeManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR, finclude: super::super::Foundation::BOOL, foverridechildren: super::super::Foundation::BOOL, ffollowflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RemoveScopeRule<Impl: ISearchCrawlScopeManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszrule: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnumerateScopeRules<Impl: ISearchCrawlScopeManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsearchscoperules: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn HasParentScopeRule<Impl: ISearchCrawlScopeManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR, pfhasparentrule: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn HasChildScopeRule<Impl: ISearchCrawlScopeManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR, pfhaschildrule: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IncludedInCrawlScope<Impl: ISearchCrawlScopeManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR, pfisincluded: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IncludedInCrawlScopeEx<Impl: ISearchCrawlScopeManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR, pfisincluded: *mut super::super::Foundation::BOOL, preason: *mut CLUSION_REASON) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RevertToDefaultScopes<Impl: ISearchCrawlScopeManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SaveAll<Impl: ISearchCrawlScopeManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetParentScopeVersionId<Impl: ISearchCrawlScopeManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR, plscopeid: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RemoveDefaultScopeRule<Impl: ISearchCrawlScopeManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            AddDefaultScopeRule: AddDefaultScopeRule::<Impl, IMPL_OFFSET>,
+            AddRoot: AddRoot::<Impl, IMPL_OFFSET>,
+            RemoveRoot: RemoveRoot::<Impl, IMPL_OFFSET>,
+            EnumerateRoots: EnumerateRoots::<Impl, IMPL_OFFSET>,
+            AddHierarchicalScope: AddHierarchicalScope::<Impl, IMPL_OFFSET>,
+            AddUserScopeRule: AddUserScopeRule::<Impl, IMPL_OFFSET>,
+            RemoveScopeRule: RemoveScopeRule::<Impl, IMPL_OFFSET>,
+            EnumerateScopeRules: EnumerateScopeRules::<Impl, IMPL_OFFSET>,
+            HasParentScopeRule: HasParentScopeRule::<Impl, IMPL_OFFSET>,
+            HasChildScopeRule: HasChildScopeRule::<Impl, IMPL_OFFSET>,
+            IncludedInCrawlScope: IncludedInCrawlScope::<Impl, IMPL_OFFSET>,
+            IncludedInCrawlScopeEx: IncludedInCrawlScopeEx::<Impl, IMPL_OFFSET>,
+            RevertToDefaultScopes: RevertToDefaultScopes::<Impl, IMPL_OFFSET>,
+            SaveAll: SaveAll::<Impl, IMPL_OFFSET>,
+            GetParentScopeVersionId: GetParentScopeVersionId::<Impl, IMPL_OFFSET>,
+            RemoveDefaultScopeRule: RemoveDefaultScopeRule::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchCrawlScopeManager as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISearchCrawlScopeManager2Impl: Sized + ISearchCrawlScopeManagerImpl {
+    fn GetVersion();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISearchCrawlScopeManager2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchCrawlScopeManager2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchCrawlScopeManager2Vtbl {
+        unsafe extern "system" fn GetVersion<Impl: ISearchCrawlScopeManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plversion: *mut *mut i32, phfilemapping: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ISearchCrawlScopeManagerVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetVersion: GetVersion::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchCrawlScopeManager2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub trait ISearchItemsChangedSinkImpl: Sized {
+    fn StartedMonitoringScope();
+    fn StoppedMonitoringScope();
+    fn OnItemsChanged();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ISearchItemsChangedSinkVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchItemsChangedSinkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchItemsChangedSinkVtbl {
+        unsafe extern "system" fn StartedMonitoringScope<Impl: ISearchItemsChangedSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn StoppedMonitoringScope<Impl: ISearchItemsChangedSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnItemsChanged<Impl: ISearchItemsChangedSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwnumberofchanges: u32, rgdatachangeentries: *const SEARCH_ITEM_CHANGE, rgdwdocids: *mut u32, rghrcompletioncodes: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            StartedMonitoringScope: StartedMonitoringScope::<Impl, IMPL_OFFSET>,
+            StoppedMonitoringScope: StoppedMonitoringScope::<Impl, IMPL_OFFSET>,
+            OnItemsChanged: OnItemsChanged::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchItemsChangedSink as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISearchLanguageSupportImpl: Sized {
+    fn SetDiacriticSensitivity();
+    fn GetDiacriticSensitivity();
+    fn LoadWordBreaker();
+    fn LoadStemmer();
+    fn IsPrefixNormalized();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISearchLanguageSupportVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchLanguageSupportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchLanguageSupportVtbl {
+        unsafe extern "system" fn SetDiacriticSensitivity<Impl: ISearchLanguageSupportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fdiacriticsensitive: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDiacriticSensitivity<Impl: ISearchLanguageSupportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfdiacriticsensitive: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LoadWordBreaker<Impl: ISearchLanguageSupportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcid: u32, riid: *const ::windows::core::GUID, ppwordbreaker: *mut *mut ::core::ffi::c_void, plcidused: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LoadStemmer<Impl: ISearchLanguageSupportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcid: u32, riid: *const ::windows::core::GUID, ppstemmer: *mut *mut ::core::ffi::c_void, plcidused: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsPrefixNormalized<Impl: ISearchLanguageSupportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcsquerytoken: super::super::Foundation::PWSTR, cwcquerytoken: u32, pwcsdocumenttoken: super::super::Foundation::PWSTR, cwcdocumenttoken: u32, pulprefixlength: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SetDiacriticSensitivity: SetDiacriticSensitivity::<Impl, IMPL_OFFSET>,
+            GetDiacriticSensitivity: GetDiacriticSensitivity::<Impl, IMPL_OFFSET>,
+            LoadWordBreaker: LoadWordBreaker::<Impl, IMPL_OFFSET>,
+            LoadStemmer: LoadStemmer::<Impl, IMPL_OFFSET>,
+            IsPrefixNormalized: IsPrefixNormalized::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchLanguageSupport as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub trait ISearchManagerImpl: Sized {
+    fn GetIndexerVersionStr();
+    fn GetIndexerVersion();
+    fn GetParameter();
+    fn SetParameter();
+    fn ProxyName();
+    fn BypassList();
+    fn SetProxy();
+    fn GetCatalog();
+    fn UserAgent();
+    fn SetUserAgent();
+    fn UseProxy();
+    fn LocalBypass();
+    fn PortNumber();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ISearchManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchManagerVtbl {
+        unsafe extern "system" fn GetIndexerVersionStr<Impl: ISearchManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszversionstring: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetIndexerVersion<Impl: ISearchManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwmajor: *mut u32, pdwminor: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetParameter<Impl: ISearchManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, ppvalue: *mut *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetParameter<Impl: ISearchManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ProxyName<Impl: ISearchManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszproxyname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BypassList<Impl: ISearchManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszbypasslist: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetProxy<Impl: ISearchManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, suseproxy: PROXY_ACCESS, flocalbypassproxy: super::super::Foundation::BOOL, dwportnumber: u32, pszproxyname: super::super::Foundation::PWSTR, pszbypasslist: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCatalog<Impl: ISearchManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcatalog: super::super::Foundation::PWSTR, ppcatalogmanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UserAgent<Impl: ISearchManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszuseragent: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetUserAgent<Impl: ISearchManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszuseragent: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UseProxy<Impl: ISearchManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puseproxy: *mut PROXY_ACCESS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LocalBypass<Impl: ISearchManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pflocalbypass: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PortNumber<Impl: ISearchManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwportnumber: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetIndexerVersionStr: GetIndexerVersionStr::<Impl, IMPL_OFFSET>,
+            GetIndexerVersion: GetIndexerVersion::<Impl, IMPL_OFFSET>,
+            GetParameter: GetParameter::<Impl, IMPL_OFFSET>,
+            SetParameter: SetParameter::<Impl, IMPL_OFFSET>,
+            ProxyName: ProxyName::<Impl, IMPL_OFFSET>,
+            BypassList: BypassList::<Impl, IMPL_OFFSET>,
+            SetProxy: SetProxy::<Impl, IMPL_OFFSET>,
+            GetCatalog: GetCatalog::<Impl, IMPL_OFFSET>,
+            UserAgent: UserAgent::<Impl, IMPL_OFFSET>,
+            SetUserAgent: SetUserAgent::<Impl, IMPL_OFFSET>,
+            UseProxy: UseProxy::<Impl, IMPL_OFFSET>,
+            LocalBypass: LocalBypass::<Impl, IMPL_OFFSET>,
+            PortNumber: PortNumber::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchManager as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub trait ISearchManager2Impl: Sized + ISearchManagerImpl {
+    fn CreateCatalog();
+    fn DeleteCatalog();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ISearchManager2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchManager2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchManager2Vtbl {
+        unsafe extern "system" fn CreateCatalog<Impl: ISearchManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcatalog: super::super::Foundation::PWSTR, ppcatalogmanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DeleteCatalog<Impl: ISearchManager2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcatalog: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ISearchManagerVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            CreateCatalog: CreateCatalog::<Impl, IMPL_OFFSET>,
+            DeleteCatalog: DeleteCatalog::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchManager2 as ::windows::core::Interface>::IID
+    }
+}
+pub trait ISearchNotifyInlineSiteImpl: Sized {
+    fn OnItemIndexedStatusChange();
+    fn OnCatalogStatusChange();
+}
+impl ISearchNotifyInlineSiteVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchNotifyInlineSiteImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchNotifyInlineSiteVtbl {
+        unsafe extern "system" fn OnItemIndexedStatusChange<Impl: ISearchNotifyInlineSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sipstatus: SEARCH_INDEXING_PHASE, dwnumentries: u32, rgitemstatusentries: *const SEARCH_ITEM_INDEXING_STATUS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnCatalogStatusChange<Impl: ISearchNotifyInlineSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidcatalogresetsignature: *const ::windows::core::GUID, guidcheckpointsignature: *const ::windows::core::GUID, dwlastcheckpointnumber: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            OnItemIndexedStatusChange: OnItemIndexedStatusChange::<Impl, IMPL_OFFSET>,
+            OnCatalogStatusChange: OnCatalogStatusChange::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchNotifyInlineSite as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISearchPersistentItemsChangedSinkImpl: Sized {
+    fn StartedMonitoringScope();
+    fn StoppedMonitoringScope();
+    fn OnItemsChanged();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISearchPersistentItemsChangedSinkVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchPersistentItemsChangedSinkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchPersistentItemsChangedSinkVtbl {
+        unsafe extern "system" fn StartedMonitoringScope<Impl: ISearchPersistentItemsChangedSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn StoppedMonitoringScope<Impl: ISearchPersistentItemsChangedSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnItemsChanged<Impl: ISearchPersistentItemsChangedSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwnumberofchanges: u32, datachangeentries: *const SEARCH_ITEM_PERSISTENT_CHANGE, hrcompletioncodes: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            StartedMonitoringScope: StartedMonitoringScope::<Impl, IMPL_OFFSET>,
+            StoppedMonitoringScope: StoppedMonitoringScope::<Impl, IMPL_OFFSET>,
+            OnItemsChanged: OnItemsChanged::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchPersistentItemsChangedSink as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISearchProtocolImpl: Sized {
+    fn Init();
+    fn CreateAccessor();
+    fn CloseAccessor();
+    fn ShutDown();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISearchProtocolVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchProtocolImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchProtocolVtbl {
+        unsafe extern "system" fn Init<Impl: ISearchProtocolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptimeoutinfo: *mut TIMEOUT_INFO, pprotocolhandlersite: ::windows::core::RawPtr, pproxyinfo: *mut PROXY_INFO) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateAccessor<Impl: ISearchProtocolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcwszurl: super::super::Foundation::PWSTR, pauthenticationinfo: *mut AUTHENTICATION_INFO, pincrementalaccessinfo: *mut INCREMENTAL_ACCESS_INFO, piteminfo: *mut ITEM_INFO, ppaccessor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CloseAccessor<Impl: ISearchProtocolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paccessor: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ShutDown<Impl: ISearchProtocolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Init: Init::<Impl, IMPL_OFFSET>,
+            CreateAccessor: CreateAccessor::<Impl, IMPL_OFFSET>,
+            CloseAccessor: CloseAccessor::<Impl, IMPL_OFFSET>,
+            ShutDown: ShutDown::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchProtocol as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub trait ISearchProtocol2Impl: Sized + ISearchProtocolImpl {
+    fn CreateAccessorEx();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ISearchProtocol2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchProtocol2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchProtocol2Vtbl {
+        unsafe extern "system" fn CreateAccessorEx<Impl: ISearchProtocol2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcwszurl: super::super::Foundation::PWSTR, pauthenticationinfo: *mut AUTHENTICATION_INFO, pincrementalaccessinfo: *mut INCREMENTAL_ACCESS_INFO, piteminfo: *mut ITEM_INFO, puserdata: *const super::Com::BLOB, ppaccessor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ISearchProtocolVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), CreateAccessorEx: CreateAccessorEx::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchProtocol2 as ::windows::core::Interface>::IID
+    }
+}
+pub trait ISearchProtocolThreadContextImpl: Sized {
+    fn ThreadInit();
+    fn ThreadShutdown();
+    fn ThreadIdle();
+}
+impl ISearchProtocolThreadContextVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchProtocolThreadContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchProtocolThreadContextVtbl {
+        unsafe extern "system" fn ThreadInit<Impl: ISearchProtocolThreadContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ThreadShutdown<Impl: ISearchProtocolThreadContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ThreadIdle<Impl: ISearchProtocolThreadContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwtimeelaspedsincelastcallinms: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            ThreadInit: ThreadInit::<Impl, IMPL_OFFSET>,
+            ThreadShutdown: ThreadShutdown::<Impl, IMPL_OFFSET>,
+            ThreadIdle: ThreadIdle::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchProtocolThreadContext as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+pub trait ISearchQueryHelperImpl: Sized {
+    fn ConnectionString();
+    fn SetQueryContentLocale();
+    fn QueryContentLocale();
+    fn SetQueryKeywordLocale();
+    fn QueryKeywordLocale();
+    fn SetQueryTermExpansion();
+    fn QueryTermExpansion();
+    fn SetQuerySyntax();
+    fn QuerySyntax();
+    fn SetQueryContentProperties();
+    fn QueryContentProperties();
+    fn SetQuerySelectColumns();
+    fn QuerySelectColumns();
+    fn SetQueryWhereRestrictions();
+    fn QueryWhereRestrictions();
+    fn SetQuerySorting();
+    fn QuerySorting();
+    fn GenerateSQLFromUserQuery();
+    fn WriteProperties();
+    fn SetQueryMaxResults();
+    fn QueryMaxResults();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ISearchQueryHelperVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryHelperImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchQueryHelperVtbl {
+        unsafe extern "system" fn ConnectionString<Impl: ISearchQueryHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszconnectionstring: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetQueryContentLocale<Impl: ISearchQueryHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcid: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn QueryContentLocale<Impl: ISearchQueryHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcid: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetQueryKeywordLocale<Impl: ISearchQueryHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcid: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn QueryKeywordLocale<Impl: ISearchQueryHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcid: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetQueryTermExpansion<Impl: ISearchQueryHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, expandterms: SEARCH_TERM_EXPANSION) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn QueryTermExpansion<Impl: ISearchQueryHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pexpandterms: *mut SEARCH_TERM_EXPANSION) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetQuerySyntax<Impl: ISearchQueryHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, querysyntax: SEARCH_QUERY_SYNTAX) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn QuerySyntax<Impl: ISearchQueryHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pquerysyntax: *mut SEARCH_QUERY_SYNTAX) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetQueryContentProperties<Impl: ISearchQueryHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcontentproperties: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn QueryContentProperties<Impl: ISearchQueryHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszcontentproperties: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetQuerySelectColumns<Impl: ISearchQueryHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszselectcolumns: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn QuerySelectColumns<Impl: ISearchQueryHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszselectcolumns: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetQueryWhereRestrictions<Impl: ISearchQueryHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszrestrictions: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn QueryWhereRestrictions<Impl: ISearchQueryHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszrestrictions: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetQuerySorting<Impl: ISearchQueryHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszsorting: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn QuerySorting<Impl: ISearchQueryHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszsorting: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GenerateSQLFromUserQuery<Impl: ISearchQueryHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszquery: super::super::Foundation::PWSTR, ppszsql: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn WriteProperties<Impl: ISearchQueryHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, itemid: i32, dwnumberofcolumns: u32, pcolumns: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalues: *const SEARCH_COLUMN_PROPERTIES, pftgathermodifiedtime: *const super::super::Foundation::FILETIME) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetQueryMaxResults<Impl: ISearchQueryHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cmaxresults: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn QueryMaxResults<Impl: ISearchQueryHelperImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcmaxresults: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            ConnectionString: ConnectionString::<Impl, IMPL_OFFSET>,
+            SetQueryContentLocale: SetQueryContentLocale::<Impl, IMPL_OFFSET>,
+            QueryContentLocale: QueryContentLocale::<Impl, IMPL_OFFSET>,
+            SetQueryKeywordLocale: SetQueryKeywordLocale::<Impl, IMPL_OFFSET>,
+            QueryKeywordLocale: QueryKeywordLocale::<Impl, IMPL_OFFSET>,
+            SetQueryTermExpansion: SetQueryTermExpansion::<Impl, IMPL_OFFSET>,
+            QueryTermExpansion: QueryTermExpansion::<Impl, IMPL_OFFSET>,
+            SetQuerySyntax: SetQuerySyntax::<Impl, IMPL_OFFSET>,
+            QuerySyntax: QuerySyntax::<Impl, IMPL_OFFSET>,
+            SetQueryContentProperties: SetQueryContentProperties::<Impl, IMPL_OFFSET>,
+            QueryContentProperties: QueryContentProperties::<Impl, IMPL_OFFSET>,
+            SetQuerySelectColumns: SetQuerySelectColumns::<Impl, IMPL_OFFSET>,
+            QuerySelectColumns: QuerySelectColumns::<Impl, IMPL_OFFSET>,
+            SetQueryWhereRestrictions: SetQueryWhereRestrictions::<Impl, IMPL_OFFSET>,
+            QueryWhereRestrictions: QueryWhereRestrictions::<Impl, IMPL_OFFSET>,
+            SetQuerySorting: SetQuerySorting::<Impl, IMPL_OFFSET>,
+            QuerySorting: QuerySorting::<Impl, IMPL_OFFSET>,
+            GenerateSQLFromUserQuery: GenerateSQLFromUserQuery::<Impl, IMPL_OFFSET>,
+            WriteProperties: WriteProperties::<Impl, IMPL_OFFSET>,
+            SetQueryMaxResults: SetQueryMaxResults::<Impl, IMPL_OFFSET>,
+            QueryMaxResults: QueryMaxResults::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchQueryHelper as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+pub trait ISearchQueryHitsImpl: Sized {
+    fn Init();
+    fn NextHitMoniker();
+    fn NextHitOffset();
+}
+#[cfg(all(feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com"))]
+impl ISearchQueryHitsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchQueryHitsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchQueryHitsVtbl {
+        unsafe extern "system" fn Init<Impl: ISearchQueryHitsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pflt: ::windows::core::RawPtr, ulflags: u32) -> i32 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn NextHitMoniker<Impl: ISearchQueryHitsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcmnk: *mut u32, papmnk: *mut *mut ::windows::core::RawPtr) -> i32 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn NextHitOffset<Impl: ISearchQueryHitsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcregion: *mut u32, paregion: *mut *mut super::super::Storage::IndexServer::FILTERREGION) -> i32 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Init: Init::<Impl, IMPL_OFFSET>,
+            NextHitMoniker: NextHitMoniker::<Impl, IMPL_OFFSET>,
+            NextHitOffset: NextHitOffset::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchQueryHits as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISearchRootImpl: Sized {
+    fn SetSchedule();
+    fn Schedule();
+    fn SetRootURL();
+    fn RootURL();
+    fn SetIsHierarchical();
+    fn IsHierarchical();
+    fn SetProvidesNotifications();
+    fn ProvidesNotifications();
+    fn SetUseNotificationsOnly();
+    fn UseNotificationsOnly();
+    fn SetEnumerationDepth();
+    fn EnumerationDepth();
+    fn SetHostDepth();
+    fn HostDepth();
+    fn SetFollowDirectories();
+    fn FollowDirectories();
+    fn SetAuthenticationType();
+    fn AuthenticationType();
+    fn SetUser();
+    fn User();
+    fn SetPassword();
+    fn Password();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISearchRootVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchRootImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchRootVtbl {
+        unsafe extern "system" fn SetSchedule<Impl: ISearchRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztaskarg: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Schedule<Impl: ISearchRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsztaskarg: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRootURL<Impl: ISearchRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszurl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RootURL<Impl: ISearchRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszurl: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetIsHierarchical<Impl: ISearchRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fishierarchical: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsHierarchical<Impl: ISearchRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfishierarchical: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetProvidesNotifications<Impl: ISearchRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fprovidesnotifications: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ProvidesNotifications<Impl: ISearchRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfprovidesnotifications: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetUseNotificationsOnly<Impl: ISearchRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fusenotificationsonly: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UseNotificationsOnly<Impl: ISearchRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfusenotificationsonly: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetEnumerationDepth<Impl: ISearchRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwdepth: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnumerationDepth<Impl: ISearchRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwdepth: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetHostDepth<Impl: ISearchRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwdepth: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn HostDepth<Impl: ISearchRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwdepth: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetFollowDirectories<Impl: ISearchRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ffollowdirectories: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FollowDirectories<Impl: ISearchRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pffollowdirectories: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAuthenticationType<Impl: ISearchRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, authtype: AUTH_TYPE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AuthenticationType<Impl: ISearchRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pauthtype: *mut AUTH_TYPE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetUser<Impl: ISearchRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszuser: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn User<Impl: ISearchRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszuser: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetPassword<Impl: ISearchRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszpassword: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Password<Impl: ISearchRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszpassword: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SetSchedule: SetSchedule::<Impl, IMPL_OFFSET>,
+            Schedule: Schedule::<Impl, IMPL_OFFSET>,
+            SetRootURL: SetRootURL::<Impl, IMPL_OFFSET>,
+            RootURL: RootURL::<Impl, IMPL_OFFSET>,
+            SetIsHierarchical: SetIsHierarchical::<Impl, IMPL_OFFSET>,
+            IsHierarchical: IsHierarchical::<Impl, IMPL_OFFSET>,
+            SetProvidesNotifications: SetProvidesNotifications::<Impl, IMPL_OFFSET>,
+            ProvidesNotifications: ProvidesNotifications::<Impl, IMPL_OFFSET>,
+            SetUseNotificationsOnly: SetUseNotificationsOnly::<Impl, IMPL_OFFSET>,
+            UseNotificationsOnly: UseNotificationsOnly::<Impl, IMPL_OFFSET>,
+            SetEnumerationDepth: SetEnumerationDepth::<Impl, IMPL_OFFSET>,
+            EnumerationDepth: EnumerationDepth::<Impl, IMPL_OFFSET>,
+            SetHostDepth: SetHostDepth::<Impl, IMPL_OFFSET>,
+            HostDepth: HostDepth::<Impl, IMPL_OFFSET>,
+            SetFollowDirectories: SetFollowDirectories::<Impl, IMPL_OFFSET>,
+            FollowDirectories: FollowDirectories::<Impl, IMPL_OFFSET>,
+            SetAuthenticationType: SetAuthenticationType::<Impl, IMPL_OFFSET>,
+            AuthenticationType: AuthenticationType::<Impl, IMPL_OFFSET>,
+            SetUser: SetUser::<Impl, IMPL_OFFSET>,
+            User: User::<Impl, IMPL_OFFSET>,
+            SetPassword: SetPassword::<Impl, IMPL_OFFSET>,
+            Password: Password::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchRoot as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISearchScopeRuleImpl: Sized {
+    fn PatternOrURL();
+    fn IsIncluded();
+    fn IsDefault();
+    fn FollowFlags();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISearchScopeRuleVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchScopeRuleImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchScopeRuleVtbl {
+        unsafe extern "system" fn PatternOrURL<Impl: ISearchScopeRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszpatternorurl: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsIncluded<Impl: ISearchScopeRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfisincluded: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsDefault<Impl: ISearchScopeRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfisdefault: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FollowFlags<Impl: ISearchScopeRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfollowflags: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            PatternOrURL: PatternOrURL::<Impl, IMPL_OFFSET>,
+            IsIncluded: IsIncluded::<Impl, IMPL_OFFSET>,
+            IsDefault: IsDefault::<Impl, IMPL_OFFSET>,
+            FollowFlags: FollowFlags::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchScopeRule as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub trait ISearchViewChangedSinkImpl: Sized {
+    fn OnChange();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ISearchViewChangedSinkVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISearchViewChangedSinkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISearchViewChangedSinkVtbl {
+        unsafe extern "system" fn OnChange<Impl: ISearchViewChangedSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwdocid: *const i32, pchange: *const SEARCH_ITEM_CHANGE, pfinview: *const super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnChange: OnChange::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISearchViewChangedSink as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization"))]
+pub trait ISecurityInfoImpl: Sized {
+    fn GetCurrentTrustee();
+    fn GetObjectTypes();
+    fn GetPermissions();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization"))]
+impl ISecurityInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISecurityInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISecurityInfoVtbl {
+        unsafe extern "system" fn GetCurrentTrustee<Impl: ISecurityInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptrustee: *mut *mut super::super::Security::Authorization::TRUSTEE_W) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetObjectTypes<Impl: ISecurityInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cobjecttypes: *mut u32, rgobjecttypes: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetPermissions<Impl: ISecurityInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objecttype: ::windows::core::GUID, ppermissions: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetCurrentTrustee: GetCurrentTrustee::<Impl, IMPL_OFFSET>,
+            GetObjectTypes: GetObjectTypes::<Impl, IMPL_OFFSET>,
+            GetPermissions: GetPermissions::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISecurityInfo as ::windows::core::Interface>::IID
+    }
+}
+pub trait IServiceImpl: Sized {
+    fn InvokeService();
+}
+impl IServiceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IServiceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IServiceVtbl {
+        unsafe extern "system" fn InvokeService<Impl: IServiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkinner: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), InvokeService: InvokeService::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IService as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISessionPropertiesImpl: Sized {
+    fn GetProperties();
+    fn SetProperties();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISessionPropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISessionPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISessionPropertiesVtbl {
+        unsafe extern "system" fn GetProperties<Impl: ISessionPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetProperties<Impl: ISessionPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetProperties: GetProperties::<Impl, IMPL_OFFSET>,
+            SetProperties: SetProperties::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISessionProperties as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISimpleCommandCreatorImpl: Sized {
+    fn CreateICommand();
+    fn VerifyCatalog();
+    fn GetDefaultCatalog();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISimpleCommandCreatorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISimpleCommandCreatorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISimpleCommandCreatorVtbl {
+        unsafe extern "system" fn CreateICommand<Impl: ISimpleCommandCreatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppiunknown: *mut *mut ::core::ffi::c_void, pouterunk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn VerifyCatalog<Impl: ISimpleCommandCreatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszmachine: super::super::Foundation::PWSTR, pwszcatalogname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDefaultCatalog<Impl: ISimpleCommandCreatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszcatalogname: super::super::Foundation::PWSTR, cwcin: u32, pcwcout: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            CreateICommand: CreateICommand::<Impl, IMPL_OFFSET>,
+            VerifyCatalog: VerifyCatalog::<Impl, IMPL_OFFSET>,
+            GetDefaultCatalog: GetDefaultCatalog::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISimpleCommandCreator as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISourcesRowsetImpl: Sized {
+    fn GetSourcesRowset();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISourcesRowsetVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISourcesRowsetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISourcesRowsetVtbl {
+        unsafe extern "system" fn GetSourcesRowset<Impl: ISourcesRowsetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, cpropertysets: u32, rgproperties: *mut DBPROPSET, ppsourcesrowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetSourcesRowset: GetSourcesRowset::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISourcesRowset as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IStemmerImpl: Sized {
+    fn Init();
+    fn GenerateWordForms();
+    fn GetLicenseToUse();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IStemmerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStemmerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStemmerVtbl {
+        unsafe extern "system" fn Init<Impl: IStemmerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulmaxtokensize: u32, pflicense: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GenerateWordForms<Impl: IStemmerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcinbuf: super::super::Foundation::PWSTR, cwc: u32, pstemsink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetLicenseToUse<Impl: IStemmerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwcslicense: *const *const u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Init: Init::<Impl, IMPL_OFFSET>,
+            GenerateWordForms: GenerateWordForms::<Impl, IMPL_OFFSET>,
+            GetLicenseToUse: GetLicenseToUse::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IStemmer as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISubscriptionItemImpl: Sized {
+    fn GetCookie();
+    fn GetSubscriptionItemInfo();
+    fn SetSubscriptionItemInfo();
+    fn ReadProperties();
+    fn WriteProperties();
+    fn EnumProperties();
+    fn NotifyChanged();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISubscriptionItemVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISubscriptionItemImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISubscriptionItemVtbl {
+        unsafe extern "system" fn GetCookie<Impl: ISubscriptionItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcookie: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSubscriptionItemInfo<Impl: ISubscriptionItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psubscriptioniteminfo: *mut SUBSCRIPTIONITEMINFO) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSubscriptionItemInfo<Impl: ISubscriptionItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psubscriptioniteminfo: *const SUBSCRIPTIONITEMINFO) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReadProperties<Impl: ISubscriptionItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncount: u32, rgwszname: *const super::super::Foundation::PWSTR, rgvalue: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn WriteProperties<Impl: ISubscriptionItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ncount: u32, rgwszname: *const super::super::Foundation::PWSTR, rgvalue: *const super::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnumProperties<Impl: ISubscriptionItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumitemproperties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn NotifyChanged<Impl: ISubscriptionItemImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetCookie: GetCookie::<Impl, IMPL_OFFSET>,
+            GetSubscriptionItemInfo: GetSubscriptionItemInfo::<Impl, IMPL_OFFSET>,
+            SetSubscriptionItemInfo: SetSubscriptionItemInfo::<Impl, IMPL_OFFSET>,
+            ReadProperties: ReadProperties::<Impl, IMPL_OFFSET>,
+            WriteProperties: WriteProperties::<Impl, IMPL_OFFSET>,
+            EnumProperties: EnumProperties::<Impl, IMPL_OFFSET>,
+            NotifyChanged: NotifyChanged::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISubscriptionItem as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISubscriptionMgrImpl: Sized {
+    fn DeleteSubscription();
+    fn UpdateSubscription();
+    fn UpdateAll();
+    fn IsSubscribed();
+    fn GetSubscriptionInfo();
+    fn GetDefaultInfo();
+    fn ShowSubscriptionProperties();
+    fn CreateSubscription();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISubscriptionMgrVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISubscriptionMgrImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISubscriptionMgrVtbl {
+        unsafe extern "system" fn DeleteSubscription<Impl: ISubscriptionMgrImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UpdateSubscription<Impl: ISubscriptionMgrImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UpdateAll<Impl: ISubscriptionMgrImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsSubscribed<Impl: ISubscriptionMgrImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, pfsubscribed: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSubscriptionInfo<Impl: ISubscriptionMgrImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, pinfo: *mut SUBSCRIPTIONINFO) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDefaultInfo<Impl: ISubscriptionMgrImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, subtype: SUBSCRIPTIONTYPE, pinfo: *mut SUBSCRIPTIONINFO) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ShowSubscriptionProperties<Impl: ISubscriptionMgrImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateSubscription<Impl: ISubscriptionMgrImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, pwszurl: super::super::Foundation::PWSTR, pwszfriendlyname: super::super::Foundation::PWSTR, dwflags: u32, substype: SUBSCRIPTIONTYPE, pinfo: *mut SUBSCRIPTIONINFO) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            DeleteSubscription: DeleteSubscription::<Impl, IMPL_OFFSET>,
+            UpdateSubscription: UpdateSubscription::<Impl, IMPL_OFFSET>,
+            UpdateAll: UpdateAll::<Impl, IMPL_OFFSET>,
+            IsSubscribed: IsSubscribed::<Impl, IMPL_OFFSET>,
+            GetSubscriptionInfo: GetSubscriptionInfo::<Impl, IMPL_OFFSET>,
+            GetDefaultInfo: GetDefaultInfo::<Impl, IMPL_OFFSET>,
+            ShowSubscriptionProperties: ShowSubscriptionProperties::<Impl, IMPL_OFFSET>,
+            CreateSubscription: CreateSubscription::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISubscriptionMgr as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISubscriptionMgr2Impl: Sized + ISubscriptionMgrImpl {
+    fn GetItemFromURL();
+    fn GetItemFromCookie();
+    fn GetSubscriptionRunState();
+    fn EnumSubscriptions();
+    fn UpdateItems();
+    fn AbortItems();
+    fn AbortAll();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISubscriptionMgr2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISubscriptionMgr2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISubscriptionMgr2Vtbl {
+        unsafe extern "system" fn GetItemFromURL<Impl: ISubscriptionMgr2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, ppsubscriptionitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetItemFromCookie<Impl: ISubscriptionMgr2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psubscriptioncookie: *const ::windows::core::GUID, ppsubscriptionitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSubscriptionRunState<Impl: ISubscriptionMgr2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwnumcookies: u32, pcookies: *const ::windows::core::GUID, pdwrunstate: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnumSubscriptions<Impl: ISubscriptionMgr2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, ppenumsubscriptions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UpdateItems<Impl: ISubscriptionMgr2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, dwnumcookies: u32, pcookies: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AbortItems<Impl: ISubscriptionMgr2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwnumcookies: u32, pcookies: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AbortAll<Impl: ISubscriptionMgr2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ISubscriptionMgrVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetItemFromURL: GetItemFromURL::<Impl, IMPL_OFFSET>,
+            GetItemFromCookie: GetItemFromCookie::<Impl, IMPL_OFFSET>,
+            GetSubscriptionRunState: GetSubscriptionRunState::<Impl, IMPL_OFFSET>,
+            EnumSubscriptions: EnumSubscriptions::<Impl, IMPL_OFFSET>,
+            UpdateItems: UpdateItems::<Impl, IMPL_OFFSET>,
+            AbortItems: AbortItems::<Impl, IMPL_OFFSET>,
+            AbortAll: AbortAll::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISubscriptionMgr2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ITableCreationImpl: Sized + ITableDefinitionImpl {
+    fn GetTableDefinition();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ITableCreationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITableCreationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITableCreationVtbl {
+        unsafe extern "system" fn GetTableDefinition<Impl: ITableCreationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pccolumndescs: *mut usize, prgcolumndescs: *mut *mut DBCOLUMNDESC, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET, pcconstraintdescs: *mut u32, prgconstraintdescs: *mut *mut DBCONSTRAINTDESC, ppwszstringbuffer: *mut *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ITableDefinitionVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetTableDefinition: GetTableDefinition::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITableCreation as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ITableDefinitionImpl: Sized {
+    fn CreateTable();
+    fn DropTable();
+    fn AddColumn();
+    fn DropColumn();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ITableDefinitionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITableDefinitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITableDefinitionVtbl {
+        unsafe extern "system" fn CreateTable<Impl: ITableDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, ccolumndescs: usize, rgcolumndescs: *const DBCOLUMNDESC, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut super::super::Storage::IndexServer::DBID, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DropTable<Impl: ITableDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddColumn<Impl: ITableDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumndesc: *const DBCOLUMNDESC, ppcolumnid: *mut *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DropColumn<Impl: ITableDefinitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptableid: *const super::super::Storage::IndexServer::DBID, pcolumnid: *const super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            CreateTable: CreateTable::<Impl, IMPL_OFFSET>,
+            DropTable: DropTable::<Impl, IMPL_OFFSET>,
+            AddColumn: AddColumn::<Impl, IMPL_OFFSET>,
+            DropColumn: DropColumn::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITableDefinition as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ITableDefinitionWithConstraintsImpl: Sized + ITableDefinitionImpl + ITableCreationImpl {
+    fn AddConstraint();
+    fn CreateTableWithConstraints();
+    fn DropConstraint();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ITableDefinitionWithConstraintsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITableDefinitionWithConstraintsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITableDefinitionWithConstraintsVtbl {
+        unsafe extern "system" fn AddConstraint<Impl: ITableDefinitionWithConstraintsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptableid: *mut super::super::Storage::IndexServer::DBID, pconstraintdesc: *mut DBCONSTRAINTDESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateTableWithConstraints<Impl: ITableDefinitionWithConstraintsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, ptableid: *mut super::super::Storage::IndexServer::DBID, ccolumndescs: usize, rgcolumndescs: *mut DBCOLUMNDESC, cconstraintdescs: u32, rgconstraintdescs: *mut DBCONSTRAINTDESC, riid: *const ::windows::core::GUID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET, pptableid: *mut *mut super::super::Storage::IndexServer::DBID, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DropConstraint<Impl: ITableDefinitionWithConstraintsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptableid: *mut super::super::Storage::IndexServer::DBID, pconstraintid: *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ITableCreationVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            AddConstraint: AddConstraint::<Impl, IMPL_OFFSET>,
+            CreateTableWithConstraints: CreateTableWithConstraints::<Impl, IMPL_OFFSET>,
+            DropConstraint: DropConstraint::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITableDefinitionWithConstraints as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+pub trait ITableRenameImpl: Sized {
+    fn RenameColumn();
+    fn RenameTable();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+impl ITableRenameVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITableRenameImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITableRenameVtbl {
+        unsafe extern "system" fn RenameColumn<Impl: ITableRenameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptableid: *mut super::super::Storage::IndexServer::DBID, poldcolumnid: *mut super::super::Storage::IndexServer::DBID, pnewcolumnid: *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RenameTable<Impl: ITableRenameImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poldtableid: *mut super::super::Storage::IndexServer::DBID, poldindexid: *mut super::super::Storage::IndexServer::DBID, pnewtableid: *mut super::super::Storage::IndexServer::DBID, pnewindexid: *mut super::super::Storage::IndexServer::DBID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            RenameColumn: RenameColumn::<Impl, IMPL_OFFSET>,
+            RenameTable: RenameTable::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITableRename as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ITokenCollectionImpl: Sized {
+    fn NumberOfTokens();
+    fn GetToken();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ITokenCollectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITokenCollectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITokenCollectionVtbl {
+        unsafe extern "system" fn NumberOfTokens<Impl: ITokenCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *const u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetToken<Impl: ITokenCollectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, i: u32, pbegin: *mut u32, plength: *mut u32, ppsz: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            NumberOfTokens: NumberOfTokens::<Impl, IMPL_OFFSET>,
+            GetToken: GetToken::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITokenCollection as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
+pub trait ITransactionJoinImpl: Sized {
+    fn GetOptionsObject();
+    fn JoinTransaction();
+}
+#[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
+impl ITransactionJoinVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionJoinImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionJoinVtbl {
+        unsafe extern "system" fn GetOptionsObject<Impl: ITransactionJoinImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppoptions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn JoinTransaction<Impl: ITransactionJoinImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punktransactioncoord: *mut ::core::ffi::c_void, isolevel: i32, isoflags: u32, potheroptions: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetOptionsObject: GetOptionsObject::<Impl, IMPL_OFFSET>,
+            JoinTransaction: JoinTransaction::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITransactionJoin as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_DistributedTransactionCoordinator"))]
+pub trait ITransactionLocalImpl: Sized + ITransactionImpl {
+    fn GetOptionsObject();
+    fn StartTransaction();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_DistributedTransactionCoordinator"))]
+impl ITransactionLocalVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionLocalImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionLocalVtbl {
+        unsafe extern "system" fn GetOptionsObject<Impl: ITransactionLocalImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppoptions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn StartTransaction<Impl: ITransactionLocalImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, isolevel: i32, isoflags: u32, potheroptions: ::windows::core::RawPtr, pultransactionlevel: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ITransactionVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetOptionsObject: GetOptionsObject::<Impl, IMPL_OFFSET>,
+            StartTransaction: StartTransaction::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITransactionLocal as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
+pub trait ITransactionObjectImpl: Sized {
+    fn GetTransactionObject();
+}
+#[cfg(feature = "Win32_System_DistributedTransactionCoordinator")]
+impl ITransactionObjectVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITransactionObjectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITransactionObjectVtbl {
+        unsafe extern "system" fn GetTransactionObject<Impl: ITransactionObjectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ultransactionlevel: u32, pptransactionobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetTransactionObject: GetTransactionObject::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITransactionObject as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ITrusteeAdminImpl: Sized {
+    fn CompareTrustees();
+    fn CreateTrustee();
+    fn DeleteTrustee();
+    fn SetTrusteeProperties();
+    fn GetTrusteeProperties();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ITrusteeAdminVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITrusteeAdminImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITrusteeAdminVtbl {
+        unsafe extern "system" fn CompareTrustees<Impl: ITrusteeAdminImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptrustee1: *mut super::super::Security::Authorization::TRUSTEE_W, ptrustee2: *mut super::super::Security::Authorization::TRUSTEE_W) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateTrustee<Impl: ITrusteeAdminImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptrustee: *mut super::super::Security::Authorization::TRUSTEE_W, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DeleteTrustee<Impl: ITrusteeAdminImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptrustee: *mut super::super::Security::Authorization::TRUSTEE_W) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetTrusteeProperties<Impl: ITrusteeAdminImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptrustee: *mut super::super::Security::Authorization::TRUSTEE_W, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetTrusteeProperties<Impl: ITrusteeAdminImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptrustee: *mut super::super::Security::Authorization::TRUSTEE_W, cpropertyidsets: u32, rgpropertyidsets: *const DBPROPIDSET, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            CompareTrustees: CompareTrustees::<Impl, IMPL_OFFSET>,
+            CreateTrustee: CreateTrustee::<Impl, IMPL_OFFSET>,
+            DeleteTrustee: DeleteTrustee::<Impl, IMPL_OFFSET>,
+            SetTrusteeProperties: SetTrusteeProperties::<Impl, IMPL_OFFSET>,
+            GetTrusteeProperties: GetTrusteeProperties::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITrusteeAdmin as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization"))]
+pub trait ITrusteeGroupAdminImpl: Sized {
+    fn AddMember();
+    fn DeleteMember();
+    fn IsMember();
+    fn GetMembers();
+    fn GetMemberships();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization"))]
+impl ITrusteeGroupAdminVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITrusteeGroupAdminImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITrusteeGroupAdminVtbl {
+        unsafe extern "system" fn AddMember<Impl: ITrusteeGroupAdminImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmembershiptrustee: *mut super::super::Security::Authorization::TRUSTEE_W, pmembertrustee: *mut super::super::Security::Authorization::TRUSTEE_W) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DeleteMember<Impl: ITrusteeGroupAdminImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmembershiptrustee: *mut super::super::Security::Authorization::TRUSTEE_W, pmembertrustee: *mut super::super::Security::Authorization::TRUSTEE_W) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsMember<Impl: ITrusteeGroupAdminImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmembershiptrustee: *mut super::super::Security::Authorization::TRUSTEE_W, pmembertrustee: *mut super::super::Security::Authorization::TRUSTEE_W, pfstatus: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMembers<Impl: ITrusteeGroupAdminImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmembershiptrustee: *mut super::super::Security::Authorization::TRUSTEE_W, pcmembers: *mut u32, prgmembers: *mut *mut super::super::Security::Authorization::TRUSTEE_W) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMemberships<Impl: ITrusteeGroupAdminImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptrustee: *mut super::super::Security::Authorization::TRUSTEE_W, pcmemberships: *mut u32, prgmemberships: *mut *mut super::super::Security::Authorization::TRUSTEE_W) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            AddMember: AddMember::<Impl, IMPL_OFFSET>,
+            DeleteMember: DeleteMember::<Impl, IMPL_OFFSET>,
+            IsMember: IsMember::<Impl, IMPL_OFFSET>,
+            GetMembers: GetMembers::<Impl, IMPL_OFFSET>,
+            GetMemberships: GetMemberships::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ITrusteeGroupAdmin as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IUMSImpl: Sized {
+    fn SqlUmsSuspend();
+    fn SqlUmsYield();
+    fn SqlUmsSwitchPremptive();
+    fn SqlUmsSwitchNonPremptive();
+    fn SqlUmsFIsPremptive();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IUMSVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUMSImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUMSVtbl {
+        unsafe extern "system" fn SqlUmsSuspend<Impl: IUMSImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ticks: u32) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SqlUmsYield<Impl: IUMSImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ticks: u32) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SqlUmsSwitchPremptive<Impl: IUMSImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SqlUmsSwitchNonPremptive<Impl: IUMSImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SqlUmsFIsPremptive<Impl: IUMSImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            SqlUmsSuspend: SqlUmsSuspend::<Impl, IMPL_OFFSET>,
+            SqlUmsYield: SqlUmsYield::<Impl, IMPL_OFFSET>,
+            SqlUmsSwitchPremptive: SqlUmsSwitchPremptive::<Impl, IMPL_OFFSET>,
+            SqlUmsSwitchNonPremptive: SqlUmsSwitchNonPremptive::<Impl, IMPL_OFFSET>,
+            SqlUmsFIsPremptive: SqlUmsFIsPremptive::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUMS as ::windows::core::Interface>::IID
+    }
+}
+pub trait IUMSInitializeImpl: Sized {
+    fn Initialize();
+}
+impl IUMSInitializeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUMSInitializeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUMSInitializeVtbl {
+        unsafe extern "system" fn Initialize<Impl: IUMSInitializeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pums: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), Initialize: Initialize::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUMSInitialize as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub trait IUrlAccessorImpl: Sized {
+    fn AddRequestParameter();
+    fn GetDocFormat();
+    fn GetCLSID();
+    fn GetHost();
+    fn IsDirectory();
+    fn GetSize();
+    fn GetLastModified();
+    fn GetFileName();
+    fn GetSecurityDescriptor();
+    fn GetRedirectedURL();
+    fn GetSecurityProvider();
+    fn BindToStream();
+    fn BindToFilter();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl IUrlAccessorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUrlAccessorVtbl {
+        unsafe extern "system" fn AddRequestParameter<Impl: IUrlAccessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pspec: *const super::Com::StructuredStorage::PROPSPEC, pvar: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDocFormat<Impl: IUrlAccessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszdocformat: super::super::Foundation::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCLSID<Impl: IUrlAccessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetHost<Impl: IUrlAccessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszhost: super::super::Foundation::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsDirectory<Impl: IUrlAccessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSize<Impl: IUrlAccessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pllsize: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetLastModified<Impl: IUrlAccessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pftlastmodified: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetFileName<Impl: IUrlAccessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszfilename: super::super::Foundation::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSecurityDescriptor<Impl: IUrlAccessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psd: *mut u8, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetRedirectedURL<Impl: IUrlAccessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszredirectedurl: super::super::Foundation::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSecurityProvider<Impl: IUrlAccessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pspclsid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BindToStream<Impl: IUrlAccessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BindToFilter<Impl: IUrlAccessorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppfilter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            AddRequestParameter: AddRequestParameter::<Impl, IMPL_OFFSET>,
+            GetDocFormat: GetDocFormat::<Impl, IMPL_OFFSET>,
+            GetCLSID: GetCLSID::<Impl, IMPL_OFFSET>,
+            GetHost: GetHost::<Impl, IMPL_OFFSET>,
+            IsDirectory: IsDirectory::<Impl, IMPL_OFFSET>,
+            GetSize: GetSize::<Impl, IMPL_OFFSET>,
+            GetLastModified: GetLastModified::<Impl, IMPL_OFFSET>,
+            GetFileName: GetFileName::<Impl, IMPL_OFFSET>,
+            GetSecurityDescriptor: GetSecurityDescriptor::<Impl, IMPL_OFFSET>,
+            GetRedirectedURL: GetRedirectedURL::<Impl, IMPL_OFFSET>,
+            GetSecurityProvider: GetSecurityProvider::<Impl, IMPL_OFFSET>,
+            BindToStream: BindToStream::<Impl, IMPL_OFFSET>,
+            BindToFilter: BindToFilter::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUrlAccessor as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub trait IUrlAccessor2Impl: Sized + IUrlAccessorImpl {
+    fn GetDisplayUrl();
+    fn IsDocument();
+    fn GetCodePage();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl IUrlAccessor2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessor2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUrlAccessor2Vtbl {
+        unsafe extern "system" fn GetDisplayUrl<Impl: IUrlAccessor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszdocurl: super::super::Foundation::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsDocument<Impl: IUrlAccessor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCodePage<Impl: IUrlAccessor2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wszcodepage: super::super::Foundation::PWSTR, dwsize: u32, pdwlength: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IUrlAccessorVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetDisplayUrl: GetDisplayUrl::<Impl, IMPL_OFFSET>,
+            IsDocument: IsDocument::<Impl, IMPL_OFFSET>,
+            GetCodePage: GetCodePage::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUrlAccessor2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub trait IUrlAccessor3Impl: Sized + IUrlAccessorImpl + IUrlAccessor2Impl {
+    fn GetImpersonationSidBlobs();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl IUrlAccessor3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessor3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUrlAccessor3Vtbl {
+        unsafe extern "system" fn GetImpersonationSidBlobs<Impl: IUrlAccessor3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcwszurl: super::super::Foundation::PWSTR, pcsidcount: *mut u32, ppsidblobs: *mut *mut super::Com::BLOB) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IUrlAccessor2Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetImpersonationSidBlobs: GetImpersonationSidBlobs::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUrlAccessor3 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+pub trait IUrlAccessor4Impl: Sized + IUrlAccessorImpl + IUrlAccessor2Impl + IUrlAccessor3Impl {
+    fn ShouldIndexItemContent();
+    fn ShouldIndexProperty();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl IUrlAccessor4Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUrlAccessor4Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUrlAccessor4Vtbl {
+        unsafe extern "system" fn ShouldIndexItemContent<Impl: IUrlAccessor4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfindexcontent: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ShouldIndexProperty<Impl: IUrlAccessor4Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pfindexproperty: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IUrlAccessor3Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            ShouldIndexItemContent: ShouldIndexItemContent::<Impl, IMPL_OFFSET>,
+            ShouldIndexProperty: ShouldIndexProperty::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUrlAccessor4 as ::windows::core::Interface>::IID
+    }
+}
+pub trait IViewChapterImpl: Sized {
+    fn GetSpecification();
+    fn OpenViewChapter();
+}
+impl IViewChapterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IViewChapterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IViewChapterVtbl {
+        unsafe extern "system" fn GetSpecification<Impl: IViewChapterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OpenViewChapter<Impl: IViewChapterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hsource: usize, phviewchapter: *mut usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetSpecification: GetSpecification::<Impl, IMPL_OFFSET>,
+            OpenViewChapter: OpenViewChapter::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IViewChapter as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IViewFilterImpl: Sized {
+    fn GetFilter();
+    fn GetFilterBindings();
+    fn SetFilter();
+}
+#[cfg(feature = "Win32_System_Com")]
+impl IViewFilterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IViewFilterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IViewFilterVtbl {
+        unsafe extern "system" fn GetFilter<Impl: IViewFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: usize, pcrows: *mut usize, pcompareops: *mut *mut u32, pcriteriadata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetFilterBindings<Impl: IViewFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbindings: *mut usize, prgbindings: *mut *mut DBBINDING) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetFilter<Impl: IViewFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, haccessor: usize, crows: usize, compareops: *const u32, pcriteriadata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetFilter: GetFilter::<Impl, IMPL_OFFSET>,
+            GetFilterBindings: GetFilterBindings::<Impl, IMPL_OFFSET>,
+            SetFilter: SetFilter::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IViewFilter as ::windows::core::Interface>::IID
+    }
+}
+pub trait IViewRowsetImpl: Sized {
+    fn GetSpecification();
+    fn OpenViewRowset();
+}
+impl IViewRowsetVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IViewRowsetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IViewRowsetVtbl {
+        unsafe extern "system" fn GetSpecification<Impl: IViewRowsetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OpenViewRowset<Impl: IViewRowsetImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, pprowset: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetSpecification: GetSpecification::<Impl, IMPL_OFFSET>,
+            OpenViewRowset: OpenViewRowset::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IViewRowset as ::windows::core::Interface>::IID
+    }
+}
+pub trait IViewSortImpl: Sized {
+    fn GetSortOrder();
+    fn SetSortOrder();
+}
+impl IViewSortVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IViewSortImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IViewSortVtbl {
+        unsafe extern "system" fn GetSortOrder<Impl: IViewSortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcvalues: *mut usize, prgcolumns: *mut *mut usize, prgorders: *mut *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSortOrder<Impl: IViewSortImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cvalues: usize, rgcolumns: *const usize, rgorders: *const u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetSortOrder: GetSortOrder::<Impl, IMPL_OFFSET>,
+            SetSortOrder: SetSortOrder::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IViewSort as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+pub trait IWordBreakerImpl: Sized {
+    fn Init();
+    fn BreakText();
+    fn ComposePhrase();
+    fn GetLicenseToUse();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+impl IWordBreakerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWordBreakerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWordBreakerVtbl {
+        unsafe extern "system" fn Init<Impl: IWordBreakerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fquery: super::super::Foundation::BOOL, ulmaxtokensize: u32, pflicense: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BreakText<Impl: IWordBreakerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptextsource: *mut TEXT_SOURCE, pwordsink: ::windows::core::RawPtr, pphrasesink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ComposePhrase<Impl: IWordBreakerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcnoun: super::super::Foundation::PWSTR, cwcnoun: u32, pwcmodifier: super::super::Foundation::PWSTR, cwcmodifier: u32, ulattachmenttype: u32, pwcphrase: super::super::Foundation::PWSTR, pcwcphrase: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetLicenseToUse<Impl: IWordBreakerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwcslicense: *const *const u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Init: Init::<Impl, IMPL_OFFSET>,
+            BreakText: BreakText::<Impl, IMPL_OFFSET>,
+            ComposePhrase: ComposePhrase::<Impl, IMPL_OFFSET>,
+            GetLicenseToUse: GetLicenseToUse::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWordBreaker as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IWordFormSinkImpl: Sized {
+    fn PutAltWord();
+    fn PutWord();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IWordFormSinkVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWordFormSinkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWordFormSinkVtbl {
+        unsafe extern "system" fn PutAltWord<Impl: IWordFormSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcinbuf: super::super::Foundation::PWSTR, cwc: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PutWord<Impl: IWordFormSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcinbuf: super::super::Foundation::PWSTR, cwc: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            PutAltWord: PutAltWord::<Impl, IMPL_OFFSET>,
+            PutWord: PutWord::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWordFormSink as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+pub trait IWordSinkImpl: Sized {
+    fn PutWord();
+    fn PutAltWord();
+    fn StartAltPhrase();
+    fn EndAltPhrase();
+    fn PutBreak();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
+impl IWordSinkVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWordSinkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWordSinkVtbl {
+        unsafe extern "system" fn PutWord<Impl: IWordSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cwc: u32, pwcinbuf: super::super::Foundation::PWSTR, cwcsrclen: u32, cwcsrcpos: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PutAltWord<Impl: IWordSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cwc: u32, pwcinbuf: super::super::Foundation::PWSTR, cwcsrclen: u32, cwcsrcpos: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn StartAltPhrase<Impl: IWordSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EndAltPhrase<Impl: IWordSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PutBreak<Impl: IWordSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, breaktype: super::super::Storage::IndexServer::WORDREP_BREAK_TYPE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            PutWord: PutWord::<Impl, IMPL_OFFSET>,
+            PutAltWord: PutAltWord::<Impl, IMPL_OFFSET>,
+            StartAltPhrase: StartAltPhrase::<Impl, IMPL_OFFSET>,
+            EndAltPhrase: EndAltPhrase::<Impl, IMPL_OFFSET>,
+            PutBreak: PutBreak::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWordSink as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait OLEDBSimpleProviderImpl: Sized {
+    fn getRowCount();
+    fn getColumnCount();
+    fn getRWStatus();
+    fn getVariant();
+    fn setVariant();
+    fn getLocale();
+    fn deleteRows();
+    fn insertRows();
+    fn find();
+    fn addOLEDBSimpleProviderListener();
+    fn removeOLEDBSimpleProviderListener();
+    fn isAsync();
+    fn getEstimatedRows();
+    fn stopTransfer();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl OLEDBSimpleProviderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: OLEDBSimpleProviderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> OLEDBSimpleProviderVtbl {
+        unsafe extern "system" fn getRowCount<Impl: OLEDBSimpleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcrows: *mut isize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn getColumnCount<Impl: OLEDBSimpleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pccolumns: *mut isize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn getRWStatus<Impl: OLEDBSimpleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, irow: isize, icolumn: isize, prwstatus: *mut OSPRW) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn getVariant<Impl: OLEDBSimpleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, irow: isize, icolumn: isize, format: OSPFORMAT, pvar: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn setVariant<Impl: OLEDBSimpleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, irow: isize, icolumn: isize, format: OSPFORMAT, var: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn getLocale<Impl: OLEDBSimpleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrlocale: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn deleteRows<Impl: OLEDBSimpleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, irow: isize, crows: isize, pcrowsdeleted: *mut isize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn insertRows<Impl: OLEDBSimpleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, irow: isize, crows: isize, pcrowsinserted: *mut isize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn find<Impl: OLEDBSimpleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, irowstart: isize, icolumn: isize, val: ::core::mem::ManuallyDrop<super::Com::VARIANT>, findflags: OSPFIND, comptype: OSPCOMP, pirowfound: *mut isize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn addOLEDBSimpleProviderListener<Impl: OLEDBSimpleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pospilistener: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn removeOLEDBSimpleProviderListener<Impl: OLEDBSimpleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pospilistener: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn isAsync<Impl: OLEDBSimpleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbasynch: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn getEstimatedRows<Impl: OLEDBSimpleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pirows: *mut isize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn stopTransfer<Impl: OLEDBSimpleProviderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            getRowCount: getRowCount::<Impl, IMPL_OFFSET>,
+            getColumnCount: getColumnCount::<Impl, IMPL_OFFSET>,
+            getRWStatus: getRWStatus::<Impl, IMPL_OFFSET>,
+            getVariant: getVariant::<Impl, IMPL_OFFSET>,
+            setVariant: setVariant::<Impl, IMPL_OFFSET>,
+            getLocale: getLocale::<Impl, IMPL_OFFSET>,
+            deleteRows: deleteRows::<Impl, IMPL_OFFSET>,
+            insertRows: insertRows::<Impl, IMPL_OFFSET>,
+            find: find::<Impl, IMPL_OFFSET>,
+            addOLEDBSimpleProviderListener: addOLEDBSimpleProviderListener::<Impl, IMPL_OFFSET>,
+            removeOLEDBSimpleProviderListener: removeOLEDBSimpleProviderListener::<Impl, IMPL_OFFSET>,
+            isAsync: isAsync::<Impl, IMPL_OFFSET>,
+            getEstimatedRows: getEstimatedRows::<Impl, IMPL_OFFSET>,
+            stopTransfer: stopTransfer::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<OLEDBSimpleProvider as ::windows::core::Interface>::IID
+    }
+}
+pub trait OLEDBSimpleProviderListenerImpl: Sized {
+    fn aboutToChangeCell();
+    fn cellChanged();
+    fn aboutToDeleteRows();
+    fn deletedRows();
+    fn aboutToInsertRows();
+    fn insertedRows();
+    fn rowsAvailable();
+    fn transferComplete();
+}
+impl OLEDBSimpleProviderListenerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: OLEDBSimpleProviderListenerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> OLEDBSimpleProviderListenerVtbl {
+        unsafe extern "system" fn aboutToChangeCell<Impl: OLEDBSimpleProviderListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, irow: isize, icolumn: isize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn cellChanged<Impl: OLEDBSimpleProviderListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, irow: isize, icolumn: isize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn aboutToDeleteRows<Impl: OLEDBSimpleProviderListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, irow: isize, crows: isize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn deletedRows<Impl: OLEDBSimpleProviderListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, irow: isize, crows: isize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn aboutToInsertRows<Impl: OLEDBSimpleProviderListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, irow: isize, crows: isize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn insertedRows<Impl: OLEDBSimpleProviderListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, irow: isize, crows: isize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn rowsAvailable<Impl: OLEDBSimpleProviderListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, irow: isize, crows: isize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn transferComplete<Impl: OLEDBSimpleProviderListenerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xfer: OSPXFER) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            aboutToChangeCell: aboutToChangeCell::<Impl, IMPL_OFFSET>,
+            cellChanged: cellChanged::<Impl, IMPL_OFFSET>,
+            aboutToDeleteRows: aboutToDeleteRows::<Impl, IMPL_OFFSET>,
+            deletedRows: deletedRows::<Impl, IMPL_OFFSET>,
+            aboutToInsertRows: aboutToInsertRows::<Impl, IMPL_OFFSET>,
+            insertedRows: insertedRows::<Impl, IMPL_OFFSET>,
+            rowsAvailable: rowsAvailable::<Impl, IMPL_OFFSET>,
+            transferComplete: transferComplete::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<OLEDBSimpleProviderListener as ::windows::core::Interface>::IID
+    }
+}

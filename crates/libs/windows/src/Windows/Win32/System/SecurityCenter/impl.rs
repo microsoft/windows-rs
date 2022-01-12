@@ -1,1 +1,175 @@
-# [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IWSCDefaultProductImpl < > : Sized + IDispatchImpl where { fn SetDefaultProduct ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IWSCDefaultProductVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IWSCDefaultProductImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IWSCDefaultProductVtbl < > { unsafe extern "system" fn SetDefaultProduct < Impl : IWSCDefaultProductImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , etype : SECURITY_PRODUCT_TYPE , pguid : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , SetDefaultProduct : SetDefaultProduct :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IWSCDefaultProduct < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IWSCProductListImpl < > : Sized + IDispatchImpl where { fn Initialize ( ) ; fn Count ( ) ; fn Item ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IWSCProductListVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IWSCProductListImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IWSCProductListVtbl < > { unsafe extern "system" fn Initialize < Impl : IWSCProductListImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , provider : WSC_SECURITY_PROVIDER , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Count < Impl : IWSCProductListImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pval : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Item < Impl : IWSCProductListImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , index : u32 , pval : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Initialize : Initialize :: < Impl , IMPL_OFFSET > , Count : Count :: < Impl , IMPL_OFFSET > , Item : Item :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IWSCProductList < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IWscProductImpl < > : Sized + IDispatchImpl where { fn ProductName ( ) ; fn ProductState ( ) ; fn SignatureStatus ( ) ; fn RemediationPath ( ) ; fn ProductStateTimestamp ( ) ; fn ProductGuid ( ) ; fn ProductIsDefault ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IWscProductVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IWscProductImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IWscProductVtbl < > { unsafe extern "system" fn ProductName < Impl : IWscProductImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pval : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ProductState < Impl : IWscProductImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pval : * mut WSC_SECURITY_PRODUCT_STATE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SignatureStatus < Impl : IWscProductImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pval : * mut WSC_SECURITY_SIGNATURE_STATUS , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RemediationPath < Impl : IWscProductImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pval : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ProductStateTimestamp < Impl : IWscProductImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pval : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ProductGuid < Impl : IWscProductImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pval : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ProductIsDefault < Impl : IWscProductImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pval : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , ProductName : ProductName :: < Impl , IMPL_OFFSET > , ProductState : ProductState :: < Impl , IMPL_OFFSET > , SignatureStatus : SignatureStatus :: < Impl , IMPL_OFFSET > , RemediationPath : RemediationPath :: < Impl , IMPL_OFFSET > , ProductStateTimestamp : ProductStateTimestamp :: < Impl , IMPL_OFFSET > , ProductGuid : ProductGuid :: < Impl , IMPL_OFFSET > , ProductIsDefault : ProductIsDefault :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IWscProduct < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IWscProduct2Impl < > : Sized + IDispatchImpl + IWscProductImpl where { fn AntivirusScanSubstatus ( ) ; fn AntivirusSettingsSubstatus ( ) ; fn AntivirusProtectionUpdateSubstatus ( ) ; fn FirewallDomainProfileSubstatus ( ) ; fn FirewallPrivateProfileSubstatus ( ) ; fn FirewallPublicProfileSubstatus ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IWscProduct2Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IWscProduct2Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IWscProduct2Vtbl < > { unsafe extern "system" fn AntivirusScanSubstatus < Impl : IWscProduct2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pestatus : * mut WSC_SECURITY_PRODUCT_SUBSTATUS , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AntivirusSettingsSubstatus < Impl : IWscProduct2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pestatus : * mut WSC_SECURITY_PRODUCT_SUBSTATUS , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AntivirusProtectionUpdateSubstatus < Impl : IWscProduct2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pestatus : * mut WSC_SECURITY_PRODUCT_SUBSTATUS , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn FirewallDomainProfileSubstatus < Impl : IWscProduct2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pestatus : * mut WSC_SECURITY_PRODUCT_SUBSTATUS , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn FirewallPrivateProfileSubstatus < Impl : IWscProduct2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pestatus : * mut WSC_SECURITY_PRODUCT_SUBSTATUS , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn FirewallPublicProfileSubstatus < Impl : IWscProduct2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pestatus : * mut WSC_SECURITY_PRODUCT_SUBSTATUS , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IWscProductVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , AntivirusScanSubstatus : AntivirusScanSubstatus :: < Impl , IMPL_OFFSET > , AntivirusSettingsSubstatus : AntivirusSettingsSubstatus :: < Impl , IMPL_OFFSET > , AntivirusProtectionUpdateSubstatus : AntivirusProtectionUpdateSubstatus :: < Impl , IMPL_OFFSET > , FirewallDomainProfileSubstatus : FirewallDomainProfileSubstatus :: < Impl , IMPL_OFFSET > , FirewallPrivateProfileSubstatus : FirewallPrivateProfileSubstatus :: < Impl , IMPL_OFFSET > , FirewallPublicProfileSubstatus : FirewallPublicProfileSubstatus :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IWscProduct2 < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IWscProduct3Impl < > : Sized + IDispatchImpl + IWscProductImpl + IWscProduct2Impl where { fn AntivirusDaysUntilExpired ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IWscProduct3Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IWscProduct3Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IWscProduct3Vtbl < > { unsafe extern "system" fn AntivirusDaysUntilExpired < Impl : IWscProduct3Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdwdays : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IWscProduct2Vtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , AntivirusDaysUntilExpired : AntivirusDaysUntilExpired :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IWscProduct3 < > as :: windows :: core :: Interface > :: IID } } 
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IWSCDefaultProductImpl: Sized + IDispatchImpl {
+    fn SetDefaultProduct();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IWSCDefaultProductVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSCDefaultProductImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWSCDefaultProductVtbl {
+        unsafe extern "system" fn SetDefaultProduct<Impl: IWSCDefaultProductImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, etype: SECURITY_PRODUCT_TYPE, pguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), SetDefaultProduct: SetDefaultProduct::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWSCDefaultProduct as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IWSCProductListImpl: Sized + IDispatchImpl {
+    fn Initialize();
+    fn Count();
+    fn Item();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IWSCProductListVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWSCProductListImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWSCProductListVtbl {
+        unsafe extern "system" fn Initialize<Impl: IWSCProductListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, provider: WSC_SECURITY_PROVIDER) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Count<Impl: IWSCProductListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: IWSCProductListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Initialize: Initialize::<Impl, IMPL_OFFSET>,
+            Count: Count::<Impl, IMPL_OFFSET>,
+            Item: Item::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWSCProductList as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IWscProductImpl: Sized + IDispatchImpl {
+    fn ProductName();
+    fn ProductState();
+    fn SignatureStatus();
+    fn RemediationPath();
+    fn ProductStateTimestamp();
+    fn ProductGuid();
+    fn ProductIsDefault();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IWscProductVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWscProductImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWscProductVtbl {
+        unsafe extern "system" fn ProductName<Impl: IWscProductImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ProductState<Impl: IWscProductImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut WSC_SECURITY_PRODUCT_STATE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SignatureStatus<Impl: IWscProductImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut WSC_SECURITY_SIGNATURE_STATUS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RemediationPath<Impl: IWscProductImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ProductStateTimestamp<Impl: IWscProductImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ProductGuid<Impl: IWscProductImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ProductIsDefault<Impl: IWscProductImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            ProductName: ProductName::<Impl, IMPL_OFFSET>,
+            ProductState: ProductState::<Impl, IMPL_OFFSET>,
+            SignatureStatus: SignatureStatus::<Impl, IMPL_OFFSET>,
+            RemediationPath: RemediationPath::<Impl, IMPL_OFFSET>,
+            ProductStateTimestamp: ProductStateTimestamp::<Impl, IMPL_OFFSET>,
+            ProductGuid: ProductGuid::<Impl, IMPL_OFFSET>,
+            ProductIsDefault: ProductIsDefault::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWscProduct as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IWscProduct2Impl: Sized + IDispatchImpl + IWscProductImpl {
+    fn AntivirusScanSubstatus();
+    fn AntivirusSettingsSubstatus();
+    fn AntivirusProtectionUpdateSubstatus();
+    fn FirewallDomainProfileSubstatus();
+    fn FirewallPrivateProfileSubstatus();
+    fn FirewallPublicProfileSubstatus();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IWscProduct2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWscProduct2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWscProduct2Vtbl {
+        unsafe extern "system" fn AntivirusScanSubstatus<Impl: IWscProduct2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AntivirusSettingsSubstatus<Impl: IWscProduct2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AntivirusProtectionUpdateSubstatus<Impl: IWscProduct2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FirewallDomainProfileSubstatus<Impl: IWscProduct2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FirewallPrivateProfileSubstatus<Impl: IWscProduct2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FirewallPublicProfileSubstatus<Impl: IWscProduct2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pestatus: *mut WSC_SECURITY_PRODUCT_SUBSTATUS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IWscProductVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            AntivirusScanSubstatus: AntivirusScanSubstatus::<Impl, IMPL_OFFSET>,
+            AntivirusSettingsSubstatus: AntivirusSettingsSubstatus::<Impl, IMPL_OFFSET>,
+            AntivirusProtectionUpdateSubstatus: AntivirusProtectionUpdateSubstatus::<Impl, IMPL_OFFSET>,
+            FirewallDomainProfileSubstatus: FirewallDomainProfileSubstatus::<Impl, IMPL_OFFSET>,
+            FirewallPrivateProfileSubstatus: FirewallPrivateProfileSubstatus::<Impl, IMPL_OFFSET>,
+            FirewallPublicProfileSubstatus: FirewallPublicProfileSubstatus::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWscProduct2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IWscProduct3Impl: Sized + IDispatchImpl + IWscProductImpl + IWscProduct2Impl {
+    fn AntivirusDaysUntilExpired();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IWscProduct3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWscProduct3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWscProduct3Vtbl {
+        unsafe extern "system" fn AntivirusDaysUntilExpired<Impl: IWscProduct3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwdays: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IWscProduct2Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            AntivirusDaysUntilExpired: AntivirusDaysUntilExpired::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWscProduct3 as ::windows::core::Interface>::IID
+    }
+}

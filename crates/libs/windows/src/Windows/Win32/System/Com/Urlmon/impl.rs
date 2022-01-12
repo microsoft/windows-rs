@@ -1,1 +1,1300 @@
-# [ cfg ( feature ="Win32_Foundation" ) ] pub trait IBindCallbackRedirectImpl < > : Sized where { fn Redirect ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IBindCallbackRedirectVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IBindCallbackRedirectImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IBindCallbackRedirectVtbl < > { unsafe extern "system" fn Redirect < Impl : IBindCallbackRedirectImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , lpcurl : super::super::super::Foundation:: PWSTR , vbcancel : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Redirect : Redirect :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IBindCallbackRedirect < > as :: windows :: core :: Interface > :: IID } } pub trait IBindHttpSecurityImpl < > : Sized where { fn GetIgnoreCertMask ( ) ; } impl < > IBindHttpSecurityVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IBindHttpSecurityImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IBindHttpSecurityVtbl < > { unsafe extern "system" fn GetIgnoreCertMask < Impl : IBindHttpSecurityImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdwignorecertmask : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetIgnoreCertMask : GetIgnoreCertMask :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IBindHttpSecurity < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IBindProtocolImpl < > : Sized where { fn CreateBinding ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IBindProtocolVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IBindProtocolImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IBindProtocolVtbl < > { unsafe extern "system" fn CreateBinding < Impl : IBindProtocolImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , szurl : super::super::super::Foundation:: PWSTR , pbc : :: windows :: core :: RawPtr , ppb : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , CreateBinding : CreateBinding :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IBindProtocol < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ICatalogFileInfoImpl < > : Sized where { fn GetCatalogFile ( ) ; fn GetJavaTrust ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ICatalogFileInfoVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ICatalogFileInfoImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ICatalogFileInfoVtbl < > { unsafe extern "system" fn GetCatalogFile < Impl : ICatalogFileInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszcatalogfile : * mut super::super::super::Foundation:: PSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetJavaTrust < Impl : ICatalogFileInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppjavatrust : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetCatalogFile : GetCatalogFile :: < Impl , IMPL_OFFSET > , GetJavaTrust : GetJavaTrust :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ICatalogFileInfo < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ICodeInstallImpl < > : Sized + IWindowForBindingUIImpl where { fn OnCodeInstallProblem ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ICodeInstallVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ICodeInstallImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ICodeInstallVtbl < > { unsafe extern "system" fn OnCodeInstallProblem < Impl : ICodeInstallImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ulstatuscode : u32 , szdestination : super::super::super::Foundation:: PWSTR , szsource : super::super::super::Foundation:: PWSTR , dwreserved : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IWindowForBindingUIVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , OnCodeInstallProblem : OnCodeInstallProblem :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ICodeInstall < > as :: windows :: core :: Interface > :: IID } } pub trait IDataFilterImpl < > : Sized where { fn DoEncode ( ) ; fn DoDecode ( ) ; fn SetEncodingLevel ( ) ; } impl < > IDataFilterVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IDataFilterImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IDataFilterVtbl < > { unsafe extern "system" fn DoEncode < Impl : IDataFilterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwflags : u32 , linbuffersize : i32 , pbinbuffer : * const u8 , loutbuffersize : i32 , pboutbuffer : * mut u8 , linbytesavailable : i32 , plinbytesread : * mut i32 , ploutbyteswritten : * mut i32 , dwreserved : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DoDecode < Impl : IDataFilterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwflags : u32 , linbuffersize : i32 , pbinbuffer : * const u8 , loutbuffersize : i32 , pboutbuffer : * mut u8 , linbytesavailable : i32 , plinbytesread : * mut i32 , ploutbyteswritten : * mut i32 , dwreserved : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetEncodingLevel < Impl : IDataFilterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwenclevel : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , DoEncode : DoEncode :: < Impl , IMPL_OFFSET > , DoDecode : DoDecode :: < Impl , IMPL_OFFSET > , SetEncodingLevel : SetEncodingLevel :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IDataFilter < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IEncodingFilterFactoryImpl < > : Sized where { fn FindBestFilter ( ) ; fn GetDefaultFilter ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IEncodingFilterFactoryVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IEncodingFilterFactoryImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IEncodingFilterFactoryVtbl < > { unsafe extern "system" fn FindBestFilter < Impl : IEncodingFilterFactoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwzcodein : super::super::super::Foundation:: PWSTR , pwzcodeout : super::super::super::Foundation:: PWSTR , info : DATAINFO , ppdf : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetDefaultFilter < Impl : IEncodingFilterFactoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwzcodein : super::super::super::Foundation:: PWSTR , pwzcodeout : super::super::super::Foundation:: PWSTR , ppdf : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , FindBestFilter : FindBestFilter :: < Impl , IMPL_OFFSET > , GetDefaultFilter : GetDefaultFilter :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IEncodingFilterFactory < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IGetBindHandleImpl < > : Sized where { fn GetBindHandle ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IGetBindHandleVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IGetBindHandleImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IGetBindHandleVtbl < > { unsafe extern "system" fn GetBindHandle < Impl : IGetBindHandleImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , enumrequestedhandle : BINDHANDLETYPES , prethandle : * mut super::super::super::Foundation:: HANDLE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetBindHandle : GetBindHandle :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IGetBindHandle < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IHttpNegotiateImpl < > : Sized where { fn BeginningTransaction ( ) ; fn OnResponse ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IHttpNegotiateVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IHttpNegotiateImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IHttpNegotiateVtbl < > { unsafe extern "system" fn BeginningTransaction < Impl : IHttpNegotiateImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , szurl : super::super::super::Foundation:: PWSTR , szheaders : super::super::super::Foundation:: PWSTR , dwreserved : u32 , pszadditionalheaders : * mut super::super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn OnResponse < Impl : IHttpNegotiateImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwresponsecode : u32 , szresponseheaders : super::super::super::Foundation:: PWSTR , szrequestheaders : super::super::super::Foundation:: PWSTR , pszadditionalrequestheaders : * mut super::super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , BeginningTransaction : BeginningTransaction :: < Impl , IMPL_OFFSET > , OnResponse : OnResponse :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IHttpNegotiate < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IHttpNegotiate2Impl < > : Sized + IHttpNegotiateImpl where { fn GetRootSecurityId ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IHttpNegotiate2Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IHttpNegotiate2Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IHttpNegotiate2Vtbl < > { unsafe extern "system" fn GetRootSecurityId < Impl : IHttpNegotiate2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbsecurityid : * mut u8 , pcbsecurityid : * mut u32 , dwreserved : usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IHttpNegotiateVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetRootSecurityId : GetRootSecurityId :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IHttpNegotiate2 < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IHttpNegotiate3Impl < > : Sized + IHttpNegotiateImpl + IHttpNegotiate2Impl where { fn GetSerializedClientCertContext ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IHttpNegotiate3Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IHttpNegotiate3Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IHttpNegotiate3Vtbl < > { unsafe extern "system" fn GetSerializedClientCertContext < Impl : IHttpNegotiate3Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppbcert : * mut * mut u8 , pcbcert : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IHttpNegotiate2Vtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetSerializedClientCertContext : GetSerializedClientCertContext :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IHttpNegotiate3 < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IHttpSecurityImpl < > : Sized + IWindowForBindingUIImpl where { fn OnSecurityProblem ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IHttpSecurityVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IHttpSecurityImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IHttpSecurityVtbl < > { unsafe extern "system" fn OnSecurityProblem < Impl : IHttpSecurityImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwproblem : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IWindowForBindingUIVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , OnSecurityProblem : OnSecurityProblem :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IHttpSecurity < > as :: windows :: core :: Interface > :: IID } } pub trait IInternetImpl < > : Sized where { } impl < > IInternetVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IInternetImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IInternetVtbl < > { Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IInternet < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Graphics_Gdi" , feature ="Win32_Security" , feature ="Win32_System_Com_StructuredStorage" ) ) ] pub trait IInternetBindInfoImpl < > : Sized where { fn GetBindInfo ( ) ; fn GetBindString ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Graphics_Gdi" , feature ="Win32_Security" , feature ="Win32_System_Com_StructuredStorage" ) ) ] impl < > IInternetBindInfoVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IInternetBindInfoImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IInternetBindInfoVtbl < > { unsafe extern "system" fn GetBindInfo < Impl : IInternetBindInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , grfbindf : * mut u32 , pbindinfo : * mut super:: BINDINFO , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetBindString < Impl : IInternetBindInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ulstringtype : u32 , ppwzstr : * mut super::super::super::Foundation:: PWSTR , cel : u32 , pcelfetched : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetBindInfo : GetBindInfo :: < Impl , IMPL_OFFSET > , GetBindString : GetBindString :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IInternetBindInfo < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Graphics_Gdi" , feature ="Win32_Security" , feature ="Win32_System_Com_StructuredStorage" ) ) ] pub trait IInternetBindInfoExImpl < > : Sized + IInternetBindInfoImpl where { fn GetBindInfoEx ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Graphics_Gdi" , feature ="Win32_Security" , feature ="Win32_System_Com_StructuredStorage" ) ) ] impl < > IInternetBindInfoExVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IInternetBindInfoExImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IInternetBindInfoExVtbl < > { unsafe extern "system" fn GetBindInfoEx < Impl : IInternetBindInfoExImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , grfbindf : * mut u32 , pbindinfo : * mut super:: BINDINFO , grfbindf2 : * mut u32 , pdwreserved : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IInternetBindInfoVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetBindInfoEx : GetBindInfoEx :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IInternetBindInfoEx < > as :: windows :: core :: Interface > :: IID } } pub trait IInternetHostSecurityManagerImpl < > : Sized where { fn GetSecurityId ( ) ; fn ProcessUrlAction ( ) ; fn QueryCustomPolicy ( ) ; } impl < > IInternetHostSecurityManagerVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IInternetHostSecurityManagerImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IInternetHostSecurityManagerVtbl < > { unsafe extern "system" fn GetSecurityId < Impl : IInternetHostSecurityManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbsecurityid : * mut u8 , pcbsecurityid : * mut u32 , dwreserved : usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ProcessUrlAction < Impl : IInternetHostSecurityManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwaction : u32 , ppolicy : * mut u8 , cbpolicy : u32 , pcontext : * const u8 , cbcontext : u32 , dwflags : u32 , dwreserved : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn QueryCustomPolicy < Impl : IInternetHostSecurityManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , guidkey : * const :: windows :: core :: GUID , pppolicy : * mut * mut u8 , pcbpolicy : * mut u32 , pcontext : * const u8 , cbcontext : u32 , dwreserved : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetSecurityId : GetSecurityId :: < Impl , IMPL_OFFSET > , ProcessUrlAction : ProcessUrlAction :: < Impl , IMPL_OFFSET > , QueryCustomPolicy : QueryCustomPolicy :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IInternetHostSecurityManager < > as :: windows :: core :: Interface > :: IID } } pub trait IInternetPriorityImpl < > : Sized where { fn SetPriority ( ) ; fn GetPriority ( ) ; } impl < > IInternetPriorityVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IInternetPriorityImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IInternetPriorityVtbl < > { unsafe extern "system" fn SetPriority < Impl : IInternetPriorityImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , npriority : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetPriority < Impl : IInternetPriorityImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pnpriority : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , SetPriority : SetPriority :: < Impl , IMPL_OFFSET > , GetPriority : GetPriority :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IInternetPriority < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IInternetProtocolImpl < > : Sized + IInternetProtocolRootImpl where { fn Read ( ) ; fn Seek ( ) ; fn LockRequest ( ) ; fn UnlockRequest ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IInternetProtocolVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IInternetProtocolImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IInternetProtocolVtbl < > { unsafe extern "system" fn Read < Impl : IInternetProtocolImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pv : * mut :: core :: ffi :: c_void , cb : u32 , pcbread : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Seek < Impl : IInternetProtocolImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dlibmove : i64 , dworigin : u32 , plibnewposition : * mut u64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn LockRequest < Impl : IInternetProtocolImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwoptions : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn UnlockRequest < Impl : IInternetProtocolImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IInternetProtocolRootVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Read : Read :: < Impl , IMPL_OFFSET > , Seek : Seek :: < Impl , IMPL_OFFSET > , LockRequest : LockRequest :: < Impl , IMPL_OFFSET > , UnlockRequest : UnlockRequest :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IInternetProtocol < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IInternetProtocolExImpl < > : Sized + IInternetProtocolRootImpl + IInternetProtocolImpl where { fn StartEx ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IInternetProtocolExVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IInternetProtocolExImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IInternetProtocolExVtbl < > { unsafe extern "system" fn StartEx < Impl : IInternetProtocolExImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , puri : :: windows :: core :: RawPtr , poiprotsink : :: windows :: core :: RawPtr , poibindinfo : :: windows :: core :: RawPtr , grfpi : u32 , dwreserved : super::super::super::Foundation:: HANDLE_PTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IInternetProtocolVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , StartEx : StartEx :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IInternetProtocolEx < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IInternetProtocolInfoImpl < > : Sized where { fn ParseUrl ( ) ; fn CombineUrl ( ) ; fn CompareUrl ( ) ; fn QueryInfo ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IInternetProtocolInfoVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IInternetProtocolInfoImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IInternetProtocolInfoVtbl < > { unsafe extern "system" fn ParseUrl < Impl : IInternetProtocolInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwzurl : super::super::super::Foundation:: PWSTR , parseaction : PARSEACTION , dwparseflags : u32 , pwzresult : super::super::super::Foundation:: PWSTR , cchresult : u32 , pcchresult : * mut u32 , dwreserved : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CombineUrl < Impl : IInternetProtocolInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwzbaseurl : super::super::super::Foundation:: PWSTR , pwzrelativeurl : super::super::super::Foundation:: PWSTR , dwcombineflags : u32 , pwzresult : super::super::super::Foundation:: PWSTR , cchresult : u32 , pcchresult : * mut u32 , dwreserved : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CompareUrl < Impl : IInternetProtocolInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwzurl1 : super::super::super::Foundation:: PWSTR , pwzurl2 : super::super::super::Foundation:: PWSTR , dwcompareflags : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn QueryInfo < Impl : IInternetProtocolInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwzurl : super::super::super::Foundation:: PWSTR , oueryoption : QUERYOPTION , dwqueryflags : u32 , pbuffer : * mut :: core :: ffi :: c_void , cbbuffer : u32 , pcbbuf : * mut u32 , dwreserved : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , ParseUrl : ParseUrl :: < Impl , IMPL_OFFSET > , CombineUrl : CombineUrl :: < Impl , IMPL_OFFSET > , CompareUrl : CompareUrl :: < Impl , IMPL_OFFSET > , QueryInfo : QueryInfo :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IInternetProtocolInfo < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IInternetProtocolRootImpl < > : Sized where { fn Start ( ) ; fn Continue ( ) ; fn Abort ( ) ; fn Terminate ( ) ; fn Suspend ( ) ; fn Resume ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IInternetProtocolRootVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IInternetProtocolRootImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IInternetProtocolRootVtbl < > { unsafe extern "system" fn Start < Impl : IInternetProtocolRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , szurl : super::super::super::Foundation:: PWSTR , poiprotsink : :: windows :: core :: RawPtr , poibindinfo : :: windows :: core :: RawPtr , grfpi : u32 , dwreserved : super::super::super::Foundation:: HANDLE_PTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Continue < Impl : IInternetProtocolRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pprotocoldata : * const PROTOCOLDATA , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Abort < Impl : IInternetProtocolRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hrreason : :: windows :: core :: HRESULT , dwoptions : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Terminate < Impl : IInternetProtocolRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwoptions : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Suspend < Impl : IInternetProtocolRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Resume < Impl : IInternetProtocolRootImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Start : Start :: < Impl , IMPL_OFFSET > , Continue : Continue :: < Impl , IMPL_OFFSET > , Abort : Abort :: < Impl , IMPL_OFFSET > , Terminate : Terminate :: < Impl , IMPL_OFFSET > , Suspend : Suspend :: < Impl , IMPL_OFFSET > , Resume : Resume :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IInternetProtocolRoot < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IInternetProtocolSinkImpl < > : Sized where { fn Switch ( ) ; fn ReportProgress ( ) ; fn ReportData ( ) ; fn ReportResult ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IInternetProtocolSinkVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IInternetProtocolSinkImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IInternetProtocolSinkVtbl < > { unsafe extern "system" fn Switch < Impl : IInternetProtocolSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pprotocoldata : * const PROTOCOLDATA , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ReportProgress < Impl : IInternetProtocolSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ulstatuscode : u32 , szstatustext : super::super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ReportData < Impl : IInternetProtocolSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , grfbscf : u32 , ulprogress : u32 , ulprogressmax : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ReportResult < Impl : IInternetProtocolSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hrresult : :: windows :: core :: HRESULT , dwerror : u32 , szresult : super::super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Switch : Switch :: < Impl , IMPL_OFFSET > , ReportProgress : ReportProgress :: < Impl , IMPL_OFFSET > , ReportData : ReportData :: < Impl , IMPL_OFFSET > , ReportResult : ReportResult :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IInternetProtocolSink < > as :: windows :: core :: Interface > :: IID } } pub trait IInternetProtocolSinkStackableImpl < > : Sized where { fn SwitchSink ( ) ; fn CommitSwitch ( ) ; fn RollbackSwitch ( ) ; } impl < > IInternetProtocolSinkStackableVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IInternetProtocolSinkStackableImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IInternetProtocolSinkStackableVtbl < > { unsafe extern "system" fn SwitchSink < Impl : IInternetProtocolSinkStackableImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , poiprotsink : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CommitSwitch < Impl : IInternetProtocolSinkStackableImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RollbackSwitch < Impl : IInternetProtocolSinkStackableImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , SwitchSink : SwitchSink :: < Impl , IMPL_OFFSET > , CommitSwitch : CommitSwitch :: < Impl , IMPL_OFFSET > , RollbackSwitch : RollbackSwitch :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IInternetProtocolSinkStackable < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IInternetSecurityManagerImpl < > : Sized where { fn SetSecuritySite ( ) ; fn GetSecuritySite ( ) ; fn MapUrlToZone ( ) ; fn GetSecurityId ( ) ; fn ProcessUrlAction ( ) ; fn QueryCustomPolicy ( ) ; fn SetZoneMapping ( ) ; fn GetZoneMappings ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IInternetSecurityManagerVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IInternetSecurityManagerImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IInternetSecurityManagerVtbl < > { unsafe extern "system" fn SetSecuritySite < Impl : IInternetSecurityManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , psite : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetSecuritySite < Impl : IInternetSecurityManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppsite : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn MapUrlToZone < Impl : IInternetSecurityManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwszurl : super::super::super::Foundation:: PWSTR , pdwzone : * mut u32 , dwflags : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetSecurityId < Impl : IInternetSecurityManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwszurl : super::super::super::Foundation:: PWSTR , pbsecurityid : * mut u8 , pcbsecurityid : * mut u32 , dwreserved : usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ProcessUrlAction < Impl : IInternetSecurityManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwszurl : super::super::super::Foundation:: PWSTR , dwaction : u32 , ppolicy : * mut u8 , cbpolicy : u32 , pcontext : * const u8 , cbcontext : u32 , dwflags : u32 , dwreserved : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn QueryCustomPolicy < Impl : IInternetSecurityManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwszurl : super::super::super::Foundation:: PWSTR , guidkey : * const :: windows :: core :: GUID , pppolicy : * mut * mut u8 , pcbpolicy : * mut u32 , pcontext : * const u8 , cbcontext : u32 , dwreserved : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetZoneMapping < Impl : IInternetSecurityManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwzone : u32 , lpszpattern : super::super::super::Foundation:: PWSTR , dwflags : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetZoneMappings < Impl : IInternetSecurityManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwzone : u32 , ppenumstring : * mut :: windows :: core :: RawPtr , dwflags : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , SetSecuritySite : SetSecuritySite :: < Impl , IMPL_OFFSET > , GetSecuritySite : GetSecuritySite :: < Impl , IMPL_OFFSET > , MapUrlToZone : MapUrlToZone :: < Impl , IMPL_OFFSET > , GetSecurityId : GetSecurityId :: < Impl , IMPL_OFFSET > , ProcessUrlAction : ProcessUrlAction :: < Impl , IMPL_OFFSET > , QueryCustomPolicy : QueryCustomPolicy :: < Impl , IMPL_OFFSET > , SetZoneMapping : SetZoneMapping :: < Impl , IMPL_OFFSET > , GetZoneMappings : GetZoneMappings :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IInternetSecurityManager < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IInternetSecurityManagerExImpl < > : Sized + IInternetSecurityManagerImpl where { fn ProcessUrlActionEx ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IInternetSecurityManagerExVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IInternetSecurityManagerExImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IInternetSecurityManagerExVtbl < > { unsafe extern "system" fn ProcessUrlActionEx < Impl : IInternetSecurityManagerExImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwszurl : super::super::super::Foundation:: PWSTR , dwaction : u32 , ppolicy : * mut u8 , cbpolicy : u32 , pcontext : * const u8 , cbcontext : u32 , dwflags : u32 , dwreserved : u32 , pdwoutflags : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IInternetSecurityManagerVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , ProcessUrlActionEx : ProcessUrlActionEx :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IInternetSecurityManagerEx < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IInternetSecurityManagerEx2Impl < > : Sized + IInternetSecurityManagerImpl + IInternetSecurityManagerExImpl where { fn MapUrlToZoneEx2 ( ) ; fn ProcessUrlActionEx2 ( ) ; fn GetSecurityIdEx2 ( ) ; fn QueryCustomPolicyEx2 ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IInternetSecurityManagerEx2Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IInternetSecurityManagerEx2Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IInternetSecurityManagerEx2Vtbl < > { unsafe extern "system" fn MapUrlToZoneEx2 < Impl : IInternetSecurityManagerEx2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , puri : :: windows :: core :: RawPtr , pdwzone : * mut u32 , dwflags : u32 , ppwszmappedurl : * mut super::super::super::Foundation:: PWSTR , pdwoutflags : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ProcessUrlActionEx2 < Impl : IInternetSecurityManagerEx2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , puri : :: windows :: core :: RawPtr , dwaction : u32 , ppolicy : * mut u8 , cbpolicy : u32 , pcontext : * const u8 , cbcontext : u32 , dwflags : u32 , dwreserved : usize , pdwoutflags : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetSecurityIdEx2 < Impl : IInternetSecurityManagerEx2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , puri : :: windows :: core :: RawPtr , pbsecurityid : * mut u8 , pcbsecurityid : * mut u32 , dwreserved : usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn QueryCustomPolicyEx2 < Impl : IInternetSecurityManagerEx2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , puri : :: windows :: core :: RawPtr , guidkey : * const :: windows :: core :: GUID , pppolicy : * mut * mut u8 , pcbpolicy : * mut u32 , pcontext : * const u8 , cbcontext : u32 , dwreserved : usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IInternetSecurityManagerExVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , MapUrlToZoneEx2 : MapUrlToZoneEx2 :: < Impl , IMPL_OFFSET > , ProcessUrlActionEx2 : ProcessUrlActionEx2 :: < Impl , IMPL_OFFSET > , GetSecurityIdEx2 : GetSecurityIdEx2 :: < Impl , IMPL_OFFSET > , QueryCustomPolicyEx2 : QueryCustomPolicyEx2 :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IInternetSecurityManagerEx2 < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IInternetSecurityMgrSiteImpl < > : Sized where { fn GetWindow ( ) ; fn EnableModeless ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IInternetSecurityMgrSiteVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IInternetSecurityMgrSiteImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IInternetSecurityMgrSiteVtbl < > { unsafe extern "system" fn GetWindow < Impl : IInternetSecurityMgrSiteImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , phwnd : * mut super::super::super::Foundation:: HWND , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EnableModeless < Impl : IInternetSecurityMgrSiteImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , fenable : super::super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetWindow : GetWindow :: < Impl , IMPL_OFFSET > , EnableModeless : EnableModeless :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IInternetSecurityMgrSite < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IInternetSessionImpl < > : Sized where { fn RegisterNameSpace ( ) ; fn UnregisterNameSpace ( ) ; fn RegisterMimeFilter ( ) ; fn UnregisterMimeFilter ( ) ; fn CreateBinding ( ) ; fn SetSessionOption ( ) ; fn GetSessionOption ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IInternetSessionVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IInternetSessionImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IInternetSessionVtbl < > { unsafe extern "system" fn RegisterNameSpace < Impl : IInternetSessionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcf : :: windows :: core :: RawPtr , rclsid : * const :: windows :: core :: GUID , pwzprotocol : super::super::super::Foundation:: PWSTR , cpatterns : u32 , ppwzpatterns : * const super::super::super::Foundation:: PWSTR , dwreserved : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn UnregisterNameSpace < Impl : IInternetSessionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcf : :: windows :: core :: RawPtr , pszprotocol : super::super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RegisterMimeFilter < Impl : IInternetSessionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcf : :: windows :: core :: RawPtr , rclsid : * const :: windows :: core :: GUID , pwztype : super::super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn UnregisterMimeFilter < Impl : IInternetSessionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcf : :: windows :: core :: RawPtr , pwztype : super::super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateBinding < Impl : IInternetSessionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbc : :: windows :: core :: RawPtr , szurl : super::super::super::Foundation:: PWSTR , punkouter : * mut :: core :: ffi :: c_void , ppunk : * mut * mut :: core :: ffi :: c_void , ppoinetprot : * mut :: windows :: core :: RawPtr , dwoption : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetSessionOption < Impl : IInternetSessionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwoption : u32 , pbuffer : * const :: core :: ffi :: c_void , dwbufferlength : u32 , dwreserved : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetSessionOption < Impl : IInternetSessionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwoption : u32 , pbuffer : * mut :: core :: ffi :: c_void , pdwbufferlength : * mut u32 , dwreserved : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , RegisterNameSpace : RegisterNameSpace :: < Impl , IMPL_OFFSET > , UnregisterNameSpace : UnregisterNameSpace :: < Impl , IMPL_OFFSET > , RegisterMimeFilter : RegisterMimeFilter :: < Impl , IMPL_OFFSET > , UnregisterMimeFilter : UnregisterMimeFilter :: < Impl , IMPL_OFFSET > , CreateBinding : CreateBinding :: < Impl , IMPL_OFFSET > , SetSessionOption : SetSessionOption :: < Impl , IMPL_OFFSET > , GetSessionOption : GetSessionOption :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IInternetSession < > as :: windows :: core :: Interface > :: IID } } pub trait IInternetThreadSwitchImpl < > : Sized where { fn Prepare ( ) ; fn Continue ( ) ; } impl < > IInternetThreadSwitchVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IInternetThreadSwitchImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IInternetThreadSwitchVtbl < > { unsafe extern "system" fn Prepare < Impl : IInternetThreadSwitchImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Continue < Impl : IInternetThreadSwitchImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Prepare : Prepare :: < Impl , IMPL_OFFSET > , Continue : Continue :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IInternetThreadSwitch < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IInternetZoneManagerImpl < > : Sized where { fn GetZoneAttributes ( ) ; fn SetZoneAttributes ( ) ; fn GetZoneCustomPolicy ( ) ; fn SetZoneCustomPolicy ( ) ; fn GetZoneActionPolicy ( ) ; fn SetZoneActionPolicy ( ) ; fn PromptAction ( ) ; fn LogAction ( ) ; fn CreateZoneEnumerator ( ) ; fn GetZoneAt ( ) ; fn DestroyZoneEnumerator ( ) ; fn CopyTemplatePoliciesToZone ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IInternetZoneManagerVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IInternetZoneManagerImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IInternetZoneManagerVtbl < > { unsafe extern "system" fn GetZoneAttributes < Impl : IInternetZoneManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwzone : u32 , pzoneattributes : * mut ZONEATTRIBUTES , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetZoneAttributes < Impl : IInternetZoneManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwzone : u32 , pzoneattributes : * const ZONEATTRIBUTES , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetZoneCustomPolicy < Impl : IInternetZoneManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwzone : u32 , guidkey : * const :: windows :: core :: GUID , pppolicy : * mut * mut u8 , pcbpolicy : * mut u32 , urlzonereg : URLZONEREG , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetZoneCustomPolicy < Impl : IInternetZoneManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwzone : u32 , guidkey : * const :: windows :: core :: GUID , ppolicy : * const u8 , cbpolicy : u32 , urlzonereg : URLZONEREG , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetZoneActionPolicy < Impl : IInternetZoneManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwzone : u32 , dwaction : u32 , ppolicy : * mut u8 , cbpolicy : u32 , urlzonereg : URLZONEREG , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetZoneActionPolicy < Impl : IInternetZoneManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwzone : u32 , dwaction : u32 , ppolicy : * const u8 , cbpolicy : u32 , urlzonereg : URLZONEREG , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn PromptAction < Impl : IInternetZoneManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwaction : u32 , hwndparent : super::super::super::Foundation:: HWND , pwszurl : super::super::super::Foundation:: PWSTR , pwsztext : super::super::super::Foundation:: PWSTR , dwpromptflags : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn LogAction < Impl : IInternetZoneManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwaction : u32 , pwszurl : super::super::super::Foundation:: PWSTR , pwsztext : super::super::super::Foundation:: PWSTR , dwlogflags : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateZoneEnumerator < Impl : IInternetZoneManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdwenum : * mut u32 , pdwcount : * mut u32 , dwflags : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetZoneAt < Impl : IInternetZoneManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwenum : u32 , dwindex : u32 , pdwzone : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DestroyZoneEnumerator < Impl : IInternetZoneManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwenum : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CopyTemplatePoliciesToZone < Impl : IInternetZoneManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwtemplate : u32 , dwzone : u32 , dwreserved : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetZoneAttributes : GetZoneAttributes :: < Impl , IMPL_OFFSET > , SetZoneAttributes : SetZoneAttributes :: < Impl , IMPL_OFFSET > , GetZoneCustomPolicy : GetZoneCustomPolicy :: < Impl , IMPL_OFFSET > , SetZoneCustomPolicy : SetZoneCustomPolicy :: < Impl , IMPL_OFFSET > , GetZoneActionPolicy : GetZoneActionPolicy :: < Impl , IMPL_OFFSET > , SetZoneActionPolicy : SetZoneActionPolicy :: < Impl , IMPL_OFFSET > , PromptAction : PromptAction :: < Impl , IMPL_OFFSET > , LogAction : LogAction :: < Impl , IMPL_OFFSET > , CreateZoneEnumerator : CreateZoneEnumerator :: < Impl , IMPL_OFFSET > , GetZoneAt : GetZoneAt :: < Impl , IMPL_OFFSET > , DestroyZoneEnumerator : DestroyZoneEnumerator :: < Impl , IMPL_OFFSET > , CopyTemplatePoliciesToZone : CopyTemplatePoliciesToZone :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IInternetZoneManager < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IInternetZoneManagerExImpl < > : Sized + IInternetZoneManagerImpl where { fn GetZoneActionPolicyEx ( ) ; fn SetZoneActionPolicyEx ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IInternetZoneManagerExVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IInternetZoneManagerExImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IInternetZoneManagerExVtbl < > { unsafe extern "system" fn GetZoneActionPolicyEx < Impl : IInternetZoneManagerExImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwzone : u32 , dwaction : u32 , ppolicy : * mut u8 , cbpolicy : u32 , urlzonereg : URLZONEREG , dwflags : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetZoneActionPolicyEx < Impl : IInternetZoneManagerExImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwzone : u32 , dwaction : u32 , ppolicy : * const u8 , cbpolicy : u32 , urlzonereg : URLZONEREG , dwflags : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IInternetZoneManagerVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetZoneActionPolicyEx : GetZoneActionPolicyEx :: < Impl , IMPL_OFFSET > , SetZoneActionPolicyEx : SetZoneActionPolicyEx :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IInternetZoneManagerEx < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IInternetZoneManagerEx2Impl < > : Sized + IInternetZoneManagerImpl + IInternetZoneManagerExImpl where { fn GetZoneAttributesEx ( ) ; fn GetZoneSecurityState ( ) ; fn GetIESecurityState ( ) ; fn FixUnsecureSettings ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IInternetZoneManagerEx2Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IInternetZoneManagerEx2Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IInternetZoneManagerEx2Vtbl < > { unsafe extern "system" fn GetZoneAttributesEx < Impl : IInternetZoneManagerEx2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwzone : u32 , pzoneattributes : * mut ZONEATTRIBUTES , dwflags : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetZoneSecurityState < Impl : IInternetZoneManagerEx2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwzoneindex : u32 , frespectpolicy : super::super::super::Foundation:: BOOL , pdwstate : * mut u32 , pfpolicyencountered : * mut super::super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetIESecurityState < Impl : IInternetZoneManagerEx2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , frespectpolicy : super::super::super::Foundation:: BOOL , pdwstate : * mut u32 , pfpolicyencountered : * mut super::super::super::Foundation:: BOOL , fnocache : super::super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn FixUnsecureSettings < Impl : IInternetZoneManagerEx2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IInternetZoneManagerExVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetZoneAttributesEx : GetZoneAttributesEx :: < Impl , IMPL_OFFSET > , GetZoneSecurityState : GetZoneSecurityState :: < Impl , IMPL_OFFSET > , GetIESecurityState : GetIESecurityState :: < Impl , IMPL_OFFSET > , FixUnsecureSettings : FixUnsecureSettings :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IInternetZoneManagerEx2 < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IMonikerPropImpl < > : Sized where { fn PutProperty ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IMonikerPropVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IMonikerPropImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IMonikerPropVtbl < > { unsafe extern "system" fn PutProperty < Impl : IMonikerPropImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , mkp : MONIKERPROPERTY , val : super::super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , PutProperty : PutProperty :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IMonikerProp < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IPersistMonikerImpl < > : Sized where { fn GetClassID ( ) ; fn IsDirty ( ) ; fn Load ( ) ; fn Save ( ) ; fn SaveCompleted ( ) ; fn GetCurMoniker ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IPersistMonikerVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IPersistMonikerImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IPersistMonikerVtbl < > { unsafe extern "system" fn GetClassID < Impl : IPersistMonikerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pclassid : * mut :: windows :: core :: GUID , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsDirty < Impl : IPersistMonikerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Load < Impl : IPersistMonikerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ffullyavailable : super::super::super::Foundation:: BOOL , pimkname : :: windows :: core :: RawPtr , pibc : :: windows :: core :: RawPtr , grfmode : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Save < Impl : IPersistMonikerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pimkname : :: windows :: core :: RawPtr , pbc : :: windows :: core :: RawPtr , fremember : super::super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SaveCompleted < Impl : IPersistMonikerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pimkname : :: windows :: core :: RawPtr , pibc : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetCurMoniker < Impl : IPersistMonikerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppimkname : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetClassID : GetClassID :: < Impl , IMPL_OFFSET > , IsDirty : IsDirty :: < Impl , IMPL_OFFSET > , Load : Load :: < Impl , IMPL_OFFSET > , Save : Save :: < Impl , IMPL_OFFSET > , SaveCompleted : SaveCompleted :: < Impl , IMPL_OFFSET > , GetCurMoniker : GetCurMoniker :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IPersistMoniker < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Data_Xml_MsXml" , feature ="Win32_Foundation" ) ) ] pub trait ISoftDistExtImpl < > : Sized where { fn ProcessSoftDist ( ) ; fn GetFirstCodeBase ( ) ; fn GetNextCodeBase ( ) ; fn AsyncInstallDistributionUnit ( ) ; } # [ cfg ( all ( feature ="Win32_Data_Xml_MsXml" , feature ="Win32_Foundation" ) ) ] impl < > ISoftDistExtVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISoftDistExtImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISoftDistExtVtbl < > { unsafe extern "system" fn ProcessSoftDist < Impl : ISoftDistExtImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , szcdfurl : super::super::super::Foundation:: PWSTR , psoftdistelement : :: windows :: core :: RawPtr , lpsdi : * mut SOFTDISTINFO , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetFirstCodeBase < Impl : ISoftDistExtImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , szcodebase : * const super::super::super::Foundation:: PWSTR , dwmaxsize : * const u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetNextCodeBase < Impl : ISoftDistExtImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , szcodebase : * const super::super::super::Foundation:: PWSTR , dwmaxsize : * const u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AsyncInstallDistributionUnit < Impl : ISoftDistExtImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbc : :: windows :: core :: RawPtr , pvreserved : * const :: core :: ffi :: c_void , flags : u32 , lpcbh : * const CODEBASEHOLD , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , ProcessSoftDist : ProcessSoftDist :: < Impl , IMPL_OFFSET > , GetFirstCodeBase : GetFirstCodeBase :: < Impl , IMPL_OFFSET > , GetNextCodeBase : GetNextCodeBase :: < Impl , IMPL_OFFSET > , AsyncInstallDistributionUnit : AsyncInstallDistributionUnit :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISoftDistExt < > as :: windows :: core :: Interface > :: IID } } pub trait IUriBuilderFactoryImpl < > : Sized where { fn CreateIUriBuilder ( ) ; fn CreateInitializedIUriBuilder ( ) ; } impl < > IUriBuilderFactoryVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IUriBuilderFactoryImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IUriBuilderFactoryVtbl < > { unsafe extern "system" fn CreateIUriBuilder < Impl : IUriBuilderFactoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwflags : u32 , dwreserved : usize , ppiuribuilder : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateInitializedIUriBuilder < Impl : IUriBuilderFactoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwflags : u32 , dwreserved : usize , ppiuribuilder : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , CreateIUriBuilder : CreateIUriBuilder :: < Impl , IMPL_OFFSET > , CreateInitializedIUriBuilder : CreateInitializedIUriBuilder :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IUriBuilderFactory < > as :: windows :: core :: Interface > :: IID } } pub trait IUriContainerImpl < > : Sized where { fn GetIUri ( ) ; } impl < > IUriContainerVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IUriContainerImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IUriContainerVtbl < > { unsafe extern "system" fn GetIUri < Impl : IUriContainerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppiuri : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetIUri : GetIUri :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IUriContainer < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IWinInetCacheHintsImpl < > : Sized where { fn SetCacheExtension ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IWinInetCacheHintsVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IWinInetCacheHintsImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IWinInetCacheHintsVtbl < > { unsafe extern "system" fn SetCacheExtension < Impl : IWinInetCacheHintsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwzext : super::super::super::Foundation:: PWSTR , pszcachefile : * mut :: core :: ffi :: c_void , pcbcachefile : * mut u32 , pdwwinineterror : * mut u32 , pdwreserved : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , SetCacheExtension : SetCacheExtension :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IWinInetCacheHints < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IWinInetCacheHints2Impl < > : Sized + IWinInetCacheHintsImpl where { fn SetCacheExtension2 ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IWinInetCacheHints2Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IWinInetCacheHints2Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IWinInetCacheHints2Vtbl < > { unsafe extern "system" fn SetCacheExtension2 < Impl : IWinInetCacheHints2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwzext : super::super::super::Foundation:: PWSTR , pwzcachefile : super::super::super::Foundation:: PWSTR , pcchcachefile : * mut u32 , pdwwinineterror : * mut u32 , pdwreserved : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IWinInetCacheHintsVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , SetCacheExtension2 : SetCacheExtension2 :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IWinInetCacheHints2 < > as :: windows :: core :: Interface > :: IID } } pub trait IWinInetFileStreamImpl < > : Sized where { fn SetHandleForUnlock ( ) ; fn SetDeleteFile ( ) ; } impl < > IWinInetFileStreamVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IWinInetFileStreamImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IWinInetFileStreamVtbl < > { unsafe extern "system" fn SetHandleForUnlock < Impl : IWinInetFileStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hwininetlockhandle : usize , dwreserved : usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetDeleteFile < Impl : IWinInetFileStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwreserved : usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , SetHandleForUnlock : SetHandleForUnlock :: < Impl , IMPL_OFFSET > , SetDeleteFile : SetDeleteFile :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IWinInetFileStream < > as :: windows :: core :: Interface > :: IID } } pub trait IWinInetHttpInfoImpl < > : Sized + IWinInetInfoImpl where { fn QueryInfo ( ) ; } impl < > IWinInetHttpInfoVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IWinInetHttpInfoImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IWinInetHttpInfoVtbl < > { unsafe extern "system" fn QueryInfo < Impl : IWinInetHttpInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwoption : u32 , pbuffer : * mut :: core :: ffi :: c_void , pcbbuf : * mut u32 , pdwflags : * mut u32 , pdwreserved : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IWinInetInfoVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , QueryInfo : QueryInfo :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IWinInetHttpInfo < > as :: windows :: core :: Interface > :: IID } } pub trait IWinInetHttpTimeoutsImpl < > : Sized where { fn GetRequestTimeouts ( ) ; } impl < > IWinInetHttpTimeoutsVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IWinInetHttpTimeoutsImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IWinInetHttpTimeoutsVtbl < > { unsafe extern "system" fn GetRequestTimeouts < Impl : IWinInetHttpTimeoutsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdwconnecttimeout : * mut u32 , pdwsendtimeout : * mut u32 , pdwreceivetimeout : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetRequestTimeouts : GetRequestTimeouts :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IWinInetHttpTimeouts < > as :: windows :: core :: Interface > :: IID } } pub trait IWinInetInfoImpl < > : Sized where { fn QueryOption ( ) ; } impl < > IWinInetInfoVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IWinInetInfoImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IWinInetInfoVtbl < > { unsafe extern "system" fn QueryOption < Impl : IWinInetInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwoption : u32 , pbuffer : * mut :: core :: ffi :: c_void , pcbbuf : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , QueryOption : QueryOption :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IWinInetInfo < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IWindowForBindingUIImpl < > : Sized where { fn GetWindow ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IWindowForBindingUIVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IWindowForBindingUIImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IWindowForBindingUIVtbl < > { unsafe extern "system" fn GetWindow < Impl : IWindowForBindingUIImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , rguidreason : * const :: windows :: core :: GUID , phwnd : * mut super::super::super::Foundation:: HWND , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetWindow : GetWindow :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IWindowForBindingUI < > as :: windows :: core :: Interface > :: IID } } pub trait IWrappedProtocolImpl < > : Sized where { fn GetWrapperCode ( ) ; } impl < > IWrappedProtocolVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IWrappedProtocolImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IWrappedProtocolVtbl < > { unsafe extern "system" fn GetWrapperCode < Impl : IWrappedProtocolImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pncode : * mut i32 , dwreserved : usize , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetWrapperCode : GetWrapperCode :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IWrappedProtocol < > as :: windows :: core :: Interface > :: IID } } pub trait IZoneIdentifierImpl < > : Sized where { fn GetId ( ) ; fn SetId ( ) ; fn Remove ( ) ; } impl < > IZoneIdentifierVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IZoneIdentifierImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IZoneIdentifierVtbl < > { unsafe extern "system" fn GetId < Impl : IZoneIdentifierImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdwzone : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetId < Impl : IZoneIdentifierImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwzone : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Remove < Impl : IZoneIdentifierImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetId : GetId :: < Impl , IMPL_OFFSET > , SetId : SetId :: < Impl , IMPL_OFFSET > , Remove : Remove :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IZoneIdentifier < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IZoneIdentifier2Impl < > : Sized + IZoneIdentifierImpl where { fn GetLastWriterPackageFamilyName ( ) ; fn SetLastWriterPackageFamilyName ( ) ; fn RemoveLastWriterPackageFamilyName ( ) ; fn GetAppZoneId ( ) ; fn SetAppZoneId ( ) ; fn RemoveAppZoneId ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IZoneIdentifier2Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IZoneIdentifier2Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IZoneIdentifier2Vtbl < > { unsafe extern "system" fn GetLastWriterPackageFamilyName < Impl : IZoneIdentifier2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , packagefamilyname : * mut super::super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetLastWriterPackageFamilyName < Impl : IZoneIdentifier2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , packagefamilyname : super::super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RemoveLastWriterPackageFamilyName < Impl : IZoneIdentifier2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetAppZoneId < Impl : IZoneIdentifier2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , zone : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetAppZoneId < Impl : IZoneIdentifier2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , zone : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RemoveAppZoneId < Impl : IZoneIdentifier2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IZoneIdentifierVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetLastWriterPackageFamilyName : GetLastWriterPackageFamilyName :: < Impl , IMPL_OFFSET > , SetLastWriterPackageFamilyName : SetLastWriterPackageFamilyName :: < Impl , IMPL_OFFSET > , RemoveLastWriterPackageFamilyName : RemoveLastWriterPackageFamilyName :: < Impl , IMPL_OFFSET > , GetAppZoneId : GetAppZoneId :: < Impl , IMPL_OFFSET > , SetAppZoneId : SetAppZoneId :: < Impl , IMPL_OFFSET > , RemoveAppZoneId : RemoveAppZoneId :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IZoneIdentifier2 < > as :: windows :: core :: Interface > :: IID } } 
+#[cfg(feature = "Win32_Foundation")]
+pub trait IBindCallbackRedirectImpl: Sized {
+    fn Redirect();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IBindCallbackRedirectVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBindCallbackRedirectImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBindCallbackRedirectVtbl {
+        unsafe extern "system" fn Redirect<Impl: IBindCallbackRedirectImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpcurl: super::super::super::Foundation::PWSTR, vbcancel: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), Redirect: Redirect::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBindCallbackRedirect as ::windows::core::Interface>::IID
+    }
+}
+pub trait IBindHttpSecurityImpl: Sized {
+    fn GetIgnoreCertMask();
+}
+impl IBindHttpSecurityVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBindHttpSecurityImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBindHttpSecurityVtbl {
+        unsafe extern "system" fn GetIgnoreCertMask<Impl: IBindHttpSecurityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwignorecertmask: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetIgnoreCertMask: GetIgnoreCertMask::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBindHttpSecurity as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IBindProtocolImpl: Sized {
+    fn CreateBinding();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IBindProtocolVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IBindProtocolImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IBindProtocolVtbl {
+        unsafe extern "system" fn CreateBinding<Impl: IBindProtocolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szurl: super::super::super::Foundation::PWSTR, pbc: ::windows::core::RawPtr, ppb: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), CreateBinding: CreateBinding::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IBindProtocol as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ICatalogFileInfoImpl: Sized {
+    fn GetCatalogFile();
+    fn GetJavaTrust();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ICatalogFileInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICatalogFileInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICatalogFileInfoVtbl {
+        unsafe extern "system" fn GetCatalogFile<Impl: ICatalogFileInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszcatalogfile: *mut super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetJavaTrust<Impl: ICatalogFileInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppjavatrust: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetCatalogFile: GetCatalogFile::<Impl, IMPL_OFFSET>,
+            GetJavaTrust: GetJavaTrust::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICatalogFileInfo as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ICodeInstallImpl: Sized + IWindowForBindingUIImpl {
+    fn OnCodeInstallProblem();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ICodeInstallVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICodeInstallImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICodeInstallVtbl {
+        unsafe extern "system" fn OnCodeInstallProblem<Impl: ICodeInstallImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulstatuscode: u32, szdestination: super::super::super::Foundation::PWSTR, szsource: super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IWindowForBindingUIVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            OnCodeInstallProblem: OnCodeInstallProblem::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICodeInstall as ::windows::core::Interface>::IID
+    }
+}
+pub trait IDataFilterImpl: Sized {
+    fn DoEncode();
+    fn DoDecode();
+    fn SetEncodingLevel();
+}
+impl IDataFilterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDataFilterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDataFilterVtbl {
+        unsafe extern "system" fn DoEncode<Impl: IDataFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, linbuffersize: i32, pbinbuffer: *const u8, loutbuffersize: i32, pboutbuffer: *mut u8, linbytesavailable: i32, plinbytesread: *mut i32, ploutbyteswritten: *mut i32, dwreserved: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DoDecode<Impl: IDataFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, linbuffersize: i32, pbinbuffer: *const u8, loutbuffersize: i32, pboutbuffer: *mut u8, linbytesavailable: i32, plinbytesread: *mut i32, ploutbyteswritten: *mut i32, dwreserved: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetEncodingLevel<Impl: IDataFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwenclevel: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            DoEncode: DoEncode::<Impl, IMPL_OFFSET>,
+            DoDecode: DoDecode::<Impl, IMPL_OFFSET>,
+            SetEncodingLevel: SetEncodingLevel::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDataFilter as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IEncodingFilterFactoryImpl: Sized {
+    fn FindBestFilter();
+    fn GetDefaultFilter();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IEncodingFilterFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEncodingFilterFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEncodingFilterFactoryVtbl {
+        unsafe extern "system" fn FindBestFilter<Impl: IEncodingFilterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwzcodein: super::super::super::Foundation::PWSTR, pwzcodeout: super::super::super::Foundation::PWSTR, info: DATAINFO, ppdf: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDefaultFilter<Impl: IEncodingFilterFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwzcodein: super::super::super::Foundation::PWSTR, pwzcodeout: super::super::super::Foundation::PWSTR, ppdf: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            FindBestFilter: FindBestFilter::<Impl, IMPL_OFFSET>,
+            GetDefaultFilter: GetDefaultFilter::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEncodingFilterFactory as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IGetBindHandleImpl: Sized {
+    fn GetBindHandle();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IGetBindHandleVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGetBindHandleImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGetBindHandleVtbl {
+        unsafe extern "system" fn GetBindHandle<Impl: IGetBindHandleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enumrequestedhandle: BINDHANDLETYPES, prethandle: *mut super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetBindHandle: GetBindHandle::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IGetBindHandle as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IHttpNegotiateImpl: Sized {
+    fn BeginningTransaction();
+    fn OnResponse();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IHttpNegotiateVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpNegotiateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpNegotiateVtbl {
+        unsafe extern "system" fn BeginningTransaction<Impl: IHttpNegotiateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szurl: super::super::super::Foundation::PWSTR, szheaders: super::super::super::Foundation::PWSTR, dwreserved: u32, pszadditionalheaders: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnResponse<Impl: IHttpNegotiateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwresponsecode: u32, szresponseheaders: super::super::super::Foundation::PWSTR, szrequestheaders: super::super::super::Foundation::PWSTR, pszadditionalrequestheaders: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            BeginningTransaction: BeginningTransaction::<Impl, IMPL_OFFSET>,
+            OnResponse: OnResponse::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpNegotiate as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IHttpNegotiate2Impl: Sized + IHttpNegotiateImpl {
+    fn GetRootSecurityId();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IHttpNegotiate2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpNegotiate2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpNegotiate2Vtbl {
+        unsafe extern "system" fn GetRootSecurityId<Impl: IHttpNegotiate2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: IHttpNegotiateVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetRootSecurityId: GetRootSecurityId::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpNegotiate2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IHttpNegotiate3Impl: Sized + IHttpNegotiateImpl + IHttpNegotiate2Impl {
+    fn GetSerializedClientCertContext();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IHttpNegotiate3Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpNegotiate3Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpNegotiate3Vtbl {
+        unsafe extern "system" fn GetSerializedClientCertContext<Impl: IHttpNegotiate3Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppbcert: *mut *mut u8, pcbcert: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IHttpNegotiate2Vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetSerializedClientCertContext: GetSerializedClientCertContext::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpNegotiate3 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IHttpSecurityImpl: Sized + IWindowForBindingUIImpl {
+    fn OnSecurityProblem();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IHttpSecurityVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IHttpSecurityImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IHttpSecurityVtbl {
+        unsafe extern "system" fn OnSecurityProblem<Impl: IHttpSecurityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwproblem: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: IWindowForBindingUIVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), OnSecurityProblem: OnSecurityProblem::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IHttpSecurity as ::windows::core::Interface>::IID
+    }
+}
+pub trait IInternetImpl: Sized {}
+impl IInternetVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternetImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInternetVtbl {
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>() }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInternet as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+pub trait IInternetBindInfoImpl: Sized {
+    fn GetBindInfo();
+    fn GetBindString();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+impl IInternetBindInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternetBindInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInternetBindInfoVtbl {
+        unsafe extern "system" fn GetBindInfo<Impl: IInternetBindInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetBindString<Impl: IInternetBindInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulstringtype: u32, ppwzstr: *mut super::super::super::Foundation::PWSTR, cel: u32, pcelfetched: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetBindInfo: GetBindInfo::<Impl, IMPL_OFFSET>,
+            GetBindString: GetBindString::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInternetBindInfo as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+pub trait IInternetBindInfoExImpl: Sized + IInternetBindInfoImpl {
+    fn GetBindInfoEx();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security", feature = "Win32_System_Com_StructuredStorage"))]
+impl IInternetBindInfoExVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternetBindInfoExImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInternetBindInfoExVtbl {
+        unsafe extern "system" fn GetBindInfoEx<Impl: IInternetBindInfoExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, grfbindf: *mut u32, pbindinfo: *mut super::BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: IInternetBindInfoVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetBindInfoEx: GetBindInfoEx::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInternetBindInfoEx as ::windows::core::Interface>::IID
+    }
+}
+pub trait IInternetHostSecurityManagerImpl: Sized {
+    fn GetSecurityId();
+    fn ProcessUrlAction();
+    fn QueryCustomPolicy();
+}
+impl IInternetHostSecurityManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternetHostSecurityManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInternetHostSecurityManagerVtbl {
+        unsafe extern "system" fn GetSecurityId<Impl: IInternetHostSecurityManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ProcessUrlAction<Impl: IInternetHostSecurityManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn QueryCustomPolicy<Impl: IInternetHostSecurityManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetSecurityId: GetSecurityId::<Impl, IMPL_OFFSET>,
+            ProcessUrlAction: ProcessUrlAction::<Impl, IMPL_OFFSET>,
+            QueryCustomPolicy: QueryCustomPolicy::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInternetHostSecurityManager as ::windows::core::Interface>::IID
+    }
+}
+pub trait IInternetPriorityImpl: Sized {
+    fn SetPriority();
+    fn GetPriority();
+}
+impl IInternetPriorityVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternetPriorityImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInternetPriorityVtbl {
+        unsafe extern "system" fn SetPriority<Impl: IInternetPriorityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, npriority: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetPriority<Impl: IInternetPriorityImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnpriority: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SetPriority: SetPriority::<Impl, IMPL_OFFSET>,
+            GetPriority: GetPriority::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInternetPriority as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IInternetProtocolImpl: Sized + IInternetProtocolRootImpl {
+    fn Read();
+    fn Seek();
+    fn LockRequest();
+    fn UnlockRequest();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IInternetProtocolVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternetProtocolImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInternetProtocolVtbl {
+        unsafe extern "system" fn Read<Impl: IInternetProtocolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Seek<Impl: IInternetProtocolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dlibmove: i64, dworigin: u32, plibnewposition: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LockRequest<Impl: IInternetProtocolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoptions: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UnlockRequest<Impl: IInternetProtocolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IInternetProtocolRootVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Read: Read::<Impl, IMPL_OFFSET>,
+            Seek: Seek::<Impl, IMPL_OFFSET>,
+            LockRequest: LockRequest::<Impl, IMPL_OFFSET>,
+            UnlockRequest: UnlockRequest::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInternetProtocol as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IInternetProtocolExImpl: Sized + IInternetProtocolRootImpl + IInternetProtocolImpl {
+    fn StartEx();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IInternetProtocolExVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternetProtocolExImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInternetProtocolExVtbl {
+        unsafe extern "system" fn StartEx<Impl: IInternetProtocolExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puri: ::windows::core::RawPtr, poiprotsink: ::windows::core::RawPtr, poibindinfo: ::windows::core::RawPtr, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: IInternetProtocolVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), StartEx: StartEx::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInternetProtocolEx as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IInternetProtocolInfoImpl: Sized {
+    fn ParseUrl();
+    fn CombineUrl();
+    fn CompareUrl();
+    fn QueryInfo();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IInternetProtocolInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternetProtocolInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInternetProtocolInfoVtbl {
+        unsafe extern "system" fn ParseUrl<Impl: IInternetProtocolInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwzurl: super::super::super::Foundation::PWSTR, parseaction: PARSEACTION, dwparseflags: u32, pwzresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CombineUrl<Impl: IInternetProtocolInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwzbaseurl: super::super::super::Foundation::PWSTR, pwzrelativeurl: super::super::super::Foundation::PWSTR, dwcombineflags: u32, pwzresult: super::super::super::Foundation::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CompareUrl<Impl: IInternetProtocolInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwzurl1: super::super::super::Foundation::PWSTR, pwzurl2: super::super::super::Foundation::PWSTR, dwcompareflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn QueryInfo<Impl: IInternetProtocolInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwzurl: super::super::super::Foundation::PWSTR, oueryoption: QUERYOPTION, dwqueryflags: u32, pbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, pcbbuf: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            ParseUrl: ParseUrl::<Impl, IMPL_OFFSET>,
+            CombineUrl: CombineUrl::<Impl, IMPL_OFFSET>,
+            CompareUrl: CompareUrl::<Impl, IMPL_OFFSET>,
+            QueryInfo: QueryInfo::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInternetProtocolInfo as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IInternetProtocolRootImpl: Sized {
+    fn Start();
+    fn Continue();
+    fn Abort();
+    fn Terminate();
+    fn Suspend();
+    fn Resume();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IInternetProtocolRootVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternetProtocolRootImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInternetProtocolRootVtbl {
+        unsafe extern "system" fn Start<Impl: IInternetProtocolRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szurl: super::super::super::Foundation::PWSTR, poiprotsink: ::windows::core::RawPtr, poibindinfo: ::windows::core::RawPtr, grfpi: u32, dwreserved: super::super::super::Foundation::HANDLE_PTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Continue<Impl: IInternetProtocolRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprotocoldata: *const PROTOCOLDATA) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Abort<Impl: IInternetProtocolRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrreason: ::windows::core::HRESULT, dwoptions: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Terminate<Impl: IInternetProtocolRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoptions: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Suspend<Impl: IInternetProtocolRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Resume<Impl: IInternetProtocolRootImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Continue: Continue::<Impl, IMPL_OFFSET>,
+            Abort: Abort::<Impl, IMPL_OFFSET>,
+            Terminate: Terminate::<Impl, IMPL_OFFSET>,
+            Suspend: Suspend::<Impl, IMPL_OFFSET>,
+            Resume: Resume::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInternetProtocolRoot as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IInternetProtocolSinkImpl: Sized {
+    fn Switch();
+    fn ReportProgress();
+    fn ReportData();
+    fn ReportResult();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IInternetProtocolSinkVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternetProtocolSinkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInternetProtocolSinkVtbl {
+        unsafe extern "system" fn Switch<Impl: IInternetProtocolSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprotocoldata: *const PROTOCOLDATA) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReportProgress<Impl: IInternetProtocolSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulstatuscode: u32, szstatustext: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReportData<Impl: IInternetProtocolSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, grfbscf: u32, ulprogress: u32, ulprogressmax: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReportResult<Impl: IInternetProtocolSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrresult: ::windows::core::HRESULT, dwerror: u32, szresult: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Switch: Switch::<Impl, IMPL_OFFSET>,
+            ReportProgress: ReportProgress::<Impl, IMPL_OFFSET>,
+            ReportData: ReportData::<Impl, IMPL_OFFSET>,
+            ReportResult: ReportResult::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInternetProtocolSink as ::windows::core::Interface>::IID
+    }
+}
+pub trait IInternetProtocolSinkStackableImpl: Sized {
+    fn SwitchSink();
+    fn CommitSwitch();
+    fn RollbackSwitch();
+}
+impl IInternetProtocolSinkStackableVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternetProtocolSinkStackableImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInternetProtocolSinkStackableVtbl {
+        unsafe extern "system" fn SwitchSink<Impl: IInternetProtocolSinkStackableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poiprotsink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CommitSwitch<Impl: IInternetProtocolSinkStackableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RollbackSwitch<Impl: IInternetProtocolSinkStackableImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SwitchSink: SwitchSink::<Impl, IMPL_OFFSET>,
+            CommitSwitch: CommitSwitch::<Impl, IMPL_OFFSET>,
+            RollbackSwitch: RollbackSwitch::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInternetProtocolSinkStackable as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IInternetSecurityManagerImpl: Sized {
+    fn SetSecuritySite();
+    fn GetSecuritySite();
+    fn MapUrlToZone();
+    fn GetSecurityId();
+    fn ProcessUrlAction();
+    fn QueryCustomPolicy();
+    fn SetZoneMapping();
+    fn GetZoneMappings();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IInternetSecurityManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternetSecurityManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInternetSecurityManagerVtbl {
+        unsafe extern "system" fn SetSecuritySite<Impl: IInternetSecurityManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psite: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSecuritySite<Impl: IInternetSecurityManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsite: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MapUrlToZone<Impl: IInternetSecurityManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: super::super::super::Foundation::PWSTR, pdwzone: *mut u32, dwflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSecurityId<Impl: IInternetSecurityManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: super::super::super::Foundation::PWSTR, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ProcessUrlAction<Impl: IInternetSecurityManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: super::super::super::Foundation::PWSTR, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn QueryCustomPolicy<Impl: IInternetSecurityManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: super::super::super::Foundation::PWSTR, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetZoneMapping<Impl: IInternetSecurityManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwzone: u32, lpszpattern: super::super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetZoneMappings<Impl: IInternetSecurityManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwzone: u32, ppenumstring: *mut ::windows::core::RawPtr, dwflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SetSecuritySite: SetSecuritySite::<Impl, IMPL_OFFSET>,
+            GetSecuritySite: GetSecuritySite::<Impl, IMPL_OFFSET>,
+            MapUrlToZone: MapUrlToZone::<Impl, IMPL_OFFSET>,
+            GetSecurityId: GetSecurityId::<Impl, IMPL_OFFSET>,
+            ProcessUrlAction: ProcessUrlAction::<Impl, IMPL_OFFSET>,
+            QueryCustomPolicy: QueryCustomPolicy::<Impl, IMPL_OFFSET>,
+            SetZoneMapping: SetZoneMapping::<Impl, IMPL_OFFSET>,
+            GetZoneMappings: GetZoneMappings::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInternetSecurityManager as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IInternetSecurityManagerExImpl: Sized + IInternetSecurityManagerImpl {
+    fn ProcessUrlActionEx();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IInternetSecurityManagerExVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternetSecurityManagerExImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInternetSecurityManagerExVtbl {
+        unsafe extern "system" fn ProcessUrlActionEx<Impl: IInternetSecurityManagerExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszurl: super::super::super::Foundation::PWSTR, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: u32, pdwoutflags: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IInternetSecurityManagerVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            ProcessUrlActionEx: ProcessUrlActionEx::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInternetSecurityManagerEx as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IInternetSecurityManagerEx2Impl: Sized + IInternetSecurityManagerImpl + IInternetSecurityManagerExImpl {
+    fn MapUrlToZoneEx2();
+    fn ProcessUrlActionEx2();
+    fn GetSecurityIdEx2();
+    fn QueryCustomPolicyEx2();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IInternetSecurityManagerEx2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternetSecurityManagerEx2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInternetSecurityManagerEx2Vtbl {
+        unsafe extern "system" fn MapUrlToZoneEx2<Impl: IInternetSecurityManagerEx2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puri: ::windows::core::RawPtr, pdwzone: *mut u32, dwflags: u32, ppwszmappedurl: *mut super::super::super::Foundation::PWSTR, pdwoutflags: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ProcessUrlActionEx2<Impl: IInternetSecurityManagerEx2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puri: ::windows::core::RawPtr, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, pcontext: *const u8, cbcontext: u32, dwflags: u32, dwreserved: usize, pdwoutflags: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSecurityIdEx2<Impl: IInternetSecurityManagerEx2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puri: ::windows::core::RawPtr, pbsecurityid: *mut u8, pcbsecurityid: *mut u32, dwreserved: usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn QueryCustomPolicyEx2<Impl: IInternetSecurityManagerEx2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puri: ::windows::core::RawPtr, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: *const u8, cbcontext: u32, dwreserved: usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IInternetSecurityManagerExVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            MapUrlToZoneEx2: MapUrlToZoneEx2::<Impl, IMPL_OFFSET>,
+            ProcessUrlActionEx2: ProcessUrlActionEx2::<Impl, IMPL_OFFSET>,
+            GetSecurityIdEx2: GetSecurityIdEx2::<Impl, IMPL_OFFSET>,
+            QueryCustomPolicyEx2: QueryCustomPolicyEx2::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInternetSecurityManagerEx2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IInternetSecurityMgrSiteImpl: Sized {
+    fn GetWindow();
+    fn EnableModeless();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IInternetSecurityMgrSiteVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternetSecurityMgrSiteImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInternetSecurityMgrSiteVtbl {
+        unsafe extern "system" fn GetWindow<Impl: IInternetSecurityMgrSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phwnd: *mut super::super::super::Foundation::HWND) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnableModeless<Impl: IInternetSecurityMgrSiteImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenable: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetWindow: GetWindow::<Impl, IMPL_OFFSET>,
+            EnableModeless: EnableModeless::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInternetSecurityMgrSite as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IInternetSessionImpl: Sized {
+    fn RegisterNameSpace();
+    fn UnregisterNameSpace();
+    fn RegisterMimeFilter();
+    fn UnregisterMimeFilter();
+    fn CreateBinding();
+    fn SetSessionOption();
+    fn GetSessionOption();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IInternetSessionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternetSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInternetSessionVtbl {
+        unsafe extern "system" fn RegisterNameSpace<Impl: IInternetSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcf: ::windows::core::RawPtr, rclsid: *const ::windows::core::GUID, pwzprotocol: super::super::super::Foundation::PWSTR, cpatterns: u32, ppwzpatterns: *const super::super::super::Foundation::PWSTR, dwreserved: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UnregisterNameSpace<Impl: IInternetSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcf: ::windows::core::RawPtr, pszprotocol: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RegisterMimeFilter<Impl: IInternetSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcf: ::windows::core::RawPtr, rclsid: *const ::windows::core::GUID, pwztype: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UnregisterMimeFilter<Impl: IInternetSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcf: ::windows::core::RawPtr, pwztype: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateBinding<Impl: IInternetSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbc: ::windows::core::RawPtr, szurl: super::super::super::Foundation::PWSTR, punkouter: *mut ::core::ffi::c_void, ppunk: *mut *mut ::core::ffi::c_void, ppoinetprot: *mut ::windows::core::RawPtr, dwoption: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSessionOption<Impl: IInternetSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoption: u32, pbuffer: *const ::core::ffi::c_void, dwbufferlength: u32, dwreserved: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSessionOption<Impl: IInternetSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pdwbufferlength: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            RegisterNameSpace: RegisterNameSpace::<Impl, IMPL_OFFSET>,
+            UnregisterNameSpace: UnregisterNameSpace::<Impl, IMPL_OFFSET>,
+            RegisterMimeFilter: RegisterMimeFilter::<Impl, IMPL_OFFSET>,
+            UnregisterMimeFilter: UnregisterMimeFilter::<Impl, IMPL_OFFSET>,
+            CreateBinding: CreateBinding::<Impl, IMPL_OFFSET>,
+            SetSessionOption: SetSessionOption::<Impl, IMPL_OFFSET>,
+            GetSessionOption: GetSessionOption::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInternetSession as ::windows::core::Interface>::IID
+    }
+}
+pub trait IInternetThreadSwitchImpl: Sized {
+    fn Prepare();
+    fn Continue();
+}
+impl IInternetThreadSwitchVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternetThreadSwitchImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInternetThreadSwitchVtbl {
+        unsafe extern "system" fn Prepare<Impl: IInternetThreadSwitchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Continue<Impl: IInternetThreadSwitchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Prepare: Prepare::<Impl, IMPL_OFFSET>,
+            Continue: Continue::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInternetThreadSwitch as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IInternetZoneManagerImpl: Sized {
+    fn GetZoneAttributes();
+    fn SetZoneAttributes();
+    fn GetZoneCustomPolicy();
+    fn SetZoneCustomPolicy();
+    fn GetZoneActionPolicy();
+    fn SetZoneActionPolicy();
+    fn PromptAction();
+    fn LogAction();
+    fn CreateZoneEnumerator();
+    fn GetZoneAt();
+    fn DestroyZoneEnumerator();
+    fn CopyTemplatePoliciesToZone();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IInternetZoneManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternetZoneManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInternetZoneManagerVtbl {
+        unsafe extern "system" fn GetZoneAttributes<Impl: IInternetZoneManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetZoneAttributes<Impl: IInternetZoneManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwzone: u32, pzoneattributes: *const ZONEATTRIBUTES) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetZoneCustomPolicy<Impl: IInternetZoneManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwzone: u32, guidkey: *const ::windows::core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, urlzonereg: URLZONEREG) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetZoneCustomPolicy<Impl: IInternetZoneManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwzone: u32, guidkey: *const ::windows::core::GUID, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetZoneActionPolicy<Impl: IInternetZoneManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetZoneActionPolicy<Impl: IInternetZoneManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PromptAction<Impl: IInternetZoneManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwaction: u32, hwndparent: super::super::super::Foundation::HWND, pwszurl: super::super::super::Foundation::PWSTR, pwsztext: super::super::super::Foundation::PWSTR, dwpromptflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LogAction<Impl: IInternetZoneManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwaction: u32, pwszurl: super::super::super::Foundation::PWSTR, pwsztext: super::super::super::Foundation::PWSTR, dwlogflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateZoneEnumerator<Impl: IInternetZoneManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwenum: *mut u32, pdwcount: *mut u32, dwflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetZoneAt<Impl: IInternetZoneManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwenum: u32, dwindex: u32, pdwzone: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DestroyZoneEnumerator<Impl: IInternetZoneManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwenum: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CopyTemplatePoliciesToZone<Impl: IInternetZoneManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwtemplate: u32, dwzone: u32, dwreserved: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetZoneAttributes: GetZoneAttributes::<Impl, IMPL_OFFSET>,
+            SetZoneAttributes: SetZoneAttributes::<Impl, IMPL_OFFSET>,
+            GetZoneCustomPolicy: GetZoneCustomPolicy::<Impl, IMPL_OFFSET>,
+            SetZoneCustomPolicy: SetZoneCustomPolicy::<Impl, IMPL_OFFSET>,
+            GetZoneActionPolicy: GetZoneActionPolicy::<Impl, IMPL_OFFSET>,
+            SetZoneActionPolicy: SetZoneActionPolicy::<Impl, IMPL_OFFSET>,
+            PromptAction: PromptAction::<Impl, IMPL_OFFSET>,
+            LogAction: LogAction::<Impl, IMPL_OFFSET>,
+            CreateZoneEnumerator: CreateZoneEnumerator::<Impl, IMPL_OFFSET>,
+            GetZoneAt: GetZoneAt::<Impl, IMPL_OFFSET>,
+            DestroyZoneEnumerator: DestroyZoneEnumerator::<Impl, IMPL_OFFSET>,
+            CopyTemplatePoliciesToZone: CopyTemplatePoliciesToZone::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInternetZoneManager as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IInternetZoneManagerExImpl: Sized + IInternetZoneManagerImpl {
+    fn GetZoneActionPolicyEx();
+    fn SetZoneActionPolicyEx();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IInternetZoneManagerExVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternetZoneManagerExImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInternetZoneManagerExVtbl {
+        unsafe extern "system" fn GetZoneActionPolicyEx<Impl: IInternetZoneManagerExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwzone: u32, dwaction: u32, ppolicy: *mut u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetZoneActionPolicyEx<Impl: IInternetZoneManagerExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwzone: u32, dwaction: u32, ppolicy: *const u8, cbpolicy: u32, urlzonereg: URLZONEREG, dwflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IInternetZoneManagerVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetZoneActionPolicyEx: GetZoneActionPolicyEx::<Impl, IMPL_OFFSET>,
+            SetZoneActionPolicyEx: SetZoneActionPolicyEx::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInternetZoneManagerEx as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IInternetZoneManagerEx2Impl: Sized + IInternetZoneManagerImpl + IInternetZoneManagerExImpl {
+    fn GetZoneAttributesEx();
+    fn GetZoneSecurityState();
+    fn GetIESecurityState();
+    fn FixUnsecureSettings();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IInternetZoneManagerEx2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IInternetZoneManagerEx2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IInternetZoneManagerEx2Vtbl {
+        unsafe extern "system" fn GetZoneAttributesEx<Impl: IInternetZoneManagerEx2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwzone: u32, pzoneattributes: *mut ZONEATTRIBUTES, dwflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetZoneSecurityState<Impl: IInternetZoneManagerEx2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwzoneindex: u32, frespectpolicy: super::super::super::Foundation::BOOL, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetIESecurityState<Impl: IInternetZoneManagerEx2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, frespectpolicy: super::super::super::Foundation::BOOL, pdwstate: *mut u32, pfpolicyencountered: *mut super::super::super::Foundation::BOOL, fnocache: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FixUnsecureSettings<Impl: IInternetZoneManagerEx2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IInternetZoneManagerExVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetZoneAttributesEx: GetZoneAttributesEx::<Impl, IMPL_OFFSET>,
+            GetZoneSecurityState: GetZoneSecurityState::<Impl, IMPL_OFFSET>,
+            GetIESecurityState: GetIESecurityState::<Impl, IMPL_OFFSET>,
+            FixUnsecureSettings: FixUnsecureSettings::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IInternetZoneManagerEx2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IMonikerPropImpl: Sized {
+    fn PutProperty();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IMonikerPropVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMonikerPropImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMonikerPropVtbl {
+        unsafe extern "system" fn PutProperty<Impl: IMonikerPropImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mkp: MONIKERPROPERTY, val: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), PutProperty: PutProperty::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMonikerProp as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IPersistMonikerImpl: Sized {
+    fn GetClassID();
+    fn IsDirty();
+    fn Load();
+    fn Save();
+    fn SaveCompleted();
+    fn GetCurMoniker();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IPersistMonikerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IPersistMonikerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IPersistMonikerVtbl {
+        unsafe extern "system" fn GetClassID<Impl: IPersistMonikerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclassid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsDirty<Impl: IPersistMonikerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Load<Impl: IPersistMonikerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ffullyavailable: super::super::super::Foundation::BOOL, pimkname: ::windows::core::RawPtr, pibc: ::windows::core::RawPtr, grfmode: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Save<Impl: IPersistMonikerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pimkname: ::windows::core::RawPtr, pbc: ::windows::core::RawPtr, fremember: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SaveCompleted<Impl: IPersistMonikerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pimkname: ::windows::core::RawPtr, pibc: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCurMoniker<Impl: IPersistMonikerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppimkname: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetClassID: GetClassID::<Impl, IMPL_OFFSET>,
+            IsDirty: IsDirty::<Impl, IMPL_OFFSET>,
+            Load: Load::<Impl, IMPL_OFFSET>,
+            Save: Save::<Impl, IMPL_OFFSET>,
+            SaveCompleted: SaveCompleted::<Impl, IMPL_OFFSET>,
+            GetCurMoniker: GetCurMoniker::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IPersistMoniker as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))]
+pub trait ISoftDistExtImpl: Sized {
+    fn ProcessSoftDist();
+    fn GetFirstCodeBase();
+    fn GetNextCodeBase();
+    fn AsyncInstallDistributionUnit();
+}
+#[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_Foundation"))]
+impl ISoftDistExtVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISoftDistExtImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISoftDistExtVtbl {
+        unsafe extern "system" fn ProcessSoftDist<Impl: ISoftDistExtImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szcdfurl: super::super::super::Foundation::PWSTR, psoftdistelement: ::windows::core::RawPtr, lpsdi: *mut SOFTDISTINFO) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetFirstCodeBase<Impl: ISoftDistExtImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szcodebase: *const super::super::super::Foundation::PWSTR, dwmaxsize: *const u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetNextCodeBase<Impl: ISoftDistExtImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, szcodebase: *const super::super::super::Foundation::PWSTR, dwmaxsize: *const u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AsyncInstallDistributionUnit<Impl: ISoftDistExtImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbc: ::windows::core::RawPtr, pvreserved: *const ::core::ffi::c_void, flags: u32, lpcbh: *const CODEBASEHOLD) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            ProcessSoftDist: ProcessSoftDist::<Impl, IMPL_OFFSET>,
+            GetFirstCodeBase: GetFirstCodeBase::<Impl, IMPL_OFFSET>,
+            GetNextCodeBase: GetNextCodeBase::<Impl, IMPL_OFFSET>,
+            AsyncInstallDistributionUnit: AsyncInstallDistributionUnit::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISoftDistExt as ::windows::core::Interface>::IID
+    }
+}
+pub trait IUriBuilderFactoryImpl: Sized {
+    fn CreateIUriBuilder();
+    fn CreateInitializedIUriBuilder();
+}
+impl IUriBuilderFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUriBuilderFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUriBuilderFactoryVtbl {
+        unsafe extern "system" fn CreateIUriBuilder<Impl: IUriBuilderFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, dwreserved: usize, ppiuribuilder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateInitializedIUriBuilder<Impl: IUriBuilderFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, dwreserved: usize, ppiuribuilder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            CreateIUriBuilder: CreateIUriBuilder::<Impl, IMPL_OFFSET>,
+            CreateInitializedIUriBuilder: CreateInitializedIUriBuilder::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUriBuilderFactory as ::windows::core::Interface>::IID
+    }
+}
+pub trait IUriContainerImpl: Sized {
+    fn GetIUri();
+}
+impl IUriContainerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IUriContainerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IUriContainerVtbl {
+        unsafe extern "system" fn GetIUri<Impl: IUriContainerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppiuri: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetIUri: GetIUri::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IUriContainer as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IWinInetCacheHintsImpl: Sized {
+    fn SetCacheExtension();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IWinInetCacheHintsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWinInetCacheHintsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWinInetCacheHintsVtbl {
+        unsafe extern "system" fn SetCacheExtension<Impl: IWinInetCacheHintsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwzext: super::super::super::Foundation::PWSTR, pszcachefile: *mut ::core::ffi::c_void, pcbcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), SetCacheExtension: SetCacheExtension::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWinInetCacheHints as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IWinInetCacheHints2Impl: Sized + IWinInetCacheHintsImpl {
+    fn SetCacheExtension2();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IWinInetCacheHints2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWinInetCacheHints2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWinInetCacheHints2Vtbl {
+        unsafe extern "system" fn SetCacheExtension2<Impl: IWinInetCacheHints2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwzext: super::super::super::Foundation::PWSTR, pwzcachefile: super::super::super::Foundation::PWSTR, pcchcachefile: *mut u32, pdwwinineterror: *mut u32, pdwreserved: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: IWinInetCacheHintsVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), SetCacheExtension2: SetCacheExtension2::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWinInetCacheHints2 as ::windows::core::Interface>::IID
+    }
+}
+pub trait IWinInetFileStreamImpl: Sized {
+    fn SetHandleForUnlock();
+    fn SetDeleteFile();
+}
+impl IWinInetFileStreamVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWinInetFileStreamImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWinInetFileStreamVtbl {
+        unsafe extern "system" fn SetHandleForUnlock<Impl: IWinInetFileStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwininetlockhandle: usize, dwreserved: usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDeleteFile<Impl: IWinInetFileStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwreserved: usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SetHandleForUnlock: SetHandleForUnlock::<Impl, IMPL_OFFSET>,
+            SetDeleteFile: SetDeleteFile::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWinInetFileStream as ::windows::core::Interface>::IID
+    }
+}
+pub trait IWinInetHttpInfoImpl: Sized + IWinInetInfoImpl {
+    fn QueryInfo();
+}
+impl IWinInetHttpInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWinInetHttpInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWinInetHttpInfoVtbl {
+        unsafe extern "system" fn QueryInfo<Impl: IWinInetHttpInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32, pdwflags: *mut u32, pdwreserved: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: IWinInetInfoVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), QueryInfo: QueryInfo::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWinInetHttpInfo as ::windows::core::Interface>::IID
+    }
+}
+pub trait IWinInetHttpTimeoutsImpl: Sized {
+    fn GetRequestTimeouts();
+}
+impl IWinInetHttpTimeoutsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWinInetHttpTimeoutsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWinInetHttpTimeoutsVtbl {
+        unsafe extern "system" fn GetRequestTimeouts<Impl: IWinInetHttpTimeoutsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwconnecttimeout: *mut u32, pdwsendtimeout: *mut u32, pdwreceivetimeout: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetRequestTimeouts: GetRequestTimeouts::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWinInetHttpTimeouts as ::windows::core::Interface>::IID
+    }
+}
+pub trait IWinInetInfoImpl: Sized {
+    fn QueryOption();
+}
+impl IWinInetInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWinInetInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWinInetInfoVtbl {
+        unsafe extern "system" fn QueryOption<Impl: IWinInetInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwoption: u32, pbuffer: *mut ::core::ffi::c_void, pcbbuf: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), QueryOption: QueryOption::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWinInetInfo as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IWindowForBindingUIImpl: Sized {
+    fn GetWindow();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IWindowForBindingUIVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWindowForBindingUIImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWindowForBindingUIVtbl {
+        unsafe extern "system" fn GetWindow<Impl: IWindowForBindingUIImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguidreason: *const ::windows::core::GUID, phwnd: *mut super::super::super::Foundation::HWND) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetWindow: GetWindow::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWindowForBindingUI as ::windows::core::Interface>::IID
+    }
+}
+pub trait IWrappedProtocolImpl: Sized {
+    fn GetWrapperCode();
+}
+impl IWrappedProtocolVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWrappedProtocolImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWrappedProtocolVtbl {
+        unsafe extern "system" fn GetWrapperCode<Impl: IWrappedProtocolImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pncode: *mut i32, dwreserved: usize) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), GetWrapperCode: GetWrapperCode::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWrappedProtocol as ::windows::core::Interface>::IID
+    }
+}
+pub trait IZoneIdentifierImpl: Sized {
+    fn GetId();
+    fn SetId();
+    fn Remove();
+}
+impl IZoneIdentifierVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IZoneIdentifierImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IZoneIdentifierVtbl {
+        unsafe extern "system" fn GetId<Impl: IZoneIdentifierImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwzone: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetId<Impl: IZoneIdentifierImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwzone: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Remove<Impl: IZoneIdentifierImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetId: GetId::<Impl, IMPL_OFFSET>,
+            SetId: SetId::<Impl, IMPL_OFFSET>,
+            Remove: Remove::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IZoneIdentifier as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IZoneIdentifier2Impl: Sized + IZoneIdentifierImpl {
+    fn GetLastWriterPackageFamilyName();
+    fn SetLastWriterPackageFamilyName();
+    fn RemoveLastWriterPackageFamilyName();
+    fn GetAppZoneId();
+    fn SetAppZoneId();
+    fn RemoveAppZoneId();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IZoneIdentifier2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IZoneIdentifier2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IZoneIdentifier2Vtbl {
+        unsafe extern "system" fn GetLastWriterPackageFamilyName<Impl: IZoneIdentifier2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packagefamilyname: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLastWriterPackageFamilyName<Impl: IZoneIdentifier2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, packagefamilyname: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RemoveLastWriterPackageFamilyName<Impl: IZoneIdentifier2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetAppZoneId<Impl: IZoneIdentifier2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, zone: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAppZoneId<Impl: IZoneIdentifier2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, zone: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RemoveAppZoneId<Impl: IZoneIdentifier2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IZoneIdentifierVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetLastWriterPackageFamilyName: GetLastWriterPackageFamilyName::<Impl, IMPL_OFFSET>,
+            SetLastWriterPackageFamilyName: SetLastWriterPackageFamilyName::<Impl, IMPL_OFFSET>,
+            RemoveLastWriterPackageFamilyName: RemoveLastWriterPackageFamilyName::<Impl, IMPL_OFFSET>,
+            GetAppZoneId: GetAppZoneId::<Impl, IMPL_OFFSET>,
+            SetAppZoneId: SetAppZoneId::<Impl, IMPL_OFFSET>,
+            RemoveAppZoneId: RemoveAppZoneId::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IZoneIdentifier2 as ::windows::core::Interface>::IID
+    }
+}

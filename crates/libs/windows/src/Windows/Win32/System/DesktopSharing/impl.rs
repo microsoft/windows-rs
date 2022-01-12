@@ -1,1 +1,1148 @@
-# [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IRDPSRAPIApplicationImpl < > : Sized + IDispatchImpl where { fn Windows ( ) ; fn Id ( ) ; fn Shared ( ) ; fn SetShared ( ) ; fn Name ( ) ; fn Flags ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IRDPSRAPIApplicationVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRDPSRAPIApplicationImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRDPSRAPIApplicationVtbl < > { unsafe extern "system" fn Windows < Impl : IRDPSRAPIApplicationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwindowlist : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Id < Impl : IRDPSRAPIApplicationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pretval : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Shared < Impl : IRDPSRAPIApplicationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pretval : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetShared < Impl : IRDPSRAPIApplicationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , newval : i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Name < Impl : IRDPSRAPIApplicationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pretval : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Flags < Impl : IRDPSRAPIApplicationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdwflags : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Windows : Windows :: < Impl , IMPL_OFFSET > , Id : Id :: < Impl , IMPL_OFFSET > , Shared : Shared :: < Impl , IMPL_OFFSET > , SetShared : SetShared :: < Impl , IMPL_OFFSET > , Name : Name :: < Impl , IMPL_OFFSET > , Flags : Flags :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRDPSRAPIApplication < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IRDPSRAPIApplicationFilterImpl < > : Sized + IDispatchImpl where { fn Applications ( ) ; fn Windows ( ) ; fn Enabled ( ) ; fn SetEnabled ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IRDPSRAPIApplicationFilterVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRDPSRAPIApplicationFilterImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRDPSRAPIApplicationFilterVtbl < > { unsafe extern "system" fn Applications < Impl : IRDPSRAPIApplicationFilterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , papplications : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Windows < Impl : IRDPSRAPIApplicationFilterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwindows : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Enabled < Impl : IRDPSRAPIApplicationFilterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pretval : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetEnabled < Impl : IRDPSRAPIApplicationFilterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , newval : i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Applications : Applications :: < Impl , IMPL_OFFSET > , Windows : Windows :: < Impl , IMPL_OFFSET > , Enabled : Enabled :: < Impl , IMPL_OFFSET > , SetEnabled : SetEnabled :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRDPSRAPIApplicationFilter < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IRDPSRAPIApplicationListImpl < > : Sized + IDispatchImpl where { fn _NewEnum ( ) ; fn Item ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IRDPSRAPIApplicationListVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRDPSRAPIApplicationListImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRDPSRAPIApplicationListVtbl < > { unsafe extern "system" fn _NewEnum < Impl : IRDPSRAPIApplicationListImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , retval : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Item < Impl : IRDPSRAPIApplicationListImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , item : i32 , papplication : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , _NewEnum : _NewEnum :: < Impl , IMPL_OFFSET > , Item : Item :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRDPSRAPIApplicationList < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IRDPSRAPIAttendeeImpl < > : Sized + IDispatchImpl where { fn Id ( ) ; fn RemoteName ( ) ; fn ControlLevel ( ) ; fn SetControlLevel ( ) ; fn Invitation ( ) ; fn TerminateConnection ( ) ; fn Flags ( ) ; fn ConnectivityInfo ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IRDPSRAPIAttendeeVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRDPSRAPIAttendeeImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRDPSRAPIAttendeeVtbl < > { unsafe extern "system" fn Id < Impl : IRDPSRAPIAttendeeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pid : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RemoteName < Impl : IRDPSRAPIAttendeeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pval : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ControlLevel < Impl : IRDPSRAPIAttendeeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pval : * mut CTRL_LEVEL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetControlLevel < Impl : IRDPSRAPIAttendeeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pnewval : CTRL_LEVEL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Invitation < Impl : IRDPSRAPIAttendeeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppval : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn TerminateConnection < Impl : IRDPSRAPIAttendeeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Flags < Impl : IRDPSRAPIAttendeeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , plflags : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ConnectivityInfo < Impl : IRDPSRAPIAttendeeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppval : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Id : Id :: < Impl , IMPL_OFFSET > , RemoteName : RemoteName :: < Impl , IMPL_OFFSET > , ControlLevel : ControlLevel :: < Impl , IMPL_OFFSET > , SetControlLevel : SetControlLevel :: < Impl , IMPL_OFFSET > , Invitation : Invitation :: < Impl , IMPL_OFFSET > , TerminateConnection : TerminateConnection :: < Impl , IMPL_OFFSET > , Flags : Flags :: < Impl , IMPL_OFFSET > , ConnectivityInfo : ConnectivityInfo :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRDPSRAPIAttendee < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IRDPSRAPIAttendeeDisconnectInfoImpl < > : Sized + IDispatchImpl where { fn Attendee ( ) ; fn Reason ( ) ; fn Code ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IRDPSRAPIAttendeeDisconnectInfoVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRDPSRAPIAttendeeDisconnectInfoImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRDPSRAPIAttendeeDisconnectInfoVtbl < > { unsafe extern "system" fn Attendee < Impl : IRDPSRAPIAttendeeDisconnectInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , retval : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Reason < Impl : IRDPSRAPIAttendeeDisconnectInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , preason : * mut ATTENDEE_DISCONNECT_REASON , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Code < Impl : IRDPSRAPIAttendeeDisconnectInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pval : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Attendee : Attendee :: < Impl , IMPL_OFFSET > , Reason : Reason :: < Impl , IMPL_OFFSET > , Code : Code :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRDPSRAPIAttendeeDisconnectInfo < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IRDPSRAPIAttendeeManagerImpl < > : Sized + IDispatchImpl where { fn _NewEnum ( ) ; fn Item ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IRDPSRAPIAttendeeManagerVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRDPSRAPIAttendeeManagerImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRDPSRAPIAttendeeManagerVtbl < > { unsafe extern "system" fn _NewEnum < Impl : IRDPSRAPIAttendeeManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , retval : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Item < Impl : IRDPSRAPIAttendeeManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , id : i32 , ppitem : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , _NewEnum : _NewEnum :: < Impl , IMPL_OFFSET > , Item : Item :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRDPSRAPIAttendeeManager < > as :: windows :: core :: Interface > :: IID } } pub trait IRDPSRAPIAudioStreamImpl < > : Sized where { fn Initialize ( ) ; fn Start ( ) ; fn Stop ( ) ; fn GetBuffer ( ) ; fn FreeBuffer ( ) ; } impl < > IRDPSRAPIAudioStreamVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRDPSRAPIAudioStreamImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRDPSRAPIAudioStreamVtbl < > { unsafe extern "system" fn Initialize < Impl : IRDPSRAPIAudioStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pnperiodinhundrednsintervals : * mut i64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Start < Impl : IRDPSRAPIAudioStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Stop < Impl : IRDPSRAPIAudioStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetBuffer < Impl : IRDPSRAPIAudioStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppbdata : * mut * mut u8 , pcbdata : * mut u32 , ptimestamp : * mut u64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn FreeBuffer < Impl : IRDPSRAPIAudioStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Initialize : Initialize :: < Impl , IMPL_OFFSET > , Start : Start :: < Impl , IMPL_OFFSET > , Stop : Stop :: < Impl , IMPL_OFFSET > , GetBuffer : GetBuffer :: < Impl , IMPL_OFFSET > , FreeBuffer : FreeBuffer :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRDPSRAPIAudioStream < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_System_Com" ) ] pub trait IRDPSRAPIClipboardUseEventsImpl < > : Sized where { fn OnPasteFromClipboard ( ) ; } # [ cfg ( feature ="Win32_System_Com" ) ] impl < > IRDPSRAPIClipboardUseEventsVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRDPSRAPIClipboardUseEventsImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRDPSRAPIClipboardUseEventsVtbl < > { unsafe extern "system" fn OnPasteFromClipboard < Impl : IRDPSRAPIClipboardUseEventsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , clipboardformat : u32 , pattendee : :: windows :: core :: RawPtr , pretval : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , OnPasteFromClipboard : OnPasteFromClipboard :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRDPSRAPIClipboardUseEvents < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IRDPSRAPIDebugImpl < > : Sized where { fn SetCLXCmdLine ( ) ; fn CLXCmdLine ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IRDPSRAPIDebugVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRDPSRAPIDebugImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRDPSRAPIDebugVtbl < > { unsafe extern "system" fn SetCLXCmdLine < Impl : IRDPSRAPIDebugImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , clxcmdline : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CLXCmdLine < Impl : IRDPSRAPIDebugImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pclxcmdline : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , SetCLXCmdLine : SetCLXCmdLine :: < Impl , IMPL_OFFSET > , CLXCmdLine : CLXCmdLine :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRDPSRAPIDebug < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IRDPSRAPIFrameBufferImpl < > : Sized + IDispatchImpl where { fn Width ( ) ; fn Height ( ) ; fn Bpp ( ) ; fn GetFrameBufferBits ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IRDPSRAPIFrameBufferVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRDPSRAPIFrameBufferImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRDPSRAPIFrameBufferVtbl < > { unsafe extern "system" fn Width < Impl : IRDPSRAPIFrameBufferImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , plwidth : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Height < Impl : IRDPSRAPIFrameBufferImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , plheight : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Bpp < Impl : IRDPSRAPIFrameBufferImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , plbpp : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetFrameBufferBits < Impl : IRDPSRAPIFrameBufferImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , x : i32 , y : i32 , width : i32 , heigth : i32 , ppbits : * mut * mut super::Com:: SAFEARRAY , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Width : Width :: < Impl , IMPL_OFFSET > , Height : Height :: < Impl , IMPL_OFFSET > , Bpp : Bpp :: < Impl , IMPL_OFFSET > , GetFrameBufferBits : GetFrameBufferBits :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRDPSRAPIFrameBuffer < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IRDPSRAPIInvitationImpl < > : Sized + IDispatchImpl where { fn ConnectionString ( ) ; fn GroupName ( ) ; fn Password ( ) ; fn AttendeeLimit ( ) ; fn SetAttendeeLimit ( ) ; fn Revoked ( ) ; fn SetRevoked ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IRDPSRAPIInvitationVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRDPSRAPIInvitationImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRDPSRAPIInvitationVtbl < > { unsafe extern "system" fn ConnectionString < Impl : IRDPSRAPIInvitationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbstrval : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GroupName < Impl : IRDPSRAPIInvitationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbstrval : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Password < Impl : IRDPSRAPIInvitationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbstrval : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AttendeeLimit < Impl : IRDPSRAPIInvitationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pretval : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetAttendeeLimit < Impl : IRDPSRAPIInvitationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , newval : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Revoked < Impl : IRDPSRAPIInvitationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pretval : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetRevoked < Impl : IRDPSRAPIInvitationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , newval : i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , ConnectionString : ConnectionString :: < Impl , IMPL_OFFSET > , GroupName : GroupName :: < Impl , IMPL_OFFSET > , Password : Password :: < Impl , IMPL_OFFSET > , AttendeeLimit : AttendeeLimit :: < Impl , IMPL_OFFSET > , SetAttendeeLimit : SetAttendeeLimit :: < Impl , IMPL_OFFSET > , Revoked : Revoked :: < Impl , IMPL_OFFSET > , SetRevoked : SetRevoked :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRDPSRAPIInvitation < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IRDPSRAPIInvitationManagerImpl < > : Sized + IDispatchImpl where { fn _NewEnum ( ) ; fn Item ( ) ; fn Count ( ) ; fn CreateInvitation ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IRDPSRAPIInvitationManagerVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRDPSRAPIInvitationManagerImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRDPSRAPIInvitationManagerVtbl < > { unsafe extern "system" fn _NewEnum < Impl : IRDPSRAPIInvitationManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , retval : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Item < Impl : IRDPSRAPIInvitationManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , item : :: core :: mem :: ManuallyDrop < super::Com:: VARIANT > , ppinvitation : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Count < Impl : IRDPSRAPIInvitationManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pretval : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateInvitation < Impl : IRDPSRAPIInvitationManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , bstrauthstring : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , bstrgroupname : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , bstrpassword : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , attendeelimit : i32 , ppinvitation : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , _NewEnum : _NewEnum :: < Impl , IMPL_OFFSET > , Item : Item :: < Impl , IMPL_OFFSET > , Count : Count :: < Impl , IMPL_OFFSET > , CreateInvitation : CreateInvitation :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRDPSRAPIInvitationManager < > as :: windows :: core :: Interface > :: IID } } pub trait IRDPSRAPIPerfCounterLoggerImpl < > : Sized where { fn LogValue ( ) ; } impl < > IRDPSRAPIPerfCounterLoggerVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRDPSRAPIPerfCounterLoggerImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRDPSRAPIPerfCounterLoggerVtbl < > { unsafe extern "system" fn LogValue < Impl : IRDPSRAPIPerfCounterLoggerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , lvalue : i64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , LogValue : LogValue :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRDPSRAPIPerfCounterLogger < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IRDPSRAPIPerfCounterLoggingManagerImpl < > : Sized where { fn CreateLogger ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IRDPSRAPIPerfCounterLoggingManagerVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRDPSRAPIPerfCounterLoggingManagerImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRDPSRAPIPerfCounterLoggingManagerVtbl < > { unsafe extern "system" fn CreateLogger < Impl : IRDPSRAPIPerfCounterLoggingManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , bstrcountername : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , pplogger : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , CreateLogger : CreateLogger :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRDPSRAPIPerfCounterLoggingManager < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IRDPSRAPISessionPropertiesImpl < > : Sized + IDispatchImpl where { fn Property ( ) ; fn SetProperty ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IRDPSRAPISessionPropertiesVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRDPSRAPISessionPropertiesImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRDPSRAPISessionPropertiesVtbl < > { unsafe extern "system" fn Property < Impl : IRDPSRAPISessionPropertiesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , propertyname : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , pval : * mut super::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetProperty < Impl : IRDPSRAPISessionPropertiesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , propertyname : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , newval : :: core :: mem :: ManuallyDrop < super::Com:: VARIANT > , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Property : Property :: < Impl , IMPL_OFFSET > , SetProperty : SetProperty :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRDPSRAPISessionProperties < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IRDPSRAPISharingSessionImpl < > : Sized + IDispatchImpl where { fn Open ( ) ; fn Close ( ) ; fn SetColorDepth ( ) ; fn ColorDepth ( ) ; fn Properties ( ) ; fn Attendees ( ) ; fn Invitations ( ) ; fn ApplicationFilter ( ) ; fn VirtualChannelManager ( ) ; fn Pause ( ) ; fn Resume ( ) ; fn ConnectToClient ( ) ; fn SetDesktopSharedRect ( ) ; fn GetDesktopSharedRect ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IRDPSRAPISharingSessionVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRDPSRAPISharingSessionImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRDPSRAPISharingSessionVtbl < > { unsafe extern "system" fn Open < Impl : IRDPSRAPISharingSessionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Close < Impl : IRDPSRAPISharingSessionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetColorDepth < Impl : IRDPSRAPISharingSessionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , colordepth : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ColorDepth < Impl : IRDPSRAPISharingSessionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcolordepth : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Properties < Impl : IRDPSRAPISharingSessionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppval : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Attendees < Impl : IRDPSRAPISharingSessionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppval : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Invitations < Impl : IRDPSRAPISharingSessionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppval : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ApplicationFilter < Impl : IRDPSRAPISharingSessionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppval : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn VirtualChannelManager < Impl : IRDPSRAPISharingSessionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppval : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Pause < Impl : IRDPSRAPISharingSessionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Resume < Impl : IRDPSRAPISharingSessionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ConnectToClient < Impl : IRDPSRAPISharingSessionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , bstrconnectionstring : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetDesktopSharedRect < Impl : IRDPSRAPISharingSessionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , left : i32 , top : i32 , right : i32 , bottom : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetDesktopSharedRect < Impl : IRDPSRAPISharingSessionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pleft : * mut i32 , ptop : * mut i32 , pright : * mut i32 , pbottom : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Open : Open :: < Impl , IMPL_OFFSET > , Close : Close :: < Impl , IMPL_OFFSET > , SetColorDepth : SetColorDepth :: < Impl , IMPL_OFFSET > , ColorDepth : ColorDepth :: < Impl , IMPL_OFFSET > , Properties : Properties :: < Impl , IMPL_OFFSET > , Attendees : Attendees :: < Impl , IMPL_OFFSET > , Invitations : Invitations :: < Impl , IMPL_OFFSET > , ApplicationFilter : ApplicationFilter :: < Impl , IMPL_OFFSET > , VirtualChannelManager : VirtualChannelManager :: < Impl , IMPL_OFFSET > , Pause : Pause :: < Impl , IMPL_OFFSET > , Resume : Resume :: < Impl , IMPL_OFFSET > , ConnectToClient : ConnectToClient :: < Impl , IMPL_OFFSET > , SetDesktopSharedRect : SetDesktopSharedRect :: < Impl , IMPL_OFFSET > , GetDesktopSharedRect : GetDesktopSharedRect :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRDPSRAPISharingSession < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IRDPSRAPISharingSession2Impl < > : Sized + IDispatchImpl + IRDPSRAPISharingSessionImpl where { fn ConnectUsingTransportStream ( ) ; fn FrameBuffer ( ) ; fn SendControlLevelChangeResponse ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IRDPSRAPISharingSession2Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRDPSRAPISharingSession2Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRDPSRAPISharingSession2Vtbl < > { unsafe extern "system" fn ConnectUsingTransportStream < Impl : IRDPSRAPISharingSession2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pstream : :: windows :: core :: RawPtr , bstrgroup : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , bstrauthenticatedattendeename : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn FrameBuffer < Impl : IRDPSRAPISharingSession2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppval : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SendControlLevelChangeResponse < Impl : IRDPSRAPISharingSession2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pattendee : :: windows :: core :: RawPtr , requestedlevel : CTRL_LEVEL , reasoncode : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IRDPSRAPISharingSessionVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , ConnectUsingTransportStream : ConnectUsingTransportStream :: < Impl , IMPL_OFFSET > , FrameBuffer : FrameBuffer :: < Impl , IMPL_OFFSET > , SendControlLevelChangeResponse : SendControlLevelChangeResponse :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRDPSRAPISharingSession2 < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IRDPSRAPITcpConnectionInfoImpl < > : Sized + IDispatchImpl where { fn Protocol ( ) ; fn LocalPort ( ) ; fn LocalIP ( ) ; fn PeerPort ( ) ; fn PeerIP ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IRDPSRAPITcpConnectionInfoVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRDPSRAPITcpConnectionInfoImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRDPSRAPITcpConnectionInfoVtbl < > { unsafe extern "system" fn Protocol < Impl : IRDPSRAPITcpConnectionInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , plprotocol : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn LocalPort < Impl : IRDPSRAPITcpConnectionInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , plport : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn LocalIP < Impl : IRDPSRAPITcpConnectionInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbsrlocalip : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn PeerPort < Impl : IRDPSRAPITcpConnectionInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , plport : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn PeerIP < Impl : IRDPSRAPITcpConnectionInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbstrip : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Protocol : Protocol :: < Impl , IMPL_OFFSET > , LocalPort : LocalPort :: < Impl , IMPL_OFFSET > , LocalIP : LocalIP :: < Impl , IMPL_OFFSET > , PeerPort : PeerPort :: < Impl , IMPL_OFFSET > , PeerIP : PeerIP :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRDPSRAPITcpConnectionInfo < > as :: windows :: core :: Interface > :: IID } } pub trait IRDPSRAPITransportStreamImpl < > : Sized where { fn AllocBuffer ( ) ; fn FreeBuffer ( ) ; fn WriteBuffer ( ) ; fn ReadBuffer ( ) ; fn Open ( ) ; fn Close ( ) ; } impl < > IRDPSRAPITransportStreamVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRDPSRAPITransportStreamImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRDPSRAPITransportStreamVtbl < > { unsafe extern "system" fn AllocBuffer < Impl : IRDPSRAPITransportStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , maxpayload : i32 , ppbuffer : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn FreeBuffer < Impl : IRDPSRAPITransportStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbuffer : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn WriteBuffer < Impl : IRDPSRAPITransportStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbuffer : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ReadBuffer < Impl : IRDPSRAPITransportStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbuffer : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Open < Impl : IRDPSRAPITransportStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcallbacks : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Close < Impl : IRDPSRAPITransportStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , AllocBuffer : AllocBuffer :: < Impl , IMPL_OFFSET > , FreeBuffer : FreeBuffer :: < Impl , IMPL_OFFSET > , WriteBuffer : WriteBuffer :: < Impl , IMPL_OFFSET > , ReadBuffer : ReadBuffer :: < Impl , IMPL_OFFSET > , Open : Open :: < Impl , IMPL_OFFSET > , Close : Close :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRDPSRAPITransportStream < > as :: windows :: core :: Interface > :: IID } } pub trait IRDPSRAPITransportStreamBufferImpl < > : Sized where { fn Storage ( ) ; fn StorageSize ( ) ; fn PayloadSize ( ) ; fn SetPayloadSize ( ) ; fn PayloadOffset ( ) ; fn SetPayloadOffset ( ) ; fn Flags ( ) ; fn SetFlags ( ) ; fn Context ( ) ; fn SetContext ( ) ; } impl < > IRDPSRAPITransportStreamBufferVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRDPSRAPITransportStreamBufferImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRDPSRAPITransportStreamBufferVtbl < > { unsafe extern "system" fn Storage < Impl : IRDPSRAPITransportStreamBufferImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppbstorage : * mut * mut u8 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn StorageSize < Impl : IRDPSRAPITransportStreamBufferImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , plmaxstore : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn PayloadSize < Impl : IRDPSRAPITransportStreamBufferImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , plretval : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetPayloadSize < Impl : IRDPSRAPITransportStreamBufferImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , lval : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn PayloadOffset < Impl : IRDPSRAPITransportStreamBufferImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , plretval : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetPayloadOffset < Impl : IRDPSRAPITransportStreamBufferImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , lretval : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Flags < Impl : IRDPSRAPITransportStreamBufferImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , plflags : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetFlags < Impl : IRDPSRAPITransportStreamBufferImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , lflags : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Context < Impl : IRDPSRAPITransportStreamBufferImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppcontext : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetContext < Impl : IRDPSRAPITransportStreamBufferImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcontext : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Storage : Storage :: < Impl , IMPL_OFFSET > , StorageSize : StorageSize :: < Impl , IMPL_OFFSET > , PayloadSize : PayloadSize :: < Impl , IMPL_OFFSET > , SetPayloadSize : SetPayloadSize :: < Impl , IMPL_OFFSET > , PayloadOffset : PayloadOffset :: < Impl , IMPL_OFFSET > , SetPayloadOffset : SetPayloadOffset :: < Impl , IMPL_OFFSET > , Flags : Flags :: < Impl , IMPL_OFFSET > , SetFlags : SetFlags :: < Impl , IMPL_OFFSET > , Context : Context :: < Impl , IMPL_OFFSET > , SetContext : SetContext :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRDPSRAPITransportStreamBuffer < > as :: windows :: core :: Interface > :: IID } } pub trait IRDPSRAPITransportStreamEventsImpl < > : Sized where { fn OnWriteCompleted ( ) ; fn OnReadCompleted ( ) ; fn OnStreamClosed ( ) ; } impl < > IRDPSRAPITransportStreamEventsVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRDPSRAPITransportStreamEventsImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRDPSRAPITransportStreamEventsVtbl < > { unsafe extern "system" fn OnWriteCompleted < Impl : IRDPSRAPITransportStreamEventsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbuffer : :: windows :: core :: RawPtr , ) { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn OnReadCompleted < Impl : IRDPSRAPITransportStreamEventsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbuffer : :: windows :: core :: RawPtr , ) { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn OnStreamClosed < Impl : IRDPSRAPITransportStreamEventsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hrreason : :: windows :: core :: HRESULT , ) { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , OnWriteCompleted : OnWriteCompleted :: < Impl , IMPL_OFFSET > , OnReadCompleted : OnReadCompleted :: < Impl , IMPL_OFFSET > , OnStreamClosed : OnStreamClosed :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRDPSRAPITransportStreamEvents < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IRDPSRAPIViewerImpl < > : Sized + IDispatchImpl where { fn Connect ( ) ; fn Disconnect ( ) ; fn Attendees ( ) ; fn Invitations ( ) ; fn ApplicationFilter ( ) ; fn VirtualChannelManager ( ) ; fn SetSmartSizing ( ) ; fn SmartSizing ( ) ; fn RequestControl ( ) ; fn SetDisconnectedText ( ) ; fn DisconnectedText ( ) ; fn RequestColorDepthChange ( ) ; fn Properties ( ) ; fn StartReverseConnectListener ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IRDPSRAPIViewerVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRDPSRAPIViewerImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRDPSRAPIViewerVtbl < > { unsafe extern "system" fn Connect < Impl : IRDPSRAPIViewerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , bstrconnectionstring : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , bstrname : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , bstrpassword : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Disconnect < Impl : IRDPSRAPIViewerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Attendees < Impl : IRDPSRAPIViewerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppval : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Invitations < Impl : IRDPSRAPIViewerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppval : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ApplicationFilter < Impl : IRDPSRAPIViewerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppval : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn VirtualChannelManager < Impl : IRDPSRAPIViewerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppval : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetSmartSizing < Impl : IRDPSRAPIViewerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , vbsmartsizing : i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SmartSizing < Impl : IRDPSRAPIViewerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pvbsmartsizing : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RequestControl < Impl : IRDPSRAPIViewerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ctrllevel : CTRL_LEVEL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetDisconnectedText < Impl : IRDPSRAPIViewerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , bstrdisconnectedtext : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DisconnectedText < Impl : IRDPSRAPIViewerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbstrdisconnectedtext : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RequestColorDepthChange < Impl : IRDPSRAPIViewerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , bpp : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Properties < Impl : IRDPSRAPIViewerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppval : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn StartReverseConnectListener < Impl : IRDPSRAPIViewerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , bstrconnectionstring : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , bstrusername : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , bstrpassword : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , pbstrreverseconnectstring : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Connect : Connect :: < Impl , IMPL_OFFSET > , Disconnect : Disconnect :: < Impl , IMPL_OFFSET > , Attendees : Attendees :: < Impl , IMPL_OFFSET > , Invitations : Invitations :: < Impl , IMPL_OFFSET > , ApplicationFilter : ApplicationFilter :: < Impl , IMPL_OFFSET > , VirtualChannelManager : VirtualChannelManager :: < Impl , IMPL_OFFSET > , SetSmartSizing : SetSmartSizing :: < Impl , IMPL_OFFSET > , SmartSizing : SmartSizing :: < Impl , IMPL_OFFSET > , RequestControl : RequestControl :: < Impl , IMPL_OFFSET > , SetDisconnectedText : SetDisconnectedText :: < Impl , IMPL_OFFSET > , DisconnectedText : DisconnectedText :: < Impl , IMPL_OFFSET > , RequestColorDepthChange : RequestColorDepthChange :: < Impl , IMPL_OFFSET > , Properties : Properties :: < Impl , IMPL_OFFSET > , StartReverseConnectListener : StartReverseConnectListener :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRDPSRAPIViewer < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IRDPSRAPIVirtualChannelImpl < > : Sized + IDispatchImpl where { fn SendData ( ) ; fn SetAccess ( ) ; fn Name ( ) ; fn Flags ( ) ; fn Priority ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IRDPSRAPIVirtualChannelVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRDPSRAPIVirtualChannelImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRDPSRAPIVirtualChannelVtbl < > { unsafe extern "system" fn SendData < Impl : IRDPSRAPIVirtualChannelImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , bstrdata : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , lattendeeid : i32 , channelsendflags : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetAccess < Impl : IRDPSRAPIVirtualChannelImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , lattendeeid : i32 , accesstype : CHANNEL_ACCESS_ENUM , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Name < Impl : IRDPSRAPIVirtualChannelImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbstrname : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Flags < Impl : IRDPSRAPIVirtualChannelImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , plflags : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Priority < Impl : IRDPSRAPIVirtualChannelImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppriority : * mut CHANNEL_PRIORITY , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , SendData : SendData :: < Impl , IMPL_OFFSET > , SetAccess : SetAccess :: < Impl , IMPL_OFFSET > , Name : Name :: < Impl , IMPL_OFFSET > , Flags : Flags :: < Impl , IMPL_OFFSET > , Priority : Priority :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRDPSRAPIVirtualChannel < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IRDPSRAPIVirtualChannelManagerImpl < > : Sized + IDispatchImpl where { fn _NewEnum ( ) ; fn Item ( ) ; fn CreateVirtualChannel ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IRDPSRAPIVirtualChannelManagerVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRDPSRAPIVirtualChannelManagerImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRDPSRAPIVirtualChannelManagerVtbl < > { unsafe extern "system" fn _NewEnum < Impl : IRDPSRAPIVirtualChannelManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , retval : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Item < Impl : IRDPSRAPIVirtualChannelManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , item : :: core :: mem :: ManuallyDrop < super::Com:: VARIANT > , pchannel : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateVirtualChannel < Impl : IRDPSRAPIVirtualChannelManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , bstrchannelname : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , priority : CHANNEL_PRIORITY , channelflags : u32 , ppchannel : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , _NewEnum : _NewEnum :: < Impl , IMPL_OFFSET > , Item : Item :: < Impl , IMPL_OFFSET > , CreateVirtualChannel : CreateVirtualChannel :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRDPSRAPIVirtualChannelManager < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IRDPSRAPIWindowImpl < > : Sized + IDispatchImpl where { fn Id ( ) ; fn Application ( ) ; fn Shared ( ) ; fn SetShared ( ) ; fn Name ( ) ; fn Show ( ) ; fn Flags ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IRDPSRAPIWindowVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRDPSRAPIWindowImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRDPSRAPIWindowVtbl < > { unsafe extern "system" fn Id < Impl : IRDPSRAPIWindowImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pretval : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Application < Impl : IRDPSRAPIWindowImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , papplication : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Shared < Impl : IRDPSRAPIWindowImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pretval : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetShared < Impl : IRDPSRAPIWindowImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , newval : i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Name < Impl : IRDPSRAPIWindowImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pretval : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Show < Impl : IRDPSRAPIWindowImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Flags < Impl : IRDPSRAPIWindowImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdwflags : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Id : Id :: < Impl , IMPL_OFFSET > , Application : Application :: < Impl , IMPL_OFFSET > , Shared : Shared :: < Impl , IMPL_OFFSET > , SetShared : SetShared :: < Impl , IMPL_OFFSET > , Name : Name :: < Impl , IMPL_OFFSET > , Show : Show :: < Impl , IMPL_OFFSET > , Flags : Flags :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRDPSRAPIWindow < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IRDPSRAPIWindowListImpl < > : Sized + IDispatchImpl where { fn _NewEnum ( ) ; fn Item ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IRDPSRAPIWindowListVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRDPSRAPIWindowListImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRDPSRAPIWindowListVtbl < > { unsafe extern "system" fn _NewEnum < Impl : IRDPSRAPIWindowListImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , retval : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Item < Impl : IRDPSRAPIWindowListImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , item : i32 , pwindow : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , _NewEnum : _NewEnum :: < Impl , IMPL_OFFSET > , Item : Item :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRDPSRAPIWindowList < > as :: windows :: core :: Interface > :: IID } } pub trait IRDPViewerInputSinkImpl < > : Sized where { fn SendMouseButtonEvent ( ) ; fn SendMouseMoveEvent ( ) ; fn SendMouseWheelEvent ( ) ; fn SendKeyboardEvent ( ) ; fn SendSyncEvent ( ) ; fn BeginTouchFrame ( ) ; fn AddTouchInput ( ) ; fn EndTouchFrame ( ) ; } impl < > IRDPViewerInputSinkVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IRDPViewerInputSinkImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IRDPViewerInputSinkVtbl < > { unsafe extern "system" fn SendMouseButtonEvent < Impl : IRDPViewerInputSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , buttontype : RDPSRAPI_MOUSE_BUTTON_TYPE , vbbuttondown : i16 , xpos : u32 , ypos : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SendMouseMoveEvent < Impl : IRDPViewerInputSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , xpos : u32 , ypos : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SendMouseWheelEvent < Impl : IRDPViewerInputSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , wheelrotation : u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SendKeyboardEvent < Impl : IRDPViewerInputSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , codetype : RDPSRAPI_KBD_CODE_TYPE , keycode : u16 , vbkeyup : i16 , vbrepeat : i16 , vbextended : i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SendSyncEvent < Impl : IRDPViewerInputSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , syncflags : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn BeginTouchFrame < Impl : IRDPViewerInputSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AddTouchInput < Impl : IRDPViewerInputSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , contactid : u32 , event : u32 , x : i32 , y : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EndTouchFrame < Impl : IRDPViewerInputSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , SendMouseButtonEvent : SendMouseButtonEvent :: < Impl , IMPL_OFFSET > , SendMouseMoveEvent : SendMouseMoveEvent :: < Impl , IMPL_OFFSET > , SendMouseWheelEvent : SendMouseWheelEvent :: < Impl , IMPL_OFFSET > , SendKeyboardEvent : SendKeyboardEvent :: < Impl , IMPL_OFFSET > , SendSyncEvent : SendSyncEvent :: < Impl , IMPL_OFFSET > , BeginTouchFrame : BeginTouchFrame :: < Impl , IMPL_OFFSET > , AddTouchInput : AddTouchInput :: < Impl , IMPL_OFFSET > , EndTouchFrame : EndTouchFrame :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IRDPViewerInputSink < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait _IRDPSessionEventsImpl < > : Sized + IDispatchImpl where { } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > _IRDPSessionEventsVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : _IRDPSessionEventsImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> _IRDPSessionEventsVtbl < > { Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < _IRDPSessionEvents < > as :: windows :: core :: Interface > :: IID } } 
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IRDPSRAPIApplicationImpl: Sized + IDispatchImpl {
+    fn Windows();
+    fn Id();
+    fn Shared();
+    fn SetShared();
+    fn Name();
+    fn Flags();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IRDPSRAPIApplicationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIApplicationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPSRAPIApplicationVtbl {
+        unsafe extern "system" fn Windows<Impl: IRDPSRAPIApplicationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwindowlist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Id<Impl: IRDPSRAPIApplicationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Shared<Impl: IRDPSRAPIApplicationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetShared<Impl: IRDPSRAPIApplicationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Name<Impl: IRDPSRAPIApplicationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Flags<Impl: IRDPSRAPIApplicationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Windows: Windows::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Shared: Shared::<Impl, IMPL_OFFSET>,
+            SetShared: SetShared::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Flags: Flags::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRDPSRAPIApplication as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IRDPSRAPIApplicationFilterImpl: Sized + IDispatchImpl {
+    fn Applications();
+    fn Windows();
+    fn Enabled();
+    fn SetEnabled();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IRDPSRAPIApplicationFilterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIApplicationFilterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPSRAPIApplicationFilterVtbl {
+        unsafe extern "system" fn Applications<Impl: IRDPSRAPIApplicationFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, papplications: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Windows<Impl: IRDPSRAPIApplicationFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwindows: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Enabled<Impl: IRDPSRAPIApplicationFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetEnabled<Impl: IRDPSRAPIApplicationFilterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Applications: Applications::<Impl, IMPL_OFFSET>,
+            Windows: Windows::<Impl, IMPL_OFFSET>,
+            Enabled: Enabled::<Impl, IMPL_OFFSET>,
+            SetEnabled: SetEnabled::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRDPSRAPIApplicationFilter as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IRDPSRAPIApplicationListImpl: Sized + IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IRDPSRAPIApplicationListVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIApplicationListImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPSRAPIApplicationListVtbl {
+        unsafe extern "system" fn _NewEnum<Impl: IRDPSRAPIApplicationListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: IRDPSRAPIApplicationListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: i32, papplication: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>, Item: Item::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRDPSRAPIApplicationList as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IRDPSRAPIAttendeeImpl: Sized + IDispatchImpl {
+    fn Id();
+    fn RemoteName();
+    fn ControlLevel();
+    fn SetControlLevel();
+    fn Invitation();
+    fn TerminateConnection();
+    fn Flags();
+    fn ConnectivityInfo();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IRDPSRAPIAttendeeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIAttendeeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPSRAPIAttendeeVtbl {
+        unsafe extern "system" fn Id<Impl: IRDPSRAPIAttendeeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pid: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RemoteName<Impl: IRDPSRAPIAttendeeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ControlLevel<Impl: IRDPSRAPIAttendeeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut CTRL_LEVEL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetControlLevel<Impl: IRDPSRAPIAttendeeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnewval: CTRL_LEVEL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Invitation<Impl: IRDPSRAPIAttendeeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TerminateConnection<Impl: IRDPSRAPIAttendeeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Flags<Impl: IRDPSRAPIAttendeeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plflags: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ConnectivityInfo<Impl: IRDPSRAPIAttendeeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            RemoteName: RemoteName::<Impl, IMPL_OFFSET>,
+            ControlLevel: ControlLevel::<Impl, IMPL_OFFSET>,
+            SetControlLevel: SetControlLevel::<Impl, IMPL_OFFSET>,
+            Invitation: Invitation::<Impl, IMPL_OFFSET>,
+            TerminateConnection: TerminateConnection::<Impl, IMPL_OFFSET>,
+            Flags: Flags::<Impl, IMPL_OFFSET>,
+            ConnectivityInfo: ConnectivityInfo::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRDPSRAPIAttendee as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IRDPSRAPIAttendeeDisconnectInfoImpl: Sized + IDispatchImpl {
+    fn Attendee();
+    fn Reason();
+    fn Code();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IRDPSRAPIAttendeeDisconnectInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIAttendeeDisconnectInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPSRAPIAttendeeDisconnectInfoVtbl {
+        unsafe extern "system" fn Attendee<Impl: IRDPSRAPIAttendeeDisconnectInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Reason<Impl: IRDPSRAPIAttendeeDisconnectInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preason: *mut ATTENDEE_DISCONNECT_REASON) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Code<Impl: IRDPSRAPIAttendeeDisconnectInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Attendee: Attendee::<Impl, IMPL_OFFSET>,
+            Reason: Reason::<Impl, IMPL_OFFSET>,
+            Code: Code::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRDPSRAPIAttendeeDisconnectInfo as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IRDPSRAPIAttendeeManagerImpl: Sized + IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IRDPSRAPIAttendeeManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIAttendeeManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPSRAPIAttendeeManagerVtbl {
+        unsafe extern "system" fn _NewEnum<Impl: IRDPSRAPIAttendeeManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: IRDPSRAPIAttendeeManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: i32, ppitem: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>, Item: Item::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRDPSRAPIAttendeeManager as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRDPSRAPIAudioStreamImpl: Sized {
+    fn Initialize();
+    fn Start();
+    fn Stop();
+    fn GetBuffer();
+    fn FreeBuffer();
+}
+impl IRDPSRAPIAudioStreamVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIAudioStreamImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPSRAPIAudioStreamVtbl {
+        unsafe extern "system" fn Initialize<Impl: IRDPSRAPIAudioStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnperiodinhundrednsintervals: *mut i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Start<Impl: IRDPSRAPIAudioStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Stop<Impl: IRDPSRAPIAudioStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetBuffer<Impl: IRDPSRAPIAudioStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppbdata: *mut *mut u8, pcbdata: *mut u32, ptimestamp: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FreeBuffer<Impl: IRDPSRAPIAudioStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Initialize: Initialize::<Impl, IMPL_OFFSET>,
+            Start: Start::<Impl, IMPL_OFFSET>,
+            Stop: Stop::<Impl, IMPL_OFFSET>,
+            GetBuffer: GetBuffer::<Impl, IMPL_OFFSET>,
+            FreeBuffer: FreeBuffer::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRDPSRAPIAudioStream as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+pub trait IRDPSRAPIClipboardUseEventsImpl: Sized {
+    fn OnPasteFromClipboard();
+}
+#[cfg(feature = "Win32_System_Com")]
+impl IRDPSRAPIClipboardUseEventsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIClipboardUseEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPSRAPIClipboardUseEventsVtbl {
+        unsafe extern "system" fn OnPasteFromClipboard<Impl: IRDPSRAPIClipboardUseEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clipboardformat: u32, pattendee: ::windows::core::RawPtr, pretval: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), OnPasteFromClipboard: OnPasteFromClipboard::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRDPSRAPIClipboardUseEvents as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IRDPSRAPIDebugImpl: Sized {
+    fn SetCLXCmdLine();
+    fn CLXCmdLine();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IRDPSRAPIDebugVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIDebugImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPSRAPIDebugVtbl {
+        unsafe extern "system" fn SetCLXCmdLine<Impl: IRDPSRAPIDebugImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clxcmdline: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CLXCmdLine<Impl: IRDPSRAPIDebugImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclxcmdline: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SetCLXCmdLine: SetCLXCmdLine::<Impl, IMPL_OFFSET>,
+            CLXCmdLine: CLXCmdLine::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRDPSRAPIDebug as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IRDPSRAPIFrameBufferImpl: Sized + IDispatchImpl {
+    fn Width();
+    fn Height();
+    fn Bpp();
+    fn GetFrameBufferBits();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IRDPSRAPIFrameBufferVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIFrameBufferImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPSRAPIFrameBufferVtbl {
+        unsafe extern "system" fn Width<Impl: IRDPSRAPIFrameBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plwidth: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Height<Impl: IRDPSRAPIFrameBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plheight: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Bpp<Impl: IRDPSRAPIFrameBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plbpp: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetFrameBufferBits<Impl: IRDPSRAPIFrameBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, x: i32, y: i32, width: i32, heigth: i32, ppbits: *mut *mut super::Com::SAFEARRAY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Width: Width::<Impl, IMPL_OFFSET>,
+            Height: Height::<Impl, IMPL_OFFSET>,
+            Bpp: Bpp::<Impl, IMPL_OFFSET>,
+            GetFrameBufferBits: GetFrameBufferBits::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRDPSRAPIFrameBuffer as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IRDPSRAPIInvitationImpl: Sized + IDispatchImpl {
+    fn ConnectionString();
+    fn GroupName();
+    fn Password();
+    fn AttendeeLimit();
+    fn SetAttendeeLimit();
+    fn Revoked();
+    fn SetRevoked();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IRDPSRAPIInvitationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIInvitationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPSRAPIInvitationVtbl {
+        unsafe extern "system" fn ConnectionString<Impl: IRDPSRAPIInvitationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GroupName<Impl: IRDPSRAPIInvitationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Password<Impl: IRDPSRAPIInvitationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AttendeeLimit<Impl: IRDPSRAPIInvitationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAttendeeLimit<Impl: IRDPSRAPIInvitationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Revoked<Impl: IRDPSRAPIInvitationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRevoked<Impl: IRDPSRAPIInvitationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            ConnectionString: ConnectionString::<Impl, IMPL_OFFSET>,
+            GroupName: GroupName::<Impl, IMPL_OFFSET>,
+            Password: Password::<Impl, IMPL_OFFSET>,
+            AttendeeLimit: AttendeeLimit::<Impl, IMPL_OFFSET>,
+            SetAttendeeLimit: SetAttendeeLimit::<Impl, IMPL_OFFSET>,
+            Revoked: Revoked::<Impl, IMPL_OFFSET>,
+            SetRevoked: SetRevoked::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRDPSRAPIInvitation as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IRDPSRAPIInvitationManagerImpl: Sized + IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn Count();
+    fn CreateInvitation();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IRDPSRAPIInvitationManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIInvitationManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPSRAPIInvitationManagerVtbl {
+        unsafe extern "system" fn _NewEnum<Impl: IRDPSRAPIInvitationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: IRDPSRAPIInvitationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: ::core::mem::ManuallyDrop<super::Com::VARIANT>, ppinvitation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Count<Impl: IRDPSRAPIInvitationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateInvitation<Impl: IRDPSRAPIInvitationManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrauthstring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrgroupname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, attendeelimit: i32, ppinvitation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>,
+            Item: Item::<Impl, IMPL_OFFSET>,
+            Count: Count::<Impl, IMPL_OFFSET>,
+            CreateInvitation: CreateInvitation::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRDPSRAPIInvitationManager as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRDPSRAPIPerfCounterLoggerImpl: Sized {
+    fn LogValue();
+}
+impl IRDPSRAPIPerfCounterLoggerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIPerfCounterLoggerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPSRAPIPerfCounterLoggerVtbl {
+        unsafe extern "system" fn LogValue<Impl: IRDPSRAPIPerfCounterLoggerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lvalue: i64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), LogValue: LogValue::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRDPSRAPIPerfCounterLogger as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IRDPSRAPIPerfCounterLoggingManagerImpl: Sized {
+    fn CreateLogger();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IRDPSRAPIPerfCounterLoggingManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIPerfCounterLoggingManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPSRAPIPerfCounterLoggingManagerVtbl {
+        unsafe extern "system" fn CreateLogger<Impl: IRDPSRAPIPerfCounterLoggingManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrcountername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pplogger: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), CreateLogger: CreateLogger::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRDPSRAPIPerfCounterLoggingManager as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IRDPSRAPISessionPropertiesImpl: Sized + IDispatchImpl {
+    fn Property();
+    fn SetProperty();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IRDPSRAPISessionPropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPISessionPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPSRAPISessionPropertiesVtbl {
+        unsafe extern "system" fn Property<Impl: IRDPSRAPISessionPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pval: *mut super::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetProperty<Impl: IRDPSRAPISessionPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, newval: ::core::mem::ManuallyDrop<super::Com::VARIANT>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Property: Property::<Impl, IMPL_OFFSET>,
+            SetProperty: SetProperty::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRDPSRAPISessionProperties as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IRDPSRAPISharingSessionImpl: Sized + IDispatchImpl {
+    fn Open();
+    fn Close();
+    fn SetColorDepth();
+    fn ColorDepth();
+    fn Properties();
+    fn Attendees();
+    fn Invitations();
+    fn ApplicationFilter();
+    fn VirtualChannelManager();
+    fn Pause();
+    fn Resume();
+    fn ConnectToClient();
+    fn SetDesktopSharedRect();
+    fn GetDesktopSharedRect();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IRDPSRAPISharingSessionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPISharingSessionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPSRAPISharingSessionVtbl {
+        unsafe extern "system" fn Open<Impl: IRDPSRAPISharingSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Close<Impl: IRDPSRAPISharingSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetColorDepth<Impl: IRDPSRAPISharingSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, colordepth: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ColorDepth<Impl: IRDPSRAPISharingSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcolordepth: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Properties<Impl: IRDPSRAPISharingSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Attendees<Impl: IRDPSRAPISharingSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Invitations<Impl: IRDPSRAPISharingSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ApplicationFilter<Impl: IRDPSRAPISharingSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn VirtualChannelManager<Impl: IRDPSRAPISharingSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Pause<Impl: IRDPSRAPISharingSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Resume<Impl: IRDPSRAPISharingSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ConnectToClient<Impl: IRDPSRAPISharingSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrconnectionstring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDesktopSharedRect<Impl: IRDPSRAPISharingSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, left: i32, top: i32, right: i32, bottom: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDesktopSharedRect<Impl: IRDPSRAPISharingSessionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Open: Open::<Impl, IMPL_OFFSET>,
+            Close: Close::<Impl, IMPL_OFFSET>,
+            SetColorDepth: SetColorDepth::<Impl, IMPL_OFFSET>,
+            ColorDepth: ColorDepth::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+            Attendees: Attendees::<Impl, IMPL_OFFSET>,
+            Invitations: Invitations::<Impl, IMPL_OFFSET>,
+            ApplicationFilter: ApplicationFilter::<Impl, IMPL_OFFSET>,
+            VirtualChannelManager: VirtualChannelManager::<Impl, IMPL_OFFSET>,
+            Pause: Pause::<Impl, IMPL_OFFSET>,
+            Resume: Resume::<Impl, IMPL_OFFSET>,
+            ConnectToClient: ConnectToClient::<Impl, IMPL_OFFSET>,
+            SetDesktopSharedRect: SetDesktopSharedRect::<Impl, IMPL_OFFSET>,
+            GetDesktopSharedRect: GetDesktopSharedRect::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRDPSRAPISharingSession as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IRDPSRAPISharingSession2Impl: Sized + IDispatchImpl + IRDPSRAPISharingSessionImpl {
+    fn ConnectUsingTransportStream();
+    fn FrameBuffer();
+    fn SendControlLevelChangeResponse();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IRDPSRAPISharingSession2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPISharingSession2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPSRAPISharingSession2Vtbl {
+        unsafe extern "system" fn ConnectUsingTransportStream<Impl: IRDPSRAPISharingSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstream: ::windows::core::RawPtr, bstrgroup: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrauthenticatedattendeename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FrameBuffer<Impl: IRDPSRAPISharingSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SendControlLevelChangeResponse<Impl: IRDPSRAPISharingSession2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pattendee: ::windows::core::RawPtr, requestedlevel: CTRL_LEVEL, reasoncode: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IRDPSRAPISharingSessionVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            ConnectUsingTransportStream: ConnectUsingTransportStream::<Impl, IMPL_OFFSET>,
+            FrameBuffer: FrameBuffer::<Impl, IMPL_OFFSET>,
+            SendControlLevelChangeResponse: SendControlLevelChangeResponse::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRDPSRAPISharingSession2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IRDPSRAPITcpConnectionInfoImpl: Sized + IDispatchImpl {
+    fn Protocol();
+    fn LocalPort();
+    fn LocalIP();
+    fn PeerPort();
+    fn PeerIP();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IRDPSRAPITcpConnectionInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPITcpConnectionInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPSRAPITcpConnectionInfoVtbl {
+        unsafe extern "system" fn Protocol<Impl: IRDPSRAPITcpConnectionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plprotocol: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LocalPort<Impl: IRDPSRAPITcpConnectionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plport: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LocalIP<Impl: IRDPSRAPITcpConnectionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbsrlocalip: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PeerPort<Impl: IRDPSRAPITcpConnectionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plport: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PeerIP<Impl: IRDPSRAPITcpConnectionInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrip: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Protocol: Protocol::<Impl, IMPL_OFFSET>,
+            LocalPort: LocalPort::<Impl, IMPL_OFFSET>,
+            LocalIP: LocalIP::<Impl, IMPL_OFFSET>,
+            PeerPort: PeerPort::<Impl, IMPL_OFFSET>,
+            PeerIP: PeerIP::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRDPSRAPITcpConnectionInfo as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRDPSRAPITransportStreamImpl: Sized {
+    fn AllocBuffer();
+    fn FreeBuffer();
+    fn WriteBuffer();
+    fn ReadBuffer();
+    fn Open();
+    fn Close();
+}
+impl IRDPSRAPITransportStreamVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPITransportStreamImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPSRAPITransportStreamVtbl {
+        unsafe extern "system" fn AllocBuffer<Impl: IRDPSRAPITransportStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxpayload: i32, ppbuffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FreeBuffer<Impl: IRDPSRAPITransportStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn WriteBuffer<Impl: IRDPSRAPITransportStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReadBuffer<Impl: IRDPSRAPITransportStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Open<Impl: IRDPSRAPITransportStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcallbacks: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Close<Impl: IRDPSRAPITransportStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            AllocBuffer: AllocBuffer::<Impl, IMPL_OFFSET>,
+            FreeBuffer: FreeBuffer::<Impl, IMPL_OFFSET>,
+            WriteBuffer: WriteBuffer::<Impl, IMPL_OFFSET>,
+            ReadBuffer: ReadBuffer::<Impl, IMPL_OFFSET>,
+            Open: Open::<Impl, IMPL_OFFSET>,
+            Close: Close::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRDPSRAPITransportStream as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRDPSRAPITransportStreamBufferImpl: Sized {
+    fn Storage();
+    fn StorageSize();
+    fn PayloadSize();
+    fn SetPayloadSize();
+    fn PayloadOffset();
+    fn SetPayloadOffset();
+    fn Flags();
+    fn SetFlags();
+    fn Context();
+    fn SetContext();
+}
+impl IRDPSRAPITransportStreamBufferVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPITransportStreamBufferImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPSRAPITransportStreamBufferVtbl {
+        unsafe extern "system" fn Storage<Impl: IRDPSRAPITransportStreamBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppbstorage: *mut *mut u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn StorageSize<Impl: IRDPSRAPITransportStreamBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plmaxstore: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PayloadSize<Impl: IRDPSRAPITransportStreamBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plretval: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetPayloadSize<Impl: IRDPSRAPITransportStreamBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lval: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PayloadOffset<Impl: IRDPSRAPITransportStreamBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plretval: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetPayloadOffset<Impl: IRDPSRAPITransportStreamBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lretval: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Flags<Impl: IRDPSRAPITransportStreamBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plflags: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetFlags<Impl: IRDPSRAPITransportStreamBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Context<Impl: IRDPSRAPITransportStreamBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcontext: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetContext<Impl: IRDPSRAPITransportStreamBufferImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcontext: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Storage: Storage::<Impl, IMPL_OFFSET>,
+            StorageSize: StorageSize::<Impl, IMPL_OFFSET>,
+            PayloadSize: PayloadSize::<Impl, IMPL_OFFSET>,
+            SetPayloadSize: SetPayloadSize::<Impl, IMPL_OFFSET>,
+            PayloadOffset: PayloadOffset::<Impl, IMPL_OFFSET>,
+            SetPayloadOffset: SetPayloadOffset::<Impl, IMPL_OFFSET>,
+            Flags: Flags::<Impl, IMPL_OFFSET>,
+            SetFlags: SetFlags::<Impl, IMPL_OFFSET>,
+            Context: Context::<Impl, IMPL_OFFSET>,
+            SetContext: SetContext::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRDPSRAPITransportStreamBuffer as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRDPSRAPITransportStreamEventsImpl: Sized {
+    fn OnWriteCompleted();
+    fn OnReadCompleted();
+    fn OnStreamClosed();
+}
+impl IRDPSRAPITransportStreamEventsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPITransportStreamEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPSRAPITransportStreamEventsVtbl {
+        unsafe extern "system" fn OnWriteCompleted<Impl: IRDPSRAPITransportStreamEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffer: ::windows::core::RawPtr) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnReadCompleted<Impl: IRDPSRAPITransportStreamEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffer: ::windows::core::RawPtr) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnStreamClosed<Impl: IRDPSRAPITransportStreamEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrreason: ::windows::core::HRESULT) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            OnWriteCompleted: OnWriteCompleted::<Impl, IMPL_OFFSET>,
+            OnReadCompleted: OnReadCompleted::<Impl, IMPL_OFFSET>,
+            OnStreamClosed: OnStreamClosed::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRDPSRAPITransportStreamEvents as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IRDPSRAPIViewerImpl: Sized + IDispatchImpl {
+    fn Connect();
+    fn Disconnect();
+    fn Attendees();
+    fn Invitations();
+    fn ApplicationFilter();
+    fn VirtualChannelManager();
+    fn SetSmartSizing();
+    fn SmartSizing();
+    fn RequestControl();
+    fn SetDisconnectedText();
+    fn DisconnectedText();
+    fn RequestColorDepthChange();
+    fn Properties();
+    fn StartReverseConnectListener();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IRDPSRAPIViewerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIViewerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPSRAPIViewerVtbl {
+        unsafe extern "system" fn Connect<Impl: IRDPSRAPIViewerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrconnectionstring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Disconnect<Impl: IRDPSRAPIViewerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Attendees<Impl: IRDPSRAPIViewerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Invitations<Impl: IRDPSRAPIViewerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ApplicationFilter<Impl: IRDPSRAPIViewerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn VirtualChannelManager<Impl: IRDPSRAPIViewerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSmartSizing<Impl: IRDPSRAPIViewerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vbsmartsizing: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SmartSizing<Impl: IRDPSRAPIViewerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvbsmartsizing: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RequestControl<Impl: IRDPSRAPIViewerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ctrllevel: CTRL_LEVEL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDisconnectedText<Impl: IRDPSRAPIViewerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdisconnectedtext: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DisconnectedText<Impl: IRDPSRAPIViewerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdisconnectedtext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RequestColorDepthChange<Impl: IRDPSRAPIViewerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bpp: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Properties<Impl: IRDPSRAPIViewerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn StartReverseConnectListener<Impl: IRDPSRAPIViewerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrconnectionstring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrusername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrpassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrreverseconnectstring: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Connect: Connect::<Impl, IMPL_OFFSET>,
+            Disconnect: Disconnect::<Impl, IMPL_OFFSET>,
+            Attendees: Attendees::<Impl, IMPL_OFFSET>,
+            Invitations: Invitations::<Impl, IMPL_OFFSET>,
+            ApplicationFilter: ApplicationFilter::<Impl, IMPL_OFFSET>,
+            VirtualChannelManager: VirtualChannelManager::<Impl, IMPL_OFFSET>,
+            SetSmartSizing: SetSmartSizing::<Impl, IMPL_OFFSET>,
+            SmartSizing: SmartSizing::<Impl, IMPL_OFFSET>,
+            RequestControl: RequestControl::<Impl, IMPL_OFFSET>,
+            SetDisconnectedText: SetDisconnectedText::<Impl, IMPL_OFFSET>,
+            DisconnectedText: DisconnectedText::<Impl, IMPL_OFFSET>,
+            RequestColorDepthChange: RequestColorDepthChange::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+            StartReverseConnectListener: StartReverseConnectListener::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRDPSRAPIViewer as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IRDPSRAPIVirtualChannelImpl: Sized + IDispatchImpl {
+    fn SendData();
+    fn SetAccess();
+    fn Name();
+    fn Flags();
+    fn Priority();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IRDPSRAPIVirtualChannelVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIVirtualChannelImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPSRAPIVirtualChannelVtbl {
+        unsafe extern "system" fn SendData<Impl: IRDPSRAPIVirtualChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdata: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lattendeeid: i32, channelsendflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAccess<Impl: IRDPSRAPIVirtualChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lattendeeid: i32, accesstype: CHANNEL_ACCESS_ENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Name<Impl: IRDPSRAPIVirtualChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Flags<Impl: IRDPSRAPIVirtualChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plflags: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Priority<Impl: IRDPSRAPIVirtualChannelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppriority: *mut CHANNEL_PRIORITY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            SendData: SendData::<Impl, IMPL_OFFSET>,
+            SetAccess: SetAccess::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Flags: Flags::<Impl, IMPL_OFFSET>,
+            Priority: Priority::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRDPSRAPIVirtualChannel as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IRDPSRAPIVirtualChannelManagerImpl: Sized + IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+    fn CreateVirtualChannel();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IRDPSRAPIVirtualChannelManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIVirtualChannelManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPSRAPIVirtualChannelManagerVtbl {
+        unsafe extern "system" fn _NewEnum<Impl: IRDPSRAPIVirtualChannelManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: IRDPSRAPIVirtualChannelManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: ::core::mem::ManuallyDrop<super::Com::VARIANT>, pchannel: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateVirtualChannel<Impl: IRDPSRAPIVirtualChannelManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrchannelname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, priority: CHANNEL_PRIORITY, channelflags: u32, ppchannel: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>,
+            Item: Item::<Impl, IMPL_OFFSET>,
+            CreateVirtualChannel: CreateVirtualChannel::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRDPSRAPIVirtualChannelManager as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IRDPSRAPIWindowImpl: Sized + IDispatchImpl {
+    fn Id();
+    fn Application();
+    fn Shared();
+    fn SetShared();
+    fn Name();
+    fn Show();
+    fn Flags();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IRDPSRAPIWindowVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIWindowImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPSRAPIWindowVtbl {
+        unsafe extern "system" fn Id<Impl: IRDPSRAPIWindowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Application<Impl: IRDPSRAPIWindowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, papplication: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Shared<Impl: IRDPSRAPIWindowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetShared<Impl: IRDPSRAPIWindowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newval: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Name<Impl: IRDPSRAPIWindowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pretval: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Show<Impl: IRDPSRAPIWindowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Flags<Impl: IRDPSRAPIWindowImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Application: Application::<Impl, IMPL_OFFSET>,
+            Shared: Shared::<Impl, IMPL_OFFSET>,
+            SetShared: SetShared::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Show: Show::<Impl, IMPL_OFFSET>,
+            Flags: Flags::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRDPSRAPIWindow as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IRDPSRAPIWindowListImpl: Sized + IDispatchImpl {
+    fn _NewEnum();
+    fn Item();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IRDPSRAPIWindowListVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPSRAPIWindowListImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPSRAPIWindowListVtbl {
+        unsafe extern "system" fn _NewEnum<Impl: IRDPSRAPIWindowListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retval: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: IRDPSRAPIWindowListImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, item: i32, pwindow: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>, Item: Item::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRDPSRAPIWindowList as ::windows::core::Interface>::IID
+    }
+}
+pub trait IRDPViewerInputSinkImpl: Sized {
+    fn SendMouseButtonEvent();
+    fn SendMouseMoveEvent();
+    fn SendMouseWheelEvent();
+    fn SendKeyboardEvent();
+    fn SendSyncEvent();
+    fn BeginTouchFrame();
+    fn AddTouchInput();
+    fn EndTouchFrame();
+}
+impl IRDPViewerInputSinkVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IRDPViewerInputSinkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IRDPViewerInputSinkVtbl {
+        unsafe extern "system" fn SendMouseButtonEvent<Impl: IRDPViewerInputSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buttontype: RDPSRAPI_MOUSE_BUTTON_TYPE, vbbuttondown: i16, xpos: u32, ypos: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SendMouseMoveEvent<Impl: IRDPViewerInputSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, xpos: u32, ypos: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SendMouseWheelEvent<Impl: IRDPViewerInputSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wheelrotation: u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SendKeyboardEvent<Impl: IRDPViewerInputSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, codetype: RDPSRAPI_KBD_CODE_TYPE, keycode: u16, vbkeyup: i16, vbrepeat: i16, vbextended: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SendSyncEvent<Impl: IRDPViewerInputSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, syncflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BeginTouchFrame<Impl: IRDPViewerInputSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddTouchInput<Impl: IRDPViewerInputSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, contactid: u32, event: u32, x: i32, y: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EndTouchFrame<Impl: IRDPViewerInputSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SendMouseButtonEvent: SendMouseButtonEvent::<Impl, IMPL_OFFSET>,
+            SendMouseMoveEvent: SendMouseMoveEvent::<Impl, IMPL_OFFSET>,
+            SendMouseWheelEvent: SendMouseWheelEvent::<Impl, IMPL_OFFSET>,
+            SendKeyboardEvent: SendKeyboardEvent::<Impl, IMPL_OFFSET>,
+            SendSyncEvent: SendSyncEvent::<Impl, IMPL_OFFSET>,
+            BeginTouchFrame: BeginTouchFrame::<Impl, IMPL_OFFSET>,
+            AddTouchInput: AddTouchInput::<Impl, IMPL_OFFSET>,
+            EndTouchFrame: EndTouchFrame::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IRDPViewerInputSink as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait _IRDPSessionEventsImpl: Sized + IDispatchImpl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl _IRDPSessionEventsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _IRDPSessionEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> _IRDPSessionEventsVtbl {
+        Self { base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<_IRDPSessionEvents as ::windows::core::Interface>::IID
+    }
+}

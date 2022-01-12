@@ -1,1 +1,559 @@
-# [ cfg ( feature ="Win32_Foundation" ) ] pub trait IMLOperatorAttributesImpl < > : Sized where { fn GetAttributeElementCount ( ) ; fn GetAttribute ( ) ; fn GetStringAttributeElementLength ( ) ; fn GetStringAttributeElement ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IMLOperatorAttributesVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IMLOperatorAttributesImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IMLOperatorAttributesVtbl < > { unsafe extern "system" fn GetAttributeElementCount < Impl : IMLOperatorAttributesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , name : super::super::super::Foundation:: PSTR , r#type : MLOperatorAttributeType , elementcount : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetAttribute < Impl : IMLOperatorAttributesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , name : super::super::super::Foundation:: PSTR , r#type : MLOperatorAttributeType , elementcount : u32 , elementbytesize : usize , value : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetStringAttributeElementLength < Impl : IMLOperatorAttributesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , name : super::super::super::Foundation:: PSTR , elementindex : u32 , attributeelementbytesize : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetStringAttributeElement < Impl : IMLOperatorAttributesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , name : super::super::super::Foundation:: PSTR , elementindex : u32 , attributeelementbytesize : u32 , attributeelement : super::super::super::Foundation:: PSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetAttributeElementCount : GetAttributeElementCount :: < Impl , IMPL_OFFSET > , GetAttribute : GetAttribute :: < Impl , IMPL_OFFSET > , GetStringAttributeElementLength : GetStringAttributeElementLength :: < Impl , IMPL_OFFSET > , GetStringAttributeElement : GetStringAttributeElement :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IMLOperatorAttributes < > as :: windows :: core :: Interface > :: IID } } pub trait IMLOperatorKernelImpl < > : Sized where { fn Compute ( ) ; } impl < > IMLOperatorKernelVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IMLOperatorKernelImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IMLOperatorKernelVtbl < > { unsafe extern "system" fn Compute < Impl : IMLOperatorKernelImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , context : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Compute : Compute :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IMLOperatorKernel < > as :: windows :: core :: Interface > :: IID } } pub trait IMLOperatorKernelContextImpl < > : Sized where { fn GetInputTensor ( ) ; fn GetOutputTensor ( ) ; fn GetOutputTensor ( ) ; fn AllocateTemporaryData ( ) ; fn GetExecutionInterface ( ) ; } impl < > IMLOperatorKernelContextVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IMLOperatorKernelContextImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IMLOperatorKernelContextVtbl < > { unsafe extern "system" fn GetInputTensor < Impl : IMLOperatorKernelContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , inputindex : u32 , tensor : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetOutputTensor < Impl : IMLOperatorKernelContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , outputindex : u32 , dimensioncount : u32 , dimensionsizes : * const u32 , tensor : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetOutputTensor < Impl : IMLOperatorKernelContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , outputindex : u32 , tensor : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AllocateTemporaryData < Impl : IMLOperatorKernelContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , size : usize , data : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetExecutionInterface < Impl : IMLOperatorKernelContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , executionobject : * mut * mut :: core :: ffi :: c_void , ) { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetInputTensor : GetInputTensor :: < Impl , IMPL_OFFSET > , GetOutputTensor : GetOutputTensor :: < Impl , IMPL_OFFSET > , GetOutputTensor : GetOutputTensor :: < Impl , IMPL_OFFSET > , AllocateTemporaryData : AllocateTemporaryData :: < Impl , IMPL_OFFSET > , GetExecutionInterface : GetExecutionInterface :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IMLOperatorKernelContext < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IMLOperatorKernelCreationContextImpl < > : Sized + IMLOperatorAttributesImpl where { fn GetInputCount ( ) ; fn GetOutputCount ( ) ; fn IsInputValid ( ) ; fn IsOutputValid ( ) ; fn GetInputEdgeDescription ( ) ; fn GetOutputEdgeDescription ( ) ; fn HasTensorShapeDescription ( ) ; fn GetTensorShapeDescription ( ) ; fn GetExecutionInterface ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IMLOperatorKernelCreationContextVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IMLOperatorKernelCreationContextImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IMLOperatorKernelCreationContextVtbl < > { unsafe extern "system" fn GetInputCount < Impl : IMLOperatorKernelCreationContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> u32 { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetOutputCount < Impl : IMLOperatorKernelCreationContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> u32 { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsInputValid < Impl : IMLOperatorKernelCreationContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , inputindex : u32 , ) -> bool { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsOutputValid < Impl : IMLOperatorKernelCreationContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , outputindex : u32 , ) -> bool { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetInputEdgeDescription < Impl : IMLOperatorKernelCreationContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , inputindex : u32 , edgedescription : * mut MLOperatorEdgeDescription , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetOutputEdgeDescription < Impl : IMLOperatorKernelCreationContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , outputindex : u32 , edgedescription : * mut MLOperatorEdgeDescription , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn HasTensorShapeDescription < Impl : IMLOperatorKernelCreationContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> bool { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetTensorShapeDescription < Impl : IMLOperatorKernelCreationContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , shapedescription : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetExecutionInterface < Impl : IMLOperatorKernelCreationContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , executionobject : * mut * mut :: core :: ffi :: c_void , ) { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IMLOperatorAttributesVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetInputCount : GetInputCount :: < Impl , IMPL_OFFSET > , GetOutputCount : GetOutputCount :: < Impl , IMPL_OFFSET > , IsInputValid : IsInputValid :: < Impl , IMPL_OFFSET > , IsOutputValid : IsOutputValid :: < Impl , IMPL_OFFSET > , GetInputEdgeDescription : GetInputEdgeDescription :: < Impl , IMPL_OFFSET > , GetOutputEdgeDescription : GetOutputEdgeDescription :: < Impl , IMPL_OFFSET > , HasTensorShapeDescription : HasTensorShapeDescription :: < Impl , IMPL_OFFSET > , GetTensorShapeDescription : GetTensorShapeDescription :: < Impl , IMPL_OFFSET > , GetExecutionInterface : GetExecutionInterface :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IMLOperatorKernelCreationContext < > as :: windows :: core :: Interface > :: IID } } pub trait IMLOperatorKernelFactoryImpl < > : Sized where { fn CreateKernel ( ) ; } impl < > IMLOperatorKernelFactoryVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IMLOperatorKernelFactoryImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IMLOperatorKernelFactoryVtbl < > { unsafe extern "system" fn CreateKernel < Impl : IMLOperatorKernelFactoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , context : :: windows :: core :: RawPtr , kernel : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , CreateKernel : CreateKernel :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IMLOperatorKernelFactory < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IMLOperatorRegistryImpl < > : Sized where { fn RegisterOperatorSetSchema ( ) ; fn RegisterOperatorKernel ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IMLOperatorRegistryVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IMLOperatorRegistryImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IMLOperatorRegistryVtbl < > { unsafe extern "system" fn RegisterOperatorSetSchema < Impl : IMLOperatorRegistryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , operatorsetid : * const MLOperatorSetId , baselineversion : i32 , schema : * const * const MLOperatorSchemaDescription , schemacount : u32 , typeinferrer : :: windows :: core :: RawPtr , shapeinferrer : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RegisterOperatorKernel < Impl : IMLOperatorRegistryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , operatorkernel : * const MLOperatorKernelDescription , operatorkernelfactory : :: windows :: core :: RawPtr , shapeinferrer : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , RegisterOperatorSetSchema : RegisterOperatorSetSchema :: < Impl , IMPL_OFFSET > , RegisterOperatorKernel : RegisterOperatorKernel :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IMLOperatorRegistry < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IMLOperatorShapeInferenceContextImpl < > : Sized + IMLOperatorAttributesImpl where { fn GetInputCount ( ) ; fn GetOutputCount ( ) ; fn IsInputValid ( ) ; fn IsOutputValid ( ) ; fn GetInputEdgeDescription ( ) ; fn GetInputTensorDimensionCount ( ) ; fn GetInputTensorShape ( ) ; fn SetOutputTensorShape ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IMLOperatorShapeInferenceContextVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IMLOperatorShapeInferenceContextImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IMLOperatorShapeInferenceContextVtbl < > { unsafe extern "system" fn GetInputCount < Impl : IMLOperatorShapeInferenceContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> u32 { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetOutputCount < Impl : IMLOperatorShapeInferenceContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> u32 { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsInputValid < Impl : IMLOperatorShapeInferenceContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , inputindex : u32 , ) -> bool { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsOutputValid < Impl : IMLOperatorShapeInferenceContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , outputindex : u32 , ) -> bool { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetInputEdgeDescription < Impl : IMLOperatorShapeInferenceContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , inputindex : u32 , edgedescription : * mut MLOperatorEdgeDescription , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetInputTensorDimensionCount < Impl : IMLOperatorShapeInferenceContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , inputindex : u32 , dimensioncount : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetInputTensorShape < Impl : IMLOperatorShapeInferenceContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , inputindex : u32 , dimensioncount : u32 , dimensions : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetOutputTensorShape < Impl : IMLOperatorShapeInferenceContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , outputindex : u32 , dimensioncount : u32 , dimensions : * const u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IMLOperatorAttributesVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetInputCount : GetInputCount :: < Impl , IMPL_OFFSET > , GetOutputCount : GetOutputCount :: < Impl , IMPL_OFFSET > , IsInputValid : IsInputValid :: < Impl , IMPL_OFFSET > , IsOutputValid : IsOutputValid :: < Impl , IMPL_OFFSET > , GetInputEdgeDescription : GetInputEdgeDescription :: < Impl , IMPL_OFFSET > , GetInputTensorDimensionCount : GetInputTensorDimensionCount :: < Impl , IMPL_OFFSET > , GetInputTensorShape : GetInputTensorShape :: < Impl , IMPL_OFFSET > , SetOutputTensorShape : SetOutputTensorShape :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IMLOperatorShapeInferenceContext < > as :: windows :: core :: Interface > :: IID } } pub trait IMLOperatorShapeInferrerImpl < > : Sized where { fn InferOutputShapes ( ) ; } impl < > IMLOperatorShapeInferrerVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IMLOperatorShapeInferrerImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IMLOperatorShapeInferrerVtbl < > { unsafe extern "system" fn InferOutputShapes < Impl : IMLOperatorShapeInferrerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , context : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , InferOutputShapes : InferOutputShapes :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IMLOperatorShapeInferrer < > as :: windows :: core :: Interface > :: IID } } pub trait IMLOperatorTensorImpl < > : Sized where { fn GetDimensionCount ( ) ; fn GetShape ( ) ; fn GetTensorDataType ( ) ; fn IsCpuData ( ) ; fn IsDataInterface ( ) ; fn GetData ( ) ; fn GetDataInterface ( ) ; } impl < > IMLOperatorTensorVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IMLOperatorTensorImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IMLOperatorTensorVtbl < > { unsafe extern "system" fn GetDimensionCount < Impl : IMLOperatorTensorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> u32 { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetShape < Impl : IMLOperatorTensorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dimensioncount : u32 , dimensions : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetTensorDataType < Impl : IMLOperatorTensorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> MLOperatorTensorDataType { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsCpuData < Impl : IMLOperatorTensorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> bool { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsDataInterface < Impl : IMLOperatorTensorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> bool { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetData < Impl : IMLOperatorTensorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> * mut :: core :: ffi :: c_void { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetDataInterface < Impl : IMLOperatorTensorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , datainterface : * mut * mut :: core :: ffi :: c_void , ) { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetDimensionCount : GetDimensionCount :: < Impl , IMPL_OFFSET > , GetShape : GetShape :: < Impl , IMPL_OFFSET > , GetTensorDataType : GetTensorDataType :: < Impl , IMPL_OFFSET > , IsCpuData : IsCpuData :: < Impl , IMPL_OFFSET > , IsDataInterface : IsDataInterface :: < Impl , IMPL_OFFSET > , GetData : GetData :: < Impl , IMPL_OFFSET > , GetDataInterface : GetDataInterface :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IMLOperatorTensor < > as :: windows :: core :: Interface > :: IID } } pub trait IMLOperatorTensorShapeDescriptionImpl < > : Sized where { fn GetInputTensorDimensionCount ( ) ; fn GetInputTensorShape ( ) ; fn HasOutputShapeDescription ( ) ; fn GetOutputTensorDimensionCount ( ) ; fn GetOutputTensorShape ( ) ; } impl < > IMLOperatorTensorShapeDescriptionVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IMLOperatorTensorShapeDescriptionImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IMLOperatorTensorShapeDescriptionVtbl < > { unsafe extern "system" fn GetInputTensorDimensionCount < Impl : IMLOperatorTensorShapeDescriptionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , inputindex : u32 , dimensioncount : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetInputTensorShape < Impl : IMLOperatorTensorShapeDescriptionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , inputindex : u32 , dimensioncount : u32 , dimensions : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn HasOutputShapeDescription < Impl : IMLOperatorTensorShapeDescriptionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> bool { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetOutputTensorDimensionCount < Impl : IMLOperatorTensorShapeDescriptionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , outputindex : u32 , dimensioncount : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetOutputTensorShape < Impl : IMLOperatorTensorShapeDescriptionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , outputindex : u32 , dimensioncount : u32 , dimensions : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetInputTensorDimensionCount : GetInputTensorDimensionCount :: < Impl , IMPL_OFFSET > , GetInputTensorShape : GetInputTensorShape :: < Impl , IMPL_OFFSET > , HasOutputShapeDescription : HasOutputShapeDescription :: < Impl , IMPL_OFFSET > , GetOutputTensorDimensionCount : GetOutputTensorDimensionCount :: < Impl , IMPL_OFFSET > , GetOutputTensorShape : GetOutputTensorShape :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IMLOperatorTensorShapeDescription < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IMLOperatorTypeInferenceContextImpl < > : Sized + IMLOperatorAttributesImpl where { fn GetInputCount ( ) ; fn GetOutputCount ( ) ; fn IsInputValid ( ) ; fn IsOutputValid ( ) ; fn GetInputEdgeDescription ( ) ; fn SetOutputEdgeDescription ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IMLOperatorTypeInferenceContextVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IMLOperatorTypeInferenceContextImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IMLOperatorTypeInferenceContextVtbl < > { unsafe extern "system" fn GetInputCount < Impl : IMLOperatorTypeInferenceContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> u32 { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetOutputCount < Impl : IMLOperatorTypeInferenceContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> u32 { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsInputValid < Impl : IMLOperatorTypeInferenceContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , inputindex : u32 , ) -> bool { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsOutputValid < Impl : IMLOperatorTypeInferenceContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , outputindex : u32 , ) -> bool { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetInputEdgeDescription < Impl : IMLOperatorTypeInferenceContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , inputindex : u32 , edgedescription : * mut MLOperatorEdgeDescription , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetOutputEdgeDescription < Impl : IMLOperatorTypeInferenceContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , outputindex : u32 , edgedescription : * const MLOperatorEdgeDescription , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IMLOperatorAttributesVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetInputCount : GetInputCount :: < Impl , IMPL_OFFSET > , GetOutputCount : GetOutputCount :: < Impl , IMPL_OFFSET > , IsInputValid : IsInputValid :: < Impl , IMPL_OFFSET > , IsOutputValid : IsOutputValid :: < Impl , IMPL_OFFSET > , GetInputEdgeDescription : GetInputEdgeDescription :: < Impl , IMPL_OFFSET > , SetOutputEdgeDescription : SetOutputEdgeDescription :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IMLOperatorTypeInferenceContext < > as :: windows :: core :: Interface > :: IID } } pub trait IMLOperatorTypeInferrerImpl < > : Sized where { fn InferOutputTypes ( ) ; } impl < > IMLOperatorTypeInferrerVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IMLOperatorTypeInferrerImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IMLOperatorTypeInferrerVtbl < > { unsafe extern "system" fn InferOutputTypes < Impl : IMLOperatorTypeInferrerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , context : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , InferOutputTypes : InferOutputTypes :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IMLOperatorTypeInferrer < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Graphics_Direct3D12" ) ) ] pub trait IWinMLEvaluationContextImpl < > : Sized where { fn BindValue ( ) ; fn GetValueByName ( ) ; fn Clear ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Graphics_Direct3D12" ) ) ] impl < > IWinMLEvaluationContextVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IWinMLEvaluationContextImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IWinMLEvaluationContextVtbl < > { unsafe extern "system" fn BindValue < Impl : IWinMLEvaluationContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdescriptor : * const WINML_BINDING_DESC , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetValueByName < Impl : IWinMLEvaluationContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , name : super::super::super::Foundation:: PWSTR , pdescriptor : * mut * mut WINML_BINDING_DESC , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Clear < Impl : IWinMLEvaluationContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , BindValue : BindValue :: < Impl , IMPL_OFFSET > , GetValueByName : GetValueByName :: < Impl , IMPL_OFFSET > , Clear : Clear :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IWinMLEvaluationContext < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait IWinMLModelImpl < > : Sized where { fn GetDescription ( ) ; fn EnumerateMetadata ( ) ; fn EnumerateModelInputs ( ) ; fn EnumerateModelOutputs ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > IWinMLModelVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IWinMLModelImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IWinMLModelVtbl < > { unsafe extern "system" fn GetDescription < Impl : IWinMLModelImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppdescription : * mut * mut WINML_MODEL_DESC , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EnumerateMetadata < Impl : IWinMLModelImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , index : u32 , pkey : * mut super::super::super::Foundation:: PWSTR , pvalue : * mut super::super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EnumerateModelInputs < Impl : IWinMLModelImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , index : u32 , ppinputdescriptor : * mut * mut WINML_VARIABLE_DESC , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EnumerateModelOutputs < Impl : IWinMLModelImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , index : u32 , ppoutputdescriptor : * mut * mut WINML_VARIABLE_DESC , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetDescription : GetDescription :: < Impl , IMPL_OFFSET > , EnumerateMetadata : EnumerateMetadata :: < Impl , IMPL_OFFSET > , EnumerateModelInputs : EnumerateModelInputs :: < Impl , IMPL_OFFSET > , EnumerateModelOutputs : EnumerateModelOutputs :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IWinMLModel < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Graphics_Direct3D12" ) ) ] pub trait IWinMLRuntimeImpl < > : Sized where { fn LoadModel ( ) ; fn CreateEvaluationContext ( ) ; fn EvaluateModel ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Graphics_Direct3D12" ) ) ] impl < > IWinMLRuntimeVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IWinMLRuntimeImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IWinMLRuntimeVtbl < > { unsafe extern "system" fn LoadModel < Impl : IWinMLRuntimeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , path : super::super::super::Foundation:: PWSTR , ppmodel : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateEvaluationContext < Impl : IWinMLRuntimeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , device : :: windows :: core :: RawPtr , ppcontext : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EvaluateModel < Impl : IWinMLRuntimeImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcontext : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , LoadModel : LoadModel :: < Impl , IMPL_OFFSET > , CreateEvaluationContext : CreateEvaluationContext :: < Impl , IMPL_OFFSET > , EvaluateModel : EvaluateModel :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IWinMLRuntime < > as :: windows :: core :: Interface > :: IID } } pub trait IWinMLRuntimeFactoryImpl < > : Sized where { fn CreateRuntime ( ) ; } impl < > IWinMLRuntimeFactoryVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IWinMLRuntimeFactoryImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IWinMLRuntimeFactoryVtbl < > { unsafe extern "system" fn CreateRuntime < Impl : IWinMLRuntimeFactoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , runtimetype : WINML_RUNTIME_TYPE , ppruntime : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , CreateRuntime : CreateRuntime :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IWinMLRuntimeFactory < > as :: windows :: core :: Interface > :: IID } } 
+#[cfg(feature = "Win32_Foundation")]
+pub trait IMLOperatorAttributesImpl: Sized {
+    fn GetAttributeElementCount();
+    fn GetAttribute();
+    fn GetStringAttributeElementLength();
+    fn GetStringAttributeElement();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IMLOperatorAttributesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorAttributesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMLOperatorAttributesVtbl {
+        unsafe extern "system" fn GetAttributeElementCount<Impl: IMLOperatorAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PSTR, r#type: MLOperatorAttributeType, elementcount: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetAttribute<Impl: IMLOperatorAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PSTR, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetStringAttributeElementLength<Impl: IMLOperatorAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PSTR, elementindex: u32, attributeelementbytesize: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetStringAttributeElement<Impl: IMLOperatorAttributesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PSTR, elementindex: u32, attributeelementbytesize: u32, attributeelement: super::super::super::Foundation::PSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetAttributeElementCount: GetAttributeElementCount::<Impl, IMPL_OFFSET>,
+            GetAttribute: GetAttribute::<Impl, IMPL_OFFSET>,
+            GetStringAttributeElementLength: GetStringAttributeElementLength::<Impl, IMPL_OFFSET>,
+            GetStringAttributeElement: GetStringAttributeElement::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMLOperatorAttributes as ::windows::core::Interface>::IID
+    }
+}
+pub trait IMLOperatorKernelImpl: Sized {
+    fn Compute();
+}
+impl IMLOperatorKernelVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorKernelImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMLOperatorKernelVtbl {
+        unsafe extern "system" fn Compute<Impl: IMLOperatorKernelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), Compute: Compute::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMLOperatorKernel as ::windows::core::Interface>::IID
+    }
+}
+pub trait IMLOperatorKernelContextImpl: Sized {
+    fn GetInputTensor();
+    fn GetOutputTensor();
+    fn GetOutputTensor();
+    fn AllocateTemporaryData();
+    fn GetExecutionInterface();
+}
+impl IMLOperatorKernelContextVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorKernelContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMLOperatorKernelContextVtbl {
+        unsafe extern "system" fn GetInputTensor<Impl: IMLOperatorKernelContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputindex: u32, tensor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetOutputTensor<Impl: IMLOperatorKernelContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputindex: u32, dimensioncount: u32, dimensionsizes: *const u32, tensor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetOutputTensor<Impl: IMLOperatorKernelContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputindex: u32, tensor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AllocateTemporaryData<Impl: IMLOperatorKernelContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, size: usize, data: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetExecutionInterface<Impl: IMLOperatorKernelContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, executionobject: *mut *mut ::core::ffi::c_void) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetInputTensor: GetInputTensor::<Impl, IMPL_OFFSET>,
+            GetOutputTensor: GetOutputTensor::<Impl, IMPL_OFFSET>,
+            GetOutputTensor: GetOutputTensor::<Impl, IMPL_OFFSET>,
+            AllocateTemporaryData: AllocateTemporaryData::<Impl, IMPL_OFFSET>,
+            GetExecutionInterface: GetExecutionInterface::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMLOperatorKernelContext as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IMLOperatorKernelCreationContextImpl: Sized + IMLOperatorAttributesImpl {
+    fn GetInputCount();
+    fn GetOutputCount();
+    fn IsInputValid();
+    fn IsOutputValid();
+    fn GetInputEdgeDescription();
+    fn GetOutputEdgeDescription();
+    fn HasTensorShapeDescription();
+    fn GetTensorShapeDescription();
+    fn GetExecutionInterface();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IMLOperatorKernelCreationContextVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorKernelCreationContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMLOperatorKernelCreationContextVtbl {
+        unsafe extern "system" fn GetInputCount<Impl: IMLOperatorKernelCreationContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetOutputCount<Impl: IMLOperatorKernelCreationContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsInputValid<Impl: IMLOperatorKernelCreationContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputindex: u32) -> bool {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsOutputValid<Impl: IMLOperatorKernelCreationContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputindex: u32) -> bool {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetInputEdgeDescription<Impl: IMLOperatorKernelCreationContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputindex: u32, edgedescription: *mut MLOperatorEdgeDescription) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetOutputEdgeDescription<Impl: IMLOperatorKernelCreationContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputindex: u32, edgedescription: *mut MLOperatorEdgeDescription) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn HasTensorShapeDescription<Impl: IMLOperatorKernelCreationContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> bool {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetTensorShapeDescription<Impl: IMLOperatorKernelCreationContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shapedescription: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetExecutionInterface<Impl: IMLOperatorKernelCreationContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, executionobject: *mut *mut ::core::ffi::c_void) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IMLOperatorAttributesVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetInputCount: GetInputCount::<Impl, IMPL_OFFSET>,
+            GetOutputCount: GetOutputCount::<Impl, IMPL_OFFSET>,
+            IsInputValid: IsInputValid::<Impl, IMPL_OFFSET>,
+            IsOutputValid: IsOutputValid::<Impl, IMPL_OFFSET>,
+            GetInputEdgeDescription: GetInputEdgeDescription::<Impl, IMPL_OFFSET>,
+            GetOutputEdgeDescription: GetOutputEdgeDescription::<Impl, IMPL_OFFSET>,
+            HasTensorShapeDescription: HasTensorShapeDescription::<Impl, IMPL_OFFSET>,
+            GetTensorShapeDescription: GetTensorShapeDescription::<Impl, IMPL_OFFSET>,
+            GetExecutionInterface: GetExecutionInterface::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMLOperatorKernelCreationContext as ::windows::core::Interface>::IID
+    }
+}
+pub trait IMLOperatorKernelFactoryImpl: Sized {
+    fn CreateKernel();
+}
+impl IMLOperatorKernelFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorKernelFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMLOperatorKernelFactoryVtbl {
+        unsafe extern "system" fn CreateKernel<Impl: IMLOperatorKernelFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, kernel: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), CreateKernel: CreateKernel::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMLOperatorKernelFactory as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IMLOperatorRegistryImpl: Sized {
+    fn RegisterOperatorSetSchema();
+    fn RegisterOperatorKernel();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IMLOperatorRegistryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorRegistryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMLOperatorRegistryVtbl {
+        unsafe extern "system" fn RegisterOperatorSetSchema<Impl: IMLOperatorRegistryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: *const *const MLOperatorSchemaDescription, schemacount: u32, typeinferrer: ::windows::core::RawPtr, shapeinferrer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RegisterOperatorKernel<Impl: IMLOperatorRegistryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: ::windows::core::RawPtr, shapeinferrer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            RegisterOperatorSetSchema: RegisterOperatorSetSchema::<Impl, IMPL_OFFSET>,
+            RegisterOperatorKernel: RegisterOperatorKernel::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMLOperatorRegistry as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IMLOperatorShapeInferenceContextImpl: Sized + IMLOperatorAttributesImpl {
+    fn GetInputCount();
+    fn GetOutputCount();
+    fn IsInputValid();
+    fn IsOutputValid();
+    fn GetInputEdgeDescription();
+    fn GetInputTensorDimensionCount();
+    fn GetInputTensorShape();
+    fn SetOutputTensorShape();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IMLOperatorShapeInferenceContextVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorShapeInferenceContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMLOperatorShapeInferenceContextVtbl {
+        unsafe extern "system" fn GetInputCount<Impl: IMLOperatorShapeInferenceContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetOutputCount<Impl: IMLOperatorShapeInferenceContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsInputValid<Impl: IMLOperatorShapeInferenceContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputindex: u32) -> bool {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsOutputValid<Impl: IMLOperatorShapeInferenceContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputindex: u32) -> bool {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetInputEdgeDescription<Impl: IMLOperatorShapeInferenceContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputindex: u32, edgedescription: *mut MLOperatorEdgeDescription) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetInputTensorDimensionCount<Impl: IMLOperatorShapeInferenceContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputindex: u32, dimensioncount: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetInputTensorShape<Impl: IMLOperatorShapeInferenceContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetOutputTensorShape<Impl: IMLOperatorShapeInferenceContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputindex: u32, dimensioncount: u32, dimensions: *const u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IMLOperatorAttributesVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetInputCount: GetInputCount::<Impl, IMPL_OFFSET>,
+            GetOutputCount: GetOutputCount::<Impl, IMPL_OFFSET>,
+            IsInputValid: IsInputValid::<Impl, IMPL_OFFSET>,
+            IsOutputValid: IsOutputValid::<Impl, IMPL_OFFSET>,
+            GetInputEdgeDescription: GetInputEdgeDescription::<Impl, IMPL_OFFSET>,
+            GetInputTensorDimensionCount: GetInputTensorDimensionCount::<Impl, IMPL_OFFSET>,
+            GetInputTensorShape: GetInputTensorShape::<Impl, IMPL_OFFSET>,
+            SetOutputTensorShape: SetOutputTensorShape::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMLOperatorShapeInferenceContext as ::windows::core::Interface>::IID
+    }
+}
+pub trait IMLOperatorShapeInferrerImpl: Sized {
+    fn InferOutputShapes();
+}
+impl IMLOperatorShapeInferrerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorShapeInferrerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMLOperatorShapeInferrerVtbl {
+        unsafe extern "system" fn InferOutputShapes<Impl: IMLOperatorShapeInferrerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), InferOutputShapes: InferOutputShapes::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMLOperatorShapeInferrer as ::windows::core::Interface>::IID
+    }
+}
+pub trait IMLOperatorTensorImpl: Sized {
+    fn GetDimensionCount();
+    fn GetShape();
+    fn GetTensorDataType();
+    fn IsCpuData();
+    fn IsDataInterface();
+    fn GetData();
+    fn GetDataInterface();
+}
+impl IMLOperatorTensorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorTensorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMLOperatorTensorVtbl {
+        unsafe extern "system" fn GetDimensionCount<Impl: IMLOperatorTensorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetShape<Impl: IMLOperatorTensorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dimensioncount: u32, dimensions: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetTensorDataType<Impl: IMLOperatorTensorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> MLOperatorTensorDataType {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsCpuData<Impl: IMLOperatorTensorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> bool {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsDataInterface<Impl: IMLOperatorTensorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> bool {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetData<Impl: IMLOperatorTensorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDataInterface<Impl: IMLOperatorTensorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datainterface: *mut *mut ::core::ffi::c_void) {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetDimensionCount: GetDimensionCount::<Impl, IMPL_OFFSET>,
+            GetShape: GetShape::<Impl, IMPL_OFFSET>,
+            GetTensorDataType: GetTensorDataType::<Impl, IMPL_OFFSET>,
+            IsCpuData: IsCpuData::<Impl, IMPL_OFFSET>,
+            IsDataInterface: IsDataInterface::<Impl, IMPL_OFFSET>,
+            GetData: GetData::<Impl, IMPL_OFFSET>,
+            GetDataInterface: GetDataInterface::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMLOperatorTensor as ::windows::core::Interface>::IID
+    }
+}
+pub trait IMLOperatorTensorShapeDescriptionImpl: Sized {
+    fn GetInputTensorDimensionCount();
+    fn GetInputTensorShape();
+    fn HasOutputShapeDescription();
+    fn GetOutputTensorDimensionCount();
+    fn GetOutputTensorShape();
+}
+impl IMLOperatorTensorShapeDescriptionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorTensorShapeDescriptionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMLOperatorTensorShapeDescriptionVtbl {
+        unsafe extern "system" fn GetInputTensorDimensionCount<Impl: IMLOperatorTensorShapeDescriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputindex: u32, dimensioncount: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetInputTensorShape<Impl: IMLOperatorTensorShapeDescriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn HasOutputShapeDescription<Impl: IMLOperatorTensorShapeDescriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> bool {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetOutputTensorDimensionCount<Impl: IMLOperatorTensorShapeDescriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputindex: u32, dimensioncount: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetOutputTensorShape<Impl: IMLOperatorTensorShapeDescriptionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetInputTensorDimensionCount: GetInputTensorDimensionCount::<Impl, IMPL_OFFSET>,
+            GetInputTensorShape: GetInputTensorShape::<Impl, IMPL_OFFSET>,
+            HasOutputShapeDescription: HasOutputShapeDescription::<Impl, IMPL_OFFSET>,
+            GetOutputTensorDimensionCount: GetOutputTensorDimensionCount::<Impl, IMPL_OFFSET>,
+            GetOutputTensorShape: GetOutputTensorShape::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMLOperatorTensorShapeDescription as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IMLOperatorTypeInferenceContextImpl: Sized + IMLOperatorAttributesImpl {
+    fn GetInputCount();
+    fn GetOutputCount();
+    fn IsInputValid();
+    fn IsOutputValid();
+    fn GetInputEdgeDescription();
+    fn SetOutputEdgeDescription();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IMLOperatorTypeInferenceContextVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorTypeInferenceContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMLOperatorTypeInferenceContextVtbl {
+        unsafe extern "system" fn GetInputCount<Impl: IMLOperatorTypeInferenceContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetOutputCount<Impl: IMLOperatorTypeInferenceContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsInputValid<Impl: IMLOperatorTypeInferenceContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputindex: u32) -> bool {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsOutputValid<Impl: IMLOperatorTypeInferenceContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputindex: u32) -> bool {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetInputEdgeDescription<Impl: IMLOperatorTypeInferenceContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, inputindex: u32, edgedescription: *mut MLOperatorEdgeDescription) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetOutputEdgeDescription<Impl: IMLOperatorTypeInferenceContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, outputindex: u32, edgedescription: *const MLOperatorEdgeDescription) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IMLOperatorAttributesVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetInputCount: GetInputCount::<Impl, IMPL_OFFSET>,
+            GetOutputCount: GetOutputCount::<Impl, IMPL_OFFSET>,
+            IsInputValid: IsInputValid::<Impl, IMPL_OFFSET>,
+            IsOutputValid: IsOutputValid::<Impl, IMPL_OFFSET>,
+            GetInputEdgeDescription: GetInputEdgeDescription::<Impl, IMPL_OFFSET>,
+            SetOutputEdgeDescription: SetOutputEdgeDescription::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMLOperatorTypeInferenceContext as ::windows::core::Interface>::IID
+    }
+}
+pub trait IMLOperatorTypeInferrerImpl: Sized {
+    fn InferOutputTypes();
+}
+impl IMLOperatorTypeInferrerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMLOperatorTypeInferrerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMLOperatorTypeInferrerVtbl {
+        unsafe extern "system" fn InferOutputTypes<Impl: IMLOperatorTypeInferrerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), InferOutputTypes: InferOutputTypes::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMLOperatorTypeInferrer as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+pub trait IWinMLEvaluationContextImpl: Sized {
+    fn BindValue();
+    fn GetValueByName();
+    fn Clear();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl IWinMLEvaluationContextVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWinMLEvaluationContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWinMLEvaluationContextVtbl {
+        unsafe extern "system" fn BindValue<Impl: IWinMLEvaluationContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdescriptor: *const WINML_BINDING_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetValueByName<Impl: IWinMLEvaluationContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: super::super::super::Foundation::PWSTR, pdescriptor: *mut *mut WINML_BINDING_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Clear<Impl: IWinMLEvaluationContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            BindValue: BindValue::<Impl, IMPL_OFFSET>,
+            GetValueByName: GetValueByName::<Impl, IMPL_OFFSET>,
+            Clear: Clear::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWinMLEvaluationContext as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait IWinMLModelImpl: Sized {
+    fn GetDescription();
+    fn EnumerateMetadata();
+    fn EnumerateModelInputs();
+    fn EnumerateModelOutputs();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl IWinMLModelVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWinMLModelImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWinMLModelVtbl {
+        unsafe extern "system" fn GetDescription<Impl: IWinMLModelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdescription: *mut *mut WINML_MODEL_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnumerateMetadata<Impl: IWinMLModelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, pkey: *mut super::super::super::Foundation::PWSTR, pvalue: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnumerateModelInputs<Impl: IWinMLModelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, ppinputdescriptor: *mut *mut WINML_VARIABLE_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnumerateModelOutputs<Impl: IWinMLModelImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, ppoutputdescriptor: *mut *mut WINML_VARIABLE_DESC) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetDescription: GetDescription::<Impl, IMPL_OFFSET>,
+            EnumerateMetadata: EnumerateMetadata::<Impl, IMPL_OFFSET>,
+            EnumerateModelInputs: EnumerateModelInputs::<Impl, IMPL_OFFSET>,
+            EnumerateModelOutputs: EnumerateModelOutputs::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWinMLModel as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+pub trait IWinMLRuntimeImpl: Sized {
+    fn LoadModel();
+    fn CreateEvaluationContext();
+    fn EvaluateModel();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
+impl IWinMLRuntimeVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWinMLRuntimeImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWinMLRuntimeVtbl {
+        unsafe extern "system" fn LoadModel<Impl: IWinMLRuntimeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: super::super::super::Foundation::PWSTR, ppmodel: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateEvaluationContext<Impl: IWinMLRuntimeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, device: ::windows::core::RawPtr, ppcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EvaluateModel<Impl: IWinMLRuntimeImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcontext: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            LoadModel: LoadModel::<Impl, IMPL_OFFSET>,
+            CreateEvaluationContext: CreateEvaluationContext::<Impl, IMPL_OFFSET>,
+            EvaluateModel: EvaluateModel::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWinMLRuntime as ::windows::core::Interface>::IID
+    }
+}
+pub trait IWinMLRuntimeFactoryImpl: Sized {
+    fn CreateRuntime();
+}
+impl IWinMLRuntimeFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IWinMLRuntimeFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IWinMLRuntimeFactoryVtbl {
+        unsafe extern "system" fn CreateRuntime<Impl: IWinMLRuntimeFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, runtimetype: WINML_RUNTIME_TYPE, ppruntime: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), CreateRuntime: CreateRuntime::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IWinMLRuntimeFactory as ::windows::core::Interface>::IID
+    }
+}

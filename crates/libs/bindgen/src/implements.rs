@@ -65,7 +65,7 @@ fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
         Some(ElementType::IInspectable) => methods.combine(&quote! { base: ::windows::core::IInspectableVtbl::new::<Identity, #type_ident<#(#generics)*>, BASE_OFFSET>(), }),
         Some(ElementType::TypeDef(def)) => {
             let vtbl = gen_vtbl_ident(&def, gen);
-            methods.combine(&quote! {#vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), });
+            methods.combine(&quote! { base: #vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), });
         }
         _ => {}
     }

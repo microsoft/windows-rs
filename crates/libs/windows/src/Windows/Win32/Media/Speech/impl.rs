@@ -1,1 +1,5087 @@
-pub trait IEnumSpObjectTokensImpl < > : Sized where { fn Next ( ) ; fn Skip ( ) ; fn Reset ( ) ; fn Clone ( ) ; fn Item ( ) ; fn GetCount ( ) ; } impl < > IEnumSpObjectTokensVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IEnumSpObjectTokensImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IEnumSpObjectTokensVtbl < > { unsafe extern "system" fn Next < Impl : IEnumSpObjectTokensImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , celt : u32 , pelt : * mut :: windows :: core :: RawPtr , pceltfetched : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Skip < Impl : IEnumSpObjectTokensImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , celt : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Reset < Impl : IEnumSpObjectTokensImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Clone < Impl : IEnumSpObjectTokensImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppenum : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Item < Impl : IEnumSpObjectTokensImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , index : u32 , pptoken : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetCount < Impl : IEnumSpObjectTokensImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcount : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Next : Next :: < Impl , IMPL_OFFSET > , Skip : Skip :: < Impl , IMPL_OFFSET > , Reset : Reset :: < Impl , IMPL_OFFSET > , Clone : Clone :: < Impl , IMPL_OFFSET > , Item : Item :: < Impl , IMPL_OFFSET > , GetCount : GetCount :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IEnumSpObjectTokens < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Media_Audio" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] pub trait ISpAudioImpl < > : Sized + ISequentialStreamImpl + IStreamImpl + ISpStreamFormatImpl where { fn SetState ( ) ; fn SetFormat ( ) ; fn GetStatus ( ) ; fn SetBufferInfo ( ) ; fn GetBufferInfo ( ) ; fn GetDefaultFormat ( ) ; fn EventHandle ( ) ; fn GetVolumeLevel ( ) ; fn SetVolumeLevel ( ) ; fn GetBufferNotifySize ( ) ; fn SetBufferNotifySize ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Media_Audio" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] impl < > ISpAudioVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpAudioImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpAudioVtbl < > { unsafe extern "system" fn SetState < Impl : ISpAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , newstate : SPAUDIOSTATE , ullreserved : u64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetFormat < Impl : ISpAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , rguidfmtid : * const :: windows :: core :: GUID , pwaveformatex : * const super::Audio:: WAVEFORMATEX , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetStatus < Impl : ISpAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pstatus : * mut SPAUDIOSTATUS , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetBufferInfo < Impl : ISpAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbuffinfo : * const SPAUDIOBUFFERINFO , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetBufferInfo < Impl : ISpAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbuffinfo : * mut SPAUDIOBUFFERINFO , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetDefaultFormat < Impl : ISpAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pformatid : * mut :: windows :: core :: GUID , ppcomemwaveformatex : * mut * mut super::Audio:: WAVEFORMATEX , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EventHandle < Impl : ISpAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> super::super::Foundation:: HANDLE { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetVolumeLevel < Impl : ISpAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , plevel : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetVolumeLevel < Impl : ISpAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , level : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetBufferNotifySize < Impl : ISpAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcbsize : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetBufferNotifySize < Impl : ISpAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , cbsize : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpStreamFormatVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , SetState : SetState :: < Impl , IMPL_OFFSET > , SetFormat : SetFormat :: < Impl , IMPL_OFFSET > , GetStatus : GetStatus :: < Impl , IMPL_OFFSET > , SetBufferInfo : SetBufferInfo :: < Impl , IMPL_OFFSET > , GetBufferInfo : GetBufferInfo :: < Impl , IMPL_OFFSET > , GetDefaultFormat : GetDefaultFormat :: < Impl , IMPL_OFFSET > , EventHandle : EventHandle :: < Impl , IMPL_OFFSET > , GetVolumeLevel : GetVolumeLevel :: < Impl , IMPL_OFFSET > , SetVolumeLevel : SetVolumeLevel :: < Impl , IMPL_OFFSET > , GetBufferNotifySize : GetBufferNotifySize :: < Impl , IMPL_OFFSET > , SetBufferNotifySize : SetBufferNotifySize :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpAudio < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISpContainerLexiconImpl < > : Sized + ISpLexiconImpl where { fn AddLexicon ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISpContainerLexiconVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpContainerLexiconImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpContainerLexiconVtbl < > { unsafe extern "system" fn AddLexicon < Impl : ISpContainerLexiconImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , paddlexicon : :: windows :: core :: RawPtr , dwflags : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpLexiconVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , AddLexicon : AddLexicon :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpContainerLexicon < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISpDataKeyImpl < > : Sized where { fn SetData ( ) ; fn GetData ( ) ; fn SetStringValue ( ) ; fn GetStringValue ( ) ; fn SetDWORD ( ) ; fn GetDWORD ( ) ; fn OpenKey ( ) ; fn CreateKey ( ) ; fn DeleteKey ( ) ; fn DeleteValue ( ) ; fn EnumKeys ( ) ; fn EnumValues ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISpDataKeyVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpDataKeyImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpDataKeyVtbl < > { unsafe extern "system" fn SetData < Impl : ISpDataKeyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszvaluename : super::super::Foundation:: PWSTR , cbdata : u32 , pdata : * const u8 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetData < Impl : ISpDataKeyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszvaluename : super::super::Foundation:: PWSTR , pcbdata : * mut u32 , pdata : * mut u8 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetStringValue < Impl : ISpDataKeyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszvaluename : super::super::Foundation:: PWSTR , pszvalue : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetStringValue < Impl : ISpDataKeyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszvaluename : super::super::Foundation:: PWSTR , ppszvalue : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetDWORD < Impl : ISpDataKeyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszvaluename : super::super::Foundation:: PWSTR , dwvalue : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetDWORD < Impl : ISpDataKeyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszvaluename : super::super::Foundation:: PWSTR , pdwvalue : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn OpenKey < Impl : ISpDataKeyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszsubkeyname : super::super::Foundation:: PWSTR , ppsubkey : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateKey < Impl : ISpDataKeyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszsubkey : super::super::Foundation:: PWSTR , ppsubkey : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DeleteKey < Impl : ISpDataKeyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszsubkey : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DeleteValue < Impl : ISpDataKeyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszvaluename : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EnumKeys < Impl : ISpDataKeyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , index : u32 , ppszsubkeyname : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EnumValues < Impl : ISpDataKeyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , index : u32 , ppszvaluename : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , SetData : SetData :: < Impl , IMPL_OFFSET > , GetData : GetData :: < Impl , IMPL_OFFSET > , SetStringValue : SetStringValue :: < Impl , IMPL_OFFSET > , GetStringValue : GetStringValue :: < Impl , IMPL_OFFSET > , SetDWORD : SetDWORD :: < Impl , IMPL_OFFSET > , GetDWORD : GetDWORD :: < Impl , IMPL_OFFSET > , OpenKey : OpenKey :: < Impl , IMPL_OFFSET > , CreateKey : CreateKey :: < Impl , IMPL_OFFSET > , DeleteKey : DeleteKey :: < Impl , IMPL_OFFSET > , DeleteValue : DeleteValue :: < Impl , IMPL_OFFSET > , EnumKeys : EnumKeys :: < Impl , IMPL_OFFSET > , EnumValues : EnumValues :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpDataKey < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISpDisplayAlternatesImpl < > : Sized where { fn GetDisplayAlternates ( ) ; fn SetFullStopTrailSpace ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISpDisplayAlternatesVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpDisplayAlternatesImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpDisplayAlternatesVtbl < > { unsafe extern "system" fn GetDisplayAlternates < Impl : ISpDisplayAlternatesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pphrase : * const SPDISPLAYPHRASE , crequestcount : u32 , ppcomemphrases : * mut * mut SPDISPLAYPHRASE , pcphrasesreturned : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetFullStopTrailSpace < Impl : ISpDisplayAlternatesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ultrailspace : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetDisplayAlternates : GetDisplayAlternates :: < Impl , IMPL_OFFSET > , SetFullStopTrailSpace : SetFullStopTrailSpace :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpDisplayAlternates < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISpEnginePronunciationImpl < > : Sized where { fn Normalize ( ) ; fn GetPronunciations ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISpEnginePronunciationVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpEnginePronunciationImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpEnginePronunciationVtbl < > { unsafe extern "system" fn Normalize < Impl : ISpEnginePronunciationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszword : super::super::Foundation:: PWSTR , pszleftcontext : super::super::Foundation:: PWSTR , pszrightcontext : super::super::Foundation:: PWSTR , langid : u16 , pnormalizationlist : * mut SPNORMALIZATIONLIST , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetPronunciations < Impl : ISpEnginePronunciationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszword : super::super::Foundation:: PWSTR , pszleftcontext : super::super::Foundation:: PWSTR , pszrightcontext : super::super::Foundation:: PWSTR , langid : u16 , penginepronunciationlist : * mut SPWORDPRONUNCIATIONLIST , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Normalize : Normalize :: < Impl , IMPL_OFFSET > , GetPronunciations : GetPronunciations :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpEnginePronunciation < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISpEventSinkImpl < > : Sized where { fn AddEvents ( ) ; fn GetEventInterest ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISpEventSinkVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpEventSinkImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpEventSinkVtbl < > { unsafe extern "system" fn AddEvents < Impl : ISpEventSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , peventarray : * const SPEVENT , ulcount : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetEventInterest < Impl : ISpEventSinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pulleventinterest : * mut u64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , AddEvents : AddEvents :: < Impl , IMPL_OFFSET > , GetEventInterest : GetEventInterest :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpEventSink < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISpEventSourceImpl < > : Sized + ISpNotifySourceImpl where { fn SetInterest ( ) ; fn GetEvents ( ) ; fn GetInfo ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISpEventSourceVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpEventSourceImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpEventSourceVtbl < > { unsafe extern "system" fn SetInterest < Impl : ISpEventSourceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ulleventinterest : u64 , ullqueuedinterest : u64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetEvents < Impl : ISpEventSourceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ulcount : u32 , peventarray : * mut SPEVENT , pulfetched : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetInfo < Impl : ISpEventSourceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pinfo : * mut SPEVENTSOURCEINFO , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpNotifySourceVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , SetInterest : SetInterest :: < Impl , IMPL_OFFSET > , GetEvents : GetEvents :: < Impl , IMPL_OFFSET > , GetInfo : GetInfo :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpEventSource < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISpEventSource2Impl < > : Sized + ISpNotifySourceImpl + ISpEventSourceImpl where { fn GetEventsEx ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISpEventSource2Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpEventSource2Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpEventSource2Vtbl < > { unsafe extern "system" fn GetEventsEx < Impl : ISpEventSource2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ulcount : u32 , peventarray : * mut SPEVENTEX , pulfetched : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpEventSourceVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetEventsEx : GetEventsEx :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpEventSource2 < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpGrammarBuilderImpl < > : Sized where { fn ResetGrammar ( ) ; fn GetRule ( ) ; fn ClearRule ( ) ; fn CreateNewState ( ) ; fn AddWordTransition ( ) ; fn AddRuleTransition ( ) ; fn AddResource ( ) ; fn Commit ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpGrammarBuilderVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpGrammarBuilderImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpGrammarBuilderVtbl < > { unsafe extern "system" fn ResetGrammar < Impl : ISpGrammarBuilderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , newlanguage : u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetRule < Impl : ISpGrammarBuilderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszrulename : super::super::Foundation:: PWSTR , dwruleid : u32 , dwattributes : u32 , fcreateifnotexist : super::super::Foundation:: BOOL , phinitialstate : * mut * mut SPSTATEHANDLE__ , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ClearRule < Impl : ISpGrammarBuilderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hstate : * mut SPSTATEHANDLE__ , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateNewState < Impl : ISpGrammarBuilderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hstate : * mut SPSTATEHANDLE__ , phstate : * mut * mut SPSTATEHANDLE__ , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AddWordTransition < Impl : ISpGrammarBuilderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hfromstate : * mut SPSTATEHANDLE__ , htostate : * mut SPSTATEHANDLE__ , psz : super::super::Foundation:: PWSTR , pszseparators : super::super::Foundation:: PWSTR , ewordtype : SPGRAMMARWORDTYPE , weight : f32 , ppropinfo : * const SPPROPERTYINFO , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AddRuleTransition < Impl : ISpGrammarBuilderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hfromstate : * mut SPSTATEHANDLE__ , htostate : * mut SPSTATEHANDLE__ , hrule : * mut SPSTATEHANDLE__ , weight : f32 , ppropinfo : * const SPPROPERTYINFO , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AddResource < Impl : ISpGrammarBuilderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hrulestate : * mut SPSTATEHANDLE__ , pszresourcename : super::super::Foundation:: PWSTR , pszresourcevalue : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Commit < Impl : ISpGrammarBuilderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwreserved : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , ResetGrammar : ResetGrammar :: < Impl , IMPL_OFFSET > , GetRule : GetRule :: < Impl , IMPL_OFFSET > , ClearRule : ClearRule :: < Impl , IMPL_OFFSET > , CreateNewState : CreateNewState :: < Impl , IMPL_OFFSET > , AddWordTransition : AddWordTransition :: < Impl , IMPL_OFFSET > , AddRuleTransition : AddRuleTransition :: < Impl , IMPL_OFFSET > , AddResource : AddResource :: < Impl , IMPL_OFFSET > , Commit : Commit :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpGrammarBuilder < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISpGrammarBuilder2Impl < > : Sized where { fn AddTextSubset ( ) ; fn SetPhoneticAlphabet ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISpGrammarBuilder2Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpGrammarBuilder2Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpGrammarBuilder2Vtbl < > { unsafe extern "system" fn AddTextSubset < Impl : ISpGrammarBuilder2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hfromstate : * mut SPSTATEHANDLE__ , htostate : * mut SPSTATEHANDLE__ , psz : super::super::Foundation:: PWSTR , ematchmode : SPMATCHINGMODE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetPhoneticAlphabet < Impl : ISpGrammarBuilder2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , phoneticalphabet : PHONETICALPHABET , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , AddTextSubset : AddTextSubset :: < Impl , IMPL_OFFSET > , SetPhoneticAlphabet : SetPhoneticAlphabet :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpGrammarBuilder2 < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISpLexiconImpl < > : Sized where { fn GetPronunciations ( ) ; fn AddPronunciation ( ) ; fn RemovePronunciation ( ) ; fn GetGeneration ( ) ; fn GetGenerationChange ( ) ; fn GetWords ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISpLexiconVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpLexiconImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpLexiconVtbl < > { unsafe extern "system" fn GetPronunciations < Impl : ISpLexiconImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszword : super::super::Foundation:: PWSTR , langid : u16 , dwflags : u32 , pwordpronunciationlist : * mut SPWORDPRONUNCIATIONLIST , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AddPronunciation < Impl : ISpLexiconImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszword : super::super::Foundation:: PWSTR , langid : u16 , epartofspeech : SPPARTOFSPEECH , pszpronunciation : * const u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RemovePronunciation < Impl : ISpLexiconImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszword : super::super::Foundation:: PWSTR , langid : u16 , epartofspeech : SPPARTOFSPEECH , pszpronunciation : * const u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetGeneration < Impl : ISpLexiconImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdwgeneration : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetGenerationChange < Impl : ISpLexiconImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwflags : u32 , pdwgeneration : * mut u32 , pwordlist : * mut SPWORDLIST , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetWords < Impl : ISpLexiconImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwflags : u32 , pdwgeneration : * mut u32 , pdwcookie : * mut u32 , pwordlist : * mut SPWORDLIST , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetPronunciations : GetPronunciations :: < Impl , IMPL_OFFSET > , AddPronunciation : AddPronunciation :: < Impl , IMPL_OFFSET > , RemovePronunciation : RemovePronunciation :: < Impl , IMPL_OFFSET > , GetGeneration : GetGeneration :: < Impl , IMPL_OFFSET > , GetGenerationChange : GetGenerationChange :: < Impl , IMPL_OFFSET > , GetWords : GetWords :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpLexicon < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Media_Audio" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] pub trait ISpMMSysAudioImpl < > : Sized + ISequentialStreamImpl + IStreamImpl + ISpStreamFormatImpl + ISpAudioImpl where { fn GetDeviceId ( ) ; fn SetDeviceId ( ) ; fn GetMMHandle ( ) ; fn GetLineId ( ) ; fn SetLineId ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Media_Audio" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] impl < > ISpMMSysAudioVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpMMSysAudioImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpMMSysAudioVtbl < > { unsafe extern "system" fn GetDeviceId < Impl : ISpMMSysAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pudeviceid : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetDeviceId < Impl : ISpMMSysAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , udeviceid : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetMMHandle < Impl : ISpMMSysAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , phandle : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetLineId < Impl : ISpMMSysAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pulineid : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetLineId < Impl : ISpMMSysAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ulineid : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpAudioVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetDeviceId : GetDeviceId :: < Impl , IMPL_OFFSET > , SetDeviceId : SetDeviceId :: < Impl , IMPL_OFFSET > , GetMMHandle : GetMMHandle :: < Impl , IMPL_OFFSET > , GetLineId : GetLineId :: < Impl , IMPL_OFFSET > , SetLineId : SetLineId :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpMMSysAudio < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISpNotifyCallbackImpl < > : Sized where { fn NotifyCallback ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISpNotifyCallbackVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpNotifyCallbackImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpNotifyCallbackVtbl < > { unsafe extern "system" fn NotifyCallback < Impl : ISpNotifyCallbackImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { NotifyCallback : NotifyCallback :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpNotifyCallback < > as :: windows :: core :: Interface > :: IID } } pub trait ISpNotifySinkImpl < > : Sized where { fn Notify ( ) ; } impl < > ISpNotifySinkVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpNotifySinkImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpNotifySinkVtbl < > { unsafe extern "system" fn Notify < Impl : ISpNotifySinkImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Notify : Notify :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpNotifySink < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISpNotifySourceImpl < > : Sized where { fn SetNotifySink ( ) ; fn SetNotifyWindowMessage ( ) ; fn SetNotifyCallbackFunction ( ) ; fn SetNotifyCallbackInterface ( ) ; fn SetNotifyWin32Event ( ) ; fn WaitForNotifyEvent ( ) ; fn GetNotifyEventHandle ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISpNotifySourceVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpNotifySourceImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpNotifySourceVtbl < > { unsafe extern "system" fn SetNotifySink < Impl : ISpNotifySourceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pnotifysink : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetNotifyWindowMessage < Impl : ISpNotifySourceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hwnd : super::super::Foundation:: HWND , msg : u32 , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetNotifyCallbackFunction < Impl : ISpNotifySourceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pfncallback : * mut :: windows :: core :: RawPtr , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetNotifyCallbackInterface < Impl : ISpNotifySourceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pspcallback : :: windows :: core :: RawPtr , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetNotifyWin32Event < Impl : ISpNotifySourceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn WaitForNotifyEvent < Impl : ISpNotifySourceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwmilliseconds : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetNotifyEventHandle < Impl : ISpNotifySourceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> super::super::Foundation:: HANDLE { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , SetNotifySink : SetNotifySink :: < Impl , IMPL_OFFSET > , SetNotifyWindowMessage : SetNotifyWindowMessage :: < Impl , IMPL_OFFSET > , SetNotifyCallbackFunction : SetNotifyCallbackFunction :: < Impl , IMPL_OFFSET > , SetNotifyCallbackInterface : SetNotifyCallbackInterface :: < Impl , IMPL_OFFSET > , SetNotifyWin32Event : SetNotifyWin32Event :: < Impl , IMPL_OFFSET > , WaitForNotifyEvent : WaitForNotifyEvent :: < Impl , IMPL_OFFSET > , GetNotifyEventHandle : GetNotifyEventHandle :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpNotifySource < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISpNotifyTranslatorImpl < > : Sized + ISpNotifySinkImpl where { fn InitWindowMessage ( ) ; fn InitCallback ( ) ; fn InitSpNotifyCallback ( ) ; fn InitWin32Event ( ) ; fn Wait ( ) ; fn GetEventHandle ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISpNotifyTranslatorVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpNotifyTranslatorImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpNotifyTranslatorVtbl < > { unsafe extern "system" fn InitWindowMessage < Impl : ISpNotifyTranslatorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hwnd : super::super::Foundation:: HWND , msg : u32 , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn InitCallback < Impl : ISpNotifyTranslatorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pfncallback : * mut :: windows :: core :: RawPtr , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn InitSpNotifyCallback < Impl : ISpNotifyTranslatorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pspcallback : :: windows :: core :: RawPtr , wparam : super::super::Foundation:: WPARAM , lparam : super::super::Foundation:: LPARAM , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn InitWin32Event < Impl : ISpNotifyTranslatorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hevent : super::super::Foundation:: HANDLE , fclosehandleonrelease : super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Wait < Impl : ISpNotifyTranslatorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwmilliseconds : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetEventHandle < Impl : ISpNotifyTranslatorImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> super::super::Foundation:: HANDLE { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpNotifySinkVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , InitWindowMessage : InitWindowMessage :: < Impl , IMPL_OFFSET > , InitCallback : InitCallback :: < Impl , IMPL_OFFSET > , InitSpNotifyCallback : InitSpNotifyCallback :: < Impl , IMPL_OFFSET > , InitWin32Event : InitWin32Event :: < Impl , IMPL_OFFSET > , Wait : Wait :: < Impl , IMPL_OFFSET > , GetEventHandle : GetEventHandle :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpNotifyTranslator < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISpObjectTokenImpl < > : Sized + ISpDataKeyImpl where { fn SetId ( ) ; fn GetId ( ) ; fn GetCategory ( ) ; fn CreateInstance ( ) ; fn GetStorageFileName ( ) ; fn RemoveStorageFileName ( ) ; fn Remove ( ) ; fn IsUISupported ( ) ; fn DisplayUI ( ) ; fn MatchesAttributes ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISpObjectTokenVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpObjectTokenImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpObjectTokenVtbl < > { unsafe extern "system" fn SetId < Impl : ISpObjectTokenImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszcategoryid : super::super::Foundation:: PWSTR , psztokenid : super::super::Foundation:: PWSTR , fcreateifnotexist : super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetId < Impl : ISpObjectTokenImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszcomemtokenid : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetCategory < Impl : ISpObjectTokenImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pptokencategory : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateInstance < Impl : ISpObjectTokenImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkouter : * mut :: core :: ffi :: c_void , dwclscontext : u32 , riid : * const :: windows :: core :: GUID , ppvobject : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetStorageFileName < Impl : ISpObjectTokenImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , clsidcaller : * const :: windows :: core :: GUID , pszvaluename : super::super::Foundation:: PWSTR , pszfilenamespecifier : super::super::Foundation:: PWSTR , nfolder : u32 , ppszfilepath : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RemoveStorageFileName < Impl : ISpObjectTokenImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , clsidcaller : * const :: windows :: core :: GUID , pszkeyname : super::super::Foundation:: PWSTR , fdeletefile : super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Remove < Impl : ISpObjectTokenImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pclsidcaller : * const :: windows :: core :: GUID , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsUISupported < Impl : ISpObjectTokenImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , psztypeofui : super::super::Foundation:: PWSTR , pvextradata : * mut :: core :: ffi :: c_void , cbextradata : u32 , punkobject : * mut :: core :: ffi :: c_void , pfsupported : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DisplayUI < Impl : ISpObjectTokenImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hwndparent : super::super::Foundation:: HWND , psztitle : super::super::Foundation:: PWSTR , psztypeofui : super::super::Foundation:: PWSTR , pvextradata : * mut :: core :: ffi :: c_void , cbextradata : u32 , punkobject : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn MatchesAttributes < Impl : ISpObjectTokenImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszattributes : super::super::Foundation:: PWSTR , pfmatches : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpDataKeyVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , SetId : SetId :: < Impl , IMPL_OFFSET > , GetId : GetId :: < Impl , IMPL_OFFSET > , GetCategory : GetCategory :: < Impl , IMPL_OFFSET > , CreateInstance : CreateInstance :: < Impl , IMPL_OFFSET > , GetStorageFileName : GetStorageFileName :: < Impl , IMPL_OFFSET > , RemoveStorageFileName : RemoveStorageFileName :: < Impl , IMPL_OFFSET > , Remove : Remove :: < Impl , IMPL_OFFSET > , IsUISupported : IsUISupported :: < Impl , IMPL_OFFSET > , DisplayUI : DisplayUI :: < Impl , IMPL_OFFSET > , MatchesAttributes : MatchesAttributes :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpObjectToken < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISpObjectTokenCategoryImpl < > : Sized + ISpDataKeyImpl where { fn SetId ( ) ; fn GetId ( ) ; fn GetDataKey ( ) ; fn EnumTokens ( ) ; fn SetDefaultTokenId ( ) ; fn GetDefaultTokenId ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISpObjectTokenCategoryVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpObjectTokenCategoryImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpObjectTokenCategoryVtbl < > { unsafe extern "system" fn SetId < Impl : ISpObjectTokenCategoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszcategoryid : super::super::Foundation:: PWSTR , fcreateifnotexist : super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetId < Impl : ISpObjectTokenCategoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszcomemcategoryid : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetDataKey < Impl : ISpObjectTokenCategoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , spdkl : SPDATAKEYLOCATION , ppdatakey : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EnumTokens < Impl : ISpObjectTokenCategoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pzsreqattribs : super::super::Foundation:: PWSTR , pszoptattribs : super::super::Foundation:: PWSTR , ppenum : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetDefaultTokenId < Impl : ISpObjectTokenCategoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , psztokenid : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetDefaultTokenId < Impl : ISpObjectTokenCategoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszcomemtokenid : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpDataKeyVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , SetId : SetId :: < Impl , IMPL_OFFSET > , GetId : GetId :: < Impl , IMPL_OFFSET > , GetDataKey : GetDataKey :: < Impl , IMPL_OFFSET > , EnumTokens : EnumTokens :: < Impl , IMPL_OFFSET > , SetDefaultTokenId : SetDefaultTokenId :: < Impl , IMPL_OFFSET > , GetDefaultTokenId : GetDefaultTokenId :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpObjectTokenCategory < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISpObjectTokenInitImpl < > : Sized + ISpDataKeyImpl + ISpObjectTokenImpl where { fn InitFromDataKey ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISpObjectTokenInitVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpObjectTokenInitImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpObjectTokenInitVtbl < > { unsafe extern "system" fn InitFromDataKey < Impl : ISpObjectTokenInitImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszcategoryid : super::super::Foundation:: PWSTR , psztokenid : super::super::Foundation:: PWSTR , pdatakey : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpObjectTokenVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , InitFromDataKey : InitFromDataKey :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpObjectTokenInit < > as :: windows :: core :: Interface > :: IID } } pub trait ISpObjectWithTokenImpl < > : Sized where { fn SetObjectToken ( ) ; fn GetObjectToken ( ) ; } impl < > ISpObjectWithTokenVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpObjectWithTokenImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpObjectWithTokenVtbl < > { unsafe extern "system" fn SetObjectToken < Impl : ISpObjectWithTokenImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ptoken : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetObjectToken < Impl : ISpObjectWithTokenImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pptoken : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , SetObjectToken : SetObjectToken :: < Impl , IMPL_OFFSET > , GetObjectToken : GetObjectToken :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpObjectWithToken < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISpPhoneConverterImpl < > : Sized + ISpObjectWithTokenImpl where { fn PhoneToId ( ) ; fn IdToPhone ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISpPhoneConverterVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpPhoneConverterImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpPhoneConverterVtbl < > { unsafe extern "system" fn PhoneToId < Impl : ISpPhoneConverterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszphone : super::super::Foundation:: PWSTR , pid : * mut u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IdToPhone < Impl : ISpPhoneConverterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pid : * const u16 , pszphone : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpObjectWithTokenVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , PhoneToId : PhoneToId :: < Impl , IMPL_OFFSET > , IdToPhone : IdToPhone :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpPhoneConverter < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISpPhoneticAlphabetConverterImpl < > : Sized where { fn GetLangId ( ) ; fn SetLangId ( ) ; fn SAPI2UPS ( ) ; fn UPS2SAPI ( ) ; fn GetMaxConvertLength ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISpPhoneticAlphabetConverterVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpPhoneticAlphabetConverterImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpPhoneticAlphabetConverterVtbl < > { unsafe extern "system" fn GetLangId < Impl : ISpPhoneticAlphabetConverterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , plangid : * mut u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetLangId < Impl : ISpPhoneticAlphabetConverterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , langid : u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SAPI2UPS < Impl : ISpPhoneticAlphabetConverterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszsapiid : * const u16 , pszupsid : * mut u16 , cmaxlength : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn UPS2SAPI < Impl : ISpPhoneticAlphabetConverterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszupsid : * const u16 , pszsapiid : * mut u16 , cmaxlength : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetMaxConvertLength < Impl : ISpPhoneticAlphabetConverterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , csrclength : u32 , bsapi2ups : super::super::Foundation:: BOOL , pcmaxdestlength : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetLangId : GetLangId :: < Impl , IMPL_OFFSET > , SetLangId : SetLangId :: < Impl , IMPL_OFFSET > , SAPI2UPS : SAPI2UPS :: < Impl , IMPL_OFFSET > , UPS2SAPI : UPS2SAPI :: < Impl , IMPL_OFFSET > , GetMaxConvertLength : GetMaxConvertLength :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpPhoneticAlphabetConverter < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISpPhoneticAlphabetSelectionImpl < > : Sized where { fn IsAlphabetUPS ( ) ; fn SetAlphabetToUPS ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISpPhoneticAlphabetSelectionVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpPhoneticAlphabetSelectionImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpPhoneticAlphabetSelectionVtbl < > { unsafe extern "system" fn IsAlphabetUPS < Impl : ISpPhoneticAlphabetSelectionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pfisups : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetAlphabetToUPS < Impl : ISpPhoneticAlphabetSelectionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , fforceups : super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , IsAlphabetUPS : IsAlphabetUPS :: < Impl , IMPL_OFFSET > , SetAlphabetToUPS : SetAlphabetToUPS :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpPhoneticAlphabetSelection < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpPhraseImpl < > : Sized where { fn GetPhrase ( ) ; fn GetSerializedPhrase ( ) ; fn GetText ( ) ; fn Discard ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpPhraseVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpPhraseImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpPhraseVtbl < > { unsafe extern "system" fn GetPhrase < Impl : ISpPhraseImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppcomemphrase : * mut * mut SPPHRASE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetSerializedPhrase < Impl : ISpPhraseImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppcomemphrase : * mut * mut SPSERIALIZEDPHRASE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetText < Impl : ISpPhraseImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ulstart : u32 , ulcount : u32 , fusetextreplacements : super::super::Foundation:: BOOL , ppszcomemtext : * mut super::super::Foundation:: PWSTR , pbdisplayattributes : * mut u8 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Discard < Impl : ISpPhraseImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwvaluetypes : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetPhrase : GetPhrase :: < Impl , IMPL_OFFSET > , GetSerializedPhrase : GetSerializedPhrase :: < Impl , IMPL_OFFSET > , GetText : GetText :: < Impl , IMPL_OFFSET > , Discard : Discard :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpPhrase < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpPhrase2Impl < > : Sized + ISpPhraseImpl where { fn GetXMLResult ( ) ; fn GetXMLErrorInfo ( ) ; fn GetAudio ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpPhrase2Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpPhrase2Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpPhrase2Vtbl < > { unsafe extern "system" fn GetXMLResult < Impl : ISpPhrase2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszcomemxmlresult : * mut super::super::Foundation:: PWSTR , options : SPXMLRESULTOPTIONS , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetXMLErrorInfo < Impl : ISpPhrase2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , psemanticerrorinfo : * mut SPSEMANTICERRORINFO , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetAudio < Impl : ISpPhrase2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ulstartelement : u32 , celements : u32 , ppstream : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpPhraseVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetXMLResult : GetXMLResult :: < Impl , IMPL_OFFSET > , GetXMLErrorInfo : GetXMLErrorInfo :: < Impl , IMPL_OFFSET > , GetAudio : GetAudio :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpPhrase2 < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpPhraseAltImpl < > : Sized + ISpPhraseImpl where { fn GetAltInfo ( ) ; fn Commit ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpPhraseAltVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpPhraseAltImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpPhraseAltVtbl < > { unsafe extern "system" fn GetAltInfo < Impl : ISpPhraseAltImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppparent : * mut :: windows :: core :: RawPtr , pulstartelementinparent : * mut u32 , pcelementsinparent : * mut u32 , pcelementsinalt : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Commit < Impl : ISpPhraseAltImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpPhraseVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetAltInfo : GetAltInfo :: < Impl , IMPL_OFFSET > , Commit : Commit :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpPhraseAlt < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISpPropertiesImpl < > : Sized where { fn SetPropertyNum ( ) ; fn GetPropertyNum ( ) ; fn SetPropertyString ( ) ; fn GetPropertyString ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISpPropertiesVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpPropertiesImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpPropertiesVtbl < > { unsafe extern "system" fn SetPropertyNum < Impl : ISpPropertiesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pname : super::super::Foundation:: PWSTR , lvalue : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetPropertyNum < Impl : ISpPropertiesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pname : super::super::Foundation:: PWSTR , plvalue : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetPropertyString < Impl : ISpPropertiesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pname : super::super::Foundation:: PWSTR , pvalue : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetPropertyString < Impl : ISpPropertiesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pname : super::super::Foundation:: PWSTR , ppcomemvalue : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , SetPropertyNum : SetPropertyNum :: < Impl , IMPL_OFFSET > , GetPropertyNum : GetPropertyNum :: < Impl , IMPL_OFFSET > , SetPropertyString : SetPropertyString :: < Impl , IMPL_OFFSET > , GetPropertyString : GetPropertyString :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpProperties < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Media_Audio" ) ) ] pub trait ISpRecoContextImpl < > : Sized + ISpNotifySourceImpl + ISpEventSourceImpl where { fn GetRecognizer ( ) ; fn CreateGrammar ( ) ; fn GetStatus ( ) ; fn GetMaxAlternates ( ) ; fn SetMaxAlternates ( ) ; fn SetAudioOptions ( ) ; fn GetAudioOptions ( ) ; fn DeserializeResult ( ) ; fn Bookmark ( ) ; fn SetAdaptationData ( ) ; fn Pause ( ) ; fn Resume ( ) ; fn SetVoice ( ) ; fn GetVoice ( ) ; fn SetVoicePurgeEvent ( ) ; fn GetVoicePurgeEvent ( ) ; fn SetContextState ( ) ; fn GetContextState ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Media_Audio" ) ) ] impl < > ISpRecoContextVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpRecoContextImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpRecoContextVtbl < > { unsafe extern "system" fn GetRecognizer < Impl : ISpRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pprecognizer : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateGrammar < Impl : ISpRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ullgrammarid : u64 , ppgrammar : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetStatus < Impl : ISpRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pstatus : * mut SPRECOCONTEXTSTATUS , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetMaxAlternates < Impl : ISpRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcalternates : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetMaxAlternates < Impl : ISpRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , calternates : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetAudioOptions < Impl : ISpRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , options : SPAUDIOOPTIONS , paudioformatid : * const :: windows :: core :: GUID , pwaveformatex : * const super::Audio:: WAVEFORMATEX , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetAudioOptions < Impl : ISpRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , poptions : * mut SPAUDIOOPTIONS , paudioformatid : * mut :: windows :: core :: GUID , ppcomemwfex : * mut * mut super::Audio:: WAVEFORMATEX , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DeserializeResult < Impl : ISpRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pserializedresult : * const SPSERIALIZEDRESULT , ppresult : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Bookmark < Impl : ISpRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , options : SPBOOKMARKOPTIONS , ullstreamposition : u64 , lparamevent : super::super::Foundation:: LPARAM , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetAdaptationData < Impl : ISpRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , padaptationdata : super::super::Foundation:: PWSTR , cch : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Pause < Impl : ISpRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwreserved : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Resume < Impl : ISpRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dwreserved : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetVoice < Impl : ISpRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pvoice : :: windows :: core :: RawPtr , fallowformatchanges : super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetVoice < Impl : ISpRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppvoice : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetVoicePurgeEvent < Impl : ISpRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ulleventinterest : u64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetVoicePurgeEvent < Impl : ISpRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pulleventinterest : * mut u64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetContextState < Impl : ISpRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , econtextstate : SPCONTEXTSTATE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetContextState < Impl : ISpRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pecontextstate : * mut SPCONTEXTSTATE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpEventSourceVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetRecognizer : GetRecognizer :: < Impl , IMPL_OFFSET > , CreateGrammar : CreateGrammar :: < Impl , IMPL_OFFSET > , GetStatus : GetStatus :: < Impl , IMPL_OFFSET > , GetMaxAlternates : GetMaxAlternates :: < Impl , IMPL_OFFSET > , SetMaxAlternates : SetMaxAlternates :: < Impl , IMPL_OFFSET > , SetAudioOptions : SetAudioOptions :: < Impl , IMPL_OFFSET > , GetAudioOptions : GetAudioOptions :: < Impl , IMPL_OFFSET > , DeserializeResult : DeserializeResult :: < Impl , IMPL_OFFSET > , Bookmark : Bookmark :: < Impl , IMPL_OFFSET > , SetAdaptationData : SetAdaptationData :: < Impl , IMPL_OFFSET > , Pause : Pause :: < Impl , IMPL_OFFSET > , Resume : Resume :: < Impl , IMPL_OFFSET > , SetVoice : SetVoice :: < Impl , IMPL_OFFSET > , GetVoice : GetVoice :: < Impl , IMPL_OFFSET > , SetVoicePurgeEvent : SetVoicePurgeEvent :: < Impl , IMPL_OFFSET > , GetVoicePurgeEvent : GetVoicePurgeEvent :: < Impl , IMPL_OFFSET > , SetContextState : SetContextState :: < Impl , IMPL_OFFSET > , GetContextState : GetContextState :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpRecoContext < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISpRecoContext2Impl < > : Sized where { fn SetGrammarOptions ( ) ; fn GetGrammarOptions ( ) ; fn SetAdaptationData2 ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISpRecoContext2Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpRecoContext2Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpRecoContext2Vtbl < > { unsafe extern "system" fn SetGrammarOptions < Impl : ISpRecoContext2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , egrammaroptions : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetGrammarOptions < Impl : ISpRecoContext2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pegrammaroptions : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetAdaptationData2 < Impl : ISpRecoContext2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , padaptationdata : super::super::Foundation:: PWSTR , cch : u32 , ptopicname : super::super::Foundation:: PWSTR , eadaptationsettings : u32 , erelevance : SPADAPTATIONRELEVANCE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , SetGrammarOptions : SetGrammarOptions :: < Impl , IMPL_OFFSET > , GetGrammarOptions : GetGrammarOptions :: < Impl , IMPL_OFFSET > , SetAdaptationData2 : SetAdaptationData2 :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpRecoContext2 < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpRecoGrammarImpl < > : Sized + ISpGrammarBuilderImpl where { fn GetGrammarId ( ) ; fn GetRecoContext ( ) ; fn LoadCmdFromFile ( ) ; fn LoadCmdFromObject ( ) ; fn LoadCmdFromResource ( ) ; fn LoadCmdFromMemory ( ) ; fn LoadCmdFromProprietaryGrammar ( ) ; fn SetRuleState ( ) ; fn SetRuleIdState ( ) ; fn LoadDictation ( ) ; fn UnloadDictation ( ) ; fn SetDictationState ( ) ; fn SetWordSequenceData ( ) ; fn SetTextSelection ( ) ; fn IsPronounceable ( ) ; fn SetGrammarState ( ) ; fn SaveCmd ( ) ; fn GetGrammarState ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpRecoGrammarVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpRecoGrammarImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpRecoGrammarVtbl < > { unsafe extern "system" fn GetGrammarId < Impl : ISpRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pullgrammarid : * mut u64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetRecoContext < Impl : ISpRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pprecoctxt : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn LoadCmdFromFile < Impl : ISpRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszfilename : super::super::Foundation:: PWSTR , options : SPLOADOPTIONS , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn LoadCmdFromObject < Impl : ISpRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , rcid : * const :: windows :: core :: GUID , pszgrammarname : super::super::Foundation:: PWSTR , options : SPLOADOPTIONS , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn LoadCmdFromResource < Impl : ISpRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hmodule : super::super::Foundation:: HINSTANCE , pszresourcename : super::super::Foundation:: PWSTR , pszresourcetype : super::super::Foundation:: PWSTR , wlanguage : u16 , options : SPLOADOPTIONS , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn LoadCmdFromMemory < Impl : ISpRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pgrammar : * const SPBINARYGRAMMAR , options : SPLOADOPTIONS , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn LoadCmdFromProprietaryGrammar < Impl : ISpRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , rguidparam : * const :: windows :: core :: GUID , pszstringparam : super::super::Foundation:: PWSTR , pvdataprarm : * const :: core :: ffi :: c_void , cbdatasize : u32 , options : SPLOADOPTIONS , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetRuleState < Impl : ISpRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszname : super::super::Foundation:: PWSTR , preserved : * mut :: core :: ffi :: c_void , newstate : SPRULESTATE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetRuleIdState < Impl : ISpRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ulruleid : u32 , newstate : SPRULESTATE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn LoadDictation < Impl : ISpRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , psztopicname : super::super::Foundation:: PWSTR , options : SPLOADOPTIONS , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn UnloadDictation < Impl : ISpRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetDictationState < Impl : ISpRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , newstate : SPRULESTATE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetWordSequenceData < Impl : ISpRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ptext : super::super::Foundation:: PWSTR , cchtext : u32 , pinfo : * const SPTEXTSELECTIONINFO , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetTextSelection < Impl : ISpRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pinfo : * const SPTEXTSELECTIONINFO , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsPronounceable < Impl : ISpRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszword : super::super::Foundation:: PWSTR , pwordpronounceable : * mut SPWORDPRONOUNCEABLE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetGrammarState < Impl : ISpRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , egrammarstate : SPGRAMMARSTATE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SaveCmd < Impl : ISpRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pstream : :: windows :: core :: RawPtr , ppszcomemerrortext : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetGrammarState < Impl : ISpRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pegrammarstate : * mut SPGRAMMARSTATE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpGrammarBuilderVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetGrammarId : GetGrammarId :: < Impl , IMPL_OFFSET > , GetRecoContext : GetRecoContext :: < Impl , IMPL_OFFSET > , LoadCmdFromFile : LoadCmdFromFile :: < Impl , IMPL_OFFSET > , LoadCmdFromObject : LoadCmdFromObject :: < Impl , IMPL_OFFSET > , LoadCmdFromResource : LoadCmdFromResource :: < Impl , IMPL_OFFSET > , LoadCmdFromMemory : LoadCmdFromMemory :: < Impl , IMPL_OFFSET > , LoadCmdFromProprietaryGrammar : LoadCmdFromProprietaryGrammar :: < Impl , IMPL_OFFSET > , SetRuleState : SetRuleState :: < Impl , IMPL_OFFSET > , SetRuleIdState : SetRuleIdState :: < Impl , IMPL_OFFSET > , LoadDictation : LoadDictation :: < Impl , IMPL_OFFSET > , UnloadDictation : UnloadDictation :: < Impl , IMPL_OFFSET > , SetDictationState : SetDictationState :: < Impl , IMPL_OFFSET > , SetWordSequenceData : SetWordSequenceData :: < Impl , IMPL_OFFSET > , SetTextSelection : SetTextSelection :: < Impl , IMPL_OFFSET > , IsPronounceable : IsPronounceable :: < Impl , IMPL_OFFSET > , SetGrammarState : SetGrammarState :: < Impl , IMPL_OFFSET > , SaveCmd : SaveCmd :: < Impl , IMPL_OFFSET > , GetGrammarState : GetGrammarState :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpRecoGrammar < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_Urlmon" ) ) ] pub trait ISpRecoGrammar2Impl < > : Sized where { fn GetRules ( ) ; fn LoadCmdFromFile2 ( ) ; fn LoadCmdFromMemory2 ( ) ; fn SetRulePriority ( ) ; fn SetRuleWeight ( ) ; fn SetDictationWeight ( ) ; fn SetGrammarLoader ( ) ; fn SetSMLSecurityManager ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_Urlmon" ) ) ] impl < > ISpRecoGrammar2Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpRecoGrammar2Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpRecoGrammar2Vtbl < > { unsafe extern "system" fn GetRules < Impl : ISpRecoGrammar2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppcomemrules : * mut * mut SPRULE , punumrules : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn LoadCmdFromFile2 < Impl : ISpRecoGrammar2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszfilename : super::super::Foundation:: PWSTR , options : SPLOADOPTIONS , pszsharinguri : super::super::Foundation:: PWSTR , pszbaseuri : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn LoadCmdFromMemory2 < Impl : ISpRecoGrammar2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pgrammar : * const SPBINARYGRAMMAR , options : SPLOADOPTIONS , pszsharinguri : super::super::Foundation:: PWSTR , pszbaseuri : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetRulePriority < Impl : ISpRecoGrammar2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszrulename : super::super::Foundation:: PWSTR , ulruleid : u32 , nrulepriority : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetRuleWeight < Impl : ISpRecoGrammar2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszrulename : super::super::Foundation:: PWSTR , ulruleid : u32 , flweight : f32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetDictationWeight < Impl : ISpRecoGrammar2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , flweight : f32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetGrammarLoader < Impl : ISpRecoGrammar2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ploader : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetSMLSecurityManager < Impl : ISpRecoGrammar2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , psmlsecuritymanager : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetRules : GetRules :: < Impl , IMPL_OFFSET > , LoadCmdFromFile2 : LoadCmdFromFile2 :: < Impl , IMPL_OFFSET > , LoadCmdFromMemory2 : LoadCmdFromMemory2 :: < Impl , IMPL_OFFSET > , SetRulePriority : SetRulePriority :: < Impl , IMPL_OFFSET > , SetRuleWeight : SetRuleWeight :: < Impl , IMPL_OFFSET > , SetDictationWeight : SetDictationWeight :: < Impl , IMPL_OFFSET > , SetGrammarLoader : SetGrammarLoader :: < Impl , IMPL_OFFSET > , SetSMLSecurityManager : SetSMLSecurityManager :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpRecoGrammar2 < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Media_Audio" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpRecoResultImpl < > : Sized + ISpPhraseImpl where { fn GetResultTimes ( ) ; fn GetAlternates ( ) ; fn GetAudio ( ) ; fn SpeakAudio ( ) ; fn Serialize ( ) ; fn ScaleAudio ( ) ; fn GetRecoContext ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Media_Audio" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpRecoResultVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpRecoResultImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpRecoResultVtbl < > { unsafe extern "system" fn GetResultTimes < Impl : ISpRecoResultImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ptimes : * mut SPRECORESULTTIMES , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetAlternates < Impl : ISpRecoResultImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ulstartelement : u32 , celements : u32 , ulrequestcount : u32 , ppphrases : * mut :: windows :: core :: RawPtr , pcphrasesreturned : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetAudio < Impl : ISpRecoResultImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ulstartelement : u32 , celements : u32 , ppstream : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SpeakAudio < Impl : ISpRecoResultImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ulstartelement : u32 , celements : u32 , dwflags : u32 , pulstreamnumber : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Serialize < Impl : ISpRecoResultImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppcomemserializedresult : * mut * mut SPSERIALIZEDRESULT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ScaleAudio < Impl : ISpRecoResultImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , paudioformatid : * const :: windows :: core :: GUID , pwaveformatex : * const super::Audio:: WAVEFORMATEX , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetRecoContext < Impl : ISpRecoResultImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pprecocontext : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpPhraseVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetResultTimes : GetResultTimes :: < Impl , IMPL_OFFSET > , GetAlternates : GetAlternates :: < Impl , IMPL_OFFSET > , GetAudio : GetAudio :: < Impl , IMPL_OFFSET > , SpeakAudio : SpeakAudio :: < Impl , IMPL_OFFSET > , Serialize : Serialize :: < Impl , IMPL_OFFSET > , ScaleAudio : ScaleAudio :: < Impl , IMPL_OFFSET > , GetRecoContext : GetRecoContext :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpRecoResult < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Media_Audio" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpRecoResult2Impl < > : Sized + ISpPhraseImpl + ISpRecoResultImpl where { fn CommitAlternate ( ) ; fn CommitText ( ) ; fn SetTextFeedback ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Media_Audio" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpRecoResult2Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpRecoResult2Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpRecoResult2Vtbl < > { unsafe extern "system" fn CommitAlternate < Impl : ISpRecoResult2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pphrasealt : :: windows :: core :: RawPtr , ppnewresult : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CommitText < Impl : ISpRecoResult2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ulstartelement : u32 , celements : u32 , pszcorrecteddata : super::super::Foundation:: PWSTR , ecommitflags : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetTextFeedback < Impl : ISpRecoResult2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszfeedback : super::super::Foundation:: PWSTR , fsuccessful : super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpRecoResultVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , CommitAlternate : CommitAlternate :: < Impl , IMPL_OFFSET > , CommitText : CommitText :: < Impl , IMPL_OFFSET > , SetTextFeedback : SetTextFeedback :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpRecoResult2 < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Media_Audio" , feature ="Win32_System_Com" ) ) ] pub trait ISpRecognizerImpl < > : Sized + ISpPropertiesImpl where { fn SetRecognizer ( ) ; fn GetRecognizer ( ) ; fn SetInput ( ) ; fn GetInputObjectToken ( ) ; fn GetInputStream ( ) ; fn CreateRecoContext ( ) ; fn GetRecoProfile ( ) ; fn SetRecoProfile ( ) ; fn IsSharedInstance ( ) ; fn GetRecoState ( ) ; fn SetRecoState ( ) ; fn GetStatus ( ) ; fn GetFormat ( ) ; fn IsUISupported ( ) ; fn DisplayUI ( ) ; fn EmulateRecognition ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Media_Audio" , feature ="Win32_System_Com" ) ) ] impl < > ISpRecognizerVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpRecognizerImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpRecognizerVtbl < > { unsafe extern "system" fn SetRecognizer < Impl : ISpRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , precognizer : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetRecognizer < Impl : ISpRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pprecognizer : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetInput < Impl : ISpRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkinput : * mut :: core :: ffi :: c_void , fallowformatchanges : super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetInputObjectToken < Impl : ISpRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pptoken : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetInputStream < Impl : ISpRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppstream : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateRecoContext < Impl : ISpRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppnewctxt : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetRecoProfile < Impl : ISpRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pptoken : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetRecoProfile < Impl : ISpRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ptoken : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsSharedInstance < Impl : ISpRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetRecoState < Impl : ISpRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pstate : * mut SPRECOSTATE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetRecoState < Impl : ISpRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , newstate : SPRECOSTATE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetStatus < Impl : ISpRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pstatus : * mut SPRECOGNIZERSTATUS , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetFormat < Impl : ISpRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , waveformattype : SPWAVEFORMATTYPE , pformatid : * mut :: windows :: core :: GUID , ppcomemwfex : * mut * mut super::Audio:: WAVEFORMATEX , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsUISupported < Impl : ISpRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , psztypeofui : super::super::Foundation:: PWSTR , pvextradata : * mut :: core :: ffi :: c_void , cbextradata : u32 , pfsupported : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DisplayUI < Impl : ISpRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hwndparent : super::super::Foundation:: HWND , psztitle : super::super::Foundation:: PWSTR , psztypeofui : super::super::Foundation:: PWSTR , pvextradata : * mut :: core :: ffi :: c_void , cbextradata : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EmulateRecognition < Impl : ISpRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pphrase : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpPropertiesVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , SetRecognizer : SetRecognizer :: < Impl , IMPL_OFFSET > , GetRecognizer : GetRecognizer :: < Impl , IMPL_OFFSET > , SetInput : SetInput :: < Impl , IMPL_OFFSET > , GetInputObjectToken : GetInputObjectToken :: < Impl , IMPL_OFFSET > , GetInputStream : GetInputStream :: < Impl , IMPL_OFFSET > , CreateRecoContext : CreateRecoContext :: < Impl , IMPL_OFFSET > , GetRecoProfile : GetRecoProfile :: < Impl , IMPL_OFFSET > , SetRecoProfile : SetRecoProfile :: < Impl , IMPL_OFFSET > , IsSharedInstance : IsSharedInstance :: < Impl , IMPL_OFFSET > , GetRecoState : GetRecoState :: < Impl , IMPL_OFFSET > , SetRecoState : SetRecoState :: < Impl , IMPL_OFFSET > , GetStatus : GetStatus :: < Impl , IMPL_OFFSET > , GetFormat : GetFormat :: < Impl , IMPL_OFFSET > , IsUISupported : IsUISupported :: < Impl , IMPL_OFFSET > , DisplayUI : DisplayUI :: < Impl , IMPL_OFFSET > , EmulateRecognition : EmulateRecognition :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpRecognizer < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISpRecognizer2Impl < > : Sized where { fn EmulateRecognitionEx ( ) ; fn SetTrainingState ( ) ; fn ResetAcousticModelAdaptation ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISpRecognizer2Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpRecognizer2Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpRecognizer2Vtbl < > { unsafe extern "system" fn EmulateRecognitionEx < Impl : ISpRecognizer2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pphrase : :: windows :: core :: RawPtr , dwcompareflags : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetTrainingState < Impl : ISpRecognizer2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , fdoingtraining : super::super::Foundation:: BOOL , fadaptfromtrainingdata : super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ResetAcousticModelAdaptation < Impl : ISpRecognizer2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , EmulateRecognitionEx : EmulateRecognitionEx :: < Impl , IMPL_OFFSET > , SetTrainingState : SetTrainingState :: < Impl , IMPL_OFFSET > , ResetAcousticModelAdaptation : ResetAcousticModelAdaptation :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpRecognizer2 < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Registry" ) ) ] pub trait ISpRegDataKeyImpl < > : Sized + ISpDataKeyImpl where { fn SetKey ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Registry" ) ) ] impl < > ISpRegDataKeyVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpRegDataKeyImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpRegDataKeyVtbl < > { unsafe extern "system" fn SetKey < Impl : ISpRegDataKeyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hkey : super::super::System::Registry:: HKEY , freadonly : super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpDataKeyVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , SetKey : SetKey :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpRegDataKey < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" ) ) ] pub trait ISpResourceManagerImpl < > : Sized + IServiceProviderImpl where { fn SetObject ( ) ; fn GetObject ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" ) ) ] impl < > ISpResourceManagerVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpResourceManagerImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpResourceManagerVtbl < > { unsafe extern "system" fn SetObject < Impl : ISpResourceManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , guidserviceid : * const :: windows :: core :: GUID , punkobject : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetObject < Impl : ISpResourceManagerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , guidserviceid : * const :: windows :: core :: GUID , objectclsid : * const :: windows :: core :: GUID , objectiid : * const :: windows :: core :: GUID , freleasewhenlastexternalrefreleased : super::super::Foundation:: BOOL , ppobject : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IServiceProviderVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , SetObject : SetObject :: < Impl , IMPL_OFFSET > , GetObject : GetObject :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpResourceManager < > as :: windows :: core :: Interface > :: IID } } pub trait ISpSerializeStateImpl < > : Sized where { fn GetSerializedState ( ) ; fn SetSerializedState ( ) ; } impl < > ISpSerializeStateVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpSerializeStateImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpSerializeStateVtbl < > { unsafe extern "system" fn GetSerializedState < Impl : ISpSerializeStateImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppbdata : * mut * mut u8 , pulsize : * mut u32 , dwreserved : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetSerializedState < Impl : ISpSerializeStateImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbdata : * const u8 , ulsize : u32 , dwreserved : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetSerializedState : GetSerializedState :: < Impl , IMPL_OFFSET > , SetSerializedState : SetSerializedState :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpSerializeState < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISpShortcutImpl < > : Sized where { fn AddShortcut ( ) ; fn RemoveShortcut ( ) ; fn GetShortcuts ( ) ; fn GetGeneration ( ) ; fn GetWordsFromGenerationChange ( ) ; fn GetWords ( ) ; fn GetShortcutsForGeneration ( ) ; fn GetGenerationChange ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISpShortcutVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpShortcutImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpShortcutVtbl < > { unsafe extern "system" fn AddShortcut < Impl : ISpShortcutImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszdisplay : super::super::Foundation:: PWSTR , langid : u16 , pszspoken : super::super::Foundation:: PWSTR , shtype : SPSHORTCUTTYPE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RemoveShortcut < Impl : ISpShortcutImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszdisplay : super::super::Foundation:: PWSTR , langid : u16 , pszspoken : super::super::Foundation:: PWSTR , shtype : SPSHORTCUTTYPE , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetShortcuts < Impl : ISpShortcutImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , langid : u16 , pshortcutpairlist : * mut SPSHORTCUTPAIRLIST , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetGeneration < Impl : ISpShortcutImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdwgeneration : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetWordsFromGenerationChange < Impl : ISpShortcutImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdwgeneration : * mut u32 , pwordlist : * mut SPWORDLIST , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetWords < Impl : ISpShortcutImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdwgeneration : * mut u32 , pdwcookie : * mut u32 , pwordlist : * mut SPWORDLIST , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetShortcutsForGeneration < Impl : ISpShortcutImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdwgeneration : * mut u32 , pdwcookie : * mut u32 , pshortcutpairlist : * mut SPSHORTCUTPAIRLIST , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetGenerationChange < Impl : ISpShortcutImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdwgeneration : * mut u32 , pshortcutpairlist : * mut SPSHORTCUTPAIRLIST , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , AddShortcut : AddShortcut :: < Impl , IMPL_OFFSET > , RemoveShortcut : RemoveShortcut :: < Impl , IMPL_OFFSET > , GetShortcuts : GetShortcuts :: < Impl , IMPL_OFFSET > , GetGeneration : GetGeneration :: < Impl , IMPL_OFFSET > , GetWordsFromGenerationChange : GetWordsFromGenerationChange :: < Impl , IMPL_OFFSET > , GetWords : GetWords :: < Impl , IMPL_OFFSET > , GetShortcutsForGeneration : GetShortcutsForGeneration :: < Impl , IMPL_OFFSET > , GetGenerationChange : GetGenerationChange :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpShortcut < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Media_Audio" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] pub trait ISpStreamImpl < > : Sized + ISequentialStreamImpl + IStreamImpl + ISpStreamFormatImpl where { fn SetBaseStream ( ) ; fn GetBaseStream ( ) ; fn BindToFile ( ) ; fn Close ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Media_Audio" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] impl < > ISpStreamVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpStreamImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpStreamVtbl < > { unsafe extern "system" fn SetBaseStream < Impl : ISpStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pstream : :: windows :: core :: RawPtr , rguidformat : * const :: windows :: core :: GUID , pwaveformatex : * const super::Audio:: WAVEFORMATEX , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetBaseStream < Impl : ISpStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppstream : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn BindToFile < Impl : ISpStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pszfilename : super::super::Foundation:: PWSTR , emode : SPFILEMODE , pformatid : * const :: windows :: core :: GUID , pwaveformatex : * const super::Audio:: WAVEFORMATEX , ulleventinterest : u64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Close < Impl : ISpStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpStreamFormatVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , SetBaseStream : SetBaseStream :: < Impl , IMPL_OFFSET > , GetBaseStream : GetBaseStream :: < Impl , IMPL_OFFSET > , BindToFile : BindToFile :: < Impl , IMPL_OFFSET > , Close : Close :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpStream < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Media_Audio" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] pub trait ISpStreamFormatImpl < > : Sized + ISequentialStreamImpl + IStreamImpl where { fn GetFormat ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Media_Audio" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] impl < > ISpStreamFormatVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpStreamFormatImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpStreamFormatVtbl < > { unsafe extern "system" fn GetFormat < Impl : ISpStreamFormatImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pguidformatid : * const :: windows :: core :: GUID , ppcomemwaveformatex : * mut * mut super::Audio:: WAVEFORMATEX , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IStreamVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetFormat : GetFormat :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpStreamFormat < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Media_Audio" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] pub trait ISpStreamFormatConverterImpl < > : Sized + ISequentialStreamImpl + IStreamImpl + ISpStreamFormatImpl where { fn SetBaseStream ( ) ; fn GetBaseStream ( ) ; fn SetFormat ( ) ; fn ResetSeekPosition ( ) ; fn ScaleConvertedToBaseOffset ( ) ; fn ScaleBaseToConvertedOffset ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Media_Audio" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" ) ) ] impl < > ISpStreamFormatConverterVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpStreamFormatConverterImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpStreamFormatConverterVtbl < > { unsafe extern "system" fn SetBaseStream < Impl : ISpStreamFormatConverterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pstream : :: windows :: core :: RawPtr , fsetformattobasestreamformat : super::super::Foundation:: BOOL , fwritetobasestream : super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetBaseStream < Impl : ISpStreamFormatConverterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppstream : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetFormat < Impl : ISpStreamFormatConverterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , rguidformatidofconvertedstream : * const :: windows :: core :: GUID , pwaveformatexofconvertedstream : * const super::Audio:: WAVEFORMATEX , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ResetSeekPosition < Impl : ISpStreamFormatConverterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ScaleConvertedToBaseOffset < Impl : ISpStreamFormatConverterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ulloffsetconvertedstream : u64 , pulloffsetbasestream : * mut u64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ScaleBaseToConvertedOffset < Impl : ISpStreamFormatConverterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ulloffsetbasestream : u64 , pulloffsetconvertedstream : * mut u64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpStreamFormatVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , SetBaseStream : SetBaseStream :: < Impl , IMPL_OFFSET > , GetBaseStream : GetBaseStream :: < Impl , IMPL_OFFSET > , SetFormat : SetFormat :: < Impl , IMPL_OFFSET > , ResetSeekPosition : ResetSeekPosition :: < Impl , IMPL_OFFSET > , ScaleConvertedToBaseOffset : ScaleConvertedToBaseOffset :: < Impl , IMPL_OFFSET > , ScaleBaseToConvertedOffset : ScaleBaseToConvertedOffset :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpStreamFormatConverter < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( feature ="Win32_Foundation" ) ] pub trait ISpTranscriptImpl < > : Sized where { fn GetTranscript ( ) ; fn AppendTranscript ( ) ; } # [ cfg ( feature ="Win32_Foundation" ) ] impl < > ISpTranscriptVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpTranscriptImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpTranscriptVtbl < > { unsafe extern "system" fn GetTranscript < Impl : ISpTranscriptImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppsztranscript : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AppendTranscript < Impl : ISpTranscriptImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , psztranscript : super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetTranscript : GetTranscript :: < Impl , IMPL_OFFSET > , AppendTranscript : AppendTranscript :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpTranscript < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" ) ) ] pub trait ISpVoiceImpl < > : Sized + ISpNotifySourceImpl + ISpEventSourceImpl where { fn SetOutput ( ) ; fn GetOutputObjectToken ( ) ; fn GetOutputStream ( ) ; fn Pause ( ) ; fn Resume ( ) ; fn SetVoice ( ) ; fn GetVoice ( ) ; fn Speak ( ) ; fn SpeakStream ( ) ; fn GetStatus ( ) ; fn Skip ( ) ; fn SetPriority ( ) ; fn GetPriority ( ) ; fn SetAlertBoundary ( ) ; fn GetAlertBoundary ( ) ; fn SetRate ( ) ; fn GetRate ( ) ; fn SetVolume ( ) ; fn GetVolume ( ) ; fn WaitUntilDone ( ) ; fn SetSyncSpeakTimeout ( ) ; fn GetSyncSpeakTimeout ( ) ; fn SpeakCompleteEvent ( ) ; fn IsUISupported ( ) ; fn DisplayUI ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" ) ) ] impl < > ISpVoiceVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpVoiceImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpVoiceVtbl < > { unsafe extern "system" fn SetOutput < Impl : ISpVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkoutput : * mut :: core :: ffi :: c_void , fallowformatchanges : super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetOutputObjectToken < Impl : ISpVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppobjecttoken : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetOutputStream < Impl : ISpVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppstream : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Pause < Impl : ISpVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Resume < Impl : ISpVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetVoice < Impl : ISpVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ptoken : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetVoice < Impl : ISpVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pptoken : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Speak < Impl : ISpVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pwcs : super::super::Foundation:: PWSTR , dwflags : u32 , pulstreamnumber : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SpeakStream < Impl : ISpVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pstream : :: windows :: core :: RawPtr , dwflags : u32 , pulstreamnumber : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetStatus < Impl : ISpVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pstatus : * mut SPVOICESTATUS , ppszlastbookmark : * mut super::super::Foundation:: PWSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Skip < Impl : ISpVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pitemtype : super::super::Foundation:: PWSTR , lnumitems : i32 , pulnumskipped : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetPriority < Impl : ISpVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , epriority : SPVPRIORITY , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetPriority < Impl : ISpVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pepriority : * mut SPVPRIORITY , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetAlertBoundary < Impl : ISpVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , eboundary : SPEVENTENUM , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetAlertBoundary < Impl : ISpVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , peboundary : * mut SPEVENTENUM , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetRate < Impl : ISpVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , rateadjust : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetRate < Impl : ISpVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , prateadjust : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetVolume < Impl : ISpVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , usvolume : u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetVolume < Impl : ISpVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pusvolume : * mut u16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn WaitUntilDone < Impl : ISpVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , mstimeout : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetSyncSpeakTimeout < Impl : ISpVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , mstimeout : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetSyncSpeakTimeout < Impl : ISpVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pmstimeout : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SpeakCompleteEvent < Impl : ISpVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> super::super::Foundation:: HANDLE { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsUISupported < Impl : ISpVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , psztypeofui : super::super::Foundation:: PWSTR , pvextradata : * mut :: core :: ffi :: c_void , cbextradata : u32 , pfsupported : * mut super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DisplayUI < Impl : ISpVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hwndparent : super::super::Foundation:: HWND , psztitle : super::super::Foundation:: PWSTR , psztypeofui : super::super::Foundation:: PWSTR , pvextradata : * mut :: core :: ffi :: c_void , cbextradata : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpEventSourceVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , SetOutput : SetOutput :: < Impl , IMPL_OFFSET > , GetOutputObjectToken : GetOutputObjectToken :: < Impl , IMPL_OFFSET > , GetOutputStream : GetOutputStream :: < Impl , IMPL_OFFSET > , Pause : Pause :: < Impl , IMPL_OFFSET > , Resume : Resume :: < Impl , IMPL_OFFSET > , SetVoice : SetVoice :: < Impl , IMPL_OFFSET > , GetVoice : GetVoice :: < Impl , IMPL_OFFSET > , Speak : Speak :: < Impl , IMPL_OFFSET > , SpeakStream : SpeakStream :: < Impl , IMPL_OFFSET > , GetStatus : GetStatus :: < Impl , IMPL_OFFSET > , Skip : Skip :: < Impl , IMPL_OFFSET > , SetPriority : SetPriority :: < Impl , IMPL_OFFSET > , GetPriority : GetPriority :: < Impl , IMPL_OFFSET > , SetAlertBoundary : SetAlertBoundary :: < Impl , IMPL_OFFSET > , GetAlertBoundary : GetAlertBoundary :: < Impl , IMPL_OFFSET > , SetRate : SetRate :: < Impl , IMPL_OFFSET > , GetRate : GetRate :: < Impl , IMPL_OFFSET > , SetVolume : SetVolume :: < Impl , IMPL_OFFSET > , GetVolume : GetVolume :: < Impl , IMPL_OFFSET > , WaitUntilDone : WaitUntilDone :: < Impl , IMPL_OFFSET > , SetSyncSpeakTimeout : SetSyncSpeakTimeout :: < Impl , IMPL_OFFSET > , GetSyncSpeakTimeout : GetSyncSpeakTimeout :: < Impl , IMPL_OFFSET > , SpeakCompleteEvent : SpeakCompleteEvent :: < Impl , IMPL_OFFSET > , IsUISupported : IsUISupported :: < Impl , IMPL_OFFSET > , DisplayUI : DisplayUI :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpVoice < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Media_Audio" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpXMLRecoResultImpl < > : Sized + ISpPhraseImpl + ISpRecoResultImpl where { fn GetXMLResult ( ) ; fn GetXMLErrorInfo ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_Media_Audio" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpXMLRecoResultVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpXMLRecoResultImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpXMLRecoResultVtbl < > { unsafe extern "system" fn GetXMLResult < Impl : ISpXMLRecoResultImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppszcomemxmlresult : * mut super::super::Foundation:: PWSTR , options : SPXMLRESULTOPTIONS , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetXMLErrorInfo < Impl : ISpXMLRecoResultImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , psemanticerrorinfo : * mut SPSEMANTICERRORINFO , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpRecoResultVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetXMLResult : GetXMLResult :: < Impl , IMPL_OFFSET > , GetXMLErrorInfo : GetXMLErrorInfo :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpXMLRecoResult < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechAudioImpl < > : Sized + IDispatchImpl + ISpeechBaseStreamImpl where { fn Status ( ) ; fn BufferInfo ( ) ; fn DefaultFormat ( ) ; fn Volume ( ) ; fn SetVolume ( ) ; fn BufferNotifySize ( ) ; fn SetBufferNotifySize ( ) ; fn EventHandle ( ) ; fn SetState ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechAudioVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechAudioImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechAudioVtbl < > { unsafe extern "system" fn Status < Impl : ISpeechAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , status : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn BufferInfo < Impl : ISpeechAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , bufferinfo : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DefaultFormat < Impl : ISpeechAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , streamformat : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Volume < Impl : ISpeechAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , volume : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetVolume < Impl : ISpeechAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , volume : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn BufferNotifySize < Impl : ISpeechAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , buffernotifysize : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetBufferNotifySize < Impl : ISpeechAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , buffernotifysize : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EventHandle < Impl : ISpeechAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , eventhandle : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetState < Impl : ISpeechAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , state : SpeechAudioState , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpeechBaseStreamVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Status : Status :: < Impl , IMPL_OFFSET > , BufferInfo : BufferInfo :: < Impl , IMPL_OFFSET > , DefaultFormat : DefaultFormat :: < Impl , IMPL_OFFSET > , Volume : Volume :: < Impl , IMPL_OFFSET > , SetVolume : SetVolume :: < Impl , IMPL_OFFSET > , BufferNotifySize : BufferNotifySize :: < Impl , IMPL_OFFSET > , SetBufferNotifySize : SetBufferNotifySize :: < Impl , IMPL_OFFSET > , EventHandle : EventHandle :: < Impl , IMPL_OFFSET > , SetState : SetState :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechAudio < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechAudioBufferInfoImpl < > : Sized + IDispatchImpl where { fn MinNotification ( ) ; fn SetMinNotification ( ) ; fn BufferSize ( ) ; fn SetBufferSize ( ) ; fn EventBias ( ) ; fn SetEventBias ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechAudioBufferInfoVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechAudioBufferInfoImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechAudioBufferInfoVtbl < > { unsafe extern "system" fn MinNotification < Impl : ISpeechAudioBufferInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , minnotification : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetMinNotification < Impl : ISpeechAudioBufferInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , minnotification : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn BufferSize < Impl : ISpeechAudioBufferInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , buffersize : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetBufferSize < Impl : ISpeechAudioBufferInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , buffersize : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EventBias < Impl : ISpeechAudioBufferInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , eventbias : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetEventBias < Impl : ISpeechAudioBufferInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , eventbias : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , MinNotification : MinNotification :: < Impl , IMPL_OFFSET > , SetMinNotification : SetMinNotification :: < Impl , IMPL_OFFSET > , BufferSize : BufferSize :: < Impl , IMPL_OFFSET > , SetBufferSize : SetBufferSize :: < Impl , IMPL_OFFSET > , EventBias : EventBias :: < Impl , IMPL_OFFSET > , SetEventBias : SetEventBias :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechAudioBufferInfo < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechAudioFormatImpl < > : Sized + IDispatchImpl where { fn Type ( ) ; fn SetType ( ) ; fn Guid ( ) ; fn SetGuid ( ) ; fn GetWaveFormatEx ( ) ; fn SetWaveFormatEx ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechAudioFormatVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechAudioFormatImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechAudioFormatVtbl < > { unsafe extern "system" fn Type < Impl : ISpeechAudioFormatImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , audioformat : * mut SpeechAudioFormatType , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetType < Impl : ISpeechAudioFormatImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , audioformat : SpeechAudioFormatType , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Guid < Impl : ISpeechAudioFormatImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , guid : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetGuid < Impl : ISpeechAudioFormatImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , guid : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetWaveFormatEx < Impl : ISpeechAudioFormatImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , speechwaveformatex : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetWaveFormatEx < Impl : ISpeechAudioFormatImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , speechwaveformatex : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Type : Type :: < Impl , IMPL_OFFSET > , SetType : SetType :: < Impl , IMPL_OFFSET > , Guid : Guid :: < Impl , IMPL_OFFSET > , SetGuid : SetGuid :: < Impl , IMPL_OFFSET > , GetWaveFormatEx : GetWaveFormatEx :: < Impl , IMPL_OFFSET > , SetWaveFormatEx : SetWaveFormatEx :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechAudioFormat < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechAudioStatusImpl < > : Sized + IDispatchImpl where { fn FreeBufferSpace ( ) ; fn NonBlockingIO ( ) ; fn State ( ) ; fn CurrentSeekPosition ( ) ; fn CurrentDevicePosition ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechAudioStatusVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechAudioStatusImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechAudioStatusVtbl < > { unsafe extern "system" fn FreeBufferSpace < Impl : ISpeechAudioStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , freebufferspace : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn NonBlockingIO < Impl : ISpeechAudioStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , nonblockingio : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn State < Impl : ISpeechAudioStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , state : * mut SpeechAudioState , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CurrentSeekPosition < Impl : ISpeechAudioStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , currentseekposition : * mut super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CurrentDevicePosition < Impl : ISpeechAudioStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , currentdeviceposition : * mut super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , FreeBufferSpace : FreeBufferSpace :: < Impl , IMPL_OFFSET > , NonBlockingIO : NonBlockingIO :: < Impl , IMPL_OFFSET > , State : State :: < Impl , IMPL_OFFSET > , CurrentSeekPosition : CurrentSeekPosition :: < Impl , IMPL_OFFSET > , CurrentDevicePosition : CurrentDevicePosition :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechAudioStatus < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechBaseStreamImpl < > : Sized + IDispatchImpl where { fn Format ( ) ; fn putref_Format ( ) ; fn Read ( ) ; fn Write ( ) ; fn Seek ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechBaseStreamVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechBaseStreamImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechBaseStreamVtbl < > { unsafe extern "system" fn Format < Impl : ISpeechBaseStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , audioformat : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn putref_Format < Impl : ISpeechBaseStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , audioformat : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Read < Impl : ISpeechBaseStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , buffer : * mut super::super::System::Com:: VARIANT , numberofbytes : i32 , bytesread : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Write < Impl : ISpeechBaseStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , buffer : :: core :: mem :: ManuallyDrop < super::super::System::Com:: VARIANT > , byteswritten : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Seek < Impl : ISpeechBaseStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , position : :: core :: mem :: ManuallyDrop < super::super::System::Com:: VARIANT > , origin : SpeechStreamSeekPositionType , newposition : * mut super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Format : Format :: < Impl , IMPL_OFFSET > , putref_Format : putref_Format :: < Impl , IMPL_OFFSET > , Read : Read :: < Impl , IMPL_OFFSET > , Write : Write :: < Impl , IMPL_OFFSET > , Seek : Seek :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechBaseStream < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechCustomStreamImpl < > : Sized + IDispatchImpl + ISpeechBaseStreamImpl where { fn BaseStream ( ) ; fn putref_BaseStream ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechCustomStreamVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechCustomStreamImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechCustomStreamVtbl < > { unsafe extern "system" fn BaseStream < Impl : ISpeechCustomStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppunkstream : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn putref_BaseStream < Impl : ISpeechCustomStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkstream : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpeechBaseStreamVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , BaseStream : BaseStream :: < Impl , IMPL_OFFSET > , putref_BaseStream : putref_BaseStream :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechCustomStream < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechDataKeyImpl < > : Sized + IDispatchImpl where { fn SetBinaryValue ( ) ; fn GetBinaryValue ( ) ; fn SetStringValue ( ) ; fn GetStringValue ( ) ; fn SetLongValue ( ) ; fn GetLongValue ( ) ; fn OpenKey ( ) ; fn CreateKey ( ) ; fn DeleteKey ( ) ; fn DeleteValue ( ) ; fn EnumKeys ( ) ; fn EnumValues ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechDataKeyVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechDataKeyImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechDataKeyVtbl < > { unsafe extern "system" fn SetBinaryValue < Impl : ISpeechDataKeyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , valuename : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , value : :: core :: mem :: ManuallyDrop < super::super::System::Com:: VARIANT > , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetBinaryValue < Impl : ISpeechDataKeyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , valuename : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , value : * mut super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetStringValue < Impl : ISpeechDataKeyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , valuename : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , value : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetStringValue < Impl : ISpeechDataKeyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , valuename : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , value : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetLongValue < Impl : ISpeechDataKeyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , valuename : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , value : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetLongValue < Impl : ISpeechDataKeyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , valuename : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , value : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn OpenKey < Impl : ISpeechDataKeyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , subkeyname : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , subkey : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateKey < Impl : ISpeechDataKeyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , subkeyname : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , subkey : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DeleteKey < Impl : ISpeechDataKeyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , subkeyname : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DeleteValue < Impl : ISpeechDataKeyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , valuename : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EnumKeys < Impl : ISpeechDataKeyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , index : i32 , subkeyname : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EnumValues < Impl : ISpeechDataKeyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , index : i32 , valuename : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , SetBinaryValue : SetBinaryValue :: < Impl , IMPL_OFFSET > , GetBinaryValue : GetBinaryValue :: < Impl , IMPL_OFFSET > , SetStringValue : SetStringValue :: < Impl , IMPL_OFFSET > , GetStringValue : GetStringValue :: < Impl , IMPL_OFFSET > , SetLongValue : SetLongValue :: < Impl , IMPL_OFFSET > , GetLongValue : GetLongValue :: < Impl , IMPL_OFFSET > , OpenKey : OpenKey :: < Impl , IMPL_OFFSET > , CreateKey : CreateKey :: < Impl , IMPL_OFFSET > , DeleteKey : DeleteKey :: < Impl , IMPL_OFFSET > , DeleteValue : DeleteValue :: < Impl , IMPL_OFFSET > , EnumKeys : EnumKeys :: < Impl , IMPL_OFFSET > , EnumValues : EnumValues :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechDataKey < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechFileStreamImpl < > : Sized + IDispatchImpl + ISpeechBaseStreamImpl where { fn Open ( ) ; fn Close ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechFileStreamVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechFileStreamImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechFileStreamVtbl < > { unsafe extern "system" fn Open < Impl : ISpeechFileStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , filename : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , filemode : SpeechStreamFileMode , doevents : i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Close < Impl : ISpeechFileStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpeechBaseStreamVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Open : Open :: < Impl , IMPL_OFFSET > , Close : Close :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechFileStream < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechGrammarRuleImpl < > : Sized + IDispatchImpl where { fn Attributes ( ) ; fn InitialState ( ) ; fn Name ( ) ; fn Id ( ) ; fn Clear ( ) ; fn AddResource ( ) ; fn AddState ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechGrammarRuleVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechGrammarRuleImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechGrammarRuleVtbl < > { unsafe extern "system" fn Attributes < Impl : ISpeechGrammarRuleImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , attributes : * mut SpeechRuleAttributes , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn InitialState < Impl : ISpeechGrammarRuleImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , state : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Name < Impl : ISpeechGrammarRuleImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , name : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Id < Impl : ISpeechGrammarRuleImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , id : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Clear < Impl : ISpeechGrammarRuleImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AddResource < Impl : ISpeechGrammarRuleImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , resourcename : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , resourcevalue : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AddState < Impl : ISpeechGrammarRuleImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , state : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Attributes : Attributes :: < Impl , IMPL_OFFSET > , InitialState : InitialState :: < Impl , IMPL_OFFSET > , Name : Name :: < Impl , IMPL_OFFSET > , Id : Id :: < Impl , IMPL_OFFSET > , Clear : Clear :: < Impl , IMPL_OFFSET > , AddResource : AddResource :: < Impl , IMPL_OFFSET > , AddState : AddState :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechGrammarRule < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechGrammarRuleStateImpl < > : Sized + IDispatchImpl where { fn Rule ( ) ; fn Transitions ( ) ; fn AddWordTransition ( ) ; fn AddRuleTransition ( ) ; fn AddSpecialTransition ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechGrammarRuleStateVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechGrammarRuleStateImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechGrammarRuleStateVtbl < > { unsafe extern "system" fn Rule < Impl : ISpeechGrammarRuleStateImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , rule : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Transitions < Impl : ISpeechGrammarRuleStateImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , transitions : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AddWordTransition < Impl : ISpeechGrammarRuleStateImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , deststate : :: windows :: core :: RawPtr , words : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , separators : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , r#type : SpeechGrammarWordType , propertyname : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , propertyid : i32 , propertyvalue : * const super::super::System::Com:: VARIANT , weight : f32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AddRuleTransition < Impl : ISpeechGrammarRuleStateImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , destinationstate : :: windows :: core :: RawPtr , rule : :: windows :: core :: RawPtr , propertyname : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , propertyid : i32 , propertyvalue : * const super::super::System::Com:: VARIANT , weight : f32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AddSpecialTransition < Impl : ISpeechGrammarRuleStateImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , destinationstate : :: windows :: core :: RawPtr , r#type : SpeechSpecialTransitionType , propertyname : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , propertyid : i32 , propertyvalue : * const super::super::System::Com:: VARIANT , weight : f32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Rule : Rule :: < Impl , IMPL_OFFSET > , Transitions : Transitions :: < Impl , IMPL_OFFSET > , AddWordTransition : AddWordTransition :: < Impl , IMPL_OFFSET > , AddRuleTransition : AddRuleTransition :: < Impl , IMPL_OFFSET > , AddSpecialTransition : AddSpecialTransition :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechGrammarRuleState < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechGrammarRuleStateTransitionImpl < > : Sized + IDispatchImpl where { fn Type ( ) ; fn Text ( ) ; fn Rule ( ) ; fn Weight ( ) ; fn PropertyName ( ) ; fn PropertyId ( ) ; fn PropertyValue ( ) ; fn NextState ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechGrammarRuleStateTransitionVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechGrammarRuleStateTransitionImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechGrammarRuleStateTransitionVtbl < > { unsafe extern "system" fn Type < Impl : ISpeechGrammarRuleStateTransitionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , r#type : * mut SpeechGrammarRuleStateTransitionType , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Text < Impl : ISpeechGrammarRuleStateTransitionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , text : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Rule < Impl : ISpeechGrammarRuleStateTransitionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , rule : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Weight < Impl : ISpeechGrammarRuleStateTransitionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , weight : * mut super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn PropertyName < Impl : ISpeechGrammarRuleStateTransitionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , propertyname : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn PropertyId < Impl : ISpeechGrammarRuleStateTransitionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , propertyid : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn PropertyValue < Impl : ISpeechGrammarRuleStateTransitionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , propertyvalue : * mut super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn NextState < Impl : ISpeechGrammarRuleStateTransitionImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , nextstate : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Type : Type :: < Impl , IMPL_OFFSET > , Text : Text :: < Impl , IMPL_OFFSET > , Rule : Rule :: < Impl , IMPL_OFFSET > , Weight : Weight :: < Impl , IMPL_OFFSET > , PropertyName : PropertyName :: < Impl , IMPL_OFFSET > , PropertyId : PropertyId :: < Impl , IMPL_OFFSET > , PropertyValue : PropertyValue :: < Impl , IMPL_OFFSET > , NextState : NextState :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechGrammarRuleStateTransition < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechGrammarRuleStateTransitionsImpl < > : Sized + IDispatchImpl where { fn Count ( ) ; fn Item ( ) ; fn _NewEnum ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechGrammarRuleStateTransitionsVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechGrammarRuleStateTransitionsImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechGrammarRuleStateTransitionsVtbl < > { unsafe extern "system" fn Count < Impl : ISpeechGrammarRuleStateTransitionsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , count : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Item < Impl : ISpeechGrammarRuleStateTransitionsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , index : i32 , transition : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn _NewEnum < Impl : ISpeechGrammarRuleStateTransitionsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , enumvariant : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Count : Count :: < Impl , IMPL_OFFSET > , Item : Item :: < Impl , IMPL_OFFSET > , _NewEnum : _NewEnum :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechGrammarRuleStateTransitions < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechGrammarRulesImpl < > : Sized + IDispatchImpl where { fn Count ( ) ; fn FindRule ( ) ; fn Item ( ) ; fn _NewEnum ( ) ; fn Dynamic ( ) ; fn Add ( ) ; fn Commit ( ) ; fn CommitAndSave ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechGrammarRulesVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechGrammarRulesImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechGrammarRulesVtbl < > { unsafe extern "system" fn Count < Impl : ISpeechGrammarRulesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , count : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn FindRule < Impl : ISpeechGrammarRulesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , rulenameorid : :: core :: mem :: ManuallyDrop < super::super::System::Com:: VARIANT > , rule : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Item < Impl : ISpeechGrammarRulesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , index : i32 , rule : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn _NewEnum < Impl : ISpeechGrammarRulesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , enumvariant : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Dynamic < Impl : ISpeechGrammarRulesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , dynamic : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Add < Impl : ISpeechGrammarRulesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , rulename : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , attributes : SpeechRuleAttributes , ruleid : i32 , rule : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Commit < Impl : ISpeechGrammarRulesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CommitAndSave < Impl : ISpeechGrammarRulesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , errortext : * mut super::super::Foundation:: BSTR , savestream : * mut super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Count : Count :: < Impl , IMPL_OFFSET > , FindRule : FindRule :: < Impl , IMPL_OFFSET > , Item : Item :: < Impl , IMPL_OFFSET > , _NewEnum : _NewEnum :: < Impl , IMPL_OFFSET > , Dynamic : Dynamic :: < Impl , IMPL_OFFSET > , Add : Add :: < Impl , IMPL_OFFSET > , Commit : Commit :: < Impl , IMPL_OFFSET > , CommitAndSave : CommitAndSave :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechGrammarRules < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechLexiconImpl < > : Sized + IDispatchImpl where { fn GenerationId ( ) ; fn GetWords ( ) ; fn AddPronunciation ( ) ; fn AddPronunciationByPhoneIds ( ) ; fn RemovePronunciation ( ) ; fn RemovePronunciationByPhoneIds ( ) ; fn GetPronunciations ( ) ; fn GetGenerationChange ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechLexiconVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechLexiconImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechLexiconVtbl < > { unsafe extern "system" fn GenerationId < Impl : ISpeechLexiconImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , generationid : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetWords < Impl : ISpeechLexiconImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , flags : SpeechLexiconType , generationid : * mut i32 , words : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AddPronunciation < Impl : ISpeechLexiconImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , bstrword : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , langid : i32 , partofspeech : SpeechPartOfSpeech , bstrpronunciation : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AddPronunciationByPhoneIds < Impl : ISpeechLexiconImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , bstrword : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , langid : i32 , partofspeech : SpeechPartOfSpeech , phoneids : * const super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RemovePronunciation < Impl : ISpeechLexiconImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , bstrword : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , langid : i32 , partofspeech : SpeechPartOfSpeech , bstrpronunciation : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RemovePronunciationByPhoneIds < Impl : ISpeechLexiconImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , bstrword : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , langid : i32 , partofspeech : SpeechPartOfSpeech , phoneids : * const super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetPronunciations < Impl : ISpeechLexiconImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , bstrword : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , langid : i32 , typeflags : SpeechLexiconType , pppronunciations : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetGenerationChange < Impl : ISpeechLexiconImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , generationid : * mut i32 , ppwords : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GenerationId : GenerationId :: < Impl , IMPL_OFFSET > , GetWords : GetWords :: < Impl , IMPL_OFFSET > , AddPronunciation : AddPronunciation :: < Impl , IMPL_OFFSET > , AddPronunciationByPhoneIds : AddPronunciationByPhoneIds :: < Impl , IMPL_OFFSET > , RemovePronunciation : RemovePronunciation :: < Impl , IMPL_OFFSET > , RemovePronunciationByPhoneIds : RemovePronunciationByPhoneIds :: < Impl , IMPL_OFFSET > , GetPronunciations : GetPronunciations :: < Impl , IMPL_OFFSET > , GetGenerationChange : GetGenerationChange :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechLexicon < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechLexiconPronunciationImpl < > : Sized + IDispatchImpl where { fn Type ( ) ; fn LangId ( ) ; fn PartOfSpeech ( ) ; fn PhoneIds ( ) ; fn Symbolic ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechLexiconPronunciationVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechLexiconPronunciationImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechLexiconPronunciationVtbl < > { unsafe extern "system" fn Type < Impl : ISpeechLexiconPronunciationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , lexicontype : * mut SpeechLexiconType , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn LangId < Impl : ISpeechLexiconPronunciationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , langid : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn PartOfSpeech < Impl : ISpeechLexiconPronunciationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , partofspeech : * mut SpeechPartOfSpeech , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn PhoneIds < Impl : ISpeechLexiconPronunciationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , phoneids : * mut super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Symbolic < Impl : ISpeechLexiconPronunciationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , symbolic : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Type : Type :: < Impl , IMPL_OFFSET > , LangId : LangId :: < Impl , IMPL_OFFSET > , PartOfSpeech : PartOfSpeech :: < Impl , IMPL_OFFSET > , PhoneIds : PhoneIds :: < Impl , IMPL_OFFSET > , Symbolic : Symbolic :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechLexiconPronunciation < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechLexiconPronunciationsImpl < > : Sized + IDispatchImpl where { fn Count ( ) ; fn Item ( ) ; fn _NewEnum ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechLexiconPronunciationsVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechLexiconPronunciationsImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechLexiconPronunciationsVtbl < > { unsafe extern "system" fn Count < Impl : ISpeechLexiconPronunciationsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , count : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Item < Impl : ISpeechLexiconPronunciationsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , index : i32 , pronunciation : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn _NewEnum < Impl : ISpeechLexiconPronunciationsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , enumvariant : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Count : Count :: < Impl , IMPL_OFFSET > , Item : Item :: < Impl , IMPL_OFFSET > , _NewEnum : _NewEnum :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechLexiconPronunciations < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechLexiconWordImpl < > : Sized + IDispatchImpl where { fn LangId ( ) ; fn Type ( ) ; fn Word ( ) ; fn Pronunciations ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechLexiconWordVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechLexiconWordImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechLexiconWordVtbl < > { unsafe extern "system" fn LangId < Impl : ISpeechLexiconWordImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , langid : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Type < Impl : ISpeechLexiconWordImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , wordtype : * mut SpeechWordType , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Word < Impl : ISpeechLexiconWordImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , word : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Pronunciations < Impl : ISpeechLexiconWordImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pronunciations : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , LangId : LangId :: < Impl , IMPL_OFFSET > , Type : Type :: < Impl , IMPL_OFFSET > , Word : Word :: < Impl , IMPL_OFFSET > , Pronunciations : Pronunciations :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechLexiconWord < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechLexiconWordsImpl < > : Sized + IDispatchImpl where { fn Count ( ) ; fn Item ( ) ; fn _NewEnum ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechLexiconWordsVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechLexiconWordsImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechLexiconWordsVtbl < > { unsafe extern "system" fn Count < Impl : ISpeechLexiconWordsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , count : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Item < Impl : ISpeechLexiconWordsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , index : i32 , word : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn _NewEnum < Impl : ISpeechLexiconWordsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , enumvariant : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Count : Count :: < Impl , IMPL_OFFSET > , Item : Item :: < Impl , IMPL_OFFSET > , _NewEnum : _NewEnum :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechLexiconWords < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechMMSysAudioImpl < > : Sized + IDispatchImpl + ISpeechBaseStreamImpl + ISpeechAudioImpl where { fn DeviceId ( ) ; fn SetDeviceId ( ) ; fn LineId ( ) ; fn SetLineId ( ) ; fn MMHandle ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechMMSysAudioVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechMMSysAudioImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechMMSysAudioVtbl < > { unsafe extern "system" fn DeviceId < Impl : ISpeechMMSysAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , deviceid : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetDeviceId < Impl : ISpeechMMSysAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , deviceid : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn LineId < Impl : ISpeechMMSysAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , lineid : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetLineId < Impl : ISpeechMMSysAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , lineid : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn MMHandle < Impl : ISpeechMMSysAudioImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , handle : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpeechAudioVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , DeviceId : DeviceId :: < Impl , IMPL_OFFSET > , SetDeviceId : SetDeviceId :: < Impl , IMPL_OFFSET > , LineId : LineId :: < Impl , IMPL_OFFSET > , SetLineId : SetLineId :: < Impl , IMPL_OFFSET > , MMHandle : MMHandle :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechMMSysAudio < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechMemoryStreamImpl < > : Sized + IDispatchImpl + ISpeechBaseStreamImpl where { fn SetData ( ) ; fn GetData ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechMemoryStreamVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechMemoryStreamImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechMemoryStreamVtbl < > { unsafe extern "system" fn SetData < Impl : ISpeechMemoryStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , data : :: core :: mem :: ManuallyDrop < super::super::System::Com:: VARIANT > , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetData < Impl : ISpeechMemoryStreamImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdata : * mut super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpeechBaseStreamVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , SetData : SetData :: < Impl , IMPL_OFFSET > , GetData : GetData :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechMemoryStream < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechObjectTokenImpl < > : Sized + IDispatchImpl where { fn Id ( ) ; fn DataKey ( ) ; fn Category ( ) ; fn GetDescription ( ) ; fn SetId ( ) ; fn GetAttribute ( ) ; fn CreateInstance ( ) ; fn Remove ( ) ; fn GetStorageFileName ( ) ; fn RemoveStorageFileName ( ) ; fn IsUISupported ( ) ; fn DisplayUI ( ) ; fn MatchesAttributes ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechObjectTokenVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechObjectTokenImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechObjectTokenVtbl < > { unsafe extern "system" fn Id < Impl : ISpeechObjectTokenImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , objectid : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DataKey < Impl : ISpeechObjectTokenImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , datakey : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Category < Impl : ISpeechObjectTokenImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , category : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetDescription < Impl : ISpeechObjectTokenImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , locale : i32 , description : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetId < Impl : ISpeechObjectTokenImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , id : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , categoryid : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , createifnotexist : i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetAttribute < Impl : ISpeechObjectTokenImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , attributename : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , attributevalue : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateInstance < Impl : ISpeechObjectTokenImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , punkouter : * mut :: core :: ffi :: c_void , clscontext : SpeechTokenContext , object : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Remove < Impl : ISpeechObjectTokenImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , objectstorageclsid : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetStorageFileName < Impl : ISpeechObjectTokenImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , objectstorageclsid : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , keyname : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , filename : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , folder : SpeechTokenShellFolder , filepath : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RemoveStorageFileName < Impl : ISpeechObjectTokenImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , objectstorageclsid : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , keyname : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , deletefilea : i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsUISupported < Impl : ISpeechObjectTokenImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , typeofui : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , extradata : * const super::super::System::Com:: VARIANT , object : * mut :: core :: ffi :: c_void , supported : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DisplayUI < Impl : ISpeechObjectTokenImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hwnd : i32 , title : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , typeofui : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , extradata : * const super::super::System::Com:: VARIANT , object : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn MatchesAttributes < Impl : ISpeechObjectTokenImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , attributes : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , matches : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Id : Id :: < Impl , IMPL_OFFSET > , DataKey : DataKey :: < Impl , IMPL_OFFSET > , Category : Category :: < Impl , IMPL_OFFSET > , GetDescription : GetDescription :: < Impl , IMPL_OFFSET > , SetId : SetId :: < Impl , IMPL_OFFSET > , GetAttribute : GetAttribute :: < Impl , IMPL_OFFSET > , CreateInstance : CreateInstance :: < Impl , IMPL_OFFSET > , Remove : Remove :: < Impl , IMPL_OFFSET > , GetStorageFileName : GetStorageFileName :: < Impl , IMPL_OFFSET > , RemoveStorageFileName : RemoveStorageFileName :: < Impl , IMPL_OFFSET > , IsUISupported : IsUISupported :: < Impl , IMPL_OFFSET > , DisplayUI : DisplayUI :: < Impl , IMPL_OFFSET > , MatchesAttributes : MatchesAttributes :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechObjectToken < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechObjectTokenCategoryImpl < > : Sized + IDispatchImpl where { fn Id ( ) ; fn SetDefault ( ) ; fn Default ( ) ; fn SetId ( ) ; fn GetDataKey ( ) ; fn EnumerateTokens ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechObjectTokenCategoryVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechObjectTokenCategoryImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechObjectTokenCategoryVtbl < > { unsafe extern "system" fn Id < Impl : ISpeechObjectTokenCategoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , id : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetDefault < Impl : ISpeechObjectTokenCategoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , tokenid : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Default < Impl : ISpeechObjectTokenCategoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , tokenid : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetId < Impl : ISpeechObjectTokenCategoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , id : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , createifnotexist : i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetDataKey < Impl : ISpeechObjectTokenCategoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , location : SpeechDataKeyLocation , datakey : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EnumerateTokens < Impl : ISpeechObjectTokenCategoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , requiredattributes : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , optionalattributes : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , tokens : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Id : Id :: < Impl , IMPL_OFFSET > , SetDefault : SetDefault :: < Impl , IMPL_OFFSET > , Default : Default :: < Impl , IMPL_OFFSET > , SetId : SetId :: < Impl , IMPL_OFFSET > , GetDataKey : GetDataKey :: < Impl , IMPL_OFFSET > , EnumerateTokens : EnumerateTokens :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechObjectTokenCategory < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechObjectTokensImpl < > : Sized + IDispatchImpl where { fn Count ( ) ; fn Item ( ) ; fn _NewEnum ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechObjectTokensVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechObjectTokensImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechObjectTokensVtbl < > { unsafe extern "system" fn Count < Impl : ISpeechObjectTokensImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , count : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Item < Impl : ISpeechObjectTokensImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , index : i32 , token : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn _NewEnum < Impl : ISpeechObjectTokensImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppenumvariant : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Count : Count :: < Impl , IMPL_OFFSET > , Item : Item :: < Impl , IMPL_OFFSET > , _NewEnum : _NewEnum :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechObjectTokens < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechPhoneConverterImpl < > : Sized + IDispatchImpl where { fn LanguageId ( ) ; fn SetLanguageId ( ) ; fn PhoneToId ( ) ; fn IdToPhone ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechPhoneConverterVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechPhoneConverterImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechPhoneConverterVtbl < > { unsafe extern "system" fn LanguageId < Impl : ISpeechPhoneConverterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , languageid : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetLanguageId < Impl : ISpeechPhoneConverterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , languageid : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn PhoneToId < Impl : ISpeechPhoneConverterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , phonemes : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , idarray : * mut super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IdToPhone < Impl : ISpeechPhoneConverterImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , idarray : :: core :: mem :: ManuallyDrop < super::super::System::Com:: VARIANT > , phonemes : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , LanguageId : LanguageId :: < Impl , IMPL_OFFSET > , SetLanguageId : SetLanguageId :: < Impl , IMPL_OFFSET > , PhoneToId : PhoneToId :: < Impl , IMPL_OFFSET > , IdToPhone : IdToPhone :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechPhoneConverter < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechPhraseAlternateImpl < > : Sized + IDispatchImpl where { fn RecoResult ( ) ; fn StartElementInResult ( ) ; fn NumberOfElementsInResult ( ) ; fn PhraseInfo ( ) ; fn Commit ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechPhraseAlternateVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechPhraseAlternateImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechPhraseAlternateVtbl < > { unsafe extern "system" fn RecoResult < Impl : ISpeechPhraseAlternateImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , recoresult : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn StartElementInResult < Impl : ISpeechPhraseAlternateImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , startelement : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn NumberOfElementsInResult < Impl : ISpeechPhraseAlternateImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , numberofelements : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn PhraseInfo < Impl : ISpeechPhraseAlternateImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , phraseinfo : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Commit < Impl : ISpeechPhraseAlternateImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , RecoResult : RecoResult :: < Impl , IMPL_OFFSET > , StartElementInResult : StartElementInResult :: < Impl , IMPL_OFFSET > , NumberOfElementsInResult : NumberOfElementsInResult :: < Impl , IMPL_OFFSET > , PhraseInfo : PhraseInfo :: < Impl , IMPL_OFFSET > , Commit : Commit :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechPhraseAlternate < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechPhraseAlternatesImpl < > : Sized + IDispatchImpl where { fn Count ( ) ; fn Item ( ) ; fn _NewEnum ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechPhraseAlternatesVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechPhraseAlternatesImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechPhraseAlternatesVtbl < > { unsafe extern "system" fn Count < Impl : ISpeechPhraseAlternatesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , count : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Item < Impl : ISpeechPhraseAlternatesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , index : i32 , phrasealternate : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn _NewEnum < Impl : ISpeechPhraseAlternatesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , enumvariant : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Count : Count :: < Impl , IMPL_OFFSET > , Item : Item :: < Impl , IMPL_OFFSET > , _NewEnum : _NewEnum :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechPhraseAlternates < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechPhraseElementImpl < > : Sized + IDispatchImpl where { fn AudioTimeOffset ( ) ; fn AudioSizeTime ( ) ; fn AudioStreamOffset ( ) ; fn AudioSizeBytes ( ) ; fn RetainedStreamOffset ( ) ; fn RetainedSizeBytes ( ) ; fn DisplayText ( ) ; fn LexicalForm ( ) ; fn Pronunciation ( ) ; fn DisplayAttributes ( ) ; fn RequiredConfidence ( ) ; fn ActualConfidence ( ) ; fn EngineConfidence ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechPhraseElementVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechPhraseElementImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechPhraseElementVtbl < > { unsafe extern "system" fn AudioTimeOffset < Impl : ISpeechPhraseElementImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , audiotimeoffset : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AudioSizeTime < Impl : ISpeechPhraseElementImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , audiosizetime : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AudioStreamOffset < Impl : ISpeechPhraseElementImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , audiostreamoffset : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AudioSizeBytes < Impl : ISpeechPhraseElementImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , audiosizebytes : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RetainedStreamOffset < Impl : ISpeechPhraseElementImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , retainedstreamoffset : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RetainedSizeBytes < Impl : ISpeechPhraseElementImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , retainedsizebytes : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DisplayText < Impl : ISpeechPhraseElementImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , displaytext : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn LexicalForm < Impl : ISpeechPhraseElementImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , lexicalform : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Pronunciation < Impl : ISpeechPhraseElementImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pronunciation : * mut super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DisplayAttributes < Impl : ISpeechPhraseElementImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , displayattributes : * mut SpeechDisplayAttributes , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RequiredConfidence < Impl : ISpeechPhraseElementImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , requiredconfidence : * mut SpeechEngineConfidence , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ActualConfidence < Impl : ISpeechPhraseElementImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , actualconfidence : * mut SpeechEngineConfidence , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EngineConfidence < Impl : ISpeechPhraseElementImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , engineconfidence : * mut f32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , AudioTimeOffset : AudioTimeOffset :: < Impl , IMPL_OFFSET > , AudioSizeTime : AudioSizeTime :: < Impl , IMPL_OFFSET > , AudioStreamOffset : AudioStreamOffset :: < Impl , IMPL_OFFSET > , AudioSizeBytes : AudioSizeBytes :: < Impl , IMPL_OFFSET > , RetainedStreamOffset : RetainedStreamOffset :: < Impl , IMPL_OFFSET > , RetainedSizeBytes : RetainedSizeBytes :: < Impl , IMPL_OFFSET > , DisplayText : DisplayText :: < Impl , IMPL_OFFSET > , LexicalForm : LexicalForm :: < Impl , IMPL_OFFSET > , Pronunciation : Pronunciation :: < Impl , IMPL_OFFSET > , DisplayAttributes : DisplayAttributes :: < Impl , IMPL_OFFSET > , RequiredConfidence : RequiredConfidence :: < Impl , IMPL_OFFSET > , ActualConfidence : ActualConfidence :: < Impl , IMPL_OFFSET > , EngineConfidence : EngineConfidence :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechPhraseElement < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechPhraseElementsImpl < > : Sized + IDispatchImpl where { fn Count ( ) ; fn Item ( ) ; fn _NewEnum ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechPhraseElementsVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechPhraseElementsImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechPhraseElementsVtbl < > { unsafe extern "system" fn Count < Impl : ISpeechPhraseElementsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , count : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Item < Impl : ISpeechPhraseElementsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , index : i32 , element : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn _NewEnum < Impl : ISpeechPhraseElementsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , enumvariant : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Count : Count :: < Impl , IMPL_OFFSET > , Item : Item :: < Impl , IMPL_OFFSET > , _NewEnum : _NewEnum :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechPhraseElements < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechPhraseInfoImpl < > : Sized + IDispatchImpl where { fn LanguageId ( ) ; fn GrammarId ( ) ; fn StartTime ( ) ; fn AudioStreamPosition ( ) ; fn AudioSizeBytes ( ) ; fn RetainedSizeBytes ( ) ; fn AudioSizeTime ( ) ; fn Rule ( ) ; fn Properties ( ) ; fn Elements ( ) ; fn Replacements ( ) ; fn EngineId ( ) ; fn EnginePrivateData ( ) ; fn SaveToMemory ( ) ; fn GetText ( ) ; fn GetDisplayAttributes ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechPhraseInfoVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechPhraseInfoImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechPhraseInfoVtbl < > { unsafe extern "system" fn LanguageId < Impl : ISpeechPhraseInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , languageid : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GrammarId < Impl : ISpeechPhraseInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , grammarid : * mut super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn StartTime < Impl : ISpeechPhraseInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , starttime : * mut super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AudioStreamPosition < Impl : ISpeechPhraseInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , audiostreamposition : * mut super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AudioSizeBytes < Impl : ISpeechPhraseInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , paudiosizebytes : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RetainedSizeBytes < Impl : ISpeechPhraseInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , retainedsizebytes : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AudioSizeTime < Impl : ISpeechPhraseInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , audiosizetime : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Rule < Impl : ISpeechPhraseInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , rule : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Properties < Impl : ISpeechPhraseInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , properties : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Elements < Impl : ISpeechPhraseInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , elements : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Replacements < Impl : ISpeechPhraseInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , replacements : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EngineId < Impl : ISpeechPhraseInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , engineidguid : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EnginePrivateData < Impl : ISpeechPhraseInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , privatedata : * mut super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SaveToMemory < Impl : ISpeechPhraseInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , phraseblock : * mut super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetText < Impl : ISpeechPhraseInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , startelement : i32 , elements : i32 , usereplacements : i16 , text : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetDisplayAttributes < Impl : ISpeechPhraseInfoImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , startelement : i32 , elements : i32 , usereplacements : i16 , displayattributes : * mut SpeechDisplayAttributes , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , LanguageId : LanguageId :: < Impl , IMPL_OFFSET > , GrammarId : GrammarId :: < Impl , IMPL_OFFSET > , StartTime : StartTime :: < Impl , IMPL_OFFSET > , AudioStreamPosition : AudioStreamPosition :: < Impl , IMPL_OFFSET > , AudioSizeBytes : AudioSizeBytes :: < Impl , IMPL_OFFSET > , RetainedSizeBytes : RetainedSizeBytes :: < Impl , IMPL_OFFSET > , AudioSizeTime : AudioSizeTime :: < Impl , IMPL_OFFSET > , Rule : Rule :: < Impl , IMPL_OFFSET > , Properties : Properties :: < Impl , IMPL_OFFSET > , Elements : Elements :: < Impl , IMPL_OFFSET > , Replacements : Replacements :: < Impl , IMPL_OFFSET > , EngineId : EngineId :: < Impl , IMPL_OFFSET > , EnginePrivateData : EnginePrivateData :: < Impl , IMPL_OFFSET > , SaveToMemory : SaveToMemory :: < Impl , IMPL_OFFSET > , GetText : GetText :: < Impl , IMPL_OFFSET > , GetDisplayAttributes : GetDisplayAttributes :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechPhraseInfo < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechPhraseInfoBuilderImpl < > : Sized + IDispatchImpl where { fn RestorePhraseFromMemory ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechPhraseInfoBuilderVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechPhraseInfoBuilderImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechPhraseInfoBuilderVtbl < > { unsafe extern "system" fn RestorePhraseFromMemory < Impl : ISpeechPhraseInfoBuilderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , phraseinmemory : * const super::super::System::Com:: VARIANT , phraseinfo : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , RestorePhraseFromMemory : RestorePhraseFromMemory :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechPhraseInfoBuilder < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechPhrasePropertiesImpl < > : Sized + IDispatchImpl where { fn Count ( ) ; fn Item ( ) ; fn _NewEnum ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechPhrasePropertiesVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechPhrasePropertiesImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechPhrasePropertiesVtbl < > { unsafe extern "system" fn Count < Impl : ISpeechPhrasePropertiesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , count : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Item < Impl : ISpeechPhrasePropertiesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , index : i32 , property : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn _NewEnum < Impl : ISpeechPhrasePropertiesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , enumvariant : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Count : Count :: < Impl , IMPL_OFFSET > , Item : Item :: < Impl , IMPL_OFFSET > , _NewEnum : _NewEnum :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechPhraseProperties < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechPhrasePropertyImpl < > : Sized + IDispatchImpl where { fn Name ( ) ; fn Id ( ) ; fn Value ( ) ; fn FirstElement ( ) ; fn NumberOfElements ( ) ; fn EngineConfidence ( ) ; fn Confidence ( ) ; fn Parent ( ) ; fn Children ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechPhrasePropertyVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechPhrasePropertyImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechPhrasePropertyVtbl < > { unsafe extern "system" fn Name < Impl : ISpeechPhrasePropertyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , name : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Id < Impl : ISpeechPhrasePropertyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , id : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Value < Impl : ISpeechPhrasePropertyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , value : * mut super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn FirstElement < Impl : ISpeechPhrasePropertyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , firstelement : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn NumberOfElements < Impl : ISpeechPhrasePropertyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , numberofelements : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EngineConfidence < Impl : ISpeechPhrasePropertyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , confidence : * mut f32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Confidence < Impl : ISpeechPhrasePropertyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , confidence : * mut SpeechEngineConfidence , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Parent < Impl : ISpeechPhrasePropertyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , parentproperty : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Children < Impl : ISpeechPhrasePropertyImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , children : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Name : Name :: < Impl , IMPL_OFFSET > , Id : Id :: < Impl , IMPL_OFFSET > , Value : Value :: < Impl , IMPL_OFFSET > , FirstElement : FirstElement :: < Impl , IMPL_OFFSET > , NumberOfElements : NumberOfElements :: < Impl , IMPL_OFFSET > , EngineConfidence : EngineConfidence :: < Impl , IMPL_OFFSET > , Confidence : Confidence :: < Impl , IMPL_OFFSET > , Parent : Parent :: < Impl , IMPL_OFFSET > , Children : Children :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechPhraseProperty < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechPhraseReplacementImpl < > : Sized + IDispatchImpl where { fn DisplayAttributes ( ) ; fn Text ( ) ; fn FirstElement ( ) ; fn NumberOfElements ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechPhraseReplacementVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechPhraseReplacementImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechPhraseReplacementVtbl < > { unsafe extern "system" fn DisplayAttributes < Impl : ISpeechPhraseReplacementImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , displayattributes : * mut SpeechDisplayAttributes , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Text < Impl : ISpeechPhraseReplacementImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , text : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn FirstElement < Impl : ISpeechPhraseReplacementImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , firstelement : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn NumberOfElements < Impl : ISpeechPhraseReplacementImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , numberofelements : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , DisplayAttributes : DisplayAttributes :: < Impl , IMPL_OFFSET > , Text : Text :: < Impl , IMPL_OFFSET > , FirstElement : FirstElement :: < Impl , IMPL_OFFSET > , NumberOfElements : NumberOfElements :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechPhraseReplacement < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechPhraseReplacementsImpl < > : Sized + IDispatchImpl where { fn Count ( ) ; fn Item ( ) ; fn _NewEnum ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechPhraseReplacementsVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechPhraseReplacementsImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechPhraseReplacementsVtbl < > { unsafe extern "system" fn Count < Impl : ISpeechPhraseReplacementsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , count : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Item < Impl : ISpeechPhraseReplacementsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , index : i32 , reps : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn _NewEnum < Impl : ISpeechPhraseReplacementsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , enumvariant : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Count : Count :: < Impl , IMPL_OFFSET > , Item : Item :: < Impl , IMPL_OFFSET > , _NewEnum : _NewEnum :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechPhraseReplacements < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechPhraseRuleImpl < > : Sized + IDispatchImpl where { fn Name ( ) ; fn Id ( ) ; fn FirstElement ( ) ; fn NumberOfElements ( ) ; fn Parent ( ) ; fn Children ( ) ; fn Confidence ( ) ; fn EngineConfidence ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechPhraseRuleVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechPhraseRuleImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechPhraseRuleVtbl < > { unsafe extern "system" fn Name < Impl : ISpeechPhraseRuleImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , name : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Id < Impl : ISpeechPhraseRuleImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , id : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn FirstElement < Impl : ISpeechPhraseRuleImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , firstelement : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn NumberOfElements < Impl : ISpeechPhraseRuleImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , numberofelements : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Parent < Impl : ISpeechPhraseRuleImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , parent : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Children < Impl : ISpeechPhraseRuleImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , children : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Confidence < Impl : ISpeechPhraseRuleImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , actualconfidence : * mut SpeechEngineConfidence , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EngineConfidence < Impl : ISpeechPhraseRuleImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , engineconfidence : * mut f32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Name : Name :: < Impl , IMPL_OFFSET > , Id : Id :: < Impl , IMPL_OFFSET > , FirstElement : FirstElement :: < Impl , IMPL_OFFSET > , NumberOfElements : NumberOfElements :: < Impl , IMPL_OFFSET > , Parent : Parent :: < Impl , IMPL_OFFSET > , Children : Children :: < Impl , IMPL_OFFSET > , Confidence : Confidence :: < Impl , IMPL_OFFSET > , EngineConfidence : EngineConfidence :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechPhraseRule < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechPhraseRulesImpl < > : Sized + IDispatchImpl where { fn Count ( ) ; fn Item ( ) ; fn _NewEnum ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechPhraseRulesVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechPhraseRulesImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechPhraseRulesVtbl < > { unsafe extern "system" fn Count < Impl : ISpeechPhraseRulesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , count : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Item < Impl : ISpeechPhraseRulesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , index : i32 , rule : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn _NewEnum < Impl : ISpeechPhraseRulesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , enumvariant : * mut * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Count : Count :: < Impl , IMPL_OFFSET > , Item : Item :: < Impl , IMPL_OFFSET > , _NewEnum : _NewEnum :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechPhraseRules < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechRecoContextImpl < > : Sized + IDispatchImpl where { fn Recognizer ( ) ; fn AudioInputInterferenceStatus ( ) ; fn RequestedUIType ( ) ; fn putref_Voice ( ) ; fn Voice ( ) ; fn SetAllowVoiceFormatMatchingOnNextSet ( ) ; fn AllowVoiceFormatMatchingOnNextSet ( ) ; fn SetVoicePurgeEvent ( ) ; fn VoicePurgeEvent ( ) ; fn SetEventInterests ( ) ; fn EventInterests ( ) ; fn SetCmdMaxAlternates ( ) ; fn CmdMaxAlternates ( ) ; fn SetState ( ) ; fn State ( ) ; fn SetRetainedAudio ( ) ; fn RetainedAudio ( ) ; fn putref_RetainedAudioFormat ( ) ; fn RetainedAudioFormat ( ) ; fn Pause ( ) ; fn Resume ( ) ; fn CreateGrammar ( ) ; fn CreateResultFromMemory ( ) ; fn Bookmark ( ) ; fn SetAdaptationData ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechRecoContextVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechRecoContextImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechRecoContextVtbl < > { unsafe extern "system" fn Recognizer < Impl : ISpeechRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , recognizer : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AudioInputInterferenceStatus < Impl : ISpeechRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , interference : * mut SpeechInterference , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RequestedUIType < Impl : ISpeechRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , uitype : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn putref_Voice < Impl : ISpeechRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , voice : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Voice < Impl : ISpeechRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , voice : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetAllowVoiceFormatMatchingOnNextSet < Impl : ISpeechRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , allow : i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AllowVoiceFormatMatchingOnNextSet < Impl : ISpeechRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pallow : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetVoicePurgeEvent < Impl : ISpeechRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , eventinterest : SpeechRecoEvents , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn VoicePurgeEvent < Impl : ISpeechRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , eventinterest : * mut SpeechRecoEvents , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetEventInterests < Impl : ISpeechRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , eventinterest : SpeechRecoEvents , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EventInterests < Impl : ISpeechRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , eventinterest : * mut SpeechRecoEvents , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetCmdMaxAlternates < Impl : ISpeechRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , maxalternates : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CmdMaxAlternates < Impl : ISpeechRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , maxalternates : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetState < Impl : ISpeechRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , state : SpeechRecoContextState , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn State < Impl : ISpeechRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , state : * mut SpeechRecoContextState , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetRetainedAudio < Impl : ISpeechRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , option : SpeechRetainedAudioOptions , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RetainedAudio < Impl : ISpeechRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , option : * mut SpeechRetainedAudioOptions , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn putref_RetainedAudioFormat < Impl : ISpeechRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , format : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RetainedAudioFormat < Impl : ISpeechRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , format : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Pause < Impl : ISpeechRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Resume < Impl : ISpeechRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateGrammar < Impl : ISpeechRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , grammarid : :: core :: mem :: ManuallyDrop < super::super::System::Com:: VARIANT > , grammar : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateResultFromMemory < Impl : ISpeechRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , resultblock : * const super::super::System::Com:: VARIANT , result : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Bookmark < Impl : ISpeechRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , options : SpeechBookmarkOptions , streampos : :: core :: mem :: ManuallyDrop < super::super::System::Com:: VARIANT > , bookmarkid : :: core :: mem :: ManuallyDrop < super::super::System::Com:: VARIANT > , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetAdaptationData < Impl : ISpeechRecoContextImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , adaptationstring : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Recognizer : Recognizer :: < Impl , IMPL_OFFSET > , AudioInputInterferenceStatus : AudioInputInterferenceStatus :: < Impl , IMPL_OFFSET > , RequestedUIType : RequestedUIType :: < Impl , IMPL_OFFSET > , putref_Voice : putref_Voice :: < Impl , IMPL_OFFSET > , Voice : Voice :: < Impl , IMPL_OFFSET > , SetAllowVoiceFormatMatchingOnNextSet : SetAllowVoiceFormatMatchingOnNextSet :: < Impl , IMPL_OFFSET > , AllowVoiceFormatMatchingOnNextSet : AllowVoiceFormatMatchingOnNextSet :: < Impl , IMPL_OFFSET > , SetVoicePurgeEvent : SetVoicePurgeEvent :: < Impl , IMPL_OFFSET > , VoicePurgeEvent : VoicePurgeEvent :: < Impl , IMPL_OFFSET > , SetEventInterests : SetEventInterests :: < Impl , IMPL_OFFSET > , EventInterests : EventInterests :: < Impl , IMPL_OFFSET > , SetCmdMaxAlternates : SetCmdMaxAlternates :: < Impl , IMPL_OFFSET > , CmdMaxAlternates : CmdMaxAlternates :: < Impl , IMPL_OFFSET > , SetState : SetState :: < Impl , IMPL_OFFSET > , State : State :: < Impl , IMPL_OFFSET > , SetRetainedAudio : SetRetainedAudio :: < Impl , IMPL_OFFSET > , RetainedAudio : RetainedAudio :: < Impl , IMPL_OFFSET > , putref_RetainedAudioFormat : putref_RetainedAudioFormat :: < Impl , IMPL_OFFSET > , RetainedAudioFormat : RetainedAudioFormat :: < Impl , IMPL_OFFSET > , Pause : Pause :: < Impl , IMPL_OFFSET > , Resume : Resume :: < Impl , IMPL_OFFSET > , CreateGrammar : CreateGrammar :: < Impl , IMPL_OFFSET > , CreateResultFromMemory : CreateResultFromMemory :: < Impl , IMPL_OFFSET > , Bookmark : Bookmark :: < Impl , IMPL_OFFSET > , SetAdaptationData : SetAdaptationData :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechRecoContext < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechRecoGrammarImpl < > : Sized + IDispatchImpl where { fn Id ( ) ; fn RecoContext ( ) ; fn SetState ( ) ; fn State ( ) ; fn Rules ( ) ; fn Reset ( ) ; fn CmdLoadFromFile ( ) ; fn CmdLoadFromObject ( ) ; fn CmdLoadFromResource ( ) ; fn CmdLoadFromMemory ( ) ; fn CmdLoadFromProprietaryGrammar ( ) ; fn CmdSetRuleState ( ) ; fn CmdSetRuleIdState ( ) ; fn DictationLoad ( ) ; fn DictationUnload ( ) ; fn DictationSetState ( ) ; fn SetWordSequenceData ( ) ; fn SetTextSelection ( ) ; fn IsPronounceable ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechRecoGrammarVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechRecoGrammarImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechRecoGrammarVtbl < > { unsafe extern "system" fn Id < Impl : ISpeechRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , id : * mut super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RecoContext < Impl : ISpeechRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , recocontext : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetState < Impl : ISpeechRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , state : SpeechGrammarState , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn State < Impl : ISpeechRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , state : * mut SpeechGrammarState , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Rules < Impl : ISpeechRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , rules : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Reset < Impl : ISpeechRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , newlanguage : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CmdLoadFromFile < Impl : ISpeechRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , filename : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , loadoption : SpeechLoadOption , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CmdLoadFromObject < Impl : ISpeechRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , classid : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , grammarname : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , loadoption : SpeechLoadOption , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CmdLoadFromResource < Impl : ISpeechRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hmodule : i32 , resourcename : :: core :: mem :: ManuallyDrop < super::super::System::Com:: VARIANT > , resourcetype : :: core :: mem :: ManuallyDrop < super::super::System::Com:: VARIANT > , languageid : i32 , loadoption : SpeechLoadOption , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CmdLoadFromMemory < Impl : ISpeechRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , grammardata : :: core :: mem :: ManuallyDrop < super::super::System::Com:: VARIANT > , loadoption : SpeechLoadOption , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CmdLoadFromProprietaryGrammar < Impl : ISpeechRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , proprietaryguid : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , proprietarystring : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , proprietarydata : :: core :: mem :: ManuallyDrop < super::super::System::Com:: VARIANT > , loadoption : SpeechLoadOption , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CmdSetRuleState < Impl : ISpeechRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , name : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , state : SpeechRuleState , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CmdSetRuleIdState < Impl : ISpeechRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ruleid : i32 , state : SpeechRuleState , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DictationLoad < Impl : ISpeechRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , topicname : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , loadoption : SpeechLoadOption , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DictationUnload < Impl : ISpeechRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DictationSetState < Impl : ISpeechRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , state : SpeechRuleState , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetWordSequenceData < Impl : ISpeechRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , text : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , textlength : i32 , info : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetTextSelection < Impl : ISpeechRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , info : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsPronounceable < Impl : ISpeechRecoGrammarImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , word : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , wordpronounceable : * mut SpeechWordPronounceable , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Id : Id :: < Impl , IMPL_OFFSET > , RecoContext : RecoContext :: < Impl , IMPL_OFFSET > , SetState : SetState :: < Impl , IMPL_OFFSET > , State : State :: < Impl , IMPL_OFFSET > , Rules : Rules :: < Impl , IMPL_OFFSET > , Reset : Reset :: < Impl , IMPL_OFFSET > , CmdLoadFromFile : CmdLoadFromFile :: < Impl , IMPL_OFFSET > , CmdLoadFromObject : CmdLoadFromObject :: < Impl , IMPL_OFFSET > , CmdLoadFromResource : CmdLoadFromResource :: < Impl , IMPL_OFFSET > , CmdLoadFromMemory : CmdLoadFromMemory :: < Impl , IMPL_OFFSET > , CmdLoadFromProprietaryGrammar : CmdLoadFromProprietaryGrammar :: < Impl , IMPL_OFFSET > , CmdSetRuleState : CmdSetRuleState :: < Impl , IMPL_OFFSET > , CmdSetRuleIdState : CmdSetRuleIdState :: < Impl , IMPL_OFFSET > , DictationLoad : DictationLoad :: < Impl , IMPL_OFFSET > , DictationUnload : DictationUnload :: < Impl , IMPL_OFFSET > , DictationSetState : DictationSetState :: < Impl , IMPL_OFFSET > , SetWordSequenceData : SetWordSequenceData :: < Impl , IMPL_OFFSET > , SetTextSelection : SetTextSelection :: < Impl , IMPL_OFFSET > , IsPronounceable : IsPronounceable :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechRecoGrammar < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechRecoResultImpl < > : Sized + IDispatchImpl where { fn RecoContext ( ) ; fn Times ( ) ; fn putref_AudioFormat ( ) ; fn AudioFormat ( ) ; fn PhraseInfo ( ) ; fn Alternates ( ) ; fn Audio ( ) ; fn SpeakAudio ( ) ; fn SaveToMemory ( ) ; fn DiscardResultInfo ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechRecoResultVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechRecoResultImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechRecoResultVtbl < > { unsafe extern "system" fn RecoContext < Impl : ISpeechRecoResultImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , recocontext : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Times < Impl : ISpeechRecoResultImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , times : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn putref_AudioFormat < Impl : ISpeechRecoResultImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , format : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AudioFormat < Impl : ISpeechRecoResultImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , format : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn PhraseInfo < Impl : ISpeechRecoResultImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , phraseinfo : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Alternates < Impl : ISpeechRecoResultImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , requestcount : i32 , startelement : i32 , elements : i32 , alternates : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Audio < Impl : ISpeechRecoResultImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , startelement : i32 , elements : i32 , stream : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SpeakAudio < Impl : ISpeechRecoResultImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , startelement : i32 , elements : i32 , flags : SpeechVoiceSpeakFlags , streamnumber : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SaveToMemory < Impl : ISpeechRecoResultImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , resultblock : * mut super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DiscardResultInfo < Impl : ISpeechRecoResultImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , valuetypes : SpeechDiscardType , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , RecoContext : RecoContext :: < Impl , IMPL_OFFSET > , Times : Times :: < Impl , IMPL_OFFSET > , putref_AudioFormat : putref_AudioFormat :: < Impl , IMPL_OFFSET > , AudioFormat : AudioFormat :: < Impl , IMPL_OFFSET > , PhraseInfo : PhraseInfo :: < Impl , IMPL_OFFSET > , Alternates : Alternates :: < Impl , IMPL_OFFSET > , Audio : Audio :: < Impl , IMPL_OFFSET > , SpeakAudio : SpeakAudio :: < Impl , IMPL_OFFSET > , SaveToMemory : SaveToMemory :: < Impl , IMPL_OFFSET > , DiscardResultInfo : DiscardResultInfo :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechRecoResult < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechRecoResult2Impl < > : Sized + IDispatchImpl + ISpeechRecoResultImpl where { fn SetTextFeedback ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechRecoResult2Vtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechRecoResult2Impl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechRecoResult2Vtbl < > { unsafe extern "system" fn SetTextFeedback < Impl : ISpeechRecoResult2Impl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , feedback : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , wassuccessful : i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpeechRecoResultVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , SetTextFeedback : SetTextFeedback :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechRecoResult2 < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechRecoResultDispatchImpl < > : Sized + IDispatchImpl where { fn RecoContext ( ) ; fn Times ( ) ; fn putref_AudioFormat ( ) ; fn AudioFormat ( ) ; fn PhraseInfo ( ) ; fn Alternates ( ) ; fn Audio ( ) ; fn SpeakAudio ( ) ; fn SaveToMemory ( ) ; fn DiscardResultInfo ( ) ; fn GetXMLResult ( ) ; fn GetXMLErrorInfo ( ) ; fn SetTextFeedback ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechRecoResultDispatchVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechRecoResultDispatchImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechRecoResultDispatchVtbl < > { unsafe extern "system" fn RecoContext < Impl : ISpeechRecoResultDispatchImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , recocontext : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Times < Impl : ISpeechRecoResultDispatchImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , times : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn putref_AudioFormat < Impl : ISpeechRecoResultDispatchImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , format : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AudioFormat < Impl : ISpeechRecoResultDispatchImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , format : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn PhraseInfo < Impl : ISpeechRecoResultDispatchImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , phraseinfo : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Alternates < Impl : ISpeechRecoResultDispatchImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , requestcount : i32 , startelement : i32 , elements : i32 , alternates : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Audio < Impl : ISpeechRecoResultDispatchImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , startelement : i32 , elements : i32 , stream : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SpeakAudio < Impl : ISpeechRecoResultDispatchImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , startelement : i32 , elements : i32 , flags : SpeechVoiceSpeakFlags , streamnumber : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SaveToMemory < Impl : ISpeechRecoResultDispatchImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , resultblock : * mut super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DiscardResultInfo < Impl : ISpeechRecoResultDispatchImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , valuetypes : SpeechDiscardType , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetXMLResult < Impl : ISpeechRecoResultDispatchImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , options : SPXMLRESULTOPTIONS , presult : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetXMLErrorInfo < Impl : ISpeechRecoResultDispatchImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , linenumber : * mut i32 , scriptline : * mut super::super::Foundation:: BSTR , source : * mut super::super::Foundation:: BSTR , description : * mut super::super::Foundation:: BSTR , resultcode : * mut :: windows :: core :: HRESULT , iserror : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetTextFeedback < Impl : ISpeechRecoResultDispatchImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , feedback : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , wassuccessful : i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , RecoContext : RecoContext :: < Impl , IMPL_OFFSET > , Times : Times :: < Impl , IMPL_OFFSET > , putref_AudioFormat : putref_AudioFormat :: < Impl , IMPL_OFFSET > , AudioFormat : AudioFormat :: < Impl , IMPL_OFFSET > , PhraseInfo : PhraseInfo :: < Impl , IMPL_OFFSET > , Alternates : Alternates :: < Impl , IMPL_OFFSET > , Audio : Audio :: < Impl , IMPL_OFFSET > , SpeakAudio : SpeakAudio :: < Impl , IMPL_OFFSET > , SaveToMemory : SaveToMemory :: < Impl , IMPL_OFFSET > , DiscardResultInfo : DiscardResultInfo :: < Impl , IMPL_OFFSET > , GetXMLResult : GetXMLResult :: < Impl , IMPL_OFFSET > , GetXMLErrorInfo : GetXMLErrorInfo :: < Impl , IMPL_OFFSET > , SetTextFeedback : SetTextFeedback :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechRecoResultDispatch < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechRecoResultTimesImpl < > : Sized + IDispatchImpl where { fn StreamTime ( ) ; fn Length ( ) ; fn TickCount ( ) ; fn OffsetFromStart ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechRecoResultTimesVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechRecoResultTimesImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechRecoResultTimesVtbl < > { unsafe extern "system" fn StreamTime < Impl : ISpeechRecoResultTimesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , time : * mut super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Length < Impl : ISpeechRecoResultTimesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , length : * mut super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn TickCount < Impl : ISpeechRecoResultTimesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , tickcount : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn OffsetFromStart < Impl : ISpeechRecoResultTimesImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , offsetfromstart : * mut super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , StreamTime : StreamTime :: < Impl , IMPL_OFFSET > , Length : Length :: < Impl , IMPL_OFFSET > , TickCount : TickCount :: < Impl , IMPL_OFFSET > , OffsetFromStart : OffsetFromStart :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechRecoResultTimes < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechRecognizerImpl < > : Sized + IDispatchImpl where { fn putref_Recognizer ( ) ; fn Recognizer ( ) ; fn SetAllowAudioInputFormatChangesOnNextSet ( ) ; fn AllowAudioInputFormatChangesOnNextSet ( ) ; fn putref_AudioInput ( ) ; fn AudioInput ( ) ; fn putref_AudioInputStream ( ) ; fn AudioInputStream ( ) ; fn IsShared ( ) ; fn SetState ( ) ; fn State ( ) ; fn Status ( ) ; fn putref_Profile ( ) ; fn Profile ( ) ; fn EmulateRecognition ( ) ; fn CreateRecoContext ( ) ; fn GetFormat ( ) ; fn SetPropertyNumber ( ) ; fn GetPropertyNumber ( ) ; fn SetPropertyString ( ) ; fn GetPropertyString ( ) ; fn IsUISupported ( ) ; fn DisplayUI ( ) ; fn GetRecognizers ( ) ; fn GetAudioInputs ( ) ; fn GetProfiles ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechRecognizerVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechRecognizerImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechRecognizerVtbl < > { unsafe extern "system" fn putref_Recognizer < Impl : ISpeechRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , recognizer : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Recognizer < Impl : ISpeechRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , recognizer : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetAllowAudioInputFormatChangesOnNextSet < Impl : ISpeechRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , allow : i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AllowAudioInputFormatChangesOnNextSet < Impl : ISpeechRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , allow : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn putref_AudioInput < Impl : ISpeechRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , audioinput : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AudioInput < Impl : ISpeechRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , audioinput : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn putref_AudioInputStream < Impl : ISpeechRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , audioinputstream : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AudioInputStream < Impl : ISpeechRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , audioinputstream : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsShared < Impl : ISpeechRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , shared : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetState < Impl : ISpeechRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , state : SpeechRecognizerState , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn State < Impl : ISpeechRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , state : * mut SpeechRecognizerState , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Status < Impl : ISpeechRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , status : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn putref_Profile < Impl : ISpeechRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , profile : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Profile < Impl : ISpeechRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , profile : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EmulateRecognition < Impl : ISpeechRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , textelements : :: core :: mem :: ManuallyDrop < super::super::System::Com:: VARIANT > , elementdisplayattributes : * const super::super::System::Com:: VARIANT , languageid : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CreateRecoContext < Impl : ISpeechRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , newcontext : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetFormat < Impl : ISpeechRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , r#type : SpeechFormatType , format : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetPropertyNumber < Impl : ISpeechRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , name : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , value : i32 , supported : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetPropertyNumber < Impl : ISpeechRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , name : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , value : * mut i32 , supported : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetPropertyString < Impl : ISpeechRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , name : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , value : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , supported : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetPropertyString < Impl : ISpeechRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , name : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , value : * mut super::super::Foundation:: BSTR , supported : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsUISupported < Impl : ISpeechRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , typeofui : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , extradata : * const super::super::System::Com:: VARIANT , supported : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DisplayUI < Impl : ISpeechRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hwndparent : i32 , title : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , typeofui : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , extradata : * const super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetRecognizers < Impl : ISpeechRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , requiredattributes : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , optionalattributes : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , objecttokens : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetAudioInputs < Impl : ISpeechRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , requiredattributes : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , optionalattributes : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , objecttokens : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetProfiles < Impl : ISpeechRecognizerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , requiredattributes : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , optionalattributes : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , objecttokens : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , putref_Recognizer : putref_Recognizer :: < Impl , IMPL_OFFSET > , Recognizer : Recognizer :: < Impl , IMPL_OFFSET > , SetAllowAudioInputFormatChangesOnNextSet : SetAllowAudioInputFormatChangesOnNextSet :: < Impl , IMPL_OFFSET > , AllowAudioInputFormatChangesOnNextSet : AllowAudioInputFormatChangesOnNextSet :: < Impl , IMPL_OFFSET > , putref_AudioInput : putref_AudioInput :: < Impl , IMPL_OFFSET > , AudioInput : AudioInput :: < Impl , IMPL_OFFSET > , putref_AudioInputStream : putref_AudioInputStream :: < Impl , IMPL_OFFSET > , AudioInputStream : AudioInputStream :: < Impl , IMPL_OFFSET > , IsShared : IsShared :: < Impl , IMPL_OFFSET > , SetState : SetState :: < Impl , IMPL_OFFSET > , State : State :: < Impl , IMPL_OFFSET > , Status : Status :: < Impl , IMPL_OFFSET > , putref_Profile : putref_Profile :: < Impl , IMPL_OFFSET > , Profile : Profile :: < Impl , IMPL_OFFSET > , EmulateRecognition : EmulateRecognition :: < Impl , IMPL_OFFSET > , CreateRecoContext : CreateRecoContext :: < Impl , IMPL_OFFSET > , GetFormat : GetFormat :: < Impl , IMPL_OFFSET > , SetPropertyNumber : SetPropertyNumber :: < Impl , IMPL_OFFSET > , GetPropertyNumber : GetPropertyNumber :: < Impl , IMPL_OFFSET > , SetPropertyString : SetPropertyString :: < Impl , IMPL_OFFSET > , GetPropertyString : GetPropertyString :: < Impl , IMPL_OFFSET > , IsUISupported : IsUISupported :: < Impl , IMPL_OFFSET > , DisplayUI : DisplayUI :: < Impl , IMPL_OFFSET > , GetRecognizers : GetRecognizers :: < Impl , IMPL_OFFSET > , GetAudioInputs : GetAudioInputs :: < Impl , IMPL_OFFSET > , GetProfiles : GetProfiles :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechRecognizer < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechRecognizerStatusImpl < > : Sized + IDispatchImpl where { fn AudioStatus ( ) ; fn CurrentStreamPosition ( ) ; fn CurrentStreamNumber ( ) ; fn NumberOfActiveRules ( ) ; fn ClsidEngine ( ) ; fn SupportedLanguages ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechRecognizerStatusVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechRecognizerStatusImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechRecognizerStatusVtbl < > { unsafe extern "system" fn AudioStatus < Impl : ISpeechRecognizerStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , audiostatus : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CurrentStreamPosition < Impl : ISpeechRecognizerStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcurrentstreampos : * mut super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CurrentStreamNumber < Impl : ISpeechRecognizerStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , streamnumber : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn NumberOfActiveRules < Impl : ISpeechRecognizerStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , numberofactiverules : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ClsidEngine < Impl : ISpeechRecognizerStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , clsidengine : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SupportedLanguages < Impl : ISpeechRecognizerStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , supportedlanguages : * mut super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , AudioStatus : AudioStatus :: < Impl , IMPL_OFFSET > , CurrentStreamPosition : CurrentStreamPosition :: < Impl , IMPL_OFFSET > , CurrentStreamNumber : CurrentStreamNumber :: < Impl , IMPL_OFFSET > , NumberOfActiveRules : NumberOfActiveRules :: < Impl , IMPL_OFFSET > , ClsidEngine : ClsidEngine :: < Impl , IMPL_OFFSET > , SupportedLanguages : SupportedLanguages :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechRecognizerStatus < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechResourceLoaderImpl < > : Sized + IDispatchImpl where { fn LoadResource ( ) ; fn GetLocalCopy ( ) ; fn ReleaseLocalCopy ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechResourceLoaderVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechResourceLoaderImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechResourceLoaderVtbl < > { unsafe extern "system" fn LoadResource < Impl : ISpeechResourceLoaderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , bstrresourceuri : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , falwaysreload : i16 , pstream : * mut * mut :: core :: ffi :: c_void , pbstrmimetype : * mut super::super::Foundation:: BSTR , pfmodified : * mut i16 , pbstrredirecturl : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetLocalCopy < Impl : ISpeechResourceLoaderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , bstrresourceuri : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , pbstrlocalpath : * mut super::super::Foundation:: BSTR , pbstrmimetype : * mut super::super::Foundation:: BSTR , pbstrredirecturl : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ReleaseLocalCopy < Impl : ISpeechResourceLoaderImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbstrlocalpath : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , LoadResource : LoadResource :: < Impl , IMPL_OFFSET > , GetLocalCopy : GetLocalCopy :: < Impl , IMPL_OFFSET > , ReleaseLocalCopy : ReleaseLocalCopy :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechResourceLoader < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechTextSelectionInformationImpl < > : Sized + IDispatchImpl where { fn SetActiveOffset ( ) ; fn ActiveOffset ( ) ; fn SetActiveLength ( ) ; fn ActiveLength ( ) ; fn SetSelectionOffset ( ) ; fn SelectionOffset ( ) ; fn SetSelectionLength ( ) ; fn SelectionLength ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechTextSelectionInformationVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechTextSelectionInformationImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechTextSelectionInformationVtbl < > { unsafe extern "system" fn SetActiveOffset < Impl : ISpeechTextSelectionInformationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , activeoffset : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ActiveOffset < Impl : ISpeechTextSelectionInformationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , activeoffset : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetActiveLength < Impl : ISpeechTextSelectionInformationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , activelength : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ActiveLength < Impl : ISpeechTextSelectionInformationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , activelength : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetSelectionOffset < Impl : ISpeechTextSelectionInformationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , selectionoffset : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SelectionOffset < Impl : ISpeechTextSelectionInformationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , selectionoffset : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetSelectionLength < Impl : ISpeechTextSelectionInformationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , selectionlength : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SelectionLength < Impl : ISpeechTextSelectionInformationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , selectionlength : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , SetActiveOffset : SetActiveOffset :: < Impl , IMPL_OFFSET > , ActiveOffset : ActiveOffset :: < Impl , IMPL_OFFSET > , SetActiveLength : SetActiveLength :: < Impl , IMPL_OFFSET > , ActiveLength : ActiveLength :: < Impl , IMPL_OFFSET > , SetSelectionOffset : SetSelectionOffset :: < Impl , IMPL_OFFSET > , SelectionOffset : SelectionOffset :: < Impl , IMPL_OFFSET > , SetSelectionLength : SetSelectionLength :: < Impl , IMPL_OFFSET > , SelectionLength : SelectionLength :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechTextSelectionInformation < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechVoiceImpl < > : Sized + IDispatchImpl where { fn Status ( ) ; fn Voice ( ) ; fn putref_Voice ( ) ; fn AudioOutput ( ) ; fn putref_AudioOutput ( ) ; fn AudioOutputStream ( ) ; fn putref_AudioOutputStream ( ) ; fn Rate ( ) ; fn SetRate ( ) ; fn Volume ( ) ; fn SetVolume ( ) ; fn SetAllowAudioOutputFormatChangesOnNextSet ( ) ; fn AllowAudioOutputFormatChangesOnNextSet ( ) ; fn EventInterests ( ) ; fn SetEventInterests ( ) ; fn SetPriority ( ) ; fn Priority ( ) ; fn SetAlertBoundary ( ) ; fn AlertBoundary ( ) ; fn SetSynchronousSpeakTimeout ( ) ; fn SynchronousSpeakTimeout ( ) ; fn Speak ( ) ; fn SpeakStream ( ) ; fn Pause ( ) ; fn Resume ( ) ; fn Skip ( ) ; fn GetVoices ( ) ; fn GetAudioOutputs ( ) ; fn WaitUntilDone ( ) ; fn SpeakCompleteEvent ( ) ; fn IsUISupported ( ) ; fn DisplayUI ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechVoiceVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechVoiceImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechVoiceVtbl < > { unsafe extern "system" fn Status < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , status : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Voice < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , voice : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn putref_Voice < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , voice : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AudioOutput < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , audiooutput : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn putref_AudioOutput < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , audiooutput : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AudioOutputStream < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , audiooutputstream : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn putref_AudioOutputStream < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , audiooutputstream : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Rate < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , rate : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetRate < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , rate : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Volume < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , volume : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetVolume < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , volume : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetAllowAudioOutputFormatChangesOnNextSet < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , allow : i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AllowAudioOutputFormatChangesOnNextSet < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , allow : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn EventInterests < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , eventinterestflags : * mut SpeechVoiceEvents , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetEventInterests < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , eventinterestflags : SpeechVoiceEvents , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetPriority < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , priority : SpeechVoicePriority , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Priority < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , priority : * mut SpeechVoicePriority , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetAlertBoundary < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , boundary : SpeechVoiceEvents , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AlertBoundary < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , boundary : * mut SpeechVoiceEvents , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetSynchronousSpeakTimeout < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , mstimeout : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SynchronousSpeakTimeout < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , mstimeout : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Speak < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , text : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , flags : SpeechVoiceSpeakFlags , streamnumber : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SpeakStream < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , stream : :: windows :: core :: RawPtr , flags : SpeechVoiceSpeakFlags , streamnumber : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Pause < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Resume < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Skip < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , r#type : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , numitems : i32 , numskipped : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetVoices < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , requiredattributes : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , optionalattributes : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , objecttokens : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetAudioOutputs < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , requiredattributes : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , optionalattributes : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , objecttokens : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn WaitUntilDone < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , mstimeout : i32 , done : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SpeakCompleteEvent < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , handle : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn IsUISupported < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , typeofui : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , extradata : * const super::super::System::Com:: VARIANT , supported : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DisplayUI < Impl : ISpeechVoiceImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hwndparent : i32 , title : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , typeofui : :: core :: mem :: ManuallyDrop < super::super::Foundation:: BSTR > , extradata : * const super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Status : Status :: < Impl , IMPL_OFFSET > , Voice : Voice :: < Impl , IMPL_OFFSET > , putref_Voice : putref_Voice :: < Impl , IMPL_OFFSET > , AudioOutput : AudioOutput :: < Impl , IMPL_OFFSET > , putref_AudioOutput : putref_AudioOutput :: < Impl , IMPL_OFFSET > , AudioOutputStream : AudioOutputStream :: < Impl , IMPL_OFFSET > , putref_AudioOutputStream : putref_AudioOutputStream :: < Impl , IMPL_OFFSET > , Rate : Rate :: < Impl , IMPL_OFFSET > , SetRate : SetRate :: < Impl , IMPL_OFFSET > , Volume : Volume :: < Impl , IMPL_OFFSET > , SetVolume : SetVolume :: < Impl , IMPL_OFFSET > , SetAllowAudioOutputFormatChangesOnNextSet : SetAllowAudioOutputFormatChangesOnNextSet :: < Impl , IMPL_OFFSET > , AllowAudioOutputFormatChangesOnNextSet : AllowAudioOutputFormatChangesOnNextSet :: < Impl , IMPL_OFFSET > , EventInterests : EventInterests :: < Impl , IMPL_OFFSET > , SetEventInterests : SetEventInterests :: < Impl , IMPL_OFFSET > , SetPriority : SetPriority :: < Impl , IMPL_OFFSET > , Priority : Priority :: < Impl , IMPL_OFFSET > , SetAlertBoundary : SetAlertBoundary :: < Impl , IMPL_OFFSET > , AlertBoundary : AlertBoundary :: < Impl , IMPL_OFFSET > , SetSynchronousSpeakTimeout : SetSynchronousSpeakTimeout :: < Impl , IMPL_OFFSET > , SynchronousSpeakTimeout : SynchronousSpeakTimeout :: < Impl , IMPL_OFFSET > , Speak : Speak :: < Impl , IMPL_OFFSET > , SpeakStream : SpeakStream :: < Impl , IMPL_OFFSET > , Pause : Pause :: < Impl , IMPL_OFFSET > , Resume : Resume :: < Impl , IMPL_OFFSET > , Skip : Skip :: < Impl , IMPL_OFFSET > , GetVoices : GetVoices :: < Impl , IMPL_OFFSET > , GetAudioOutputs : GetAudioOutputs :: < Impl , IMPL_OFFSET > , WaitUntilDone : WaitUntilDone :: < Impl , IMPL_OFFSET > , SpeakCompleteEvent : SpeakCompleteEvent :: < Impl , IMPL_OFFSET > , IsUISupported : IsUISupported :: < Impl , IMPL_OFFSET > , DisplayUI : DisplayUI :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechVoice < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechVoiceStatusImpl < > : Sized + IDispatchImpl where { fn CurrentStreamNumber ( ) ; fn LastStreamNumberQueued ( ) ; fn LastHResult ( ) ; fn RunningState ( ) ; fn InputWordPosition ( ) ; fn InputWordLength ( ) ; fn InputSentencePosition ( ) ; fn InputSentenceLength ( ) ; fn LastBookmark ( ) ; fn LastBookmarkId ( ) ; fn PhonemeId ( ) ; fn VisemeId ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechVoiceStatusVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechVoiceStatusImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechVoiceStatusVtbl < > { unsafe extern "system" fn CurrentStreamNumber < Impl : ISpeechVoiceStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , streamnumber : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn LastStreamNumberQueued < Impl : ISpeechVoiceStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , streamnumber : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn LastHResult < Impl : ISpeechVoiceStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hresult : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RunningState < Impl : ISpeechVoiceStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , state : * mut SpeechRunState , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn InputWordPosition < Impl : ISpeechVoiceStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , position : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn InputWordLength < Impl : ISpeechVoiceStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , length : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn InputSentencePosition < Impl : ISpeechVoiceStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , position : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn InputSentenceLength < Impl : ISpeechVoiceStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , length : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn LastBookmark < Impl : ISpeechVoiceStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , bookmark : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn LastBookmarkId < Impl : ISpeechVoiceStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , bookmarkid : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn PhonemeId < Impl : ISpeechVoiceStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , phoneid : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn VisemeId < Impl : ISpeechVoiceStatusImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , visemeid : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , CurrentStreamNumber : CurrentStreamNumber :: < Impl , IMPL_OFFSET > , LastStreamNumberQueued : LastStreamNumberQueued :: < Impl , IMPL_OFFSET > , LastHResult : LastHResult :: < Impl , IMPL_OFFSET > , RunningState : RunningState :: < Impl , IMPL_OFFSET > , InputWordPosition : InputWordPosition :: < Impl , IMPL_OFFSET > , InputWordLength : InputWordLength :: < Impl , IMPL_OFFSET > , InputSentencePosition : InputSentencePosition :: < Impl , IMPL_OFFSET > , InputSentenceLength : InputSentenceLength :: < Impl , IMPL_OFFSET > , LastBookmark : LastBookmark :: < Impl , IMPL_OFFSET > , LastBookmarkId : LastBookmarkId :: < Impl , IMPL_OFFSET > , PhonemeId : PhonemeId :: < Impl , IMPL_OFFSET > , VisemeId : VisemeId :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechVoiceStatus < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechWaveFormatExImpl < > : Sized + IDispatchImpl where { fn FormatTag ( ) ; fn SetFormatTag ( ) ; fn Channels ( ) ; fn SetChannels ( ) ; fn SamplesPerSec ( ) ; fn SetSamplesPerSec ( ) ; fn AvgBytesPerSec ( ) ; fn SetAvgBytesPerSec ( ) ; fn BlockAlign ( ) ; fn SetBlockAlign ( ) ; fn BitsPerSample ( ) ; fn SetBitsPerSample ( ) ; fn ExtraData ( ) ; fn SetExtraData ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechWaveFormatExVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechWaveFormatExImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechWaveFormatExVtbl < > { unsafe extern "system" fn FormatTag < Impl : ISpeechWaveFormatExImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , formattag : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetFormatTag < Impl : ISpeechWaveFormatExImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , formattag : i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Channels < Impl : ISpeechWaveFormatExImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , channels : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetChannels < Impl : ISpeechWaveFormatExImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , channels : i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SamplesPerSec < Impl : ISpeechWaveFormatExImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , samplespersec : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetSamplesPerSec < Impl : ISpeechWaveFormatExImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , samplespersec : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AvgBytesPerSec < Impl : ISpeechWaveFormatExImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , avgbytespersec : * mut i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetAvgBytesPerSec < Impl : ISpeechWaveFormatExImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , avgbytespersec : i32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn BlockAlign < Impl : ISpeechWaveFormatExImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , blockalign : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetBlockAlign < Impl : ISpeechWaveFormatExImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , blockalign : i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn BitsPerSample < Impl : ISpeechWaveFormatExImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , bitspersample : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetBitsPerSample < Impl : ISpeechWaveFormatExImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , bitspersample : i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ExtraData < Impl : ISpeechWaveFormatExImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , extradata : * mut super::super::System::Com:: VARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetExtraData < Impl : ISpeechWaveFormatExImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , extradata : :: core :: mem :: ManuallyDrop < super::super::System::Com:: VARIANT > , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , FormatTag : FormatTag :: < Impl , IMPL_OFFSET > , SetFormatTag : SetFormatTag :: < Impl , IMPL_OFFSET > , Channels : Channels :: < Impl , IMPL_OFFSET > , SetChannels : SetChannels :: < Impl , IMPL_OFFSET > , SamplesPerSec : SamplesPerSec :: < Impl , IMPL_OFFSET > , SetSamplesPerSec : SetSamplesPerSec :: < Impl , IMPL_OFFSET > , AvgBytesPerSec : AvgBytesPerSec :: < Impl , IMPL_OFFSET > , SetAvgBytesPerSec : SetAvgBytesPerSec :: < Impl , IMPL_OFFSET > , BlockAlign : BlockAlign :: < Impl , IMPL_OFFSET > , SetBlockAlign : SetBlockAlign :: < Impl , IMPL_OFFSET > , BitsPerSample : BitsPerSample :: < Impl , IMPL_OFFSET > , SetBitsPerSample : SetBitsPerSample :: < Impl , IMPL_OFFSET > , ExtraData : ExtraData :: < Impl , IMPL_OFFSET > , SetExtraData : SetExtraData :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechWaveFormatEx < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ISpeechXMLRecoResultImpl < > : Sized + IDispatchImpl + ISpeechRecoResultImpl where { fn GetXMLResult ( ) ; fn GetXMLErrorInfo ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ISpeechXMLRecoResultVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ISpeechXMLRecoResultImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ISpeechXMLRecoResultVtbl < > { unsafe extern "system" fn GetXMLResult < Impl : ISpeechXMLRecoResultImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , options : SPXMLRESULTOPTIONS , presult : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetXMLErrorInfo < Impl : ISpeechXMLRecoResultImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , linenumber : * mut i32 , scriptline : * mut super::super::Foundation:: BSTR , source : * mut super::super::Foundation:: BSTR , description : * mut super::super::Foundation:: BSTR , resultcode : * mut i32 , iserror : * mut i16 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ISpeechRecoResultVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetXMLResult : GetXMLResult :: < Impl , IMPL_OFFSET > , GetXMLErrorInfo : GetXMLErrorInfo :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ISpeechXMLRecoResult < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait _ISpeechRecoContextEventsImpl < > : Sized + IDispatchImpl where { } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > _ISpeechRecoContextEventsVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : _ISpeechRecoContextEventsImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> _ISpeechRecoContextEventsVtbl < > { Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < _ISpeechRecoContextEvents < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait _ISpeechVoiceEventsImpl < > : Sized + IDispatchImpl where { } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > _ISpeechVoiceEventsVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : _ISpeechVoiceEventsImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> _ISpeechVoiceEventsVtbl < > { Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < _ISpeechVoiceEvents < > as :: windows :: core :: Interface > :: IID } }
+pub trait IEnumSpObjectTokensImpl: Sized {
+    fn Next();
+    fn Skip();
+    fn Reset();
+    fn Clone();
+    fn Item();
+    fn GetCount();
+}
+impl IEnumSpObjectTokensVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IEnumSpObjectTokensImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IEnumSpObjectTokensVtbl {
+        unsafe extern "system" fn Next<Impl: IEnumSpObjectTokensImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, pelt: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Skip<Impl: IEnumSpObjectTokensImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Reset<Impl: IEnumSpObjectTokensImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Clone<Impl: IEnumSpObjectTokensImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: IEnumSpObjectTokensImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, pptoken: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCount<Impl: IEnumSpObjectTokensImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Next: Next::<Impl, IMPL_OFFSET>,
+            Skip: Skip::<Impl, IMPL_OFFSET>,
+            Reset: Reset::<Impl, IMPL_OFFSET>,
+            Clone: Clone::<Impl, IMPL_OFFSET>,
+            Item: Item::<Impl, IMPL_OFFSET>,
+            GetCount: GetCount::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IEnumSpObjectTokens as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub trait ISpAudioImpl: Sized + ISequentialStreamImpl + IStreamImpl + ISpStreamFormatImpl {
+    fn SetState();
+    fn SetFormat();
+    fn GetStatus();
+    fn SetBufferInfo();
+    fn GetBufferInfo();
+    fn GetDefaultFormat();
+    fn EventHandle();
+    fn GetVolumeLevel();
+    fn SetVolumeLevel();
+    fn GetBufferNotifySize();
+    fn SetBufferNotifySize();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ISpAudioVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpAudioImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpAudioVtbl {
+        unsafe extern "system" fn SetState<Impl: ISpAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newstate: SPAUDIOSTATE, ullreserved: u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetFormat<Impl: ISpAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguidfmtid: *const ::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetStatus<Impl: ISpAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatus: *mut SPAUDIOSTATUS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetBufferInfo<Impl: ISpAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffinfo: *const SPAUDIOBUFFERINFO) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetBufferInfo<Impl: ISpAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffinfo: *mut SPAUDIOBUFFERINFO) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDefaultFormat<Impl: ISpAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pformatid: *mut ::windows::core::GUID, ppcomemwaveformatex: *mut *mut super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EventHandle<Impl: ISpAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetVolumeLevel<Impl: ISpAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plevel: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetVolumeLevel<Impl: ISpAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetBufferNotifySize<Impl: ISpAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbsize: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetBufferNotifySize<Impl: ISpAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbsize: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ISpStreamFormatVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            SetState: SetState::<Impl, IMPL_OFFSET>,
+            SetFormat: SetFormat::<Impl, IMPL_OFFSET>,
+            GetStatus: GetStatus::<Impl, IMPL_OFFSET>,
+            SetBufferInfo: SetBufferInfo::<Impl, IMPL_OFFSET>,
+            GetBufferInfo: GetBufferInfo::<Impl, IMPL_OFFSET>,
+            GetDefaultFormat: GetDefaultFormat::<Impl, IMPL_OFFSET>,
+            EventHandle: EventHandle::<Impl, IMPL_OFFSET>,
+            GetVolumeLevel: GetVolumeLevel::<Impl, IMPL_OFFSET>,
+            SetVolumeLevel: SetVolumeLevel::<Impl, IMPL_OFFSET>,
+            GetBufferNotifySize: GetBufferNotifySize::<Impl, IMPL_OFFSET>,
+            SetBufferNotifySize: SetBufferNotifySize::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpAudio as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpContainerLexiconImpl: Sized + ISpLexiconImpl {
+    fn AddLexicon();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpContainerLexiconVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpContainerLexiconImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpContainerLexiconVtbl {
+        unsafe extern "system" fn AddLexicon<Impl: ISpContainerLexiconImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddlexicon: ::windows::core::RawPtr, dwflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ISpLexiconVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), AddLexicon: AddLexicon::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpContainerLexicon as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpDataKeyImpl: Sized {
+    fn SetData();
+    fn GetData();
+    fn SetStringValue();
+    fn GetStringValue();
+    fn SetDWORD();
+    fn GetDWORD();
+    fn OpenKey();
+    fn CreateKey();
+    fn DeleteKey();
+    fn DeleteValue();
+    fn EnumKeys();
+    fn EnumValues();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpDataKeyVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpDataKeyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpDataKeyVtbl {
+        unsafe extern "system" fn SetData<Impl: ISpDataKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszvaluename: super::super::Foundation::PWSTR, cbdata: u32, pdata: *const u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetData<Impl: ISpDataKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszvaluename: super::super::Foundation::PWSTR, pcbdata: *mut u32, pdata: *mut u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetStringValue<Impl: ISpDataKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszvaluename: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetStringValue<Impl: ISpDataKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszvaluename: super::super::Foundation::PWSTR, ppszvalue: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDWORD<Impl: ISpDataKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszvaluename: super::super::Foundation::PWSTR, dwvalue: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDWORD<Impl: ISpDataKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszvaluename: super::super::Foundation::PWSTR, pdwvalue: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OpenKey<Impl: ISpDataKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszsubkeyname: super::super::Foundation::PWSTR, ppsubkey: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateKey<Impl: ISpDataKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszsubkey: super::super::Foundation::PWSTR, ppsubkey: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DeleteKey<Impl: ISpDataKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszsubkey: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DeleteValue<Impl: ISpDataKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszvaluename: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnumKeys<Impl: ISpDataKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, ppszsubkeyname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnumValues<Impl: ISpDataKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, ppszvaluename: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SetData: SetData::<Impl, IMPL_OFFSET>,
+            GetData: GetData::<Impl, IMPL_OFFSET>,
+            SetStringValue: SetStringValue::<Impl, IMPL_OFFSET>,
+            GetStringValue: GetStringValue::<Impl, IMPL_OFFSET>,
+            SetDWORD: SetDWORD::<Impl, IMPL_OFFSET>,
+            GetDWORD: GetDWORD::<Impl, IMPL_OFFSET>,
+            OpenKey: OpenKey::<Impl, IMPL_OFFSET>,
+            CreateKey: CreateKey::<Impl, IMPL_OFFSET>,
+            DeleteKey: DeleteKey::<Impl, IMPL_OFFSET>,
+            DeleteValue: DeleteValue::<Impl, IMPL_OFFSET>,
+            EnumKeys: EnumKeys::<Impl, IMPL_OFFSET>,
+            EnumValues: EnumValues::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpDataKey as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpDisplayAlternatesImpl: Sized {
+    fn GetDisplayAlternates();
+    fn SetFullStopTrailSpace();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpDisplayAlternatesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpDisplayAlternatesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpDisplayAlternatesVtbl {
+        unsafe extern "system" fn GetDisplayAlternates<Impl: ISpDisplayAlternatesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pphrase: *const SPDISPLAYPHRASE, crequestcount: u32, ppcomemphrases: *mut *mut SPDISPLAYPHRASE, pcphrasesreturned: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetFullStopTrailSpace<Impl: ISpDisplayAlternatesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ultrailspace: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetDisplayAlternates: GetDisplayAlternates::<Impl, IMPL_OFFSET>,
+            SetFullStopTrailSpace: SetFullStopTrailSpace::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpDisplayAlternates as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpEnginePronunciationImpl: Sized {
+    fn Normalize();
+    fn GetPronunciations();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpEnginePronunciationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpEnginePronunciationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpEnginePronunciationVtbl {
+        unsafe extern "system" fn Normalize<Impl: ISpEnginePronunciationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszword: super::super::Foundation::PWSTR, pszleftcontext: super::super::Foundation::PWSTR, pszrightcontext: super::super::Foundation::PWSTR, langid: u16, pnormalizationlist: *mut SPNORMALIZATIONLIST) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetPronunciations<Impl: ISpEnginePronunciationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszword: super::super::Foundation::PWSTR, pszleftcontext: super::super::Foundation::PWSTR, pszrightcontext: super::super::Foundation::PWSTR, langid: u16, penginepronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Normalize: Normalize::<Impl, IMPL_OFFSET>,
+            GetPronunciations: GetPronunciations::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpEnginePronunciation as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpEventSinkImpl: Sized {
+    fn AddEvents();
+    fn GetEventInterest();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpEventSinkVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpEventSinkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpEventSinkVtbl {
+        unsafe extern "system" fn AddEvents<Impl: ISpEventSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peventarray: *const SPEVENT, ulcount: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetEventInterest<Impl: ISpEventSinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulleventinterest: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            AddEvents: AddEvents::<Impl, IMPL_OFFSET>,
+            GetEventInterest: GetEventInterest::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpEventSink as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpEventSourceImpl: Sized + ISpNotifySourceImpl {
+    fn SetInterest();
+    fn GetEvents();
+    fn GetInfo();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpEventSourceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpEventSourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpEventSourceVtbl {
+        unsafe extern "system" fn SetInterest<Impl: ISpEventSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulleventinterest: u64, ullqueuedinterest: u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetEvents<Impl: ISpEventSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulcount: u32, peventarray: *mut SPEVENT, pulfetched: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetInfo<Impl: ISpEventSourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *mut SPEVENTSOURCEINFO) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ISpNotifySourceVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            SetInterest: SetInterest::<Impl, IMPL_OFFSET>,
+            GetEvents: GetEvents::<Impl, IMPL_OFFSET>,
+            GetInfo: GetInfo::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpEventSource as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpEventSource2Impl: Sized + ISpNotifySourceImpl + ISpEventSourceImpl {
+    fn GetEventsEx();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpEventSource2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpEventSource2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpEventSource2Vtbl {
+        unsafe extern "system" fn GetEventsEx<Impl: ISpEventSource2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulcount: u32, peventarray: *mut SPEVENTEX, pulfetched: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ISpEventSourceVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetEventsEx: GetEventsEx::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpEventSource2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpGrammarBuilderImpl: Sized {
+    fn ResetGrammar();
+    fn GetRule();
+    fn ClearRule();
+    fn CreateNewState();
+    fn AddWordTransition();
+    fn AddRuleTransition();
+    fn AddResource();
+    fn Commit();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpGrammarBuilderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpGrammarBuilderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpGrammarBuilderVtbl {
+        unsafe extern "system" fn ResetGrammar<Impl: ISpGrammarBuilderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newlanguage: u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetRule<Impl: ISpGrammarBuilderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszrulename: super::super::Foundation::PWSTR, dwruleid: u32, dwattributes: u32, fcreateifnotexist: super::super::Foundation::BOOL, phinitialstate: *mut *mut SPSTATEHANDLE__) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ClearRule<Impl: ISpGrammarBuilderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hstate: *mut SPSTATEHANDLE__) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateNewState<Impl: ISpGrammarBuilderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hstate: *mut SPSTATEHANDLE__, phstate: *mut *mut SPSTATEHANDLE__) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddWordTransition<Impl: ISpGrammarBuilderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hfromstate: *mut SPSTATEHANDLE__, htostate: *mut SPSTATEHANDLE__, psz: super::super::Foundation::PWSTR, pszseparators: super::super::Foundation::PWSTR, ewordtype: SPGRAMMARWORDTYPE, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddRuleTransition<Impl: ISpGrammarBuilderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hfromstate: *mut SPSTATEHANDLE__, htostate: *mut SPSTATEHANDLE__, hrule: *mut SPSTATEHANDLE__, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddResource<Impl: ISpGrammarBuilderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hrulestate: *mut SPSTATEHANDLE__, pszresourcename: super::super::Foundation::PWSTR, pszresourcevalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Commit<Impl: ISpGrammarBuilderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            ResetGrammar: ResetGrammar::<Impl, IMPL_OFFSET>,
+            GetRule: GetRule::<Impl, IMPL_OFFSET>,
+            ClearRule: ClearRule::<Impl, IMPL_OFFSET>,
+            CreateNewState: CreateNewState::<Impl, IMPL_OFFSET>,
+            AddWordTransition: AddWordTransition::<Impl, IMPL_OFFSET>,
+            AddRuleTransition: AddRuleTransition::<Impl, IMPL_OFFSET>,
+            AddResource: AddResource::<Impl, IMPL_OFFSET>,
+            Commit: Commit::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpGrammarBuilder as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpGrammarBuilder2Impl: Sized {
+    fn AddTextSubset();
+    fn SetPhoneticAlphabet();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpGrammarBuilder2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpGrammarBuilder2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpGrammarBuilder2Vtbl {
+        unsafe extern "system" fn AddTextSubset<Impl: ISpGrammarBuilder2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hfromstate: *mut SPSTATEHANDLE__, htostate: *mut SPSTATEHANDLE__, psz: super::super::Foundation::PWSTR, ematchmode: SPMATCHINGMODE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetPhoneticAlphabet<Impl: ISpGrammarBuilder2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phoneticalphabet: PHONETICALPHABET) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            AddTextSubset: AddTextSubset::<Impl, IMPL_OFFSET>,
+            SetPhoneticAlphabet: SetPhoneticAlphabet::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpGrammarBuilder2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpLexiconImpl: Sized {
+    fn GetPronunciations();
+    fn AddPronunciation();
+    fn RemovePronunciation();
+    fn GetGeneration();
+    fn GetGenerationChange();
+    fn GetWords();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpLexiconVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpLexiconImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpLexiconVtbl {
+        unsafe extern "system" fn GetPronunciations<Impl: ISpLexiconImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszword: super::super::Foundation::PWSTR, langid: u16, dwflags: u32, pwordpronunciationlist: *mut SPWORDPRONUNCIATIONLIST) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddPronunciation<Impl: ISpLexiconImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszword: super::super::Foundation::PWSTR, langid: u16, epartofspeech: SPPARTOFSPEECH, pszpronunciation: *const u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RemovePronunciation<Impl: ISpLexiconImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszword: super::super::Foundation::PWSTR, langid: u16, epartofspeech: SPPARTOFSPEECH, pszpronunciation: *const u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetGeneration<Impl: ISpLexiconImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwgeneration: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetGenerationChange<Impl: ISpLexiconImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, pdwgeneration: *mut u32, pwordlist: *mut SPWORDLIST) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetWords<Impl: ISpLexiconImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32, pdwgeneration: *mut u32, pdwcookie: *mut u32, pwordlist: *mut SPWORDLIST) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetPronunciations: GetPronunciations::<Impl, IMPL_OFFSET>,
+            AddPronunciation: AddPronunciation::<Impl, IMPL_OFFSET>,
+            RemovePronunciation: RemovePronunciation::<Impl, IMPL_OFFSET>,
+            GetGeneration: GetGeneration::<Impl, IMPL_OFFSET>,
+            GetGenerationChange: GetGenerationChange::<Impl, IMPL_OFFSET>,
+            GetWords: GetWords::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpLexicon as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub trait ISpMMSysAudioImpl: Sized + ISequentialStreamImpl + IStreamImpl + ISpStreamFormatImpl + ISpAudioImpl {
+    fn GetDeviceId();
+    fn SetDeviceId();
+    fn GetMMHandle();
+    fn GetLineId();
+    fn SetLineId();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ISpMMSysAudioVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpMMSysAudioImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpMMSysAudioVtbl {
+        unsafe extern "system" fn GetDeviceId<Impl: ISpMMSysAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pudeviceid: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDeviceId<Impl: ISpMMSysAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, udeviceid: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMMHandle<Impl: ISpMMSysAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetLineId<Impl: ISpMMSysAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulineid: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLineId<Impl: ISpMMSysAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulineid: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ISpAudioVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetDeviceId: GetDeviceId::<Impl, IMPL_OFFSET>,
+            SetDeviceId: SetDeviceId::<Impl, IMPL_OFFSET>,
+            GetMMHandle: GetMMHandle::<Impl, IMPL_OFFSET>,
+            GetLineId: GetLineId::<Impl, IMPL_OFFSET>,
+            SetLineId: SetLineId::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpMMSysAudio as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpNotifyCallbackImpl: Sized {
+    fn NotifyCallback();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpNotifyCallbackVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpNotifyCallbackImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpNotifyCallbackVtbl {
+        unsafe extern "system" fn NotifyCallback<Impl: ISpNotifyCallbackImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { NotifyCallback: NotifyCallback::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpNotifyCallback as ::windows::core::Interface>::IID
+    }
+}
+pub trait ISpNotifySinkImpl: Sized {
+    fn Notify();
+}
+impl ISpNotifySinkVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpNotifySinkImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpNotifySinkVtbl {
+        unsafe extern "system" fn Notify<Impl: ISpNotifySinkImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), Notify: Notify::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpNotifySink as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpNotifySourceImpl: Sized {
+    fn SetNotifySink();
+    fn SetNotifyWindowMessage();
+    fn SetNotifyCallbackFunction();
+    fn SetNotifyCallbackInterface();
+    fn SetNotifyWin32Event();
+    fn WaitForNotifyEvent();
+    fn GetNotifyEventHandle();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpNotifySourceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpNotifySourceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpNotifySourceVtbl {
+        unsafe extern "system" fn SetNotifySink<Impl: ISpNotifySourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnotifysink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetNotifyWindowMessage<Impl: ISpNotifySourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetNotifyCallbackFunction<Impl: ISpNotifySourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfncallback: *mut ::windows::core::RawPtr, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetNotifyCallbackInterface<Impl: ISpNotifySourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pspcallback: ::windows::core::RawPtr, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetNotifyWin32Event<Impl: ISpNotifySourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn WaitForNotifyEvent<Impl: ISpNotifySourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwmilliseconds: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetNotifyEventHandle<Impl: ISpNotifySourceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SetNotifySink: SetNotifySink::<Impl, IMPL_OFFSET>,
+            SetNotifyWindowMessage: SetNotifyWindowMessage::<Impl, IMPL_OFFSET>,
+            SetNotifyCallbackFunction: SetNotifyCallbackFunction::<Impl, IMPL_OFFSET>,
+            SetNotifyCallbackInterface: SetNotifyCallbackInterface::<Impl, IMPL_OFFSET>,
+            SetNotifyWin32Event: SetNotifyWin32Event::<Impl, IMPL_OFFSET>,
+            WaitForNotifyEvent: WaitForNotifyEvent::<Impl, IMPL_OFFSET>,
+            GetNotifyEventHandle: GetNotifyEventHandle::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpNotifySource as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpNotifyTranslatorImpl: Sized + ISpNotifySinkImpl {
+    fn InitWindowMessage();
+    fn InitCallback();
+    fn InitSpNotifyCallback();
+    fn InitWin32Event();
+    fn Wait();
+    fn GetEventHandle();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpNotifyTranslatorVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpNotifyTranslatorImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpNotifyTranslatorVtbl {
+        unsafe extern "system" fn InitWindowMessage<Impl: ISpNotifyTranslatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND, msg: u32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn InitCallback<Impl: ISpNotifyTranslatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfncallback: *mut ::windows::core::RawPtr, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn InitSpNotifyCallback<Impl: ISpNotifyTranslatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pspcallback: ::windows::core::RawPtr, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn InitWin32Event<Impl: ISpNotifyTranslatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hevent: super::super::Foundation::HANDLE, fclosehandleonrelease: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Wait<Impl: ISpNotifyTranslatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwmilliseconds: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetEventHandle<Impl: ISpNotifyTranslatorImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ISpNotifySinkVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            InitWindowMessage: InitWindowMessage::<Impl, IMPL_OFFSET>,
+            InitCallback: InitCallback::<Impl, IMPL_OFFSET>,
+            InitSpNotifyCallback: InitSpNotifyCallback::<Impl, IMPL_OFFSET>,
+            InitWin32Event: InitWin32Event::<Impl, IMPL_OFFSET>,
+            Wait: Wait::<Impl, IMPL_OFFSET>,
+            GetEventHandle: GetEventHandle::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpNotifyTranslator as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpObjectTokenImpl: Sized + ISpDataKeyImpl {
+    fn SetId();
+    fn GetId();
+    fn GetCategory();
+    fn CreateInstance();
+    fn GetStorageFileName();
+    fn RemoveStorageFileName();
+    fn Remove();
+    fn IsUISupported();
+    fn DisplayUI();
+    fn MatchesAttributes();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpObjectTokenVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpObjectTokenImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpObjectTokenVtbl {
+        unsafe extern "system" fn SetId<Impl: ISpObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcategoryid: super::super::Foundation::PWSTR, psztokenid: super::super::Foundation::PWSTR, fcreateifnotexist: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetId<Impl: ISpObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszcomemtokenid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCategory<Impl: ISpObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptokencategory: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateInstance<Impl: ISpObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, dwclscontext: u32, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetStorageFileName<Impl: ISpObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsidcaller: *const ::windows::core::GUID, pszvaluename: super::super::Foundation::PWSTR, pszfilenamespecifier: super::super::Foundation::PWSTR, nfolder: u32, ppszfilepath: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RemoveStorageFileName<Impl: ISpObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsidcaller: *const ::windows::core::GUID, pszkeyname: super::super::Foundation::PWSTR, fdeletefile: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Remove<Impl: ISpObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclsidcaller: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsUISupported<Impl: ISpObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztypeofui: super::super::Foundation::PWSTR, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, punkobject: *mut ::core::ffi::c_void, pfsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DisplayUI<Impl: ISpObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, psztitle: super::super::Foundation::PWSTR, psztypeofui: super::super::Foundation::PWSTR, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, punkobject: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MatchesAttributes<Impl: ISpObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszattributes: super::super::Foundation::PWSTR, pfmatches: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ISpDataKeyVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            SetId: SetId::<Impl, IMPL_OFFSET>,
+            GetId: GetId::<Impl, IMPL_OFFSET>,
+            GetCategory: GetCategory::<Impl, IMPL_OFFSET>,
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+            GetStorageFileName: GetStorageFileName::<Impl, IMPL_OFFSET>,
+            RemoveStorageFileName: RemoveStorageFileName::<Impl, IMPL_OFFSET>,
+            Remove: Remove::<Impl, IMPL_OFFSET>,
+            IsUISupported: IsUISupported::<Impl, IMPL_OFFSET>,
+            DisplayUI: DisplayUI::<Impl, IMPL_OFFSET>,
+            MatchesAttributes: MatchesAttributes::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpObjectToken as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpObjectTokenCategoryImpl: Sized + ISpDataKeyImpl {
+    fn SetId();
+    fn GetId();
+    fn GetDataKey();
+    fn EnumTokens();
+    fn SetDefaultTokenId();
+    fn GetDefaultTokenId();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpObjectTokenCategoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpObjectTokenCategoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpObjectTokenCategoryVtbl {
+        unsafe extern "system" fn SetId<Impl: ISpObjectTokenCategoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcategoryid: super::super::Foundation::PWSTR, fcreateifnotexist: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetId<Impl: ISpObjectTokenCategoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszcomemcategoryid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDataKey<Impl: ISpObjectTokenCategoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, spdkl: SPDATAKEYLOCATION, ppdatakey: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnumTokens<Impl: ISpObjectTokenCategoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pzsreqattribs: super::super::Foundation::PWSTR, pszoptattribs: super::super::Foundation::PWSTR, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDefaultTokenId<Impl: ISpObjectTokenCategoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztokenid: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDefaultTokenId<Impl: ISpObjectTokenCategoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszcomemtokenid: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ISpDataKeyVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            SetId: SetId::<Impl, IMPL_OFFSET>,
+            GetId: GetId::<Impl, IMPL_OFFSET>,
+            GetDataKey: GetDataKey::<Impl, IMPL_OFFSET>,
+            EnumTokens: EnumTokens::<Impl, IMPL_OFFSET>,
+            SetDefaultTokenId: SetDefaultTokenId::<Impl, IMPL_OFFSET>,
+            GetDefaultTokenId: GetDefaultTokenId::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpObjectTokenCategory as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpObjectTokenInitImpl: Sized + ISpDataKeyImpl + ISpObjectTokenImpl {
+    fn InitFromDataKey();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpObjectTokenInitVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpObjectTokenInitImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpObjectTokenInitVtbl {
+        unsafe extern "system" fn InitFromDataKey<Impl: ISpObjectTokenInitImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszcategoryid: super::super::Foundation::PWSTR, psztokenid: super::super::Foundation::PWSTR, pdatakey: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ISpObjectTokenVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), InitFromDataKey: InitFromDataKey::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpObjectTokenInit as ::windows::core::Interface>::IID
+    }
+}
+pub trait ISpObjectWithTokenImpl: Sized {
+    fn SetObjectToken();
+    fn GetObjectToken();
+}
+impl ISpObjectWithTokenVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpObjectWithTokenImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpObjectWithTokenVtbl {
+        unsafe extern "system" fn SetObjectToken<Impl: ISpObjectWithTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptoken: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetObjectToken<Impl: ISpObjectWithTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptoken: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SetObjectToken: SetObjectToken::<Impl, IMPL_OFFSET>,
+            GetObjectToken: GetObjectToken::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpObjectWithToken as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpPhoneConverterImpl: Sized + ISpObjectWithTokenImpl {
+    fn PhoneToId();
+    fn IdToPhone();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpPhoneConverterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpPhoneConverterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpPhoneConverterVtbl {
+        unsafe extern "system" fn PhoneToId<Impl: ISpPhoneConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszphone: super::super::Foundation::PWSTR, pid: *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IdToPhone<Impl: ISpPhoneConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pid: *const u16, pszphone: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ISpObjectWithTokenVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            PhoneToId: PhoneToId::<Impl, IMPL_OFFSET>,
+            IdToPhone: IdToPhone::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpPhoneConverter as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpPhoneticAlphabetConverterImpl: Sized {
+    fn GetLangId();
+    fn SetLangId();
+    fn SAPI2UPS();
+    fn UPS2SAPI();
+    fn GetMaxConvertLength();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpPhoneticAlphabetConverterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpPhoneticAlphabetConverterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpPhoneticAlphabetConverterVtbl {
+        unsafe extern "system" fn GetLangId<Impl: ISpPhoneticAlphabetConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plangid: *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLangId<Impl: ISpPhoneticAlphabetConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, langid: u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SAPI2UPS<Impl: ISpPhoneticAlphabetConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszsapiid: *const u16, pszupsid: *mut u16, cmaxlength: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UPS2SAPI<Impl: ISpPhoneticAlphabetConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszupsid: *const u16, pszsapiid: *mut u16, cmaxlength: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMaxConvertLength<Impl: ISpPhoneticAlphabetConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, csrclength: u32, bsapi2ups: super::super::Foundation::BOOL, pcmaxdestlength: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetLangId: GetLangId::<Impl, IMPL_OFFSET>,
+            SetLangId: SetLangId::<Impl, IMPL_OFFSET>,
+            SAPI2UPS: SAPI2UPS::<Impl, IMPL_OFFSET>,
+            UPS2SAPI: UPS2SAPI::<Impl, IMPL_OFFSET>,
+            GetMaxConvertLength: GetMaxConvertLength::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpPhoneticAlphabetConverter as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpPhoneticAlphabetSelectionImpl: Sized {
+    fn IsAlphabetUPS();
+    fn SetAlphabetToUPS();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpPhoneticAlphabetSelectionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpPhoneticAlphabetSelectionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpPhoneticAlphabetSelectionVtbl {
+        unsafe extern "system" fn IsAlphabetUPS<Impl: ISpPhoneticAlphabetSelectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfisups: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAlphabetToUPS<Impl: ISpPhoneticAlphabetSelectionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fforceups: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            IsAlphabetUPS: IsAlphabetUPS::<Impl, IMPL_OFFSET>,
+            SetAlphabetToUPS: SetAlphabetToUPS::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpPhoneticAlphabetSelection as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpPhraseImpl: Sized {
+    fn GetPhrase();
+    fn GetSerializedPhrase();
+    fn GetText();
+    fn Discard();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpPhraseVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpPhraseImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpPhraseVtbl {
+        unsafe extern "system" fn GetPhrase<Impl: ISpPhraseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcomemphrase: *mut *mut SPPHRASE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSerializedPhrase<Impl: ISpPhraseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcomemphrase: *mut *mut SPSERIALIZEDPHRASE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetText<Impl: ISpPhraseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulstart: u32, ulcount: u32, fusetextreplacements: super::super::Foundation::BOOL, ppszcomemtext: *mut super::super::Foundation::PWSTR, pbdisplayattributes: *mut u8) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Discard<Impl: ISpPhraseImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwvaluetypes: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetPhrase: GetPhrase::<Impl, IMPL_OFFSET>,
+            GetSerializedPhrase: GetSerializedPhrase::<Impl, IMPL_OFFSET>,
+            GetText: GetText::<Impl, IMPL_OFFSET>,
+            Discard: Discard::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpPhrase as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpPhrase2Impl: Sized + ISpPhraseImpl {
+    fn GetXMLResult();
+    fn GetXMLErrorInfo();
+    fn GetAudio();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpPhrase2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpPhrase2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpPhrase2Vtbl {
+        unsafe extern "system" fn GetXMLResult<Impl: ISpPhrase2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszcomemxmlresult: *mut super::super::Foundation::PWSTR, options: SPXMLRESULTOPTIONS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetXMLErrorInfo<Impl: ISpPhrase2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psemanticerrorinfo: *mut SPSEMANTICERRORINFO) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetAudio<Impl: ISpPhrase2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulstartelement: u32, celements: u32, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ISpPhraseVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetXMLResult: GetXMLResult::<Impl, IMPL_OFFSET>,
+            GetXMLErrorInfo: GetXMLErrorInfo::<Impl, IMPL_OFFSET>,
+            GetAudio: GetAudio::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpPhrase2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpPhraseAltImpl: Sized + ISpPhraseImpl {
+    fn GetAltInfo();
+    fn Commit();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpPhraseAltVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpPhraseAltImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpPhraseAltVtbl {
+        unsafe extern "system" fn GetAltInfo<Impl: ISpPhraseAltImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppparent: *mut ::windows::core::RawPtr, pulstartelementinparent: *mut u32, pcelementsinparent: *mut u32, pcelementsinalt: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Commit<Impl: ISpPhraseAltImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ISpPhraseVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetAltInfo: GetAltInfo::<Impl, IMPL_OFFSET>,
+            Commit: Commit::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpPhraseAlt as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpPropertiesImpl: Sized {
+    fn SetPropertyNum();
+    fn GetPropertyNum();
+    fn SetPropertyString();
+    fn GetPropertyString();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpPropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpPropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpPropertiesVtbl {
+        unsafe extern "system" fn SetPropertyNum<Impl: ISpPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: super::super::Foundation::PWSTR, lvalue: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetPropertyNum<Impl: ISpPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: super::super::Foundation::PWSTR, plvalue: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetPropertyString<Impl: ISpPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: super::super::Foundation::PWSTR, pvalue: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetPropertyString<Impl: ISpPropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: super::super::Foundation::PWSTR, ppcomemvalue: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SetPropertyNum: SetPropertyNum::<Impl, IMPL_OFFSET>,
+            GetPropertyNum: GetPropertyNum::<Impl, IMPL_OFFSET>,
+            SetPropertyString: SetPropertyString::<Impl, IMPL_OFFSET>,
+            GetPropertyString: GetPropertyString::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpProperties as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio"))]
+pub trait ISpRecoContextImpl: Sized + ISpNotifySourceImpl + ISpEventSourceImpl {
+    fn GetRecognizer();
+    fn CreateGrammar();
+    fn GetStatus();
+    fn GetMaxAlternates();
+    fn SetMaxAlternates();
+    fn SetAudioOptions();
+    fn GetAudioOptions();
+    fn DeserializeResult();
+    fn Bookmark();
+    fn SetAdaptationData();
+    fn Pause();
+    fn Resume();
+    fn SetVoice();
+    fn GetVoice();
+    fn SetVoicePurgeEvent();
+    fn GetVoicePurgeEvent();
+    fn SetContextState();
+    fn GetContextState();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio"))]
+impl ISpRecoContextVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpRecoContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpRecoContextVtbl {
+        unsafe extern "system" fn GetRecognizer<Impl: ISpRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprecognizer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateGrammar<Impl: ISpRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ullgrammarid: u64, ppgrammar: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetStatus<Impl: ISpRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatus: *mut SPRECOCONTEXTSTATUS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetMaxAlternates<Impl: ISpRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcalternates: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetMaxAlternates<Impl: ISpRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, calternates: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAudioOptions<Impl: ISpRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: SPAUDIOOPTIONS, paudioformatid: *const ::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetAudioOptions<Impl: ISpRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poptions: *mut SPAUDIOOPTIONS, paudioformatid: *mut ::windows::core::GUID, ppcomemwfex: *mut *mut super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DeserializeResult<Impl: ISpRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pserializedresult: *const SPSERIALIZEDRESULT, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Bookmark<Impl: ISpRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: SPBOOKMARKOPTIONS, ullstreamposition: u64, lparamevent: super::super::Foundation::LPARAM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAdaptationData<Impl: ISpRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, padaptationdata: super::super::Foundation::PWSTR, cch: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Pause<Impl: ISpRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Resume<Impl: ISpRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwreserved: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetVoice<Impl: ISpRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvoice: ::windows::core::RawPtr, fallowformatchanges: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetVoice<Impl: ISpRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppvoice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetVoicePurgeEvent<Impl: ISpRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulleventinterest: u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetVoicePurgeEvent<Impl: ISpRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulleventinterest: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetContextState<Impl: ISpRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, econtextstate: SPCONTEXTSTATE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetContextState<Impl: ISpRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pecontextstate: *mut SPCONTEXTSTATE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ISpEventSourceVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetRecognizer: GetRecognizer::<Impl, IMPL_OFFSET>,
+            CreateGrammar: CreateGrammar::<Impl, IMPL_OFFSET>,
+            GetStatus: GetStatus::<Impl, IMPL_OFFSET>,
+            GetMaxAlternates: GetMaxAlternates::<Impl, IMPL_OFFSET>,
+            SetMaxAlternates: SetMaxAlternates::<Impl, IMPL_OFFSET>,
+            SetAudioOptions: SetAudioOptions::<Impl, IMPL_OFFSET>,
+            GetAudioOptions: GetAudioOptions::<Impl, IMPL_OFFSET>,
+            DeserializeResult: DeserializeResult::<Impl, IMPL_OFFSET>,
+            Bookmark: Bookmark::<Impl, IMPL_OFFSET>,
+            SetAdaptationData: SetAdaptationData::<Impl, IMPL_OFFSET>,
+            Pause: Pause::<Impl, IMPL_OFFSET>,
+            Resume: Resume::<Impl, IMPL_OFFSET>,
+            SetVoice: SetVoice::<Impl, IMPL_OFFSET>,
+            GetVoice: GetVoice::<Impl, IMPL_OFFSET>,
+            SetVoicePurgeEvent: SetVoicePurgeEvent::<Impl, IMPL_OFFSET>,
+            GetVoicePurgeEvent: GetVoicePurgeEvent::<Impl, IMPL_OFFSET>,
+            SetContextState: SetContextState::<Impl, IMPL_OFFSET>,
+            GetContextState: GetContextState::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpRecoContext as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpRecoContext2Impl: Sized {
+    fn SetGrammarOptions();
+    fn GetGrammarOptions();
+    fn SetAdaptationData2();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpRecoContext2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpRecoContext2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpRecoContext2Vtbl {
+        unsafe extern "system" fn SetGrammarOptions<Impl: ISpRecoContext2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, egrammaroptions: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetGrammarOptions<Impl: ISpRecoContext2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pegrammaroptions: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAdaptationData2<Impl: ISpRecoContext2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, padaptationdata: super::super::Foundation::PWSTR, cch: u32, ptopicname: super::super::Foundation::PWSTR, eadaptationsettings: u32, erelevance: SPADAPTATIONRELEVANCE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SetGrammarOptions: SetGrammarOptions::<Impl, IMPL_OFFSET>,
+            GetGrammarOptions: GetGrammarOptions::<Impl, IMPL_OFFSET>,
+            SetAdaptationData2: SetAdaptationData2::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpRecoContext2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpRecoGrammarImpl: Sized + ISpGrammarBuilderImpl {
+    fn GetGrammarId();
+    fn GetRecoContext();
+    fn LoadCmdFromFile();
+    fn LoadCmdFromObject();
+    fn LoadCmdFromResource();
+    fn LoadCmdFromMemory();
+    fn LoadCmdFromProprietaryGrammar();
+    fn SetRuleState();
+    fn SetRuleIdState();
+    fn LoadDictation();
+    fn UnloadDictation();
+    fn SetDictationState();
+    fn SetWordSequenceData();
+    fn SetTextSelection();
+    fn IsPronounceable();
+    fn SetGrammarState();
+    fn SaveCmd();
+    fn GetGrammarState();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpRecoGrammarVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpRecoGrammarImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpRecoGrammarVtbl {
+        unsafe extern "system" fn GetGrammarId<Impl: ISpRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pullgrammarid: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetRecoContext<Impl: ISpRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprecoctxt: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LoadCmdFromFile<Impl: ISpRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszfilename: super::super::Foundation::PWSTR, options: SPLOADOPTIONS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LoadCmdFromObject<Impl: ISpRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rcid: *const ::windows::core::GUID, pszgrammarname: super::super::Foundation::PWSTR, options: SPLOADOPTIONS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LoadCmdFromResource<Impl: ISpRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hmodule: super::super::Foundation::HINSTANCE, pszresourcename: super::super::Foundation::PWSTR, pszresourcetype: super::super::Foundation::PWSTR, wlanguage: u16, options: SPLOADOPTIONS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LoadCmdFromMemory<Impl: ISpRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgrammar: *const SPBINARYGRAMMAR, options: SPLOADOPTIONS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LoadCmdFromProprietaryGrammar<Impl: ISpRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguidparam: *const ::windows::core::GUID, pszstringparam: super::super::Foundation::PWSTR, pvdataprarm: *const ::core::ffi::c_void, cbdatasize: u32, options: SPLOADOPTIONS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRuleState<Impl: ISpRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszname: super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void, newstate: SPRULESTATE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRuleIdState<Impl: ISpRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulruleid: u32, newstate: SPRULESTATE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LoadDictation<Impl: ISpRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztopicname: super::super::Foundation::PWSTR, options: SPLOADOPTIONS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UnloadDictation<Impl: ISpRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDictationState<Impl: ISpRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newstate: SPRULESTATE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetWordSequenceData<Impl: ISpRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptext: super::super::Foundation::PWSTR, cchtext: u32, pinfo: *const SPTEXTSELECTIONINFO) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetTextSelection<Impl: ISpRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinfo: *const SPTEXTSELECTIONINFO) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsPronounceable<Impl: ISpRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszword: super::super::Foundation::PWSTR, pwordpronounceable: *mut SPWORDPRONOUNCEABLE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetGrammarState<Impl: ISpRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, egrammarstate: SPGRAMMARSTATE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SaveCmd<Impl: ISpRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstream: ::windows::core::RawPtr, ppszcomemerrortext: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetGrammarState<Impl: ISpRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pegrammarstate: *mut SPGRAMMARSTATE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ISpGrammarBuilderVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetGrammarId: GetGrammarId::<Impl, IMPL_OFFSET>,
+            GetRecoContext: GetRecoContext::<Impl, IMPL_OFFSET>,
+            LoadCmdFromFile: LoadCmdFromFile::<Impl, IMPL_OFFSET>,
+            LoadCmdFromObject: LoadCmdFromObject::<Impl, IMPL_OFFSET>,
+            LoadCmdFromResource: LoadCmdFromResource::<Impl, IMPL_OFFSET>,
+            LoadCmdFromMemory: LoadCmdFromMemory::<Impl, IMPL_OFFSET>,
+            LoadCmdFromProprietaryGrammar: LoadCmdFromProprietaryGrammar::<Impl, IMPL_OFFSET>,
+            SetRuleState: SetRuleState::<Impl, IMPL_OFFSET>,
+            SetRuleIdState: SetRuleIdState::<Impl, IMPL_OFFSET>,
+            LoadDictation: LoadDictation::<Impl, IMPL_OFFSET>,
+            UnloadDictation: UnloadDictation::<Impl, IMPL_OFFSET>,
+            SetDictationState: SetDictationState::<Impl, IMPL_OFFSET>,
+            SetWordSequenceData: SetWordSequenceData::<Impl, IMPL_OFFSET>,
+            SetTextSelection: SetTextSelection::<Impl, IMPL_OFFSET>,
+            IsPronounceable: IsPronounceable::<Impl, IMPL_OFFSET>,
+            SetGrammarState: SetGrammarState::<Impl, IMPL_OFFSET>,
+            SaveCmd: SaveCmd::<Impl, IMPL_OFFSET>,
+            GetGrammarState: GetGrammarState::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpRecoGrammar as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_Urlmon"))]
+pub trait ISpRecoGrammar2Impl: Sized {
+    fn GetRules();
+    fn LoadCmdFromFile2();
+    fn LoadCmdFromMemory2();
+    fn SetRulePriority();
+    fn SetRuleWeight();
+    fn SetDictationWeight();
+    fn SetGrammarLoader();
+    fn SetSMLSecurityManager();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_Urlmon"))]
+impl ISpRecoGrammar2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpRecoGrammar2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpRecoGrammar2Vtbl {
+        unsafe extern "system" fn GetRules<Impl: ISpRecoGrammar2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcomemrules: *mut *mut SPRULE, punumrules: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LoadCmdFromFile2<Impl: ISpRecoGrammar2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszfilename: super::super::Foundation::PWSTR, options: SPLOADOPTIONS, pszsharinguri: super::super::Foundation::PWSTR, pszbaseuri: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LoadCmdFromMemory2<Impl: ISpRecoGrammar2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgrammar: *const SPBINARYGRAMMAR, options: SPLOADOPTIONS, pszsharinguri: super::super::Foundation::PWSTR, pszbaseuri: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRulePriority<Impl: ISpRecoGrammar2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszrulename: super::super::Foundation::PWSTR, ulruleid: u32, nrulepriority: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRuleWeight<Impl: ISpRecoGrammar2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszrulename: super::super::Foundation::PWSTR, ulruleid: u32, flweight: f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDictationWeight<Impl: ISpRecoGrammar2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flweight: f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetGrammarLoader<Impl: ISpRecoGrammar2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ploader: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSMLSecurityManager<Impl: ISpRecoGrammar2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psmlsecuritymanager: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetRules: GetRules::<Impl, IMPL_OFFSET>,
+            LoadCmdFromFile2: LoadCmdFromFile2::<Impl, IMPL_OFFSET>,
+            LoadCmdFromMemory2: LoadCmdFromMemory2::<Impl, IMPL_OFFSET>,
+            SetRulePriority: SetRulePriority::<Impl, IMPL_OFFSET>,
+            SetRuleWeight: SetRuleWeight::<Impl, IMPL_OFFSET>,
+            SetDictationWeight: SetDictationWeight::<Impl, IMPL_OFFSET>,
+            SetGrammarLoader: SetGrammarLoader::<Impl, IMPL_OFFSET>,
+            SetSMLSecurityManager: SetSMLSecurityManager::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpRecoGrammar2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpRecoResultImpl: Sized + ISpPhraseImpl {
+    fn GetResultTimes();
+    fn GetAlternates();
+    fn GetAudio();
+    fn SpeakAudio();
+    fn Serialize();
+    fn ScaleAudio();
+    fn GetRecoContext();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpRecoResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpRecoResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpRecoResultVtbl {
+        unsafe extern "system" fn GetResultTimes<Impl: ISpRecoResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptimes: *mut SPRECORESULTTIMES) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetAlternates<Impl: ISpRecoResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulstartelement: u32, celements: u32, ulrequestcount: u32, ppphrases: *mut ::windows::core::RawPtr, pcphrasesreturned: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetAudio<Impl: ISpRecoResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulstartelement: u32, celements: u32, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SpeakAudio<Impl: ISpRecoResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulstartelement: u32, celements: u32, dwflags: u32, pulstreamnumber: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Serialize<Impl: ISpRecoResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcomemserializedresult: *mut *mut SPSERIALIZEDRESULT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ScaleAudio<Impl: ISpRecoResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paudioformatid: *const ::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetRecoContext<Impl: ISpRecoResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprecocontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ISpPhraseVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetResultTimes: GetResultTimes::<Impl, IMPL_OFFSET>,
+            GetAlternates: GetAlternates::<Impl, IMPL_OFFSET>,
+            GetAudio: GetAudio::<Impl, IMPL_OFFSET>,
+            SpeakAudio: SpeakAudio::<Impl, IMPL_OFFSET>,
+            Serialize: Serialize::<Impl, IMPL_OFFSET>,
+            ScaleAudio: ScaleAudio::<Impl, IMPL_OFFSET>,
+            GetRecoContext: GetRecoContext::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpRecoResult as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpRecoResult2Impl: Sized + ISpPhraseImpl + ISpRecoResultImpl {
+    fn CommitAlternate();
+    fn CommitText();
+    fn SetTextFeedback();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpRecoResult2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpRecoResult2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpRecoResult2Vtbl {
+        unsafe extern "system" fn CommitAlternate<Impl: ISpRecoResult2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pphrasealt: ::windows::core::RawPtr, ppnewresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CommitText<Impl: ISpRecoResult2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulstartelement: u32, celements: u32, pszcorrecteddata: super::super::Foundation::PWSTR, ecommitflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetTextFeedback<Impl: ISpRecoResult2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszfeedback: super::super::Foundation::PWSTR, fsuccessful: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ISpRecoResultVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            CommitAlternate: CommitAlternate::<Impl, IMPL_OFFSET>,
+            CommitText: CommitText::<Impl, IMPL_OFFSET>,
+            SetTextFeedback: SetTextFeedback::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpRecoResult2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com"))]
+pub trait ISpRecognizerImpl: Sized + ISpPropertiesImpl {
+    fn SetRecognizer();
+    fn GetRecognizer();
+    fn SetInput();
+    fn GetInputObjectToken();
+    fn GetInputStream();
+    fn CreateRecoContext();
+    fn GetRecoProfile();
+    fn SetRecoProfile();
+    fn IsSharedInstance();
+    fn GetRecoState();
+    fn SetRecoState();
+    fn GetStatus();
+    fn GetFormat();
+    fn IsUISupported();
+    fn DisplayUI();
+    fn EmulateRecognition();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com"))]
+impl ISpRecognizerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpRecognizerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpRecognizerVtbl {
+        unsafe extern "system" fn SetRecognizer<Impl: ISpRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, precognizer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetRecognizer<Impl: ISpRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprecognizer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetInput<Impl: ISpRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkinput: *mut ::core::ffi::c_void, fallowformatchanges: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetInputObjectToken<Impl: ISpRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptoken: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetInputStream<Impl: ISpRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateRecoContext<Impl: ISpRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnewctxt: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetRecoProfile<Impl: ISpRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptoken: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRecoProfile<Impl: ISpRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptoken: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsSharedInstance<Impl: ISpRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetRecoState<Impl: ISpRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstate: *mut SPRECOSTATE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRecoState<Impl: ISpRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newstate: SPRECOSTATE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetStatus<Impl: ISpRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatus: *mut SPRECOGNIZERSTATUS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetFormat<Impl: ISpRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, waveformattype: SPWAVEFORMATTYPE, pformatid: *mut ::windows::core::GUID, ppcomemwfex: *mut *mut super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsUISupported<Impl: ISpRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztypeofui: super::super::Foundation::PWSTR, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, pfsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DisplayUI<Impl: ISpRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, psztitle: super::super::Foundation::PWSTR, psztypeofui: super::super::Foundation::PWSTR, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EmulateRecognition<Impl: ISpRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pphrase: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ISpPropertiesVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            SetRecognizer: SetRecognizer::<Impl, IMPL_OFFSET>,
+            GetRecognizer: GetRecognizer::<Impl, IMPL_OFFSET>,
+            SetInput: SetInput::<Impl, IMPL_OFFSET>,
+            GetInputObjectToken: GetInputObjectToken::<Impl, IMPL_OFFSET>,
+            GetInputStream: GetInputStream::<Impl, IMPL_OFFSET>,
+            CreateRecoContext: CreateRecoContext::<Impl, IMPL_OFFSET>,
+            GetRecoProfile: GetRecoProfile::<Impl, IMPL_OFFSET>,
+            SetRecoProfile: SetRecoProfile::<Impl, IMPL_OFFSET>,
+            IsSharedInstance: IsSharedInstance::<Impl, IMPL_OFFSET>,
+            GetRecoState: GetRecoState::<Impl, IMPL_OFFSET>,
+            SetRecoState: SetRecoState::<Impl, IMPL_OFFSET>,
+            GetStatus: GetStatus::<Impl, IMPL_OFFSET>,
+            GetFormat: GetFormat::<Impl, IMPL_OFFSET>,
+            IsUISupported: IsUISupported::<Impl, IMPL_OFFSET>,
+            DisplayUI: DisplayUI::<Impl, IMPL_OFFSET>,
+            EmulateRecognition: EmulateRecognition::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpRecognizer as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpRecognizer2Impl: Sized {
+    fn EmulateRecognitionEx();
+    fn SetTrainingState();
+    fn ResetAcousticModelAdaptation();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpRecognizer2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpRecognizer2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpRecognizer2Vtbl {
+        unsafe extern "system" fn EmulateRecognitionEx<Impl: ISpRecognizer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pphrase: ::windows::core::RawPtr, dwcompareflags: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetTrainingState<Impl: ISpRecognizer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fdoingtraining: super::super::Foundation::BOOL, fadaptfromtrainingdata: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ResetAcousticModelAdaptation<Impl: ISpRecognizer2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            EmulateRecognitionEx: EmulateRecognitionEx::<Impl, IMPL_OFFSET>,
+            SetTrainingState: SetTrainingState::<Impl, IMPL_OFFSET>,
+            ResetAcousticModelAdaptation: ResetAcousticModelAdaptation::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpRecognizer2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+pub trait ISpRegDataKeyImpl: Sized + ISpDataKeyImpl {
+    fn SetKey();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+impl ISpRegDataKeyVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpRegDataKeyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpRegDataKeyVtbl {
+        unsafe extern "system" fn SetKey<Impl: ISpRegDataKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkey: super::super::System::Registry::HKEY, freadonly: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ISpDataKeyVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), SetKey: SetKey::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpRegDataKey as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub trait ISpResourceManagerImpl: Sized + IServiceProviderImpl {
+    fn SetObject();
+    fn GetObject();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ISpResourceManagerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpResourceManagerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpResourceManagerVtbl {
+        unsafe extern "system" fn SetObject<Impl: ISpResourceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidserviceid: *const ::windows::core::GUID, punkobject: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetObject<Impl: ISpResourceManagerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guidserviceid: *const ::windows::core::GUID, objectclsid: *const ::windows::core::GUID, objectiid: *const ::windows::core::GUID, freleasewhenlastexternalrefreleased: super::super::Foundation::BOOL, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IServiceProviderVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            SetObject: SetObject::<Impl, IMPL_OFFSET>,
+            GetObject: GetObject::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpResourceManager as ::windows::core::Interface>::IID
+    }
+}
+pub trait ISpSerializeStateImpl: Sized {
+    fn GetSerializedState();
+    fn SetSerializedState();
+}
+impl ISpSerializeStateVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpSerializeStateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpSerializeStateVtbl {
+        unsafe extern "system" fn GetSerializedState<Impl: ISpSerializeStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppbdata: *mut *mut u8, pulsize: *mut u32, dwreserved: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSerializedState<Impl: ISpSerializeStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbdata: *const u8, ulsize: u32, dwreserved: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetSerializedState: GetSerializedState::<Impl, IMPL_OFFSET>,
+            SetSerializedState: SetSerializedState::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpSerializeState as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpShortcutImpl: Sized {
+    fn AddShortcut();
+    fn RemoveShortcut();
+    fn GetShortcuts();
+    fn GetGeneration();
+    fn GetWordsFromGenerationChange();
+    fn GetWords();
+    fn GetShortcutsForGeneration();
+    fn GetGenerationChange();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpShortcutVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpShortcutImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpShortcutVtbl {
+        unsafe extern "system" fn AddShortcut<Impl: ISpShortcutImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdisplay: super::super::Foundation::PWSTR, langid: u16, pszspoken: super::super::Foundation::PWSTR, shtype: SPSHORTCUTTYPE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RemoveShortcut<Impl: ISpShortcutImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszdisplay: super::super::Foundation::PWSTR, langid: u16, pszspoken: super::super::Foundation::PWSTR, shtype: SPSHORTCUTTYPE) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetShortcuts<Impl: ISpShortcutImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, langid: u16, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetGeneration<Impl: ISpShortcutImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwgeneration: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetWordsFromGenerationChange<Impl: ISpShortcutImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwgeneration: *mut u32, pwordlist: *mut SPWORDLIST) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetWords<Impl: ISpShortcutImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwgeneration: *mut u32, pdwcookie: *mut u32, pwordlist: *mut SPWORDLIST) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetShortcutsForGeneration<Impl: ISpShortcutImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwgeneration: *mut u32, pdwcookie: *mut u32, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetGenerationChange<Impl: ISpShortcutImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwgeneration: *mut u32, pshortcutpairlist: *mut SPSHORTCUTPAIRLIST) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            AddShortcut: AddShortcut::<Impl, IMPL_OFFSET>,
+            RemoveShortcut: RemoveShortcut::<Impl, IMPL_OFFSET>,
+            GetShortcuts: GetShortcuts::<Impl, IMPL_OFFSET>,
+            GetGeneration: GetGeneration::<Impl, IMPL_OFFSET>,
+            GetWordsFromGenerationChange: GetWordsFromGenerationChange::<Impl, IMPL_OFFSET>,
+            GetWords: GetWords::<Impl, IMPL_OFFSET>,
+            GetShortcutsForGeneration: GetShortcutsForGeneration::<Impl, IMPL_OFFSET>,
+            GetGenerationChange: GetGenerationChange::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpShortcut as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub trait ISpStreamImpl: Sized + ISequentialStreamImpl + IStreamImpl + ISpStreamFormatImpl {
+    fn SetBaseStream();
+    fn GetBaseStream();
+    fn BindToFile();
+    fn Close();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ISpStreamVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpStreamImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpStreamVtbl {
+        unsafe extern "system" fn SetBaseStream<Impl: ISpStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstream: ::windows::core::RawPtr, rguidformat: *const ::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetBaseStream<Impl: ISpStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BindToFile<Impl: ISpStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pszfilename: super::super::Foundation::PWSTR, emode: SPFILEMODE, pformatid: *const ::windows::core::GUID, pwaveformatex: *const super::Audio::WAVEFORMATEX, ulleventinterest: u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Close<Impl: ISpStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ISpStreamFormatVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            SetBaseStream: SetBaseStream::<Impl, IMPL_OFFSET>,
+            GetBaseStream: GetBaseStream::<Impl, IMPL_OFFSET>,
+            BindToFile: BindToFile::<Impl, IMPL_OFFSET>,
+            Close: Close::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpStream as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub trait ISpStreamFormatImpl: Sized + ISequentialStreamImpl + IStreamImpl {
+    fn GetFormat();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ISpStreamFormatVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpStreamFormatImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpStreamFormatVtbl {
+        unsafe extern "system" fn GetFormat<Impl: ISpStreamFormatImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pguidformatid: *const ::windows::core::GUID, ppcomemwaveformatex: *mut *mut super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: IStreamVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), GetFormat: GetFormat::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpStreamFormat as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+pub trait ISpStreamFormatConverterImpl: Sized + ISequentialStreamImpl + IStreamImpl + ISpStreamFormatImpl {
+    fn SetBaseStream();
+    fn GetBaseStream();
+    fn SetFormat();
+    fn ResetSeekPosition();
+    fn ScaleConvertedToBaseOffset();
+    fn ScaleBaseToConvertedOffset();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+impl ISpStreamFormatConverterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpStreamFormatConverterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpStreamFormatConverterVtbl {
+        unsafe extern "system" fn SetBaseStream<Impl: ISpStreamFormatConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstream: ::windows::core::RawPtr, fsetformattobasestreamformat: super::super::Foundation::BOOL, fwritetobasestream: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetBaseStream<Impl: ISpStreamFormatConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetFormat<Impl: ISpStreamFormatConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rguidformatidofconvertedstream: *const ::windows::core::GUID, pwaveformatexofconvertedstream: *const super::Audio::WAVEFORMATEX) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ResetSeekPosition<Impl: ISpStreamFormatConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ScaleConvertedToBaseOffset<Impl: ISpStreamFormatConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulloffsetconvertedstream: u64, pulloffsetbasestream: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ScaleBaseToConvertedOffset<Impl: ISpStreamFormatConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulloffsetbasestream: u64, pulloffsetconvertedstream: *mut u64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ISpStreamFormatVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            SetBaseStream: SetBaseStream::<Impl, IMPL_OFFSET>,
+            GetBaseStream: GetBaseStream::<Impl, IMPL_OFFSET>,
+            SetFormat: SetFormat::<Impl, IMPL_OFFSET>,
+            ResetSeekPosition: ResetSeekPosition::<Impl, IMPL_OFFSET>,
+            ScaleConvertedToBaseOffset: ScaleConvertedToBaseOffset::<Impl, IMPL_OFFSET>,
+            ScaleBaseToConvertedOffset: ScaleBaseToConvertedOffset::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpStreamFormatConverter as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+pub trait ISpTranscriptImpl: Sized {
+    fn GetTranscript();
+    fn AppendTranscript();
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ISpTranscriptVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpTranscriptImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpTranscriptVtbl {
+        unsafe extern "system" fn GetTranscript<Impl: ISpTranscriptImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsztranscript: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AppendTranscript<Impl: ISpTranscriptImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztranscript: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetTranscript: GetTranscript::<Impl, IMPL_OFFSET>,
+            AppendTranscript: AppendTranscript::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpTranscript as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+pub trait ISpVoiceImpl: Sized + ISpNotifySourceImpl + ISpEventSourceImpl {
+    fn SetOutput();
+    fn GetOutputObjectToken();
+    fn GetOutputStream();
+    fn Pause();
+    fn Resume();
+    fn SetVoice();
+    fn GetVoice();
+    fn Speak();
+    fn SpeakStream();
+    fn GetStatus();
+    fn Skip();
+    fn SetPriority();
+    fn GetPriority();
+    fn SetAlertBoundary();
+    fn GetAlertBoundary();
+    fn SetRate();
+    fn GetRate();
+    fn SetVolume();
+    fn GetVolume();
+    fn WaitUntilDone();
+    fn SetSyncSpeakTimeout();
+    fn GetSyncSpeakTimeout();
+    fn SpeakCompleteEvent();
+    fn IsUISupported();
+    fn DisplayUI();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+impl ISpVoiceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpVoiceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpVoiceVtbl {
+        unsafe extern "system" fn SetOutput<Impl: ISpVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkoutput: *mut ::core::ffi::c_void, fallowformatchanges: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetOutputObjectToken<Impl: ISpVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppobjecttoken: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetOutputStream<Impl: ISpVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Pause<Impl: ISpVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Resume<Impl: ISpVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetVoice<Impl: ISpVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptoken: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetVoice<Impl: ISpVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptoken: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Speak<Impl: ISpVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwcs: super::super::Foundation::PWSTR, dwflags: u32, pulstreamnumber: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SpeakStream<Impl: ISpVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstream: ::windows::core::RawPtr, dwflags: u32, pulstreamnumber: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetStatus<Impl: ISpVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstatus: *mut SPVOICESTATUS, ppszlastbookmark: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Skip<Impl: ISpVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pitemtype: super::super::Foundation::PWSTR, lnumitems: i32, pulnumskipped: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetPriority<Impl: ISpVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, epriority: SPVPRIORITY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetPriority<Impl: ISpVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pepriority: *mut SPVPRIORITY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAlertBoundary<Impl: ISpVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eboundary: SPEVENTENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetAlertBoundary<Impl: ISpVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peboundary: *mut SPEVENTENUM) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRate<Impl: ISpVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rateadjust: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetRate<Impl: ISpVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prateadjust: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetVolume<Impl: ISpVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, usvolume: u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetVolume<Impl: ISpVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pusvolume: *mut u16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn WaitUntilDone<Impl: ISpVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mstimeout: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSyncSpeakTimeout<Impl: ISpVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mstimeout: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetSyncSpeakTimeout<Impl: ISpVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmstimeout: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SpeakCompleteEvent<Impl: ISpVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsUISupported<Impl: ISpVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psztypeofui: super::super::Foundation::PWSTR, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32, pfsupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DisplayUI<Impl: ISpVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: super::super::Foundation::HWND, psztitle: super::super::Foundation::PWSTR, psztypeofui: super::super::Foundation::PWSTR, pvextradata: *mut ::core::ffi::c_void, cbextradata: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ISpEventSourceVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            SetOutput: SetOutput::<Impl, IMPL_OFFSET>,
+            GetOutputObjectToken: GetOutputObjectToken::<Impl, IMPL_OFFSET>,
+            GetOutputStream: GetOutputStream::<Impl, IMPL_OFFSET>,
+            Pause: Pause::<Impl, IMPL_OFFSET>,
+            Resume: Resume::<Impl, IMPL_OFFSET>,
+            SetVoice: SetVoice::<Impl, IMPL_OFFSET>,
+            GetVoice: GetVoice::<Impl, IMPL_OFFSET>,
+            Speak: Speak::<Impl, IMPL_OFFSET>,
+            SpeakStream: SpeakStream::<Impl, IMPL_OFFSET>,
+            GetStatus: GetStatus::<Impl, IMPL_OFFSET>,
+            Skip: Skip::<Impl, IMPL_OFFSET>,
+            SetPriority: SetPriority::<Impl, IMPL_OFFSET>,
+            GetPriority: GetPriority::<Impl, IMPL_OFFSET>,
+            SetAlertBoundary: SetAlertBoundary::<Impl, IMPL_OFFSET>,
+            GetAlertBoundary: GetAlertBoundary::<Impl, IMPL_OFFSET>,
+            SetRate: SetRate::<Impl, IMPL_OFFSET>,
+            GetRate: GetRate::<Impl, IMPL_OFFSET>,
+            SetVolume: SetVolume::<Impl, IMPL_OFFSET>,
+            GetVolume: GetVolume::<Impl, IMPL_OFFSET>,
+            WaitUntilDone: WaitUntilDone::<Impl, IMPL_OFFSET>,
+            SetSyncSpeakTimeout: SetSyncSpeakTimeout::<Impl, IMPL_OFFSET>,
+            GetSyncSpeakTimeout: GetSyncSpeakTimeout::<Impl, IMPL_OFFSET>,
+            SpeakCompleteEvent: SpeakCompleteEvent::<Impl, IMPL_OFFSET>,
+            IsUISupported: IsUISupported::<Impl, IMPL_OFFSET>,
+            DisplayUI: DisplayUI::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpVoice as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpXMLRecoResultImpl: Sized + ISpPhraseImpl + ISpRecoResultImpl {
+    fn GetXMLResult();
+    fn GetXMLErrorInfo();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpXMLRecoResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpXMLRecoResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpXMLRecoResultVtbl {
+        unsafe extern "system" fn GetXMLResult<Impl: ISpXMLRecoResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppszcomemxmlresult: *mut super::super::Foundation::PWSTR, options: SPXMLRESULTOPTIONS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetXMLErrorInfo<Impl: ISpXMLRecoResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psemanticerrorinfo: *mut SPSEMANTICERRORINFO) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ISpRecoResultVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetXMLResult: GetXMLResult::<Impl, IMPL_OFFSET>,
+            GetXMLErrorInfo: GetXMLErrorInfo::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpXMLRecoResult as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechAudioImpl: Sized + IDispatchImpl + ISpeechBaseStreamImpl {
+    fn Status();
+    fn BufferInfo();
+    fn DefaultFormat();
+    fn Volume();
+    fn SetVolume();
+    fn BufferNotifySize();
+    fn SetBufferNotifySize();
+    fn EventHandle();
+    fn SetState();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechAudioVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechAudioImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechAudioVtbl {
+        unsafe extern "system" fn Status<Impl: ISpeechAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BufferInfo<Impl: ISpeechAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bufferinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DefaultFormat<Impl: ISpeechAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, streamformat: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Volume<Impl: ISpeechAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, volume: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetVolume<Impl: ISpeechAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, volume: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BufferNotifySize<Impl: ISpeechAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffernotifysize: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetBufferNotifySize<Impl: ISpeechAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffernotifysize: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EventHandle<Impl: ISpeechAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventhandle: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetState<Impl: ISpeechAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: SpeechAudioState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ISpeechBaseStreamVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            BufferInfo: BufferInfo::<Impl, IMPL_OFFSET>,
+            DefaultFormat: DefaultFormat::<Impl, IMPL_OFFSET>,
+            Volume: Volume::<Impl, IMPL_OFFSET>,
+            SetVolume: SetVolume::<Impl, IMPL_OFFSET>,
+            BufferNotifySize: BufferNotifySize::<Impl, IMPL_OFFSET>,
+            SetBufferNotifySize: SetBufferNotifySize::<Impl, IMPL_OFFSET>,
+            EventHandle: EventHandle::<Impl, IMPL_OFFSET>,
+            SetState: SetState::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechAudio as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechAudioBufferInfoImpl: Sized + IDispatchImpl {
+    fn MinNotification();
+    fn SetMinNotification();
+    fn BufferSize();
+    fn SetBufferSize();
+    fn EventBias();
+    fn SetEventBias();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechAudioBufferInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechAudioBufferInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechAudioBufferInfoVtbl {
+        unsafe extern "system" fn MinNotification<Impl: ISpeechAudioBufferInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, minnotification: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetMinNotification<Impl: ISpeechAudioBufferInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, minnotification: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BufferSize<Impl: ISpeechAudioBufferInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffersize: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetBufferSize<Impl: ISpeechAudioBufferInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffersize: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EventBias<Impl: ISpeechAudioBufferInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventbias: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetEventBias<Impl: ISpeechAudioBufferInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventbias: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            MinNotification: MinNotification::<Impl, IMPL_OFFSET>,
+            SetMinNotification: SetMinNotification::<Impl, IMPL_OFFSET>,
+            BufferSize: BufferSize::<Impl, IMPL_OFFSET>,
+            SetBufferSize: SetBufferSize::<Impl, IMPL_OFFSET>,
+            EventBias: EventBias::<Impl, IMPL_OFFSET>,
+            SetEventBias: SetEventBias::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechAudioBufferInfo as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechAudioFormatImpl: Sized + IDispatchImpl {
+    fn Type();
+    fn SetType();
+    fn Guid();
+    fn SetGuid();
+    fn GetWaveFormatEx();
+    fn SetWaveFormatEx();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechAudioFormatVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechAudioFormatImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechAudioFormatVtbl {
+        unsafe extern "system" fn Type<Impl: ISpeechAudioFormatImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audioformat: *mut SpeechAudioFormatType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetType<Impl: ISpeechAudioFormatImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audioformat: SpeechAudioFormatType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Guid<Impl: ISpeechAudioFormatImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetGuid<Impl: ISpeechAudioFormatImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, guid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetWaveFormatEx<Impl: ISpeechAudioFormatImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, speechwaveformatex: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetWaveFormatEx<Impl: ISpeechAudioFormatImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, speechwaveformatex: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Type: Type::<Impl, IMPL_OFFSET>,
+            SetType: SetType::<Impl, IMPL_OFFSET>,
+            Guid: Guid::<Impl, IMPL_OFFSET>,
+            SetGuid: SetGuid::<Impl, IMPL_OFFSET>,
+            GetWaveFormatEx: GetWaveFormatEx::<Impl, IMPL_OFFSET>,
+            SetWaveFormatEx: SetWaveFormatEx::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechAudioFormat as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechAudioStatusImpl: Sized + IDispatchImpl {
+    fn FreeBufferSpace();
+    fn NonBlockingIO();
+    fn State();
+    fn CurrentSeekPosition();
+    fn CurrentDevicePosition();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechAudioStatusVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechAudioStatusImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechAudioStatusVtbl {
+        unsafe extern "system" fn FreeBufferSpace<Impl: ISpeechAudioStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, freebufferspace: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn NonBlockingIO<Impl: ISpeechAudioStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nonblockingio: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn State<Impl: ISpeechAudioStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: *mut SpeechAudioState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CurrentSeekPosition<Impl: ISpeechAudioStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, currentseekposition: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CurrentDevicePosition<Impl: ISpeechAudioStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, currentdeviceposition: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            FreeBufferSpace: FreeBufferSpace::<Impl, IMPL_OFFSET>,
+            NonBlockingIO: NonBlockingIO::<Impl, IMPL_OFFSET>,
+            State: State::<Impl, IMPL_OFFSET>,
+            CurrentSeekPosition: CurrentSeekPosition::<Impl, IMPL_OFFSET>,
+            CurrentDevicePosition: CurrentDevicePosition::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechAudioStatus as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechBaseStreamImpl: Sized + IDispatchImpl {
+    fn Format();
+    fn putref_Format();
+    fn Read();
+    fn Write();
+    fn Seek();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechBaseStreamVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechBaseStreamImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechBaseStreamVtbl {
+        unsafe extern "system" fn Format<Impl: ISpeechBaseStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audioformat: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn putref_Format<Impl: ISpeechBaseStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audioformat: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Read<Impl: ISpeechBaseStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: *mut super::super::System::Com::VARIANT, numberofbytes: i32, bytesread: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Write<Impl: ISpeechBaseStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffer: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, byteswritten: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Seek<Impl: ISpeechBaseStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, position: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, origin: SpeechStreamSeekPositionType, newposition: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Format: Format::<Impl, IMPL_OFFSET>,
+            putref_Format: putref_Format::<Impl, IMPL_OFFSET>,
+            Read: Read::<Impl, IMPL_OFFSET>,
+            Write: Write::<Impl, IMPL_OFFSET>,
+            Seek: Seek::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechBaseStream as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechCustomStreamImpl: Sized + IDispatchImpl + ISpeechBaseStreamImpl {
+    fn BaseStream();
+    fn putref_BaseStream();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechCustomStreamVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechCustomStreamImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechCustomStreamVtbl {
+        unsafe extern "system" fn BaseStream<Impl: ISpeechCustomStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppunkstream: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn putref_BaseStream<Impl: ISpeechCustomStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkstream: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ISpeechBaseStreamVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            BaseStream: BaseStream::<Impl, IMPL_OFFSET>,
+            putref_BaseStream: putref_BaseStream::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechCustomStream as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechDataKeyImpl: Sized + IDispatchImpl {
+    fn SetBinaryValue();
+    fn GetBinaryValue();
+    fn SetStringValue();
+    fn GetStringValue();
+    fn SetLongValue();
+    fn GetLongValue();
+    fn OpenKey();
+    fn CreateKey();
+    fn DeleteKey();
+    fn DeleteValue();
+    fn EnumKeys();
+    fn EnumValues();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechDataKeyVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechDataKeyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechDataKeyVtbl {
+        unsafe extern "system" fn SetBinaryValue<Impl: ISpeechDataKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, valuename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, value: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetBinaryValue<Impl: ISpeechDataKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, valuename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, value: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetStringValue<Impl: ISpeechDataKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, valuename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, value: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetStringValue<Impl: ISpeechDataKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, valuename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, value: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLongValue<Impl: ISpeechDataKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, valuename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, value: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetLongValue<Impl: ISpeechDataKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, valuename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, value: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OpenKey<Impl: ISpeechDataKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, subkeyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, subkey: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateKey<Impl: ISpeechDataKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, subkeyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, subkey: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DeleteKey<Impl: ISpeechDataKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, subkeyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DeleteValue<Impl: ISpeechDataKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, valuename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnumKeys<Impl: ISpeechDataKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, subkeyname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnumValues<Impl: ISpeechDataKeyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, valuename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            SetBinaryValue: SetBinaryValue::<Impl, IMPL_OFFSET>,
+            GetBinaryValue: GetBinaryValue::<Impl, IMPL_OFFSET>,
+            SetStringValue: SetStringValue::<Impl, IMPL_OFFSET>,
+            GetStringValue: GetStringValue::<Impl, IMPL_OFFSET>,
+            SetLongValue: SetLongValue::<Impl, IMPL_OFFSET>,
+            GetLongValue: GetLongValue::<Impl, IMPL_OFFSET>,
+            OpenKey: OpenKey::<Impl, IMPL_OFFSET>,
+            CreateKey: CreateKey::<Impl, IMPL_OFFSET>,
+            DeleteKey: DeleteKey::<Impl, IMPL_OFFSET>,
+            DeleteValue: DeleteValue::<Impl, IMPL_OFFSET>,
+            EnumKeys: EnumKeys::<Impl, IMPL_OFFSET>,
+            EnumValues: EnumValues::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechDataKey as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechFileStreamImpl: Sized + IDispatchImpl + ISpeechBaseStreamImpl {
+    fn Open();
+    fn Close();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechFileStreamVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechFileStreamImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechFileStreamVtbl {
+        unsafe extern "system" fn Open<Impl: ISpeechFileStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, filemode: SpeechStreamFileMode, doevents: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Close<Impl: ISpeechFileStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ISpeechBaseStreamVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Open: Open::<Impl, IMPL_OFFSET>,
+            Close: Close::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechFileStream as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechGrammarRuleImpl: Sized + IDispatchImpl {
+    fn Attributes();
+    fn InitialState();
+    fn Name();
+    fn Id();
+    fn Clear();
+    fn AddResource();
+    fn AddState();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechGrammarRuleVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechGrammarRuleImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechGrammarRuleVtbl {
+        unsafe extern "system" fn Attributes<Impl: ISpeechGrammarRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributes: *mut SpeechRuleAttributes) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn InitialState<Impl: ISpeechGrammarRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Name<Impl: ISpeechGrammarRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Id<Impl: ISpeechGrammarRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Clear<Impl: ISpeechGrammarRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddResource<Impl: ISpeechGrammarRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourcename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, resourcevalue: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddState<Impl: ISpeechGrammarRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Attributes: Attributes::<Impl, IMPL_OFFSET>,
+            InitialState: InitialState::<Impl, IMPL_OFFSET>,
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Clear: Clear::<Impl, IMPL_OFFSET>,
+            AddResource: AddResource::<Impl, IMPL_OFFSET>,
+            AddState: AddState::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechGrammarRule as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechGrammarRuleStateImpl: Sized + IDispatchImpl {
+    fn Rule();
+    fn Transitions();
+    fn AddWordTransition();
+    fn AddRuleTransition();
+    fn AddSpecialTransition();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechGrammarRuleStateVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechGrammarRuleStateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechGrammarRuleStateVtbl {
+        unsafe extern "system" fn Rule<Impl: ISpeechGrammarRuleStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Transitions<Impl: ISpeechGrammarRuleStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, transitions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddWordTransition<Impl: ISpeechGrammarRuleStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deststate: ::windows::core::RawPtr, words: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, separators: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, r#type: SpeechGrammarWordType, propertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddRuleTransition<Impl: ISpeechGrammarRuleStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destinationstate: ::windows::core::RawPtr, rule: ::windows::core::RawPtr, propertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddSpecialTransition<Impl: ISpeechGrammarRuleStateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destinationstate: ::windows::core::RawPtr, r#type: SpeechSpecialTransitionType, propertyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, propertyid: i32, propertyvalue: *const super::super::System::Com::VARIANT, weight: f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Rule: Rule::<Impl, IMPL_OFFSET>,
+            Transitions: Transitions::<Impl, IMPL_OFFSET>,
+            AddWordTransition: AddWordTransition::<Impl, IMPL_OFFSET>,
+            AddRuleTransition: AddRuleTransition::<Impl, IMPL_OFFSET>,
+            AddSpecialTransition: AddSpecialTransition::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechGrammarRuleState as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechGrammarRuleStateTransitionImpl: Sized + IDispatchImpl {
+    fn Type();
+    fn Text();
+    fn Rule();
+    fn Weight();
+    fn PropertyName();
+    fn PropertyId();
+    fn PropertyValue();
+    fn NextState();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechGrammarRuleStateTransitionVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechGrammarRuleStateTransitionImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechGrammarRuleStateTransitionVtbl {
+        unsafe extern "system" fn Type<Impl: ISpeechGrammarRuleStateTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: *mut SpeechGrammarRuleStateTransitionType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Text<Impl: ISpeechGrammarRuleStateTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Rule<Impl: ISpeechGrammarRuleStateTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Weight<Impl: ISpeechGrammarRuleStateTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, weight: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PropertyName<Impl: ISpeechGrammarRuleStateTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PropertyId<Impl: ISpeechGrammarRuleStateTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyid: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PropertyValue<Impl: ISpeechGrammarRuleStateTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn NextState<Impl: ISpeechGrammarRuleStateTransitionImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nextstate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Type: Type::<Impl, IMPL_OFFSET>,
+            Text: Text::<Impl, IMPL_OFFSET>,
+            Rule: Rule::<Impl, IMPL_OFFSET>,
+            Weight: Weight::<Impl, IMPL_OFFSET>,
+            PropertyName: PropertyName::<Impl, IMPL_OFFSET>,
+            PropertyId: PropertyId::<Impl, IMPL_OFFSET>,
+            PropertyValue: PropertyValue::<Impl, IMPL_OFFSET>,
+            NextState: NextState::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechGrammarRuleStateTransition as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechGrammarRuleStateTransitionsImpl: Sized + IDispatchImpl {
+    fn Count();
+    fn Item();
+    fn _NewEnum();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechGrammarRuleStateTransitionsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechGrammarRuleStateTransitionsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechGrammarRuleStateTransitionsVtbl {
+        unsafe extern "system" fn Count<Impl: ISpeechGrammarRuleStateTransitionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: ISpeechGrammarRuleStateTransitionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, transition: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn _NewEnum<Impl: ISpeechGrammarRuleStateTransitionsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Count: Count::<Impl, IMPL_OFFSET>,
+            Item: Item::<Impl, IMPL_OFFSET>,
+            _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechGrammarRuleStateTransitions as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechGrammarRulesImpl: Sized + IDispatchImpl {
+    fn Count();
+    fn FindRule();
+    fn Item();
+    fn _NewEnum();
+    fn Dynamic();
+    fn Add();
+    fn Commit();
+    fn CommitAndSave();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechGrammarRulesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechGrammarRulesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechGrammarRulesVtbl {
+        unsafe extern "system" fn Count<Impl: ISpeechGrammarRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FindRule<Impl: ISpeechGrammarRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rulenameorid: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, rule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: ISpeechGrammarRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, rule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn _NewEnum<Impl: ISpeechGrammarRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Dynamic<Impl: ISpeechGrammarRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dynamic: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Add<Impl: ISpeechGrammarRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rulename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, attributes: SpeechRuleAttributes, ruleid: i32, rule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Commit<Impl: ISpeechGrammarRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CommitAndSave<Impl: ISpeechGrammarRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, errortext: *mut super::super::Foundation::BSTR, savestream: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Count: Count::<Impl, IMPL_OFFSET>,
+            FindRule: FindRule::<Impl, IMPL_OFFSET>,
+            Item: Item::<Impl, IMPL_OFFSET>,
+            _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>,
+            Dynamic: Dynamic::<Impl, IMPL_OFFSET>,
+            Add: Add::<Impl, IMPL_OFFSET>,
+            Commit: Commit::<Impl, IMPL_OFFSET>,
+            CommitAndSave: CommitAndSave::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechGrammarRules as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechLexiconImpl: Sized + IDispatchImpl {
+    fn GenerationId();
+    fn GetWords();
+    fn AddPronunciation();
+    fn AddPronunciationByPhoneIds();
+    fn RemovePronunciation();
+    fn RemovePronunciationByPhoneIds();
+    fn GetPronunciations();
+    fn GetGenerationChange();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechLexiconVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechLexiconImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechLexiconVtbl {
+        unsafe extern "system" fn GenerationId<Impl: ISpeechLexiconImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, generationid: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetWords<Impl: ISpeechLexiconImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, flags: SpeechLexiconType, generationid: *mut i32, words: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddPronunciation<Impl: ISpeechLexiconImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, langid: i32, partofspeech: SpeechPartOfSpeech, bstrpronunciation: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddPronunciationByPhoneIds<Impl: ISpeechLexiconImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, langid: i32, partofspeech: SpeechPartOfSpeech, phoneids: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RemovePronunciation<Impl: ISpeechLexiconImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, langid: i32, partofspeech: SpeechPartOfSpeech, bstrpronunciation: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RemovePronunciationByPhoneIds<Impl: ISpeechLexiconImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, langid: i32, partofspeech: SpeechPartOfSpeech, phoneids: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetPronunciations<Impl: ISpeechLexiconImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, langid: i32, typeflags: SpeechLexiconType, pppronunciations: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetGenerationChange<Impl: ISpeechLexiconImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, generationid: *mut i32, ppwords: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GenerationId: GenerationId::<Impl, IMPL_OFFSET>,
+            GetWords: GetWords::<Impl, IMPL_OFFSET>,
+            AddPronunciation: AddPronunciation::<Impl, IMPL_OFFSET>,
+            AddPronunciationByPhoneIds: AddPronunciationByPhoneIds::<Impl, IMPL_OFFSET>,
+            RemovePronunciation: RemovePronunciation::<Impl, IMPL_OFFSET>,
+            RemovePronunciationByPhoneIds: RemovePronunciationByPhoneIds::<Impl, IMPL_OFFSET>,
+            GetPronunciations: GetPronunciations::<Impl, IMPL_OFFSET>,
+            GetGenerationChange: GetGenerationChange::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechLexicon as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechLexiconPronunciationImpl: Sized + IDispatchImpl {
+    fn Type();
+    fn LangId();
+    fn PartOfSpeech();
+    fn PhoneIds();
+    fn Symbolic();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechLexiconPronunciationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechLexiconPronunciationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechLexiconPronunciationVtbl {
+        unsafe extern "system" fn Type<Impl: ISpeechLexiconPronunciationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lexicontype: *mut SpeechLexiconType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LangId<Impl: ISpeechLexiconPronunciationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, langid: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PartOfSpeech<Impl: ISpeechLexiconPronunciationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, partofspeech: *mut SpeechPartOfSpeech) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PhoneIds<Impl: ISpeechLexiconPronunciationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phoneids: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Symbolic<Impl: ISpeechLexiconPronunciationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, symbolic: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Type: Type::<Impl, IMPL_OFFSET>,
+            LangId: LangId::<Impl, IMPL_OFFSET>,
+            PartOfSpeech: PartOfSpeech::<Impl, IMPL_OFFSET>,
+            PhoneIds: PhoneIds::<Impl, IMPL_OFFSET>,
+            Symbolic: Symbolic::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechLexiconPronunciation as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechLexiconPronunciationsImpl: Sized + IDispatchImpl {
+    fn Count();
+    fn Item();
+    fn _NewEnum();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechLexiconPronunciationsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechLexiconPronunciationsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechLexiconPronunciationsVtbl {
+        unsafe extern "system" fn Count<Impl: ISpeechLexiconPronunciationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: ISpeechLexiconPronunciationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pronunciation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn _NewEnum<Impl: ISpeechLexiconPronunciationsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Count: Count::<Impl, IMPL_OFFSET>,
+            Item: Item::<Impl, IMPL_OFFSET>,
+            _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechLexiconPronunciations as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechLexiconWordImpl: Sized + IDispatchImpl {
+    fn LangId();
+    fn Type();
+    fn Word();
+    fn Pronunciations();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechLexiconWordVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechLexiconWordImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechLexiconWordVtbl {
+        unsafe extern "system" fn LangId<Impl: ISpeechLexiconWordImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, langid: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Type<Impl: ISpeechLexiconWordImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wordtype: *mut SpeechWordType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Word<Impl: ISpeechLexiconWordImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, word: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Pronunciations<Impl: ISpeechLexiconWordImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pronunciations: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            LangId: LangId::<Impl, IMPL_OFFSET>,
+            Type: Type::<Impl, IMPL_OFFSET>,
+            Word: Word::<Impl, IMPL_OFFSET>,
+            Pronunciations: Pronunciations::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechLexiconWord as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechLexiconWordsImpl: Sized + IDispatchImpl {
+    fn Count();
+    fn Item();
+    fn _NewEnum();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechLexiconWordsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechLexiconWordsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechLexiconWordsVtbl {
+        unsafe extern "system" fn Count<Impl: ISpeechLexiconWordsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: ISpeechLexiconWordsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, word: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn _NewEnum<Impl: ISpeechLexiconWordsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Count: Count::<Impl, IMPL_OFFSET>,
+            Item: Item::<Impl, IMPL_OFFSET>,
+            _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechLexiconWords as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechMMSysAudioImpl: Sized + IDispatchImpl + ISpeechBaseStreamImpl + ISpeechAudioImpl {
+    fn DeviceId();
+    fn SetDeviceId();
+    fn LineId();
+    fn SetLineId();
+    fn MMHandle();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechMMSysAudioVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechMMSysAudioImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechMMSysAudioVtbl {
+        unsafe extern "system" fn DeviceId<Impl: ISpeechMMSysAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDeviceId<Impl: ISpeechMMSysAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, deviceid: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LineId<Impl: ISpeechMMSysAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lineid: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLineId<Impl: ISpeechMMSysAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lineid: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MMHandle<Impl: ISpeechMMSysAudioImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ISpeechAudioVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            DeviceId: DeviceId::<Impl, IMPL_OFFSET>,
+            SetDeviceId: SetDeviceId::<Impl, IMPL_OFFSET>,
+            LineId: LineId::<Impl, IMPL_OFFSET>,
+            SetLineId: SetLineId::<Impl, IMPL_OFFSET>,
+            MMHandle: MMHandle::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechMMSysAudio as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechMemoryStreamImpl: Sized + IDispatchImpl + ISpeechBaseStreamImpl {
+    fn SetData();
+    fn GetData();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechMemoryStreamVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechMemoryStreamImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechMemoryStreamVtbl {
+        unsafe extern "system" fn SetData<Impl: ISpeechMemoryStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetData<Impl: ISpeechMemoryStreamImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdata: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ISpeechBaseStreamVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            SetData: SetData::<Impl, IMPL_OFFSET>,
+            GetData: GetData::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechMemoryStream as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechObjectTokenImpl: Sized + IDispatchImpl {
+    fn Id();
+    fn DataKey();
+    fn Category();
+    fn GetDescription();
+    fn SetId();
+    fn GetAttribute();
+    fn CreateInstance();
+    fn Remove();
+    fn GetStorageFileName();
+    fn RemoveStorageFileName();
+    fn IsUISupported();
+    fn DisplayUI();
+    fn MatchesAttributes();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechObjectTokenVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechObjectTokenImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechObjectTokenVtbl {
+        unsafe extern "system" fn Id<Impl: ISpeechObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objectid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DataKey<Impl: ISpeechObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, datakey: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Category<Impl: ISpeechObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, category: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDescription<Impl: ISpeechObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, locale: i32, description: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetId<Impl: ISpeechObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, categoryid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, createifnotexist: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetAttribute<Impl: ISpeechObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, attributevalue: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateInstance<Impl: ISpeechObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkouter: *mut ::core::ffi::c_void, clscontext: SpeechTokenContext, object: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Remove<Impl: ISpeechObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objectstorageclsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetStorageFileName<Impl: ISpeechObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objectstorageclsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, keyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, filename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, folder: SpeechTokenShellFolder, filepath: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RemoveStorageFileName<Impl: ISpeechObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, objectstorageclsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, keyname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, deletefilea: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsUISupported<Impl: ISpeechObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, typeofui: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, extradata: *const super::super::System::Com::VARIANT, object: *mut ::core::ffi::c_void, supported: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DisplayUI<Impl: ISpeechObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: i32, title: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, typeofui: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, extradata: *const super::super::System::Com::VARIANT, object: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn MatchesAttributes<Impl: ISpeechObjectTokenImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributes: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, matches: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            DataKey: DataKey::<Impl, IMPL_OFFSET>,
+            Category: Category::<Impl, IMPL_OFFSET>,
+            GetDescription: GetDescription::<Impl, IMPL_OFFSET>,
+            SetId: SetId::<Impl, IMPL_OFFSET>,
+            GetAttribute: GetAttribute::<Impl, IMPL_OFFSET>,
+            CreateInstance: CreateInstance::<Impl, IMPL_OFFSET>,
+            Remove: Remove::<Impl, IMPL_OFFSET>,
+            GetStorageFileName: GetStorageFileName::<Impl, IMPL_OFFSET>,
+            RemoveStorageFileName: RemoveStorageFileName::<Impl, IMPL_OFFSET>,
+            IsUISupported: IsUISupported::<Impl, IMPL_OFFSET>,
+            DisplayUI: DisplayUI::<Impl, IMPL_OFFSET>,
+            MatchesAttributes: MatchesAttributes::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechObjectToken as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechObjectTokenCategoryImpl: Sized + IDispatchImpl {
+    fn Id();
+    fn SetDefault();
+    fn Default();
+    fn SetId();
+    fn GetDataKey();
+    fn EnumerateTokens();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechObjectTokenCategoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechObjectTokenCategoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechObjectTokenCategoryVtbl {
+        unsafe extern "system" fn Id<Impl: ISpeechObjectTokenCategoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDefault<Impl: ISpeechObjectTokenCategoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tokenid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Default<Impl: ISpeechObjectTokenCategoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tokenid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetId<Impl: ISpeechObjectTokenCategoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, createifnotexist: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDataKey<Impl: ISpeechObjectTokenCategoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, location: SpeechDataKeyLocation, datakey: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnumerateTokens<Impl: ISpeechObjectTokenCategoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requiredattributes: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, optionalattributes: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, tokens: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            SetDefault: SetDefault::<Impl, IMPL_OFFSET>,
+            Default: Default::<Impl, IMPL_OFFSET>,
+            SetId: SetId::<Impl, IMPL_OFFSET>,
+            GetDataKey: GetDataKey::<Impl, IMPL_OFFSET>,
+            EnumerateTokens: EnumerateTokens::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechObjectTokenCategory as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechObjectTokensImpl: Sized + IDispatchImpl {
+    fn Count();
+    fn Item();
+    fn _NewEnum();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechObjectTokensVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechObjectTokensImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechObjectTokensVtbl {
+        unsafe extern "system" fn Count<Impl: ISpeechObjectTokensImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: ISpeechObjectTokensImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, token: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn _NewEnum<Impl: ISpeechObjectTokensImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Count: Count::<Impl, IMPL_OFFSET>,
+            Item: Item::<Impl, IMPL_OFFSET>,
+            _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechObjectTokens as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechPhoneConverterImpl: Sized + IDispatchImpl {
+    fn LanguageId();
+    fn SetLanguageId();
+    fn PhoneToId();
+    fn IdToPhone();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechPhoneConverterVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechPhoneConverterImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechPhoneConverterVtbl {
+        unsafe extern "system" fn LanguageId<Impl: ISpeechPhoneConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languageid: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetLanguageId<Impl: ISpeechPhoneConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languageid: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PhoneToId<Impl: ISpeechPhoneConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phonemes: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, idarray: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IdToPhone<Impl: ISpeechPhoneConverterImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, idarray: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, phonemes: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            LanguageId: LanguageId::<Impl, IMPL_OFFSET>,
+            SetLanguageId: SetLanguageId::<Impl, IMPL_OFFSET>,
+            PhoneToId: PhoneToId::<Impl, IMPL_OFFSET>,
+            IdToPhone: IdToPhone::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechPhoneConverter as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechPhraseAlternateImpl: Sized + IDispatchImpl {
+    fn RecoResult();
+    fn StartElementInResult();
+    fn NumberOfElementsInResult();
+    fn PhraseInfo();
+    fn Commit();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechPhraseAlternateVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechPhraseAlternateImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechPhraseAlternateVtbl {
+        unsafe extern "system" fn RecoResult<Impl: ISpeechPhraseAlternateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, recoresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn StartElementInResult<Impl: ISpeechPhraseAlternateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startelement: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn NumberOfElementsInResult<Impl: ISpeechPhraseAlternateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numberofelements: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PhraseInfo<Impl: ISpeechPhraseAlternateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phraseinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Commit<Impl: ISpeechPhraseAlternateImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            RecoResult: RecoResult::<Impl, IMPL_OFFSET>,
+            StartElementInResult: StartElementInResult::<Impl, IMPL_OFFSET>,
+            NumberOfElementsInResult: NumberOfElementsInResult::<Impl, IMPL_OFFSET>,
+            PhraseInfo: PhraseInfo::<Impl, IMPL_OFFSET>,
+            Commit: Commit::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechPhraseAlternate as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechPhraseAlternatesImpl: Sized + IDispatchImpl {
+    fn Count();
+    fn Item();
+    fn _NewEnum();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechPhraseAlternatesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechPhraseAlternatesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechPhraseAlternatesVtbl {
+        unsafe extern "system" fn Count<Impl: ISpeechPhraseAlternatesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: ISpeechPhraseAlternatesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, phrasealternate: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn _NewEnum<Impl: ISpeechPhraseAlternatesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Count: Count::<Impl, IMPL_OFFSET>,
+            Item: Item::<Impl, IMPL_OFFSET>,
+            _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechPhraseAlternates as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechPhraseElementImpl: Sized + IDispatchImpl {
+    fn AudioTimeOffset();
+    fn AudioSizeTime();
+    fn AudioStreamOffset();
+    fn AudioSizeBytes();
+    fn RetainedStreamOffset();
+    fn RetainedSizeBytes();
+    fn DisplayText();
+    fn LexicalForm();
+    fn Pronunciation();
+    fn DisplayAttributes();
+    fn RequiredConfidence();
+    fn ActualConfidence();
+    fn EngineConfidence();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechPhraseElementVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechPhraseElementImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechPhraseElementVtbl {
+        unsafe extern "system" fn AudioTimeOffset<Impl: ISpeechPhraseElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audiotimeoffset: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AudioSizeTime<Impl: ISpeechPhraseElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audiosizetime: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AudioStreamOffset<Impl: ISpeechPhraseElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audiostreamoffset: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AudioSizeBytes<Impl: ISpeechPhraseElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audiosizebytes: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RetainedStreamOffset<Impl: ISpeechPhraseElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retainedstreamoffset: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RetainedSizeBytes<Impl: ISpeechPhraseElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retainedsizebytes: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DisplayText<Impl: ISpeechPhraseElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displaytext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LexicalForm<Impl: ISpeechPhraseElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lexicalform: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Pronunciation<Impl: ISpeechPhraseElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pronunciation: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DisplayAttributes<Impl: ISpeechPhraseElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displayattributes: *mut SpeechDisplayAttributes) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RequiredConfidence<Impl: ISpeechPhraseElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requiredconfidence: *mut SpeechEngineConfidence) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ActualConfidence<Impl: ISpeechPhraseElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, actualconfidence: *mut SpeechEngineConfidence) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EngineConfidence<Impl: ISpeechPhraseElementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, engineconfidence: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            AudioTimeOffset: AudioTimeOffset::<Impl, IMPL_OFFSET>,
+            AudioSizeTime: AudioSizeTime::<Impl, IMPL_OFFSET>,
+            AudioStreamOffset: AudioStreamOffset::<Impl, IMPL_OFFSET>,
+            AudioSizeBytes: AudioSizeBytes::<Impl, IMPL_OFFSET>,
+            RetainedStreamOffset: RetainedStreamOffset::<Impl, IMPL_OFFSET>,
+            RetainedSizeBytes: RetainedSizeBytes::<Impl, IMPL_OFFSET>,
+            DisplayText: DisplayText::<Impl, IMPL_OFFSET>,
+            LexicalForm: LexicalForm::<Impl, IMPL_OFFSET>,
+            Pronunciation: Pronunciation::<Impl, IMPL_OFFSET>,
+            DisplayAttributes: DisplayAttributes::<Impl, IMPL_OFFSET>,
+            RequiredConfidence: RequiredConfidence::<Impl, IMPL_OFFSET>,
+            ActualConfidence: ActualConfidence::<Impl, IMPL_OFFSET>,
+            EngineConfidence: EngineConfidence::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechPhraseElement as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechPhraseElementsImpl: Sized + IDispatchImpl {
+    fn Count();
+    fn Item();
+    fn _NewEnum();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechPhraseElementsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechPhraseElementsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechPhraseElementsVtbl {
+        unsafe extern "system" fn Count<Impl: ISpeechPhraseElementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: ISpeechPhraseElementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, element: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn _NewEnum<Impl: ISpeechPhraseElementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Count: Count::<Impl, IMPL_OFFSET>,
+            Item: Item::<Impl, IMPL_OFFSET>,
+            _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechPhraseElements as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechPhraseInfoImpl: Sized + IDispatchImpl {
+    fn LanguageId();
+    fn GrammarId();
+    fn StartTime();
+    fn AudioStreamPosition();
+    fn AudioSizeBytes();
+    fn RetainedSizeBytes();
+    fn AudioSizeTime();
+    fn Rule();
+    fn Properties();
+    fn Elements();
+    fn Replacements();
+    fn EngineId();
+    fn EnginePrivateData();
+    fn SaveToMemory();
+    fn GetText();
+    fn GetDisplayAttributes();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechPhraseInfoVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechPhraseInfoImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechPhraseInfoVtbl {
+        unsafe extern "system" fn LanguageId<Impl: ISpeechPhraseInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, languageid: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GrammarId<Impl: ISpeechPhraseInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, grammarid: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn StartTime<Impl: ISpeechPhraseInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, starttime: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AudioStreamPosition<Impl: ISpeechPhraseInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audiostreamposition: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AudioSizeBytes<Impl: ISpeechPhraseInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paudiosizebytes: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RetainedSizeBytes<Impl: ISpeechPhraseInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, retainedsizebytes: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AudioSizeTime<Impl: ISpeechPhraseInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audiosizetime: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Rule<Impl: ISpeechPhraseInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Properties<Impl: ISpeechPhraseInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, properties: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Elements<Impl: ISpeechPhraseInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, elements: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Replacements<Impl: ISpeechPhraseInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, replacements: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EngineId<Impl: ISpeechPhraseInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, engineidguid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EnginePrivateData<Impl: ISpeechPhraseInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, privatedata: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SaveToMemory<Impl: ISpeechPhraseInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phraseblock: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetText<Impl: ISpeechPhraseInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startelement: i32, elements: i32, usereplacements: i16, text: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDisplayAttributes<Impl: ISpeechPhraseInfoImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startelement: i32, elements: i32, usereplacements: i16, displayattributes: *mut SpeechDisplayAttributes) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            LanguageId: LanguageId::<Impl, IMPL_OFFSET>,
+            GrammarId: GrammarId::<Impl, IMPL_OFFSET>,
+            StartTime: StartTime::<Impl, IMPL_OFFSET>,
+            AudioStreamPosition: AudioStreamPosition::<Impl, IMPL_OFFSET>,
+            AudioSizeBytes: AudioSizeBytes::<Impl, IMPL_OFFSET>,
+            RetainedSizeBytes: RetainedSizeBytes::<Impl, IMPL_OFFSET>,
+            AudioSizeTime: AudioSizeTime::<Impl, IMPL_OFFSET>,
+            Rule: Rule::<Impl, IMPL_OFFSET>,
+            Properties: Properties::<Impl, IMPL_OFFSET>,
+            Elements: Elements::<Impl, IMPL_OFFSET>,
+            Replacements: Replacements::<Impl, IMPL_OFFSET>,
+            EngineId: EngineId::<Impl, IMPL_OFFSET>,
+            EnginePrivateData: EnginePrivateData::<Impl, IMPL_OFFSET>,
+            SaveToMemory: SaveToMemory::<Impl, IMPL_OFFSET>,
+            GetText: GetText::<Impl, IMPL_OFFSET>,
+            GetDisplayAttributes: GetDisplayAttributes::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechPhraseInfo as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechPhraseInfoBuilderImpl: Sized + IDispatchImpl {
+    fn RestorePhraseFromMemory();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechPhraseInfoBuilderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechPhraseInfoBuilderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechPhraseInfoBuilderVtbl {
+        unsafe extern "system" fn RestorePhraseFromMemory<Impl: ISpeechPhraseInfoBuilderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phraseinmemory: *const super::super::System::Com::VARIANT, phraseinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), RestorePhraseFromMemory: RestorePhraseFromMemory::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechPhraseInfoBuilder as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechPhrasePropertiesImpl: Sized + IDispatchImpl {
+    fn Count();
+    fn Item();
+    fn _NewEnum();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechPhrasePropertiesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechPhrasePropertiesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechPhrasePropertiesVtbl {
+        unsafe extern "system" fn Count<Impl: ISpeechPhrasePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: ISpeechPhrasePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, property: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn _NewEnum<Impl: ISpeechPhrasePropertiesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Count: Count::<Impl, IMPL_OFFSET>,
+            Item: Item::<Impl, IMPL_OFFSET>,
+            _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechPhraseProperties as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechPhrasePropertyImpl: Sized + IDispatchImpl {
+    fn Name();
+    fn Id();
+    fn Value();
+    fn FirstElement();
+    fn NumberOfElements();
+    fn EngineConfidence();
+    fn Confidence();
+    fn Parent();
+    fn Children();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechPhrasePropertyVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechPhrasePropertyImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechPhrasePropertyVtbl {
+        unsafe extern "system" fn Name<Impl: ISpeechPhrasePropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Id<Impl: ISpeechPhrasePropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Value<Impl: ISpeechPhrasePropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FirstElement<Impl: ISpeechPhrasePropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, firstelement: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn NumberOfElements<Impl: ISpeechPhrasePropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numberofelements: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EngineConfidence<Impl: ISpeechPhrasePropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, confidence: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Confidence<Impl: ISpeechPhrasePropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, confidence: *mut SpeechEngineConfidence) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Parent<Impl: ISpeechPhrasePropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parentproperty: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Children<Impl: ISpeechPhrasePropertyImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, children: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            Value: Value::<Impl, IMPL_OFFSET>,
+            FirstElement: FirstElement::<Impl, IMPL_OFFSET>,
+            NumberOfElements: NumberOfElements::<Impl, IMPL_OFFSET>,
+            EngineConfidence: EngineConfidence::<Impl, IMPL_OFFSET>,
+            Confidence: Confidence::<Impl, IMPL_OFFSET>,
+            Parent: Parent::<Impl, IMPL_OFFSET>,
+            Children: Children::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechPhraseProperty as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechPhraseReplacementImpl: Sized + IDispatchImpl {
+    fn DisplayAttributes();
+    fn Text();
+    fn FirstElement();
+    fn NumberOfElements();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechPhraseReplacementVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechPhraseReplacementImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechPhraseReplacementVtbl {
+        unsafe extern "system" fn DisplayAttributes<Impl: ISpeechPhraseReplacementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, displayattributes: *mut SpeechDisplayAttributes) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Text<Impl: ISpeechPhraseReplacementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FirstElement<Impl: ISpeechPhraseReplacementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, firstelement: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn NumberOfElements<Impl: ISpeechPhraseReplacementImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numberofelements: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            DisplayAttributes: DisplayAttributes::<Impl, IMPL_OFFSET>,
+            Text: Text::<Impl, IMPL_OFFSET>,
+            FirstElement: FirstElement::<Impl, IMPL_OFFSET>,
+            NumberOfElements: NumberOfElements::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechPhraseReplacement as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechPhraseReplacementsImpl: Sized + IDispatchImpl {
+    fn Count();
+    fn Item();
+    fn _NewEnum();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechPhraseReplacementsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechPhraseReplacementsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechPhraseReplacementsVtbl {
+        unsafe extern "system" fn Count<Impl: ISpeechPhraseReplacementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: ISpeechPhraseReplacementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, reps: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn _NewEnum<Impl: ISpeechPhraseReplacementsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Count: Count::<Impl, IMPL_OFFSET>,
+            Item: Item::<Impl, IMPL_OFFSET>,
+            _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechPhraseReplacements as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechPhraseRuleImpl: Sized + IDispatchImpl {
+    fn Name();
+    fn Id();
+    fn FirstElement();
+    fn NumberOfElements();
+    fn Parent();
+    fn Children();
+    fn Confidence();
+    fn EngineConfidence();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechPhraseRuleVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechPhraseRuleImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechPhraseRuleVtbl {
+        unsafe extern "system" fn Name<Impl: ISpeechPhraseRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Id<Impl: ISpeechPhraseRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn FirstElement<Impl: ISpeechPhraseRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, firstelement: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn NumberOfElements<Impl: ISpeechPhraseRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numberofelements: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Parent<Impl: ISpeechPhraseRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, parent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Children<Impl: ISpeechPhraseRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, children: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Confidence<Impl: ISpeechPhraseRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, actualconfidence: *mut SpeechEngineConfidence) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EngineConfidence<Impl: ISpeechPhraseRuleImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, engineconfidence: *mut f32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Name: Name::<Impl, IMPL_OFFSET>,
+            Id: Id::<Impl, IMPL_OFFSET>,
+            FirstElement: FirstElement::<Impl, IMPL_OFFSET>,
+            NumberOfElements: NumberOfElements::<Impl, IMPL_OFFSET>,
+            Parent: Parent::<Impl, IMPL_OFFSET>,
+            Children: Children::<Impl, IMPL_OFFSET>,
+            Confidence: Confidence::<Impl, IMPL_OFFSET>,
+            EngineConfidence: EngineConfidence::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechPhraseRule as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechPhraseRulesImpl: Sized + IDispatchImpl {
+    fn Count();
+    fn Item();
+    fn _NewEnum();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechPhraseRulesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechPhraseRulesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechPhraseRulesVtbl {
+        unsafe extern "system" fn Count<Impl: ISpeechPhraseRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Item<Impl: ISpeechPhraseRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, rule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn _NewEnum<Impl: ISpeechPhraseRulesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, enumvariant: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Count: Count::<Impl, IMPL_OFFSET>,
+            Item: Item::<Impl, IMPL_OFFSET>,
+            _NewEnum: _NewEnum::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechPhraseRules as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechRecoContextImpl: Sized + IDispatchImpl {
+    fn Recognizer();
+    fn AudioInputInterferenceStatus();
+    fn RequestedUIType();
+    fn putref_Voice();
+    fn Voice();
+    fn SetAllowVoiceFormatMatchingOnNextSet();
+    fn AllowVoiceFormatMatchingOnNextSet();
+    fn SetVoicePurgeEvent();
+    fn VoicePurgeEvent();
+    fn SetEventInterests();
+    fn EventInterests();
+    fn SetCmdMaxAlternates();
+    fn CmdMaxAlternates();
+    fn SetState();
+    fn State();
+    fn SetRetainedAudio();
+    fn RetainedAudio();
+    fn putref_RetainedAudioFormat();
+    fn RetainedAudioFormat();
+    fn Pause();
+    fn Resume();
+    fn CreateGrammar();
+    fn CreateResultFromMemory();
+    fn Bookmark();
+    fn SetAdaptationData();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechRecoContextVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechRecoContextImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechRecoContextVtbl {
+        unsafe extern "system" fn Recognizer<Impl: ISpeechRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, recognizer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AudioInputInterferenceStatus<Impl: ISpeechRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, interference: *mut SpeechInterference) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RequestedUIType<Impl: ISpeechRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, uitype: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn putref_Voice<Impl: ISpeechRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, voice: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Voice<Impl: ISpeechRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, voice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAllowVoiceFormatMatchingOnNextSet<Impl: ISpeechRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allow: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AllowVoiceFormatMatchingOnNextSet<Impl: ISpeechRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pallow: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetVoicePurgeEvent<Impl: ISpeechRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventinterest: SpeechRecoEvents) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn VoicePurgeEvent<Impl: ISpeechRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventinterest: *mut SpeechRecoEvents) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetEventInterests<Impl: ISpeechRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventinterest: SpeechRecoEvents) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EventInterests<Impl: ISpeechRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventinterest: *mut SpeechRecoEvents) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetCmdMaxAlternates<Impl: ISpeechRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxalternates: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CmdMaxAlternates<Impl: ISpeechRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, maxalternates: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetState<Impl: ISpeechRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: SpeechRecoContextState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn State<Impl: ISpeechRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: *mut SpeechRecoContextState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRetainedAudio<Impl: ISpeechRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, option: SpeechRetainedAudioOptions) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RetainedAudio<Impl: ISpeechRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, option: *mut SpeechRetainedAudioOptions) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn putref_RetainedAudioFormat<Impl: ISpeechRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RetainedAudioFormat<Impl: ISpeechRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Pause<Impl: ISpeechRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Resume<Impl: ISpeechRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateGrammar<Impl: ISpeechRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, grammarid: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, grammar: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateResultFromMemory<Impl: ISpeechRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resultblock: *const super::super::System::Com::VARIANT, result: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Bookmark<Impl: ISpeechRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: SpeechBookmarkOptions, streampos: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, bookmarkid: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAdaptationData<Impl: ISpeechRecoContextImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, adaptationstring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Recognizer: Recognizer::<Impl, IMPL_OFFSET>,
+            AudioInputInterferenceStatus: AudioInputInterferenceStatus::<Impl, IMPL_OFFSET>,
+            RequestedUIType: RequestedUIType::<Impl, IMPL_OFFSET>,
+            putref_Voice: putref_Voice::<Impl, IMPL_OFFSET>,
+            Voice: Voice::<Impl, IMPL_OFFSET>,
+            SetAllowVoiceFormatMatchingOnNextSet: SetAllowVoiceFormatMatchingOnNextSet::<Impl, IMPL_OFFSET>,
+            AllowVoiceFormatMatchingOnNextSet: AllowVoiceFormatMatchingOnNextSet::<Impl, IMPL_OFFSET>,
+            SetVoicePurgeEvent: SetVoicePurgeEvent::<Impl, IMPL_OFFSET>,
+            VoicePurgeEvent: VoicePurgeEvent::<Impl, IMPL_OFFSET>,
+            SetEventInterests: SetEventInterests::<Impl, IMPL_OFFSET>,
+            EventInterests: EventInterests::<Impl, IMPL_OFFSET>,
+            SetCmdMaxAlternates: SetCmdMaxAlternates::<Impl, IMPL_OFFSET>,
+            CmdMaxAlternates: CmdMaxAlternates::<Impl, IMPL_OFFSET>,
+            SetState: SetState::<Impl, IMPL_OFFSET>,
+            State: State::<Impl, IMPL_OFFSET>,
+            SetRetainedAudio: SetRetainedAudio::<Impl, IMPL_OFFSET>,
+            RetainedAudio: RetainedAudio::<Impl, IMPL_OFFSET>,
+            putref_RetainedAudioFormat: putref_RetainedAudioFormat::<Impl, IMPL_OFFSET>,
+            RetainedAudioFormat: RetainedAudioFormat::<Impl, IMPL_OFFSET>,
+            Pause: Pause::<Impl, IMPL_OFFSET>,
+            Resume: Resume::<Impl, IMPL_OFFSET>,
+            CreateGrammar: CreateGrammar::<Impl, IMPL_OFFSET>,
+            CreateResultFromMemory: CreateResultFromMemory::<Impl, IMPL_OFFSET>,
+            Bookmark: Bookmark::<Impl, IMPL_OFFSET>,
+            SetAdaptationData: SetAdaptationData::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechRecoContext as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechRecoGrammarImpl: Sized + IDispatchImpl {
+    fn Id();
+    fn RecoContext();
+    fn SetState();
+    fn State();
+    fn Rules();
+    fn Reset();
+    fn CmdLoadFromFile();
+    fn CmdLoadFromObject();
+    fn CmdLoadFromResource();
+    fn CmdLoadFromMemory();
+    fn CmdLoadFromProprietaryGrammar();
+    fn CmdSetRuleState();
+    fn CmdSetRuleIdState();
+    fn DictationLoad();
+    fn DictationUnload();
+    fn DictationSetState();
+    fn SetWordSequenceData();
+    fn SetTextSelection();
+    fn IsPronounceable();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechRecoGrammarVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechRecoGrammarImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechRecoGrammarVtbl {
+        unsafe extern "system" fn Id<Impl: ISpeechRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, id: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RecoContext<Impl: ISpeechRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, recocontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetState<Impl: ISpeechRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: SpeechGrammarState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn State<Impl: ISpeechRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: *mut SpeechGrammarState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Rules<Impl: ISpeechRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rules: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Reset<Impl: ISpeechRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newlanguage: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CmdLoadFromFile<Impl: ISpeechRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, filename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, loadoption: SpeechLoadOption) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CmdLoadFromObject<Impl: ISpeechRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, classid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, grammarname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, loadoption: SpeechLoadOption) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CmdLoadFromResource<Impl: ISpeechRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hmodule: i32, resourcename: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, resourcetype: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, languageid: i32, loadoption: SpeechLoadOption) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CmdLoadFromMemory<Impl: ISpeechRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, grammardata: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, loadoption: SpeechLoadOption) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CmdLoadFromProprietaryGrammar<Impl: ISpeechRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, proprietaryguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, proprietarystring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, proprietarydata: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, loadoption: SpeechLoadOption) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CmdSetRuleState<Impl: ISpeechRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, state: SpeechRuleState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CmdSetRuleIdState<Impl: ISpeechRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ruleid: i32, state: SpeechRuleState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DictationLoad<Impl: ISpeechRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, topicname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, loadoption: SpeechLoadOption) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DictationUnload<Impl: ISpeechRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DictationSetState<Impl: ISpeechRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: SpeechRuleState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetWordSequenceData<Impl: ISpeechRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, textlength: i32, info: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetTextSelection<Impl: ISpeechRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, info: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsPronounceable<Impl: ISpeechRecoGrammarImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, word: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, wordpronounceable: *mut SpeechWordPronounceable) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Id: Id::<Impl, IMPL_OFFSET>,
+            RecoContext: RecoContext::<Impl, IMPL_OFFSET>,
+            SetState: SetState::<Impl, IMPL_OFFSET>,
+            State: State::<Impl, IMPL_OFFSET>,
+            Rules: Rules::<Impl, IMPL_OFFSET>,
+            Reset: Reset::<Impl, IMPL_OFFSET>,
+            CmdLoadFromFile: CmdLoadFromFile::<Impl, IMPL_OFFSET>,
+            CmdLoadFromObject: CmdLoadFromObject::<Impl, IMPL_OFFSET>,
+            CmdLoadFromResource: CmdLoadFromResource::<Impl, IMPL_OFFSET>,
+            CmdLoadFromMemory: CmdLoadFromMemory::<Impl, IMPL_OFFSET>,
+            CmdLoadFromProprietaryGrammar: CmdLoadFromProprietaryGrammar::<Impl, IMPL_OFFSET>,
+            CmdSetRuleState: CmdSetRuleState::<Impl, IMPL_OFFSET>,
+            CmdSetRuleIdState: CmdSetRuleIdState::<Impl, IMPL_OFFSET>,
+            DictationLoad: DictationLoad::<Impl, IMPL_OFFSET>,
+            DictationUnload: DictationUnload::<Impl, IMPL_OFFSET>,
+            DictationSetState: DictationSetState::<Impl, IMPL_OFFSET>,
+            SetWordSequenceData: SetWordSequenceData::<Impl, IMPL_OFFSET>,
+            SetTextSelection: SetTextSelection::<Impl, IMPL_OFFSET>,
+            IsPronounceable: IsPronounceable::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechRecoGrammar as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechRecoResultImpl: Sized + IDispatchImpl {
+    fn RecoContext();
+    fn Times();
+    fn putref_AudioFormat();
+    fn AudioFormat();
+    fn PhraseInfo();
+    fn Alternates();
+    fn Audio();
+    fn SpeakAudio();
+    fn SaveToMemory();
+    fn DiscardResultInfo();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechRecoResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechRecoResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechRecoResultVtbl {
+        unsafe extern "system" fn RecoContext<Impl: ISpeechRecoResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, recocontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Times<Impl: ISpeechRecoResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, times: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn putref_AudioFormat<Impl: ISpeechRecoResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AudioFormat<Impl: ISpeechRecoResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PhraseInfo<Impl: ISpeechRecoResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phraseinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Alternates<Impl: ISpeechRecoResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requestcount: i32, startelement: i32, elements: i32, alternates: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Audio<Impl: ISpeechRecoResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startelement: i32, elements: i32, stream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SpeakAudio<Impl: ISpeechRecoResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startelement: i32, elements: i32, flags: SpeechVoiceSpeakFlags, streamnumber: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SaveToMemory<Impl: ISpeechRecoResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resultblock: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DiscardResultInfo<Impl: ISpeechRecoResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, valuetypes: SpeechDiscardType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            RecoContext: RecoContext::<Impl, IMPL_OFFSET>,
+            Times: Times::<Impl, IMPL_OFFSET>,
+            putref_AudioFormat: putref_AudioFormat::<Impl, IMPL_OFFSET>,
+            AudioFormat: AudioFormat::<Impl, IMPL_OFFSET>,
+            PhraseInfo: PhraseInfo::<Impl, IMPL_OFFSET>,
+            Alternates: Alternates::<Impl, IMPL_OFFSET>,
+            Audio: Audio::<Impl, IMPL_OFFSET>,
+            SpeakAudio: SpeakAudio::<Impl, IMPL_OFFSET>,
+            SaveToMemory: SaveToMemory::<Impl, IMPL_OFFSET>,
+            DiscardResultInfo: DiscardResultInfo::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechRecoResult as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechRecoResult2Impl: Sized + IDispatchImpl + ISpeechRecoResultImpl {
+    fn SetTextFeedback();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechRecoResult2Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechRecoResult2Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechRecoResult2Vtbl {
+        unsafe extern "system" fn SetTextFeedback<Impl: ISpeechRecoResult2Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, feedback: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, wassuccessful: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ISpeechRecoResultVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), SetTextFeedback: SetTextFeedback::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechRecoResult2 as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechRecoResultDispatchImpl: Sized + IDispatchImpl {
+    fn RecoContext();
+    fn Times();
+    fn putref_AudioFormat();
+    fn AudioFormat();
+    fn PhraseInfo();
+    fn Alternates();
+    fn Audio();
+    fn SpeakAudio();
+    fn SaveToMemory();
+    fn DiscardResultInfo();
+    fn GetXMLResult();
+    fn GetXMLErrorInfo();
+    fn SetTextFeedback();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechRecoResultDispatchVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechRecoResultDispatchImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechRecoResultDispatchVtbl {
+        unsafe extern "system" fn RecoContext<Impl: ISpeechRecoResultDispatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, recocontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Times<Impl: ISpeechRecoResultDispatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, times: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn putref_AudioFormat<Impl: ISpeechRecoResultDispatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AudioFormat<Impl: ISpeechRecoResultDispatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, format: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PhraseInfo<Impl: ISpeechRecoResultDispatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phraseinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Alternates<Impl: ISpeechRecoResultDispatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requestcount: i32, startelement: i32, elements: i32, alternates: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Audio<Impl: ISpeechRecoResultDispatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startelement: i32, elements: i32, stream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SpeakAudio<Impl: ISpeechRecoResultDispatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, startelement: i32, elements: i32, flags: SpeechVoiceSpeakFlags, streamnumber: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SaveToMemory<Impl: ISpeechRecoResultDispatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resultblock: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DiscardResultInfo<Impl: ISpeechRecoResultDispatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, valuetypes: SpeechDiscardType) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetXMLResult<Impl: ISpeechRecoResultDispatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: SPXMLRESULTOPTIONS, presult: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetXMLErrorInfo<Impl: ISpeechRecoResultDispatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, linenumber: *mut i32, scriptline: *mut super::super::Foundation::BSTR, source: *mut super::super::Foundation::BSTR, description: *mut super::super::Foundation::BSTR, resultcode: *mut ::windows::core::HRESULT, iserror: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetTextFeedback<Impl: ISpeechRecoResultDispatchImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, feedback: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, wassuccessful: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            RecoContext: RecoContext::<Impl, IMPL_OFFSET>,
+            Times: Times::<Impl, IMPL_OFFSET>,
+            putref_AudioFormat: putref_AudioFormat::<Impl, IMPL_OFFSET>,
+            AudioFormat: AudioFormat::<Impl, IMPL_OFFSET>,
+            PhraseInfo: PhraseInfo::<Impl, IMPL_OFFSET>,
+            Alternates: Alternates::<Impl, IMPL_OFFSET>,
+            Audio: Audio::<Impl, IMPL_OFFSET>,
+            SpeakAudio: SpeakAudio::<Impl, IMPL_OFFSET>,
+            SaveToMemory: SaveToMemory::<Impl, IMPL_OFFSET>,
+            DiscardResultInfo: DiscardResultInfo::<Impl, IMPL_OFFSET>,
+            GetXMLResult: GetXMLResult::<Impl, IMPL_OFFSET>,
+            GetXMLErrorInfo: GetXMLErrorInfo::<Impl, IMPL_OFFSET>,
+            SetTextFeedback: SetTextFeedback::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechRecoResultDispatch as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechRecoResultTimesImpl: Sized + IDispatchImpl {
+    fn StreamTime();
+    fn Length();
+    fn TickCount();
+    fn OffsetFromStart();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechRecoResultTimesVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechRecoResultTimesImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechRecoResultTimesVtbl {
+        unsafe extern "system" fn StreamTime<Impl: ISpeechRecoResultTimesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, time: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Length<Impl: ISpeechRecoResultTimesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn TickCount<Impl: ISpeechRecoResultTimesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tickcount: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OffsetFromStart<Impl: ISpeechRecoResultTimesImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, offsetfromstart: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            StreamTime: StreamTime::<Impl, IMPL_OFFSET>,
+            Length: Length::<Impl, IMPL_OFFSET>,
+            TickCount: TickCount::<Impl, IMPL_OFFSET>,
+            OffsetFromStart: OffsetFromStart::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechRecoResultTimes as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechRecognizerImpl: Sized + IDispatchImpl {
+    fn putref_Recognizer();
+    fn Recognizer();
+    fn SetAllowAudioInputFormatChangesOnNextSet();
+    fn AllowAudioInputFormatChangesOnNextSet();
+    fn putref_AudioInput();
+    fn AudioInput();
+    fn putref_AudioInputStream();
+    fn AudioInputStream();
+    fn IsShared();
+    fn SetState();
+    fn State();
+    fn Status();
+    fn putref_Profile();
+    fn Profile();
+    fn EmulateRecognition();
+    fn CreateRecoContext();
+    fn GetFormat();
+    fn SetPropertyNumber();
+    fn GetPropertyNumber();
+    fn SetPropertyString();
+    fn GetPropertyString();
+    fn IsUISupported();
+    fn DisplayUI();
+    fn GetRecognizers();
+    fn GetAudioInputs();
+    fn GetProfiles();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechRecognizerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechRecognizerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechRecognizerVtbl {
+        unsafe extern "system" fn putref_Recognizer<Impl: ISpeechRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, recognizer: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Recognizer<Impl: ISpeechRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, recognizer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAllowAudioInputFormatChangesOnNextSet<Impl: ISpeechRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allow: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AllowAudioInputFormatChangesOnNextSet<Impl: ISpeechRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allow: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn putref_AudioInput<Impl: ISpeechRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audioinput: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AudioInput<Impl: ISpeechRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audioinput: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn putref_AudioInputStream<Impl: ISpeechRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audioinputstream: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AudioInputStream<Impl: ISpeechRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audioinputstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsShared<Impl: ISpeechRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, shared: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetState<Impl: ISpeechRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: SpeechRecognizerState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn State<Impl: ISpeechRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: *mut SpeechRecognizerState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Status<Impl: ISpeechRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn putref_Profile<Impl: ISpeechRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profile: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Profile<Impl: ISpeechRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, profile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EmulateRecognition<Impl: ISpeechRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, textelements: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, elementdisplayattributes: *const super::super::System::Com::VARIANT, languageid: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CreateRecoContext<Impl: ISpeechRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, newcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetFormat<Impl: ISpeechRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: SpeechFormatType, format: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetPropertyNumber<Impl: ISpeechRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, value: i32, supported: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetPropertyNumber<Impl: ISpeechRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, value: *mut i32, supported: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetPropertyString<Impl: ISpeechRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, value: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, supported: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetPropertyString<Impl: ISpeechRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, value: *mut super::super::Foundation::BSTR, supported: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsUISupported<Impl: ISpeechRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, typeofui: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, extradata: *const super::super::System::Com::VARIANT, supported: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DisplayUI<Impl: ISpeechRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: i32, title: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, typeofui: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetRecognizers<Impl: ISpeechRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requiredattributes: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, optionalattributes: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, objecttokens: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetAudioInputs<Impl: ISpeechRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requiredattributes: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, optionalattributes: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, objecttokens: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetProfiles<Impl: ISpeechRecognizerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requiredattributes: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, optionalattributes: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, objecttokens: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            putref_Recognizer: putref_Recognizer::<Impl, IMPL_OFFSET>,
+            Recognizer: Recognizer::<Impl, IMPL_OFFSET>,
+            SetAllowAudioInputFormatChangesOnNextSet: SetAllowAudioInputFormatChangesOnNextSet::<Impl, IMPL_OFFSET>,
+            AllowAudioInputFormatChangesOnNextSet: AllowAudioInputFormatChangesOnNextSet::<Impl, IMPL_OFFSET>,
+            putref_AudioInput: putref_AudioInput::<Impl, IMPL_OFFSET>,
+            AudioInput: AudioInput::<Impl, IMPL_OFFSET>,
+            putref_AudioInputStream: putref_AudioInputStream::<Impl, IMPL_OFFSET>,
+            AudioInputStream: AudioInputStream::<Impl, IMPL_OFFSET>,
+            IsShared: IsShared::<Impl, IMPL_OFFSET>,
+            SetState: SetState::<Impl, IMPL_OFFSET>,
+            State: State::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            putref_Profile: putref_Profile::<Impl, IMPL_OFFSET>,
+            Profile: Profile::<Impl, IMPL_OFFSET>,
+            EmulateRecognition: EmulateRecognition::<Impl, IMPL_OFFSET>,
+            CreateRecoContext: CreateRecoContext::<Impl, IMPL_OFFSET>,
+            GetFormat: GetFormat::<Impl, IMPL_OFFSET>,
+            SetPropertyNumber: SetPropertyNumber::<Impl, IMPL_OFFSET>,
+            GetPropertyNumber: GetPropertyNumber::<Impl, IMPL_OFFSET>,
+            SetPropertyString: SetPropertyString::<Impl, IMPL_OFFSET>,
+            GetPropertyString: GetPropertyString::<Impl, IMPL_OFFSET>,
+            IsUISupported: IsUISupported::<Impl, IMPL_OFFSET>,
+            DisplayUI: DisplayUI::<Impl, IMPL_OFFSET>,
+            GetRecognizers: GetRecognizers::<Impl, IMPL_OFFSET>,
+            GetAudioInputs: GetAudioInputs::<Impl, IMPL_OFFSET>,
+            GetProfiles: GetProfiles::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechRecognizer as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechRecognizerStatusImpl: Sized + IDispatchImpl {
+    fn AudioStatus();
+    fn CurrentStreamPosition();
+    fn CurrentStreamNumber();
+    fn NumberOfActiveRules();
+    fn ClsidEngine();
+    fn SupportedLanguages();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechRecognizerStatusVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechRecognizerStatusImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechRecognizerStatusVtbl {
+        unsafe extern "system" fn AudioStatus<Impl: ISpeechRecognizerStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audiostatus: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CurrentStreamPosition<Impl: ISpeechRecognizerStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcurrentstreampos: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CurrentStreamNumber<Impl: ISpeechRecognizerStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, streamnumber: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn NumberOfActiveRules<Impl: ISpeechRecognizerStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numberofactiverules: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ClsidEngine<Impl: ISpeechRecognizerStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clsidengine: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SupportedLanguages<Impl: ISpeechRecognizerStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, supportedlanguages: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            AudioStatus: AudioStatus::<Impl, IMPL_OFFSET>,
+            CurrentStreamPosition: CurrentStreamPosition::<Impl, IMPL_OFFSET>,
+            CurrentStreamNumber: CurrentStreamNumber::<Impl, IMPL_OFFSET>,
+            NumberOfActiveRules: NumberOfActiveRules::<Impl, IMPL_OFFSET>,
+            ClsidEngine: ClsidEngine::<Impl, IMPL_OFFSET>,
+            SupportedLanguages: SupportedLanguages::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechRecognizerStatus as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechResourceLoaderImpl: Sized + IDispatchImpl {
+    fn LoadResource();
+    fn GetLocalCopy();
+    fn ReleaseLocalCopy();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechResourceLoaderVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechResourceLoaderImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechResourceLoaderVtbl {
+        unsafe extern "system" fn LoadResource<Impl: ISpeechResourceLoaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrresourceuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, falwaysreload: i16, pstream: *mut *mut ::core::ffi::c_void, pbstrmimetype: *mut super::super::Foundation::BSTR, pfmodified: *mut i16, pbstrredirecturl: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetLocalCopy<Impl: ISpeechResourceLoaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrresourceuri: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbstrlocalpath: *mut super::super::Foundation::BSTR, pbstrmimetype: *mut super::super::Foundation::BSTR, pbstrredirecturl: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReleaseLocalCopy<Impl: ISpeechResourceLoaderImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrlocalpath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            LoadResource: LoadResource::<Impl, IMPL_OFFSET>,
+            GetLocalCopy: GetLocalCopy::<Impl, IMPL_OFFSET>,
+            ReleaseLocalCopy: ReleaseLocalCopy::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechResourceLoader as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechTextSelectionInformationImpl: Sized + IDispatchImpl {
+    fn SetActiveOffset();
+    fn ActiveOffset();
+    fn SetActiveLength();
+    fn ActiveLength();
+    fn SetSelectionOffset();
+    fn SelectionOffset();
+    fn SetSelectionLength();
+    fn SelectionLength();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechTextSelectionInformationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechTextSelectionInformationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechTextSelectionInformationVtbl {
+        unsafe extern "system" fn SetActiveOffset<Impl: ISpeechTextSelectionInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activeoffset: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ActiveOffset<Impl: ISpeechTextSelectionInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activeoffset: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetActiveLength<Impl: ISpeechTextSelectionInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activelength: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ActiveLength<Impl: ISpeechTextSelectionInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, activelength: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSelectionOffset<Impl: ISpeechTextSelectionInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selectionoffset: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SelectionOffset<Impl: ISpeechTextSelectionInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selectionoffset: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSelectionLength<Impl: ISpeechTextSelectionInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selectionlength: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SelectionLength<Impl: ISpeechTextSelectionInformationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, selectionlength: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            SetActiveOffset: SetActiveOffset::<Impl, IMPL_OFFSET>,
+            ActiveOffset: ActiveOffset::<Impl, IMPL_OFFSET>,
+            SetActiveLength: SetActiveLength::<Impl, IMPL_OFFSET>,
+            ActiveLength: ActiveLength::<Impl, IMPL_OFFSET>,
+            SetSelectionOffset: SetSelectionOffset::<Impl, IMPL_OFFSET>,
+            SelectionOffset: SelectionOffset::<Impl, IMPL_OFFSET>,
+            SetSelectionLength: SetSelectionLength::<Impl, IMPL_OFFSET>,
+            SelectionLength: SelectionLength::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechTextSelectionInformation as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechVoiceImpl: Sized + IDispatchImpl {
+    fn Status();
+    fn Voice();
+    fn putref_Voice();
+    fn AudioOutput();
+    fn putref_AudioOutput();
+    fn AudioOutputStream();
+    fn putref_AudioOutputStream();
+    fn Rate();
+    fn SetRate();
+    fn Volume();
+    fn SetVolume();
+    fn SetAllowAudioOutputFormatChangesOnNextSet();
+    fn AllowAudioOutputFormatChangesOnNextSet();
+    fn EventInterests();
+    fn SetEventInterests();
+    fn SetPriority();
+    fn Priority();
+    fn SetAlertBoundary();
+    fn AlertBoundary();
+    fn SetSynchronousSpeakTimeout();
+    fn SynchronousSpeakTimeout();
+    fn Speak();
+    fn SpeakStream();
+    fn Pause();
+    fn Resume();
+    fn Skip();
+    fn GetVoices();
+    fn GetAudioOutputs();
+    fn WaitUntilDone();
+    fn SpeakCompleteEvent();
+    fn IsUISupported();
+    fn DisplayUI();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechVoiceVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechVoiceImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechVoiceVtbl {
+        unsafe extern "system" fn Status<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, status: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Voice<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, voice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn putref_Voice<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, voice: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AudioOutput<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audiooutput: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn putref_AudioOutput<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audiooutput: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AudioOutputStream<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audiooutputstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn putref_AudioOutputStream<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audiooutputstream: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Rate<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rate: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetRate<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, rate: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Volume<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, volume: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetVolume<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, volume: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAllowAudioOutputFormatChangesOnNextSet<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allow: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AllowAudioOutputFormatChangesOnNextSet<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, allow: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn EventInterests<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventinterestflags: *mut SpeechVoiceEvents) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetEventInterests<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventinterestflags: SpeechVoiceEvents) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetPriority<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, priority: SpeechVoicePriority) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Priority<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, priority: *mut SpeechVoicePriority) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAlertBoundary<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, boundary: SpeechVoiceEvents) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AlertBoundary<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, boundary: *mut SpeechVoiceEvents) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSynchronousSpeakTimeout<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mstimeout: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SynchronousSpeakTimeout<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mstimeout: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Speak<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, text: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, flags: SpeechVoiceSpeakFlags, streamnumber: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SpeakStream<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, flags: SpeechVoiceSpeakFlags, streamnumber: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Pause<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Resume<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Skip<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, numitems: i32, numskipped: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetVoices<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requiredattributes: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, optionalattributes: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, objecttokens: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetAudioOutputs<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requiredattributes: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, optionalattributes: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, objecttokens: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn WaitUntilDone<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mstimeout: i32, done: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SpeakCompleteEvent<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handle: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn IsUISupported<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, typeofui: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, extradata: *const super::super::System::Com::VARIANT, supported: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DisplayUI<Impl: ISpeechVoiceImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndparent: i32, title: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, typeofui: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, extradata: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Status: Status::<Impl, IMPL_OFFSET>,
+            Voice: Voice::<Impl, IMPL_OFFSET>,
+            putref_Voice: putref_Voice::<Impl, IMPL_OFFSET>,
+            AudioOutput: AudioOutput::<Impl, IMPL_OFFSET>,
+            putref_AudioOutput: putref_AudioOutput::<Impl, IMPL_OFFSET>,
+            AudioOutputStream: AudioOutputStream::<Impl, IMPL_OFFSET>,
+            putref_AudioOutputStream: putref_AudioOutputStream::<Impl, IMPL_OFFSET>,
+            Rate: Rate::<Impl, IMPL_OFFSET>,
+            SetRate: SetRate::<Impl, IMPL_OFFSET>,
+            Volume: Volume::<Impl, IMPL_OFFSET>,
+            SetVolume: SetVolume::<Impl, IMPL_OFFSET>,
+            SetAllowAudioOutputFormatChangesOnNextSet: SetAllowAudioOutputFormatChangesOnNextSet::<Impl, IMPL_OFFSET>,
+            AllowAudioOutputFormatChangesOnNextSet: AllowAudioOutputFormatChangesOnNextSet::<Impl, IMPL_OFFSET>,
+            EventInterests: EventInterests::<Impl, IMPL_OFFSET>,
+            SetEventInterests: SetEventInterests::<Impl, IMPL_OFFSET>,
+            SetPriority: SetPriority::<Impl, IMPL_OFFSET>,
+            Priority: Priority::<Impl, IMPL_OFFSET>,
+            SetAlertBoundary: SetAlertBoundary::<Impl, IMPL_OFFSET>,
+            AlertBoundary: AlertBoundary::<Impl, IMPL_OFFSET>,
+            SetSynchronousSpeakTimeout: SetSynchronousSpeakTimeout::<Impl, IMPL_OFFSET>,
+            SynchronousSpeakTimeout: SynchronousSpeakTimeout::<Impl, IMPL_OFFSET>,
+            Speak: Speak::<Impl, IMPL_OFFSET>,
+            SpeakStream: SpeakStream::<Impl, IMPL_OFFSET>,
+            Pause: Pause::<Impl, IMPL_OFFSET>,
+            Resume: Resume::<Impl, IMPL_OFFSET>,
+            Skip: Skip::<Impl, IMPL_OFFSET>,
+            GetVoices: GetVoices::<Impl, IMPL_OFFSET>,
+            GetAudioOutputs: GetAudioOutputs::<Impl, IMPL_OFFSET>,
+            WaitUntilDone: WaitUntilDone::<Impl, IMPL_OFFSET>,
+            SpeakCompleteEvent: SpeakCompleteEvent::<Impl, IMPL_OFFSET>,
+            IsUISupported: IsUISupported::<Impl, IMPL_OFFSET>,
+            DisplayUI: DisplayUI::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechVoice as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechVoiceStatusImpl: Sized + IDispatchImpl {
+    fn CurrentStreamNumber();
+    fn LastStreamNumberQueued();
+    fn LastHResult();
+    fn RunningState();
+    fn InputWordPosition();
+    fn InputWordLength();
+    fn InputSentencePosition();
+    fn InputSentenceLength();
+    fn LastBookmark();
+    fn LastBookmarkId();
+    fn PhonemeId();
+    fn VisemeId();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechVoiceStatusVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechVoiceStatusImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechVoiceStatusVtbl {
+        unsafe extern "system" fn CurrentStreamNumber<Impl: ISpeechVoiceStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, streamnumber: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LastStreamNumberQueued<Impl: ISpeechVoiceStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, streamnumber: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LastHResult<Impl: ISpeechVoiceStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hresult: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RunningState<Impl: ISpeechVoiceStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: *mut SpeechRunState) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn InputWordPosition<Impl: ISpeechVoiceStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, position: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn InputWordLength<Impl: ISpeechVoiceStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn InputSentencePosition<Impl: ISpeechVoiceStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, position: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn InputSentenceLength<Impl: ISpeechVoiceStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, length: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LastBookmark<Impl: ISpeechVoiceStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bookmark: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn LastBookmarkId<Impl: ISpeechVoiceStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bookmarkid: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PhonemeId<Impl: ISpeechVoiceStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phoneid: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn VisemeId<Impl: ISpeechVoiceStatusImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, visemeid: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            CurrentStreamNumber: CurrentStreamNumber::<Impl, IMPL_OFFSET>,
+            LastStreamNumberQueued: LastStreamNumberQueued::<Impl, IMPL_OFFSET>,
+            LastHResult: LastHResult::<Impl, IMPL_OFFSET>,
+            RunningState: RunningState::<Impl, IMPL_OFFSET>,
+            InputWordPosition: InputWordPosition::<Impl, IMPL_OFFSET>,
+            InputWordLength: InputWordLength::<Impl, IMPL_OFFSET>,
+            InputSentencePosition: InputSentencePosition::<Impl, IMPL_OFFSET>,
+            InputSentenceLength: InputSentenceLength::<Impl, IMPL_OFFSET>,
+            LastBookmark: LastBookmark::<Impl, IMPL_OFFSET>,
+            LastBookmarkId: LastBookmarkId::<Impl, IMPL_OFFSET>,
+            PhonemeId: PhonemeId::<Impl, IMPL_OFFSET>,
+            VisemeId: VisemeId::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechVoiceStatus as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechWaveFormatExImpl: Sized + IDispatchImpl {
+    fn FormatTag();
+    fn SetFormatTag();
+    fn Channels();
+    fn SetChannels();
+    fn SamplesPerSec();
+    fn SetSamplesPerSec();
+    fn AvgBytesPerSec();
+    fn SetAvgBytesPerSec();
+    fn BlockAlign();
+    fn SetBlockAlign();
+    fn BitsPerSample();
+    fn SetBitsPerSample();
+    fn ExtraData();
+    fn SetExtraData();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechWaveFormatExVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechWaveFormatExImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechWaveFormatExVtbl {
+        unsafe extern "system" fn FormatTag<Impl: ISpeechWaveFormatExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, formattag: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetFormatTag<Impl: ISpeechWaveFormatExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, formattag: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Channels<Impl: ISpeechWaveFormatExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channels: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetChannels<Impl: ISpeechWaveFormatExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, channels: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SamplesPerSec<Impl: ISpeechWaveFormatExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, samplespersec: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetSamplesPerSec<Impl: ISpeechWaveFormatExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, samplespersec: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AvgBytesPerSec<Impl: ISpeechWaveFormatExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, avgbytespersec: *mut i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetAvgBytesPerSec<Impl: ISpeechWaveFormatExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, avgbytespersec: i32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BlockAlign<Impl: ISpeechWaveFormatExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, blockalign: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetBlockAlign<Impl: ISpeechWaveFormatExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, blockalign: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn BitsPerSample<Impl: ISpeechWaveFormatExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitspersample: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetBitsPerSample<Impl: ISpeechWaveFormatExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bitspersample: i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ExtraData<Impl: ISpeechWaveFormatExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, extradata: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetExtraData<Impl: ISpeechWaveFormatExImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, extradata: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            FormatTag: FormatTag::<Impl, IMPL_OFFSET>,
+            SetFormatTag: SetFormatTag::<Impl, IMPL_OFFSET>,
+            Channels: Channels::<Impl, IMPL_OFFSET>,
+            SetChannels: SetChannels::<Impl, IMPL_OFFSET>,
+            SamplesPerSec: SamplesPerSec::<Impl, IMPL_OFFSET>,
+            SetSamplesPerSec: SetSamplesPerSec::<Impl, IMPL_OFFSET>,
+            AvgBytesPerSec: AvgBytesPerSec::<Impl, IMPL_OFFSET>,
+            SetAvgBytesPerSec: SetAvgBytesPerSec::<Impl, IMPL_OFFSET>,
+            BlockAlign: BlockAlign::<Impl, IMPL_OFFSET>,
+            SetBlockAlign: SetBlockAlign::<Impl, IMPL_OFFSET>,
+            BitsPerSample: BitsPerSample::<Impl, IMPL_OFFSET>,
+            SetBitsPerSample: SetBitsPerSample::<Impl, IMPL_OFFSET>,
+            ExtraData: ExtraData::<Impl, IMPL_OFFSET>,
+            SetExtraData: SetExtraData::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechWaveFormatEx as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ISpeechXMLRecoResultImpl: Sized + IDispatchImpl + ISpeechRecoResultImpl {
+    fn GetXMLResult();
+    fn GetXMLErrorInfo();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ISpeechXMLRecoResultVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISpeechXMLRecoResultImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISpeechXMLRecoResultVtbl {
+        unsafe extern "system" fn GetXMLResult<Impl: ISpeechXMLRecoResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, options: SPXMLRESULTOPTIONS, presult: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetXMLErrorInfo<Impl: ISpeechXMLRecoResultImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, linenumber: *mut i32, scriptline: *mut super::super::Foundation::BSTR, source: *mut super::super::Foundation::BSTR, description: *mut super::super::Foundation::BSTR, resultcode: *mut i32, iserror: *mut i16) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ISpeechRecoResultVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetXMLResult: GetXMLResult::<Impl, IMPL_OFFSET>,
+            GetXMLErrorInfo: GetXMLErrorInfo::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ISpeechXMLRecoResult as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait _ISpeechRecoContextEventsImpl: Sized + IDispatchImpl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl _ISpeechRecoContextEventsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _ISpeechRecoContextEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> _ISpeechRecoContextEventsVtbl {
+        Self { base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<_ISpeechRecoContextEvents as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait _ISpeechVoiceEventsImpl: Sized + IDispatchImpl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl _ISpeechVoiceEventsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _ISpeechVoiceEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> _ISpeechVoiceEventsVtbl {
+        Self { base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<_ISpeechVoiceEvents as ::windows::core::Interface>::IID
+    }
+}

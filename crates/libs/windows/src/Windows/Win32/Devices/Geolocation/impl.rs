@@ -1,1 +1,502 @@
-# [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" , feature ="Win32_UI_Shell_PropertiesSystem" ) ) ] pub trait ICivicAddressReportImpl < > : Sized + ILocationReportImpl where { fn GetAddressLine1 ( ) ; fn GetAddressLine2 ( ) ; fn GetCity ( ) ; fn GetStateProvince ( ) ; fn GetPostalCode ( ) ; fn GetCountryRegion ( ) ; fn GetDetailLevel ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" , feature ="Win32_UI_Shell_PropertiesSystem" ) ) ] impl < > ICivicAddressReportVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ICivicAddressReportImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ICivicAddressReportVtbl < > { unsafe extern "system" fn GetAddressLine1 < Impl : ICivicAddressReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbstraddress1 : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetAddressLine2 < Impl : ICivicAddressReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbstraddress2 : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetCity < Impl : ICivicAddressReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbstrcity : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetStateProvince < Impl : ICivicAddressReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbstrstateprovince : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetPostalCode < Impl : ICivicAddressReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbstrpostalcode : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetCountryRegion < Impl : ICivicAddressReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pbstrcountryregion : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetDetailLevel < Impl : ICivicAddressReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdetaillevel : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ILocationReportVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetAddressLine1 : GetAddressLine1 :: < Impl , IMPL_OFFSET > , GetAddressLine2 : GetAddressLine2 :: < Impl , IMPL_OFFSET > , GetCity : GetCity :: < Impl , IMPL_OFFSET > , GetStateProvince : GetStateProvince :: < Impl , IMPL_OFFSET > , GetPostalCode : GetPostalCode :: < Impl , IMPL_OFFSET > , GetCountryRegion : GetCountryRegion :: < Impl , IMPL_OFFSET > , GetDetailLevel : GetDetailLevel :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ICivicAddressReport < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ICivicAddressReportFactoryImpl < > : Sized + IDispatchImpl + ILocationReportFactoryImpl where { fn CivicAddressReport ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ICivicAddressReportFactoryVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ICivicAddressReportFactoryImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ICivicAddressReportFactoryVtbl < > { unsafe extern "system" fn CivicAddressReport < Impl : ICivicAddressReportFactoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pval : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ILocationReportFactoryVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , CivicAddressReport : CivicAddressReport :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ICivicAddressReportFactory < > as :: windows :: core :: Interface > :: IID } } pub trait IDefaultLocationImpl < > : Sized where { fn SetReport ( ) ; fn GetReport ( ) ; } impl < > IDefaultLocationVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IDefaultLocationImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IDefaultLocationVtbl < > { unsafe extern "system" fn SetReport < Impl : IDefaultLocationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , reporttype : * const :: windows :: core :: GUID , plocationreport : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetReport < Impl : IDefaultLocationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , reporttype : * const :: windows :: core :: GUID , pplocationreport : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , SetReport : SetReport :: < Impl , IMPL_OFFSET > , GetReport : GetReport :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IDefaultLocation < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IDispCivicAddressReportImpl < > : Sized + IDispatchImpl where { fn AddressLine1 ( ) ; fn AddressLine2 ( ) ; fn City ( ) ; fn StateProvince ( ) ; fn PostalCode ( ) ; fn CountryRegion ( ) ; fn DetailLevel ( ) ; fn Timestamp ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IDispCivicAddressReportVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IDispCivicAddressReportImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IDispCivicAddressReportVtbl < > { unsafe extern "system" fn AddressLine1 < Impl : IDispCivicAddressReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , paddress1 : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AddressLine2 < Impl : IDispCivicAddressReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , paddress2 : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn City < Impl : IDispCivicAddressReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcity : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn StateProvince < Impl : IDispCivicAddressReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pstateprovince : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn PostalCode < Impl : IDispCivicAddressReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ppostalcode : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn CountryRegion < Impl : IDispCivicAddressReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcountryregion : * mut super::super::Foundation:: BSTR , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DetailLevel < Impl : IDispCivicAddressReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdetaillevel : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Timestamp < Impl : IDispCivicAddressReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pval : * mut f64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , AddressLine1 : AddressLine1 :: < Impl , IMPL_OFFSET > , AddressLine2 : AddressLine2 :: < Impl , IMPL_OFFSET > , City : City :: < Impl , IMPL_OFFSET > , StateProvince : StateProvince :: < Impl , IMPL_OFFSET > , PostalCode : PostalCode :: < Impl , IMPL_OFFSET > , CountryRegion : CountryRegion :: < Impl , IMPL_OFFSET > , DetailLevel : DetailLevel :: < Impl , IMPL_OFFSET > , Timestamp : Timestamp :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IDispCivicAddressReport < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait IDispLatLongReportImpl < > : Sized + IDispatchImpl where { fn Latitude ( ) ; fn Longitude ( ) ; fn ErrorRadius ( ) ; fn Altitude ( ) ; fn AltitudeError ( ) ; fn Timestamp ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > IDispLatLongReportVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : IDispLatLongReportImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> IDispLatLongReportVtbl < > { unsafe extern "system" fn Latitude < Impl : IDispLatLongReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pval : * mut f64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Longitude < Impl : IDispLatLongReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pval : * mut f64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ErrorRadius < Impl : IDispLatLongReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pval : * mut f64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Altitude < Impl : IDispLatLongReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pval : * mut f64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn AltitudeError < Impl : IDispLatLongReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pval : * mut f64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Timestamp < Impl : IDispLatLongReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pval : * mut f64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , Latitude : Latitude :: < Impl , IMPL_OFFSET > , Longitude : Longitude :: < Impl , IMPL_OFFSET > , ErrorRadius : ErrorRadius :: < Impl , IMPL_OFFSET > , Altitude : Altitude :: < Impl , IMPL_OFFSET > , AltitudeError : AltitudeError :: < Impl , IMPL_OFFSET > , Timestamp : Timestamp :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < IDispLatLongReport < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" , feature ="Win32_UI_Shell_PropertiesSystem" ) ) ] pub trait ILatLongReportImpl < > : Sized + ILocationReportImpl where { fn GetLatitude ( ) ; fn GetLongitude ( ) ; fn GetErrorRadius ( ) ; fn GetAltitude ( ) ; fn GetAltitudeError ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" , feature ="Win32_UI_Shell_PropertiesSystem" ) ) ] impl < > ILatLongReportVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ILatLongReportImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ILatLongReportVtbl < > { unsafe extern "system" fn GetLatitude < Impl : ILatLongReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , platitude : * mut f64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetLongitude < Impl : ILatLongReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , plongitude : * mut f64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetErrorRadius < Impl : ILatLongReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , perrorradius : * mut f64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetAltitude < Impl : ILatLongReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , paltitude : * mut f64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetAltitudeError < Impl : ILatLongReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , paltitudeerror : * mut f64 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ILocationReportVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , GetLatitude : GetLatitude :: < Impl , IMPL_OFFSET > , GetLongitude : GetLongitude :: < Impl , IMPL_OFFSET > , GetErrorRadius : GetErrorRadius :: < Impl , IMPL_OFFSET > , GetAltitude : GetAltitude :: < Impl , IMPL_OFFSET > , GetAltitudeError : GetAltitudeError :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ILatLongReport < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ILatLongReportFactoryImpl < > : Sized + IDispatchImpl + ILocationReportFactoryImpl where { fn LatLongReport ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ILatLongReportFactoryVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ILatLongReportFactoryImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ILatLongReportFactoryVtbl < > { unsafe extern "system" fn LatLongReport < Impl : ILatLongReportFactoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pval : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { ILocationReportFactoryVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , LatLongReport : LatLongReport :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ILatLongReportFactory < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Devices_Sensors" , feature ="Win32_Foundation" ) ) ] pub trait ILocationImpl < > : Sized where { fn RegisterForReport ( ) ; fn UnregisterForReport ( ) ; fn GetReport ( ) ; fn GetReportStatus ( ) ; fn GetReportInterval ( ) ; fn SetReportInterval ( ) ; fn GetDesiredAccuracy ( ) ; fn SetDesiredAccuracy ( ) ; fn RequestPermissions ( ) ; } # [ cfg ( all ( feature ="Win32_Devices_Sensors" , feature ="Win32_Foundation" ) ) ] impl < > ILocationVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ILocationImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ILocationVtbl < > { unsafe extern "system" fn RegisterForReport < Impl : ILocationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pevents : :: windows :: core :: RawPtr , reporttype : * const :: windows :: core :: GUID , dwrequestedreportinterval : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn UnregisterForReport < Impl : ILocationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , reporttype : * const :: windows :: core :: GUID , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetReport < Impl : ILocationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , reporttype : * const :: windows :: core :: GUID , pplocationreport : * mut :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetReportStatus < Impl : ILocationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , reporttype : * const :: windows :: core :: GUID , pstatus : * mut LOCATION_REPORT_STATUS , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetReportInterval < Impl : ILocationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , reporttype : * const :: windows :: core :: GUID , pmilliseconds : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetReportInterval < Impl : ILocationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , reporttype : * const :: windows :: core :: GUID , millisecondsrequested : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetDesiredAccuracy < Impl : ILocationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , reporttype : * const :: windows :: core :: GUID , pdesiredaccuracy : * mut super::Sensors:: LOCATION_DESIRED_ACCURACY , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetDesiredAccuracy < Impl : ILocationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , reporttype : * const :: windows :: core :: GUID , desiredaccuracy : super::Sensors:: LOCATION_DESIRED_ACCURACY , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RequestPermissions < Impl : ILocationImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hparent : super::super::Foundation:: HWND , preporttypes : * const :: windows :: core :: GUID , count : u32 , fmodal : super::super::Foundation:: BOOL , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , RegisterForReport : RegisterForReport :: < Impl , IMPL_OFFSET > , UnregisterForReport : UnregisterForReport :: < Impl , IMPL_OFFSET > , GetReport : GetReport :: < Impl , IMPL_OFFSET > , GetReportStatus : GetReportStatus :: < Impl , IMPL_OFFSET > , GetReportInterval : GetReportInterval :: < Impl , IMPL_OFFSET > , SetReportInterval : SetReportInterval :: < Impl , IMPL_OFFSET > , GetDesiredAccuracy : GetDesiredAccuracy :: < Impl , IMPL_OFFSET > , SetDesiredAccuracy : SetDesiredAccuracy :: < Impl , IMPL_OFFSET > , RequestPermissions : RequestPermissions :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ILocation < > as :: windows :: core :: Interface > :: IID } } pub trait ILocationEventsImpl < > : Sized where { fn OnLocationChanged ( ) ; fn OnStatusChanged ( ) ; } impl < > ILocationEventsVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ILocationEventsImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ILocationEventsVtbl < > { unsafe extern "system" fn OnLocationChanged < Impl : ILocationEventsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , reporttype : * const :: windows :: core :: GUID , plocationreport : :: windows :: core :: RawPtr , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn OnStatusChanged < Impl : ILocationEventsImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , reporttype : * const :: windows :: core :: GUID , newstatus : LOCATION_REPORT_STATUS , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , OnLocationChanged : OnLocationChanged :: < Impl , IMPL_OFFSET > , OnStatusChanged : OnStatusChanged :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ILocationEvents < > as :: windows :: core :: Interface > :: IID } } pub trait ILocationPowerImpl < > : Sized where { fn Connect ( ) ; fn Disconnect ( ) ; } impl < > ILocationPowerVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ILocationPowerImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ILocationPowerVtbl < > { unsafe extern "system" fn Connect < Impl : ILocationPowerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Disconnect < Impl : ILocationPowerImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , Connect : Connect :: < Impl , IMPL_OFFSET > , Disconnect : Disconnect :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ILocationPower < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" , feature ="Win32_UI_Shell_PropertiesSystem" ) ) ] pub trait ILocationReportImpl < > : Sized where { fn GetSensorID ( ) ; fn GetTimestamp ( ) ; fn GetValue ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Com_StructuredStorage" , feature ="Win32_UI_Shell_PropertiesSystem" ) ) ] impl < > ILocationReportVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ILocationReportImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ILocationReportVtbl < > { unsafe extern "system" fn GetSensorID < Impl : ILocationReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , psensorid : * mut :: windows :: core :: GUID , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetTimestamp < Impl : ILocationReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pcreationtime : * mut super::super::Foundation:: SYSTEMTIME , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn GetValue < Impl : ILocationReportImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pkey : * const super::super::UI::Shell::PropertiesSystem:: PROPERTYKEY , pvalue : * mut super::super::System::Com::StructuredStorage:: PROPVARIANT , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { base : :: windows :: core :: IUnknownVtbl :: new :: < Identity , BASE_OFFSET > ( ) , GetSensorID : GetSensorID :: < Impl , IMPL_OFFSET > , GetTimestamp : GetTimestamp :: < Impl , IMPL_OFFSET > , GetValue : GetValue :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ILocationReport < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait ILocationReportFactoryImpl < > : Sized + IDispatchImpl where { fn ListenForReports ( ) ; fn StopListeningForReports ( ) ; fn Status ( ) ; fn ReportInterval ( ) ; fn SetReportInterval ( ) ; fn DesiredAccuracy ( ) ; fn SetDesiredAccuracy ( ) ; fn RequestPermissions ( ) ; } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > ILocationReportFactoryVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : ILocationReportFactoryImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> ILocationReportFactoryVtbl < > { unsafe extern "system" fn ListenForReports < Impl : ILocationReportFactoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , requestedreportinterval : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn StopListeningForReports < Impl : ILocationReportFactoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn Status < Impl : ILocationReportFactoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pval : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn ReportInterval < Impl : ILocationReportFactoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pmilliseconds : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetReportInterval < Impl : ILocationReportFactoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , millisecondsrequested : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn DesiredAccuracy < Impl : ILocationReportFactoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , pdesiredaccuracy : * mut u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn SetDesiredAccuracy < Impl : ILocationReportFactoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , desiredaccuracy : u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } unsafe extern "system" fn RequestPermissions < Impl : ILocationReportFactoryImpl < > , const OFFSET : isize > ( this : * mut :: core :: ffi :: c_void , hwnd : * const u32 , ) -> :: windows :: core :: HRESULT { let this = ( this as * mut :: windows :: core :: RawPtr ) . offset ( OFFSET ) as * mut Impl ; panic ! ( ) } Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , ListenForReports : ListenForReports :: < Impl , IMPL_OFFSET > , StopListeningForReports : StopListeningForReports :: < Impl , IMPL_OFFSET > , Status : Status :: < Impl , IMPL_OFFSET > , ReportInterval : ReportInterval :: < Impl , IMPL_OFFSET > , SetReportInterval : SetReportInterval :: < Impl , IMPL_OFFSET > , DesiredAccuracy : DesiredAccuracy :: < Impl , IMPL_OFFSET > , SetDesiredAccuracy : SetDesiredAccuracy :: < Impl , IMPL_OFFSET > , RequestPermissions : RequestPermissions :: < Impl , IMPL_OFFSET > , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < ILocationReportFactory < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait _ICivicAddressReportFactoryEventsImpl < > : Sized + IDispatchImpl where { } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > _ICivicAddressReportFactoryEventsVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : _ICivicAddressReportFactoryEventsImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> _ICivicAddressReportFactoryEventsVtbl < > { Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < _ICivicAddressReportFactoryEvents < > as :: windows :: core :: Interface > :: IID } } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] pub trait _ILatLongReportFactoryEventsImpl < > : Sized + IDispatchImpl where { } # [ cfg ( all ( feature ="Win32_Foundation" , feature ="Win32_System_Com" , feature ="Win32_System_Ole" ) ) ] impl < > _ILatLongReportFactoryEventsVtbl < > { pub const fn new < Identity : :: windows :: core :: IUnknownImpl , Impl : _ILatLongReportFactoryEventsImpl < > , const BASE_OFFSET : isize , const IMPL_OFFSET : isize > ( ) -> _ILatLongReportFactoryEventsVtbl < > { Self { IDispatchVtbl :: new :: < Identity , Impl , BASE_OFFSET , IMPL_OFFSET > ( ) , } } pub fn matches ( iid : & windows :: core :: GUID ) -> bool { iid == & < _ILatLongReportFactoryEvents < > as :: windows :: core :: Interface > :: IID } }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+pub trait ICivicAddressReportImpl: Sized + ILocationReportImpl {
+    fn GetAddressLine1();
+    fn GetAddressLine2();
+    fn GetCity();
+    fn GetStateProvince();
+    fn GetPostalCode();
+    fn GetCountryRegion();
+    fn GetDetailLevel();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ICivicAddressReportVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICivicAddressReportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICivicAddressReportVtbl {
+        unsafe extern "system" fn GetAddressLine1<Impl: ICivicAddressReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstraddress1: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetAddressLine2<Impl: ICivicAddressReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstraddress2: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCity<Impl: ICivicAddressReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcity: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetStateProvince<Impl: ICivicAddressReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrstateprovince: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetPostalCode<Impl: ICivicAddressReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrpostalcode: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetCountryRegion<Impl: ICivicAddressReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrcountryregion: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDetailLevel<Impl: ICivicAddressReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdetaillevel: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ILocationReportVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetAddressLine1: GetAddressLine1::<Impl, IMPL_OFFSET>,
+            GetAddressLine2: GetAddressLine2::<Impl, IMPL_OFFSET>,
+            GetCity: GetCity::<Impl, IMPL_OFFSET>,
+            GetStateProvince: GetStateProvince::<Impl, IMPL_OFFSET>,
+            GetPostalCode: GetPostalCode::<Impl, IMPL_OFFSET>,
+            GetCountryRegion: GetCountryRegion::<Impl, IMPL_OFFSET>,
+            GetDetailLevel: GetDetailLevel::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICivicAddressReport as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ICivicAddressReportFactoryImpl: Sized + IDispatchImpl + ILocationReportFactoryImpl {
+    fn CivicAddressReport();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ICivicAddressReportFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICivicAddressReportFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICivicAddressReportFactoryVtbl {
+        unsafe extern "system" fn CivicAddressReport<Impl: ICivicAddressReportFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ILocationReportFactoryVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), CivicAddressReport: CivicAddressReport::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ICivicAddressReportFactory as ::windows::core::Interface>::IID
+    }
+}
+pub trait IDefaultLocationImpl: Sized {
+    fn SetReport();
+    fn GetReport();
+}
+impl IDefaultLocationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDefaultLocationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDefaultLocationVtbl {
+        unsafe extern "system" fn SetReport<Impl: IDefaultLocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, plocationreport: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetReport<Impl: IDefaultLocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, pplocationreport: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            SetReport: SetReport::<Impl, IMPL_OFFSET>,
+            GetReport: GetReport::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDefaultLocation as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IDispCivicAddressReportImpl: Sized + IDispatchImpl {
+    fn AddressLine1();
+    fn AddressLine2();
+    fn City();
+    fn StateProvince();
+    fn PostalCode();
+    fn CountryRegion();
+    fn DetailLevel();
+    fn Timestamp();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IDispCivicAddressReportVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDispCivicAddressReportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDispCivicAddressReportVtbl {
+        unsafe extern "system" fn AddressLine1<Impl: IDispCivicAddressReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddress1: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AddressLine2<Impl: IDispCivicAddressReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddress2: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn City<Impl: IDispCivicAddressReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcity: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn StateProvince<Impl: IDispCivicAddressReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstateprovince: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn PostalCode<Impl: IDispCivicAddressReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppostalcode: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn CountryRegion<Impl: IDispCivicAddressReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcountryregion: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DetailLevel<Impl: IDispCivicAddressReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdetaillevel: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Timestamp<Impl: IDispCivicAddressReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            AddressLine1: AddressLine1::<Impl, IMPL_OFFSET>,
+            AddressLine2: AddressLine2::<Impl, IMPL_OFFSET>,
+            City: City::<Impl, IMPL_OFFSET>,
+            StateProvince: StateProvince::<Impl, IMPL_OFFSET>,
+            PostalCode: PostalCode::<Impl, IMPL_OFFSET>,
+            CountryRegion: CountryRegion::<Impl, IMPL_OFFSET>,
+            DetailLevel: DetailLevel::<Impl, IMPL_OFFSET>,
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDispCivicAddressReport as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait IDispLatLongReportImpl: Sized + IDispatchImpl {
+    fn Latitude();
+    fn Longitude();
+    fn ErrorRadius();
+    fn Altitude();
+    fn AltitudeError();
+    fn Timestamp();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl IDispLatLongReportVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IDispLatLongReportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IDispLatLongReportVtbl {
+        unsafe extern "system" fn Latitude<Impl: IDispLatLongReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Longitude<Impl: IDispLatLongReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ErrorRadius<Impl: IDispLatLongReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Altitude<Impl: IDispLatLongReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn AltitudeError<Impl: IDispLatLongReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Timestamp<Impl: IDispLatLongReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            Latitude: Latitude::<Impl, IMPL_OFFSET>,
+            Longitude: Longitude::<Impl, IMPL_OFFSET>,
+            ErrorRadius: ErrorRadius::<Impl, IMPL_OFFSET>,
+            Altitude: Altitude::<Impl, IMPL_OFFSET>,
+            AltitudeError: AltitudeError::<Impl, IMPL_OFFSET>,
+            Timestamp: Timestamp::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IDispLatLongReport as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+pub trait ILatLongReportImpl: Sized + ILocationReportImpl {
+    fn GetLatitude();
+    fn GetLongitude();
+    fn GetErrorRadius();
+    fn GetAltitude();
+    fn GetAltitudeError();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ILatLongReportVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILatLongReportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILatLongReportVtbl {
+        unsafe extern "system" fn GetLatitude<Impl: ILatLongReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, platitude: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetLongitude<Impl: ILatLongReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plongitude: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetErrorRadius<Impl: ILatLongReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, perrorradius: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetAltitude<Impl: ILatLongReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paltitude: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetAltitudeError<Impl: ILatLongReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paltitudeerror: *mut f64) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ILocationReportVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            GetLatitude: GetLatitude::<Impl, IMPL_OFFSET>,
+            GetLongitude: GetLongitude::<Impl, IMPL_OFFSET>,
+            GetErrorRadius: GetErrorRadius::<Impl, IMPL_OFFSET>,
+            GetAltitude: GetAltitude::<Impl, IMPL_OFFSET>,
+            GetAltitudeError: GetAltitudeError::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILatLongReport as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ILatLongReportFactoryImpl: Sized + IDispatchImpl + ILocationReportFactoryImpl {
+    fn LatLongReport();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ILatLongReportFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILatLongReportFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILatLongReportFactoryVtbl {
+        unsafe extern "system" fn LatLongReport<Impl: ILatLongReportFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self { base: ILocationReportFactoryVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), LatLongReport: LatLongReport::<Impl, IMPL_OFFSET> }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILatLongReportFactory as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Devices_Sensors", feature = "Win32_Foundation"))]
+pub trait ILocationImpl: Sized {
+    fn RegisterForReport();
+    fn UnregisterForReport();
+    fn GetReport();
+    fn GetReportStatus();
+    fn GetReportInterval();
+    fn SetReportInterval();
+    fn GetDesiredAccuracy();
+    fn SetDesiredAccuracy();
+    fn RequestPermissions();
+}
+#[cfg(all(feature = "Win32_Devices_Sensors", feature = "Win32_Foundation"))]
+impl ILocationVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILocationImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILocationVtbl {
+        unsafe extern "system" fn RegisterForReport<Impl: ILocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pevents: ::windows::core::RawPtr, reporttype: *const ::windows::core::GUID, dwrequestedreportinterval: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn UnregisterForReport<Impl: ILocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetReport<Impl: ILocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, pplocationreport: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetReportStatus<Impl: ILocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, pstatus: *mut LOCATION_REPORT_STATUS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetReportInterval<Impl: ILocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, pmilliseconds: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetReportInterval<Impl: ILocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, millisecondsrequested: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetDesiredAccuracy<Impl: ILocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, pdesiredaccuracy: *mut super::Sensors::LOCATION_DESIRED_ACCURACY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDesiredAccuracy<Impl: ILocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, desiredaccuracy: super::Sensors::LOCATION_DESIRED_ACCURACY) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RequestPermissions<Impl: ILocationImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hparent: super::super::Foundation::HWND, preporttypes: *const ::windows::core::GUID, count: u32, fmodal: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            RegisterForReport: RegisterForReport::<Impl, IMPL_OFFSET>,
+            UnregisterForReport: UnregisterForReport::<Impl, IMPL_OFFSET>,
+            GetReport: GetReport::<Impl, IMPL_OFFSET>,
+            GetReportStatus: GetReportStatus::<Impl, IMPL_OFFSET>,
+            GetReportInterval: GetReportInterval::<Impl, IMPL_OFFSET>,
+            SetReportInterval: SetReportInterval::<Impl, IMPL_OFFSET>,
+            GetDesiredAccuracy: GetDesiredAccuracy::<Impl, IMPL_OFFSET>,
+            SetDesiredAccuracy: SetDesiredAccuracy::<Impl, IMPL_OFFSET>,
+            RequestPermissions: RequestPermissions::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILocation as ::windows::core::Interface>::IID
+    }
+}
+pub trait ILocationEventsImpl: Sized {
+    fn OnLocationChanged();
+    fn OnStatusChanged();
+}
+impl ILocationEventsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILocationEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILocationEventsVtbl {
+        unsafe extern "system" fn OnLocationChanged<Impl: ILocationEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, plocationreport: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn OnStatusChanged<Impl: ILocationEventsImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, newstatus: LOCATION_REPORT_STATUS) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            OnLocationChanged: OnLocationChanged::<Impl, IMPL_OFFSET>,
+            OnStatusChanged: OnStatusChanged::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILocationEvents as ::windows::core::Interface>::IID
+    }
+}
+pub trait ILocationPowerImpl: Sized {
+    fn Connect();
+    fn Disconnect();
+}
+impl ILocationPowerVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILocationPowerImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILocationPowerVtbl {
+        unsafe extern "system" fn Connect<Impl: ILocationPowerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Disconnect<Impl: ILocationPowerImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            Connect: Connect::<Impl, IMPL_OFFSET>,
+            Disconnect: Disconnect::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILocationPower as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+pub trait ILocationReportImpl: Sized {
+    fn GetSensorID();
+    fn GetTimestamp();
+    fn GetValue();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
+impl ILocationReportVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILocationReportImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILocationReportVtbl {
+        unsafe extern "system" fn GetSensorID<Impl: ILocationReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psensorid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetTimestamp<Impl: ILocationReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcreationtime: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn GetValue<Impl: ILocationReportImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(),
+            GetSensorID: GetSensorID::<Impl, IMPL_OFFSET>,
+            GetTimestamp: GetTimestamp::<Impl, IMPL_OFFSET>,
+            GetValue: GetValue::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILocationReport as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait ILocationReportFactoryImpl: Sized + IDispatchImpl {
+    fn ListenForReports();
+    fn StopListeningForReports();
+    fn Status();
+    fn ReportInterval();
+    fn SetReportInterval();
+    fn DesiredAccuracy();
+    fn SetDesiredAccuracy();
+    fn RequestPermissions();
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl ILocationReportFactoryVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ILocationReportFactoryImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ILocationReportFactoryVtbl {
+        unsafe extern "system" fn ListenForReports<Impl: ILocationReportFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, requestedreportinterval: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn StopListeningForReports<Impl: ILocationReportFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn Status<Impl: ILocationReportFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn ReportInterval<Impl: ILocationReportFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmilliseconds: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetReportInterval<Impl: ILocationReportFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, millisecondsrequested: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn DesiredAccuracy<Impl: ILocationReportFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdesiredaccuracy: *mut u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn SetDesiredAccuracy<Impl: ILocationReportFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, desiredaccuracy: u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        unsafe extern "system" fn RequestPermissions<Impl: ILocationReportFactoryImpl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: *const u32) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            panic!()
+        }
+        Self {
+            base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(),
+            ListenForReports: ListenForReports::<Impl, IMPL_OFFSET>,
+            StopListeningForReports: StopListeningForReports::<Impl, IMPL_OFFSET>,
+            Status: Status::<Impl, IMPL_OFFSET>,
+            ReportInterval: ReportInterval::<Impl, IMPL_OFFSET>,
+            SetReportInterval: SetReportInterval::<Impl, IMPL_OFFSET>,
+            DesiredAccuracy: DesiredAccuracy::<Impl, IMPL_OFFSET>,
+            SetDesiredAccuracy: SetDesiredAccuracy::<Impl, IMPL_OFFSET>,
+            RequestPermissions: RequestPermissions::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<ILocationReportFactory as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait _ICivicAddressReportFactoryEventsImpl: Sized + IDispatchImpl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl _ICivicAddressReportFactoryEventsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _ICivicAddressReportFactoryEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> _ICivicAddressReportFactoryEventsVtbl {
+        Self { base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<_ICivicAddressReportFactoryEvents as ::windows::core::Interface>::IID
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+pub trait _ILatLongReportFactoryEventsImpl: Sized + IDispatchImpl {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+impl _ILatLongReportFactoryEventsVtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: _ILatLongReportFactoryEventsImpl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> _ILatLongReportFactoryEventsVtbl {
+        Self { base: IDispatchVtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>() }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<_ILatLongReportFactoryEvents as ::windows::core::Interface>::IID
+    }
+}
