@@ -215,26 +215,6 @@ impl IPrintCustomOptionDetails {
         }
     }
 }
-impl ::core::convert::From<IPrintCustomOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: IPrintCustomOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintCustomOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: &IPrintCustomOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPrintCustomOptionDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPrintCustomOptionDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IPrintCustomOptionDetails> for ::windows::core::IUnknown {
     fn from(value: IPrintCustomOptionDetails) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -252,6 +232,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintCus
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintCustomOptionDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IPrintCustomOptionDetails> for ::windows::core::IInspectable {
+    fn from(value: IPrintCustomOptionDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPrintCustomOptionDetails> for ::windows::core::IInspectable {
+    fn from(value: &IPrintCustomOptionDetails) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPrintCustomOptionDetails {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPrintCustomOptionDetails {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -457,26 +457,6 @@ impl IPrintItemListOptionDetails {
         }
     }
 }
-impl ::core::convert::From<IPrintItemListOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: IPrintItemListOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintItemListOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: &IPrintItemListOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPrintItemListOptionDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPrintItemListOptionDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IPrintItemListOptionDetails> for ::windows::core::IUnknown {
     fn from(value: IPrintItemListOptionDetails) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -494,6 +474,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintIte
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintItemListOptionDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IPrintItemListOptionDetails> for ::windows::core::IInspectable {
+    fn from(value: IPrintItemListOptionDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPrintItemListOptionDetails> for ::windows::core::IInspectable {
+    fn from(value: &IPrintItemListOptionDetails) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPrintItemListOptionDetails {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPrintItemListOptionDetails {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -662,26 +662,6 @@ impl IPrintNumberOptionDetails {
         }
     }
 }
-impl ::core::convert::From<IPrintNumberOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: IPrintNumberOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintNumberOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: &IPrintNumberOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPrintNumberOptionDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPrintNumberOptionDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IPrintNumberOptionDetails> for ::windows::core::IUnknown {
     fn from(value: IPrintNumberOptionDetails) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -699,6 +679,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintNum
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintNumberOptionDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IPrintNumberOptionDetails> for ::windows::core::IInspectable {
+    fn from(value: IPrintNumberOptionDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPrintNumberOptionDetails> for ::windows::core::IInspectable {
+    fn from(value: &IPrintNumberOptionDetails) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPrintNumberOptionDetails {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPrintNumberOptionDetails {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -817,26 +817,6 @@ impl IPrintOptionDetails {
         }
     }
 }
-impl ::core::convert::From<IPrintOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: IPrintOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: &IPrintOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPrintOptionDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPrintOptionDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IPrintOptionDetails> for ::windows::core::IUnknown {
     fn from(value: IPrintOptionDetails) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -854,6 +834,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintOpt
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintOptionDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IPrintOptionDetails> for ::windows::core::IInspectable {
+    fn from(value: IPrintOptionDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPrintOptionDetails> for ::windows::core::IInspectable {
+    fn from(value: &IPrintOptionDetails) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPrintOptionDetails {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPrintOptionDetails {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1101,26 +1101,6 @@ impl IPrintTextOptionDetails {
         }
     }
 }
-impl ::core::convert::From<IPrintTextOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: IPrintTextOptionDetails) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintTextOptionDetails> for ::windows::core::IInspectable {
-    fn from(value: &IPrintTextOptionDetails) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPrintTextOptionDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPrintTextOptionDetails {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IPrintTextOptionDetails> for ::windows::core::IUnknown {
     fn from(value: IPrintTextOptionDetails) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1138,6 +1118,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintTex
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintTextOptionDetails {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IPrintTextOptionDetails> for ::windows::core::IInspectable {
+    fn from(value: IPrintTextOptionDetails) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPrintTextOptionDetails> for ::windows::core::IInspectable {
+    fn from(value: &IPrintTextOptionDetails) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPrintTextOptionDetails {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPrintTextOptionDetails {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2356,7 +2356,7 @@ impl PrintCustomItemListOptionDetails {
     #[cfg(feature = "Storage_Streams")]
     pub fn AddItem2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IRandomAccessStreamWithContentType>>(&self, itemid: Param0, displayname: Param1, description: Param2, icon: Param3) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPrintCustomItemListOptionDetails2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).AddItem2)(::core::mem::transmute_copy(this), itemid.into_param().abi(), displayname.into_param().abi(), description.into_param().abi(), icon.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddItem)(::core::mem::transmute_copy(this), itemid.into_param().abi(), displayname.into_param().abi(), description.into_param().abi(), icon.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
     pub fn SetWarningText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {

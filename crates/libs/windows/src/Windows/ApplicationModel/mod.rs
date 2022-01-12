@@ -1360,26 +1360,6 @@ impl IEnteredBackgroundEventArgs {
         }
     }
 }
-impl ::core::convert::From<IEnteredBackgroundEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IEnteredBackgroundEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IEnteredBackgroundEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IEnteredBackgroundEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IEnteredBackgroundEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IEnteredBackgroundEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IEnteredBackgroundEventArgs> for ::windows::core::IUnknown {
     fn from(value: IEnteredBackgroundEventArgs) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1397,6 +1377,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IEnteredB
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IEnteredBackgroundEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IEnteredBackgroundEventArgs> for ::windows::core::IInspectable {
+    fn from(value: IEnteredBackgroundEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IEnteredBackgroundEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &IEnteredBackgroundEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IEnteredBackgroundEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IEnteredBackgroundEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1508,26 +1508,6 @@ impl ILeavingBackgroundEventArgs {
         }
     }
 }
-impl ::core::convert::From<ILeavingBackgroundEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ILeavingBackgroundEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ILeavingBackgroundEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ILeavingBackgroundEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ILeavingBackgroundEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ILeavingBackgroundEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ILeavingBackgroundEventArgs> for ::windows::core::IUnknown {
     fn from(value: ILeavingBackgroundEventArgs) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1545,6 +1525,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ILeavingB
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ILeavingBackgroundEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ILeavingBackgroundEventArgs> for ::windows::core::IInspectable {
+    fn from(value: ILeavingBackgroundEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ILeavingBackgroundEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &ILeavingBackgroundEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ILeavingBackgroundEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ILeavingBackgroundEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2292,26 +2292,6 @@ impl ISuspendingDeferral {
         unsafe { (::windows::core::Interface::vtable(this).Complete)(::core::mem::transmute_copy(this)).ok() }
     }
 }
-impl ::core::convert::From<ISuspendingDeferral> for ::windows::core::IInspectable {
-    fn from(value: ISuspendingDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISuspendingDeferral> for ::windows::core::IInspectable {
-    fn from(value: &ISuspendingDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISuspendingDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISuspendingDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISuspendingDeferral> for ::windows::core::IUnknown {
     fn from(value: ISuspendingDeferral) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -2329,6 +2309,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISuspendi
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISuspendingDeferral {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ISuspendingDeferral> for ::windows::core::IInspectable {
+    fn from(value: ISuspendingDeferral) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ISuspendingDeferral> for ::windows::core::IInspectable {
+    fn from(value: &ISuspendingDeferral) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISuspendingDeferral {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISuspendingDeferral {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2374,26 +2374,6 @@ impl ISuspendingEventArgs {
         }
     }
 }
-impl ::core::convert::From<ISuspendingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ISuspendingEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISuspendingEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ISuspendingEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISuspendingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISuspendingEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISuspendingEventArgs> for ::windows::core::IUnknown {
     fn from(value: ISuspendingEventArgs) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -2411,6 +2391,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISuspendi
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISuspendingEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ISuspendingEventArgs> for ::windows::core::IInspectable {
+    fn from(value: ISuspendingEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ISuspendingEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &ISuspendingEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISuspendingEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISuspendingEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2465,26 +2465,6 @@ impl ISuspendingOperation {
         }
     }
 }
-impl ::core::convert::From<ISuspendingOperation> for ::windows::core::IInspectable {
-    fn from(value: ISuspendingOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISuspendingOperation> for ::windows::core::IInspectable {
-    fn from(value: &ISuspendingOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISuspendingOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISuspendingOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISuspendingOperation> for ::windows::core::IUnknown {
     fn from(value: ISuspendingOperation) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -2502,6 +2482,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISuspendi
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISuspendingOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ISuspendingOperation> for ::windows::core::IInspectable {
+    fn from(value: ISuspendingOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ISuspendingOperation> for ::windows::core::IInspectable {
+    fn from(value: &ISuspendingOperation) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISuspendingOperation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISuspendingOperation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

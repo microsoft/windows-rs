@@ -619,26 +619,6 @@ impl ICustomGameControllerFactory {
         unsafe { (::windows::core::Interface::vtable(this).OnGameControllerRemoved)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
 }
-impl ::core::convert::From<ICustomGameControllerFactory> for ::windows::core::IInspectable {
-    fn from(value: ICustomGameControllerFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICustomGameControllerFactory> for ::windows::core::IInspectable {
-    fn from(value: &ICustomGameControllerFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICustomGameControllerFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICustomGameControllerFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ICustomGameControllerFactory> for ::windows::core::IUnknown {
     fn from(value: ICustomGameControllerFactory) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -656,6 +636,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICustomGa
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICustomGameControllerFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICustomGameControllerFactory> for ::windows::core::IInspectable {
+    fn from(value: ICustomGameControllerFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICustomGameControllerFactory> for ::windows::core::IInspectable {
+    fn from(value: &ICustomGameControllerFactory) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICustomGameControllerFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICustomGameControllerFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -733,26 +733,6 @@ impl IGameControllerInputSink {
         unsafe { (::windows::core::Interface::vtable(this).OnInputSuspended)(::core::mem::transmute_copy(this), timestamp).ok() }
     }
 }
-impl ::core::convert::From<IGameControllerInputSink> for ::windows::core::IInspectable {
-    fn from(value: IGameControllerInputSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGameControllerInputSink> for ::windows::core::IInspectable {
-    fn from(value: &IGameControllerInputSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IGameControllerInputSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IGameControllerInputSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IGameControllerInputSink> for ::windows::core::IUnknown {
     fn from(value: IGameControllerInputSink) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -770,6 +750,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGameCont
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IGameControllerInputSink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IGameControllerInputSink> for ::windows::core::IInspectable {
+    fn from(value: IGameControllerInputSink) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IGameControllerInputSink> for ::windows::core::IInspectable {
+    fn from(value: &IGameControllerInputSink) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IGameControllerInputSink {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IGameControllerInputSink {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -848,26 +848,6 @@ impl IGameControllerProvider {
         }
     }
 }
-impl ::core::convert::From<IGameControllerProvider> for ::windows::core::IInspectable {
-    fn from(value: IGameControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGameControllerProvider> for ::windows::core::IInspectable {
-    fn from(value: &IGameControllerProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IGameControllerProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IGameControllerProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IGameControllerProvider> for ::windows::core::IUnknown {
     fn from(value: IGameControllerProvider) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -885,6 +865,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGameCont
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IGameControllerProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IGameControllerProvider> for ::windows::core::IInspectable {
+    fn from(value: IGameControllerProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IGameControllerProvider> for ::windows::core::IInspectable {
+    fn from(value: &IGameControllerProvider) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IGameControllerProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IGameControllerProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -961,26 +961,6 @@ impl IGipGameControllerInputSink {
         unsafe { (::windows::core::Interface::vtable(this).OnInputSuspended)(::core::mem::transmute_copy(this), timestamp).ok() }
     }
 }
-impl ::core::convert::From<IGipGameControllerInputSink> for ::windows::core::IInspectable {
-    fn from(value: IGipGameControllerInputSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGipGameControllerInputSink> for ::windows::core::IInspectable {
-    fn from(value: &IGipGameControllerInputSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IGipGameControllerInputSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IGipGameControllerInputSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IGipGameControllerInputSink> for ::windows::core::IUnknown {
     fn from(value: IGipGameControllerInputSink) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -998,6 +978,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGipGameC
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IGipGameControllerInputSink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IGipGameControllerInputSink> for ::windows::core::IInspectable {
+    fn from(value: IGipGameControllerInputSink) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IGipGameControllerInputSink> for ::windows::core::IInspectable {
+    fn from(value: &IGipGameControllerInputSink) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IGipGameControllerInputSink {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IGipGameControllerInputSink {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1091,26 +1091,6 @@ impl IHidGameControllerInputSink {
         unsafe { (::windows::core::Interface::vtable(this).OnInputSuspended)(::core::mem::transmute_copy(this), timestamp).ok() }
     }
 }
-impl ::core::convert::From<IHidGameControllerInputSink> for ::windows::core::IInspectable {
-    fn from(value: IHidGameControllerInputSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IHidGameControllerInputSink> for ::windows::core::IInspectable {
-    fn from(value: &IHidGameControllerInputSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IHidGameControllerInputSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IHidGameControllerInputSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IHidGameControllerInputSink> for ::windows::core::IUnknown {
     fn from(value: IHidGameControllerInputSink) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1128,6 +1108,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IHidGameC
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IHidGameControllerInputSink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IHidGameControllerInputSink> for ::windows::core::IInspectable {
+    fn from(value: IHidGameControllerInputSink) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IHidGameControllerInputSink> for ::windows::core::IInspectable {
+    fn from(value: &IHidGameControllerInputSink) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IHidGameControllerInputSink {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IHidGameControllerInputSink {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1219,26 +1219,6 @@ impl IXusbGameControllerInputSink {
         unsafe { (::windows::core::Interface::vtable(this).OnInputSuspended)(::core::mem::transmute_copy(this), timestamp).ok() }
     }
 }
-impl ::core::convert::From<IXusbGameControllerInputSink> for ::windows::core::IInspectable {
-    fn from(value: IXusbGameControllerInputSink) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXusbGameControllerInputSink> for ::windows::core::IInspectable {
-    fn from(value: &IXusbGameControllerInputSink) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IXusbGameControllerInputSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IXusbGameControllerInputSink {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IXusbGameControllerInputSink> for ::windows::core::IUnknown {
     fn from(value: IXusbGameControllerInputSink) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1256,6 +1236,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXusbGame
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXusbGameControllerInputSink {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IXusbGameControllerInputSink> for ::windows::core::IInspectable {
+    fn from(value: IXusbGameControllerInputSink) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IXusbGameControllerInputSink> for ::windows::core::IInspectable {
+    fn from(value: &IXusbGameControllerInputSink) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IXusbGameControllerInputSink {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IXusbGameControllerInputSink {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

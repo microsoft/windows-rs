@@ -123,26 +123,6 @@ impl IMidiMessage {
         }
     }
 }
-impl ::core::convert::From<IMidiMessage> for ::windows::core::IInspectable {
-    fn from(value: IMidiMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMidiMessage> for ::windows::core::IInspectable {
-    fn from(value: &IMidiMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMidiMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IMidiMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IMidiMessage> for ::windows::core::IUnknown {
     fn from(value: IMidiMessage) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -160,6 +140,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMidiMess
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMidiMessage {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IMidiMessage> for ::windows::core::IInspectable {
+    fn from(value: IMidiMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IMidiMessage> for ::windows::core::IInspectable {
+    fn from(value: &IMidiMessage) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMidiMessage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IMidiMessage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -299,26 +299,6 @@ impl IMidiOutPort {
         unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
     }
 }
-impl ::core::convert::From<IMidiOutPort> for ::windows::core::IInspectable {
-    fn from(value: IMidiOutPort) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMidiOutPort> for ::windows::core::IInspectable {
-    fn from(value: &IMidiOutPort) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMidiOutPort {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IMidiOutPort {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IMidiOutPort> for ::windows::core::IUnknown {
     fn from(value: IMidiOutPort) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -336,6 +316,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMidiOutP
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMidiOutPort {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IMidiOutPort> for ::windows::core::IInspectable {
+    fn from(value: IMidiOutPort) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IMidiOutPort> for ::windows::core::IInspectable {
+    fn from(value: &IMidiOutPort) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMidiOutPort {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IMidiOutPort {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

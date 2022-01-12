@@ -12,26 +12,6 @@ impl II2cControllerProvider {
         }
     }
 }
-impl ::core::convert::From<II2cControllerProvider> for ::windows::core::IInspectable {
-    fn from(value: II2cControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&II2cControllerProvider> for ::windows::core::IInspectable {
-    fn from(value: &II2cControllerProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for II2cControllerProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &II2cControllerProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<II2cControllerProvider> for ::windows::core::IUnknown {
     fn from(value: II2cControllerProvider) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -49,6 +29,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for II2cContr
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &II2cControllerProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<II2cControllerProvider> for ::windows::core::IInspectable {
+    fn from(value: II2cControllerProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&II2cControllerProvider> for ::windows::core::IInspectable {
+    fn from(value: &II2cControllerProvider) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for II2cControllerProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &II2cControllerProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -139,26 +139,6 @@ impl II2cDeviceProvider {
         unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
     }
 }
-impl ::core::convert::From<II2cDeviceProvider> for ::windows::core::IInspectable {
-    fn from(value: II2cDeviceProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&II2cDeviceProvider> for ::windows::core::IInspectable {
-    fn from(value: &II2cDeviceProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for II2cDeviceProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &II2cDeviceProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<II2cDeviceProvider> for ::windows::core::IUnknown {
     fn from(value: II2cDeviceProvider) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -176,6 +156,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for II2cDevic
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &II2cDeviceProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<II2cDeviceProvider> for ::windows::core::IInspectable {
+    fn from(value: II2cDeviceProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&II2cDeviceProvider> for ::windows::core::IInspectable {
+    fn from(value: &II2cDeviceProvider) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for II2cDeviceProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &II2cDeviceProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -254,26 +254,6 @@ impl II2cProvider {
         }
     }
 }
-impl ::core::convert::From<II2cProvider> for ::windows::core::IInspectable {
-    fn from(value: II2cProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&II2cProvider> for ::windows::core::IInspectable {
-    fn from(value: &II2cProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for II2cProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &II2cProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<II2cProvider> for ::windows::core::IUnknown {
     fn from(value: II2cProvider) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -291,6 +271,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for II2cProvi
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &II2cProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<II2cProvider> for ::windows::core::IInspectable {
+    fn from(value: II2cProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&II2cProvider> for ::windows::core::IInspectable {
+    fn from(value: &II2cProvider) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for II2cProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &II2cProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

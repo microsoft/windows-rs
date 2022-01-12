@@ -12962,10 +12962,6 @@ pub const DXGI_DEBUG_D3D11: ::windows::core::GUID = ::windows::core::GUID::from_
 pub struct ID3D11Asynchronous(::windows::core::IUnknown);
 impl ID3D11Asynchronous {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDataSize(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetDataSize)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
     }
@@ -12981,25 +12977,9 @@ impl ID3D11Asynchronous {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
-}
-impl ::core::convert::From<ID3D11Asynchronous> for ID3D11DeviceChild {
-    fn from(value: ID3D11Asynchronous) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11Asynchronous> for ID3D11DeviceChild {
-    fn from(value: &ID3D11Asynchronous) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11Asynchronous {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Asynchronous {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetDataSize(&self) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetDataSize)(::core::mem::transmute_copy(self)))
     }
 }
 impl ::core::convert::From<ID3D11Asynchronous> for ::windows::core::IUnknown {
@@ -13019,6 +12999,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Asy
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Asynchronous {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11Asynchronous> for ID3D11DeviceChild {
+    fn from(value: ID3D11Asynchronous) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11Asynchronous> for ID3D11DeviceChild {
+    fn from(value: &ID3D11Asynchronous) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11Asynchronous {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Asynchronous {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -13053,21 +13053,6 @@ pub struct ID3D11AsynchronousVtbl {
 pub struct ID3D11AuthenticatedChannel(::windows::core::IUnknown);
 impl ID3D11AuthenticatedChannel {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetCertificateSize(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetCertificateSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetCertificate(&self, certificatesize: u32) -> ::windows::core::Result<u8> {
-        let mut result__: u8 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetCertificate)(::core::mem::transmute_copy(self), ::core::mem::transmute(certificatesize), ::core::mem::transmute(&mut result__)).from_abi::<u8>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetChannelHandle(&self, pchannelhandle: *mut super::super::Foundation::HANDLE) {
-        (::windows::core::Interface::vtable(self).GetChannelHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(pchannelhandle))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
     }
@@ -13083,25 +13068,20 @@ impl ID3D11AuthenticatedChannel {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
-}
-impl ::core::convert::From<ID3D11AuthenticatedChannel> for ID3D11DeviceChild {
-    fn from(value: ID3D11AuthenticatedChannel) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetCertificateSize(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetCertificateSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-}
-impl ::core::convert::From<&ID3D11AuthenticatedChannel> for ID3D11DeviceChild {
-    fn from(value: &ID3D11AuthenticatedChannel) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetCertificate(&self, certificatesize: u32) -> ::windows::core::Result<u8> {
+        let mut result__: u8 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetCertificate)(::core::mem::transmute_copy(self), ::core::mem::transmute(certificatesize), ::core::mem::transmute(&mut result__)).from_abi::<u8>(result__)
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11AuthenticatedChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11AuthenticatedChannel {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetChannelHandle(&self, pchannelhandle: *mut super::super::Foundation::HANDLE) {
+        (::windows::core::Interface::vtable(self).GetChannelHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(pchannelhandle))
     }
 }
 impl ::core::convert::From<ID3D11AuthenticatedChannel> for ::windows::core::IUnknown {
@@ -13121,6 +13101,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Aut
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11AuthenticatedChannel {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11AuthenticatedChannel> for ID3D11DeviceChild {
+    fn from(value: ID3D11AuthenticatedChannel) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11AuthenticatedChannel> for ID3D11DeviceChild {
+    fn from(value: &ID3D11AuthenticatedChannel) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11AuthenticatedChannel {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11AuthenticatedChannel {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -13159,11 +13159,6 @@ pub struct ID3D11AuthenticatedChannelVtbl {
 #[repr(transparent)]
 pub struct ID3D11BlendState(::windows::core::IUnknown);
 impl ID3D11BlendState {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_BLEND_DESC) {
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
@@ -13180,25 +13175,10 @@ impl ID3D11BlendState {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
-}
-impl ::core::convert::From<ID3D11BlendState> for ID3D11DeviceChild {
-    fn from(value: ID3D11BlendState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11BlendState> for ID3D11DeviceChild {
-    fn from(value: &ID3D11BlendState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11BlendState {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11BlendState {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_BLEND_DESC) {
+        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
     }
 }
 impl ::core::convert::From<ID3D11BlendState> for ::windows::core::IUnknown {
@@ -13218,6 +13198,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Ble
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11BlendState {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11BlendState> for ID3D11DeviceChild {
+    fn from(value: ID3D11BlendState) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11BlendState> for ID3D11DeviceChild {
+    fn from(value: &ID3D11BlendState) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11BlendState {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11BlendState {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -13254,16 +13254,6 @@ pub struct ID3D11BlendStateVtbl {
 #[repr(transparent)]
 pub struct ID3D11BlendState1(::windows::core::IUnknown);
 impl ID3D11BlendState1 {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDesc1(&self, pdesc: *mut D3D11_BLEND_DESC1) {
-        (::windows::core::Interface::vtable(self).GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_BLEND_DESC) {
-        (::windows::core::Interface::vtable(self).base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
@@ -13280,24 +13270,34 @@ impl ID3D11BlendState1 {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_BLEND_DESC) {
+        (::windows::core::Interface::vtable(self).base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDesc1(&self, pdesc: *mut D3D11_BLEND_DESC1) {
+        (::windows::core::Interface::vtable(self).GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
 }
-impl ::core::convert::From<ID3D11BlendState1> for ID3D11BlendState {
+impl ::core::convert::From<ID3D11BlendState1> for ::windows::core::IUnknown {
     fn from(value: ID3D11BlendState1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11BlendState1> for ID3D11BlendState {
+impl ::core::convert::From<&ID3D11BlendState1> for ::windows::core::IUnknown {
     fn from(value: &ID3D11BlendState1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11BlendState> for ID3D11BlendState1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11BlendState> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11BlendState1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11BlendState> for &ID3D11BlendState1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11BlendState> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11BlendState1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -13321,23 +13321,23 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11BlendState
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11BlendState1> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11BlendState1> for ID3D11BlendState {
     fn from(value: ID3D11BlendState1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11BlendState1> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11BlendState1> for ID3D11BlendState {
     fn from(value: &ID3D11BlendState1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11BlendState1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11BlendState> for ID3D11BlendState1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11BlendState> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11BlendState1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11BlendState> for &ID3D11BlendState1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11BlendState> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -13375,22 +13375,6 @@ pub struct ID3D11BlendState1Vtbl {
 pub struct ID3D11Buffer(::windows::core::IUnknown);
 impl ID3D11Buffer {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_BUFFER_DESC) {
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetType(&self, presourcedimension: *mut D3D11_RESOURCE_DIMENSION) {
-        (::windows::core::Interface::vtable(self).base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedimension))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) {
-        (::windows::core::Interface::vtable(self).base.SetEvictionPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(evictionpriority))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetEvictionPriority(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetEvictionPriority)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
     }
@@ -13406,24 +13390,40 @@ impl ID3D11Buffer {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetType(&self, presourcedimension: *mut D3D11_RESOURCE_DIMENSION) {
+        (::windows::core::Interface::vtable(self).base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedimension))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) {
+        (::windows::core::Interface::vtable(self).base.SetEvictionPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(evictionpriority))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetEvictionPriority(&self) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetEvictionPriority)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_BUFFER_DESC) {
+        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
 }
-impl ::core::convert::From<ID3D11Buffer> for ID3D11Resource {
+impl ::core::convert::From<ID3D11Buffer> for ::windows::core::IUnknown {
     fn from(value: ID3D11Buffer) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Buffer> for ID3D11Resource {
+impl ::core::convert::From<&ID3D11Buffer> for ::windows::core::IUnknown {
     fn from(value: &ID3D11Buffer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Resource> for ID3D11Buffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Resource> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Buffer {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Resource> for &ID3D11Buffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Resource> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Buffer {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -13447,23 +13447,23 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Buffer {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11Buffer> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11Buffer> for ID3D11Resource {
     fn from(value: ID3D11Buffer) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Buffer> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11Buffer> for ID3D11Resource {
     fn from(value: &ID3D11Buffer) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Buffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Resource> for ID3D11Buffer {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Resource> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Buffer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Resource> for &ID3D11Buffer {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -13498,6 +13498,22 @@ pub struct ID3D11BufferVtbl {
 pub struct ID3D11ClassInstance(::windows::core::IUnknown);
 impl ID3D11ClassInstance {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
+        (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetClassLinkage(&self, pplinkage: *mut ::core::option::Option<ID3D11ClassLinkage>) {
         (::windows::core::Interface::vtable(self).GetClassLinkage)(::core::mem::transmute_copy(self), ::core::mem::transmute(pplinkage))
     }
@@ -13515,42 +13531,6 @@ impl ID3D11ClassInstance {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTypeName(&self, ptypename: super::super::Foundation::PSTR, pbufferlength: *mut usize) {
         (::windows::core::Interface::vtable(self).GetTypeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptypename), ::core::mem::transmute(pbufferlength))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
-        (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
-    }
-}
-impl ::core::convert::From<ID3D11ClassInstance> for ID3D11DeviceChild {
-    fn from(value: ID3D11ClassInstance) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11ClassInstance> for ID3D11DeviceChild {
-    fn from(value: &ID3D11ClassInstance) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11ClassInstance {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11ClassInstance {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ID3D11ClassInstance> for ::windows::core::IUnknown {
@@ -13570,6 +13550,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Cla
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11ClassInstance {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11ClassInstance> for ID3D11DeviceChild {
+    fn from(value: ID3D11ClassInstance) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11ClassInstance> for ID3D11DeviceChild {
+    fn from(value: &ID3D11ClassInstance) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11ClassInstance {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11ClassInstance {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -13615,18 +13615,6 @@ pub struct ID3D11ClassInstanceVtbl {
 #[repr(transparent)]
 pub struct ID3D11ClassLinkage(::windows::core::IUnknown);
 impl ID3D11ClassLinkage {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetClassInstance<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(&self, pclassinstancename: Param0, instanceindex: u32) -> ::windows::core::Result<ID3D11ClassInstance> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetClassInstance)(::core::mem::transmute_copy(self), pclassinstancename.into_param().abi(), ::core::mem::transmute(instanceindex), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11ClassInstance>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateClassInstance<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(&self, pclasstypename: Param0, constantbufferoffset: u32, constantvectoroffset: u32, textureoffset: u32, sampleroffset: u32) -> ::windows::core::Result<ID3D11ClassInstance> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateClassInstance)(::core::mem::transmute_copy(self), pclasstypename.into_param().abi(), ::core::mem::transmute(constantbufferoffset), ::core::mem::transmute(constantvectoroffset), ::core::mem::transmute(textureoffset), ::core::mem::transmute(sampleroffset), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11ClassInstance>(result__)
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
@@ -13643,25 +13631,17 @@ impl ID3D11ClassLinkage {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
-}
-impl ::core::convert::From<ID3D11ClassLinkage> for ID3D11DeviceChild {
-    fn from(value: ID3D11ClassLinkage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetClassInstance<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(&self, pclassinstancename: Param0, instanceindex: u32) -> ::windows::core::Result<ID3D11ClassInstance> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetClassInstance)(::core::mem::transmute_copy(self), pclassinstancename.into_param().abi(), ::core::mem::transmute(instanceindex), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11ClassInstance>(result__)
     }
-}
-impl ::core::convert::From<&ID3D11ClassLinkage> for ID3D11DeviceChild {
-    fn from(value: &ID3D11ClassLinkage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11ClassLinkage {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11ClassLinkage {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateClassInstance<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(&self, pclasstypename: Param0, constantbufferoffset: u32, constantvectoroffset: u32, textureoffset: u32, sampleroffset: u32) -> ::windows::core::Result<ID3D11ClassInstance> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateClassInstance)(::core::mem::transmute_copy(self), pclasstypename.into_param().abi(), ::core::mem::transmute(constantbufferoffset), ::core::mem::transmute(constantvectoroffset), ::core::mem::transmute(textureoffset), ::core::mem::transmute(sampleroffset), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11ClassInstance>(result__)
     }
 }
 impl ::core::convert::From<ID3D11ClassLinkage> for ::windows::core::IUnknown {
@@ -13681,6 +13661,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Cla
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11ClassLinkage {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11ClassLinkage> for ID3D11DeviceChild {
+    fn from(value: ID3D11ClassLinkage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11ClassLinkage> for ID3D11DeviceChild {
+    fn from(value: &ID3D11ClassLinkage) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11ClassLinkage {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11ClassLinkage {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -13722,10 +13722,6 @@ pub struct ID3D11ClassLinkageVtbl {
 pub struct ID3D11CommandList(::windows::core::IUnknown);
 impl ID3D11CommandList {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetContextFlags(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetContextFlags)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
     }
@@ -13741,25 +13737,9 @@ impl ID3D11CommandList {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
-}
-impl ::core::convert::From<ID3D11CommandList> for ID3D11DeviceChild {
-    fn from(value: ID3D11CommandList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11CommandList> for ID3D11DeviceChild {
-    fn from(value: &ID3D11CommandList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11CommandList {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11CommandList {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetContextFlags(&self) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetContextFlags)(::core::mem::transmute_copy(self)))
     }
 }
 impl ::core::convert::From<ID3D11CommandList> for ::windows::core::IUnknown {
@@ -13779,6 +13759,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Com
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11CommandList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11CommandList> for ID3D11DeviceChild {
+    fn from(value: ID3D11CommandList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11CommandList> for ID3D11DeviceChild {
+    fn from(value: &ID3D11CommandList) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11CommandList {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11CommandList {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -13829,26 +13829,6 @@ impl ID3D11ComputeShader {
         (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
 }
-impl ::core::convert::From<ID3D11ComputeShader> for ID3D11DeviceChild {
-    fn from(value: ID3D11ComputeShader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11ComputeShader> for ID3D11DeviceChild {
-    fn from(value: &ID3D11ComputeShader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11ComputeShader {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11ComputeShader {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ID3D11ComputeShader> for ::windows::core::IUnknown {
     fn from(value: ID3D11ComputeShader) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -13866,6 +13846,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Com
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11ComputeShader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11ComputeShader> for ID3D11DeviceChild {
+    fn from(value: ID3D11ComputeShader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11ComputeShader> for ID3D11DeviceChild {
+    fn from(value: &ID3D11ComputeShader) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11ComputeShader {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11ComputeShader {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -13899,14 +13899,6 @@ pub struct ID3D11ComputeShaderVtbl {
 pub struct ID3D11Counter(::windows::core::IUnknown);
 impl ID3D11Counter {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_COUNTER_DESC) {
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDataSize(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetDataSize)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
     }
@@ -13922,24 +13914,32 @@ impl ID3D11Counter {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetDataSize(&self) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetDataSize)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_COUNTER_DESC) {
+        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
 }
-impl ::core::convert::From<ID3D11Counter> for ID3D11Asynchronous {
+impl ::core::convert::From<ID3D11Counter> for ::windows::core::IUnknown {
     fn from(value: ID3D11Counter) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Counter> for ID3D11Asynchronous {
+impl ::core::convert::From<&ID3D11Counter> for ::windows::core::IUnknown {
     fn from(value: &ID3D11Counter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Asynchronous> for ID3D11Counter {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Asynchronous> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Counter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Asynchronous> for &ID3D11Counter {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Asynchronous> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Counter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -13963,23 +13963,23 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Counter {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11Counter> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11Counter> for ID3D11Asynchronous {
     fn from(value: ID3D11Counter) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Counter> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11Counter> for ID3D11Asynchronous {
     fn from(value: &ID3D11Counter) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Counter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Asynchronous> for ID3D11Counter {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Asynchronous> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Counter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Asynchronous> for &ID3D11Counter {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Asynchronous> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -14014,6 +14014,22 @@ pub struct ID3D11CounterVtbl {
 pub struct ID3D11CryptoSession(::windows::core::IUnknown);
 impl ID3D11CryptoSession {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
+        (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetCryptoType(&self, pcryptotype: *mut ::windows::core::GUID) {
         (::windows::core::Interface::vtable(self).GetCryptoType)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcryptotype))
     }
@@ -14036,21 +14052,25 @@ impl ID3D11CryptoSession {
     pub unsafe fn GetCryptoSessionHandle(&self, pcryptosessionhandle: *mut super::super::Foundation::HANDLE) {
         (::windows::core::Interface::vtable(self).GetCryptoSessionHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcryptosessionhandle))
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
-        (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
+}
+impl ::core::convert::From<ID3D11CryptoSession> for ::windows::core::IUnknown {
+    fn from(value: ID3D11CryptoSession) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+}
+impl ::core::convert::From<&ID3D11CryptoSession> for ::windows::core::IUnknown {
+    fn from(value: &ID3D11CryptoSession) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11CryptoSession {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11CryptoSession {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ID3D11CryptoSession> for ID3D11DeviceChild {
@@ -14070,26 +14090,6 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11CryptoSessi
 }
 impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11CryptoSession {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11CryptoSession> for ::windows::core::IUnknown {
-    fn from(value: ID3D11CryptoSession) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11CryptoSession> for ::windows::core::IUnknown {
-    fn from(value: &ID3D11CryptoSession) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11CryptoSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11CryptoSession {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -14234,11 +14234,6 @@ pub struct ID3D11DebugVtbl {
 #[repr(transparent)]
 pub struct ID3D11DepthStencilState(::windows::core::IUnknown);
 impl ID3D11DepthStencilState {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_DEPTH_STENCIL_DESC) {
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
@@ -14255,25 +14250,10 @@ impl ID3D11DepthStencilState {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
-}
-impl ::core::convert::From<ID3D11DepthStencilState> for ID3D11DeviceChild {
-    fn from(value: ID3D11DepthStencilState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11DepthStencilState> for ID3D11DeviceChild {
-    fn from(value: &ID3D11DepthStencilState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11DepthStencilState {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11DepthStencilState {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_DEPTH_STENCIL_DESC) {
+        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
     }
 }
 impl ::core::convert::From<ID3D11DepthStencilState> for ::windows::core::IUnknown {
@@ -14293,6 +14273,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Dep
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11DepthStencilState {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11DepthStencilState> for ID3D11DeviceChild {
+    fn from(value: ID3D11DepthStencilState) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11DepthStencilState> for ID3D11DeviceChild {
+    fn from(value: &ID3D11DepthStencilState) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11DepthStencilState {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11DepthStencilState {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -14329,15 +14329,6 @@ pub struct ID3D11DepthStencilStateVtbl {
 #[repr(transparent)]
 pub struct ID3D11DepthStencilView(::windows::core::IUnknown);
 impl ID3D11DepthStencilView {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_DEPTH_STENCIL_VIEW_DESC) {
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D11Resource>) {
-        (::windows::core::Interface::vtable(self).base.GetResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresource))
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
@@ -14354,24 +14345,33 @@ impl ID3D11DepthStencilView {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D11Resource>) {
+        (::windows::core::Interface::vtable(self).base.GetResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresource))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_DEPTH_STENCIL_VIEW_DESC) {
+        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
 }
-impl ::core::convert::From<ID3D11DepthStencilView> for ID3D11View {
+impl ::core::convert::From<ID3D11DepthStencilView> for ::windows::core::IUnknown {
     fn from(value: ID3D11DepthStencilView) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11DepthStencilView> for ID3D11View {
+impl ::core::convert::From<&ID3D11DepthStencilView> for ::windows::core::IUnknown {
     fn from(value: &ID3D11DepthStencilView) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for ID3D11DepthStencilView {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11DepthStencilView {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for &ID3D11DepthStencilView {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11DepthStencilView {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -14395,23 +14395,23 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11DepthStenc
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11DepthStencilView> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11DepthStencilView> for ID3D11View {
     fn from(value: ID3D11DepthStencilView) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11DepthStencilView> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11DepthStencilView> for ID3D11View {
     fn from(value: &ID3D11DepthStencilView) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11DepthStencilView {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for ID3D11DepthStencilView {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11DepthStencilView {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for &ID3D11DepthStencilView {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -14794,44 +14794,6 @@ pub struct ID3D11DeviceVtbl {
 pub struct ID3D11Device1(::windows::core::IUnknown);
 impl ID3D11Device1 {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetImmediateContext1(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext1>) {
-        (::windows::core::Interface::vtable(self).GetImmediateContext1)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppimmediatecontext))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CreateDeferredContext1(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDeferredContext1)(::core::mem::transmute_copy(self), ::core::mem::transmute(contextflags), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11DeviceContext1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateBlendState1(&self, pblendstatedesc: *const D3D11_BLEND_DESC1) -> ::windows::core::Result<ID3D11BlendState1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateBlendState1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pblendstatedesc), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11BlendState1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateRasterizerState1(&self, prasterizerdesc: *const D3D11_RASTERIZER_DESC1) -> ::windows::core::Result<ID3D11RasterizerState1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateRasterizerState1)(::core::mem::transmute_copy(self), ::core::mem::transmute(prasterizerdesc), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11RasterizerState1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D'*"]
-    #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn CreateDeviceContextState(&self, flags: u32, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, emulatedinterface: *const ::windows::core::GUID, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppcontextstate: *mut ::core::option::Option<ID3DDeviceContextState>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateDeviceContextState)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), ::core::mem::transmute(pfeaturelevels), ::core::mem::transmute(featurelevels), ::core::mem::transmute(sdkversion), ::core::mem::transmute(emulatedinterface), ::core::mem::transmute(pchosenfeaturelevel), ::core::mem::transmute(ppcontextstate)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenSharedResource1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, T: ::windows::core::Interface>(&self, hresource: Param0) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).OpenSharedResource1)(::core::mem::transmute_copy(self), hresource.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenSharedResourceByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, T: ::windows::core::Interface>(&self, lpname: Param0, dwdesiredaccess: u32) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).OpenSharedResourceByName)(::core::mem::transmute_copy(self), lpname.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn CreateBuffer(&self, pdesc: *const D3D11_BUFFER_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Buffer> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.CreateBuffer)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc), ::core::mem::transmute(pinitialdata), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11Buffer>(result__)
@@ -15035,25 +14997,43 @@ impl ID3D11Device1 {
     pub unsafe fn GetExceptionMode(&self) -> u32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetExceptionMode)(::core::mem::transmute_copy(self)))
     }
-}
-impl ::core::convert::From<ID3D11Device1> for ID3D11Device {
-    fn from(value: ID3D11Device1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetImmediateContext1(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext1>) {
+        (::windows::core::Interface::vtable(self).GetImmediateContext1)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppimmediatecontext))
     }
-}
-impl ::core::convert::From<&ID3D11Device1> for ID3D11Device {
-    fn from(value: &ID3D11Device1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn CreateDeferredContext1(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateDeferredContext1)(::core::mem::transmute_copy(self), ::core::mem::transmute(contextflags), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11DeviceContext1>(result__)
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Device> for ID3D11Device1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateBlendState1(&self, pblendstatedesc: *const D3D11_BLEND_DESC1) -> ::windows::core::Result<ID3D11BlendState1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateBlendState1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pblendstatedesc), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11BlendState1>(result__)
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Device> for &ID3D11Device1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateRasterizerState1(&self, prasterizerdesc: *const D3D11_RASTERIZER_DESC1) -> ::windows::core::Result<ID3D11RasterizerState1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateRasterizerState1)(::core::mem::transmute_copy(self), ::core::mem::transmute(prasterizerdesc), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11RasterizerState1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D'*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D")]
+    pub unsafe fn CreateDeviceContextState(&self, flags: u32, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, emulatedinterface: *const ::windows::core::GUID, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppcontextstate: *mut ::core::option::Option<ID3DDeviceContextState>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateDeviceContextState)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), ::core::mem::transmute(pfeaturelevels), ::core::mem::transmute(featurelevels), ::core::mem::transmute(sdkversion), ::core::mem::transmute(emulatedinterface), ::core::mem::transmute(pchosenfeaturelevel), ::core::mem::transmute(ppcontextstate)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn OpenSharedResource1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, T: ::windows::core::Interface>(&self, hresource: Param0) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).OpenSharedResource1)(::core::mem::transmute_copy(self), hresource.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn OpenSharedResourceByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, T: ::windows::core::Interface>(&self, lpname: Param0, dwdesiredaccess: u32) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).OpenSharedResourceByName)(::core::mem::transmute_copy(self), lpname.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<ID3D11Device1> for ::windows::core::IUnknown {
@@ -15073,6 +15053,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Dev
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Device1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11Device1> for ID3D11Device {
+    fn from(value: ID3D11Device1) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11Device1> for ID3D11Device {
+    fn from(value: &ID3D11Device1) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Device> for ID3D11Device1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Device> for &ID3D11Device1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -15127,63 +15127,6 @@ pub struct ID3D11Device1Vtbl {
 #[repr(transparent)]
 pub struct ID3D11Device2(::windows::core::IUnknown);
 impl ID3D11Device2 {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetImmediateContext2(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext2>) {
-        (::windows::core::Interface::vtable(self).GetImmediateContext2)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppimmediatecontext))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CreateDeferredContext2(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext2> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDeferredContext2)(::core::mem::transmute_copy(self), ::core::mem::transmute(contextflags), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11DeviceContext2>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetResourceTiling<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, ptiledresource: Param0, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D11_PACKED_MIP_DESC, pstandardtileshapefornonpackedmips: *mut D3D11_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D11_SUBRESOURCE_TILING) {
-        (::windows::core::Interface::vtable(self).GetResourceTiling)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckMultisampleQualityLevels1(&self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32, flags: u32) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CheckMultisampleQualityLevels1)(::core::mem::transmute_copy(self), ::core::mem::transmute(format), ::core::mem::transmute(samplecount), ::core::mem::transmute(flags), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetImmediateContext1(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext1>) {
-        (::windows::core::Interface::vtable(self).base.GetImmediateContext1)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppimmediatecontext))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CreateDeferredContext1(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateDeferredContext1)(::core::mem::transmute_copy(self), ::core::mem::transmute(contextflags), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11DeviceContext1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateBlendState1(&self, pblendstatedesc: *const D3D11_BLEND_DESC1) -> ::windows::core::Result<ID3D11BlendState1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateBlendState1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pblendstatedesc), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11BlendState1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateRasterizerState1(&self, prasterizerdesc: *const D3D11_RASTERIZER_DESC1) -> ::windows::core::Result<ID3D11RasterizerState1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateRasterizerState1)(::core::mem::transmute_copy(self), ::core::mem::transmute(prasterizerdesc), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11RasterizerState1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D'*"]
-    #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn CreateDeviceContextState(&self, flags: u32, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, emulatedinterface: *const ::windows::core::GUID, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppcontextstate: *mut ::core::option::Option<ID3DDeviceContextState>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.CreateDeviceContextState)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), ::core::mem::transmute(pfeaturelevels), ::core::mem::transmute(featurelevels), ::core::mem::transmute(sdkversion), ::core::mem::transmute(emulatedinterface), ::core::mem::transmute(pchosenfeaturelevel), ::core::mem::transmute(ppcontextstate)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenSharedResource1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, T: ::windows::core::Interface>(&self, hresource: Param0) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).base.OpenSharedResource1)(::core::mem::transmute_copy(self), hresource.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenSharedResourceByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, T: ::windows::core::Interface>(&self, lpname: Param0, dwdesiredaccess: u32) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).base.OpenSharedResourceByName)(::core::mem::transmute_copy(self), lpname.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn CreateBuffer(&self, pdesc: *const D3D11_BUFFER_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Buffer> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -15388,24 +15331,81 @@ impl ID3D11Device2 {
     pub unsafe fn GetExceptionMode(&self) -> u32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.GetExceptionMode)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetImmediateContext1(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext1>) {
+        (::windows::core::Interface::vtable(self).base.GetImmediateContext1)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppimmediatecontext))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn CreateDeferredContext1(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateDeferredContext1)(::core::mem::transmute_copy(self), ::core::mem::transmute(contextflags), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11DeviceContext1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateBlendState1(&self, pblendstatedesc: *const D3D11_BLEND_DESC1) -> ::windows::core::Result<ID3D11BlendState1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateBlendState1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pblendstatedesc), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11BlendState1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateRasterizerState1(&self, prasterizerdesc: *const D3D11_RASTERIZER_DESC1) -> ::windows::core::Result<ID3D11RasterizerState1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateRasterizerState1)(::core::mem::transmute_copy(self), ::core::mem::transmute(prasterizerdesc), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11RasterizerState1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D'*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D")]
+    pub unsafe fn CreateDeviceContextState(&self, flags: u32, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, emulatedinterface: *const ::windows::core::GUID, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppcontextstate: *mut ::core::option::Option<ID3DDeviceContextState>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.CreateDeviceContextState)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), ::core::mem::transmute(pfeaturelevels), ::core::mem::transmute(featurelevels), ::core::mem::transmute(sdkversion), ::core::mem::transmute(emulatedinterface), ::core::mem::transmute(pchosenfeaturelevel), ::core::mem::transmute(ppcontextstate)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn OpenSharedResource1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, T: ::windows::core::Interface>(&self, hresource: Param0) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.OpenSharedResource1)(::core::mem::transmute_copy(self), hresource.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn OpenSharedResourceByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, T: ::windows::core::Interface>(&self, lpname: Param0, dwdesiredaccess: u32) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.OpenSharedResourceByName)(::core::mem::transmute_copy(self), lpname.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetImmediateContext2(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext2>) {
+        (::windows::core::Interface::vtable(self).GetImmediateContext2)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppimmediatecontext))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn CreateDeferredContext2(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext2> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateDeferredContext2)(::core::mem::transmute_copy(self), ::core::mem::transmute(contextflags), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11DeviceContext2>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetResourceTiling<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, ptiledresource: Param0, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D11_PACKED_MIP_DESC, pstandardtileshapefornonpackedmips: *mut D3D11_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D11_SUBRESOURCE_TILING) {
+        (::windows::core::Interface::vtable(self).GetResourceTiling)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn CheckMultisampleQualityLevels1(&self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32, flags: u32) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CheckMultisampleQualityLevels1)(::core::mem::transmute_copy(self), ::core::mem::transmute(format), ::core::mem::transmute(samplecount), ::core::mem::transmute(flags), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
 }
-impl ::core::convert::From<ID3D11Device2> for ID3D11Device1 {
+impl ::core::convert::From<ID3D11Device2> for ::windows::core::IUnknown {
     fn from(value: ID3D11Device2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Device2> for ID3D11Device1 {
+impl ::core::convert::From<&ID3D11Device2> for ::windows::core::IUnknown {
     fn from(value: &ID3D11Device2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Device1> for ID3D11Device2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device1> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Device2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Device1> for &ID3D11Device2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device1> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Device2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -15429,23 +15429,23 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11Device> for &ID3D11Device2 {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11Device2> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11Device2> for ID3D11Device1 {
     fn from(value: ID3D11Device2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Device2> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11Device2> for ID3D11Device1 {
     fn from(value: &ID3D11Device2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Device2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Device1> for ID3D11Device2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device1> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Device2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Device1> for &ID3D11Device2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -15485,121 +15485,6 @@ pub struct ID3D11Device2Vtbl {
 #[repr(transparent)]
 pub struct ID3D11Device3(::windows::core::IUnknown);
 impl ID3D11Device3 {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateTexture2D1(&self, pdesc1: *const D3D11_TEXTURE2D_DESC1, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture2D1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTexture2D1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc1), ::core::mem::transmute(pinitialdata), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11Texture2D1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateTexture3D1(&self, pdesc1: *const D3D11_TEXTURE3D_DESC1, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture3D1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTexture3D1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc1), ::core::mem::transmute(pinitialdata), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11Texture3D1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateRasterizerState2(&self, prasterizerdesc: *const D3D11_RASTERIZER_DESC2) -> ::windows::core::Result<ID3D11RasterizerState2> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateRasterizerState2)(::core::mem::transmute_copy(self), ::core::mem::transmute(prasterizerdesc), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11RasterizerState2>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateShaderResourceView1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, presource: Param0, pdesc1: *const D3D11_SHADER_RESOURCE_VIEW_DESC1) -> ::windows::core::Result<ID3D11ShaderResourceView1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateShaderResourceView1)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc1), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11ShaderResourceView1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateUnorderedAccessView1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, presource: Param0, pdesc1: *const D3D11_UNORDERED_ACCESS_VIEW_DESC1) -> ::windows::core::Result<ID3D11UnorderedAccessView1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateUnorderedAccessView1)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc1), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11UnorderedAccessView1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateRenderTargetView1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, presource: Param0, pdesc1: *const D3D11_RENDER_TARGET_VIEW_DESC1) -> ::windows::core::Result<ID3D11RenderTargetView1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateRenderTargetView1)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc1), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11RenderTargetView1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CreateQuery1(&self, pquerydesc1: *const D3D11_QUERY_DESC1) -> ::windows::core::Result<ID3D11Query1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateQuery1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pquerydesc1), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11Query1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetImmediateContext3(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext3>) {
-        (::windows::core::Interface::vtable(self).GetImmediateContext3)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppimmediatecontext))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CreateDeferredContext3(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext3> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDeferredContext3)(::core::mem::transmute_copy(self), ::core::mem::transmute(contextflags), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11DeviceContext3>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn WriteToSubresource<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstresource: Param0, dstsubresource: u32, pdstbox: *const D3D11_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32) {
-        (::windows::core::Interface::vtable(self).WriteToSubresource)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(pdstbox), ::core::mem::transmute(psrcdata), ::core::mem::transmute(srcrowpitch), ::core::mem::transmute(srcdepthpitch))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn ReadFromSubresource<'a, Param3: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstdata: *mut ::core::ffi::c_void, dstrowpitch: u32, dstdepthpitch: u32, psrcresource: Param3, srcsubresource: u32, psrcbox: *const D3D11_BOX) {
-        (::windows::core::Interface::vtable(self).ReadFromSubresource)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdstdata), ::core::mem::transmute(dstrowpitch), ::core::mem::transmute(dstdepthpitch), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcbox))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetImmediateContext2(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext2>) {
-        (::windows::core::Interface::vtable(self).base.GetImmediateContext2)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppimmediatecontext))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CreateDeferredContext2(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext2> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateDeferredContext2)(::core::mem::transmute_copy(self), ::core::mem::transmute(contextflags), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11DeviceContext2>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetResourceTiling<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, ptiledresource: Param0, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D11_PACKED_MIP_DESC, pstandardtileshapefornonpackedmips: *mut D3D11_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D11_SUBRESOURCE_TILING) {
-        (::windows::core::Interface::vtable(self).base.GetResourceTiling)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckMultisampleQualityLevels1(&self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32, flags: u32) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CheckMultisampleQualityLevels1)(::core::mem::transmute_copy(self), ::core::mem::transmute(format), ::core::mem::transmute(samplecount), ::core::mem::transmute(flags), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetImmediateContext1(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext1>) {
-        (::windows::core::Interface::vtable(self).base.base.GetImmediateContext1)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppimmediatecontext))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CreateDeferredContext1(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreateDeferredContext1)(::core::mem::transmute_copy(self), ::core::mem::transmute(contextflags), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11DeviceContext1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateBlendState1(&self, pblendstatedesc: *const D3D11_BLEND_DESC1) -> ::windows::core::Result<ID3D11BlendState1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreateBlendState1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pblendstatedesc), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11BlendState1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateRasterizerState1(&self, prasterizerdesc: *const D3D11_RASTERIZER_DESC1) -> ::windows::core::Result<ID3D11RasterizerState1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreateRasterizerState1)(::core::mem::transmute_copy(self), ::core::mem::transmute(prasterizerdesc), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11RasterizerState1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D'*"]
-    #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn CreateDeviceContextState(&self, flags: u32, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, emulatedinterface: *const ::windows::core::GUID, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppcontextstate: *mut ::core::option::Option<ID3DDeviceContextState>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.CreateDeviceContextState)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), ::core::mem::transmute(pfeaturelevels), ::core::mem::transmute(featurelevels), ::core::mem::transmute(sdkversion), ::core::mem::transmute(emulatedinterface), ::core::mem::transmute(pchosenfeaturelevel), ::core::mem::transmute(ppcontextstate)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenSharedResource1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, T: ::windows::core::Interface>(&self, hresource: Param0) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).base.base.OpenSharedResource1)(::core::mem::transmute_copy(self), hresource.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenSharedResourceByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, T: ::windows::core::Interface>(&self, lpname: Param0, dwdesiredaccess: u32) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).base.base.OpenSharedResourceByName)(::core::mem::transmute_copy(self), lpname.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn CreateBuffer(&self, pdesc: *const D3D11_BUFFER_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Buffer> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -15804,44 +15689,139 @@ impl ID3D11Device3 {
     pub unsafe fn GetExceptionMode(&self) -> u32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.base.GetExceptionMode)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetImmediateContext1(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext1>) {
+        (::windows::core::Interface::vtable(self).base.base.GetImmediateContext1)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppimmediatecontext))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn CreateDeferredContext1(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CreateDeferredContext1)(::core::mem::transmute_copy(self), ::core::mem::transmute(contextflags), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11DeviceContext1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateBlendState1(&self, pblendstatedesc: *const D3D11_BLEND_DESC1) -> ::windows::core::Result<ID3D11BlendState1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CreateBlendState1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pblendstatedesc), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11BlendState1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateRasterizerState1(&self, prasterizerdesc: *const D3D11_RASTERIZER_DESC1) -> ::windows::core::Result<ID3D11RasterizerState1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CreateRasterizerState1)(::core::mem::transmute_copy(self), ::core::mem::transmute(prasterizerdesc), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11RasterizerState1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D'*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D")]
+    pub unsafe fn CreateDeviceContextState(&self, flags: u32, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, emulatedinterface: *const ::windows::core::GUID, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppcontextstate: *mut ::core::option::Option<ID3DDeviceContextState>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.CreateDeviceContextState)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), ::core::mem::transmute(pfeaturelevels), ::core::mem::transmute(featurelevels), ::core::mem::transmute(sdkversion), ::core::mem::transmute(emulatedinterface), ::core::mem::transmute(pchosenfeaturelevel), ::core::mem::transmute(ppcontextstate)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn OpenSharedResource1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, T: ::windows::core::Interface>(&self, hresource: Param0) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.OpenSharedResource1)(::core::mem::transmute_copy(self), hresource.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn OpenSharedResourceByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, T: ::windows::core::Interface>(&self, lpname: Param0, dwdesiredaccess: u32) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.OpenSharedResourceByName)(::core::mem::transmute_copy(self), lpname.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetImmediateContext2(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext2>) {
+        (::windows::core::Interface::vtable(self).base.GetImmediateContext2)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppimmediatecontext))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn CreateDeferredContext2(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext2> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateDeferredContext2)(::core::mem::transmute_copy(self), ::core::mem::transmute(contextflags), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11DeviceContext2>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetResourceTiling<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, ptiledresource: Param0, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D11_PACKED_MIP_DESC, pstandardtileshapefornonpackedmips: *mut D3D11_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D11_SUBRESOURCE_TILING) {
+        (::windows::core::Interface::vtable(self).base.GetResourceTiling)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn CheckMultisampleQualityLevels1(&self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32, flags: u32) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CheckMultisampleQualityLevels1)(::core::mem::transmute_copy(self), ::core::mem::transmute(format), ::core::mem::transmute(samplecount), ::core::mem::transmute(flags), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn CreateTexture2D1(&self, pdesc1: *const D3D11_TEXTURE2D_DESC1, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture2D1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateTexture2D1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc1), ::core::mem::transmute(pinitialdata), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11Texture2D1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn CreateTexture3D1(&self, pdesc1: *const D3D11_TEXTURE3D_DESC1, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture3D1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateTexture3D1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc1), ::core::mem::transmute(pinitialdata), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11Texture3D1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateRasterizerState2(&self, prasterizerdesc: *const D3D11_RASTERIZER_DESC2) -> ::windows::core::Result<ID3D11RasterizerState2> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateRasterizerState2)(::core::mem::transmute_copy(self), ::core::mem::transmute(prasterizerdesc), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11RasterizerState2>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CreateShaderResourceView1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, presource: Param0, pdesc1: *const D3D11_SHADER_RESOURCE_VIEW_DESC1) -> ::windows::core::Result<ID3D11ShaderResourceView1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateShaderResourceView1)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc1), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11ShaderResourceView1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn CreateUnorderedAccessView1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, presource: Param0, pdesc1: *const D3D11_UNORDERED_ACCESS_VIEW_DESC1) -> ::windows::core::Result<ID3D11UnorderedAccessView1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateUnorderedAccessView1)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc1), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11UnorderedAccessView1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn CreateRenderTargetView1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, presource: Param0, pdesc1: *const D3D11_RENDER_TARGET_VIEW_DESC1) -> ::windows::core::Result<ID3D11RenderTargetView1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateRenderTargetView1)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc1), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11RenderTargetView1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn CreateQuery1(&self, pquerydesc1: *const D3D11_QUERY_DESC1) -> ::windows::core::Result<ID3D11Query1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateQuery1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pquerydesc1), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11Query1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetImmediateContext3(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext3>) {
+        (::windows::core::Interface::vtable(self).GetImmediateContext3)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppimmediatecontext))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn CreateDeferredContext3(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext3> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateDeferredContext3)(::core::mem::transmute_copy(self), ::core::mem::transmute(contextflags), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11DeviceContext3>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn WriteToSubresource<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstresource: Param0, dstsubresource: u32, pdstbox: *const D3D11_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32) {
+        (::windows::core::Interface::vtable(self).WriteToSubresource)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(pdstbox), ::core::mem::transmute(psrcdata), ::core::mem::transmute(srcrowpitch), ::core::mem::transmute(srcdepthpitch))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn ReadFromSubresource<'a, Param3: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstdata: *mut ::core::ffi::c_void, dstrowpitch: u32, dstdepthpitch: u32, psrcresource: Param3, srcsubresource: u32, psrcbox: *const D3D11_BOX) {
+        (::windows::core::Interface::vtable(self).ReadFromSubresource)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdstdata), ::core::mem::transmute(dstrowpitch), ::core::mem::transmute(dstdepthpitch), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcbox))
+    }
 }
-impl ::core::convert::From<ID3D11Device3> for ID3D11Device2 {
+impl ::core::convert::From<ID3D11Device3> for ::windows::core::IUnknown {
     fn from(value: ID3D11Device3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Device3> for ID3D11Device2 {
+impl ::core::convert::From<&ID3D11Device3> for ::windows::core::IUnknown {
     fn from(value: &ID3D11Device3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Device2> for ID3D11Device3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Device3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Device2> for &ID3D11Device3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11Device3> for ID3D11Device1 {
-    fn from(value: ID3D11Device3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11Device3> for ID3D11Device1 {
-    fn from(value: &ID3D11Device3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Device1> for ID3D11Device3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device1> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Device1> for &ID3D11Device3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device1> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Device3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -15865,23 +15845,43 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11Device> for &ID3D11Device3 {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11Device3> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11Device3> for ID3D11Device1 {
     fn from(value: ID3D11Device3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Device3> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11Device3> for ID3D11Device1 {
     fn from(value: &ID3D11Device3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Device3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Device1> for ID3D11Device3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device1> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Device3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Device1> for &ID3D11Device3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device1> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11Device3> for ID3D11Device2 {
+    fn from(value: ID3D11Device3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11Device3> for ID3D11Device2 {
+    fn from(value: &ID3D11Device3) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Device2> for ID3D11Device3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device2> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Device2> for &ID3D11Device3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -15943,131 +15943,6 @@ pub struct ID3D11Device3Vtbl {
 #[repr(transparent)]
 pub struct ID3D11Device4(::windows::core::IUnknown);
 impl ID3D11Device4 {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterDeviceRemovedEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RegisterDeviceRemovedEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn UnregisterDeviceRemoved(&self, dwcookie: u32) {
-        (::windows::core::Interface::vtable(self).UnregisterDeviceRemoved)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateTexture2D1(&self, pdesc1: *const D3D11_TEXTURE2D_DESC1, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture2D1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateTexture2D1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc1), ::core::mem::transmute(pinitialdata), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11Texture2D1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateTexture3D1(&self, pdesc1: *const D3D11_TEXTURE3D_DESC1, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture3D1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateTexture3D1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc1), ::core::mem::transmute(pinitialdata), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11Texture3D1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateRasterizerState2(&self, prasterizerdesc: *const D3D11_RASTERIZER_DESC2) -> ::windows::core::Result<ID3D11RasterizerState2> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateRasterizerState2)(::core::mem::transmute_copy(self), ::core::mem::transmute(prasterizerdesc), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11RasterizerState2>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateShaderResourceView1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, presource: Param0, pdesc1: *const D3D11_SHADER_RESOURCE_VIEW_DESC1) -> ::windows::core::Result<ID3D11ShaderResourceView1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateShaderResourceView1)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc1), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11ShaderResourceView1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateUnorderedAccessView1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, presource: Param0, pdesc1: *const D3D11_UNORDERED_ACCESS_VIEW_DESC1) -> ::windows::core::Result<ID3D11UnorderedAccessView1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateUnorderedAccessView1)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc1), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11UnorderedAccessView1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateRenderTargetView1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, presource: Param0, pdesc1: *const D3D11_RENDER_TARGET_VIEW_DESC1) -> ::windows::core::Result<ID3D11RenderTargetView1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateRenderTargetView1)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc1), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11RenderTargetView1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CreateQuery1(&self, pquerydesc1: *const D3D11_QUERY_DESC1) -> ::windows::core::Result<ID3D11Query1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateQuery1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pquerydesc1), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11Query1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetImmediateContext3(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext3>) {
-        (::windows::core::Interface::vtable(self).base.GetImmediateContext3)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppimmediatecontext))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CreateDeferredContext3(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext3> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateDeferredContext3)(::core::mem::transmute_copy(self), ::core::mem::transmute(contextflags), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11DeviceContext3>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn WriteToSubresource<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstresource: Param0, dstsubresource: u32, pdstbox: *const D3D11_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32) {
-        (::windows::core::Interface::vtable(self).base.WriteToSubresource)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(pdstbox), ::core::mem::transmute(psrcdata), ::core::mem::transmute(srcrowpitch), ::core::mem::transmute(srcdepthpitch))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn ReadFromSubresource<'a, Param3: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstdata: *mut ::core::ffi::c_void, dstrowpitch: u32, dstdepthpitch: u32, psrcresource: Param3, srcsubresource: u32, psrcbox: *const D3D11_BOX) {
-        (::windows::core::Interface::vtable(self).base.ReadFromSubresource)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdstdata), ::core::mem::transmute(dstrowpitch), ::core::mem::transmute(dstdepthpitch), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcbox))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetImmediateContext2(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext2>) {
-        (::windows::core::Interface::vtable(self).base.base.GetImmediateContext2)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppimmediatecontext))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CreateDeferredContext2(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext2> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreateDeferredContext2)(::core::mem::transmute_copy(self), ::core::mem::transmute(contextflags), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11DeviceContext2>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetResourceTiling<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, ptiledresource: Param0, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D11_PACKED_MIP_DESC, pstandardtileshapefornonpackedmips: *mut D3D11_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D11_SUBRESOURCE_TILING) {
-        (::windows::core::Interface::vtable(self).base.base.GetResourceTiling)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckMultisampleQualityLevels1(&self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32, flags: u32) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CheckMultisampleQualityLevels1)(::core::mem::transmute_copy(self), ::core::mem::transmute(format), ::core::mem::transmute(samplecount), ::core::mem::transmute(flags), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetImmediateContext1(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext1>) {
-        (::windows::core::Interface::vtable(self).base.base.base.GetImmediateContext1)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppimmediatecontext))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CreateDeferredContext1(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CreateDeferredContext1)(::core::mem::transmute_copy(self), ::core::mem::transmute(contextflags), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11DeviceContext1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateBlendState1(&self, pblendstatedesc: *const D3D11_BLEND_DESC1) -> ::windows::core::Result<ID3D11BlendState1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CreateBlendState1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pblendstatedesc), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11BlendState1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateRasterizerState1(&self, prasterizerdesc: *const D3D11_RASTERIZER_DESC1) -> ::windows::core::Result<ID3D11RasterizerState1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CreateRasterizerState1)(::core::mem::transmute_copy(self), ::core::mem::transmute(prasterizerdesc), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11RasterizerState1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D'*"]
-    #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn CreateDeviceContextState(&self, flags: u32, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, emulatedinterface: *const ::windows::core::GUID, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppcontextstate: *mut ::core::option::Option<ID3DDeviceContextState>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.CreateDeviceContextState)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), ::core::mem::transmute(pfeaturelevels), ::core::mem::transmute(featurelevels), ::core::mem::transmute(sdkversion), ::core::mem::transmute(emulatedinterface), ::core::mem::transmute(pchosenfeaturelevel), ::core::mem::transmute(ppcontextstate)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenSharedResource1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, T: ::windows::core::Interface>(&self, hresource: Param0) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).base.base.base.OpenSharedResource1)(::core::mem::transmute_copy(self), hresource.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenSharedResourceByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, T: ::windows::core::Interface>(&self, lpname: Param0, dwdesiredaccess: u32) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).base.base.base.OpenSharedResourceByName)(::core::mem::transmute_copy(self), lpname.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn CreateBuffer(&self, pdesc: *const D3D11_BUFFER_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Buffer> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -16272,64 +16147,149 @@ impl ID3D11Device4 {
     pub unsafe fn GetExceptionMode(&self) -> u32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.base.base.GetExceptionMode)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetImmediateContext1(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext1>) {
+        (::windows::core::Interface::vtable(self).base.base.base.GetImmediateContext1)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppimmediatecontext))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn CreateDeferredContext1(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CreateDeferredContext1)(::core::mem::transmute_copy(self), ::core::mem::transmute(contextflags), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11DeviceContext1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateBlendState1(&self, pblendstatedesc: *const D3D11_BLEND_DESC1) -> ::windows::core::Result<ID3D11BlendState1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CreateBlendState1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pblendstatedesc), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11BlendState1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateRasterizerState1(&self, prasterizerdesc: *const D3D11_RASTERIZER_DESC1) -> ::windows::core::Result<ID3D11RasterizerState1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CreateRasterizerState1)(::core::mem::transmute_copy(self), ::core::mem::transmute(prasterizerdesc), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11RasterizerState1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D'*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D")]
+    pub unsafe fn CreateDeviceContextState(&self, flags: u32, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, emulatedinterface: *const ::windows::core::GUID, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppcontextstate: *mut ::core::option::Option<ID3DDeviceContextState>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.CreateDeviceContextState)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), ::core::mem::transmute(pfeaturelevels), ::core::mem::transmute(featurelevels), ::core::mem::transmute(sdkversion), ::core::mem::transmute(emulatedinterface), ::core::mem::transmute(pchosenfeaturelevel), ::core::mem::transmute(ppcontextstate)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn OpenSharedResource1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, T: ::windows::core::Interface>(&self, hresource: Param0) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.OpenSharedResource1)(::core::mem::transmute_copy(self), hresource.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn OpenSharedResourceByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, T: ::windows::core::Interface>(&self, lpname: Param0, dwdesiredaccess: u32) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.OpenSharedResourceByName)(::core::mem::transmute_copy(self), lpname.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetImmediateContext2(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext2>) {
+        (::windows::core::Interface::vtable(self).base.base.GetImmediateContext2)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppimmediatecontext))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn CreateDeferredContext2(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext2> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CreateDeferredContext2)(::core::mem::transmute_copy(self), ::core::mem::transmute(contextflags), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11DeviceContext2>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetResourceTiling<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, ptiledresource: Param0, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D11_PACKED_MIP_DESC, pstandardtileshapefornonpackedmips: *mut D3D11_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D11_SUBRESOURCE_TILING) {
+        (::windows::core::Interface::vtable(self).base.base.GetResourceTiling)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn CheckMultisampleQualityLevels1(&self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32, flags: u32) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CheckMultisampleQualityLevels1)(::core::mem::transmute_copy(self), ::core::mem::transmute(format), ::core::mem::transmute(samplecount), ::core::mem::transmute(flags), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn CreateTexture2D1(&self, pdesc1: *const D3D11_TEXTURE2D_DESC1, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture2D1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateTexture2D1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc1), ::core::mem::transmute(pinitialdata), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11Texture2D1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn CreateTexture3D1(&self, pdesc1: *const D3D11_TEXTURE3D_DESC1, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture3D1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateTexture3D1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc1), ::core::mem::transmute(pinitialdata), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11Texture3D1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateRasterizerState2(&self, prasterizerdesc: *const D3D11_RASTERIZER_DESC2) -> ::windows::core::Result<ID3D11RasterizerState2> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateRasterizerState2)(::core::mem::transmute_copy(self), ::core::mem::transmute(prasterizerdesc), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11RasterizerState2>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CreateShaderResourceView1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, presource: Param0, pdesc1: *const D3D11_SHADER_RESOURCE_VIEW_DESC1) -> ::windows::core::Result<ID3D11ShaderResourceView1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateShaderResourceView1)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc1), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11ShaderResourceView1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn CreateUnorderedAccessView1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, presource: Param0, pdesc1: *const D3D11_UNORDERED_ACCESS_VIEW_DESC1) -> ::windows::core::Result<ID3D11UnorderedAccessView1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateUnorderedAccessView1)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc1), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11UnorderedAccessView1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn CreateRenderTargetView1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, presource: Param0, pdesc1: *const D3D11_RENDER_TARGET_VIEW_DESC1) -> ::windows::core::Result<ID3D11RenderTargetView1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateRenderTargetView1)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc1), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11RenderTargetView1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn CreateQuery1(&self, pquerydesc1: *const D3D11_QUERY_DESC1) -> ::windows::core::Result<ID3D11Query1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateQuery1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pquerydesc1), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11Query1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetImmediateContext3(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext3>) {
+        (::windows::core::Interface::vtable(self).base.GetImmediateContext3)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppimmediatecontext))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn CreateDeferredContext3(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext3> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CreateDeferredContext3)(::core::mem::transmute_copy(self), ::core::mem::transmute(contextflags), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11DeviceContext3>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn WriteToSubresource<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstresource: Param0, dstsubresource: u32, pdstbox: *const D3D11_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32) {
+        (::windows::core::Interface::vtable(self).base.WriteToSubresource)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(pdstbox), ::core::mem::transmute(psrcdata), ::core::mem::transmute(srcrowpitch), ::core::mem::transmute(srcdepthpitch))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn ReadFromSubresource<'a, Param3: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstdata: *mut ::core::ffi::c_void, dstrowpitch: u32, dstdepthpitch: u32, psrcresource: Param3, srcsubresource: u32, psrcbox: *const D3D11_BOX) {
+        (::windows::core::Interface::vtable(self).base.ReadFromSubresource)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdstdata), ::core::mem::transmute(dstrowpitch), ::core::mem::transmute(dstdepthpitch), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcbox))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn RegisterDeviceRemovedEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).RegisterDeviceRemovedEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn UnregisterDeviceRemoved(&self, dwcookie: u32) {
+        (::windows::core::Interface::vtable(self).UnregisterDeviceRemoved)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
+    }
 }
-impl ::core::convert::From<ID3D11Device4> for ID3D11Device3 {
+impl ::core::convert::From<ID3D11Device4> for ::windows::core::IUnknown {
     fn from(value: ID3D11Device4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Device4> for ID3D11Device3 {
+impl ::core::convert::From<&ID3D11Device4> for ::windows::core::IUnknown {
     fn from(value: &ID3D11Device4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Device3> for ID3D11Device4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device3> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Device4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Device3> for &ID3D11Device4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device3> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11Device4> for ID3D11Device2 {
-    fn from(value: ID3D11Device4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11Device4> for ID3D11Device2 {
-    fn from(value: &ID3D11Device4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Device2> for ID3D11Device4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Device2> for &ID3D11Device4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11Device4> for ID3D11Device1 {
-    fn from(value: ID3D11Device4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11Device4> for ID3D11Device1 {
-    fn from(value: &ID3D11Device4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Device1> for ID3D11Device4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device1> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Device1> for &ID3D11Device4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device1> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Device4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -16353,23 +16313,63 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11Device> for &ID3D11Device4 {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11Device4> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11Device4> for ID3D11Device1 {
     fn from(value: ID3D11Device4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Device4> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11Device4> for ID3D11Device1 {
     fn from(value: &ID3D11Device4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Device4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Device1> for ID3D11Device4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device1> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Device4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Device1> for &ID3D11Device4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device1> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11Device4> for ID3D11Device2 {
+    fn from(value: ID3D11Device4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11Device4> for ID3D11Device2 {
+    fn from(value: &ID3D11Device4) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Device2> for ID3D11Device4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device2> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Device2> for &ID3D11Device4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device2> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11Device4> for ID3D11Device3 {
+    fn from(value: ID3D11Device4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11Device4> for ID3D11Device3 {
+    fn from(value: &ID3D11Device4) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Device3> for ID3D11Device4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device3> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Device3> for &ID3D11Device4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -16407,140 +16407,6 @@ pub struct ID3D11Device4Vtbl {
 #[repr(transparent)]
 pub struct ID3D11Device5(::windows::core::IUnknown);
 impl ID3D11Device5 {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenSharedFence<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, T: ::windows::core::Interface>(&self, hfence: Param0, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OpenSharedFence)(::core::mem::transmute_copy(self), hfence.into_param().abi(), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CreateFence<T: ::windows::core::Interface>(&self, initialvalue: u64, flags: D3D11_FENCE_FLAG, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateFence)(::core::mem::transmute_copy(self), ::core::mem::transmute(initialvalue), ::core::mem::transmute(flags), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterDeviceRemovedEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.RegisterDeviceRemovedEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn UnregisterDeviceRemoved(&self, dwcookie: u32) {
-        (::windows::core::Interface::vtable(self).base.UnregisterDeviceRemoved)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateTexture2D1(&self, pdesc1: *const D3D11_TEXTURE2D_DESC1, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture2D1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreateTexture2D1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc1), ::core::mem::transmute(pinitialdata), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11Texture2D1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateTexture3D1(&self, pdesc1: *const D3D11_TEXTURE3D_DESC1, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture3D1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreateTexture3D1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc1), ::core::mem::transmute(pinitialdata), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11Texture3D1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateRasterizerState2(&self, prasterizerdesc: *const D3D11_RASTERIZER_DESC2) -> ::windows::core::Result<ID3D11RasterizerState2> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreateRasterizerState2)(::core::mem::transmute_copy(self), ::core::mem::transmute(prasterizerdesc), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11RasterizerState2>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CreateShaderResourceView1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, presource: Param0, pdesc1: *const D3D11_SHADER_RESOURCE_VIEW_DESC1) -> ::windows::core::Result<ID3D11ShaderResourceView1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreateShaderResourceView1)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc1), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11ShaderResourceView1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateUnorderedAccessView1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, presource: Param0, pdesc1: *const D3D11_UNORDERED_ACCESS_VIEW_DESC1) -> ::windows::core::Result<ID3D11UnorderedAccessView1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreateUnorderedAccessView1)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc1), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11UnorderedAccessView1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateRenderTargetView1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, presource: Param0, pdesc1: *const D3D11_RENDER_TARGET_VIEW_DESC1) -> ::windows::core::Result<ID3D11RenderTargetView1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreateRenderTargetView1)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc1), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11RenderTargetView1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CreateQuery1(&self, pquerydesc1: *const D3D11_QUERY_DESC1) -> ::windows::core::Result<ID3D11Query1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreateQuery1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pquerydesc1), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11Query1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetImmediateContext3(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext3>) {
-        (::windows::core::Interface::vtable(self).base.base.GetImmediateContext3)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppimmediatecontext))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CreateDeferredContext3(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext3> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreateDeferredContext3)(::core::mem::transmute_copy(self), ::core::mem::transmute(contextflags), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11DeviceContext3>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn WriteToSubresource<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstresource: Param0, dstsubresource: u32, pdstbox: *const D3D11_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32) {
-        (::windows::core::Interface::vtable(self).base.base.WriteToSubresource)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(pdstbox), ::core::mem::transmute(psrcdata), ::core::mem::transmute(srcrowpitch), ::core::mem::transmute(srcdepthpitch))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn ReadFromSubresource<'a, Param3: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstdata: *mut ::core::ffi::c_void, dstrowpitch: u32, dstdepthpitch: u32, psrcresource: Param3, srcsubresource: u32, psrcbox: *const D3D11_BOX) {
-        (::windows::core::Interface::vtable(self).base.base.ReadFromSubresource)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdstdata), ::core::mem::transmute(dstrowpitch), ::core::mem::transmute(dstdepthpitch), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcbox))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetImmediateContext2(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext2>) {
-        (::windows::core::Interface::vtable(self).base.base.base.GetImmediateContext2)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppimmediatecontext))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CreateDeferredContext2(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext2> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CreateDeferredContext2)(::core::mem::transmute_copy(self), ::core::mem::transmute(contextflags), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11DeviceContext2>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetResourceTiling<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, ptiledresource: Param0, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D11_PACKED_MIP_DESC, pstandardtileshapefornonpackedmips: *mut D3D11_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D11_SUBRESOURCE_TILING) {
-        (::windows::core::Interface::vtable(self).base.base.base.GetResourceTiling)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CheckMultisampleQualityLevels1(&self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32, flags: u32) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CheckMultisampleQualityLevels1)(::core::mem::transmute_copy(self), ::core::mem::transmute(format), ::core::mem::transmute(samplecount), ::core::mem::transmute(flags), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetImmediateContext1(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext1>) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.GetImmediateContext1)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppimmediatecontext))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CreateDeferredContext1(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CreateDeferredContext1)(::core::mem::transmute_copy(self), ::core::mem::transmute(contextflags), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11DeviceContext1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateBlendState1(&self, pblendstatedesc: *const D3D11_BLEND_DESC1) -> ::windows::core::Result<ID3D11BlendState1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CreateBlendState1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pblendstatedesc), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11BlendState1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateRasterizerState1(&self, prasterizerdesc: *const D3D11_RASTERIZER_DESC1) -> ::windows::core::Result<ID3D11RasterizerState1> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CreateRasterizerState1)(::core::mem::transmute_copy(self), ::core::mem::transmute(prasterizerdesc), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11RasterizerState1>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D'*"]
-    #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn CreateDeviceContextState(&self, flags: u32, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, emulatedinterface: *const ::windows::core::GUID, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppcontextstate: *mut ::core::option::Option<ID3DDeviceContextState>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.CreateDeviceContextState)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), ::core::mem::transmute(pfeaturelevels), ::core::mem::transmute(featurelevels), ::core::mem::transmute(sdkversion), ::core::mem::transmute(emulatedinterface), ::core::mem::transmute(pchosenfeaturelevel), ::core::mem::transmute(ppcontextstate)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenSharedResource1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, T: ::windows::core::Interface>(&self, hresource: Param0) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).base.base.base.base.OpenSharedResource1)(::core::mem::transmute_copy(self), hresource.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenSharedResourceByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, T: ::windows::core::Interface>(&self, lpname: Param0, dwdesiredaccess: u32) -> ::windows::core::Result<T> {
-        let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).base.base.base.base.OpenSharedResourceByName)(::core::mem::transmute_copy(self), lpname.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn CreateBuffer(&self, pdesc: *const D3D11_BUFFER_DESC, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Buffer> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -16745,84 +16611,158 @@ impl ID3D11Device5 {
     pub unsafe fn GetExceptionMode(&self) -> u32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.base.base.base.GetExceptionMode)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetImmediateContext1(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext1>) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetImmediateContext1)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppimmediatecontext))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn CreateDeferredContext1(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CreateDeferredContext1)(::core::mem::transmute_copy(self), ::core::mem::transmute(contextflags), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11DeviceContext1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateBlendState1(&self, pblendstatedesc: *const D3D11_BLEND_DESC1) -> ::windows::core::Result<ID3D11BlendState1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CreateBlendState1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pblendstatedesc), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11BlendState1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateRasterizerState1(&self, prasterizerdesc: *const D3D11_RASTERIZER_DESC1) -> ::windows::core::Result<ID3D11RasterizerState1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CreateRasterizerState1)(::core::mem::transmute_copy(self), ::core::mem::transmute(prasterizerdesc), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11RasterizerState1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D'*"]
+    #[cfg(feature = "Win32_Graphics_Direct3D")]
+    pub unsafe fn CreateDeviceContextState(&self, flags: u32, pfeaturelevels: *const super::Direct3D::D3D_FEATURE_LEVEL, featurelevels: u32, sdkversion: u32, emulatedinterface: *const ::windows::core::GUID, pchosenfeaturelevel: *mut super::Direct3D::D3D_FEATURE_LEVEL, ppcontextstate: *mut ::core::option::Option<ID3DDeviceContextState>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.CreateDeviceContextState)(::core::mem::transmute_copy(self), ::core::mem::transmute(flags), ::core::mem::transmute(pfeaturelevels), ::core::mem::transmute(featurelevels), ::core::mem::transmute(sdkversion), ::core::mem::transmute(emulatedinterface), ::core::mem::transmute(pchosenfeaturelevel), ::core::mem::transmute(ppcontextstate)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn OpenSharedResource1<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, T: ::windows::core::Interface>(&self, hresource: Param0) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.base.OpenSharedResource1)(::core::mem::transmute_copy(self), hresource.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn OpenSharedResourceByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, T: ::windows::core::Interface>(&self, lpname: Param0, dwdesiredaccess: u32) -> ::windows::core::Result<T> {
+        let mut result__ = ::core::option::Option::None;
+        (::windows::core::Interface::vtable(self).base.base.base.base.OpenSharedResourceByName)(::core::mem::transmute_copy(self), lpname.into_param().abi(), ::core::mem::transmute(dwdesiredaccess), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetImmediateContext2(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext2>) {
+        (::windows::core::Interface::vtable(self).base.base.base.GetImmediateContext2)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppimmediatecontext))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn CreateDeferredContext2(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext2> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CreateDeferredContext2)(::core::mem::transmute_copy(self), ::core::mem::transmute(contextflags), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11DeviceContext2>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetResourceTiling<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, ptiledresource: Param0, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D11_PACKED_MIP_DESC, pstandardtileshapefornonpackedmips: *mut D3D11_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D11_SUBRESOURCE_TILING) {
+        (::windows::core::Interface::vtable(self).base.base.base.GetResourceTiling)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(pnumtilesforentireresource), ::core::mem::transmute(ppackedmipdesc), ::core::mem::transmute(pstandardtileshapefornonpackedmips), ::core::mem::transmute(pnumsubresourcetilings), ::core::mem::transmute(firstsubresourcetilingtoget), ::core::mem::transmute(psubresourcetilingsfornonpackedmips))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn CheckMultisampleQualityLevels1(&self, format: super::Dxgi::Common::DXGI_FORMAT, samplecount: u32, flags: u32) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CheckMultisampleQualityLevels1)(::core::mem::transmute_copy(self), ::core::mem::transmute(format), ::core::mem::transmute(samplecount), ::core::mem::transmute(flags), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn CreateTexture2D1(&self, pdesc1: *const D3D11_TEXTURE2D_DESC1, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture2D1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CreateTexture2D1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc1), ::core::mem::transmute(pinitialdata), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11Texture2D1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn CreateTexture3D1(&self, pdesc1: *const D3D11_TEXTURE3D_DESC1, pinitialdata: *const D3D11_SUBRESOURCE_DATA) -> ::windows::core::Result<ID3D11Texture3D1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CreateTexture3D1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc1), ::core::mem::transmute(pinitialdata), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11Texture3D1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateRasterizerState2(&self, prasterizerdesc: *const D3D11_RASTERIZER_DESC2) -> ::windows::core::Result<ID3D11RasterizerState2> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CreateRasterizerState2)(::core::mem::transmute_copy(self), ::core::mem::transmute(prasterizerdesc), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11RasterizerState2>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CreateShaderResourceView1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, presource: Param0, pdesc1: *const D3D11_SHADER_RESOURCE_VIEW_DESC1) -> ::windows::core::Result<ID3D11ShaderResourceView1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CreateShaderResourceView1)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc1), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11ShaderResourceView1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn CreateUnorderedAccessView1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, presource: Param0, pdesc1: *const D3D11_UNORDERED_ACCESS_VIEW_DESC1) -> ::windows::core::Result<ID3D11UnorderedAccessView1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CreateUnorderedAccessView1)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc1), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11UnorderedAccessView1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn CreateRenderTargetView1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, presource: Param0, pdesc1: *const D3D11_RENDER_TARGET_VIEW_DESC1) -> ::windows::core::Result<ID3D11RenderTargetView1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CreateRenderTargetView1)(::core::mem::transmute_copy(self), presource.into_param().abi(), ::core::mem::transmute(pdesc1), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11RenderTargetView1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn CreateQuery1(&self, pquerydesc1: *const D3D11_QUERY_DESC1) -> ::windows::core::Result<ID3D11Query1> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CreateQuery1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pquerydesc1), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11Query1>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetImmediateContext3(&self, ppimmediatecontext: *mut ::core::option::Option<ID3D11DeviceContext3>) {
+        (::windows::core::Interface::vtable(self).base.base.GetImmediateContext3)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppimmediatecontext))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn CreateDeferredContext3(&self, contextflags: u32) -> ::windows::core::Result<ID3D11DeviceContext3> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CreateDeferredContext3)(::core::mem::transmute_copy(self), ::core::mem::transmute(contextflags), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11DeviceContext3>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn WriteToSubresource<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstresource: Param0, dstsubresource: u32, pdstbox: *const D3D11_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32) {
+        (::windows::core::Interface::vtable(self).base.base.WriteToSubresource)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(pdstbox), ::core::mem::transmute(psrcdata), ::core::mem::transmute(srcrowpitch), ::core::mem::transmute(srcdepthpitch))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn ReadFromSubresource<'a, Param3: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstdata: *mut ::core::ffi::c_void, dstrowpitch: u32, dstdepthpitch: u32, psrcresource: Param3, srcsubresource: u32, psrcbox: *const D3D11_BOX) {
+        (::windows::core::Interface::vtable(self).base.base.ReadFromSubresource)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdstdata), ::core::mem::transmute(dstrowpitch), ::core::mem::transmute(dstdepthpitch), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcbox))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn RegisterDeviceRemovedEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.RegisterDeviceRemovedEvent)(::core::mem::transmute_copy(self), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn UnregisterDeviceRemoved(&self, dwcookie: u32) {
+        (::windows::core::Interface::vtable(self).base.UnregisterDeviceRemoved)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn OpenSharedFence<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, T: ::windows::core::Interface>(&self, hfence: Param0, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OpenSharedFence)(::core::mem::transmute_copy(self), hfence.into_param().abi(), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn CreateFence<T: ::windows::core::Interface>(&self, initialvalue: u64, flags: D3D11_FENCE_FLAG, result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateFence)(::core::mem::transmute_copy(self), ::core::mem::transmute(initialvalue), ::core::mem::transmute(flags), &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
+    }
 }
-impl ::core::convert::From<ID3D11Device5> for ID3D11Device4 {
+impl ::core::convert::From<ID3D11Device5> for ::windows::core::IUnknown {
     fn from(value: ID3D11Device5) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Device5> for ID3D11Device4 {
+impl ::core::convert::From<&ID3D11Device5> for ::windows::core::IUnknown {
     fn from(value: &ID3D11Device5) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Device4> for ID3D11Device5 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device4> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Device5 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Device4> for &ID3D11Device5 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device4> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11Device5> for ID3D11Device3 {
-    fn from(value: ID3D11Device5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11Device5> for ID3D11Device3 {
-    fn from(value: &ID3D11Device5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Device3> for ID3D11Device5 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device3> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Device3> for &ID3D11Device5 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device3> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11Device5> for ID3D11Device2 {
-    fn from(value: ID3D11Device5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11Device5> for ID3D11Device2 {
-    fn from(value: &ID3D11Device5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Device2> for ID3D11Device5 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Device2> for &ID3D11Device5 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11Device5> for ID3D11Device1 {
-    fn from(value: ID3D11Device5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11Device5> for ID3D11Device1 {
-    fn from(value: &ID3D11Device5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Device1> for ID3D11Device5 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device1> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Device1> for &ID3D11Device5 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device1> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Device5 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -16846,23 +16786,83 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11Device> for &ID3D11Device5 {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11Device5> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11Device5> for ID3D11Device1 {
     fn from(value: ID3D11Device5) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Device5> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11Device5> for ID3D11Device1 {
     fn from(value: &ID3D11Device5) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Device5 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Device1> for ID3D11Device5 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device1> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Device5 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Device1> for &ID3D11Device5 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device1> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11Device5> for ID3D11Device2 {
+    fn from(value: ID3D11Device5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11Device5> for ID3D11Device2 {
+    fn from(value: &ID3D11Device5) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Device2> for ID3D11Device5 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device2> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Device2> for &ID3D11Device5 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device2> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11Device5> for ID3D11Device3 {
+    fn from(value: ID3D11Device5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11Device5> for ID3D11Device3 {
+    fn from(value: &ID3D11Device5) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Device3> for ID3D11Device5 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device3> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Device3> for &ID3D11Device5 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device3> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11Device5> for ID3D11Device4 {
+    fn from(value: ID3D11Device5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11Device5> for ID3D11Device4 {
+    fn from(value: &ID3D11Device5) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Device4> for ID3D11Device5 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device4> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Device4> for &ID3D11Device5 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Device4> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -16970,6 +16970,22 @@ pub struct ID3D11DeviceChildVtbl {
 #[repr(transparent)]
 pub struct ID3D11DeviceContext(::windows::core::IUnknown);
 impl ID3D11DeviceContext {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
+        (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
+    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn VSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>) {
         (::windows::core::Interface::vtable(self).VSSetConstantBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers))
@@ -17415,21 +17431,25 @@ impl ID3D11DeviceContext {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).FinishCommandList)(::core::mem::transmute_copy(self), restoredeferredcontextstate.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11CommandList>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
-        (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
+}
+impl ::core::convert::From<ID3D11DeviceContext> for ::windows::core::IUnknown {
+    fn from(value: ID3D11DeviceContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+}
+impl ::core::convert::From<&ID3D11DeviceContext> for ::windows::core::IUnknown {
+    fn from(value: &ID3D11DeviceContext) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11DeviceContext {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11DeviceContext {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ID3D11DeviceContext> for ID3D11DeviceChild {
@@ -17449,26 +17469,6 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11DeviceConte
 }
 impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11DeviceContext {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11DeviceContext> for ::windows::core::IUnknown {
-    fn from(value: ID3D11DeviceContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11DeviceContext> for ::windows::core::IUnknown {
-    fn from(value: &ID3D11DeviceContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11DeviceContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11DeviceContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -17643,82 +17643,20 @@ pub struct ID3D11DeviceContextVtbl {
 pub struct ID3D11DeviceContext1(::windows::core::IUnknown);
 impl ID3D11DeviceContext1 {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CopySubresourceRegion1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param5: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: Param5, srcsubresource: u32, psrcbox: *const D3D11_BOX, copyflags: u32) {
-        (::windows::core::Interface::vtable(self).CopySubresourceRegion1)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcbox), ::core::mem::transmute(copyflags))
+    pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
+        (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn UpdateSubresource1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstresource: Param0, dstsubresource: u32, pdstbox: *const D3D11_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32, copyflags: u32) {
-        (::windows::core::Interface::vtable(self).UpdateSubresource1)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(pdstbox), ::core::mem::transmute(psrcdata), ::core::mem::transmute(srcrowpitch), ::core::mem::transmute(srcdepthpitch), ::core::mem::transmute(copyflags))
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn DiscardResource<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, presource: Param0) {
-        (::windows::core::Interface::vtable(self).DiscardResource)(::core::mem::transmute_copy(self), presource.into_param().abi())
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn DiscardView<'a, Param0: ::windows::core::IntoParam<'a, ID3D11View>>(&self, presourceview: Param0) {
-        (::windows::core::Interface::vtable(self).DiscardView)(::core::mem::transmute_copy(self), presourceview.into_param().abi())
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn VSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
-        (::windows::core::Interface::vtable(self).VSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn HSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
-        (::windows::core::Interface::vtable(self).HSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn DSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
-        (::windows::core::Interface::vtable(self).DSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
-        (::windows::core::Interface::vtable(self).GSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn PSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
-        (::windows::core::Interface::vtable(self).PSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
-        (::windows::core::Interface::vtable(self).CSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn VSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
-        (::windows::core::Interface::vtable(self).VSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn HSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
-        (::windows::core::Interface::vtable(self).HSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn DSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
-        (::windows::core::Interface::vtable(self).DSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
-        (::windows::core::Interface::vtable(self).GSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn PSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
-        (::windows::core::Interface::vtable(self).PSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
-        (::windows::core::Interface::vtable(self).CSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SwapDeviceContextState<'a, Param0: ::windows::core::IntoParam<'a, ID3DDeviceContextState>>(&self, pstate: Param0, pppreviousstate: *mut ::core::option::Option<ID3DDeviceContextState>) {
-        (::windows::core::Interface::vtable(self).SwapDeviceContextState)(::core::mem::transmute_copy(self), pstate.into_param().abi(), ::core::mem::transmute(pppreviousstate))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ClearView<'a, Param0: ::windows::core::IntoParam<'a, ID3D11View>>(&self, pview: Param0, color: *const f32, prect: *const super::super::Foundation::RECT, numrects: u32) {
-        (::windows::core::Interface::vtable(self).ClearView)(::core::mem::transmute_copy(self), pview.into_param().abi(), ::core::mem::transmute(color), ::core::mem::transmute(prect), ::core::mem::transmute(numrects))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DiscardView1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11View>>(&self, presourceview: Param0, prects: *const super::super::Foundation::RECT, numrects: u32) {
-        (::windows::core::Interface::vtable(self).DiscardView1)(::core::mem::transmute_copy(self), presourceview.into_param().abi(), ::core::mem::transmute(prects), ::core::mem::transmute(numrects))
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn VSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>) {
@@ -18166,39 +18104,101 @@ impl ID3D11DeviceContext1 {
         (::windows::core::Interface::vtable(self).base.FinishCommandList)(::core::mem::transmute_copy(self), restoredeferredcontextstate.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11CommandList>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
-        (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
+    pub unsafe fn CopySubresourceRegion1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param5: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: Param5, srcsubresource: u32, psrcbox: *const D3D11_BOX, copyflags: u32) {
+        (::windows::core::Interface::vtable(self).CopySubresourceRegion1)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcbox), ::core::mem::transmute(copyflags))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    pub unsafe fn UpdateSubresource1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstresource: Param0, dstsubresource: u32, pdstbox: *const D3D11_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32, copyflags: u32) {
+        (::windows::core::Interface::vtable(self).UpdateSubresource1)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(pdstbox), ::core::mem::transmute(psrcdata), ::core::mem::transmute(srcrowpitch), ::core::mem::transmute(srcdepthpitch), ::core::mem::transmute(copyflags))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    pub unsafe fn DiscardResource<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, presource: Param0) {
+        (::windows::core::Interface::vtable(self).DiscardResource)(::core::mem::transmute_copy(self), presource.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
+    pub unsafe fn DiscardView<'a, Param0: ::windows::core::IntoParam<'a, ID3D11View>>(&self, presourceview: Param0) {
+        (::windows::core::Interface::vtable(self).DiscardView)(::core::mem::transmute_copy(self), presourceview.into_param().abi())
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn VSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).VSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn HSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).HSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn DSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).DSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).GSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn PSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).PSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn CSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).CSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn VSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).VSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn HSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).HSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn DSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).DSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).GSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn PSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).PSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn CSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).CSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn SwapDeviceContextState<'a, Param0: ::windows::core::IntoParam<'a, ID3DDeviceContextState>>(&self, pstate: Param0, pppreviousstate: *mut ::core::option::Option<ID3DDeviceContextState>) {
+        (::windows::core::Interface::vtable(self).SwapDeviceContextState)(::core::mem::transmute_copy(self), pstate.into_param().abi(), ::core::mem::transmute(pppreviousstate))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn ClearView<'a, Param0: ::windows::core::IntoParam<'a, ID3D11View>>(&self, pview: Param0, color: *const f32, prect: *const super::super::Foundation::RECT, numrects: u32) {
+        (::windows::core::Interface::vtable(self).ClearView)(::core::mem::transmute_copy(self), pview.into_param().abi(), ::core::mem::transmute(color), ::core::mem::transmute(prect), ::core::mem::transmute(numrects))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn DiscardView1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11View>>(&self, presourceview: Param0, prects: *const super::super::Foundation::RECT, numrects: u32) {
+        (::windows::core::Interface::vtable(self).DiscardView1)(::core::mem::transmute_copy(self), presourceview.into_param().abi(), ::core::mem::transmute(prects), ::core::mem::transmute(numrects))
     }
 }
-impl ::core::convert::From<ID3D11DeviceContext1> for ID3D11DeviceContext {
+impl ::core::convert::From<ID3D11DeviceContext1> for ::windows::core::IUnknown {
     fn from(value: ID3D11DeviceContext1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11DeviceContext1> for ID3D11DeviceContext {
+impl ::core::convert::From<&ID3D11DeviceContext1> for ::windows::core::IUnknown {
     fn from(value: &ID3D11DeviceContext1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext> for ID3D11DeviceContext1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11DeviceContext1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext> for &ID3D11DeviceContext1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11DeviceContext1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -18222,23 +18222,23 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11DeviceCont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11DeviceContext1> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11DeviceContext1> for ID3D11DeviceContext {
     fn from(value: ID3D11DeviceContext1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11DeviceContext1> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11DeviceContext1> for ID3D11DeviceContext {
     fn from(value: &ID3D11DeviceContext1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11DeviceContext1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext> for ID3D11DeviceContext1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11DeviceContext1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext> for &ID3D11DeviceContext1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -18296,130 +18296,21 @@ pub struct ID3D11DeviceContext1Vtbl {
 #[repr(transparent)]
 pub struct ID3D11DeviceContext2(::windows::core::IUnknown);
 impl ID3D11DeviceContext2 {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdateTileMappings<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param4: ::windows::core::IntoParam<'a, ID3D11Buffer>>(&self, ptiledresource: Param0, numtiledresourceregions: u32, ptiledresourceregionstartcoordinates: *const D3D11_TILED_RESOURCE_COORDINATE, ptiledresourceregionsizes: *const D3D11_TILE_REGION_SIZE, ptilepool: Param4, numranges: u32, prangeflags: *const u32, ptilepoolstartoffsets: *const u32, prangetilecounts: *const u32, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateTileMappings)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(numtiledresourceregions), ::core::mem::transmute(ptiledresourceregionstartcoordinates), ::core::mem::transmute(ptiledresourceregionsizes), ptilepool.into_param().abi(), ::core::mem::transmute(numranges), ::core::mem::transmute(prangeflags), ::core::mem::transmute(ptilepoolstartoffsets), ::core::mem::transmute(prangetilecounts), ::core::mem::transmute(flags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyTileMappings<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param2: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdesttiledresource: Param0, pdestregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, psourcetiledresource: Param2, psourceregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D11_TILE_REGION_SIZE, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyTileMappings)(::core::mem::transmute_copy(self), pdesttiledresource.into_param().abi(), ::core::mem::transmute(pdestregionstartcoordinate), psourcetiledresource.into_param().abi(), ::core::mem::transmute(psourceregionstartcoordinate), ::core::mem::transmute(ptileregionsize), ::core::mem::transmute(flags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyTiles<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param3: ::windows::core::IntoParam<'a, ID3D11Buffer>>(&self, ptiledresource: Param0, ptileregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D11_TILE_REGION_SIZE, pbuffer: Param3, bufferstartoffsetinbytes: u64, flags: u32) {
-        (::windows::core::Interface::vtable(self).CopyTiles)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(ptileregionstartcoordinate), ::core::mem::transmute(ptileregionsize), pbuffer.into_param().abi(), ::core::mem::transmute(bufferstartoffsetinbytes), ::core::mem::transmute(flags))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdateTiles<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdesttiledresource: Param0, pdesttileregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, pdesttileregionsize: *const D3D11_TILE_REGION_SIZE, psourcetiledata: *const ::core::ffi::c_void, flags: u32) {
-        (::windows::core::Interface::vtable(self).UpdateTiles)(::core::mem::transmute_copy(self), pdesttiledresource.into_param().abi(), ::core::mem::transmute(pdesttileregionstartcoordinate), ::core::mem::transmute(pdesttileregionsize), ::core::mem::transmute(psourcetiledata), ::core::mem::transmute(flags))
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
+        (::windows::core::Interface::vtable(self).base.base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn ResizeTilePool<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Buffer>>(&self, ptilepool: Param0, newsizeinbytes: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ResizeTilePool)(::core::mem::transmute_copy(self), ptilepool.into_param().abi(), ::core::mem::transmute(newsizeinbytes)).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn TiledResourceBarrier<'a, Param0: ::windows::core::IntoParam<'a, ID3D11DeviceChild>, Param1: ::windows::core::IntoParam<'a, ID3D11DeviceChild>>(&self, ptiledresourceorviewaccessbeforebarrier: Param0, ptiledresourceorviewaccessafterbarrier: Param1) {
-        (::windows::core::Interface::vtable(self).TiledResourceBarrier)(::core::mem::transmute_copy(self), ptiledresourceorviewaccessbeforebarrier.into_param().abi(), ptiledresourceorviewaccessafterbarrier.into_param().abi())
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsAnnotationEnabled(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsAnnotationEnabled)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMarkerInt<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, plabel: Param0, data: i32) {
-        (::windows::core::Interface::vtable(self).SetMarkerInt)(::core::mem::transmute_copy(self), plabel.into_param().abi(), ::core::mem::transmute(data))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BeginEventInt<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, plabel: Param0, data: i32) {
-        (::windows::core::Interface::vtable(self).BeginEventInt)(::core::mem::transmute_copy(self), plabel.into_param().abi(), ::core::mem::transmute(data))
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn EndEvent(&self) {
-        (::windows::core::Interface::vtable(self).EndEvent)(::core::mem::transmute_copy(self))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CopySubresourceRegion1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param5: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: Param5, srcsubresource: u32, psrcbox: *const D3D11_BOX, copyflags: u32) {
-        (::windows::core::Interface::vtable(self).base.CopySubresourceRegion1)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcbox), ::core::mem::transmute(copyflags))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn UpdateSubresource1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstresource: Param0, dstsubresource: u32, pdstbox: *const D3D11_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32, copyflags: u32) {
-        (::windows::core::Interface::vtable(self).base.UpdateSubresource1)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(pdstbox), ::core::mem::transmute(psrcdata), ::core::mem::transmute(srcrowpitch), ::core::mem::transmute(srcdepthpitch), ::core::mem::transmute(copyflags))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn DiscardResource<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, presource: Param0) {
-        (::windows::core::Interface::vtable(self).base.DiscardResource)(::core::mem::transmute_copy(self), presource.into_param().abi())
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn DiscardView<'a, Param0: ::windows::core::IntoParam<'a, ID3D11View>>(&self, presourceview: Param0) {
-        (::windows::core::Interface::vtable(self).base.DiscardView)(::core::mem::transmute_copy(self), presourceview.into_param().abi())
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn VSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
-        (::windows::core::Interface::vtable(self).base.VSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn HSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
-        (::windows::core::Interface::vtable(self).base.HSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn DSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
-        (::windows::core::Interface::vtable(self).base.DSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
-        (::windows::core::Interface::vtable(self).base.GSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn PSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
-        (::windows::core::Interface::vtable(self).base.PSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
-        (::windows::core::Interface::vtable(self).base.CSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn VSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
-        (::windows::core::Interface::vtable(self).base.VSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn HSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
-        (::windows::core::Interface::vtable(self).base.HSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn DSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
-        (::windows::core::Interface::vtable(self).base.DSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
-        (::windows::core::Interface::vtable(self).base.GSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn PSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
-        (::windows::core::Interface::vtable(self).base.PSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
-        (::windows::core::Interface::vtable(self).base.CSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SwapDeviceContextState<'a, Param0: ::windows::core::IntoParam<'a, ID3DDeviceContextState>>(&self, pstate: Param0, pppreviousstate: *mut ::core::option::Option<ID3DDeviceContextState>) {
-        (::windows::core::Interface::vtable(self).base.SwapDeviceContextState)(::core::mem::transmute_copy(self), pstate.into_param().abi(), ::core::mem::transmute(pppreviousstate))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ClearView<'a, Param0: ::windows::core::IntoParam<'a, ID3D11View>>(&self, pview: Param0, color: *const f32, prect: *const super::super::Foundation::RECT, numrects: u32) {
-        (::windows::core::Interface::vtable(self).base.ClearView)(::core::mem::transmute_copy(self), pview.into_param().abi(), ::core::mem::transmute(color), ::core::mem::transmute(prect), ::core::mem::transmute(numrects))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DiscardView1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11View>>(&self, presourceview: Param0, prects: *const super::super::Foundation::RECT, numrects: u32) {
-        (::windows::core::Interface::vtable(self).base.DiscardView1)(::core::mem::transmute_copy(self), presourceview.into_param().abi(), ::core::mem::transmute(prects), ::core::mem::transmute(numrects))
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn VSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>) {
@@ -18867,59 +18758,148 @@ impl ID3D11DeviceContext2 {
         (::windows::core::Interface::vtable(self).base.base.FinishCommandList)(::core::mem::transmute_copy(self), restoredeferredcontextstate.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11CommandList>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
-        (::windows::core::Interface::vtable(self).base.base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
+    pub unsafe fn CopySubresourceRegion1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param5: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: Param5, srcsubresource: u32, psrcbox: *const D3D11_BOX, copyflags: u32) {
+        (::windows::core::Interface::vtable(self).base.CopySubresourceRegion1)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcbox), ::core::mem::transmute(copyflags))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    pub unsafe fn UpdateSubresource1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstresource: Param0, dstsubresource: u32, pdstbox: *const D3D11_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32, copyflags: u32) {
+        (::windows::core::Interface::vtable(self).base.UpdateSubresource1)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(pdstbox), ::core::mem::transmute(psrcdata), ::core::mem::transmute(srcrowpitch), ::core::mem::transmute(srcdepthpitch), ::core::mem::transmute(copyflags))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    pub unsafe fn DiscardResource<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, presource: Param0) {
+        (::windows::core::Interface::vtable(self).base.DiscardResource)(::core::mem::transmute_copy(self), presource.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
+    pub unsafe fn DiscardView<'a, Param0: ::windows::core::IntoParam<'a, ID3D11View>>(&self, presourceview: Param0) {
+        (::windows::core::Interface::vtable(self).base.DiscardView)(::core::mem::transmute_copy(self), presourceview.into_param().abi())
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn VSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.VSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn HSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.HSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn DSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.DSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.GSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn PSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.PSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn CSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.CSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn VSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.VSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn HSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.HSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn DSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.DSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.GSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn PSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.PSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn CSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.CSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn SwapDeviceContextState<'a, Param0: ::windows::core::IntoParam<'a, ID3DDeviceContextState>>(&self, pstate: Param0, pppreviousstate: *mut ::core::option::Option<ID3DDeviceContextState>) {
+        (::windows::core::Interface::vtable(self).base.SwapDeviceContextState)(::core::mem::transmute_copy(self), pstate.into_param().abi(), ::core::mem::transmute(pppreviousstate))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn ClearView<'a, Param0: ::windows::core::IntoParam<'a, ID3D11View>>(&self, pview: Param0, color: *const f32, prect: *const super::super::Foundation::RECT, numrects: u32) {
+        (::windows::core::Interface::vtable(self).base.ClearView)(::core::mem::transmute_copy(self), pview.into_param().abi(), ::core::mem::transmute(color), ::core::mem::transmute(prect), ::core::mem::transmute(numrects))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn DiscardView1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11View>>(&self, presourceview: Param0, prects: *const super::super::Foundation::RECT, numrects: u32) {
+        (::windows::core::Interface::vtable(self).base.DiscardView1)(::core::mem::transmute_copy(self), presourceview.into_param().abi(), ::core::mem::transmute(prects), ::core::mem::transmute(numrects))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn UpdateTileMappings<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param4: ::windows::core::IntoParam<'a, ID3D11Buffer>>(&self, ptiledresource: Param0, numtiledresourceregions: u32, ptiledresourceregionstartcoordinates: *const D3D11_TILED_RESOURCE_COORDINATE, ptiledresourceregionsizes: *const D3D11_TILE_REGION_SIZE, ptilepool: Param4, numranges: u32, prangeflags: *const u32, ptilepoolstartoffsets: *const u32, prangetilecounts: *const u32, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UpdateTileMappings)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(numtiledresourceregions), ::core::mem::transmute(ptiledresourceregionstartcoordinates), ::core::mem::transmute(ptiledresourceregionsizes), ptilepool.into_param().abi(), ::core::mem::transmute(numranges), ::core::mem::transmute(prangeflags), ::core::mem::transmute(ptilepoolstartoffsets), ::core::mem::transmute(prangetilecounts), ::core::mem::transmute(flags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CopyTileMappings<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param2: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdesttiledresource: Param0, pdestregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, psourcetiledresource: Param2, psourceregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D11_TILE_REGION_SIZE, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CopyTileMappings)(::core::mem::transmute_copy(self), pdesttiledresource.into_param().abi(), ::core::mem::transmute(pdestregionstartcoordinate), psourcetiledresource.into_param().abi(), ::core::mem::transmute(psourceregionstartcoordinate), ::core::mem::transmute(ptileregionsize), ::core::mem::transmute(flags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CopyTiles<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param3: ::windows::core::IntoParam<'a, ID3D11Buffer>>(&self, ptiledresource: Param0, ptileregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D11_TILE_REGION_SIZE, pbuffer: Param3, bufferstartoffsetinbytes: u64, flags: u32) {
+        (::windows::core::Interface::vtable(self).CopyTiles)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(ptileregionstartcoordinate), ::core::mem::transmute(ptileregionsize), pbuffer.into_param().abi(), ::core::mem::transmute(bufferstartoffsetinbytes), ::core::mem::transmute(flags))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn UpdateTiles<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdesttiledresource: Param0, pdesttileregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, pdesttileregionsize: *const D3D11_TILE_REGION_SIZE, psourcetiledata: *const ::core::ffi::c_void, flags: u32) {
+        (::windows::core::Interface::vtable(self).UpdateTiles)(::core::mem::transmute_copy(self), pdesttiledresource.into_param().abi(), ::core::mem::transmute(pdesttileregionstartcoordinate), ::core::mem::transmute(pdesttileregionsize), ::core::mem::transmute(psourcetiledata), ::core::mem::transmute(flags))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn ResizeTilePool<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Buffer>>(&self, ptilepool: Param0, newsizeinbytes: u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ResizeTilePool)(::core::mem::transmute_copy(self), ptilepool.into_param().abi(), ::core::mem::transmute(newsizeinbytes)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn TiledResourceBarrier<'a, Param0: ::windows::core::IntoParam<'a, ID3D11DeviceChild>, Param1: ::windows::core::IntoParam<'a, ID3D11DeviceChild>>(&self, ptiledresourceorviewaccessbeforebarrier: Param0, ptiledresourceorviewaccessafterbarrier: Param1) {
+        (::windows::core::Interface::vtable(self).TiledResourceBarrier)(::core::mem::transmute_copy(self), ptiledresourceorviewaccessbeforebarrier.into_param().abi(), ptiledresourceorviewaccessafterbarrier.into_param().abi())
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsAnnotationEnabled(&self) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsAnnotationEnabled)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetMarkerInt<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, plabel: Param0, data: i32) {
+        (::windows::core::Interface::vtable(self).SetMarkerInt)(::core::mem::transmute_copy(self), plabel.into_param().abi(), ::core::mem::transmute(data))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn BeginEventInt<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, plabel: Param0, data: i32) {
+        (::windows::core::Interface::vtable(self).BeginEventInt)(::core::mem::transmute_copy(self), plabel.into_param().abi(), ::core::mem::transmute(data))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn EndEvent(&self) {
+        (::windows::core::Interface::vtable(self).EndEvent)(::core::mem::transmute_copy(self))
     }
 }
-impl ::core::convert::From<ID3D11DeviceContext2> for ID3D11DeviceContext1 {
+impl ::core::convert::From<ID3D11DeviceContext2> for ::windows::core::IUnknown {
     fn from(value: ID3D11DeviceContext2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11DeviceContext2> for ID3D11DeviceContext1 {
+impl ::core::convert::From<&ID3D11DeviceContext2> for ::windows::core::IUnknown {
     fn from(value: &ID3D11DeviceContext2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext1> for ID3D11DeviceContext2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext1> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11DeviceContext2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext1> for &ID3D11DeviceContext2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext1> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11DeviceContext2> for ID3D11DeviceContext {
-    fn from(value: ID3D11DeviceContext2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11DeviceContext2> for ID3D11DeviceContext {
-    fn from(value: &ID3D11DeviceContext2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext> for ID3D11DeviceContext2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext> for &ID3D11DeviceContext2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11DeviceContext2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -18943,23 +18923,43 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11DeviceCont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11DeviceContext2> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11DeviceContext2> for ID3D11DeviceContext {
     fn from(value: ID3D11DeviceContext2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11DeviceContext2> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11DeviceContext2> for ID3D11DeviceContext {
     fn from(value: &ID3D11DeviceContext2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11DeviceContext2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext> for ID3D11DeviceContext2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11DeviceContext2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext> for &ID3D11DeviceContext2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11DeviceContext2> for ID3D11DeviceContext1 {
+    fn from(value: ID3D11DeviceContext2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11DeviceContext2> for ID3D11DeviceContext1 {
+    fn from(value: &ID3D11DeviceContext2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext1> for ID3D11DeviceContext2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext1> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext1> for &ID3D11DeviceContext2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -19023,145 +19023,21 @@ pub struct ID3D11DeviceContext2Vtbl {
 #[repr(transparent)]
 pub struct ID3D11DeviceContext3(::windows::core::IUnknown);
 impl ID3D11DeviceContext3 {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Flush1<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, contexttype: D3D11_CONTEXT_TYPE, hevent: Param1) {
-        (::windows::core::Interface::vtable(self).Flush1)(::core::mem::transmute_copy(self), ::core::mem::transmute(contexttype), hevent.into_param().abi())
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetHardwareProtectionState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hwprotectionenable: Param0) {
-        (::windows::core::Interface::vtable(self).SetHardwareProtectionState)(::core::mem::transmute_copy(self), hwprotectionenable.into_param().abi())
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetHardwareProtectionState(&self, phwprotectionenable: *mut super::super::Foundation::BOOL) {
-        (::windows::core::Interface::vtable(self).GetHardwareProtectionState)(::core::mem::transmute_copy(self), ::core::mem::transmute(phwprotectionenable))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdateTileMappings<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param4: ::windows::core::IntoParam<'a, ID3D11Buffer>>(&self, ptiledresource: Param0, numtiledresourceregions: u32, ptiledresourceregionstartcoordinates: *const D3D11_TILED_RESOURCE_COORDINATE, ptiledresourceregionsizes: *const D3D11_TILE_REGION_SIZE, ptilepool: Param4, numranges: u32, prangeflags: *const u32, ptilepoolstartoffsets: *const u32, prangetilecounts: *const u32, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.UpdateTileMappings)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(numtiledresourceregions), ::core::mem::transmute(ptiledresourceregionstartcoordinates), ::core::mem::transmute(ptiledresourceregionsizes), ptilepool.into_param().abi(), ::core::mem::transmute(numranges), ::core::mem::transmute(prangeflags), ::core::mem::transmute(ptilepoolstartoffsets), ::core::mem::transmute(prangetilecounts), ::core::mem::transmute(flags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyTileMappings<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param2: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdesttiledresource: Param0, pdestregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, psourcetiledresource: Param2, psourceregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D11_TILE_REGION_SIZE, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.CopyTileMappings)(::core::mem::transmute_copy(self), pdesttiledresource.into_param().abi(), ::core::mem::transmute(pdestregionstartcoordinate), psourcetiledresource.into_param().abi(), ::core::mem::transmute(psourceregionstartcoordinate), ::core::mem::transmute(ptileregionsize), ::core::mem::transmute(flags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyTiles<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param3: ::windows::core::IntoParam<'a, ID3D11Buffer>>(&self, ptiledresource: Param0, ptileregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D11_TILE_REGION_SIZE, pbuffer: Param3, bufferstartoffsetinbytes: u64, flags: u32) {
-        (::windows::core::Interface::vtable(self).base.CopyTiles)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(ptileregionstartcoordinate), ::core::mem::transmute(ptileregionsize), pbuffer.into_param().abi(), ::core::mem::transmute(bufferstartoffsetinbytes), ::core::mem::transmute(flags))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdateTiles<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdesttiledresource: Param0, pdesttileregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, pdesttileregionsize: *const D3D11_TILE_REGION_SIZE, psourcetiledata: *const ::core::ffi::c_void, flags: u32) {
-        (::windows::core::Interface::vtable(self).base.UpdateTiles)(::core::mem::transmute_copy(self), pdesttiledresource.into_param().abi(), ::core::mem::transmute(pdesttileregionstartcoordinate), ::core::mem::transmute(pdesttileregionsize), ::core::mem::transmute(psourcetiledata), ::core::mem::transmute(flags))
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn ResizeTilePool<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Buffer>>(&self, ptilepool: Param0, newsizeinbytes: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.ResizeTilePool)(::core::mem::transmute_copy(self), ptilepool.into_param().abi(), ::core::mem::transmute(newsizeinbytes)).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn TiledResourceBarrier<'a, Param0: ::windows::core::IntoParam<'a, ID3D11DeviceChild>, Param1: ::windows::core::IntoParam<'a, ID3D11DeviceChild>>(&self, ptiledresourceorviewaccessbeforebarrier: Param0, ptiledresourceorviewaccessafterbarrier: Param1) {
-        (::windows::core::Interface::vtable(self).base.TiledResourceBarrier)(::core::mem::transmute_copy(self), ptiledresourceorviewaccessbeforebarrier.into_param().abi(), ptiledresourceorviewaccessafterbarrier.into_param().abi())
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsAnnotationEnabled(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.IsAnnotationEnabled)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMarkerInt<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, plabel: Param0, data: i32) {
-        (::windows::core::Interface::vtable(self).base.SetMarkerInt)(::core::mem::transmute_copy(self), plabel.into_param().abi(), ::core::mem::transmute(data))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BeginEventInt<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, plabel: Param0, data: i32) {
-        (::windows::core::Interface::vtable(self).base.BeginEventInt)(::core::mem::transmute_copy(self), plabel.into_param().abi(), ::core::mem::transmute(data))
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn EndEvent(&self) {
-        (::windows::core::Interface::vtable(self).base.EndEvent)(::core::mem::transmute_copy(self))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CopySubresourceRegion1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param5: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: Param5, srcsubresource: u32, psrcbox: *const D3D11_BOX, copyflags: u32) {
-        (::windows::core::Interface::vtable(self).base.base.CopySubresourceRegion1)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcbox), ::core::mem::transmute(copyflags))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn UpdateSubresource1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstresource: Param0, dstsubresource: u32, pdstbox: *const D3D11_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32, copyflags: u32) {
-        (::windows::core::Interface::vtable(self).base.base.UpdateSubresource1)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(pdstbox), ::core::mem::transmute(psrcdata), ::core::mem::transmute(srcrowpitch), ::core::mem::transmute(srcdepthpitch), ::core::mem::transmute(copyflags))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn DiscardResource<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, presource: Param0) {
-        (::windows::core::Interface::vtable(self).base.base.DiscardResource)(::core::mem::transmute_copy(self), presource.into_param().abi())
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn DiscardView<'a, Param0: ::windows::core::IntoParam<'a, ID3D11View>>(&self, presourceview: Param0) {
-        (::windows::core::Interface::vtable(self).base.base.DiscardView)(::core::mem::transmute_copy(self), presourceview.into_param().abi())
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn VSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
-        (::windows::core::Interface::vtable(self).base.base.VSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn HSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
-        (::windows::core::Interface::vtable(self).base.base.HSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn DSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
-        (::windows::core::Interface::vtable(self).base.base.DSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
-        (::windows::core::Interface::vtable(self).base.base.GSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn PSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
-        (::windows::core::Interface::vtable(self).base.base.PSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
-        (::windows::core::Interface::vtable(self).base.base.CSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn VSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
-        (::windows::core::Interface::vtable(self).base.base.VSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn HSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
-        (::windows::core::Interface::vtable(self).base.base.HSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn DSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
-        (::windows::core::Interface::vtable(self).base.base.DSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
-        (::windows::core::Interface::vtable(self).base.base.GSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn PSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
-        (::windows::core::Interface::vtable(self).base.base.PSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
-        (::windows::core::Interface::vtable(self).base.base.CSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SwapDeviceContextState<'a, Param0: ::windows::core::IntoParam<'a, ID3DDeviceContextState>>(&self, pstate: Param0, pppreviousstate: *mut ::core::option::Option<ID3DDeviceContextState>) {
-        (::windows::core::Interface::vtable(self).base.base.SwapDeviceContextState)(::core::mem::transmute_copy(self), pstate.into_param().abi(), ::core::mem::transmute(pppreviousstate))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ClearView<'a, Param0: ::windows::core::IntoParam<'a, ID3D11View>>(&self, pview: Param0, color: *const f32, prect: *const super::super::Foundation::RECT, numrects: u32) {
-        (::windows::core::Interface::vtable(self).base.base.ClearView)(::core::mem::transmute_copy(self), pview.into_param().abi(), ::core::mem::transmute(color), ::core::mem::transmute(prect), ::core::mem::transmute(numrects))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DiscardView1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11View>>(&self, presourceview: Param0, prects: *const super::super::Foundation::RECT, numrects: u32) {
-        (::windows::core::Interface::vtable(self).base.base.DiscardView1)(::core::mem::transmute_copy(self), presourceview.into_param().abi(), ::core::mem::transmute(prects), ::core::mem::transmute(numrects))
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn VSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>) {
@@ -19609,79 +19485,163 @@ impl ID3D11DeviceContext3 {
         (::windows::core::Interface::vtable(self).base.base.base.FinishCommandList)(::core::mem::transmute_copy(self), restoredeferredcontextstate.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11CommandList>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
+    pub unsafe fn CopySubresourceRegion1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param5: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: Param5, srcsubresource: u32, psrcbox: *const D3D11_BOX, copyflags: u32) {
+        (::windows::core::Interface::vtable(self).base.base.CopySubresourceRegion1)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcbox), ::core::mem::transmute(copyflags))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    pub unsafe fn UpdateSubresource1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstresource: Param0, dstsubresource: u32, pdstbox: *const D3D11_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32, copyflags: u32) {
+        (::windows::core::Interface::vtable(self).base.base.UpdateSubresource1)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(pdstbox), ::core::mem::transmute(psrcdata), ::core::mem::transmute(srcrowpitch), ::core::mem::transmute(srcdepthpitch), ::core::mem::transmute(copyflags))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    pub unsafe fn DiscardResource<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, presource: Param0) {
+        (::windows::core::Interface::vtable(self).base.base.DiscardResource)(::core::mem::transmute_copy(self), presource.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
+    pub unsafe fn DiscardView<'a, Param0: ::windows::core::IntoParam<'a, ID3D11View>>(&self, presourceview: Param0) {
+        (::windows::core::Interface::vtable(self).base.base.DiscardView)(::core::mem::transmute_copy(self), presourceview.into_param().abi())
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn VSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.VSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn HSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.HSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn DSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.DSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.GSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn PSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.PSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn CSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.CSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn VSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.base.VSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn HSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.base.HSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn DSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.base.DSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.base.GSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn PSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.base.PSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn CSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.base.CSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn SwapDeviceContextState<'a, Param0: ::windows::core::IntoParam<'a, ID3DDeviceContextState>>(&self, pstate: Param0, pppreviousstate: *mut ::core::option::Option<ID3DDeviceContextState>) {
+        (::windows::core::Interface::vtable(self).base.base.SwapDeviceContextState)(::core::mem::transmute_copy(self), pstate.into_param().abi(), ::core::mem::transmute(pppreviousstate))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn ClearView<'a, Param0: ::windows::core::IntoParam<'a, ID3D11View>>(&self, pview: Param0, color: *const f32, prect: *const super::super::Foundation::RECT, numrects: u32) {
+        (::windows::core::Interface::vtable(self).base.base.ClearView)(::core::mem::transmute_copy(self), pview.into_param().abi(), ::core::mem::transmute(color), ::core::mem::transmute(prect), ::core::mem::transmute(numrects))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn DiscardView1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11View>>(&self, presourceview: Param0, prects: *const super::super::Foundation::RECT, numrects: u32) {
+        (::windows::core::Interface::vtable(self).base.base.DiscardView1)(::core::mem::transmute_copy(self), presourceview.into_param().abi(), ::core::mem::transmute(prects), ::core::mem::transmute(numrects))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn UpdateTileMappings<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param4: ::windows::core::IntoParam<'a, ID3D11Buffer>>(&self, ptiledresource: Param0, numtiledresourceregions: u32, ptiledresourceregionstartcoordinates: *const D3D11_TILED_RESOURCE_COORDINATE, ptiledresourceregionsizes: *const D3D11_TILE_REGION_SIZE, ptilepool: Param4, numranges: u32, prangeflags: *const u32, ptilepoolstartoffsets: *const u32, prangetilecounts: *const u32, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.UpdateTileMappings)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(numtiledresourceregions), ::core::mem::transmute(ptiledresourceregionstartcoordinates), ::core::mem::transmute(ptiledresourceregionsizes), ptilepool.into_param().abi(), ::core::mem::transmute(numranges), ::core::mem::transmute(prangeflags), ::core::mem::transmute(ptilepoolstartoffsets), ::core::mem::transmute(prangetilecounts), ::core::mem::transmute(flags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CopyTileMappings<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param2: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdesttiledresource: Param0, pdestregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, psourcetiledresource: Param2, psourceregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D11_TILE_REGION_SIZE, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.CopyTileMappings)(::core::mem::transmute_copy(self), pdesttiledresource.into_param().abi(), ::core::mem::transmute(pdestregionstartcoordinate), psourcetiledresource.into_param().abi(), ::core::mem::transmute(psourceregionstartcoordinate), ::core::mem::transmute(ptileregionsize), ::core::mem::transmute(flags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CopyTiles<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param3: ::windows::core::IntoParam<'a, ID3D11Buffer>>(&self, ptiledresource: Param0, ptileregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D11_TILE_REGION_SIZE, pbuffer: Param3, bufferstartoffsetinbytes: u64, flags: u32) {
+        (::windows::core::Interface::vtable(self).base.CopyTiles)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(ptileregionstartcoordinate), ::core::mem::transmute(ptileregionsize), pbuffer.into_param().abi(), ::core::mem::transmute(bufferstartoffsetinbytes), ::core::mem::transmute(flags))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn UpdateTiles<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdesttiledresource: Param0, pdesttileregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, pdesttileregionsize: *const D3D11_TILE_REGION_SIZE, psourcetiledata: *const ::core::ffi::c_void, flags: u32) {
+        (::windows::core::Interface::vtable(self).base.UpdateTiles)(::core::mem::transmute_copy(self), pdesttiledresource.into_param().abi(), ::core::mem::transmute(pdesttileregionstartcoordinate), ::core::mem::transmute(pdesttileregionsize), ::core::mem::transmute(psourcetiledata), ::core::mem::transmute(flags))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn ResizeTilePool<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Buffer>>(&self, ptilepool: Param0, newsizeinbytes: u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.ResizeTilePool)(::core::mem::transmute_copy(self), ptilepool.into_param().abi(), ::core::mem::transmute(newsizeinbytes)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn TiledResourceBarrier<'a, Param0: ::windows::core::IntoParam<'a, ID3D11DeviceChild>, Param1: ::windows::core::IntoParam<'a, ID3D11DeviceChild>>(&self, ptiledresourceorviewaccessbeforebarrier: Param0, ptiledresourceorviewaccessafterbarrier: Param1) {
+        (::windows::core::Interface::vtable(self).base.TiledResourceBarrier)(::core::mem::transmute_copy(self), ptiledresourceorviewaccessbeforebarrier.into_param().abi(), ptiledresourceorviewaccessafterbarrier.into_param().abi())
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsAnnotationEnabled(&self) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.IsAnnotationEnabled)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetMarkerInt<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, plabel: Param0, data: i32) {
+        (::windows::core::Interface::vtable(self).base.SetMarkerInt)(::core::mem::transmute_copy(self), plabel.into_param().abi(), ::core::mem::transmute(data))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn BeginEventInt<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, plabel: Param0, data: i32) {
+        (::windows::core::Interface::vtable(self).base.BeginEventInt)(::core::mem::transmute_copy(self), plabel.into_param().abi(), ::core::mem::transmute(data))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn EndEvent(&self) {
+        (::windows::core::Interface::vtable(self).base.EndEvent)(::core::mem::transmute_copy(self))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn Flush1<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, contexttype: D3D11_CONTEXT_TYPE, hevent: Param1) {
+        (::windows::core::Interface::vtable(self).Flush1)(::core::mem::transmute_copy(self), ::core::mem::transmute(contexttype), hevent.into_param().abi())
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetHardwareProtectionState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hwprotectionenable: Param0) {
+        (::windows::core::Interface::vtable(self).SetHardwareProtectionState)(::core::mem::transmute_copy(self), hwprotectionenable.into_param().abi())
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetHardwareProtectionState(&self, phwprotectionenable: *mut super::super::Foundation::BOOL) {
+        (::windows::core::Interface::vtable(self).GetHardwareProtectionState)(::core::mem::transmute_copy(self), ::core::mem::transmute(phwprotectionenable))
     }
 }
-impl ::core::convert::From<ID3D11DeviceContext3> for ID3D11DeviceContext2 {
+impl ::core::convert::From<ID3D11DeviceContext3> for ::windows::core::IUnknown {
     fn from(value: ID3D11DeviceContext3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11DeviceContext3> for ID3D11DeviceContext2 {
+impl ::core::convert::From<&ID3D11DeviceContext3> for ::windows::core::IUnknown {
     fn from(value: &ID3D11DeviceContext3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext2> for ID3D11DeviceContext3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11DeviceContext3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext2> for &ID3D11DeviceContext3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11DeviceContext3> for ID3D11DeviceContext1 {
-    fn from(value: ID3D11DeviceContext3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11DeviceContext3> for ID3D11DeviceContext1 {
-    fn from(value: &ID3D11DeviceContext3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext1> for ID3D11DeviceContext3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext1> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext1> for &ID3D11DeviceContext3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext1> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11DeviceContext3> for ID3D11DeviceContext {
-    fn from(value: ID3D11DeviceContext3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11DeviceContext3> for ID3D11DeviceContext {
-    fn from(value: &ID3D11DeviceContext3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext> for ID3D11DeviceContext3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext> for &ID3D11DeviceContext3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11DeviceContext3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -19705,23 +19665,63 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11DeviceCont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11DeviceContext3> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11DeviceContext3> for ID3D11DeviceContext {
     fn from(value: ID3D11DeviceContext3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11DeviceContext3> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11DeviceContext3> for ID3D11DeviceContext {
     fn from(value: &ID3D11DeviceContext3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11DeviceContext3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext> for ID3D11DeviceContext3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11DeviceContext3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext> for &ID3D11DeviceContext3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11DeviceContext3> for ID3D11DeviceContext1 {
+    fn from(value: ID3D11DeviceContext3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11DeviceContext3> for ID3D11DeviceContext1 {
+    fn from(value: &ID3D11DeviceContext3) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext1> for ID3D11DeviceContext3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext1> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext1> for &ID3D11DeviceContext3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext1> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11DeviceContext3> for ID3D11DeviceContext2 {
+    fn from(value: ID3D11DeviceContext3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11DeviceContext3> for ID3D11DeviceContext2 {
+    fn from(value: &ID3D11DeviceContext3) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext2> for ID3D11DeviceContext3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext2> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext2> for &ID3D11DeviceContext3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -19767,152 +19767,20 @@ pub struct ID3D11DeviceContext3Vtbl {
 pub struct ID3D11DeviceContext4(::windows::core::IUnknown);
 impl ID3D11DeviceContext4 {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn Signal<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Fence>>(&self, pfence: Param0, value: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Signal)(::core::mem::transmute_copy(self), pfence.into_param().abi(), ::core::mem::transmute(value)).ok()
+    pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn Wait<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Fence>>(&self, pfence: Param0, value: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Wait)(::core::mem::transmute_copy(self), pfence.into_param().abi(), ::core::mem::transmute(value)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Flush1<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, contexttype: D3D11_CONTEXT_TYPE, hevent: Param1) {
-        (::windows::core::Interface::vtable(self).base.Flush1)(::core::mem::transmute_copy(self), ::core::mem::transmute(contexttype), hevent.into_param().abi())
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetHardwareProtectionState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hwprotectionenable: Param0) {
-        (::windows::core::Interface::vtable(self).base.SetHardwareProtectionState)(::core::mem::transmute_copy(self), hwprotectionenable.into_param().abi())
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetHardwareProtectionState(&self, phwprotectionenable: *mut super::super::Foundation::BOOL) {
-        (::windows::core::Interface::vtable(self).base.GetHardwareProtectionState)(::core::mem::transmute_copy(self), ::core::mem::transmute(phwprotectionenable))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdateTileMappings<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param4: ::windows::core::IntoParam<'a, ID3D11Buffer>>(&self, ptiledresource: Param0, numtiledresourceregions: u32, ptiledresourceregionstartcoordinates: *const D3D11_TILED_RESOURCE_COORDINATE, ptiledresourceregionsizes: *const D3D11_TILE_REGION_SIZE, ptilepool: Param4, numranges: u32, prangeflags: *const u32, ptilepoolstartoffsets: *const u32, prangetilecounts: *const u32, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.UpdateTileMappings)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(numtiledresourceregions), ::core::mem::transmute(ptiledresourceregionstartcoordinates), ::core::mem::transmute(ptiledresourceregionsizes), ptilepool.into_param().abi(), ::core::mem::transmute(numranges), ::core::mem::transmute(prangeflags), ::core::mem::transmute(ptilepoolstartoffsets), ::core::mem::transmute(prangetilecounts), ::core::mem::transmute(flags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyTileMappings<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param2: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdesttiledresource: Param0, pdestregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, psourcetiledresource: Param2, psourceregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D11_TILE_REGION_SIZE, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.CopyTileMappings)(::core::mem::transmute_copy(self), pdesttiledresource.into_param().abi(), ::core::mem::transmute(pdestregionstartcoordinate), psourcetiledresource.into_param().abi(), ::core::mem::transmute(psourceregionstartcoordinate), ::core::mem::transmute(ptileregionsize), ::core::mem::transmute(flags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CopyTiles<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param3: ::windows::core::IntoParam<'a, ID3D11Buffer>>(&self, ptiledresource: Param0, ptileregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D11_TILE_REGION_SIZE, pbuffer: Param3, bufferstartoffsetinbytes: u64, flags: u32) {
-        (::windows::core::Interface::vtable(self).base.base.CopyTiles)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(ptileregionstartcoordinate), ::core::mem::transmute(ptileregionsize), pbuffer.into_param().abi(), ::core::mem::transmute(bufferstartoffsetinbytes), ::core::mem::transmute(flags))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn UpdateTiles<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdesttiledresource: Param0, pdesttileregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, pdesttileregionsize: *const D3D11_TILE_REGION_SIZE, psourcetiledata: *const ::core::ffi::c_void, flags: u32) {
-        (::windows::core::Interface::vtable(self).base.base.UpdateTiles)(::core::mem::transmute_copy(self), pdesttiledresource.into_param().abi(), ::core::mem::transmute(pdesttileregionstartcoordinate), ::core::mem::transmute(pdesttileregionsize), ::core::mem::transmute(psourcetiledata), ::core::mem::transmute(flags))
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn ResizeTilePool<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Buffer>>(&self, ptilepool: Param0, newsizeinbytes: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.ResizeTilePool)(::core::mem::transmute_copy(self), ptilepool.into_param().abi(), ::core::mem::transmute(newsizeinbytes)).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn TiledResourceBarrier<'a, Param0: ::windows::core::IntoParam<'a, ID3D11DeviceChild>, Param1: ::windows::core::IntoParam<'a, ID3D11DeviceChild>>(&self, ptiledresourceorviewaccessbeforebarrier: Param0, ptiledresourceorviewaccessafterbarrier: Param1) {
-        (::windows::core::Interface::vtable(self).base.base.TiledResourceBarrier)(::core::mem::transmute_copy(self), ptiledresourceorviewaccessbeforebarrier.into_param().abi(), ptiledresourceorviewaccessafterbarrier.into_param().abi())
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsAnnotationEnabled(&self) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.IsAnnotationEnabled)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetMarkerInt<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, plabel: Param0, data: i32) {
-        (::windows::core::Interface::vtable(self).base.base.SetMarkerInt)(::core::mem::transmute_copy(self), plabel.into_param().abi(), ::core::mem::transmute(data))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BeginEventInt<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, plabel: Param0, data: i32) {
-        (::windows::core::Interface::vtable(self).base.base.BeginEventInt)(::core::mem::transmute_copy(self), plabel.into_param().abi(), ::core::mem::transmute(data))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn EndEvent(&self) {
-        (::windows::core::Interface::vtable(self).base.base.EndEvent)(::core::mem::transmute_copy(self))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CopySubresourceRegion1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param5: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: Param5, srcsubresource: u32, psrcbox: *const D3D11_BOX, copyflags: u32) {
-        (::windows::core::Interface::vtable(self).base.base.base.CopySubresourceRegion1)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcbox), ::core::mem::transmute(copyflags))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn UpdateSubresource1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstresource: Param0, dstsubresource: u32, pdstbox: *const D3D11_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32, copyflags: u32) {
-        (::windows::core::Interface::vtable(self).base.base.base.UpdateSubresource1)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(pdstbox), ::core::mem::transmute(psrcdata), ::core::mem::transmute(srcrowpitch), ::core::mem::transmute(srcdepthpitch), ::core::mem::transmute(copyflags))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn DiscardResource<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, presource: Param0) {
-        (::windows::core::Interface::vtable(self).base.base.base.DiscardResource)(::core::mem::transmute_copy(self), presource.into_param().abi())
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn DiscardView<'a, Param0: ::windows::core::IntoParam<'a, ID3D11View>>(&self, presourceview: Param0) {
-        (::windows::core::Interface::vtable(self).base.base.base.DiscardView)(::core::mem::transmute_copy(self), presourceview.into_param().abi())
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn VSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
-        (::windows::core::Interface::vtable(self).base.base.base.VSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn HSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
-        (::windows::core::Interface::vtable(self).base.base.base.HSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn DSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
-        (::windows::core::Interface::vtable(self).base.base.base.DSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
-        (::windows::core::Interface::vtable(self).base.base.base.GSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn PSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
-        (::windows::core::Interface::vtable(self).base.base.base.PSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
-        (::windows::core::Interface::vtable(self).base.base.base.CSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn VSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
-        (::windows::core::Interface::vtable(self).base.base.base.VSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn HSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
-        (::windows::core::Interface::vtable(self).base.base.base.HSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn DSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
-        (::windows::core::Interface::vtable(self).base.base.base.DSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
-        (::windows::core::Interface::vtable(self).base.base.base.GSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn PSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
-        (::windows::core::Interface::vtable(self).base.base.base.PSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
-        (::windows::core::Interface::vtable(self).base.base.base.CSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SwapDeviceContextState<'a, Param0: ::windows::core::IntoParam<'a, ID3DDeviceContextState>>(&self, pstate: Param0, pppreviousstate: *mut ::core::option::Option<ID3DDeviceContextState>) {
-        (::windows::core::Interface::vtable(self).base.base.base.SwapDeviceContextState)(::core::mem::transmute_copy(self), pstate.into_param().abi(), ::core::mem::transmute(pppreviousstate))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ClearView<'a, Param0: ::windows::core::IntoParam<'a, ID3D11View>>(&self, pview: Param0, color: *const f32, prect: *const super::super::Foundation::RECT, numrects: u32) {
-        (::windows::core::Interface::vtable(self).base.base.base.ClearView)(::core::mem::transmute_copy(self), pview.into_param().abi(), ::core::mem::transmute(color), ::core::mem::transmute(prect), ::core::mem::transmute(numrects))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DiscardView1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11View>>(&self, presourceview: Param0, prects: *const super::super::Foundation::RECT, numrects: u32) {
-        (::windows::core::Interface::vtable(self).base.base.base.DiscardView1)(::core::mem::transmute_copy(self), presourceview.into_param().abi(), ::core::mem::transmute(prects), ::core::mem::transmute(numrects))
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn VSSetConstantBuffers(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>) {
@@ -20360,99 +20228,171 @@ impl ID3D11DeviceContext4 {
         (::windows::core::Interface::vtable(self).base.base.base.base.FinishCommandList)(::core::mem::transmute_copy(self), restoredeferredcontextstate.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID3D11CommandList>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
+    pub unsafe fn CopySubresourceRegion1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param5: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstresource: Param0, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: Param5, srcsubresource: u32, psrcbox: *const D3D11_BOX, copyflags: u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.CopySubresourceRegion1)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(dstx), ::core::mem::transmute(dsty), ::core::mem::transmute(dstz), psrcresource.into_param().abi(), ::core::mem::transmute(srcsubresource), ::core::mem::transmute(psrcbox), ::core::mem::transmute(copyflags))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    pub unsafe fn UpdateSubresource1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdstresource: Param0, dstsubresource: u32, pdstbox: *const D3D11_BOX, psrcdata: *const ::core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32, copyflags: u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.UpdateSubresource1)(::core::mem::transmute_copy(self), pdstresource.into_param().abi(), ::core::mem::transmute(dstsubresource), ::core::mem::transmute(pdstbox), ::core::mem::transmute(psrcdata), ::core::mem::transmute(srcrowpitch), ::core::mem::transmute(srcdepthpitch), ::core::mem::transmute(copyflags))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    pub unsafe fn DiscardResource<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, presource: Param0) {
+        (::windows::core::Interface::vtable(self).base.base.base.DiscardResource)(::core::mem::transmute_copy(self), presource.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
+    pub unsafe fn DiscardView<'a, Param0: ::windows::core::IntoParam<'a, ID3D11View>>(&self, presourceview: Param0) {
+        (::windows::core::Interface::vtable(self).base.base.base.DiscardView)(::core::mem::transmute_copy(self), presourceview.into_param().abi())
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn VSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.VSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn HSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.HSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn DSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.DSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.GSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn PSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.PSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn CSSetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *const ::core::option::Option<ID3D11Buffer>, pfirstconstant: *const u32, pnumconstants: *const u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.CSSetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn VSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.VSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn HSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.HSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn DSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.DSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.GSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn PSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.PSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn CSGetConstantBuffers1(&self, startslot: u32, numbuffers: u32, ppconstantbuffers: *mut ::core::option::Option<ID3D11Buffer>, pfirstconstant: *mut u32, pnumconstants: *mut u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.CSGetConstantBuffers1)(::core::mem::transmute_copy(self), ::core::mem::transmute(startslot), ::core::mem::transmute(numbuffers), ::core::mem::transmute(ppconstantbuffers), ::core::mem::transmute(pfirstconstant), ::core::mem::transmute(pnumconstants))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn SwapDeviceContextState<'a, Param0: ::windows::core::IntoParam<'a, ID3DDeviceContextState>>(&self, pstate: Param0, pppreviousstate: *mut ::core::option::Option<ID3DDeviceContextState>) {
+        (::windows::core::Interface::vtable(self).base.base.base.SwapDeviceContextState)(::core::mem::transmute_copy(self), pstate.into_param().abi(), ::core::mem::transmute(pppreviousstate))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn ClearView<'a, Param0: ::windows::core::IntoParam<'a, ID3D11View>>(&self, pview: Param0, color: *const f32, prect: *const super::super::Foundation::RECT, numrects: u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.ClearView)(::core::mem::transmute_copy(self), pview.into_param().abi(), ::core::mem::transmute(color), ::core::mem::transmute(prect), ::core::mem::transmute(numrects))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn DiscardView1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11View>>(&self, presourceview: Param0, prects: *const super::super::Foundation::RECT, numrects: u32) {
+        (::windows::core::Interface::vtable(self).base.base.base.DiscardView1)(::core::mem::transmute_copy(self), presourceview.into_param().abi(), ::core::mem::transmute(prects), ::core::mem::transmute(numrects))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn UpdateTileMappings<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param4: ::windows::core::IntoParam<'a, ID3D11Buffer>>(&self, ptiledresource: Param0, numtiledresourceregions: u32, ptiledresourceregionstartcoordinates: *const D3D11_TILED_RESOURCE_COORDINATE, ptiledresourceregionsizes: *const D3D11_TILE_REGION_SIZE, ptilepool: Param4, numranges: u32, prangeflags: *const u32, ptilepoolstartoffsets: *const u32, prangetilecounts: *const u32, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.UpdateTileMappings)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(numtiledresourceregions), ::core::mem::transmute(ptiledresourceregionstartcoordinates), ::core::mem::transmute(ptiledresourceregionsizes), ptilepool.into_param().abi(), ::core::mem::transmute(numranges), ::core::mem::transmute(prangeflags), ::core::mem::transmute(ptilepoolstartoffsets), ::core::mem::transmute(prangetilecounts), ::core::mem::transmute(flags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CopyTileMappings<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param2: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdesttiledresource: Param0, pdestregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, psourcetiledresource: Param2, psourceregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D11_TILE_REGION_SIZE, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.CopyTileMappings)(::core::mem::transmute_copy(self), pdesttiledresource.into_param().abi(), ::core::mem::transmute(pdestregionstartcoordinate), psourcetiledresource.into_param().abi(), ::core::mem::transmute(psourceregionstartcoordinate), ::core::mem::transmute(ptileregionsize), ::core::mem::transmute(flags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CopyTiles<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>, Param3: ::windows::core::IntoParam<'a, ID3D11Buffer>>(&self, ptiledresource: Param0, ptileregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, ptileregionsize: *const D3D11_TILE_REGION_SIZE, pbuffer: Param3, bufferstartoffsetinbytes: u64, flags: u32) {
+        (::windows::core::Interface::vtable(self).base.base.CopyTiles)(::core::mem::transmute_copy(self), ptiledresource.into_param().abi(), ::core::mem::transmute(ptileregionstartcoordinate), ::core::mem::transmute(ptileregionsize), pbuffer.into_param().abi(), ::core::mem::transmute(bufferstartoffsetinbytes), ::core::mem::transmute(flags))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn UpdateTiles<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Resource>>(&self, pdesttiledresource: Param0, pdesttileregionstartcoordinate: *const D3D11_TILED_RESOURCE_COORDINATE, pdesttileregionsize: *const D3D11_TILE_REGION_SIZE, psourcetiledata: *const ::core::ffi::c_void, flags: u32) {
+        (::windows::core::Interface::vtable(self).base.base.UpdateTiles)(::core::mem::transmute_copy(self), pdesttiledresource.into_param().abi(), ::core::mem::transmute(pdesttileregionstartcoordinate), ::core::mem::transmute(pdesttileregionsize), ::core::mem::transmute(psourcetiledata), ::core::mem::transmute(flags))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn ResizeTilePool<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Buffer>>(&self, ptilepool: Param0, newsizeinbytes: u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.ResizeTilePool)(::core::mem::transmute_copy(self), ptilepool.into_param().abi(), ::core::mem::transmute(newsizeinbytes)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn TiledResourceBarrier<'a, Param0: ::windows::core::IntoParam<'a, ID3D11DeviceChild>, Param1: ::windows::core::IntoParam<'a, ID3D11DeviceChild>>(&self, ptiledresourceorviewaccessbeforebarrier: Param0, ptiledresourceorviewaccessafterbarrier: Param1) {
+        (::windows::core::Interface::vtable(self).base.base.TiledResourceBarrier)(::core::mem::transmute_copy(self), ptiledresourceorviewaccessbeforebarrier.into_param().abi(), ptiledresourceorviewaccessafterbarrier.into_param().abi())
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsAnnotationEnabled(&self) -> super::super::Foundation::BOOL {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.IsAnnotationEnabled)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetMarkerInt<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, plabel: Param0, data: i32) {
+        (::windows::core::Interface::vtable(self).base.base.SetMarkerInt)(::core::mem::transmute_copy(self), plabel.into_param().abi(), ::core::mem::transmute(data))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn BeginEventInt<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, plabel: Param0, data: i32) {
+        (::windows::core::Interface::vtable(self).base.base.BeginEventInt)(::core::mem::transmute_copy(self), plabel.into_param().abi(), ::core::mem::transmute(data))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn EndEvent(&self) {
+        (::windows::core::Interface::vtable(self).base.base.EndEvent)(::core::mem::transmute_copy(self))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn Flush1<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, contexttype: D3D11_CONTEXT_TYPE, hevent: Param1) {
+        (::windows::core::Interface::vtable(self).base.Flush1)(::core::mem::transmute_copy(self), ::core::mem::transmute(contexttype), hevent.into_param().abi())
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetHardwareProtectionState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hwprotectionenable: Param0) {
+        (::windows::core::Interface::vtable(self).base.SetHardwareProtectionState)(::core::mem::transmute_copy(self), hwprotectionenable.into_param().abi())
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetHardwareProtectionState(&self, phwprotectionenable: *mut super::super::Foundation::BOOL) {
+        (::windows::core::Interface::vtable(self).base.GetHardwareProtectionState)(::core::mem::transmute_copy(self), ::core::mem::transmute(phwprotectionenable))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn Signal<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Fence>>(&self, pfence: Param0, value: u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Signal)(::core::mem::transmute_copy(self), pfence.into_param().abi(), ::core::mem::transmute(value)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn Wait<'a, Param0: ::windows::core::IntoParam<'a, ID3D11Fence>>(&self, pfence: Param0, value: u64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Wait)(::core::mem::transmute_copy(self), pfence.into_param().abi(), ::core::mem::transmute(value)).ok()
     }
 }
-impl ::core::convert::From<ID3D11DeviceContext4> for ID3D11DeviceContext3 {
+impl ::core::convert::From<ID3D11DeviceContext4> for ::windows::core::IUnknown {
     fn from(value: ID3D11DeviceContext4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11DeviceContext4> for ID3D11DeviceContext3 {
+impl ::core::convert::From<&ID3D11DeviceContext4> for ::windows::core::IUnknown {
     fn from(value: &ID3D11DeviceContext4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext3> for ID3D11DeviceContext4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext3> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11DeviceContext4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext3> for &ID3D11DeviceContext4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext3> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11DeviceContext4> for ID3D11DeviceContext2 {
-    fn from(value: ID3D11DeviceContext4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11DeviceContext4> for ID3D11DeviceContext2 {
-    fn from(value: &ID3D11DeviceContext4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext2> for ID3D11DeviceContext4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext2> for &ID3D11DeviceContext4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11DeviceContext4> for ID3D11DeviceContext1 {
-    fn from(value: ID3D11DeviceContext4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11DeviceContext4> for ID3D11DeviceContext1 {
-    fn from(value: &ID3D11DeviceContext4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext1> for ID3D11DeviceContext4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext1> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext1> for &ID3D11DeviceContext4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext1> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11DeviceContext4> for ID3D11DeviceContext {
-    fn from(value: ID3D11DeviceContext4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11DeviceContext4> for ID3D11DeviceContext {
-    fn from(value: &ID3D11DeviceContext4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext> for ID3D11DeviceContext4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext> for &ID3D11DeviceContext4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11DeviceContext4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -20476,23 +20416,83 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11DeviceCont
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11DeviceContext4> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11DeviceContext4> for ID3D11DeviceContext {
     fn from(value: ID3D11DeviceContext4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11DeviceContext4> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11DeviceContext4> for ID3D11DeviceContext {
     fn from(value: &ID3D11DeviceContext4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11DeviceContext4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext> for ID3D11DeviceContext4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11DeviceContext4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext> for &ID3D11DeviceContext4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11DeviceContext4> for ID3D11DeviceContext1 {
+    fn from(value: ID3D11DeviceContext4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11DeviceContext4> for ID3D11DeviceContext1 {
+    fn from(value: &ID3D11DeviceContext4) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext1> for ID3D11DeviceContext4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext1> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext1> for &ID3D11DeviceContext4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext1> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11DeviceContext4> for ID3D11DeviceContext2 {
+    fn from(value: ID3D11DeviceContext4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11DeviceContext4> for ID3D11DeviceContext2 {
+    fn from(value: &ID3D11DeviceContext4) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext2> for ID3D11DeviceContext4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext2> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext2> for &ID3D11DeviceContext4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext2> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11DeviceContext4> for ID3D11DeviceContext3 {
+    fn from(value: ID3D11DeviceContext4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11DeviceContext4> for ID3D11DeviceContext3 {
+    fn from(value: &ID3D11DeviceContext4) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext3> for ID3D11DeviceContext4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext3> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceContext3> for &ID3D11DeviceContext4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceContext3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -20544,26 +20544,6 @@ impl ID3D11DomainShader {
         (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
 }
-impl ::core::convert::From<ID3D11DomainShader> for ID3D11DeviceChild {
-    fn from(value: ID3D11DomainShader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11DomainShader> for ID3D11DeviceChild {
-    fn from(value: &ID3D11DomainShader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11DomainShader {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11DomainShader {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ID3D11DomainShader> for ::windows::core::IUnknown {
     fn from(value: ID3D11DomainShader) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -20581,6 +20561,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Dom
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11DomainShader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11DomainShader> for ID3D11DeviceChild {
+    fn from(value: ID3D11DomainShader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11DomainShader> for ID3D11DeviceChild {
+    fn from(value: &ID3D11DomainShader) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11DomainShader {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11DomainShader {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -20613,21 +20613,6 @@ pub struct ID3D11DomainShaderVtbl {
 #[repr(transparent)]
 pub struct ID3D11Fence(::windows::core::IUnknown);
 impl ID3D11Fence {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Security'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub unsafe fn CreateSharedHandle<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwaccess: u32, lpname: Param2) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-        let mut result__: super::super::Foundation::HANDLE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSharedHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(pattributes), ::core::mem::transmute(dwaccess), lpname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HANDLE>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetCompletedValue(&self) -> u64 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetCompletedValue)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventOnCompletion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, value: u64, hevent: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEventOnCompletion)(::core::mem::transmute_copy(self), ::core::mem::transmute(value), hevent.into_param().abi()).ok()
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
@@ -20644,25 +20629,20 @@ impl ID3D11Fence {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
-}
-impl ::core::convert::From<ID3D11Fence> for ID3D11DeviceChild {
-    fn from(value: ID3D11Fence) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Security'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+    pub unsafe fn CreateSharedHandle<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwaccess: u32, lpname: Param2) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+        let mut result__: super::super::Foundation::HANDLE = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateSharedHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(pattributes), ::core::mem::transmute(dwaccess), lpname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
-}
-impl ::core::convert::From<&ID3D11Fence> for ID3D11DeviceChild {
-    fn from(value: &ID3D11Fence) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetCompletedValue(&self) -> u64 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetCompletedValue)(::core::mem::transmute_copy(self)))
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11Fence {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Fence {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetEventOnCompletion<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, value: u64, hevent: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetEventOnCompletion)(::core::mem::transmute_copy(self), ::core::mem::transmute(value), hevent.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<ID3D11Fence> for ::windows::core::IUnknown {
@@ -20682,6 +20662,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Fen
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Fence {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11Fence> for ID3D11DeviceChild {
+    fn from(value: ID3D11Fence) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11Fence> for ID3D11DeviceChild {
+    fn from(value: &ID3D11Fence) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11Fence {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Fence {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -20989,26 +20989,6 @@ impl ID3D11GeometryShader {
         (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
 }
-impl ::core::convert::From<ID3D11GeometryShader> for ID3D11DeviceChild {
-    fn from(value: ID3D11GeometryShader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11GeometryShader> for ID3D11DeviceChild {
-    fn from(value: &ID3D11GeometryShader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11GeometryShader {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11GeometryShader {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ID3D11GeometryShader> for ::windows::core::IUnknown {
     fn from(value: ID3D11GeometryShader) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -21026,6 +21006,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Geo
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11GeometryShader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11GeometryShader> for ID3D11DeviceChild {
+    fn from(value: ID3D11GeometryShader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11GeometryShader> for ID3D11DeviceChild {
+    fn from(value: &ID3D11GeometryShader) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11GeometryShader {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11GeometryShader {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -21075,26 +21075,6 @@ impl ID3D11HullShader {
         (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
 }
-impl ::core::convert::From<ID3D11HullShader> for ID3D11DeviceChild {
-    fn from(value: ID3D11HullShader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11HullShader> for ID3D11DeviceChild {
-    fn from(value: &ID3D11HullShader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11HullShader {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11HullShader {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ID3D11HullShader> for ::windows::core::IUnknown {
     fn from(value: ID3D11HullShader) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -21112,6 +21092,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Hul
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11HullShader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11HullShader> for ID3D11DeviceChild {
+    fn from(value: ID3D11HullShader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11HullShader> for ID3D11DeviceChild {
+    fn from(value: &ID3D11HullShader) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11HullShader {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11HullShader {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -21426,26 +21426,6 @@ impl ID3D11InputLayout {
         (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
 }
-impl ::core::convert::From<ID3D11InputLayout> for ID3D11DeviceChild {
-    fn from(value: ID3D11InputLayout) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11InputLayout> for ID3D11DeviceChild {
-    fn from(value: &ID3D11InputLayout) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11InputLayout {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11InputLayout {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ID3D11InputLayout> for ::windows::core::IUnknown {
     fn from(value: ID3D11InputLayout) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -21463,6 +21443,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Inp
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11InputLayout {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11InputLayout> for ID3D11DeviceChild {
+    fn from(value: ID3D11InputLayout) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11InputLayout> for ID3D11DeviceChild {
+    fn from(value: &ID3D11InputLayout) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11InputLayout {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11InputLayout {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -21953,26 +21953,6 @@ impl ID3D11PixelShader {
         (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
 }
-impl ::core::convert::From<ID3D11PixelShader> for ID3D11DeviceChild {
-    fn from(value: ID3D11PixelShader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11PixelShader> for ID3D11DeviceChild {
-    fn from(value: &ID3D11PixelShader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11PixelShader {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11PixelShader {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ID3D11PixelShader> for ::windows::core::IUnknown {
     fn from(value: ID3D11PixelShader) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -21990,6 +21970,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Pix
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11PixelShader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11PixelShader> for ID3D11DeviceChild {
+    fn from(value: ID3D11PixelShader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11PixelShader> for ID3D11DeviceChild {
+    fn from(value: &ID3D11PixelShader) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11PixelShader {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11PixelShader {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -22023,14 +22023,6 @@ pub struct ID3D11PixelShaderVtbl {
 pub struct ID3D11Predicate(::windows::core::IUnknown);
 impl ID3D11Predicate {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_QUERY_DESC) {
-        (::windows::core::Interface::vtable(self).base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDataSize(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.GetDataSize)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
     }
@@ -22046,44 +22038,32 @@ impl ID3D11Predicate {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetDataSize(&self) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.GetDataSize)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_QUERY_DESC) {
+        (::windows::core::Interface::vtable(self).base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
 }
-impl ::core::convert::From<ID3D11Predicate> for ID3D11Query {
+impl ::core::convert::From<ID3D11Predicate> for ::windows::core::IUnknown {
     fn from(value: ID3D11Predicate) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Predicate> for ID3D11Query {
+impl ::core::convert::From<&ID3D11Predicate> for ::windows::core::IUnknown {
     fn from(value: &ID3D11Predicate) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Query> for ID3D11Predicate {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Query> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Predicate {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Query> for &ID3D11Predicate {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Query> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11Predicate> for ID3D11Asynchronous {
-    fn from(value: ID3D11Predicate) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11Predicate> for ID3D11Asynchronous {
-    fn from(value: &ID3D11Predicate) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Asynchronous> for ID3D11Predicate {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Asynchronous> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Asynchronous> for &ID3D11Predicate {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Asynchronous> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Predicate {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -22107,23 +22087,43 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Predicate 
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11Predicate> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11Predicate> for ID3D11Asynchronous {
     fn from(value: ID3D11Predicate) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Predicate> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11Predicate> for ID3D11Asynchronous {
     fn from(value: &ID3D11Predicate) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Predicate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Asynchronous> for ID3D11Predicate {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Asynchronous> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Predicate {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Asynchronous> for &ID3D11Predicate {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Asynchronous> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11Predicate> for ID3D11Query {
+    fn from(value: ID3D11Predicate) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11Predicate> for ID3D11Query {
+    fn from(value: &ID3D11Predicate) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Query> for ID3D11Predicate {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Query> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Query> for &ID3D11Predicate {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Query> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -22157,14 +22157,6 @@ pub struct ID3D11PredicateVtbl {
 pub struct ID3D11Query(::windows::core::IUnknown);
 impl ID3D11Query {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_QUERY_DESC) {
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDataSize(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetDataSize)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
     }
@@ -22180,24 +22172,32 @@ impl ID3D11Query {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetDataSize(&self) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetDataSize)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_QUERY_DESC) {
+        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
 }
-impl ::core::convert::From<ID3D11Query> for ID3D11Asynchronous {
+impl ::core::convert::From<ID3D11Query> for ::windows::core::IUnknown {
     fn from(value: ID3D11Query) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Query> for ID3D11Asynchronous {
+impl ::core::convert::From<&ID3D11Query> for ::windows::core::IUnknown {
     fn from(value: &ID3D11Query) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Asynchronous> for ID3D11Query {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Asynchronous> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Query {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Asynchronous> for &ID3D11Query {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Asynchronous> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Query {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -22221,23 +22221,23 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Query {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11Query> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11Query> for ID3D11Asynchronous {
     fn from(value: ID3D11Query) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Query> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11Query> for ID3D11Asynchronous {
     fn from(value: &ID3D11Query) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Query {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Asynchronous> for ID3D11Query {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Asynchronous> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Query {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Asynchronous> for &ID3D11Query {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Asynchronous> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -22272,18 +22272,6 @@ pub struct ID3D11QueryVtbl {
 pub struct ID3D11Query1(::windows::core::IUnknown);
 impl ID3D11Query1 {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDesc1(&self, pdesc1: *mut D3D11_QUERY_DESC1) {
-        (::windows::core::Interface::vtable(self).GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc1))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_QUERY_DESC) {
-        (::windows::core::Interface::vtable(self).base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDataSize(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.GetDataSize)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
     }
@@ -22299,44 +22287,36 @@ impl ID3D11Query1 {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetDataSize(&self) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.GetDataSize)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_QUERY_DESC) {
+        (::windows::core::Interface::vtable(self).base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetDesc1(&self, pdesc1: *mut D3D11_QUERY_DESC1) {
+        (::windows::core::Interface::vtable(self).GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc1))
+    }
 }
-impl ::core::convert::From<ID3D11Query1> for ID3D11Query {
+impl ::core::convert::From<ID3D11Query1> for ::windows::core::IUnknown {
     fn from(value: ID3D11Query1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Query1> for ID3D11Query {
+impl ::core::convert::From<&ID3D11Query1> for ::windows::core::IUnknown {
     fn from(value: &ID3D11Query1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Query> for ID3D11Query1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Query> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Query1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Query> for &ID3D11Query1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Query> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11Query1> for ID3D11Asynchronous {
-    fn from(value: ID3D11Query1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11Query1> for ID3D11Asynchronous {
-    fn from(value: &ID3D11Query1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Asynchronous> for ID3D11Query1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Asynchronous> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Asynchronous> for &ID3D11Query1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Asynchronous> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Query1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -22360,23 +22340,43 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Query1 {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11Query1> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11Query1> for ID3D11Asynchronous {
     fn from(value: ID3D11Query1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Query1> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11Query1> for ID3D11Asynchronous {
     fn from(value: &ID3D11Query1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Query1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Asynchronous> for ID3D11Query1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Asynchronous> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Query1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Asynchronous> for &ID3D11Query1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Asynchronous> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11Query1> for ID3D11Query {
+    fn from(value: ID3D11Query1) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11Query1> for ID3D11Query {
+    fn from(value: &ID3D11Query1) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Query> for ID3D11Query1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Query> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Query> for &ID3D11Query1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Query> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -22410,11 +22410,6 @@ pub struct ID3D11Query1Vtbl {
 #[repr(transparent)]
 pub struct ID3D11RasterizerState(::windows::core::IUnknown);
 impl ID3D11RasterizerState {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_RASTERIZER_DESC) {
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
@@ -22431,25 +22426,10 @@ impl ID3D11RasterizerState {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
-}
-impl ::core::convert::From<ID3D11RasterizerState> for ID3D11DeviceChild {
-    fn from(value: ID3D11RasterizerState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11RasterizerState> for ID3D11DeviceChild {
-    fn from(value: &ID3D11RasterizerState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11RasterizerState {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11RasterizerState {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_RASTERIZER_DESC) {
+        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
     }
 }
 impl ::core::convert::From<ID3D11RasterizerState> for ::windows::core::IUnknown {
@@ -22469,6 +22449,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Ras
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11RasterizerState {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11RasterizerState> for ID3D11DeviceChild {
+    fn from(value: ID3D11RasterizerState) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11RasterizerState> for ID3D11DeviceChild {
+    fn from(value: &ID3D11RasterizerState) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11RasterizerState {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11RasterizerState {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -22505,16 +22505,6 @@ pub struct ID3D11RasterizerStateVtbl {
 #[repr(transparent)]
 pub struct ID3D11RasterizerState1(::windows::core::IUnknown);
 impl ID3D11RasterizerState1 {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDesc1(&self, pdesc: *mut D3D11_RASTERIZER_DESC1) {
-        (::windows::core::Interface::vtable(self).GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_RASTERIZER_DESC) {
-        (::windows::core::Interface::vtable(self).base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
@@ -22531,24 +22521,34 @@ impl ID3D11RasterizerState1 {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_RASTERIZER_DESC) {
+        (::windows::core::Interface::vtable(self).base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDesc1(&self, pdesc: *mut D3D11_RASTERIZER_DESC1) {
+        (::windows::core::Interface::vtable(self).GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
 }
-impl ::core::convert::From<ID3D11RasterizerState1> for ID3D11RasterizerState {
+impl ::core::convert::From<ID3D11RasterizerState1> for ::windows::core::IUnknown {
     fn from(value: ID3D11RasterizerState1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11RasterizerState1> for ID3D11RasterizerState {
+impl ::core::convert::From<&ID3D11RasterizerState1> for ::windows::core::IUnknown {
     fn from(value: &ID3D11RasterizerState1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11RasterizerState> for ID3D11RasterizerState1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11RasterizerState> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11RasterizerState1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11RasterizerState> for &ID3D11RasterizerState1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11RasterizerState> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11RasterizerState1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -22572,23 +22572,23 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Rasterizer
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11RasterizerState1> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11RasterizerState1> for ID3D11RasterizerState {
     fn from(value: ID3D11RasterizerState1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11RasterizerState1> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11RasterizerState1> for ID3D11RasterizerState {
     fn from(value: &ID3D11RasterizerState1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11RasterizerState1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11RasterizerState> for ID3D11RasterizerState1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11RasterizerState> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11RasterizerState1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11RasterizerState> for &ID3D11RasterizerState1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11RasterizerState> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -22625,21 +22625,6 @@ pub struct ID3D11RasterizerState1Vtbl {
 #[repr(transparent)]
 pub struct ID3D11RasterizerState2(::windows::core::IUnknown);
 impl ID3D11RasterizerState2 {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDesc2(&self, pdesc: *mut D3D11_RASTERIZER_DESC2) {
-        (::windows::core::Interface::vtable(self).GetDesc2)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDesc1(&self, pdesc: *mut D3D11_RASTERIZER_DESC1) {
-        (::windows::core::Interface::vtable(self).base.GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_RASTERIZER_DESC) {
-        (::windows::core::Interface::vtable(self).base.base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
@@ -22656,44 +22641,39 @@ impl ID3D11RasterizerState2 {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_RASTERIZER_DESC) {
+        (::windows::core::Interface::vtable(self).base.base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDesc1(&self, pdesc: *mut D3D11_RASTERIZER_DESC1) {
+        (::windows::core::Interface::vtable(self).base.GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDesc2(&self, pdesc: *mut D3D11_RASTERIZER_DESC2) {
+        (::windows::core::Interface::vtable(self).GetDesc2)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
 }
-impl ::core::convert::From<ID3D11RasterizerState2> for ID3D11RasterizerState1 {
+impl ::core::convert::From<ID3D11RasterizerState2> for ::windows::core::IUnknown {
     fn from(value: ID3D11RasterizerState2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11RasterizerState2> for ID3D11RasterizerState1 {
+impl ::core::convert::From<&ID3D11RasterizerState2> for ::windows::core::IUnknown {
     fn from(value: &ID3D11RasterizerState2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11RasterizerState1> for ID3D11RasterizerState2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11RasterizerState1> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11RasterizerState2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11RasterizerState1> for &ID3D11RasterizerState2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11RasterizerState1> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11RasterizerState2> for ID3D11RasterizerState {
-    fn from(value: ID3D11RasterizerState2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11RasterizerState2> for ID3D11RasterizerState {
-    fn from(value: &ID3D11RasterizerState2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11RasterizerState> for ID3D11RasterizerState2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11RasterizerState> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11RasterizerState> for &ID3D11RasterizerState2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11RasterizerState> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11RasterizerState2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -22717,23 +22697,43 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Rasterizer
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11RasterizerState2> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11RasterizerState2> for ID3D11RasterizerState {
     fn from(value: ID3D11RasterizerState2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11RasterizerState2> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11RasterizerState2> for ID3D11RasterizerState {
     fn from(value: &ID3D11RasterizerState2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11RasterizerState2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11RasterizerState> for ID3D11RasterizerState2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11RasterizerState> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11RasterizerState2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11RasterizerState> for &ID3D11RasterizerState2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11RasterizerState> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11RasterizerState2> for ID3D11RasterizerState1 {
+    fn from(value: ID3D11RasterizerState2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11RasterizerState2> for ID3D11RasterizerState1 {
+    fn from(value: &ID3D11RasterizerState2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11RasterizerState1> for ID3D11RasterizerState2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11RasterizerState1> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11RasterizerState1> for &ID3D11RasterizerState2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11RasterizerState1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -22880,15 +22880,6 @@ pub struct ID3D11RefTrackingOptionsVtbl {
 #[repr(transparent)]
 pub struct ID3D11RenderTargetView(::windows::core::IUnknown);
 impl ID3D11RenderTargetView {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_RENDER_TARGET_VIEW_DESC) {
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D11Resource>) {
-        (::windows::core::Interface::vtable(self).base.GetResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresource))
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
@@ -22905,24 +22896,33 @@ impl ID3D11RenderTargetView {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D11Resource>) {
+        (::windows::core::Interface::vtable(self).base.GetResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresource))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_RENDER_TARGET_VIEW_DESC) {
+        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
 }
-impl ::core::convert::From<ID3D11RenderTargetView> for ID3D11View {
+impl ::core::convert::From<ID3D11RenderTargetView> for ::windows::core::IUnknown {
     fn from(value: ID3D11RenderTargetView) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11RenderTargetView> for ID3D11View {
+impl ::core::convert::From<&ID3D11RenderTargetView> for ::windows::core::IUnknown {
     fn from(value: &ID3D11RenderTargetView) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for ID3D11RenderTargetView {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11RenderTargetView {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for &ID3D11RenderTargetView {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11RenderTargetView {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -22946,23 +22946,23 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11RenderTarg
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11RenderTargetView> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11RenderTargetView> for ID3D11View {
     fn from(value: ID3D11RenderTargetView) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11RenderTargetView> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11RenderTargetView> for ID3D11View {
     fn from(value: &ID3D11RenderTargetView) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11RenderTargetView {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for ID3D11RenderTargetView {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11RenderTargetView {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for &ID3D11RenderTargetView {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -22999,20 +22999,6 @@ pub struct ID3D11RenderTargetViewVtbl {
 #[repr(transparent)]
 pub struct ID3D11RenderTargetView1(::windows::core::IUnknown);
 impl ID3D11RenderTargetView1 {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDesc1(&self, pdesc1: *mut D3D11_RENDER_TARGET_VIEW_DESC1) {
-        (::windows::core::Interface::vtable(self).GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc1))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_RENDER_TARGET_VIEW_DESC) {
-        (::windows::core::Interface::vtable(self).base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D11Resource>) {
-        (::windows::core::Interface::vtable(self).base.base.GetResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresource))
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
@@ -23029,44 +23015,38 @@ impl ID3D11RenderTargetView1 {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D11Resource>) {
+        (::windows::core::Interface::vtable(self).base.base.GetResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresource))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_RENDER_TARGET_VIEW_DESC) {
+        (::windows::core::Interface::vtable(self).base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetDesc1(&self, pdesc1: *mut D3D11_RENDER_TARGET_VIEW_DESC1) {
+        (::windows::core::Interface::vtable(self).GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc1))
+    }
 }
-impl ::core::convert::From<ID3D11RenderTargetView1> for ID3D11RenderTargetView {
+impl ::core::convert::From<ID3D11RenderTargetView1> for ::windows::core::IUnknown {
     fn from(value: ID3D11RenderTargetView1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11RenderTargetView1> for ID3D11RenderTargetView {
+impl ::core::convert::From<&ID3D11RenderTargetView1> for ::windows::core::IUnknown {
     fn from(value: &ID3D11RenderTargetView1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11RenderTargetView> for ID3D11RenderTargetView1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11RenderTargetView> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11RenderTargetView1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11RenderTargetView> for &ID3D11RenderTargetView1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11RenderTargetView> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11RenderTargetView1> for ID3D11View {
-    fn from(value: ID3D11RenderTargetView1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11RenderTargetView1> for ID3D11View {
-    fn from(value: &ID3D11RenderTargetView1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for ID3D11RenderTargetView1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for &ID3D11RenderTargetView1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11RenderTargetView1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -23090,23 +23070,43 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11RenderTarg
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11RenderTargetView1> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11RenderTargetView1> for ID3D11View {
     fn from(value: ID3D11RenderTargetView1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11RenderTargetView1> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11RenderTargetView1> for ID3D11View {
     fn from(value: &ID3D11RenderTargetView1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11RenderTargetView1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for ID3D11RenderTargetView1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11RenderTargetView1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for &ID3D11RenderTargetView1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11RenderTargetView1> for ID3D11RenderTargetView {
+    fn from(value: ID3D11RenderTargetView1) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11RenderTargetView1> for ID3D11RenderTargetView {
+    fn from(value: &ID3D11RenderTargetView1) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11RenderTargetView> for ID3D11RenderTargetView1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11RenderTargetView> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11RenderTargetView> for &ID3D11RenderTargetView1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11RenderTargetView> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -23144,18 +23144,6 @@ pub struct ID3D11RenderTargetView1Vtbl {
 pub struct ID3D11Resource(::windows::core::IUnknown);
 impl ID3D11Resource {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetType(&self, presourcedimension: *mut D3D11_RESOURCE_DIMENSION) {
-        (::windows::core::Interface::vtable(self).GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedimension))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) {
-        (::windows::core::Interface::vtable(self).SetEvictionPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(evictionpriority))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetEvictionPriority(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetEvictionPriority)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
     }
@@ -23171,25 +23159,17 @@ impl ID3D11Resource {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
-}
-impl ::core::convert::From<ID3D11Resource> for ID3D11DeviceChild {
-    fn from(value: ID3D11Resource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetType(&self, presourcedimension: *mut D3D11_RESOURCE_DIMENSION) {
+        (::windows::core::Interface::vtable(self).GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedimension))
     }
-}
-impl ::core::convert::From<&ID3D11Resource> for ID3D11DeviceChild {
-    fn from(value: &ID3D11Resource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) {
+        (::windows::core::Interface::vtable(self).SetEvictionPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(evictionpriority))
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11Resource {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Resource {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetEvictionPriority(&self) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetEvictionPriority)(::core::mem::transmute_copy(self)))
     }
 }
 impl ::core::convert::From<ID3D11Resource> for ::windows::core::IUnknown {
@@ -23209,6 +23189,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Res
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Resource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11Resource> for ID3D11DeviceChild {
+    fn from(value: ID3D11Resource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11Resource> for ID3D11DeviceChild {
+    fn from(value: &ID3D11Resource) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11Resource {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Resource {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -23245,10 +23245,6 @@ pub struct ID3D11ResourceVtbl {
 pub struct ID3D11SamplerState(::windows::core::IUnknown);
 impl ID3D11SamplerState {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_SAMPLER_DESC) {
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
     }
@@ -23264,25 +23260,9 @@ impl ID3D11SamplerState {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
-}
-impl ::core::convert::From<ID3D11SamplerState> for ID3D11DeviceChild {
-    fn from(value: ID3D11SamplerState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11SamplerState> for ID3D11DeviceChild {
-    fn from(value: &ID3D11SamplerState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11SamplerState {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11SamplerState {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_SAMPLER_DESC) {
+        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
     }
 }
 impl ::core::convert::From<ID3D11SamplerState> for ::windows::core::IUnknown {
@@ -23302,6 +23282,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Sam
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11SamplerState {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11SamplerState> for ID3D11DeviceChild {
+    fn from(value: ID3D11SamplerState) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11SamplerState> for ID3D11DeviceChild {
+    fn from(value: &ID3D11SamplerState) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11SamplerState {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11SamplerState {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -23734,15 +23734,6 @@ pub struct ID3D11ShaderReflectionVariableVtbl {
 #[repr(transparent)]
 pub struct ID3D11ShaderResourceView(::windows::core::IUnknown);
 impl ID3D11ShaderResourceView {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_SHADER_RESOURCE_VIEW_DESC) {
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D11Resource>) {
-        (::windows::core::Interface::vtable(self).base.GetResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresource))
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
@@ -23759,24 +23750,33 @@ impl ID3D11ShaderResourceView {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D11Resource>) {
+        (::windows::core::Interface::vtable(self).base.GetResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresource))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_SHADER_RESOURCE_VIEW_DESC) {
+        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
 }
-impl ::core::convert::From<ID3D11ShaderResourceView> for ID3D11View {
+impl ::core::convert::From<ID3D11ShaderResourceView> for ::windows::core::IUnknown {
     fn from(value: ID3D11ShaderResourceView) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11ShaderResourceView> for ID3D11View {
+impl ::core::convert::From<&ID3D11ShaderResourceView> for ::windows::core::IUnknown {
     fn from(value: &ID3D11ShaderResourceView) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for ID3D11ShaderResourceView {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11ShaderResourceView {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for &ID3D11ShaderResourceView {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11ShaderResourceView {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -23800,23 +23800,23 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11ShaderReso
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11ShaderResourceView> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11ShaderResourceView> for ID3D11View {
     fn from(value: ID3D11ShaderResourceView) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11ShaderResourceView> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11ShaderResourceView> for ID3D11View {
     fn from(value: &ID3D11ShaderResourceView) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11ShaderResourceView {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for ID3D11ShaderResourceView {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11ShaderResourceView {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for &ID3D11ShaderResourceView {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -23853,20 +23853,6 @@ pub struct ID3D11ShaderResourceViewVtbl {
 #[repr(transparent)]
 pub struct ID3D11ShaderResourceView1(::windows::core::IUnknown);
 impl ID3D11ShaderResourceView1 {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetDesc1(&self, pdesc1: *mut D3D11_SHADER_RESOURCE_VIEW_DESC1) {
-        (::windows::core::Interface::vtable(self).GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc1))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_SHADER_RESOURCE_VIEW_DESC) {
-        (::windows::core::Interface::vtable(self).base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D11Resource>) {
-        (::windows::core::Interface::vtable(self).base.base.GetResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresource))
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
@@ -23883,44 +23869,38 @@ impl ID3D11ShaderResourceView1 {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D11Resource>) {
+        (::windows::core::Interface::vtable(self).base.base.GetResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresource))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_SHADER_RESOURCE_VIEW_DESC) {
+        (::windows::core::Interface::vtable(self).base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn GetDesc1(&self, pdesc1: *mut D3D11_SHADER_RESOURCE_VIEW_DESC1) {
+        (::windows::core::Interface::vtable(self).GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc1))
+    }
 }
-impl ::core::convert::From<ID3D11ShaderResourceView1> for ID3D11ShaderResourceView {
+impl ::core::convert::From<ID3D11ShaderResourceView1> for ::windows::core::IUnknown {
     fn from(value: ID3D11ShaderResourceView1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11ShaderResourceView1> for ID3D11ShaderResourceView {
+impl ::core::convert::From<&ID3D11ShaderResourceView1> for ::windows::core::IUnknown {
     fn from(value: &ID3D11ShaderResourceView1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11ShaderResourceView> for ID3D11ShaderResourceView1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11ShaderResourceView> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11ShaderResourceView1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11ShaderResourceView> for &ID3D11ShaderResourceView1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11ShaderResourceView> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11ShaderResourceView1> for ID3D11View {
-    fn from(value: ID3D11ShaderResourceView1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11ShaderResourceView1> for ID3D11View {
-    fn from(value: &ID3D11ShaderResourceView1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for ID3D11ShaderResourceView1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for &ID3D11ShaderResourceView1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11ShaderResourceView1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -23944,23 +23924,43 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11ShaderReso
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11ShaderResourceView1> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11ShaderResourceView1> for ID3D11View {
     fn from(value: ID3D11ShaderResourceView1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11ShaderResourceView1> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11ShaderResourceView1> for ID3D11View {
     fn from(value: &ID3D11ShaderResourceView1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11ShaderResourceView1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for ID3D11ShaderResourceView1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11ShaderResourceView1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for &ID3D11ShaderResourceView1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11ShaderResourceView1> for ID3D11ShaderResourceView {
+    fn from(value: ID3D11ShaderResourceView1) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11ShaderResourceView1> for ID3D11ShaderResourceView {
+    fn from(value: &ID3D11ShaderResourceView1) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11ShaderResourceView> for ID3D11ShaderResourceView1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11ShaderResourceView> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11ShaderResourceView> for &ID3D11ShaderResourceView1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11ShaderResourceView> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -24223,23 +24223,6 @@ pub struct ID3D11SwitchToRefVtbl {
 #[repr(transparent)]
 pub struct ID3D11Texture1D(::windows::core::IUnknown);
 impl ID3D11Texture1D {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_TEXTURE1D_DESC) {
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetType(&self, presourcedimension: *mut D3D11_RESOURCE_DIMENSION) {
-        (::windows::core::Interface::vtable(self).base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedimension))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) {
-        (::windows::core::Interface::vtable(self).base.SetEvictionPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(evictionpriority))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetEvictionPriority(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetEvictionPriority)(::core::mem::transmute_copy(self)))
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
@@ -24256,24 +24239,41 @@ impl ID3D11Texture1D {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetType(&self, presourcedimension: *mut D3D11_RESOURCE_DIMENSION) {
+        (::windows::core::Interface::vtable(self).base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedimension))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) {
+        (::windows::core::Interface::vtable(self).base.SetEvictionPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(evictionpriority))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetEvictionPriority(&self) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetEvictionPriority)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_TEXTURE1D_DESC) {
+        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
 }
-impl ::core::convert::From<ID3D11Texture1D> for ID3D11Resource {
+impl ::core::convert::From<ID3D11Texture1D> for ::windows::core::IUnknown {
     fn from(value: ID3D11Texture1D) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Texture1D> for ID3D11Resource {
+impl ::core::convert::From<&ID3D11Texture1D> for ::windows::core::IUnknown {
     fn from(value: &ID3D11Texture1D) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Resource> for ID3D11Texture1D {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Resource> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Texture1D {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Resource> for &ID3D11Texture1D {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Resource> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Texture1D {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -24297,23 +24297,23 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Texture1D 
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11Texture1D> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11Texture1D> for ID3D11Resource {
     fn from(value: ID3D11Texture1D) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Texture1D> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11Texture1D> for ID3D11Resource {
     fn from(value: &ID3D11Texture1D) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Texture1D {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Resource> for ID3D11Texture1D {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Resource> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Texture1D {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Resource> for &ID3D11Texture1D {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -24350,23 +24350,6 @@ pub struct ID3D11Texture1DVtbl {
 #[repr(transparent)]
 pub struct ID3D11Texture2D(::windows::core::IUnknown);
 impl ID3D11Texture2D {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_TEXTURE2D_DESC) {
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetType(&self, presourcedimension: *mut D3D11_RESOURCE_DIMENSION) {
-        (::windows::core::Interface::vtable(self).base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedimension))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) {
-        (::windows::core::Interface::vtable(self).base.SetEvictionPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(evictionpriority))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetEvictionPriority(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetEvictionPriority)(::core::mem::transmute_copy(self)))
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
@@ -24383,24 +24366,41 @@ impl ID3D11Texture2D {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetType(&self, presourcedimension: *mut D3D11_RESOURCE_DIMENSION) {
+        (::windows::core::Interface::vtable(self).base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedimension))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) {
+        (::windows::core::Interface::vtable(self).base.SetEvictionPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(evictionpriority))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetEvictionPriority(&self) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetEvictionPriority)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_TEXTURE2D_DESC) {
+        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
 }
-impl ::core::convert::From<ID3D11Texture2D> for ID3D11Resource {
+impl ::core::convert::From<ID3D11Texture2D> for ::windows::core::IUnknown {
     fn from(value: ID3D11Texture2D) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Texture2D> for ID3D11Resource {
+impl ::core::convert::From<&ID3D11Texture2D> for ::windows::core::IUnknown {
     fn from(value: &ID3D11Texture2D) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Resource> for ID3D11Texture2D {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Resource> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Texture2D {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Resource> for &ID3D11Texture2D {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Resource> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Texture2D {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -24424,23 +24424,23 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Texture2D 
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11Texture2D> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11Texture2D> for ID3D11Resource {
     fn from(value: ID3D11Texture2D) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Texture2D> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11Texture2D> for ID3D11Resource {
     fn from(value: &ID3D11Texture2D) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Texture2D {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Resource> for ID3D11Texture2D {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Resource> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Texture2D {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Resource> for &ID3D11Texture2D {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -24477,28 +24477,6 @@ pub struct ID3D11Texture2DVtbl {
 #[repr(transparent)]
 pub struct ID3D11Texture2D1(::windows::core::IUnknown);
 impl ID3D11Texture2D1 {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDesc1(&self, pdesc: *mut D3D11_TEXTURE2D_DESC1) {
-        (::windows::core::Interface::vtable(self).GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_TEXTURE2D_DESC) {
-        (::windows::core::Interface::vtable(self).base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetType(&self, presourcedimension: *mut D3D11_RESOURCE_DIMENSION) {
-        (::windows::core::Interface::vtable(self).base.base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedimension))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) {
-        (::windows::core::Interface::vtable(self).base.base.SetEvictionPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(evictionpriority))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetEvictionPriority(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.GetEvictionPriority)(::core::mem::transmute_copy(self)))
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
@@ -24515,44 +24493,46 @@ impl ID3D11Texture2D1 {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetType(&self, presourcedimension: *mut D3D11_RESOURCE_DIMENSION) {
+        (::windows::core::Interface::vtable(self).base.base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedimension))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) {
+        (::windows::core::Interface::vtable(self).base.base.SetEvictionPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(evictionpriority))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetEvictionPriority(&self) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.GetEvictionPriority)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_TEXTURE2D_DESC) {
+        (::windows::core::Interface::vtable(self).base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetDesc1(&self, pdesc: *mut D3D11_TEXTURE2D_DESC1) {
+        (::windows::core::Interface::vtable(self).GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
 }
-impl ::core::convert::From<ID3D11Texture2D1> for ID3D11Texture2D {
+impl ::core::convert::From<ID3D11Texture2D1> for ::windows::core::IUnknown {
     fn from(value: ID3D11Texture2D1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Texture2D1> for ID3D11Texture2D {
+impl ::core::convert::From<&ID3D11Texture2D1> for ::windows::core::IUnknown {
     fn from(value: &ID3D11Texture2D1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Texture2D> for ID3D11Texture2D1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Texture2D> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Texture2D1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Texture2D> for &ID3D11Texture2D1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Texture2D> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11Texture2D1> for ID3D11Resource {
-    fn from(value: ID3D11Texture2D1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11Texture2D1> for ID3D11Resource {
-    fn from(value: &ID3D11Texture2D1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Resource> for ID3D11Texture2D1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Resource> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Resource> for &ID3D11Texture2D1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Resource> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Texture2D1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -24576,23 +24556,43 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Texture2D1
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11Texture2D1> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11Texture2D1> for ID3D11Resource {
     fn from(value: ID3D11Texture2D1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Texture2D1> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11Texture2D1> for ID3D11Resource {
     fn from(value: &ID3D11Texture2D1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Texture2D1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Resource> for ID3D11Texture2D1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Resource> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Texture2D1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Resource> for &ID3D11Texture2D1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Resource> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11Texture2D1> for ID3D11Texture2D {
+    fn from(value: ID3D11Texture2D1) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11Texture2D1> for ID3D11Texture2D {
+    fn from(value: &ID3D11Texture2D1) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Texture2D> for ID3D11Texture2D1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Texture2D> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Texture2D> for &ID3D11Texture2D1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Texture2D> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -24629,23 +24629,6 @@ pub struct ID3D11Texture2D1Vtbl {
 #[repr(transparent)]
 pub struct ID3D11Texture3D(::windows::core::IUnknown);
 impl ID3D11Texture3D {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_TEXTURE3D_DESC) {
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetType(&self, presourcedimension: *mut D3D11_RESOURCE_DIMENSION) {
-        (::windows::core::Interface::vtable(self).base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedimension))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) {
-        (::windows::core::Interface::vtable(self).base.SetEvictionPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(evictionpriority))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetEvictionPriority(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetEvictionPriority)(::core::mem::transmute_copy(self)))
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
@@ -24662,24 +24645,41 @@ impl ID3D11Texture3D {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetType(&self, presourcedimension: *mut D3D11_RESOURCE_DIMENSION) {
+        (::windows::core::Interface::vtable(self).base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedimension))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) {
+        (::windows::core::Interface::vtable(self).base.SetEvictionPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(evictionpriority))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetEvictionPriority(&self) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetEvictionPriority)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_TEXTURE3D_DESC) {
+        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
 }
-impl ::core::convert::From<ID3D11Texture3D> for ID3D11Resource {
+impl ::core::convert::From<ID3D11Texture3D> for ::windows::core::IUnknown {
     fn from(value: ID3D11Texture3D) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Texture3D> for ID3D11Resource {
+impl ::core::convert::From<&ID3D11Texture3D> for ::windows::core::IUnknown {
     fn from(value: &ID3D11Texture3D) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Resource> for ID3D11Texture3D {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Resource> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Texture3D {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Resource> for &ID3D11Texture3D {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Resource> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Texture3D {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -24703,23 +24703,23 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Texture3D 
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11Texture3D> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11Texture3D> for ID3D11Resource {
     fn from(value: ID3D11Texture3D) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Texture3D> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11Texture3D> for ID3D11Resource {
     fn from(value: &ID3D11Texture3D) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Texture3D {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Resource> for ID3D11Texture3D {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Resource> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Texture3D {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Resource> for &ID3D11Texture3D {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Resource> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -24756,28 +24756,6 @@ pub struct ID3D11Texture3DVtbl {
 #[repr(transparent)]
 pub struct ID3D11Texture3D1(::windows::core::IUnknown);
 impl ID3D11Texture3D1 {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDesc1(&self, pdesc: *mut D3D11_TEXTURE3D_DESC1) {
-        (::windows::core::Interface::vtable(self).GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_TEXTURE3D_DESC) {
-        (::windows::core::Interface::vtable(self).base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetType(&self, presourcedimension: *mut D3D11_RESOURCE_DIMENSION) {
-        (::windows::core::Interface::vtable(self).base.base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedimension))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) {
-        (::windows::core::Interface::vtable(self).base.base.SetEvictionPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(evictionpriority))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetEvictionPriority(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.GetEvictionPriority)(::core::mem::transmute_copy(self)))
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
@@ -24794,44 +24772,46 @@ impl ID3D11Texture3D1 {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetType(&self, presourcedimension: *mut D3D11_RESOURCE_DIMENSION) {
+        (::windows::core::Interface::vtable(self).base.base.GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcedimension))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn SetEvictionPriority(&self, evictionpriority: u32) {
+        (::windows::core::Interface::vtable(self).base.base.SetEvictionPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(evictionpriority))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetEvictionPriority(&self) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.GetEvictionPriority)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_TEXTURE3D_DESC) {
+        (::windows::core::Interface::vtable(self).base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetDesc1(&self, pdesc: *mut D3D11_TEXTURE3D_DESC1) {
+        (::windows::core::Interface::vtable(self).GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
 }
-impl ::core::convert::From<ID3D11Texture3D1> for ID3D11Texture3D {
+impl ::core::convert::From<ID3D11Texture3D1> for ::windows::core::IUnknown {
     fn from(value: ID3D11Texture3D1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Texture3D1> for ID3D11Texture3D {
+impl ::core::convert::From<&ID3D11Texture3D1> for ::windows::core::IUnknown {
     fn from(value: &ID3D11Texture3D1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Texture3D> for ID3D11Texture3D1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Texture3D> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Texture3D1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Texture3D> for &ID3D11Texture3D1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Texture3D> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11Texture3D1> for ID3D11Resource {
-    fn from(value: ID3D11Texture3D1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11Texture3D1> for ID3D11Resource {
-    fn from(value: &ID3D11Texture3D1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Resource> for ID3D11Texture3D1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Resource> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11Resource> for &ID3D11Texture3D1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Resource> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Texture3D1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -24855,23 +24835,43 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11Texture3D1
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11Texture3D1> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11Texture3D1> for ID3D11Resource {
     fn from(value: ID3D11Texture3D1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11Texture3D1> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11Texture3D1> for ID3D11Resource {
     fn from(value: &ID3D11Texture3D1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Texture3D1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Resource> for ID3D11Texture3D1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Resource> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11Texture3D1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Resource> for &ID3D11Texture3D1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Resource> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11Texture3D1> for ID3D11Texture3D {
+    fn from(value: ID3D11Texture3D1) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11Texture3D1> for ID3D11Texture3D {
+    fn from(value: &ID3D11Texture3D1) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Texture3D> for ID3D11Texture3D1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Texture3D> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11Texture3D> for &ID3D11Texture3D1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11Texture3D> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -24968,15 +24968,6 @@ pub struct ID3D11TracingDeviceVtbl {
 #[repr(transparent)]
 pub struct ID3D11UnorderedAccessView(::windows::core::IUnknown);
 impl ID3D11UnorderedAccessView {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_UNORDERED_ACCESS_VIEW_DESC) {
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D11Resource>) {
-        (::windows::core::Interface::vtable(self).base.GetResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresource))
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
@@ -24993,24 +24984,33 @@ impl ID3D11UnorderedAccessView {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D11Resource>) {
+        (::windows::core::Interface::vtable(self).base.GetResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresource))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_UNORDERED_ACCESS_VIEW_DESC) {
+        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
 }
-impl ::core::convert::From<ID3D11UnorderedAccessView> for ID3D11View {
+impl ::core::convert::From<ID3D11UnorderedAccessView> for ::windows::core::IUnknown {
     fn from(value: ID3D11UnorderedAccessView) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11UnorderedAccessView> for ID3D11View {
+impl ::core::convert::From<&ID3D11UnorderedAccessView> for ::windows::core::IUnknown {
     fn from(value: &ID3D11UnorderedAccessView) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for ID3D11UnorderedAccessView {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11UnorderedAccessView {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for &ID3D11UnorderedAccessView {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11UnorderedAccessView {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -25034,23 +25034,23 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11UnorderedA
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11UnorderedAccessView> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11UnorderedAccessView> for ID3D11View {
     fn from(value: ID3D11UnorderedAccessView) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11UnorderedAccessView> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11UnorderedAccessView> for ID3D11View {
     fn from(value: &ID3D11UnorderedAccessView) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11UnorderedAccessView {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for ID3D11UnorderedAccessView {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11UnorderedAccessView {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for &ID3D11UnorderedAccessView {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -25087,20 +25087,6 @@ pub struct ID3D11UnorderedAccessViewVtbl {
 #[repr(transparent)]
 pub struct ID3D11UnorderedAccessView1(::windows::core::IUnknown);
 impl ID3D11UnorderedAccessView1 {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDesc1(&self, pdesc1: *mut D3D11_UNORDERED_ACCESS_VIEW_DESC1) {
-        (::windows::core::Interface::vtable(self).GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc1))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_UNORDERED_ACCESS_VIEW_DESC) {
-        (::windows::core::Interface::vtable(self).base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D11Resource>) {
-        (::windows::core::Interface::vtable(self).base.base.GetResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresource))
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
@@ -25117,44 +25103,38 @@ impl ID3D11UnorderedAccessView1 {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D11Resource>) {
+        (::windows::core::Interface::vtable(self).base.base.GetResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresource))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_UNORDERED_ACCESS_VIEW_DESC) {
+        (::windows::core::Interface::vtable(self).base.GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetDesc1(&self, pdesc1: *mut D3D11_UNORDERED_ACCESS_VIEW_DESC1) {
+        (::windows::core::Interface::vtable(self).GetDesc1)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc1))
+    }
 }
-impl ::core::convert::From<ID3D11UnorderedAccessView1> for ID3D11UnorderedAccessView {
+impl ::core::convert::From<ID3D11UnorderedAccessView1> for ::windows::core::IUnknown {
     fn from(value: ID3D11UnorderedAccessView1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11UnorderedAccessView1> for ID3D11UnorderedAccessView {
+impl ::core::convert::From<&ID3D11UnorderedAccessView1> for ::windows::core::IUnknown {
     fn from(value: &ID3D11UnorderedAccessView1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11UnorderedAccessView> for ID3D11UnorderedAccessView1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11UnorderedAccessView> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11UnorderedAccessView1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11UnorderedAccessView> for &ID3D11UnorderedAccessView1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11UnorderedAccessView> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11UnorderedAccessView1> for ID3D11View {
-    fn from(value: ID3D11UnorderedAccessView1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11UnorderedAccessView1> for ID3D11View {
-    fn from(value: &ID3D11UnorderedAccessView1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for ID3D11UnorderedAccessView1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for &ID3D11UnorderedAccessView1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11UnorderedAccessView1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -25178,23 +25158,43 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11UnorderedA
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11UnorderedAccessView1> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11UnorderedAccessView1> for ID3D11View {
     fn from(value: ID3D11UnorderedAccessView1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11UnorderedAccessView1> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11UnorderedAccessView1> for ID3D11View {
     fn from(value: &ID3D11UnorderedAccessView1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11UnorderedAccessView1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for ID3D11UnorderedAccessView1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11UnorderedAccessView1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for &ID3D11UnorderedAccessView1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11UnorderedAccessView1> for ID3D11UnorderedAccessView {
+    fn from(value: ID3D11UnorderedAccessView1) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11UnorderedAccessView1> for ID3D11UnorderedAccessView {
+    fn from(value: &ID3D11UnorderedAccessView1) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11UnorderedAccessView> for ID3D11UnorderedAccessView1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11UnorderedAccessView> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11UnorderedAccessView> for &ID3D11UnorderedAccessView1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11UnorderedAccessView> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -25248,26 +25248,6 @@ impl ID3D11VertexShader {
         (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
 }
-impl ::core::convert::From<ID3D11VertexShader> for ID3D11DeviceChild {
-    fn from(value: ID3D11VertexShader) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11VertexShader> for ID3D11DeviceChild {
-    fn from(value: &ID3D11VertexShader) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11VertexShader {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11VertexShader {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ID3D11VertexShader> for ::windows::core::IUnknown {
     fn from(value: ID3D11VertexShader) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -25285,6 +25265,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Ver
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11VertexShader {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11VertexShader> for ID3D11DeviceChild {
+    fn from(value: ID3D11VertexShader) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11VertexShader> for ID3D11DeviceChild {
+    fn from(value: &ID3D11VertexShader) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11VertexShader {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11VertexShader {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -25317,6 +25317,22 @@ pub struct ID3D11VertexShaderVtbl {
 #[repr(transparent)]
 pub struct ID3D11VideoContext(::windows::core::IUnknown);
 impl ID3D11VideoContext {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
+        (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
+    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDecoderBuffer<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>>(&self, pdecoder: Param0, r#type: D3D11_VIDEO_DECODER_BUFFER_TYPE, pbuffersize: *mut u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetDecoderBuffer)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(pbuffersize), ::core::mem::transmute(ppbuffer)).ok()
@@ -25581,21 +25597,25 @@ impl ID3D11VideoContext {
     pub unsafe fn VideoProcessorGetStreamRotation<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, streamindex: u32, penable: *mut super::super::Foundation::BOOL, protation: *mut D3D11_VIDEO_PROCESSOR_ROTATION) {
         (::windows::core::Interface::vtable(self).VideoProcessorGetStreamRotation)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(penable), ::core::mem::transmute(protation))
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
-        (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
+}
+impl ::core::convert::From<ID3D11VideoContext> for ::windows::core::IUnknown {
+    fn from(value: ID3D11VideoContext) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+}
+impl ::core::convert::From<&ID3D11VideoContext> for ::windows::core::IUnknown {
+    fn from(value: &ID3D11VideoContext) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11VideoContext {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11VideoContext {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ID3D11VideoContext> for ID3D11DeviceChild {
@@ -25615,26 +25635,6 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11VideoContex
 }
 impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11VideoContext {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11VideoContext> for ::windows::core::IUnknown {
-    fn from(value: ID3D11VideoContext) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11VideoContext> for ::windows::core::IUnknown {
-    fn from(value: &ID3D11VideoContext) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11VideoContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11VideoContext {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -25819,74 +25819,20 @@ pub struct ID3D11VideoContextVtbl {
 pub struct ID3D11VideoContext1(::windows::core::IUnknown);
 impl ID3D11VideoContext1 {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SubmitDecoderBuffers1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>>(&self, pdecoder: Param0, numbuffers: u32, pbufferdesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SubmitDecoderBuffers1)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(numbuffers), ::core::mem::transmute(pbufferdesc)).ok()
+    pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
+        (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDataForNewHardwareKey<'a, Param0: ::windows::core::IntoParam<'a, ID3D11CryptoSession>>(&self, pcryptosession: Param0, privateinputsize: u32, pprivatinputdata: *const ::core::ffi::c_void) -> ::windows::core::Result<u64> {
-        let mut result__: u64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDataForNewHardwareKey)(::core::mem::transmute_copy(self), pcryptosession.into_param().abi(), ::core::mem::transmute(privateinputsize), ::core::mem::transmute(pprivatinputdata), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CheckCryptoSessionStatus<'a, Param0: ::windows::core::IntoParam<'a, ID3D11CryptoSession>>(&self, pcryptosession: Param0) -> ::windows::core::Result<D3D11_CRYPTO_SESSION_STATUS> {
-        let mut result__: D3D11_CRYPTO_SESSION_STATUS = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CheckCryptoSessionStatus)(::core::mem::transmute_copy(self), pcryptosession.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<D3D11_CRYPTO_SESSION_STATUS>(result__)
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn DecoderEnableDownsampling<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>>(&self, pdecoder: Param0, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, poutputdesc: *const D3D11_VIDEO_SAMPLE_DESC, referenceframecount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DecoderEnableDownsampling)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(inputcolorspace), ::core::mem::transmute(poutputdesc), ::core::mem::transmute(referenceframecount)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn DecoderUpdateDownsampling<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>>(&self, pdecoder: Param0, poutputdesc: *const D3D11_VIDEO_SAMPLE_DESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DecoderUpdateDownsampling)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(poutputdesc)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn VideoProcessorSetOutputColorSpace1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) {
-        (::windows::core::Interface::vtable(self).VideoProcessorSetOutputColorSpace1)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(colorspace))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn VideoProcessorSetOutputShaderUsage<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pvideoprocessor: Param0, shaderusage: Param1) {
-        (::windows::core::Interface::vtable(self).VideoProcessorSetOutputShaderUsage)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), shaderusage.into_param().abi())
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn VideoProcessorGetOutputColorSpace1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, pcolorspace: *mut super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) {
-        (::windows::core::Interface::vtable(self).VideoProcessorGetOutputColorSpace1)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(pcolorspace))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn VideoProcessorGetOutputShaderUsage<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, pshaderusage: *mut super::super::Foundation::BOOL) {
-        (::windows::core::Interface::vtable(self).VideoProcessorGetOutputShaderUsage)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(pshaderusage))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn VideoProcessorSetStreamColorSpace1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, streamindex: u32, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) {
-        (::windows::core::Interface::vtable(self).VideoProcessorSetStreamColorSpace1)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(colorspace))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn VideoProcessorSetStreamMirror<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pvideoprocessor: Param0, streamindex: u32, enable: Param2, fliphorizontal: Param3, flipvertical: Param4) {
-        (::windows::core::Interface::vtable(self).VideoProcessorSetStreamMirror)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), enable.into_param().abi(), fliphorizontal.into_param().abi(), flipvertical.into_param().abi())
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn VideoProcessorGetStreamColorSpace1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, streamindex: u32, pcolorspace: *mut super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) {
-        (::windows::core::Interface::vtable(self).VideoProcessorGetStreamColorSpace1)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(pcolorspace))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn VideoProcessorGetStreamMirror<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, streamindex: u32, penable: *mut super::super::Foundation::BOOL, pfliphorizontal: *mut super::super::Foundation::BOOL, pflipvertical: *mut super::super::Foundation::BOOL) {
-        (::windows::core::Interface::vtable(self).VideoProcessorGetStreamMirror)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(penable), ::core::mem::transmute(pfliphorizontal), ::core::mem::transmute(pflipvertical))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn VideoProcessorGetBehaviorHints<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, outputwidth: u32, outputheight: u32, outputformat: super::Dxgi::Common::DXGI_FORMAT, streamcount: u32, pstreams: *const D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).VideoProcessorGetBehaviorHints)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(outputwidth), ::core::mem::transmute(outputheight), ::core::mem::transmute(outputformat), ::core::mem::transmute(streamcount), ::core::mem::transmute(pstreams), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDecoderBuffer<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>>(&self, pdecoder: Param0, r#type: D3D11_VIDEO_DECODER_BUFFER_TYPE, pbuffersize: *mut u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -26153,39 +26099,93 @@ impl ID3D11VideoContext1 {
         (::windows::core::Interface::vtable(self).base.VideoProcessorGetStreamRotation)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(penable), ::core::mem::transmute(protation))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
-        (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
+    pub unsafe fn SubmitDecoderBuffers1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>>(&self, pdecoder: Param0, numbuffers: u32, pbufferdesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SubmitDecoderBuffers1)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(numbuffers), ::core::mem::transmute(pbufferdesc)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    pub unsafe fn GetDataForNewHardwareKey<'a, Param0: ::windows::core::IntoParam<'a, ID3D11CryptoSession>>(&self, pcryptosession: Param0, privateinputsize: u32, pprivatinputdata: *const ::core::ffi::c_void) -> ::windows::core::Result<u64> {
+        let mut result__: u64 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetDataForNewHardwareKey)(::core::mem::transmute_copy(self), pcryptosession.into_param().abi(), ::core::mem::transmute(privateinputsize), ::core::mem::transmute(pprivatinputdata), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    pub unsafe fn CheckCryptoSessionStatus<'a, Param0: ::windows::core::IntoParam<'a, ID3D11CryptoSession>>(&self, pcryptosession: Param0) -> ::windows::core::Result<D3D11_CRYPTO_SESSION_STATUS> {
+        let mut result__: D3D11_CRYPTO_SESSION_STATUS = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CheckCryptoSessionStatus)(::core::mem::transmute_copy(self), pcryptosession.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<D3D11_CRYPTO_SESSION_STATUS>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn DecoderEnableDownsampling<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>>(&self, pdecoder: Param0, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, poutputdesc: *const D3D11_VIDEO_SAMPLE_DESC, referenceframecount: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DecoderEnableDownsampling)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(inputcolorspace), ::core::mem::transmute(poutputdesc), ::core::mem::transmute(referenceframecount)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn DecoderUpdateDownsampling<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>>(&self, pdecoder: Param0, poutputdesc: *const D3D11_VIDEO_SAMPLE_DESC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DecoderUpdateDownsampling)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(poutputdesc)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn VideoProcessorSetOutputColorSpace1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) {
+        (::windows::core::Interface::vtable(self).VideoProcessorSetOutputColorSpace1)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(colorspace))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn VideoProcessorSetOutputShaderUsage<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pvideoprocessor: Param0, shaderusage: Param1) {
+        (::windows::core::Interface::vtable(self).VideoProcessorSetOutputShaderUsage)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), shaderusage.into_param().abi())
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn VideoProcessorGetOutputColorSpace1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, pcolorspace: *mut super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) {
+        (::windows::core::Interface::vtable(self).VideoProcessorGetOutputColorSpace1)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(pcolorspace))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn VideoProcessorGetOutputShaderUsage<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, pshaderusage: *mut super::super::Foundation::BOOL) {
+        (::windows::core::Interface::vtable(self).VideoProcessorGetOutputShaderUsage)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(pshaderusage))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn VideoProcessorSetStreamColorSpace1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, streamindex: u32, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) {
+        (::windows::core::Interface::vtable(self).VideoProcessorSetStreamColorSpace1)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(colorspace))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn VideoProcessorSetStreamMirror<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pvideoprocessor: Param0, streamindex: u32, enable: Param2, fliphorizontal: Param3, flipvertical: Param4) {
+        (::windows::core::Interface::vtable(self).VideoProcessorSetStreamMirror)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), enable.into_param().abi(), fliphorizontal.into_param().abi(), flipvertical.into_param().abi())
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn VideoProcessorGetStreamColorSpace1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, streamindex: u32, pcolorspace: *mut super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) {
+        (::windows::core::Interface::vtable(self).VideoProcessorGetStreamColorSpace1)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(pcolorspace))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn VideoProcessorGetStreamMirror<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, streamindex: u32, penable: *mut super::super::Foundation::BOOL, pfliphorizontal: *mut super::super::Foundation::BOOL, pflipvertical: *mut super::super::Foundation::BOOL) {
+        (::windows::core::Interface::vtable(self).VideoProcessorGetStreamMirror)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(penable), ::core::mem::transmute(pfliphorizontal), ::core::mem::transmute(pflipvertical))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn VideoProcessorGetBehaviorHints<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, outputwidth: u32, outputheight: u32, outputformat: super::Dxgi::Common::DXGI_FORMAT, streamcount: u32, pstreams: *const D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).VideoProcessorGetBehaviorHints)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(outputwidth), ::core::mem::transmute(outputheight), ::core::mem::transmute(outputformat), ::core::mem::transmute(streamcount), ::core::mem::transmute(pstreams), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
 }
-impl ::core::convert::From<ID3D11VideoContext1> for ID3D11VideoContext {
+impl ::core::convert::From<ID3D11VideoContext1> for ::windows::core::IUnknown {
     fn from(value: ID3D11VideoContext1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11VideoContext1> for ID3D11VideoContext {
+impl ::core::convert::From<&ID3D11VideoContext1> for ::windows::core::IUnknown {
     fn from(value: &ID3D11VideoContext1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoContext> for ID3D11VideoContext1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoContext> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11VideoContext1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoContext> for &ID3D11VideoContext1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoContext> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11VideoContext1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -26209,23 +26209,23 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11VideoConte
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11VideoContext1> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11VideoContext1> for ID3D11VideoContext {
     fn from(value: ID3D11VideoContext1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11VideoContext1> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11VideoContext1> for ID3D11VideoContext {
     fn from(value: &ID3D11VideoContext1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11VideoContext1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoContext> for ID3D11VideoContext1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoContext> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11VideoContext1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoContext> for &ID3D11VideoContext1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoContext> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -26305,95 +26305,21 @@ pub struct ID3D11VideoContext1Vtbl {
 #[repr(transparent)]
 pub struct ID3D11VideoContext2(::windows::core::IUnknown);
 impl ID3D11VideoContext2 {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub unsafe fn VideoProcessorSetOutputHDRMetaData<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, r#type: super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, phdrmetadata: *const ::core::ffi::c_void) {
-        (::windows::core::Interface::vtable(self).VideoProcessorSetOutputHDRMetaData)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(size), ::core::mem::transmute(phdrmetadata))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub unsafe fn VideoProcessorGetOutputHDRMetaData<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, ptype: *mut super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: *mut ::core::ffi::c_void) {
-        (::windows::core::Interface::vtable(self).VideoProcessorGetOutputHDRMetaData)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(ptype), ::core::mem::transmute(size), ::core::mem::transmute(pmetadata))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub unsafe fn VideoProcessorSetStreamHDRMetaData<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, streamindex: u32, r#type: super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, phdrmetadata: *const ::core::ffi::c_void) {
-        (::windows::core::Interface::vtable(self).VideoProcessorSetStreamHDRMetaData)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(r#type), ::core::mem::transmute(size), ::core::mem::transmute(phdrmetadata))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub unsafe fn VideoProcessorGetStreamHDRMetaData<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, streamindex: u32, ptype: *mut super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: *mut ::core::ffi::c_void) {
-        (::windows::core::Interface::vtable(self).VideoProcessorGetStreamHDRMetaData)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(ptype), ::core::mem::transmute(size), ::core::mem::transmute(pmetadata))
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
+        (::windows::core::Interface::vtable(self).base.base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SubmitDecoderBuffers1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>>(&self, pdecoder: Param0, numbuffers: u32, pbufferdesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SubmitDecoderBuffers1)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(numbuffers), ::core::mem::transmute(pbufferdesc)).ok()
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDataForNewHardwareKey<'a, Param0: ::windows::core::IntoParam<'a, ID3D11CryptoSession>>(&self, pcryptosession: Param0, privateinputsize: u32, pprivatinputdata: *const ::core::ffi::c_void) -> ::windows::core::Result<u64> {
-        let mut result__: u64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetDataForNewHardwareKey)(::core::mem::transmute_copy(self), pcryptosession.into_param().abi(), ::core::mem::transmute(privateinputsize), ::core::mem::transmute(pprivatinputdata), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CheckCryptoSessionStatus<'a, Param0: ::windows::core::IntoParam<'a, ID3D11CryptoSession>>(&self, pcryptosession: Param0) -> ::windows::core::Result<D3D11_CRYPTO_SESSION_STATUS> {
-        let mut result__: D3D11_CRYPTO_SESSION_STATUS = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CheckCryptoSessionStatus)(::core::mem::transmute_copy(self), pcryptosession.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<D3D11_CRYPTO_SESSION_STATUS>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn DecoderEnableDownsampling<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>>(&self, pdecoder: Param0, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, poutputdesc: *const D3D11_VIDEO_SAMPLE_DESC, referenceframecount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.DecoderEnableDownsampling)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(inputcolorspace), ::core::mem::transmute(poutputdesc), ::core::mem::transmute(referenceframecount)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn DecoderUpdateDownsampling<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>>(&self, pdecoder: Param0, poutputdesc: *const D3D11_VIDEO_SAMPLE_DESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.DecoderUpdateDownsampling)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(poutputdesc)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn VideoProcessorSetOutputColorSpace1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) {
-        (::windows::core::Interface::vtable(self).base.VideoProcessorSetOutputColorSpace1)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(colorspace))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn VideoProcessorSetOutputShaderUsage<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pvideoprocessor: Param0, shaderusage: Param1) {
-        (::windows::core::Interface::vtable(self).base.VideoProcessorSetOutputShaderUsage)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), shaderusage.into_param().abi())
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn VideoProcessorGetOutputColorSpace1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, pcolorspace: *mut super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) {
-        (::windows::core::Interface::vtable(self).base.VideoProcessorGetOutputColorSpace1)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(pcolorspace))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn VideoProcessorGetOutputShaderUsage<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, pshaderusage: *mut super::super::Foundation::BOOL) {
-        (::windows::core::Interface::vtable(self).base.VideoProcessorGetOutputShaderUsage)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(pshaderusage))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn VideoProcessorSetStreamColorSpace1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, streamindex: u32, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) {
-        (::windows::core::Interface::vtable(self).base.VideoProcessorSetStreamColorSpace1)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(colorspace))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn VideoProcessorSetStreamMirror<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pvideoprocessor: Param0, streamindex: u32, enable: Param2, fliphorizontal: Param3, flipvertical: Param4) {
-        (::windows::core::Interface::vtable(self).base.VideoProcessorSetStreamMirror)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), enable.into_param().abi(), fliphorizontal.into_param().abi(), flipvertical.into_param().abi())
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn VideoProcessorGetStreamColorSpace1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, streamindex: u32, pcolorspace: *mut super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) {
-        (::windows::core::Interface::vtable(self).base.VideoProcessorGetStreamColorSpace1)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(pcolorspace))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn VideoProcessorGetStreamMirror<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, streamindex: u32, penable: *mut super::super::Foundation::BOOL, pfliphorizontal: *mut super::super::Foundation::BOOL, pflipvertical: *mut super::super::Foundation::BOOL) {
-        (::windows::core::Interface::vtable(self).base.VideoProcessorGetStreamMirror)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(penable), ::core::mem::transmute(pfliphorizontal), ::core::mem::transmute(pflipvertical))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn VideoProcessorGetBehaviorHints<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, outputwidth: u32, outputheight: u32, outputformat: super::Dxgi::Common::DXGI_FORMAT, streamcount: u32, pstreams: *const D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.VideoProcessorGetBehaviorHints)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(outputwidth), ::core::mem::transmute(outputheight), ::core::mem::transmute(outputformat), ::core::mem::transmute(streamcount), ::core::mem::transmute(pstreams), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDecoderBuffer<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>>(&self, pdecoder: Param0, r#type: D3D11_VIDEO_DECODER_BUFFER_TYPE, pbuffersize: *mut u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -26660,59 +26586,113 @@ impl ID3D11VideoContext2 {
         (::windows::core::Interface::vtable(self).base.base.VideoProcessorGetStreamRotation)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(penable), ::core::mem::transmute(protation))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
-        (::windows::core::Interface::vtable(self).base.base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
+    pub unsafe fn SubmitDecoderBuffers1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>>(&self, pdecoder: Param0, numbuffers: u32, pbufferdesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SubmitDecoderBuffers1)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(numbuffers), ::core::mem::transmute(pbufferdesc)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    pub unsafe fn GetDataForNewHardwareKey<'a, Param0: ::windows::core::IntoParam<'a, ID3D11CryptoSession>>(&self, pcryptosession: Param0, privateinputsize: u32, pprivatinputdata: *const ::core::ffi::c_void) -> ::windows::core::Result<u64> {
+        let mut result__: u64 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetDataForNewHardwareKey)(::core::mem::transmute_copy(self), pcryptosession.into_param().abi(), ::core::mem::transmute(privateinputsize), ::core::mem::transmute(pprivatinputdata), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    pub unsafe fn CheckCryptoSessionStatus<'a, Param0: ::windows::core::IntoParam<'a, ID3D11CryptoSession>>(&self, pcryptosession: Param0) -> ::windows::core::Result<D3D11_CRYPTO_SESSION_STATUS> {
+        let mut result__: D3D11_CRYPTO_SESSION_STATUS = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CheckCryptoSessionStatus)(::core::mem::transmute_copy(self), pcryptosession.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<D3D11_CRYPTO_SESSION_STATUS>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn DecoderEnableDownsampling<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>>(&self, pdecoder: Param0, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, poutputdesc: *const D3D11_VIDEO_SAMPLE_DESC, referenceframecount: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.DecoderEnableDownsampling)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(inputcolorspace), ::core::mem::transmute(poutputdesc), ::core::mem::transmute(referenceframecount)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn DecoderUpdateDownsampling<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>>(&self, pdecoder: Param0, poutputdesc: *const D3D11_VIDEO_SAMPLE_DESC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.DecoderUpdateDownsampling)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(poutputdesc)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn VideoProcessorSetOutputColorSpace1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) {
+        (::windows::core::Interface::vtable(self).base.VideoProcessorSetOutputColorSpace1)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(colorspace))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn VideoProcessorSetOutputShaderUsage<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pvideoprocessor: Param0, shaderusage: Param1) {
+        (::windows::core::Interface::vtable(self).base.VideoProcessorSetOutputShaderUsage)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), shaderusage.into_param().abi())
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn VideoProcessorGetOutputColorSpace1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, pcolorspace: *mut super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) {
+        (::windows::core::Interface::vtable(self).base.VideoProcessorGetOutputColorSpace1)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(pcolorspace))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn VideoProcessorGetOutputShaderUsage<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, pshaderusage: *mut super::super::Foundation::BOOL) {
+        (::windows::core::Interface::vtable(self).base.VideoProcessorGetOutputShaderUsage)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(pshaderusage))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn VideoProcessorSetStreamColorSpace1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, streamindex: u32, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) {
+        (::windows::core::Interface::vtable(self).base.VideoProcessorSetStreamColorSpace1)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(colorspace))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn VideoProcessorSetStreamMirror<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pvideoprocessor: Param0, streamindex: u32, enable: Param2, fliphorizontal: Param3, flipvertical: Param4) {
+        (::windows::core::Interface::vtable(self).base.VideoProcessorSetStreamMirror)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), enable.into_param().abi(), fliphorizontal.into_param().abi(), flipvertical.into_param().abi())
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn VideoProcessorGetStreamColorSpace1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, streamindex: u32, pcolorspace: *mut super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) {
+        (::windows::core::Interface::vtable(self).base.VideoProcessorGetStreamColorSpace1)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(pcolorspace))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn VideoProcessorGetStreamMirror<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, streamindex: u32, penable: *mut super::super::Foundation::BOOL, pfliphorizontal: *mut super::super::Foundation::BOOL, pflipvertical: *mut super::super::Foundation::BOOL) {
+        (::windows::core::Interface::vtable(self).base.VideoProcessorGetStreamMirror)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(penable), ::core::mem::transmute(pfliphorizontal), ::core::mem::transmute(pflipvertical))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn VideoProcessorGetBehaviorHints<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, outputwidth: u32, outputheight: u32, outputformat: super::Dxgi::Common::DXGI_FORMAT, streamcount: u32, pstreams: *const D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.VideoProcessorGetBehaviorHints)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(outputwidth), ::core::mem::transmute(outputheight), ::core::mem::transmute(outputformat), ::core::mem::transmute(streamcount), ::core::mem::transmute(pstreams), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi")]
+    pub unsafe fn VideoProcessorSetOutputHDRMetaData<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, r#type: super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, phdrmetadata: *const ::core::ffi::c_void) {
+        (::windows::core::Interface::vtable(self).VideoProcessorSetOutputHDRMetaData)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(size), ::core::mem::transmute(phdrmetadata))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi")]
+    pub unsafe fn VideoProcessorGetOutputHDRMetaData<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, ptype: *mut super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: *mut ::core::ffi::c_void) {
+        (::windows::core::Interface::vtable(self).VideoProcessorGetOutputHDRMetaData)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(ptype), ::core::mem::transmute(size), ::core::mem::transmute(pmetadata))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi")]
+    pub unsafe fn VideoProcessorSetStreamHDRMetaData<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, streamindex: u32, r#type: super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, phdrmetadata: *const ::core::ffi::c_void) {
+        (::windows::core::Interface::vtable(self).VideoProcessorSetStreamHDRMetaData)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(r#type), ::core::mem::transmute(size), ::core::mem::transmute(phdrmetadata))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi")]
+    pub unsafe fn VideoProcessorGetStreamHDRMetaData<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, streamindex: u32, ptype: *mut super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: *mut ::core::ffi::c_void) {
+        (::windows::core::Interface::vtable(self).VideoProcessorGetStreamHDRMetaData)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(ptype), ::core::mem::transmute(size), ::core::mem::transmute(pmetadata))
     }
 }
-impl ::core::convert::From<ID3D11VideoContext2> for ID3D11VideoContext1 {
+impl ::core::convert::From<ID3D11VideoContext2> for ::windows::core::IUnknown {
     fn from(value: ID3D11VideoContext2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11VideoContext2> for ID3D11VideoContext1 {
+impl ::core::convert::From<&ID3D11VideoContext2> for ::windows::core::IUnknown {
     fn from(value: &ID3D11VideoContext2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoContext1> for ID3D11VideoContext2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoContext1> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11VideoContext2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoContext1> for &ID3D11VideoContext2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoContext1> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11VideoContext2> for ID3D11VideoContext {
-    fn from(value: ID3D11VideoContext2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11VideoContext2> for ID3D11VideoContext {
-    fn from(value: &ID3D11VideoContext2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoContext> for ID3D11VideoContext2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoContext> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoContext> for &ID3D11VideoContext2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoContext> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11VideoContext2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -26736,23 +26716,43 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11VideoConte
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11VideoContext2> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11VideoContext2> for ID3D11VideoContext {
     fn from(value: ID3D11VideoContext2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11VideoContext2> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11VideoContext2> for ID3D11VideoContext {
     fn from(value: &ID3D11VideoContext2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11VideoContext2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoContext> for ID3D11VideoContext2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoContext> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11VideoContext2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoContext> for &ID3D11VideoContext2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoContext> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11VideoContext2> for ID3D11VideoContext1 {
+    fn from(value: ID3D11VideoContext2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11VideoContext2> for ID3D11VideoContext1 {
+    fn from(value: &ID3D11VideoContext2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoContext1> for ID3D11VideoContext2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoContext1> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoContext1> for &ID3D11VideoContext2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoContext1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -26802,102 +26802,20 @@ pub struct ID3D11VideoContext2Vtbl {
 pub struct ID3D11VideoContext3(::windows::core::IUnknown);
 impl ID3D11VideoContext3 {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn DecoderBeginFrame1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>, Param1: ::windows::core::IntoParam<'a, ID3D11VideoDecoderOutputView>>(&self, pdecoder: Param0, pview: Param1, contentkeysize: u32, pcontentkey: *const ::core::ffi::c_void, numcomponenthistograms: u32, phistogramoffsets: *const u32, pphistogrambuffers: *const ::core::option::Option<ID3D11Buffer>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DecoderBeginFrame1)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), pview.into_param().abi(), ::core::mem::transmute(contentkeysize), ::core::mem::transmute(pcontentkey), ::core::mem::transmute(numcomponenthistograms), ::core::mem::transmute(phistogramoffsets), ::core::mem::transmute(pphistogrambuffers)).ok()
+    pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SubmitDecoderBuffers2<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>>(&self, pdecoder: Param0, numbuffers: u32, pbufferdesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SubmitDecoderBuffers2)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(numbuffers), ::core::mem::transmute(pbufferdesc)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub unsafe fn VideoProcessorSetOutputHDRMetaData<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, r#type: super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, phdrmetadata: *const ::core::ffi::c_void) {
-        (::windows::core::Interface::vtable(self).base.VideoProcessorSetOutputHDRMetaData)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(size), ::core::mem::transmute(phdrmetadata))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub unsafe fn VideoProcessorGetOutputHDRMetaData<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, ptype: *mut super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: *mut ::core::ffi::c_void) {
-        (::windows::core::Interface::vtable(self).base.VideoProcessorGetOutputHDRMetaData)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(ptype), ::core::mem::transmute(size), ::core::mem::transmute(pmetadata))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub unsafe fn VideoProcessorSetStreamHDRMetaData<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, streamindex: u32, r#type: super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, phdrmetadata: *const ::core::ffi::c_void) {
-        (::windows::core::Interface::vtable(self).base.VideoProcessorSetStreamHDRMetaData)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(r#type), ::core::mem::transmute(size), ::core::mem::transmute(phdrmetadata))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub unsafe fn VideoProcessorGetStreamHDRMetaData<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, streamindex: u32, ptype: *mut super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: *mut ::core::ffi::c_void) {
-        (::windows::core::Interface::vtable(self).base.VideoProcessorGetStreamHDRMetaData)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(ptype), ::core::mem::transmute(size), ::core::mem::transmute(pmetadata))
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SubmitDecoderBuffers1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>>(&self, pdecoder: Param0, numbuffers: u32, pbufferdesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SubmitDecoderBuffers1)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(numbuffers), ::core::mem::transmute(pbufferdesc)).ok()
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDataForNewHardwareKey<'a, Param0: ::windows::core::IntoParam<'a, ID3D11CryptoSession>>(&self, pcryptosession: Param0, privateinputsize: u32, pprivatinputdata: *const ::core::ffi::c_void) -> ::windows::core::Result<u64> {
-        let mut result__: u64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.GetDataForNewHardwareKey)(::core::mem::transmute_copy(self), pcryptosession.into_param().abi(), ::core::mem::transmute(privateinputsize), ::core::mem::transmute(pprivatinputdata), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CheckCryptoSessionStatus<'a, Param0: ::windows::core::IntoParam<'a, ID3D11CryptoSession>>(&self, pcryptosession: Param0) -> ::windows::core::Result<D3D11_CRYPTO_SESSION_STATUS> {
-        let mut result__: D3D11_CRYPTO_SESSION_STATUS = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CheckCryptoSessionStatus)(::core::mem::transmute_copy(self), pcryptosession.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<D3D11_CRYPTO_SESSION_STATUS>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn DecoderEnableDownsampling<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>>(&self, pdecoder: Param0, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, poutputdesc: *const D3D11_VIDEO_SAMPLE_DESC, referenceframecount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.DecoderEnableDownsampling)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(inputcolorspace), ::core::mem::transmute(poutputdesc), ::core::mem::transmute(referenceframecount)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn DecoderUpdateDownsampling<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>>(&self, pdecoder: Param0, poutputdesc: *const D3D11_VIDEO_SAMPLE_DESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.DecoderUpdateDownsampling)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(poutputdesc)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn VideoProcessorSetOutputColorSpace1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) {
-        (::windows::core::Interface::vtable(self).base.base.VideoProcessorSetOutputColorSpace1)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(colorspace))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn VideoProcessorSetOutputShaderUsage<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pvideoprocessor: Param0, shaderusage: Param1) {
-        (::windows::core::Interface::vtable(self).base.base.VideoProcessorSetOutputShaderUsage)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), shaderusage.into_param().abi())
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn VideoProcessorGetOutputColorSpace1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, pcolorspace: *mut super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) {
-        (::windows::core::Interface::vtable(self).base.base.VideoProcessorGetOutputColorSpace1)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(pcolorspace))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn VideoProcessorGetOutputShaderUsage<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, pshaderusage: *mut super::super::Foundation::BOOL) {
-        (::windows::core::Interface::vtable(self).base.base.VideoProcessorGetOutputShaderUsage)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(pshaderusage))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn VideoProcessorSetStreamColorSpace1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, streamindex: u32, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) {
-        (::windows::core::Interface::vtable(self).base.base.VideoProcessorSetStreamColorSpace1)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(colorspace))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn VideoProcessorSetStreamMirror<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pvideoprocessor: Param0, streamindex: u32, enable: Param2, fliphorizontal: Param3, flipvertical: Param4) {
-        (::windows::core::Interface::vtable(self).base.base.VideoProcessorSetStreamMirror)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), enable.into_param().abi(), fliphorizontal.into_param().abi(), flipvertical.into_param().abi())
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn VideoProcessorGetStreamColorSpace1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, streamindex: u32, pcolorspace: *mut super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) {
-        (::windows::core::Interface::vtable(self).base.base.VideoProcessorGetStreamColorSpace1)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(pcolorspace))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn VideoProcessorGetStreamMirror<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, streamindex: u32, penable: *mut super::super::Foundation::BOOL, pfliphorizontal: *mut super::super::Foundation::BOOL, pflipvertical: *mut super::super::Foundation::BOOL) {
-        (::windows::core::Interface::vtable(self).base.base.VideoProcessorGetStreamMirror)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(penable), ::core::mem::transmute(pfliphorizontal), ::core::mem::transmute(pflipvertical))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn VideoProcessorGetBehaviorHints<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, outputwidth: u32, outputheight: u32, outputformat: super::Dxgi::Common::DXGI_FORMAT, streamcount: u32, pstreams: *const D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.VideoProcessorGetBehaviorHints)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(outputwidth), ::core::mem::transmute(outputheight), ::core::mem::transmute(outputformat), ::core::mem::transmute(streamcount), ::core::mem::transmute(pstreams), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDecoderBuffer<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>>(&self, pdecoder: Param0, r#type: D3D11_VIDEO_DECODER_BUFFER_TYPE, pbuffersize: *mut u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -27164,79 +27082,121 @@ impl ID3D11VideoContext3 {
         (::windows::core::Interface::vtable(self).base.base.base.VideoProcessorGetStreamRotation)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(penable), ::core::mem::transmute(protation))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
+    pub unsafe fn SubmitDecoderBuffers1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>>(&self, pdecoder: Param0, numbuffers: u32, pbufferdesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SubmitDecoderBuffers1)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(numbuffers), ::core::mem::transmute(pbufferdesc)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    pub unsafe fn GetDataForNewHardwareKey<'a, Param0: ::windows::core::IntoParam<'a, ID3D11CryptoSession>>(&self, pcryptosession: Param0, privateinputsize: u32, pprivatinputdata: *const ::core::ffi::c_void) -> ::windows::core::Result<u64> {
+        let mut result__: u64 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetDataForNewHardwareKey)(::core::mem::transmute_copy(self), pcryptosession.into_param().abi(), ::core::mem::transmute(privateinputsize), ::core::mem::transmute(pprivatinputdata), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    pub unsafe fn CheckCryptoSessionStatus<'a, Param0: ::windows::core::IntoParam<'a, ID3D11CryptoSession>>(&self, pcryptosession: Param0) -> ::windows::core::Result<D3D11_CRYPTO_SESSION_STATUS> {
+        let mut result__: D3D11_CRYPTO_SESSION_STATUS = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CheckCryptoSessionStatus)(::core::mem::transmute_copy(self), pcryptosession.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<D3D11_CRYPTO_SESSION_STATUS>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn DecoderEnableDownsampling<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>>(&self, pdecoder: Param0, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, poutputdesc: *const D3D11_VIDEO_SAMPLE_DESC, referenceframecount: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.DecoderEnableDownsampling)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(inputcolorspace), ::core::mem::transmute(poutputdesc), ::core::mem::transmute(referenceframecount)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn DecoderUpdateDownsampling<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>>(&self, pdecoder: Param0, poutputdesc: *const D3D11_VIDEO_SAMPLE_DESC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.DecoderUpdateDownsampling)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(poutputdesc)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn VideoProcessorSetOutputColorSpace1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) {
+        (::windows::core::Interface::vtable(self).base.base.VideoProcessorSetOutputColorSpace1)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(colorspace))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn VideoProcessorSetOutputShaderUsage<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pvideoprocessor: Param0, shaderusage: Param1) {
+        (::windows::core::Interface::vtable(self).base.base.VideoProcessorSetOutputShaderUsage)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), shaderusage.into_param().abi())
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn VideoProcessorGetOutputColorSpace1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, pcolorspace: *mut super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) {
+        (::windows::core::Interface::vtable(self).base.base.VideoProcessorGetOutputColorSpace1)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(pcolorspace))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn VideoProcessorGetOutputShaderUsage<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, pshaderusage: *mut super::super::Foundation::BOOL) {
+        (::windows::core::Interface::vtable(self).base.base.VideoProcessorGetOutputShaderUsage)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(pshaderusage))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn VideoProcessorSetStreamColorSpace1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, streamindex: u32, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) {
+        (::windows::core::Interface::vtable(self).base.base.VideoProcessorSetStreamColorSpace1)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(colorspace))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn VideoProcessorSetStreamMirror<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pvideoprocessor: Param0, streamindex: u32, enable: Param2, fliphorizontal: Param3, flipvertical: Param4) {
+        (::windows::core::Interface::vtable(self).base.base.VideoProcessorSetStreamMirror)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), enable.into_param().abi(), fliphorizontal.into_param().abi(), flipvertical.into_param().abi())
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn VideoProcessorGetStreamColorSpace1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, streamindex: u32, pcolorspace: *mut super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) {
+        (::windows::core::Interface::vtable(self).base.base.VideoProcessorGetStreamColorSpace1)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(pcolorspace))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn VideoProcessorGetStreamMirror<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, streamindex: u32, penable: *mut super::super::Foundation::BOOL, pfliphorizontal: *mut super::super::Foundation::BOOL, pflipvertical: *mut super::super::Foundation::BOOL) {
+        (::windows::core::Interface::vtable(self).base.base.VideoProcessorGetStreamMirror)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(penable), ::core::mem::transmute(pfliphorizontal), ::core::mem::transmute(pflipvertical))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn VideoProcessorGetBehaviorHints<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, outputwidth: u32, outputheight: u32, outputformat: super::Dxgi::Common::DXGI_FORMAT, streamcount: u32, pstreams: *const D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.VideoProcessorGetBehaviorHints)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(outputwidth), ::core::mem::transmute(outputheight), ::core::mem::transmute(outputformat), ::core::mem::transmute(streamcount), ::core::mem::transmute(pstreams), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi")]
+    pub unsafe fn VideoProcessorSetOutputHDRMetaData<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, r#type: super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, phdrmetadata: *const ::core::ffi::c_void) {
+        (::windows::core::Interface::vtable(self).base.VideoProcessorSetOutputHDRMetaData)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(size), ::core::mem::transmute(phdrmetadata))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi")]
+    pub unsafe fn VideoProcessorGetOutputHDRMetaData<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, ptype: *mut super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: *mut ::core::ffi::c_void) {
+        (::windows::core::Interface::vtable(self).base.VideoProcessorGetOutputHDRMetaData)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(ptype), ::core::mem::transmute(size), ::core::mem::transmute(pmetadata))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi")]
+    pub unsafe fn VideoProcessorSetStreamHDRMetaData<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, streamindex: u32, r#type: super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, phdrmetadata: *const ::core::ffi::c_void) {
+        (::windows::core::Interface::vtable(self).base.VideoProcessorSetStreamHDRMetaData)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(r#type), ::core::mem::transmute(size), ::core::mem::transmute(phdrmetadata))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi")]
+    pub unsafe fn VideoProcessorGetStreamHDRMetaData<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoProcessor>>(&self, pvideoprocessor: Param0, streamindex: u32, ptype: *mut super::Dxgi::DXGI_HDR_METADATA_TYPE, size: u32, pmetadata: *mut ::core::ffi::c_void) {
+        (::windows::core::Interface::vtable(self).base.VideoProcessorGetStreamHDRMetaData)(::core::mem::transmute_copy(self), pvideoprocessor.into_param().abi(), ::core::mem::transmute(streamindex), ::core::mem::transmute(ptype), ::core::mem::transmute(size), ::core::mem::transmute(pmetadata))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
+    pub unsafe fn DecoderBeginFrame1<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>, Param1: ::windows::core::IntoParam<'a, ID3D11VideoDecoderOutputView>>(&self, pdecoder: Param0, pview: Param1, contentkeysize: u32, pcontentkey: *const ::core::ffi::c_void, numcomponenthistograms: u32, phistogramoffsets: *const u32, pphistogrambuffers: *const ::core::option::Option<ID3D11Buffer>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DecoderBeginFrame1)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), pview.into_param().abi(), ::core::mem::transmute(contentkeysize), ::core::mem::transmute(pcontentkey), ::core::mem::transmute(numcomponenthistograms), ::core::mem::transmute(phistogramoffsets), ::core::mem::transmute(pphistogrambuffers)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn SubmitDecoderBuffers2<'a, Param0: ::windows::core::IntoParam<'a, ID3D11VideoDecoder>>(&self, pdecoder: Param0, numbuffers: u32, pbufferdesc: *const D3D11_VIDEO_DECODER_BUFFER_DESC2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SubmitDecoderBuffers2)(::core::mem::transmute_copy(self), pdecoder.into_param().abi(), ::core::mem::transmute(numbuffers), ::core::mem::transmute(pbufferdesc)).ok()
     }
 }
-impl ::core::convert::From<ID3D11VideoContext3> for ID3D11VideoContext2 {
+impl ::core::convert::From<ID3D11VideoContext3> for ::windows::core::IUnknown {
     fn from(value: ID3D11VideoContext3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11VideoContext3> for ID3D11VideoContext2 {
+impl ::core::convert::From<&ID3D11VideoContext3> for ::windows::core::IUnknown {
     fn from(value: &ID3D11VideoContext3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoContext2> for ID3D11VideoContext3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoContext2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11VideoContext3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoContext2> for &ID3D11VideoContext3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoContext2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11VideoContext3> for ID3D11VideoContext1 {
-    fn from(value: ID3D11VideoContext3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11VideoContext3> for ID3D11VideoContext1 {
-    fn from(value: &ID3D11VideoContext3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoContext1> for ID3D11VideoContext3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoContext1> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoContext1> for &ID3D11VideoContext3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoContext1> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11VideoContext3> for ID3D11VideoContext {
-    fn from(value: ID3D11VideoContext3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11VideoContext3> for ID3D11VideoContext {
-    fn from(value: &ID3D11VideoContext3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoContext> for ID3D11VideoContext3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoContext> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoContext> for &ID3D11VideoContext3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoContext> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11VideoContext3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -27260,23 +27220,63 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11VideoConte
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11VideoContext3> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11VideoContext3> for ID3D11VideoContext {
     fn from(value: ID3D11VideoContext3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11VideoContext3> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11VideoContext3> for ID3D11VideoContext {
     fn from(value: &ID3D11VideoContext3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11VideoContext3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoContext> for ID3D11VideoContext3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoContext> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11VideoContext3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoContext> for &ID3D11VideoContext3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoContext> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11VideoContext3> for ID3D11VideoContext1 {
+    fn from(value: ID3D11VideoContext3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11VideoContext3> for ID3D11VideoContext1 {
+    fn from(value: &ID3D11VideoContext3) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoContext1> for ID3D11VideoContext3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoContext1> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoContext1> for &ID3D11VideoContext3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoContext1> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11VideoContext3> for ID3D11VideoContext2 {
+    fn from(value: ID3D11VideoContext3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11VideoContext3> for ID3D11VideoContext2 {
+    fn from(value: &ID3D11VideoContext3) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoContext2> for ID3D11VideoContext3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoContext2> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoContext2> for &ID3D11VideoContext3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoContext2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -27311,17 +27311,6 @@ pub struct ID3D11VideoContext3Vtbl {
 #[repr(transparent)]
 pub struct ID3D11VideoDecoder(::windows::core::IUnknown);
 impl ID3D11VideoDecoder {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetCreationParameters(&self, pvideodesc: *mut D3D11_VIDEO_DECODER_DESC, pconfig: *mut D3D11_VIDEO_DECODER_CONFIG) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCreationParameters)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvideodesc), ::core::mem::transmute(pconfig)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDriverHandle(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
-        let mut result__: super::super::Foundation::HANDLE = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDriverHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HANDLE>(result__)
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
@@ -27338,25 +27327,16 @@ impl ID3D11VideoDecoder {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
-}
-impl ::core::convert::From<ID3D11VideoDecoder> for ID3D11DeviceChild {
-    fn from(value: ID3D11VideoDecoder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetCreationParameters(&self, pvideodesc: *mut D3D11_VIDEO_DECODER_DESC, pconfig: *mut D3D11_VIDEO_DECODER_CONFIG) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetCreationParameters)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvideodesc), ::core::mem::transmute(pconfig)).ok()
     }
-}
-impl ::core::convert::From<&ID3D11VideoDecoder> for ID3D11DeviceChild {
-    fn from(value: &ID3D11VideoDecoder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11VideoDecoder {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11VideoDecoder {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetDriverHandle(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
+        let mut result__: super::super::Foundation::HANDLE = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetDriverHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
 }
 impl ::core::convert::From<ID3D11VideoDecoder> for ::windows::core::IUnknown {
@@ -27376,6 +27356,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Vid
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11VideoDecoder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11VideoDecoder> for ID3D11DeviceChild {
+    fn from(value: ID3D11VideoDecoder) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11VideoDecoder> for ID3D11DeviceChild {
+    fn from(value: &ID3D11VideoDecoder) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11VideoDecoder {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11VideoDecoder {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -27417,14 +27417,6 @@ pub struct ID3D11VideoDecoderVtbl {
 pub struct ID3D11VideoDecoderOutputView(::windows::core::IUnknown);
 impl ID3D11VideoDecoderOutputView {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC) {
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D11Resource>) {
-        (::windows::core::Interface::vtable(self).base.GetResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresource))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
     }
@@ -27440,24 +27432,32 @@ impl ID3D11VideoDecoderOutputView {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D11Resource>) {
+        (::windows::core::Interface::vtable(self).base.GetResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresource))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC) {
+        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
 }
-impl ::core::convert::From<ID3D11VideoDecoderOutputView> for ID3D11View {
+impl ::core::convert::From<ID3D11VideoDecoderOutputView> for ::windows::core::IUnknown {
     fn from(value: ID3D11VideoDecoderOutputView) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11VideoDecoderOutputView> for ID3D11View {
+impl ::core::convert::From<&ID3D11VideoDecoderOutputView> for ::windows::core::IUnknown {
     fn from(value: &ID3D11VideoDecoderOutputView) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for ID3D11VideoDecoderOutputView {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11VideoDecoderOutputView {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for &ID3D11VideoDecoderOutputView {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11VideoDecoderOutputView {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -27481,23 +27481,23 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11VideoDecod
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11VideoDecoderOutputView> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11VideoDecoderOutputView> for ID3D11View {
     fn from(value: ID3D11VideoDecoderOutputView) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11VideoDecoderOutputView> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11VideoDecoderOutputView> for ID3D11View {
     fn from(value: &ID3D11VideoDecoderOutputView) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11VideoDecoderOutputView {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for ID3D11VideoDecoderOutputView {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11VideoDecoderOutputView {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for &ID3D11VideoDecoderOutputView {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -27700,27 +27700,6 @@ pub struct ID3D11VideoDeviceVtbl {
 #[repr(transparent)]
 pub struct ID3D11VideoDevice1(::windows::core::IUnknown);
 impl ID3D11VideoDevice1 {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetCryptoSessionPrivateDataSize(&self, pcryptotype: *const ::windows::core::GUID, pdecoderprofile: *const ::windows::core::GUID, pkeyexchangetype: *const ::windows::core::GUID, pprivateinputsize: *mut u32, pprivateoutputsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCryptoSessionPrivateDataSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcryptotype), ::core::mem::transmute(pdecoderprofile), ::core::mem::transmute(pkeyexchangetype), ::core::mem::transmute(pprivateinputsize), ::core::mem::transmute(pprivateoutputsize)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetVideoDecoderCaps(&self, pdecoderprofile: *const ::windows::core::GUID, samplewidth: u32, sampleheight: u32, pframerate: *const super::Dxgi::Common::DXGI_RATIONAL, bitrate: u32, pcryptotype: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetVideoDecoderCaps)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdecoderprofile), ::core::mem::transmute(samplewidth), ::core::mem::transmute(sampleheight), ::core::mem::transmute(pframerate), ::core::mem::transmute(bitrate), ::core::mem::transmute(pcryptotype), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CheckVideoDecoderDownsampling(&self, pinputdesc: *const D3D11_VIDEO_DECODER_DESC, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, pinputconfig: *const D3D11_VIDEO_DECODER_CONFIG, pframerate: *const super::Dxgi::Common::DXGI_RATIONAL, poutputdesc: *const D3D11_VIDEO_SAMPLE_DESC, psupported: *mut super::super::Foundation::BOOL, prealtimehint: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CheckVideoDecoderDownsampling)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinputdesc), ::core::mem::transmute(inputcolorspace), ::core::mem::transmute(pinputconfig), ::core::mem::transmute(pframerate), ::core::mem::transmute(poutputdesc), ::core::mem::transmute(psupported), ::core::mem::transmute(prealtimehint)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn RecommendVideoDecoderDownsampleParameters(&self, pinputdesc: *const D3D11_VIDEO_DECODER_DESC, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, pinputconfig: *const D3D11_VIDEO_DECODER_CONFIG, pframerate: *const super::Dxgi::Common::DXGI_RATIONAL) -> ::windows::core::Result<D3D11_VIDEO_SAMPLE_DESC> {
-        let mut result__: D3D11_VIDEO_SAMPLE_DESC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RecommendVideoDecoderDownsampleParameters)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinputdesc), ::core::mem::transmute(inputcolorspace), ::core::mem::transmute(pinputconfig), ::core::mem::transmute(pframerate), ::core::mem::transmute(&mut result__)).from_abi::<D3D11_VIDEO_SAMPLE_DESC>(result__)
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateVideoDecoder(&self, pvideodesc: *const D3D11_VIDEO_DECODER_DESC, pconfig: *const D3D11_VIDEO_DECODER_CONFIG) -> ::windows::core::Result<ID3D11VideoDecoder> {
@@ -27808,25 +27787,26 @@ impl ID3D11VideoDevice1 {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
-}
-impl ::core::convert::From<ID3D11VideoDevice1> for ID3D11VideoDevice {
-    fn from(value: ID3D11VideoDevice1) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetCryptoSessionPrivateDataSize(&self, pcryptotype: *const ::windows::core::GUID, pdecoderprofile: *const ::windows::core::GUID, pkeyexchangetype: *const ::windows::core::GUID, pprivateinputsize: *mut u32, pprivateoutputsize: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetCryptoSessionPrivateDataSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcryptotype), ::core::mem::transmute(pdecoderprofile), ::core::mem::transmute(pkeyexchangetype), ::core::mem::transmute(pprivateinputsize), ::core::mem::transmute(pprivateoutputsize)).ok()
     }
-}
-impl ::core::convert::From<&ID3D11VideoDevice1> for ID3D11VideoDevice {
-    fn from(value: &ID3D11VideoDevice1) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetVideoDecoderCaps(&self, pdecoderprofile: *const ::windows::core::GUID, samplewidth: u32, sampleheight: u32, pframerate: *const super::Dxgi::Common::DXGI_RATIONAL, bitrate: u32, pcryptotype: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetVideoDecoderCaps)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdecoderprofile), ::core::mem::transmute(samplewidth), ::core::mem::transmute(sampleheight), ::core::mem::transmute(pframerate), ::core::mem::transmute(bitrate), ::core::mem::transmute(pcryptotype), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoDevice> for ID3D11VideoDevice1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoDevice> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CheckVideoDecoderDownsampling(&self, pinputdesc: *const D3D11_VIDEO_DECODER_DESC, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, pinputconfig: *const D3D11_VIDEO_DECODER_CONFIG, pframerate: *const super::Dxgi::Common::DXGI_RATIONAL, poutputdesc: *const D3D11_VIDEO_SAMPLE_DESC, psupported: *mut super::super::Foundation::BOOL, prealtimehint: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CheckVideoDecoderDownsampling)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinputdesc), ::core::mem::transmute(inputcolorspace), ::core::mem::transmute(pinputconfig), ::core::mem::transmute(pframerate), ::core::mem::transmute(poutputdesc), ::core::mem::transmute(psupported), ::core::mem::transmute(prealtimehint)).ok()
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoDevice> for &ID3D11VideoDevice1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoDevice> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn RecommendVideoDecoderDownsampleParameters(&self, pinputdesc: *const D3D11_VIDEO_DECODER_DESC, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, pinputconfig: *const D3D11_VIDEO_DECODER_CONFIG, pframerate: *const super::Dxgi::Common::DXGI_RATIONAL) -> ::windows::core::Result<D3D11_VIDEO_SAMPLE_DESC> {
+        let mut result__: D3D11_VIDEO_SAMPLE_DESC = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).RecommendVideoDecoderDownsampleParameters)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinputdesc), ::core::mem::transmute(inputcolorspace), ::core::mem::transmute(pinputconfig), ::core::mem::transmute(pframerate), ::core::mem::transmute(&mut result__)).from_abi::<D3D11_VIDEO_SAMPLE_DESC>(result__)
     }
 }
 impl ::core::convert::From<ID3D11VideoDevice1> for ::windows::core::IUnknown {
@@ -27846,6 +27826,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Vid
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11VideoDevice1 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11VideoDevice1> for ID3D11VideoDevice {
+    fn from(value: ID3D11VideoDevice1) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11VideoDevice1> for ID3D11VideoDevice {
+    fn from(value: &ID3D11VideoDevice1) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoDevice> for ID3D11VideoDevice1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoDevice> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoDevice> for &ID3D11VideoDevice1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoDevice> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -27891,35 +27891,6 @@ pub struct ID3D11VideoDevice1Vtbl {
 #[repr(transparent)]
 pub struct ID3D11VideoDevice2(::windows::core::IUnknown);
 impl ID3D11VideoDevice2 {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn CheckFeatureSupport(&self, feature: D3D11_FEATURE_VIDEO, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CheckFeatureSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(feature), ::core::mem::transmute(pfeaturesupportdata), ::core::mem::transmute(featuresupportdatasize)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn NegotiateCryptoSessionKeyExchangeMT<'a, Param0: ::windows::core::IntoParam<'a, ID3D11CryptoSession>>(&self, pcryptosession: Param0, flags: D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).NegotiateCryptoSessionKeyExchangeMT)(::core::mem::transmute_copy(self), pcryptosession.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetCryptoSessionPrivateDataSize(&self, pcryptotype: *const ::windows::core::GUID, pdecoderprofile: *const ::windows::core::GUID, pkeyexchangetype: *const ::windows::core::GUID, pprivateinputsize: *mut u32, pprivateoutputsize: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetCryptoSessionPrivateDataSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcryptotype), ::core::mem::transmute(pdecoderprofile), ::core::mem::transmute(pkeyexchangetype), ::core::mem::transmute(pprivateinputsize), ::core::mem::transmute(pprivateoutputsize)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetVideoDecoderCaps(&self, pdecoderprofile: *const ::windows::core::GUID, samplewidth: u32, sampleheight: u32, pframerate: *const super::Dxgi::Common::DXGI_RATIONAL, bitrate: u32, pcryptotype: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetVideoDecoderCaps)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdecoderprofile), ::core::mem::transmute(samplewidth), ::core::mem::transmute(sampleheight), ::core::mem::transmute(pframerate), ::core::mem::transmute(bitrate), ::core::mem::transmute(pcryptotype), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CheckVideoDecoderDownsampling(&self, pinputdesc: *const D3D11_VIDEO_DECODER_DESC, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, pinputconfig: *const D3D11_VIDEO_DECODER_CONFIG, pframerate: *const super::Dxgi::Common::DXGI_RATIONAL, poutputdesc: *const D3D11_VIDEO_SAMPLE_DESC, psupported: *mut super::super::Foundation::BOOL, prealtimehint: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.CheckVideoDecoderDownsampling)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinputdesc), ::core::mem::transmute(inputcolorspace), ::core::mem::transmute(pinputconfig), ::core::mem::transmute(pframerate), ::core::mem::transmute(poutputdesc), ::core::mem::transmute(psupported), ::core::mem::transmute(prealtimehint)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn RecommendVideoDecoderDownsampleParameters(&self, pinputdesc: *const D3D11_VIDEO_DECODER_DESC, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, pinputconfig: *const D3D11_VIDEO_DECODER_CONFIG, pframerate: *const super::Dxgi::Common::DXGI_RATIONAL) -> ::windows::core::Result<D3D11_VIDEO_SAMPLE_DESC> {
-        let mut result__: D3D11_VIDEO_SAMPLE_DESC = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.RecommendVideoDecoderDownsampleParameters)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinputdesc), ::core::mem::transmute(inputcolorspace), ::core::mem::transmute(pinputconfig), ::core::mem::transmute(pframerate), ::core::mem::transmute(&mut result__)).from_abi::<D3D11_VIDEO_SAMPLE_DESC>(result__)
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn CreateVideoDecoder(&self, pvideodesc: *const D3D11_VIDEO_DECODER_DESC, pconfig: *const D3D11_VIDEO_DECODER_CONFIG) -> ::windows::core::Result<ID3D11VideoDecoder> {
@@ -28007,24 +27978,53 @@ impl ID3D11VideoDevice2 {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetCryptoSessionPrivateDataSize(&self, pcryptotype: *const ::windows::core::GUID, pdecoderprofile: *const ::windows::core::GUID, pkeyexchangetype: *const ::windows::core::GUID, pprivateinputsize: *mut u32, pprivateoutputsize: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetCryptoSessionPrivateDataSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcryptotype), ::core::mem::transmute(pdecoderprofile), ::core::mem::transmute(pkeyexchangetype), ::core::mem::transmute(pprivateinputsize), ::core::mem::transmute(pprivateoutputsize)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetVideoDecoderCaps(&self, pdecoderprofile: *const ::windows::core::GUID, samplewidth: u32, sampleheight: u32, pframerate: *const super::Dxgi::Common::DXGI_RATIONAL, bitrate: u32, pcryptotype: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetVideoDecoderCaps)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdecoderprofile), ::core::mem::transmute(samplewidth), ::core::mem::transmute(sampleheight), ::core::mem::transmute(pframerate), ::core::mem::transmute(bitrate), ::core::mem::transmute(pcryptotype), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CheckVideoDecoderDownsampling(&self, pinputdesc: *const D3D11_VIDEO_DECODER_DESC, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, pinputconfig: *const D3D11_VIDEO_DECODER_CONFIG, pframerate: *const super::Dxgi::Common::DXGI_RATIONAL, poutputdesc: *const D3D11_VIDEO_SAMPLE_DESC, psupported: *mut super::super::Foundation::BOOL, prealtimehint: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.CheckVideoDecoderDownsampling)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinputdesc), ::core::mem::transmute(inputcolorspace), ::core::mem::transmute(pinputconfig), ::core::mem::transmute(pframerate), ::core::mem::transmute(poutputdesc), ::core::mem::transmute(psupported), ::core::mem::transmute(prealtimehint)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn RecommendVideoDecoderDownsampleParameters(&self, pinputdesc: *const D3D11_VIDEO_DECODER_DESC, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, pinputconfig: *const D3D11_VIDEO_DECODER_CONFIG, pframerate: *const super::Dxgi::Common::DXGI_RATIONAL) -> ::windows::core::Result<D3D11_VIDEO_SAMPLE_DESC> {
+        let mut result__: D3D11_VIDEO_SAMPLE_DESC = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.RecommendVideoDecoderDownsampleParameters)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinputdesc), ::core::mem::transmute(inputcolorspace), ::core::mem::transmute(pinputconfig), ::core::mem::transmute(pframerate), ::core::mem::transmute(&mut result__)).from_abi::<D3D11_VIDEO_SAMPLE_DESC>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn CheckFeatureSupport(&self, feature: D3D11_FEATURE_VIDEO, pfeaturesupportdata: *mut ::core::ffi::c_void, featuresupportdatasize: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CheckFeatureSupport)(::core::mem::transmute_copy(self), ::core::mem::transmute(feature), ::core::mem::transmute(pfeaturesupportdata), ::core::mem::transmute(featuresupportdatasize)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn NegotiateCryptoSessionKeyExchangeMT<'a, Param0: ::windows::core::IntoParam<'a, ID3D11CryptoSession>>(&self, pcryptosession: Param0, flags: D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).NegotiateCryptoSessionKeyExchangeMT)(::core::mem::transmute_copy(self), pcryptosession.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
 }
-impl ::core::convert::From<ID3D11VideoDevice2> for ID3D11VideoDevice1 {
+impl ::core::convert::From<ID3D11VideoDevice2> for ::windows::core::IUnknown {
     fn from(value: ID3D11VideoDevice2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11VideoDevice2> for ID3D11VideoDevice1 {
+impl ::core::convert::From<&ID3D11VideoDevice2> for ::windows::core::IUnknown {
     fn from(value: &ID3D11VideoDevice2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoDevice1> for ID3D11VideoDevice2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoDevice1> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11VideoDevice2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoDevice1> for &ID3D11VideoDevice2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoDevice1> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11VideoDevice2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -28048,23 +28048,23 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoDevice> for &ID3D11VideoDevic
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11VideoDevice2> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11VideoDevice2> for ID3D11VideoDevice1 {
     fn from(value: ID3D11VideoDevice2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11VideoDevice2> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11VideoDevice2> for ID3D11VideoDevice1 {
     fn from(value: &ID3D11VideoDevice2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11VideoDevice2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoDevice1> for ID3D11VideoDevice2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoDevice1> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11VideoDevice2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoDevice1> for &ID3D11VideoDevice2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoDevice1> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -28099,15 +28099,6 @@ pub struct ID3D11VideoDevice2Vtbl {
 #[repr(transparent)]
 pub struct ID3D11VideoProcessor(::windows::core::IUnknown);
 impl ID3D11VideoProcessor {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetContentDesc(&self, pdesc: *mut D3D11_VIDEO_PROCESSOR_CONTENT_DESC) {
-        (::windows::core::Interface::vtable(self).GetContentDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetRateConversionCaps(&self, pcaps: *mut D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS) {
-        (::windows::core::Interface::vtable(self).GetRateConversionCaps)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcaps))
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
@@ -28124,25 +28115,14 @@ impl ID3D11VideoProcessor {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
-}
-impl ::core::convert::From<ID3D11VideoProcessor> for ID3D11DeviceChild {
-    fn from(value: ID3D11VideoProcessor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
+    pub unsafe fn GetContentDesc(&self, pdesc: *mut D3D11_VIDEO_PROCESSOR_CONTENT_DESC) {
+        (::windows::core::Interface::vtable(self).GetContentDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
     }
-}
-impl ::core::convert::From<&ID3D11VideoProcessor> for ID3D11DeviceChild {
-    fn from(value: &ID3D11VideoProcessor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11VideoProcessor {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11VideoProcessor {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetRateConversionCaps(&self, pcaps: *mut D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS) {
+        (::windows::core::Interface::vtable(self).GetRateConversionCaps)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcaps))
     }
 }
 impl ::core::convert::From<ID3D11VideoProcessor> for ::windows::core::IUnknown {
@@ -28162,6 +28142,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Vid
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11VideoProcessor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11VideoProcessor> for ID3D11DeviceChild {
+    fn from(value: ID3D11VideoProcessor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11VideoProcessor> for ID3D11DeviceChild {
+    fn from(value: &ID3D11VideoProcessor) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11VideoProcessor {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11VideoProcessor {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -28199,6 +28199,22 @@ pub struct ID3D11VideoProcessorVtbl {
 #[repr(transparent)]
 pub struct ID3D11VideoProcessorEnumerator(::windows::core::IUnknown);
 impl ID3D11VideoProcessorEnumerator {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
+        (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
+    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetVideoProcessorContentDesc(&self) -> ::windows::core::Result<D3D11_VIDEO_PROCESSOR_CONTENT_DESC> {
@@ -28232,21 +28248,25 @@ impl ID3D11VideoProcessorEnumerator {
         let mut result__: D3D11_VIDEO_PROCESSOR_FILTER_RANGE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).GetVideoProcessorFilterRange)(::core::mem::transmute_copy(self), ::core::mem::transmute(filter), ::core::mem::transmute(&mut result__)).from_abi::<D3D11_VIDEO_PROCESSOR_FILTER_RANGE>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
-        (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
+}
+impl ::core::convert::From<ID3D11VideoProcessorEnumerator> for ::windows::core::IUnknown {
+    fn from(value: ID3D11VideoProcessorEnumerator) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+}
+impl ::core::convert::From<&ID3D11VideoProcessorEnumerator> for ::windows::core::IUnknown {
+    fn from(value: &ID3D11VideoProcessorEnumerator) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11VideoProcessorEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11VideoProcessorEnumerator {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ID3D11VideoProcessorEnumerator> for ID3D11DeviceChild {
@@ -28266,26 +28286,6 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11VideoProces
 }
 impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11VideoProcessorEnumerator {
     fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ID3D11VideoProcessorEnumerator> for ::windows::core::IUnknown {
-    fn from(value: ID3D11VideoProcessorEnumerator) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11VideoProcessorEnumerator> for ::windows::core::IUnknown {
-    fn from(value: &ID3D11VideoProcessorEnumerator) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11VideoProcessorEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11VideoProcessorEnumerator {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -28333,11 +28333,21 @@ pub struct ID3D11VideoProcessorEnumeratorVtbl {
 #[repr(transparent)]
 pub struct ID3D11VideoProcessorEnumerator1(::windows::core::IUnknown);
 impl ID3D11VideoProcessorEnumerator1 {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn CheckVideoProcessorFormatConversion(&self, inputformat: super::Dxgi::Common::DXGI_FORMAT, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, outputformat: super::Dxgi::Common::DXGI_FORMAT, outputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CheckVideoProcessorFormatConversion)(::core::mem::transmute_copy(self), ::core::mem::transmute(inputformat), ::core::mem::transmute(inputcolorspace), ::core::mem::transmute(outputformat), ::core::mem::transmute(outputcolorspace), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
+        (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -28372,40 +28382,30 @@ impl ID3D11VideoProcessorEnumerator1 {
         let mut result__: D3D11_VIDEO_PROCESSOR_FILTER_RANGE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetVideoProcessorFilterRange)(::core::mem::transmute_copy(self), ::core::mem::transmute(filter), ::core::mem::transmute(&mut result__)).from_abi::<D3D11_VIDEO_PROCESSOR_FILTER_RANGE>(result__)
     }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
-        (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetPrivateData(&self, guid: *const ::windows::core::GUID, pdatasize: *mut u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.GetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(pdatasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetPrivateData(&self, guid: *const ::windows::core::GUID, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SetPrivateData)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), ::core::mem::transmute(datasize), ::core::mem::transmute(pdata)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
+    pub unsafe fn CheckVideoProcessorFormatConversion(&self, inputformat: super::Dxgi::Common::DXGI_FORMAT, inputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE, outputformat: super::Dxgi::Common::DXGI_FORMAT, outputcolorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CheckVideoProcessorFormatConversion)(::core::mem::transmute_copy(self), ::core::mem::transmute(inputformat), ::core::mem::transmute(inputcolorspace), ::core::mem::transmute(outputformat), ::core::mem::transmute(outputcolorspace), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<ID3D11VideoProcessorEnumerator1> for ID3D11VideoProcessorEnumerator {
+impl ::core::convert::From<ID3D11VideoProcessorEnumerator1> for ::windows::core::IUnknown {
     fn from(value: ID3D11VideoProcessorEnumerator1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11VideoProcessorEnumerator1> for ID3D11VideoProcessorEnumerator {
+impl ::core::convert::From<&ID3D11VideoProcessorEnumerator1> for ::windows::core::IUnknown {
     fn from(value: &ID3D11VideoProcessorEnumerator1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoProcessorEnumerator> for ID3D11VideoProcessorEnumerator1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoProcessorEnumerator> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11VideoProcessorEnumerator1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoProcessorEnumerator> for &ID3D11VideoProcessorEnumerator1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoProcessorEnumerator> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11VideoProcessorEnumerator1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -28429,23 +28429,23 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11VideoProce
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11VideoProcessorEnumerator1> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11VideoProcessorEnumerator1> for ID3D11VideoProcessorEnumerator {
     fn from(value: ID3D11VideoProcessorEnumerator1) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11VideoProcessorEnumerator1> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11VideoProcessorEnumerator1> for ID3D11VideoProcessorEnumerator {
     fn from(value: &ID3D11VideoProcessorEnumerator1) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11VideoProcessorEnumerator1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoProcessorEnumerator> for ID3D11VideoProcessorEnumerator1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoProcessorEnumerator> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11VideoProcessorEnumerator1 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11VideoProcessorEnumerator> for &ID3D11VideoProcessorEnumerator1 {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11VideoProcessorEnumerator> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -28483,14 +28483,6 @@ pub struct ID3D11VideoProcessorEnumerator1Vtbl {
 pub struct ID3D11VideoProcessorInputView(::windows::core::IUnknown);
 impl ID3D11VideoProcessorInputView {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC) {
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D11Resource>) {
-        (::windows::core::Interface::vtable(self).base.GetResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresource))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
     }
@@ -28506,24 +28498,32 @@ impl ID3D11VideoProcessorInputView {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D11Resource>) {
+        (::windows::core::Interface::vtable(self).base.GetResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresource))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC) {
+        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
 }
-impl ::core::convert::From<ID3D11VideoProcessorInputView> for ID3D11View {
+impl ::core::convert::From<ID3D11VideoProcessorInputView> for ::windows::core::IUnknown {
     fn from(value: ID3D11VideoProcessorInputView) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11VideoProcessorInputView> for ID3D11View {
+impl ::core::convert::From<&ID3D11VideoProcessorInputView> for ::windows::core::IUnknown {
     fn from(value: &ID3D11VideoProcessorInputView) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for ID3D11VideoProcessorInputView {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11VideoProcessorInputView {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for &ID3D11VideoProcessorInputView {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11VideoProcessorInputView {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -28547,23 +28547,23 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11VideoProce
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11VideoProcessorInputView> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11VideoProcessorInputView> for ID3D11View {
     fn from(value: ID3D11VideoProcessorInputView) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11VideoProcessorInputView> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11VideoProcessorInputView> for ID3D11View {
     fn from(value: &ID3D11VideoProcessorInputView) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11VideoProcessorInputView {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for ID3D11VideoProcessorInputView {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11VideoProcessorInputView {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for &ID3D11VideoProcessorInputView {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -28598,14 +28598,6 @@ pub struct ID3D11VideoProcessorInputViewVtbl {
 pub struct ID3D11VideoProcessorOutputView(::windows::core::IUnknown);
 impl ID3D11VideoProcessorOutputView {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC) {
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D11Resource>) {
-        (::windows::core::Interface::vtable(self).base.GetResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresource))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
     }
@@ -28621,24 +28613,32 @@ impl ID3D11VideoProcessorOutputView {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D11Resource>) {
+        (::windows::core::Interface::vtable(self).base.GetResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresource))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC) {
+        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc))
+    }
 }
-impl ::core::convert::From<ID3D11VideoProcessorOutputView> for ID3D11View {
+impl ::core::convert::From<ID3D11VideoProcessorOutputView> for ::windows::core::IUnknown {
     fn from(value: ID3D11VideoProcessorOutputView) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11VideoProcessorOutputView> for ID3D11View {
+impl ::core::convert::From<&ID3D11VideoProcessorOutputView> for ::windows::core::IUnknown {
     fn from(value: &ID3D11VideoProcessorOutputView) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for ID3D11VideoProcessorOutputView {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11VideoProcessorOutputView {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for &ID3D11VideoProcessorOutputView {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11VideoProcessorOutputView {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -28662,23 +28662,23 @@ impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11VideoProce
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ID3D11VideoProcessorOutputView> for ::windows::core::IUnknown {
+impl ::core::convert::From<ID3D11VideoProcessorOutputView> for ID3D11View {
     fn from(value: ID3D11VideoProcessorOutputView) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ID3D11VideoProcessorOutputView> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ID3D11VideoProcessorOutputView> for ID3D11View {
     fn from(value: &ID3D11VideoProcessorOutputView) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11VideoProcessorOutputView {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for ID3D11VideoProcessorOutputView {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11VideoProcessorOutputView {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ID3D11View> for &ID3D11VideoProcessorOutputView {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11View> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -28713,10 +28713,6 @@ pub struct ID3D11VideoProcessorOutputViewVtbl {
 pub struct ID3D11View(::windows::core::IUnknown);
 impl ID3D11View {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
-    pub unsafe fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D11Resource>) {
-        (::windows::core::Interface::vtable(self).GetResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresource))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
     pub unsafe fn GetDevice(&self, ppdevice: *mut ::core::option::Option<ID3D11Device>) {
         (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdevice))
     }
@@ -28732,25 +28728,9 @@ impl ID3D11View {
     pub unsafe fn SetPrivateDataInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, guid: *const ::windows::core::GUID, pdata: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
-}
-impl ::core::convert::From<ID3D11View> for ID3D11DeviceChild {
-    fn from(value: ID3D11View) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3D11View> for ID3D11DeviceChild {
-    fn from(value: &ID3D11View) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11View {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11View {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+    pub unsafe fn GetResource(&self, ppresource: *mut ::core::option::Option<ID3D11Resource>) {
+        (::windows::core::Interface::vtable(self).GetResource)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresource))
     }
 }
 impl ::core::convert::From<ID3D11View> for ::windows::core::IUnknown {
@@ -28770,6 +28750,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3D11Vie
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3D11View {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3D11View> for ID3D11DeviceChild {
+    fn from(value: ID3D11View) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3D11View> for ID3D11DeviceChild {
+    fn from(value: &ID3D11View) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3D11View {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3D11View {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -28820,26 +28820,6 @@ impl ID3DDeviceContextState {
         (::windows::core::Interface::vtable(self).base.SetPrivateDataInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(guid), pdata.into_param().abi()).ok()
     }
 }
-impl ::core::convert::From<ID3DDeviceContextState> for ID3D11DeviceChild {
-    fn from(value: ID3DDeviceContextState) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ID3DDeviceContextState> for ID3D11DeviceChild {
-    fn from(value: &ID3DDeviceContextState) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3DDeviceContextState {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3DDeviceContextState {
-    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ID3DDeviceContextState> for ::windows::core::IUnknown {
     fn from(value: ID3DDeviceContextState) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -28857,6 +28837,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ID3DDevic
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ID3DDeviceContextState {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ID3DDeviceContextState> for ID3D11DeviceChild {
+    fn from(value: ID3DDeviceContextState) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ID3DDeviceContextState> for ID3D11DeviceChild {
+    fn from(value: &ID3DDeviceContextState) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for ID3DDeviceContextState {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ID3D11DeviceChild> for &ID3DDeviceContextState {
+    fn into_param(self) -> ::windows::core::Param<'a, ID3D11DeviceChild> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

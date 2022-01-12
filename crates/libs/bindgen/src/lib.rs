@@ -18,6 +18,7 @@ mod replacements;
 mod signatures;
 mod structs;
 mod implements;
+mod method_names;
 
 use cfg::*;
 use functions::*;
@@ -30,6 +31,7 @@ use quote::*;
 use r#async::*;
 use reader::*;
 use signatures::*;
+use method_names::*;
 
 pub fn gen_type(name: &str, gen: &Gen) -> String {
     let reader = TypeReader::get();

@@ -10,26 +10,6 @@ impl ICoreFrameworkInputViewInterop {
         (::windows::core::Interface::vtable(self).GetForWindow)(::core::mem::transmute_copy(self), appwindow.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<ICoreFrameworkInputViewInterop> for ::windows::core::IInspectable {
-    fn from(value: ICoreFrameworkInputViewInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICoreFrameworkInputViewInterop> for ::windows::core::IInspectable {
-    fn from(value: &ICoreFrameworkInputViewInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICoreFrameworkInputViewInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICoreFrameworkInputViewInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ICoreFrameworkInputViewInterop> for ::windows::core::IUnknown {
     fn from(value: ICoreFrameworkInputViewInterop) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -47,6 +27,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICoreFram
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICoreFrameworkInputViewInterop {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICoreFrameworkInputViewInterop> for ::windows::core::IInspectable {
+    fn from(value: ICoreFrameworkInputViewInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreFrameworkInputViewInterop> for ::windows::core::IInspectable {
+    fn from(value: &ICoreFrameworkInputViewInterop) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICoreFrameworkInputViewInterop {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICoreFrameworkInputViewInterop {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

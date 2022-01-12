@@ -18,10 +18,9 @@ fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     let cfg = gen.type_impl_cfg(def);
     let mut requires = vec![];
 
-    // vtable_types includes self at the end so reverse and skip it
-    for def in def.vtable_types().iter().rev().skip(1) {
+    for def in def.vtable_types() {
         if let ElementType::TypeDef(def) = def {
-            requires.push(gen_impl_ident(def, gen));
+            requires.push(gen_impl_ident(&def, gen));
         }
     }
 
@@ -61,12 +60,12 @@ fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
 
     let mut methods = quote! {};
 
-    match def.vtable_base() {
+    match def.vtable_types().last() {
         Some(ElementType::IUnknown) => methods.combine(&quote! { base: ::windows::core::IUnknownVtbl::new::<Identity, BASE_OFFSET>(), }),
         Some(ElementType::IInspectable) => methods.combine(&quote! { base: ::windows::core::IInspectableVtbl::new::<Identity, #type_ident<#(#generics)*>, BASE_OFFSET>(), }),
         Some(ElementType::TypeDef(def)) => {
             let vtbl = gen_vtbl_ident(&def, gen);
-            methods.combine(&quote! {vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), });
+            methods.combine(&quote! {#vtbl::new::<Identity, Impl, BASE_OFFSET, IMPL_OFFSET>(), });
         }
         _ => {}
     }
@@ -100,7 +99,7 @@ fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     }
 }
 
-fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
+fn gen_class(_def: &TypeDef, _gen: &Gen) -> TokenStream {
     // TODO: gen trait for classes and cfg based on all interfaces being featured 
     // and only provide implement trait if "implement_exclusive" is featured.
     // Also cfg should include all method cfgs.

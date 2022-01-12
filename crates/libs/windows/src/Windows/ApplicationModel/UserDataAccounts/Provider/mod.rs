@@ -45,26 +45,6 @@ impl IUserDataAccountProviderOperation {
         }
     }
 }
-impl ::core::convert::From<IUserDataAccountProviderOperation> for ::windows::core::IInspectable {
-    fn from(value: IUserDataAccountProviderOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUserDataAccountProviderOperation> for ::windows::core::IInspectable {
-    fn from(value: &IUserDataAccountProviderOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IUserDataAccountProviderOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IUserDataAccountProviderOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IUserDataAccountProviderOperation> for ::windows::core::IUnknown {
     fn from(value: IUserDataAccountProviderOperation) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -82,6 +62,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUserData
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUserDataAccountProviderOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUserDataAccountProviderOperation> for ::windows::core::IInspectable {
+    fn from(value: IUserDataAccountProviderOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUserDataAccountProviderOperation> for ::windows::core::IInspectable {
+    fn from(value: &IUserDataAccountProviderOperation) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IUserDataAccountProviderOperation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IUserDataAccountProviderOperation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

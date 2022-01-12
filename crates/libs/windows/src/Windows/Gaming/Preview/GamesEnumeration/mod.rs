@@ -878,26 +878,6 @@ impl IGameListEntry {
         }
     }
 }
-impl ::core::convert::From<IGameListEntry> for ::windows::core::IInspectable {
-    fn from(value: IGameListEntry) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGameListEntry> for ::windows::core::IInspectable {
-    fn from(value: &IGameListEntry) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IGameListEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IGameListEntry {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IGameListEntry> for ::windows::core::IUnknown {
     fn from(value: IGameListEntry) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -915,6 +895,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGameList
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IGameListEntry {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IGameListEntry> for ::windows::core::IInspectable {
+    fn from(value: IGameListEntry) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IGameListEntry> for ::windows::core::IInspectable {
+    fn from(value: &IGameListEntry) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IGameListEntry {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IGameListEntry {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

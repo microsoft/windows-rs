@@ -8143,26 +8143,6 @@ impl IContactField {
         }
     }
 }
-impl ::core::convert::From<IContactField> for ::windows::core::IInspectable {
-    fn from(value: IContactField) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactField> for ::windows::core::IInspectable {
-    fn from(value: &IContactField) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IContactField {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IContactField {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IContactField> for ::windows::core::IUnknown {
     fn from(value: IContactField) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -8180,6 +8160,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IContactF
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IContactField {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IContactField> for ::windows::core::IInspectable {
+    fn from(value: IContactField) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IContactField> for ::windows::core::IInspectable {
+    fn from(value: &IContactField) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IContactField {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IContactField {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -8244,26 +8244,6 @@ impl IContactFieldFactory {
         }
     }
 }
-impl ::core::convert::From<IContactFieldFactory> for ::windows::core::IInspectable {
-    fn from(value: IContactFieldFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactFieldFactory> for ::windows::core::IInspectable {
-    fn from(value: &IContactFieldFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IContactFieldFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IContactFieldFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IContactFieldFactory> for ::windows::core::IUnknown {
     fn from(value: IContactFieldFactory) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -8281,6 +8261,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IContactF
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IContactFieldFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IContactFieldFactory> for ::windows::core::IInspectable {
+    fn from(value: IContactFieldFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IContactFieldFactory> for ::windows::core::IInspectable {
+    fn from(value: &IContactFieldFactory) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IContactFieldFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IContactFieldFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -8417,26 +8417,6 @@ impl IContactInstantMessageFieldFactory {
         }
     }
 }
-impl ::core::convert::From<IContactInstantMessageFieldFactory> for ::windows::core::IInspectable {
-    fn from(value: IContactInstantMessageFieldFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactInstantMessageFieldFactory> for ::windows::core::IInspectable {
-    fn from(value: &IContactInstantMessageFieldFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IContactInstantMessageFieldFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IContactInstantMessageFieldFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IContactInstantMessageFieldFactory> for ::windows::core::IUnknown {
     fn from(value: IContactInstantMessageFieldFactory) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -8454,6 +8434,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IContactI
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IContactInstantMessageFieldFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IContactInstantMessageFieldFactory> for ::windows::core::IInspectable {
+    fn from(value: IContactInstantMessageFieldFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IContactInstantMessageFieldFactory> for ::windows::core::IInspectable {
+    fn from(value: &IContactInstantMessageFieldFactory) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IContactInstantMessageFieldFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IContactInstantMessageFieldFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -8983,26 +8983,6 @@ impl IContactLocationFieldFactory {
         }
     }
 }
-impl ::core::convert::From<IContactLocationFieldFactory> for ::windows::core::IInspectable {
-    fn from(value: IContactLocationFieldFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContactLocationFieldFactory> for ::windows::core::IInspectable {
-    fn from(value: &IContactLocationFieldFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IContactLocationFieldFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IContactLocationFieldFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IContactLocationFieldFactory> for ::windows::core::IUnknown {
     fn from(value: IContactLocationFieldFactory) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -9020,6 +9000,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IContactL
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IContactLocationFieldFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IContactLocationFieldFactory> for ::windows::core::IInspectable {
+    fn from(value: IContactLocationFieldFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IContactLocationFieldFactory> for ::windows::core::IInspectable {
+    fn from(value: &IContactLocationFieldFactory) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IContactLocationFieldFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IContactLocationFieldFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

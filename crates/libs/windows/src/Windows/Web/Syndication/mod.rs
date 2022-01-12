@@ -150,26 +150,6 @@ impl ISyndicationClient {
         }
     }
 }
-impl ::core::convert::From<ISyndicationClient> for ::windows::core::IInspectable {
-    fn from(value: ISyndicationClient) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISyndicationClient> for ::windows::core::IInspectable {
-    fn from(value: &ISyndicationClient) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISyndicationClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISyndicationClient {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISyndicationClient> for ::windows::core::IUnknown {
     fn from(value: ISyndicationClient) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -187,6 +167,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyndicat
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISyndicationClient {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ISyndicationClient> for ::windows::core::IInspectable {
+    fn from(value: ISyndicationClient) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ISyndicationClient> for ::windows::core::IInspectable {
+    fn from(value: &ISyndicationClient) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISyndicationClient {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISyndicationClient {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -699,26 +699,6 @@ impl ISyndicationNode {
         }
     }
 }
-impl ::core::convert::From<ISyndicationNode> for ::windows::core::IInspectable {
-    fn from(value: ISyndicationNode) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISyndicationNode> for ::windows::core::IInspectable {
-    fn from(value: &ISyndicationNode) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISyndicationNode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISyndicationNode {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISyndicationNode> for ::windows::core::IUnknown {
     fn from(value: ISyndicationNode) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -736,6 +716,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyndicat
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISyndicationNode {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ISyndicationNode> for ::windows::core::IInspectable {
+    fn from(value: ISyndicationNode) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ISyndicationNode> for ::windows::core::IInspectable {
+    fn from(value: &ISyndicationNode) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISyndicationNode {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISyndicationNode {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -989,26 +989,6 @@ impl ISyndicationText {
         }
     }
 }
-impl ::core::convert::From<ISyndicationText> for ::windows::core::IInspectable {
-    fn from(value: ISyndicationText) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISyndicationText> for ::windows::core::IInspectable {
-    fn from(value: &ISyndicationText) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISyndicationText {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISyndicationText {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISyndicationText> for ::windows::core::IUnknown {
     fn from(value: ISyndicationText) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1026,6 +1006,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISyndicat
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISyndicationText {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ISyndicationText> for ::windows::core::IInspectable {
+    fn from(value: ISyndicationText) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ISyndicationText> for ::windows::core::IInspectable {
+    fn from(value: &ISyndicationText) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISyndicationText {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISyndicationText {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

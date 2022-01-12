@@ -69,26 +69,6 @@ impl IPwmControllerProvider {
         unsafe { (::windows::core::Interface::vtable(this).SetPulseParameters)(::core::mem::transmute_copy(this), pin, dutycycle, invertpolarity).ok() }
     }
 }
-impl ::core::convert::From<IPwmControllerProvider> for ::windows::core::IInspectable {
-    fn from(value: IPwmControllerProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPwmControllerProvider> for ::windows::core::IInspectable {
-    fn from(value: &IPwmControllerProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPwmControllerProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPwmControllerProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IPwmControllerProvider> for ::windows::core::IUnknown {
     fn from(value: IPwmControllerProvider) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -106,6 +86,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPwmContr
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPwmControllerProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IPwmControllerProvider> for ::windows::core::IInspectable {
+    fn from(value: IPwmControllerProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPwmControllerProvider> for ::windows::core::IInspectable {
+    fn from(value: &IPwmControllerProvider) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPwmControllerProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPwmControllerProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -161,26 +161,6 @@ impl IPwmProvider {
         }
     }
 }
-impl ::core::convert::From<IPwmProvider> for ::windows::core::IInspectable {
-    fn from(value: IPwmProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPwmProvider> for ::windows::core::IInspectable {
-    fn from(value: &IPwmProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPwmProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPwmProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IPwmProvider> for ::windows::core::IUnknown {
     fn from(value: IPwmProvider) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -198,6 +178,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPwmProvi
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPwmProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IPwmProvider> for ::windows::core::IInspectable {
+    fn from(value: IPwmProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPwmProvider> for ::windows::core::IInspectable {
+    fn from(value: &IPwmProvider) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPwmProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPwmProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

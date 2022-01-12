@@ -966,26 +966,6 @@ impl IActivatedEventArgsDeferral {
         }
     }
 }
-impl ::core::convert::From<IActivatedEventArgsDeferral> for ::windows::core::IInspectable {
-    fn from(value: IActivatedEventArgsDeferral) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IActivatedEventArgsDeferral> for ::windows::core::IInspectable {
-    fn from(value: &IActivatedEventArgsDeferral) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IActivatedEventArgsDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IActivatedEventArgsDeferral {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IActivatedEventArgsDeferral> for ::windows::core::IUnknown {
     fn from(value: IActivatedEventArgsDeferral) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1003,6 +983,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IActivate
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IActivatedEventArgsDeferral {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IActivatedEventArgsDeferral> for ::windows::core::IInspectable {
+    fn from(value: IActivatedEventArgsDeferral) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IActivatedEventArgsDeferral> for ::windows::core::IInspectable {
+    fn from(value: &IActivatedEventArgsDeferral) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IActivatedEventArgsDeferral {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IActivatedEventArgsDeferral {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1239,26 +1239,6 @@ impl IWebUIBackgroundTaskInstance {
         unsafe { (::windows::core::Interface::vtable(this).SetSucceeded)(::core::mem::transmute_copy(this), succeeded).ok() }
     }
 }
-impl ::core::convert::From<IWebUIBackgroundTaskInstance> for ::windows::core::IInspectable {
-    fn from(value: IWebUIBackgroundTaskInstance) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebUIBackgroundTaskInstance> for ::windows::core::IInspectable {
-    fn from(value: &IWebUIBackgroundTaskInstance) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWebUIBackgroundTaskInstance {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IWebUIBackgroundTaskInstance {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWebUIBackgroundTaskInstance> for ::windows::core::IUnknown {
     fn from(value: IWebUIBackgroundTaskInstance) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1276,6 +1256,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWebUIBac
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWebUIBackgroundTaskInstance {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IWebUIBackgroundTaskInstance> for ::windows::core::IInspectable {
+    fn from(value: IWebUIBackgroundTaskInstance) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IWebUIBackgroundTaskInstance> for ::windows::core::IInspectable {
+    fn from(value: &IWebUIBackgroundTaskInstance) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWebUIBackgroundTaskInstance {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IWebUIBackgroundTaskInstance {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1348,26 +1348,6 @@ impl IWebUINavigatedEventArgs {
         }
     }
 }
-impl ::core::convert::From<IWebUINavigatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: IWebUINavigatedEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebUINavigatedEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &IWebUINavigatedEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWebUINavigatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IWebUINavigatedEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWebUINavigatedEventArgs> for ::windows::core::IUnknown {
     fn from(value: IWebUINavigatedEventArgs) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1385,6 +1365,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWebUINav
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWebUINavigatedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IWebUINavigatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: IWebUINavigatedEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IWebUINavigatedEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &IWebUINavigatedEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWebUINavigatedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IWebUINavigatedEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

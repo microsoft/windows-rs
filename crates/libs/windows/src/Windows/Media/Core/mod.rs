@@ -3062,26 +3062,6 @@ impl IMediaCue {
         }
     }
 }
-impl ::core::convert::From<IMediaCue> for ::windows::core::IInspectable {
-    fn from(value: IMediaCue) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMediaCue> for ::windows::core::IInspectable {
-    fn from(value: &IMediaCue) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMediaCue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IMediaCue {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IMediaCue> for ::windows::core::IUnknown {
     fn from(value: IMediaCue) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -3099,6 +3079,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMediaCue
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMediaCue {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IMediaCue> for ::windows::core::IInspectable {
+    fn from(value: IMediaCue) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IMediaCue> for ::windows::core::IInspectable {
+    fn from(value: &IMediaCue) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMediaCue {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IMediaCue {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3165,26 +3165,6 @@ pub struct IMediaCueEventArgsVtbl {
 #[repr(transparent)]
 pub struct IMediaSource(::windows::core::IUnknown);
 impl IMediaSource {}
-impl ::core::convert::From<IMediaSource> for ::windows::core::IInspectable {
-    fn from(value: IMediaSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMediaSource> for ::windows::core::IInspectable {
-    fn from(value: &IMediaSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMediaSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IMediaSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IMediaSource> for ::windows::core::IUnknown {
     fn from(value: IMediaSource) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -3202,6 +3182,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMediaSou
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMediaSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IMediaSource> for ::windows::core::IInspectable {
+    fn from(value: IMediaSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IMediaSource> for ::windows::core::IInspectable {
+    fn from(value: &IMediaSource) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMediaSource {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IMediaSource {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3530,26 +3530,6 @@ impl IMediaStreamDescriptor {
         }
     }
 }
-impl ::core::convert::From<IMediaStreamDescriptor> for ::windows::core::IInspectable {
-    fn from(value: IMediaStreamDescriptor) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMediaStreamDescriptor> for ::windows::core::IInspectable {
-    fn from(value: &IMediaStreamDescriptor) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMediaStreamDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IMediaStreamDescriptor {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IMediaStreamDescriptor> for ::windows::core::IUnknown {
     fn from(value: IMediaStreamDescriptor) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -3567,6 +3547,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMediaStr
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMediaStreamDescriptor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IMediaStreamDescriptor> for ::windows::core::IInspectable {
+    fn from(value: IMediaStreamDescriptor) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IMediaStreamDescriptor> for ::windows::core::IInspectable {
+    fn from(value: &IMediaStreamDescriptor) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMediaStreamDescriptor {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IMediaStreamDescriptor {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3655,26 +3655,6 @@ impl IMediaStreamDescriptor2 {
         }
     }
 }
-impl ::core::convert::From<IMediaStreamDescriptor2> for ::windows::core::IInspectable {
-    fn from(value: IMediaStreamDescriptor2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMediaStreamDescriptor2> for ::windows::core::IInspectable {
-    fn from(value: &IMediaStreamDescriptor2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMediaStreamDescriptor2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IMediaStreamDescriptor2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IMediaStreamDescriptor2> for ::windows::core::IUnknown {
     fn from(value: IMediaStreamDescriptor2) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -3692,6 +3672,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMediaStr
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMediaStreamDescriptor2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IMediaStreamDescriptor2> for ::windows::core::IInspectable {
+    fn from(value: IMediaStreamDescriptor2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IMediaStreamDescriptor2> for ::windows::core::IInspectable {
+    fn from(value: &IMediaStreamDescriptor2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMediaStreamDescriptor2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IMediaStreamDescriptor2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4254,26 +4254,6 @@ impl IMediaTrack {
         }
     }
 }
-impl ::core::convert::From<IMediaTrack> for ::windows::core::IInspectable {
-    fn from(value: IMediaTrack) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMediaTrack> for ::windows::core::IInspectable {
-    fn from(value: &IMediaTrack) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMediaTrack {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IMediaTrack {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IMediaTrack> for ::windows::core::IUnknown {
     fn from(value: IMediaTrack) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -4291,6 +4271,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMediaTra
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMediaTrack {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IMediaTrack> for ::windows::core::IInspectable {
+    fn from(value: IMediaTrack) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IMediaTrack> for ::windows::core::IInspectable {
+    fn from(value: &IMediaTrack) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMediaTrack {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IMediaTrack {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4647,26 +4647,6 @@ impl ISingleSelectMediaTrackList {
         }
     }
 }
-impl ::core::convert::From<ISingleSelectMediaTrackList> for ::windows::core::IInspectable {
-    fn from(value: ISingleSelectMediaTrackList) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISingleSelectMediaTrackList> for ::windows::core::IInspectable {
-    fn from(value: &ISingleSelectMediaTrackList) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISingleSelectMediaTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISingleSelectMediaTrackList {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISingleSelectMediaTrackList> for ::windows::core::IUnknown {
     fn from(value: ISingleSelectMediaTrackList) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -4684,6 +4664,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISingleSe
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISingleSelectMediaTrackList {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ISingleSelectMediaTrackList> for ::windows::core::IInspectable {
+    fn from(value: ISingleSelectMediaTrackList) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ISingleSelectMediaTrackList> for ::windows::core::IInspectable {
+    fn from(value: &ISingleSelectMediaTrackList) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISingleSelectMediaTrackList {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISingleSelectMediaTrackList {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4907,26 +4907,6 @@ impl ITimedMetadataTrackProvider {
         }
     }
 }
-impl ::core::convert::From<ITimedMetadataTrackProvider> for ::windows::core::IInspectable {
-    fn from(value: ITimedMetadataTrackProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITimedMetadataTrackProvider> for ::windows::core::IInspectable {
-    fn from(value: &ITimedMetadataTrackProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ITimedMetadataTrackProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ITimedMetadataTrackProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ITimedMetadataTrackProvider> for ::windows::core::IUnknown {
     fn from(value: ITimedMetadataTrackProvider) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -4944,6 +4924,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITimedMet
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITimedMetadataTrackProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ITimedMetadataTrackProvider> for ::windows::core::IInspectable {
+    fn from(value: ITimedMetadataTrackProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ITimedMetadataTrackProvider> for ::windows::core::IInspectable {
+    fn from(value: &ITimedMetadataTrackProvider) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ITimedMetadataTrackProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ITimedMetadataTrackProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

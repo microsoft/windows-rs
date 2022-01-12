@@ -588,10 +588,6 @@ pub struct IAudioEndpointVolumeCallbackVtbl {
 pub struct IAudioEndpointVolumeEx(::windows::core::IUnknown);
 impl IAudioEndpointVolumeEx {
     #[doc = "*Required features: 'Win32_Media_Audio_Endpoints'*"]
-    pub unsafe fn GetVolumeRangeChannel(&self, ichannel: u32, pflvolumemindb: *mut f32, pflvolumemaxdb: *mut f32, pflvolumeincrementdb: *mut f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetVolumeRangeChannel)(::core::mem::transmute_copy(self), ::core::mem::transmute(ichannel), ::core::mem::transmute(pflvolumemindb), ::core::mem::transmute(pflvolumemaxdb), ::core::mem::transmute(pflvolumeincrementdb)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Media_Audio_Endpoints'*"]
     pub unsafe fn RegisterControlChangeNotify<'a, Param0: ::windows::core::IntoParam<'a, IAudioEndpointVolumeCallback>>(&self, pnotify: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.RegisterControlChangeNotify)(::core::mem::transmute_copy(self), pnotify.into_param().abi()).ok()
     }
@@ -672,25 +668,9 @@ impl IAudioEndpointVolumeEx {
     pub unsafe fn GetVolumeRange(&self, pflvolumemindb: *mut f32, pflvolumemaxdb: *mut f32, pflvolumeincrementdb: *mut f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetVolumeRange)(::core::mem::transmute_copy(self), ::core::mem::transmute(pflvolumemindb), ::core::mem::transmute(pflvolumemaxdb), ::core::mem::transmute(pflvolumeincrementdb)).ok()
     }
-}
-impl ::core::convert::From<IAudioEndpointVolumeEx> for IAudioEndpointVolume {
-    fn from(value: IAudioEndpointVolumeEx) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioEndpointVolumeEx> for IAudioEndpointVolume {
-    fn from(value: &IAudioEndpointVolumeEx) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAudioEndpointVolume> for IAudioEndpointVolumeEx {
-    fn into_param(self) -> ::windows::core::Param<'a, IAudioEndpointVolume> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAudioEndpointVolume> for &IAudioEndpointVolumeEx {
-    fn into_param(self) -> ::windows::core::Param<'a, IAudioEndpointVolume> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Media_Audio_Endpoints'*"]
+    pub unsafe fn GetVolumeRangeChannel(&self, ichannel: u32, pflvolumemindb: *mut f32, pflvolumemaxdb: *mut f32, pflvolumeincrementdb: *mut f32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetVolumeRangeChannel)(::core::mem::transmute_copy(self), ::core::mem::transmute(ichannel), ::core::mem::transmute(pflvolumemindb), ::core::mem::transmute(pflvolumemaxdb), ::core::mem::transmute(pflvolumeincrementdb)).ok()
     }
 }
 impl ::core::convert::From<IAudioEndpointVolumeEx> for ::windows::core::IUnknown {
@@ -710,6 +690,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioEnd
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAudioEndpointVolumeEx {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IAudioEndpointVolumeEx> for IAudioEndpointVolume {
+    fn from(value: IAudioEndpointVolumeEx) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IAudioEndpointVolumeEx> for IAudioEndpointVolume {
+    fn from(value: &IAudioEndpointVolumeEx) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IAudioEndpointVolume> for IAudioEndpointVolumeEx {
+    fn into_param(self) -> ::windows::core::Param<'a, IAudioEndpointVolume> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IAudioEndpointVolume> for &IAudioEndpointVolumeEx {
+    fn into_param(self) -> ::windows::core::Param<'a, IAudioEndpointVolume> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

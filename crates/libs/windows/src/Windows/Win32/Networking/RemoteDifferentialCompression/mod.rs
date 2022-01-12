@@ -233,19 +233,6 @@ pub struct IRdcFileReaderVtbl {
 pub struct IRdcFileWriter(::windows::core::IUnknown);
 impl IRdcFileWriter {
     #[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
-    pub unsafe fn Write(&self, offsetfilestart: u64, bytestowrite: u32) -> ::windows::core::Result<u8> {
-        let mut result__: u8 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Write)(::core::mem::transmute_copy(self), ::core::mem::transmute(offsetfilestart), ::core::mem::transmute(bytestowrite), ::core::mem::transmute(&mut result__)).from_abi::<u8>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
-    pub unsafe fn Truncate(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Truncate)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
-    pub unsafe fn DeleteOnClose(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteOnClose)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
     pub unsafe fn GetFileSize(&self) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetFileSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
@@ -260,25 +247,18 @@ impl IRdcFileWriter {
         let mut result__: u64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetFilePosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
-}
-impl ::core::convert::From<IRdcFileWriter> for IRdcFileReader {
-    fn from(value: IRdcFileWriter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
+    pub unsafe fn Write(&self, offsetfilestart: u64, bytestowrite: u32) -> ::windows::core::Result<u8> {
+        let mut result__: u8 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).Write)(::core::mem::transmute_copy(self), ::core::mem::transmute(offsetfilestart), ::core::mem::transmute(bytestowrite), ::core::mem::transmute(&mut result__)).from_abi::<u8>(result__)
     }
-}
-impl ::core::convert::From<&IRdcFileWriter> for IRdcFileReader {
-    fn from(value: &IRdcFileWriter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    #[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
+    pub unsafe fn Truncate(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Truncate)(::core::mem::transmute_copy(self)).ok()
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRdcFileReader> for IRdcFileWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, IRdcFileReader> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRdcFileReader> for &IRdcFileWriter {
-    fn into_param(self) -> ::windows::core::Param<'a, IRdcFileReader> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Networking_RemoteDifferentialCompression'*"]
+    pub unsafe fn DeleteOnClose(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DeleteOnClose)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IRdcFileWriter> for ::windows::core::IUnknown {
@@ -298,6 +278,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRdcFileW
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRdcFileWriter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IRdcFileWriter> for IRdcFileReader {
+    fn from(value: IRdcFileWriter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IRdcFileWriter> for IRdcFileReader {
+    fn from(value: &IRdcFileWriter) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IRdcFileReader> for IRdcFileWriter {
+    fn into_param(self) -> ::windows::core::Param<'a, IRdcFileReader> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IRdcFileReader> for &IRdcFileWriter {
+    fn into_param(self) -> ::windows::core::Param<'a, IRdcFileReader> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

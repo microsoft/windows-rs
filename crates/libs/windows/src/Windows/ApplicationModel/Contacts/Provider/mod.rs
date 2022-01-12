@@ -96,7 +96,7 @@ impl ContactPickerUI {
         let this = &::windows::core::Interface::cast::<IContactPickerUI2>(self)?;
         unsafe {
             let mut result__: AddContactResult = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AddContact2)(::core::mem::transmute_copy(this), contact.into_param().abi(), &mut result__).from_abi::<AddContactResult>(result__)
+            (::windows::core::Interface::vtable(this).AddContact)(::core::mem::transmute_copy(this), contact.into_param().abi(), &mut result__).from_abi::<AddContactResult>(result__)
         }
     }
     #[doc = "*Required features: 'ApplicationModel_Contacts_Provider', 'Foundation_Collections'*"]

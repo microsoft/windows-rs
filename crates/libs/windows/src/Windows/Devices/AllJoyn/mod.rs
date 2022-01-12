@@ -3750,30 +3750,6 @@ impl IAllJoynAcceptSessionJoiner {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<IAllJoynAcceptSessionJoiner> for ::windows::core::IInspectable {
-    fn from(value: IAllJoynAcceptSessionJoiner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&IAllJoynAcceptSessionJoiner> for ::windows::core::IInspectable {
-    fn from(value: &IAllJoynAcceptSessionJoiner) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAllJoynAcceptSessionJoiner {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IAllJoynAcceptSessionJoiner {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
 impl ::core::convert::From<IAllJoynAcceptSessionJoiner> for ::windows::core::IUnknown {
     fn from(value: IAllJoynAcceptSessionJoiner) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -3794,6 +3770,30 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAllJoynA
 #[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAllJoynAcceptSessionJoiner {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<IAllJoynAcceptSessionJoiner> for ::windows::core::IInspectable {
+    fn from(value: IAllJoynAcceptSessionJoiner) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<&IAllJoynAcceptSessionJoiner> for ::windows::core::IInspectable {
+    fn from(value: &IAllJoynAcceptSessionJoiner) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAllJoynAcceptSessionJoiner {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IAllJoynAcceptSessionJoiner {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4385,30 +4385,6 @@ impl IAllJoynProducer {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<IAllJoynProducer> for ::windows::core::IInspectable {
-    fn from(value: IAllJoynProducer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&IAllJoynProducer> for ::windows::core::IInspectable {
-    fn from(value: &IAllJoynProducer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAllJoynProducer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IAllJoynProducer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
 impl ::core::convert::From<IAllJoynProducer> for ::windows::core::IUnknown {
     fn from(value: IAllJoynProducer) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -4429,6 +4405,30 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAllJoynP
 #[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAllJoynProducer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<IAllJoynProducer> for ::windows::core::IInspectable {
+    fn from(value: IAllJoynProducer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<&IAllJoynProducer> for ::windows::core::IInspectable {
+    fn from(value: &IAllJoynProducer) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAllJoynProducer {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IAllJoynProducer {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

@@ -787,15 +787,6 @@ pub struct IActiveIMEVtbl {
 #[repr(transparent)]
 pub struct IActiveIME2(::windows::core::IUnknown);
 impl IActiveIME2 {
-    #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-    pub unsafe fn Sleep(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Sleep)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Unsleep<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fdead: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Unsleep)(::core::mem::transmute_copy(self), fdead.into_param().abi()).ok()
-    }
     #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Inquire(&self, dwsysteminfoflags: u32, pimeinfo: *mut IMEINFO, szwndclass: super::super::super::Foundation::PWSTR, pdwprivate: *mut u32) -> ::windows::core::Result<()> {
@@ -880,25 +871,14 @@ impl IActiveIME2 {
         let mut result__: u16 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetLangId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u16>(result__)
     }
-}
-impl ::core::convert::From<IActiveIME2> for IActiveIME {
-    fn from(value: IActiveIME2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+    pub unsafe fn Sleep(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Sleep)(::core::mem::transmute_copy(self)).ok()
     }
-}
-impl ::core::convert::From<&IActiveIME2> for IActiveIME {
-    fn from(value: &IActiveIME2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActiveIME> for IActiveIME2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IActiveIME> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IActiveIME> for &IActiveIME2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IActiveIME> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn Unsleep<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fdead: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Unsleep)(::core::mem::transmute_copy(self), fdead.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IActiveIME2> for ::windows::core::IUnknown {
@@ -918,6 +898,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IActiveIM
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IActiveIME2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IActiveIME2> for IActiveIME {
+    fn from(value: IActiveIME2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IActiveIME2> for IActiveIME {
+    fn from(value: &IActiveIME2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IActiveIME> for IActiveIME2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IActiveIME> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IActiveIME> for &IActiveIME2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IActiveIME> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2853,30 +2853,6 @@ impl IFEClassFactory {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IFEClassFactory> for super::super::super::System::Com::IClassFactory {
-    fn from(value: IFEClassFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IFEClassFactory> for super::super::super::System::Com::IClassFactory {
-    fn from(value: &IFEClassFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IClassFactory> for IFEClassFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IClassFactory> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IClassFactory> for &IFEClassFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IClassFactory> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IFEClassFactory> for ::windows::core::IUnknown {
     fn from(value: IFEClassFactory) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -2897,6 +2873,30 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFEClassF
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IFEClassFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IFEClassFactory> for super::super::super::System::Com::IClassFactory {
+    fn from(value: IFEClassFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IFEClassFactory> for super::super::super::System::Com::IClassFactory {
+    fn from(value: &IFEClassFactory) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IClassFactory> for IFEClassFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IClassFactory> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::super::super::System::Com::IClassFactory> for &IFEClassFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::super::System::Com::IClassFactory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2929,7 +2929,7 @@ unsafe impl ::windows::core::Interface for IFEClassFactory {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFEClassFactoryVtbl {
-    pub base: IClassFactoryVtbl,
+    pub base: super::super::super::System::Com::IClassFactoryVtbl,
 }
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 #[repr(transparent)]

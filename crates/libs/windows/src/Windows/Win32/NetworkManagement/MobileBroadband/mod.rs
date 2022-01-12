@@ -29,30 +29,6 @@ impl IDummyMBNUCMExt {
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IDummyMBNUCMExt> for super::super::System::Com::IDispatch {
-    fn from(value: IDummyMBNUCMExt) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IDummyMBNUCMExt> for super::super::System::Com::IDispatch {
-    fn from(value: &IDummyMBNUCMExt) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IDummyMBNUCMExt {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IDummyMBNUCMExt {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::convert::From<IDummyMBNUCMExt> for ::windows::core::IUnknown {
     fn from(value: IDummyMBNUCMExt) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -73,6 +49,30 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDummyMBN
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDummyMBNUCMExt {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IDummyMBNUCMExt> for super::super::System::Com::IDispatch {
+    fn from(value: IDummyMBNUCMExt) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IDummyMBNUCMExt> for super::super::System::Com::IDispatch {
+    fn from(value: &IDummyMBNUCMExt) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for IDummyMBNUCMExt {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IDummyMBNUCMExt {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -105,7 +105,7 @@ unsafe impl ::windows::core::Interface for IDummyMBNUCMExt {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDummyMBNUCMExtVtbl {
-    pub base: IDispatchVtbl,
+    pub base: super::super::System::Com::IDispatchVtbl,
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_MobileBroadband'*"]
 #[repr(transparent)]

@@ -3711,26 +3711,6 @@ pub struct IDevicePairingResultVtbl {
 #[repr(transparent)]
 pub struct IDevicePairingSettings(::windows::core::IUnknown);
 impl IDevicePairingSettings {}
-impl ::core::convert::From<IDevicePairingSettings> for ::windows::core::IInspectable {
-    fn from(value: IDevicePairingSettings) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDevicePairingSettings> for ::windows::core::IInspectable {
-    fn from(value: &IDevicePairingSettings) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IDevicePairingSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IDevicePairingSettings {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IDevicePairingSettings> for ::windows::core::IUnknown {
     fn from(value: IDevicePairingSettings) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -3748,6 +3728,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDevicePa
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDevicePairingSettings {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDevicePairingSettings> for ::windows::core::IInspectable {
+    fn from(value: IDevicePairingSettings) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDevicePairingSettings> for ::windows::core::IInspectable {
+    fn from(value: &IDevicePairingSettings) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IDevicePairingSettings {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IDevicePairingSettings {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

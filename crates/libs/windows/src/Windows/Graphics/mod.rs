@@ -92,26 +92,6 @@ impl ::core::default::Default for DisplayId {
 #[repr(transparent)]
 pub struct IGeometrySource2D(::windows::core::IUnknown);
 impl IGeometrySource2D {}
-impl ::core::convert::From<IGeometrySource2D> for ::windows::core::IInspectable {
-    fn from(value: IGeometrySource2D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGeometrySource2D> for ::windows::core::IInspectable {
-    fn from(value: &IGeometrySource2D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IGeometrySource2D {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IGeometrySource2D {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IGeometrySource2D> for ::windows::core::IUnknown {
     fn from(value: IGeometrySource2D) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -129,6 +109,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGeometry
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IGeometrySource2D {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IGeometrySource2D> for ::windows::core::IInspectable {
+    fn from(value: IGeometrySource2D) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IGeometrySource2D> for ::windows::core::IInspectable {
+    fn from(value: &IGeometrySource2D) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IGeometrySource2D {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IGeometrySource2D {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

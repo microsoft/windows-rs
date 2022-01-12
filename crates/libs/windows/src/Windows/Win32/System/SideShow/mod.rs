@@ -120,34 +120,14 @@ pub const GUID_DEVINTERFACE_SIDESHOW: ::windows::core::GUID = ::windows::core::G
 #[repr(transparent)]
 pub struct ISideShowBulkCapabilities(::windows::core::IUnknown);
 impl ISideShowBulkCapabilities {
-    #[doc = "*Required features: 'Win32_System_SideShow'*"]
-    pub unsafe fn GetCapabilities<'a, Param0: ::windows::core::IntoParam<'a, ISideShowKeyCollection>>(&self, in_keycollection: Param0, inout_pvalues: *mut ::core::option::Option<ISideShowPropVariantCollection>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCapabilities)(::core::mem::transmute_copy(self), in_keycollection.into_param().abi(), ::core::mem::transmute(inout_pvalues)).ok()
-    }
     #[doc = "*Required features: 'Win32_System_SideShow', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage', 'Win32_UI_Shell_PropertiesSystem'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetCapability(&self, in_keycapability: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, inout_pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetCapability)(::core::mem::transmute_copy(self), ::core::mem::transmute(in_keycapability), ::core::mem::transmute(inout_pvalue)).ok()
     }
-}
-impl ::core::convert::From<ISideShowBulkCapabilities> for ISideShowCapabilities {
-    fn from(value: ISideShowBulkCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISideShowBulkCapabilities> for ISideShowCapabilities {
-    fn from(value: &ISideShowBulkCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISideShowCapabilities> for ISideShowBulkCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ISideShowCapabilities> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ISideShowCapabilities> for &ISideShowBulkCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ISideShowCapabilities> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_System_SideShow'*"]
+    pub unsafe fn GetCapabilities<'a, Param0: ::windows::core::IntoParam<'a, ISideShowKeyCollection>>(&self, in_keycollection: Param0, inout_pvalues: *mut ::core::option::Option<ISideShowPropVariantCollection>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetCapabilities)(::core::mem::transmute_copy(self), in_keycollection.into_param().abi(), ::core::mem::transmute(inout_pvalues)).ok()
     }
 }
 impl ::core::convert::From<ISideShowBulkCapabilities> for ::windows::core::IUnknown {
@@ -167,6 +147,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISideShow
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISideShowBulkCapabilities {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ISideShowBulkCapabilities> for ISideShowCapabilities {
+    fn from(value: ISideShowBulkCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ISideShowBulkCapabilities> for ISideShowCapabilities {
+    fn from(value: &ISideShowBulkCapabilities) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ISideShowCapabilities> for ISideShowBulkCapabilities {
+    fn into_param(self) -> ::windows::core::Param<'a, ISideShowCapabilities> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ISideShowCapabilities> for &ISideShowBulkCapabilities {
+    fn into_param(self) -> ::windows::core::Param<'a, ISideShowCapabilities> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

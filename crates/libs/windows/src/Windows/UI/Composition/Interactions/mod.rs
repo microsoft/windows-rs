@@ -624,26 +624,6 @@ pub struct ICompositionConditionalValueStaticsVtbl {
 #[repr(transparent)]
 pub struct ICompositionInteractionSource(::windows::core::IUnknown);
 impl ICompositionInteractionSource {}
-impl ::core::convert::From<ICompositionInteractionSource> for ::windows::core::IInspectable {
-    fn from(value: ICompositionInteractionSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICompositionInteractionSource> for ::windows::core::IInspectable {
-    fn from(value: &ICompositionInteractionSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICompositionInteractionSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICompositionInteractionSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ICompositionInteractionSource> for ::windows::core::IUnknown {
     fn from(value: ICompositionInteractionSource) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -661,6 +641,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IComposit
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICompositionInteractionSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICompositionInteractionSource> for ::windows::core::IInspectable {
+    fn from(value: ICompositionInteractionSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICompositionInteractionSource> for ::windows::core::IInspectable {
+    fn from(value: &ICompositionInteractionSource) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICompositionInteractionSource {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICompositionInteractionSource {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1185,26 +1185,6 @@ impl IInteractionTrackerOwner {
         unsafe { (::windows::core::Interface::vtable(this).ValuesChanged)(::core::mem::transmute_copy(this), sender.into_param().abi(), args.into_param().abi()).ok() }
     }
 }
-impl ::core::convert::From<IInteractionTrackerOwner> for ::windows::core::IInspectable {
-    fn from(value: IInteractionTrackerOwner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInteractionTrackerOwner> for ::windows::core::IInspectable {
-    fn from(value: &IInteractionTrackerOwner) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IInteractionTrackerOwner {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IInteractionTrackerOwner {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IInteractionTrackerOwner> for ::windows::core::IUnknown {
     fn from(value: IInteractionTrackerOwner) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1222,6 +1202,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInteract
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IInteractionTrackerOwner {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IInteractionTrackerOwner> for ::windows::core::IInspectable {
+    fn from(value: IInteractionTrackerOwner) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IInteractionTrackerOwner> for ::windows::core::IInspectable {
+    fn from(value: &IInteractionTrackerOwner) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IInteractionTrackerOwner {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IInteractionTrackerOwner {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2351,7 +2351,7 @@ impl InteractionTracker {
         let this = &::windows::core::Interface::cast::<IInteractionTracker5>(self)?;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryUpdatePositionWithOption2)(::core::mem::transmute_copy(this), value.into_param().abi(), option, posupdateoption, &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).TryUpdatePositionWithOption)(::core::mem::transmute_copy(this), value.into_param().abi(), option, posupdateoption, &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: 'UI_Composition_Interactions'*"]

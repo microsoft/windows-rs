@@ -4860,26 +4860,6 @@ pub struct IAppointmentStoreNotificationTriggerVtbl {
 #[repr(transparent)]
 pub struct IBackgroundCondition(::windows::core::IUnknown);
 impl IBackgroundCondition {}
-impl ::core::convert::From<IBackgroundCondition> for ::windows::core::IInspectable {
-    fn from(value: IBackgroundCondition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundCondition> for ::windows::core::IInspectable {
-    fn from(value: &IBackgroundCondition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBackgroundCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundCondition> for ::windows::core::IUnknown {
     fn from(value: IBackgroundCondition) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -4897,6 +4877,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundCondition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IBackgroundCondition> for ::windows::core::IInspectable {
+    fn from(value: IBackgroundCondition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IBackgroundCondition> for ::windows::core::IInspectable {
+    fn from(value: &IBackgroundCondition) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundCondition {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBackgroundCondition {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4996,26 +4996,6 @@ impl IBackgroundTask {
         unsafe { (::windows::core::Interface::vtable(this).Run)(::core::mem::transmute_copy(this), taskinstance.into_param().abi()).ok() }
     }
 }
-impl ::core::convert::From<IBackgroundTask> for ::windows::core::IInspectable {
-    fn from(value: IBackgroundTask) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTask> for ::windows::core::IInspectable {
-    fn from(value: &IBackgroundTask) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTask {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBackgroundTask {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundTask> for ::windows::core::IUnknown {
     fn from(value: IBackgroundTask) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -5033,6 +5013,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundTask {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IBackgroundTask> for ::windows::core::IInspectable {
+    fn from(value: IBackgroundTask) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IBackgroundTask> for ::windows::core::IInspectable {
+    fn from(value: &IBackgroundTask) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTask {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBackgroundTask {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5239,26 +5239,6 @@ impl IBackgroundTaskInstance {
         }
     }
 }
-impl ::core::convert::From<IBackgroundTaskInstance> for ::windows::core::IInspectable {
-    fn from(value: IBackgroundTaskInstance) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTaskInstance> for ::windows::core::IInspectable {
-    fn from(value: &IBackgroundTaskInstance) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTaskInstance {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBackgroundTaskInstance {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundTaskInstance> for ::windows::core::IUnknown {
     fn from(value: IBackgroundTaskInstance) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -5276,6 +5256,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundTaskInstance {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IBackgroundTaskInstance> for ::windows::core::IInspectable {
+    fn from(value: IBackgroundTaskInstance) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IBackgroundTaskInstance> for ::windows::core::IInspectable {
+    fn from(value: &IBackgroundTaskInstance) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTaskInstance {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBackgroundTaskInstance {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5403,26 +5403,6 @@ impl IBackgroundTaskInstance2 {
         }
     }
 }
-impl ::core::convert::From<IBackgroundTaskInstance2> for ::windows::core::IInspectable {
-    fn from(value: IBackgroundTaskInstance2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTaskInstance2> for ::windows::core::IInspectable {
-    fn from(value: &IBackgroundTaskInstance2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTaskInstance2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBackgroundTaskInstance2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundTaskInstance2> for ::windows::core::IUnknown {
     fn from(value: IBackgroundTaskInstance2) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -5440,6 +5420,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundTaskInstance2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IBackgroundTaskInstance2> for ::windows::core::IInspectable {
+    fn from(value: IBackgroundTaskInstance2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IBackgroundTaskInstance2> for ::windows::core::IInspectable {
+    fn from(value: &IBackgroundTaskInstance2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTaskInstance2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBackgroundTaskInstance2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5576,26 +5576,6 @@ impl IBackgroundTaskInstance4 {
         }
     }
 }
-impl ::core::convert::From<IBackgroundTaskInstance4> for ::windows::core::IInspectable {
-    fn from(value: IBackgroundTaskInstance4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTaskInstance4> for ::windows::core::IInspectable {
-    fn from(value: &IBackgroundTaskInstance4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTaskInstance4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBackgroundTaskInstance4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundTaskInstance4> for ::windows::core::IUnknown {
     fn from(value: IBackgroundTaskInstance4) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -5613,6 +5593,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundTaskInstance4 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IBackgroundTaskInstance4> for ::windows::core::IInspectable {
+    fn from(value: IBackgroundTaskInstance4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IBackgroundTaskInstance4> for ::windows::core::IInspectable {
+    fn from(value: &IBackgroundTaskInstance4) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTaskInstance4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBackgroundTaskInstance4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5740,26 +5740,6 @@ impl IBackgroundTaskRegistration {
         unsafe { (::windows::core::Interface::vtable(this).Unregister)(::core::mem::transmute_copy(this), canceltask).ok() }
     }
 }
-impl ::core::convert::From<IBackgroundTaskRegistration> for ::windows::core::IInspectable {
-    fn from(value: IBackgroundTaskRegistration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTaskRegistration> for ::windows::core::IInspectable {
-    fn from(value: &IBackgroundTaskRegistration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTaskRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBackgroundTaskRegistration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundTaskRegistration> for ::windows::core::IUnknown {
     fn from(value: IBackgroundTaskRegistration) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -5777,6 +5757,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundTaskRegistration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IBackgroundTaskRegistration> for ::windows::core::IInspectable {
+    fn from(value: IBackgroundTaskRegistration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IBackgroundTaskRegistration> for ::windows::core::IInspectable {
+    fn from(value: &IBackgroundTaskRegistration) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTaskRegistration {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBackgroundTaskRegistration {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5891,26 +5891,6 @@ impl IBackgroundTaskRegistration2 {
         unsafe { (::windows::core::Interface::vtable(this).Unregister)(::core::mem::transmute_copy(this), canceltask).ok() }
     }
 }
-impl ::core::convert::From<IBackgroundTaskRegistration2> for ::windows::core::IInspectable {
-    fn from(value: IBackgroundTaskRegistration2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTaskRegistration2> for ::windows::core::IInspectable {
-    fn from(value: &IBackgroundTaskRegistration2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTaskRegistration2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBackgroundTaskRegistration2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundTaskRegistration2> for ::windows::core::IUnknown {
     fn from(value: IBackgroundTaskRegistration2) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -5928,6 +5908,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundTaskRegistration2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IBackgroundTaskRegistration2> for ::windows::core::IInspectable {
+    fn from(value: IBackgroundTaskRegistration2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IBackgroundTaskRegistration2> for ::windows::core::IInspectable {
+    fn from(value: &IBackgroundTaskRegistration2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTaskRegistration2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBackgroundTaskRegistration2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -6046,26 +6046,6 @@ impl IBackgroundTaskRegistration3 {
         unsafe { (::windows::core::Interface::vtable(this).Unregister)(::core::mem::transmute_copy(this), canceltask).ok() }
     }
 }
-impl ::core::convert::From<IBackgroundTaskRegistration3> for ::windows::core::IInspectable {
-    fn from(value: IBackgroundTaskRegistration3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTaskRegistration3> for ::windows::core::IInspectable {
-    fn from(value: &IBackgroundTaskRegistration3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTaskRegistration3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBackgroundTaskRegistration3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundTaskRegistration3> for ::windows::core::IUnknown {
     fn from(value: IBackgroundTaskRegistration3) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -6083,6 +6063,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundTaskRegistration3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IBackgroundTaskRegistration3> for ::windows::core::IInspectable {
+    fn from(value: IBackgroundTaskRegistration3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IBackgroundTaskRegistration3> for ::windows::core::IInspectable {
+    fn from(value: &IBackgroundTaskRegistration3) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTaskRegistration3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBackgroundTaskRegistration3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -6214,26 +6214,6 @@ pub struct IBackgroundTaskRegistrationStatics2Vtbl {
 #[repr(transparent)]
 pub struct IBackgroundTrigger(::windows::core::IUnknown);
 impl IBackgroundTrigger {}
-impl ::core::convert::From<IBackgroundTrigger> for ::windows::core::IInspectable {
-    fn from(value: IBackgroundTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBackgroundTrigger> for ::windows::core::IInspectable {
-    fn from(value: &IBackgroundTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBackgroundTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBackgroundTrigger> for ::windows::core::IUnknown {
     fn from(value: IBackgroundTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -6251,6 +6231,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBackgrou
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBackgroundTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IBackgroundTrigger> for ::windows::core::IInspectable {
+    fn from(value: IBackgroundTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IBackgroundTrigger> for ::windows::core::IInspectable {
+    fn from(value: &IBackgroundTrigger) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBackgroundTrigger {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBackgroundTrigger {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

@@ -1696,26 +1696,6 @@ impl IAudioSystemEffects2 {
         (::windows::core::Interface::vtable(self).GetEffectsList)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppeffectsids), ::core::mem::transmute(pceffects), event.into_param().abi()).ok()
     }
 }
-impl ::core::convert::From<IAudioSystemEffects2> for IAudioSystemEffects {
-    fn from(value: IAudioSystemEffects2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAudioSystemEffects2> for IAudioSystemEffects {
-    fn from(value: &IAudioSystemEffects2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAudioSystemEffects> for IAudioSystemEffects2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IAudioSystemEffects> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IAudioSystemEffects> for &IAudioSystemEffects2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IAudioSystemEffects> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IAudioSystemEffects2> for ::windows::core::IUnknown {
     fn from(value: IAudioSystemEffects2) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1733,6 +1713,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioSys
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAudioSystemEffects2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IAudioSystemEffects2> for IAudioSystemEffects {
+    fn from(value: IAudioSystemEffects2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IAudioSystemEffects2> for IAudioSystemEffects {
+    fn from(value: &IAudioSystemEffects2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IAudioSystemEffects> for IAudioSystemEffects2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IAudioSystemEffects> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IAudioSystemEffects> for &IAudioSystemEffects2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IAudioSystemEffects> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1771,6 +1771,11 @@ pub struct IAudioSystemEffects3(::windows::core::IUnknown);
 impl IAudioSystemEffects3 {
     #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetEffectsList<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(&self, ppeffectsids: *mut *mut ::windows::core::GUID, pceffects: *mut u32, event: Param2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetEffectsList)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppeffectsids), ::core::mem::transmute(pceffects), event.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetControllableSystemEffectsList<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(&self, effects: *mut *mut AUDIO_SYSTEMEFFECT, numeffects: *mut u32, event: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetControllableSystemEffectsList)(::core::mem::transmute_copy(self), ::core::mem::transmute(effects), ::core::mem::transmute(numeffects), event.into_param().abi()).ok()
     }
@@ -1778,29 +1783,24 @@ impl IAudioSystemEffects3 {
     pub unsafe fn SetAudioSystemEffectState<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, effectid: Param0, state: AUDIO_SYSTEMEFFECT_STATE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAudioSystemEffectState)(::core::mem::transmute_copy(self), effectid.into_param().abi(), ::core::mem::transmute(state)).ok()
     }
-    #[doc = "*Required features: 'Win32_Media_Audio_Apo', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetEffectsList<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(&self, ppeffectsids: *mut *mut ::windows::core::GUID, pceffects: *mut u32, event: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetEffectsList)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppeffectsids), ::core::mem::transmute(pceffects), event.into_param().abi()).ok()
-    }
 }
-impl ::core::convert::From<IAudioSystemEffects3> for IAudioSystemEffects2 {
+impl ::core::convert::From<IAudioSystemEffects3> for ::windows::core::IUnknown {
     fn from(value: IAudioSystemEffects3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IAudioSystemEffects3> for IAudioSystemEffects2 {
+impl ::core::convert::From<&IAudioSystemEffects3> for ::windows::core::IUnknown {
     fn from(value: &IAudioSystemEffects3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAudioSystemEffects2> for IAudioSystemEffects3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IAudioSystemEffects2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioSystemEffects3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IAudioSystemEffects2> for &IAudioSystemEffects3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IAudioSystemEffects2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAudioSystemEffects3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1824,23 +1824,23 @@ impl<'a> ::windows::core::IntoParam<'a, IAudioSystemEffects> for &IAudioSystemEf
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IAudioSystemEffects3> for ::windows::core::IUnknown {
+impl ::core::convert::From<IAudioSystemEffects3> for IAudioSystemEffects2 {
     fn from(value: IAudioSystemEffects3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IAudioSystemEffects3> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IAudioSystemEffects3> for IAudioSystemEffects2 {
     fn from(value: &IAudioSystemEffects3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAudioSystemEffects3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IAudioSystemEffects2> for IAudioSystemEffects3 {
+    fn into_param(self) -> ::windows::core::Param<'a, IAudioSystemEffects2> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAudioSystemEffects3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IAudioSystemEffects2> for &IAudioSystemEffects3 {
+    fn into_param(self) -> ::windows::core::Param<'a, IAudioSystemEffects2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

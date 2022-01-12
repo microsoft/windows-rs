@@ -107,26 +107,6 @@ impl IImageScannerFormatConfiguration {
         }
     }
 }
-impl ::core::convert::From<IImageScannerFormatConfiguration> for ::windows::core::IInspectable {
-    fn from(value: IImageScannerFormatConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IImageScannerFormatConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &IImageScannerFormatConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IImageScannerFormatConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IImageScannerFormatConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IImageScannerFormatConfiguration> for ::windows::core::IUnknown {
     fn from(value: IImageScannerFormatConfiguration) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -144,6 +124,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IImageSca
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IImageScannerFormatConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IImageScannerFormatConfiguration> for ::windows::core::IInspectable {
+    fn from(value: IImageScannerFormatConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IImageScannerFormatConfiguration> for ::windows::core::IInspectable {
+    fn from(value: &IImageScannerFormatConfiguration) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IImageScannerFormatConfiguration {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IImageScannerFormatConfiguration {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -461,26 +461,6 @@ impl IImageScannerSourceConfiguration {
         }
     }
 }
-impl ::core::convert::From<IImageScannerSourceConfiguration> for ::windows::core::IInspectable {
-    fn from(value: IImageScannerSourceConfiguration) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IImageScannerSourceConfiguration> for ::windows::core::IInspectable {
-    fn from(value: &IImageScannerSourceConfiguration) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IImageScannerSourceConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IImageScannerSourceConfiguration {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IImageScannerSourceConfiguration> for ::windows::core::IUnknown {
     fn from(value: IImageScannerSourceConfiguration) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -498,6 +478,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IImageSca
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IImageScannerSourceConfiguration {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IImageScannerSourceConfiguration> for ::windows::core::IInspectable {
+    fn from(value: IImageScannerSourceConfiguration) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IImageScannerSourceConfiguration> for ::windows::core::IInspectable {
+    fn from(value: &IImageScannerSourceConfiguration) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IImageScannerSourceConfiguration {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IImageScannerSourceConfiguration {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

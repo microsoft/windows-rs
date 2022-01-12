@@ -4137,26 +4137,6 @@ impl ICoreAcceleratorKeys {
         unsafe { (::windows::core::Interface::vtable(this).RemoveAcceleratorKeyActivated)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
 }
-impl ::core::convert::From<ICoreAcceleratorKeys> for ::windows::core::IInspectable {
-    fn from(value: ICoreAcceleratorKeys) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICoreAcceleratorKeys> for ::windows::core::IInspectable {
-    fn from(value: &ICoreAcceleratorKeys) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICoreAcceleratorKeys {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICoreAcceleratorKeys {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ICoreAcceleratorKeys> for ::windows::core::IUnknown {
     fn from(value: ICoreAcceleratorKeys) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -4174,6 +4154,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICoreAcce
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICoreAcceleratorKeys {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICoreAcceleratorKeys> for ::windows::core::IInspectable {
+    fn from(value: ICoreAcceleratorKeys) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreAcceleratorKeys> for ::windows::core::IInspectable {
+    fn from(value: &ICoreAcceleratorKeys) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICoreAcceleratorKeys {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICoreAcceleratorKeys {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4428,26 +4428,6 @@ impl ICoreInputSourceBase {
         unsafe { (::windows::core::Interface::vtable(this).RemoveInputEnabled)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
 }
-impl ::core::convert::From<ICoreInputSourceBase> for ::windows::core::IInspectable {
-    fn from(value: ICoreInputSourceBase) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICoreInputSourceBase> for ::windows::core::IInspectable {
-    fn from(value: &ICoreInputSourceBase) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICoreInputSourceBase {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICoreInputSourceBase {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ICoreInputSourceBase> for ::windows::core::IUnknown {
     fn from(value: ICoreInputSourceBase) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -4465,6 +4445,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICoreInpu
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICoreInputSourceBase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICoreInputSourceBase> for ::windows::core::IInspectable {
+    fn from(value: ICoreInputSourceBase) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreInputSourceBase> for ::windows::core::IInspectable {
+    fn from(value: &ICoreInputSourceBase) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICoreInputSourceBase {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICoreInputSourceBase {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4710,26 +4710,6 @@ impl ICorePointerInputSource {
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerWheelChanged)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
 }
-impl ::core::convert::From<ICorePointerInputSource> for ::windows::core::IInspectable {
-    fn from(value: ICorePointerInputSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICorePointerInputSource> for ::windows::core::IInspectable {
-    fn from(value: &ICorePointerInputSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICorePointerInputSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICorePointerInputSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ICorePointerInputSource> for ::windows::core::IUnknown {
     fn from(value: ICorePointerInputSource) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -4747,6 +4727,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICorePoin
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICorePointerInputSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICorePointerInputSource> for ::windows::core::IInspectable {
+    fn from(value: ICorePointerInputSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICorePointerInputSource> for ::windows::core::IInspectable {
+    fn from(value: &ICorePointerInputSource) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICorePointerInputSource {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICorePointerInputSource {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5002,26 +5002,6 @@ impl ICorePointerInputSource2 {
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerWheelChanged)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
 }
-impl ::core::convert::From<ICorePointerInputSource2> for ::windows::core::IInspectable {
-    fn from(value: ICorePointerInputSource2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICorePointerInputSource2> for ::windows::core::IInspectable {
-    fn from(value: &ICorePointerInputSource2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICorePointerInputSource2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICorePointerInputSource2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ICorePointerInputSource2> for ::windows::core::IUnknown {
     fn from(value: ICorePointerInputSource2) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -5039,6 +5019,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICorePoin
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICorePointerInputSource2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICorePointerInputSource2> for ::windows::core::IInspectable {
+    fn from(value: ICorePointerInputSource2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICorePointerInputSource2> for ::windows::core::IInspectable {
+    fn from(value: &ICorePointerInputSource2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICorePointerInputSource2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICorePointerInputSource2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5146,26 +5146,6 @@ impl ICorePointerRedirector {
         unsafe { (::windows::core::Interface::vtable(this).RemovePointerRoutedReleased)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
 }
-impl ::core::convert::From<ICorePointerRedirector> for ::windows::core::IInspectable {
-    fn from(value: ICorePointerRedirector) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICorePointerRedirector> for ::windows::core::IInspectable {
-    fn from(value: &ICorePointerRedirector) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICorePointerRedirector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICorePointerRedirector {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ICorePointerRedirector> for ::windows::core::IUnknown {
     fn from(value: ICorePointerRedirector) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -5183,6 +5163,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICorePoin
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICorePointerRedirector {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICorePointerRedirector> for ::windows::core::IInspectable {
+    fn from(value: ICorePointerRedirector) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICorePointerRedirector> for ::windows::core::IInspectable {
+    fn from(value: &ICorePointerRedirector) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICorePointerRedirector {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICorePointerRedirector {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5646,26 +5646,6 @@ impl ICoreWindow {
         unsafe { (::windows::core::Interface::vtable(this).RemoveVisibilityChanged)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
     }
 }
-impl ::core::convert::From<ICoreWindow> for ::windows::core::IInspectable {
-    fn from(value: ICoreWindow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICoreWindow> for ::windows::core::IInspectable {
-    fn from(value: &ICoreWindow) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICoreWindow {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICoreWindow {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ICoreWindow> for ::windows::core::IUnknown {
     fn from(value: ICoreWindow) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -5683,6 +5663,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICoreWind
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICoreWindow {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICoreWindow> for ::windows::core::IInspectable {
+    fn from(value: ICoreWindow) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWindow> for ::windows::core::IInspectable {
+    fn from(value: &ICoreWindow) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICoreWindow {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICoreWindow {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -6048,26 +6048,6 @@ impl ICoreWindowEventArgs {
         unsafe { (::windows::core::Interface::vtable(this).SetHandled)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
-impl ::core::convert::From<ICoreWindowEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ICoreWindowEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICoreWindowEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ICoreWindowEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICoreWindowEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICoreWindowEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ICoreWindowEventArgs> for ::windows::core::IUnknown {
     fn from(value: ICoreWindowEventArgs) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -6085,6 +6065,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICoreWind
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICoreWindowEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICoreWindowEventArgs> for ::windows::core::IInspectable {
+    fn from(value: ICoreWindowEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreWindowEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &ICoreWindowEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICoreWindowEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICoreWindowEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -6293,26 +6293,6 @@ impl IInitializeWithCoreWindow {
         unsafe { (::windows::core::Interface::vtable(this).Initialize)(::core::mem::transmute_copy(this), window.into_param().abi()).ok() }
     }
 }
-impl ::core::convert::From<IInitializeWithCoreWindow> for ::windows::core::IInspectable {
-    fn from(value: IInitializeWithCoreWindow) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInitializeWithCoreWindow> for ::windows::core::IInspectable {
-    fn from(value: &IInitializeWithCoreWindow) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IInitializeWithCoreWindow {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IInitializeWithCoreWindow {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IInitializeWithCoreWindow> for ::windows::core::IUnknown {
     fn from(value: IInitializeWithCoreWindow) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -6330,6 +6310,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInitiali
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IInitializeWithCoreWindow {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IInitializeWithCoreWindow> for ::windows::core::IInspectable {
+    fn from(value: IInitializeWithCoreWindow) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IInitializeWithCoreWindow> for ::windows::core::IInspectable {
+    fn from(value: &IInitializeWithCoreWindow) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IInitializeWithCoreWindow {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IInitializeWithCoreWindow {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

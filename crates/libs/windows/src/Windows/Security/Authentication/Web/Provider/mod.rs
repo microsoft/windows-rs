@@ -210,26 +210,6 @@ impl IWebAccountProviderBaseReportOperation {
         unsafe { (::windows::core::Interface::vtable(this).ReportError)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
 }
-impl ::core::convert::From<IWebAccountProviderBaseReportOperation> for ::windows::core::IInspectable {
-    fn from(value: IWebAccountProviderBaseReportOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAccountProviderBaseReportOperation> for ::windows::core::IInspectable {
-    fn from(value: &IWebAccountProviderBaseReportOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWebAccountProviderBaseReportOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IWebAccountProviderBaseReportOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWebAccountProviderBaseReportOperation> for ::windows::core::IUnknown {
     fn from(value: IWebAccountProviderBaseReportOperation) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -247,6 +227,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWebAccou
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWebAccountProviderBaseReportOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IWebAccountProviderBaseReportOperation> for ::windows::core::IInspectable {
+    fn from(value: IWebAccountProviderBaseReportOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IWebAccountProviderBaseReportOperation> for ::windows::core::IInspectable {
+    fn from(value: &IWebAccountProviderBaseReportOperation) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWebAccountProviderBaseReportOperation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IWebAccountProviderBaseReportOperation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -329,26 +329,6 @@ impl IWebAccountProviderOperation {
         }
     }
 }
-impl ::core::convert::From<IWebAccountProviderOperation> for ::windows::core::IInspectable {
-    fn from(value: IWebAccountProviderOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAccountProviderOperation> for ::windows::core::IInspectable {
-    fn from(value: &IWebAccountProviderOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWebAccountProviderOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IWebAccountProviderOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWebAccountProviderOperation> for ::windows::core::IUnknown {
     fn from(value: IWebAccountProviderOperation) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -366,6 +346,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWebAccou
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWebAccountProviderOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IWebAccountProviderOperation> for ::windows::core::IInspectable {
+    fn from(value: IWebAccountProviderOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IWebAccountProviderOperation> for ::windows::core::IInspectable {
+    fn from(value: &IWebAccountProviderOperation) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWebAccountProviderOperation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IWebAccountProviderOperation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -478,26 +478,6 @@ impl IWebAccountProviderSilentReportOperation {
         unsafe { (::windows::core::Interface::vtable(this).ReportError)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
 }
-impl ::core::convert::From<IWebAccountProviderSilentReportOperation> for ::windows::core::IInspectable {
-    fn from(value: IWebAccountProviderSilentReportOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAccountProviderSilentReportOperation> for ::windows::core::IInspectable {
-    fn from(value: &IWebAccountProviderSilentReportOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWebAccountProviderSilentReportOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IWebAccountProviderSilentReportOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWebAccountProviderSilentReportOperation> for ::windows::core::IUnknown {
     fn from(value: IWebAccountProviderSilentReportOperation) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -515,6 +495,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWebAccou
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWebAccountProviderSilentReportOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IWebAccountProviderSilentReportOperation> for ::windows::core::IInspectable {
+    fn from(value: IWebAccountProviderSilentReportOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IWebAccountProviderSilentReportOperation> for ::windows::core::IInspectable {
+    fn from(value: &IWebAccountProviderSilentReportOperation) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWebAccountProviderSilentReportOperation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IWebAccountProviderSilentReportOperation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -586,26 +586,6 @@ impl IWebAccountProviderTokenObjects {
         }
     }
 }
-impl ::core::convert::From<IWebAccountProviderTokenObjects> for ::windows::core::IInspectable {
-    fn from(value: IWebAccountProviderTokenObjects) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAccountProviderTokenObjects> for ::windows::core::IInspectable {
-    fn from(value: &IWebAccountProviderTokenObjects) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWebAccountProviderTokenObjects {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IWebAccountProviderTokenObjects {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWebAccountProviderTokenObjects> for ::windows::core::IUnknown {
     fn from(value: IWebAccountProviderTokenObjects) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -623,6 +603,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWebAccou
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWebAccountProviderTokenObjects {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IWebAccountProviderTokenObjects> for ::windows::core::IInspectable {
+    fn from(value: IWebAccountProviderTokenObjects) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IWebAccountProviderTokenObjects> for ::windows::core::IInspectable {
+    fn from(value: &IWebAccountProviderTokenObjects) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWebAccountProviderTokenObjects {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IWebAccountProviderTokenObjects {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -677,26 +677,6 @@ impl IWebAccountProviderTokenObjects2 {
         }
     }
 }
-impl ::core::convert::From<IWebAccountProviderTokenObjects2> for ::windows::core::IInspectable {
-    fn from(value: IWebAccountProviderTokenObjects2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAccountProviderTokenObjects2> for ::windows::core::IInspectable {
-    fn from(value: &IWebAccountProviderTokenObjects2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWebAccountProviderTokenObjects2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IWebAccountProviderTokenObjects2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWebAccountProviderTokenObjects2> for ::windows::core::IUnknown {
     fn from(value: IWebAccountProviderTokenObjects2) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -714,6 +694,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWebAccou
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWebAccountProviderTokenObjects2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IWebAccountProviderTokenObjects2> for ::windows::core::IInspectable {
+    fn from(value: IWebAccountProviderTokenObjects2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IWebAccountProviderTokenObjects2> for ::windows::core::IInspectable {
+    fn from(value: &IWebAccountProviderTokenObjects2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWebAccountProviderTokenObjects2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IWebAccountProviderTokenObjects2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -816,26 +816,6 @@ impl IWebAccountProviderTokenOperation {
         }
     }
 }
-impl ::core::convert::From<IWebAccountProviderTokenOperation> for ::windows::core::IInspectable {
-    fn from(value: IWebAccountProviderTokenOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAccountProviderTokenOperation> for ::windows::core::IInspectable {
-    fn from(value: &IWebAccountProviderTokenOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWebAccountProviderTokenOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IWebAccountProviderTokenOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWebAccountProviderTokenOperation> for ::windows::core::IUnknown {
     fn from(value: IWebAccountProviderTokenOperation) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -853,6 +833,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWebAccou
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWebAccountProviderTokenOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IWebAccountProviderTokenOperation> for ::windows::core::IInspectable {
+    fn from(value: IWebAccountProviderTokenOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IWebAccountProviderTokenOperation> for ::windows::core::IInspectable {
+    fn from(value: &IWebAccountProviderTokenOperation) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWebAccountProviderTokenOperation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IWebAccountProviderTokenOperation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -940,26 +940,6 @@ impl IWebAccountProviderUIReportOperation {
         unsafe { (::windows::core::Interface::vtable(this).ReportError)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
 }
-impl ::core::convert::From<IWebAccountProviderUIReportOperation> for ::windows::core::IInspectable {
-    fn from(value: IWebAccountProviderUIReportOperation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWebAccountProviderUIReportOperation> for ::windows::core::IInspectable {
-    fn from(value: &IWebAccountProviderUIReportOperation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWebAccountProviderUIReportOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IWebAccountProviderUIReportOperation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IWebAccountProviderUIReportOperation> for ::windows::core::IUnknown {
     fn from(value: IWebAccountProviderUIReportOperation) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -977,6 +957,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWebAccou
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWebAccountProviderUIReportOperation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IWebAccountProviderUIReportOperation> for ::windows::core::IInspectable {
+    fn from(value: IWebAccountProviderUIReportOperation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IWebAccountProviderUIReportOperation> for ::windows::core::IInspectable {
+    fn from(value: &IWebAccountProviderUIReportOperation) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IWebAccountProviderUIReportOperation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IWebAccountProviderUIReportOperation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

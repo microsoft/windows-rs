@@ -363,26 +363,6 @@ pub struct IRemoteSystemEnumerationCompletedEventArgsVtbl {
 #[repr(transparent)]
 pub struct IRemoteSystemFilter(::windows::core::IUnknown);
 impl IRemoteSystemFilter {}
-impl ::core::convert::From<IRemoteSystemFilter> for ::windows::core::IInspectable {
-    fn from(value: IRemoteSystemFilter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRemoteSystemFilter> for ::windows::core::IInspectable {
-    fn from(value: &IRemoteSystemFilter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IRemoteSystemFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IRemoteSystemFilter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IRemoteSystemFilter> for ::windows::core::IUnknown {
     fn from(value: IRemoteSystemFilter) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -400,6 +380,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRemoteSy
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRemoteSystemFilter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IRemoteSystemFilter> for ::windows::core::IInspectable {
+    fn from(value: IRemoteSystemFilter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IRemoteSystemFilter> for ::windows::core::IInspectable {
+    fn from(value: &IRemoteSystemFilter) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IRemoteSystemFilter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IRemoteSystemFilter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

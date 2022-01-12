@@ -16,26 +16,6 @@ impl IPrintManagerInterop {
         (::windows::core::Interface::vtable(self).ShowPrintUIForWindowAsync)(::core::mem::transmute_copy(self), appwindow.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IPrintManagerInterop> for ::windows::core::IInspectable {
-    fn from(value: IPrintManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintManagerInterop> for ::windows::core::IInspectable {
-    fn from(value: &IPrintManagerInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPrintManagerInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPrintManagerInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IPrintManagerInterop> for ::windows::core::IUnknown {
     fn from(value: IPrintManagerInterop) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -53,6 +33,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintMan
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintManagerInterop {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IPrintManagerInterop> for ::windows::core::IInspectable {
+    fn from(value: IPrintManagerInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPrintManagerInterop> for ::windows::core::IInspectable {
+    fn from(value: &IPrintManagerInterop) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPrintManagerInterop {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPrintManagerInterop {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -389,10 +389,6 @@ pub struct IPrintWorkflowXpsReceiverVtbl {
 #[repr(transparent)]
 pub struct IPrintWorkflowXpsReceiver2(::windows::core::IUnknown);
 impl IPrintWorkflowXpsReceiver2 {
-    #[doc = "*Required features: 'Win32_System_WinRT_Printing'*"]
-    pub unsafe fn Failed(&self, xpserror: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Failed)(::core::mem::transmute_copy(self), ::core::mem::transmute(xpserror)).ok()
-    }
     #[doc = "*Required features: 'Win32_System_WinRT_Printing', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDocumentSequencePrintTicket<'a, Param0: ::windows::core::IntoParam<'a, super::super::Com::IStream>>(&self, documentsequenceprintticket: Param0) -> ::windows::core::Result<()> {
@@ -417,25 +413,9 @@ impl IPrintWorkflowXpsReceiver2 {
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Close)(::core::mem::transmute_copy(self)).ok()
     }
-}
-impl ::core::convert::From<IPrintWorkflowXpsReceiver2> for IPrintWorkflowXpsReceiver {
-    fn from(value: IPrintWorkflowXpsReceiver2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrintWorkflowXpsReceiver2> for IPrintWorkflowXpsReceiver {
-    fn from(value: &IPrintWorkflowXpsReceiver2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPrintWorkflowXpsReceiver> for IPrintWorkflowXpsReceiver2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IPrintWorkflowXpsReceiver> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IPrintWorkflowXpsReceiver> for &IPrintWorkflowXpsReceiver2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IPrintWorkflowXpsReceiver> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_System_WinRT_Printing'*"]
+    pub unsafe fn Failed(&self, xpserror: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Failed)(::core::mem::transmute_copy(self), ::core::mem::transmute(xpserror)).ok()
     }
 }
 impl ::core::convert::From<IPrintWorkflowXpsReceiver2> for ::windows::core::IUnknown {
@@ -455,6 +435,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrintWor
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrintWorkflowXpsReceiver2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IPrintWorkflowXpsReceiver2> for IPrintWorkflowXpsReceiver {
+    fn from(value: IPrintWorkflowXpsReceiver2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPrintWorkflowXpsReceiver2> for IPrintWorkflowXpsReceiver {
+    fn from(value: &IPrintWorkflowXpsReceiver2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IPrintWorkflowXpsReceiver> for IPrintWorkflowXpsReceiver2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IPrintWorkflowXpsReceiver> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IPrintWorkflowXpsReceiver> for &IPrintWorkflowXpsReceiver2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IPrintWorkflowXpsReceiver> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -501,26 +501,6 @@ impl IPrinting3DManagerInterop {
         (::windows::core::Interface::vtable(self).ShowPrintUIForWindowAsync)(::core::mem::transmute_copy(self), appwindow.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IPrinting3DManagerInterop> for ::windows::core::IInspectable {
-    fn from(value: IPrinting3DManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPrinting3DManagerInterop> for ::windows::core::IInspectable {
-    fn from(value: &IPrinting3DManagerInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPrinting3DManagerInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPrinting3DManagerInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IPrinting3DManagerInterop> for ::windows::core::IUnknown {
     fn from(value: IPrinting3DManagerInterop) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -538,6 +518,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPrinting
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPrinting3DManagerInterop {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IPrinting3DManagerInterop> for ::windows::core::IInspectable {
+    fn from(value: IPrinting3DManagerInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPrinting3DManagerInterop> for ::windows::core::IInspectable {
+    fn from(value: &IPrinting3DManagerInterop) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPrinting3DManagerInterop {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPrinting3DManagerInterop {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

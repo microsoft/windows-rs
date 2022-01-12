@@ -2102,11 +2102,6 @@ pub struct IDirectSound3DListenerVtbl {
 pub struct IDirectSound8(::windows::core::IUnknown);
 impl IDirectSound8 {
     #[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
-    pub unsafe fn VerifyCertification(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).VerifyCertification)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
     pub unsafe fn CreateSoundBuffer<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pcdsbufferdesc: *const DSBUFFERDESC, ppdsbuffer: *mut ::core::option::Option<IDirectSoundBuffer>, punkouter: Param2) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.CreateSoundBuffer)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcdsbufferdesc), ::core::mem::transmute(ppdsbuffer), punkouter.into_param().abi()).ok()
     }
@@ -2142,25 +2137,10 @@ impl IDirectSound8 {
     pub unsafe fn Initialize(&self, pcguiddevice: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Initialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcguiddevice)).ok()
     }
-}
-impl ::core::convert::From<IDirectSound8> for IDirectSound {
-    fn from(value: IDirectSound8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDirectSound8> for IDirectSound {
-    fn from(value: &IDirectSound8) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectSound> for IDirectSound8 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectSound> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectSound> for &IDirectSound8 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectSound> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
+    pub unsafe fn VerifyCertification(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).VerifyCertification)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IDirectSound8> for ::windows::core::IUnknown {
@@ -2180,6 +2160,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectSo
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectSound8 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDirectSound8> for IDirectSound {
+    fn from(value: IDirectSound8) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDirectSound8> for IDirectSound {
+    fn from(value: &IDirectSound8) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDirectSound> for IDirectSound8 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDirectSound> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDirectSound> for &IDirectSound8 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDirectSound> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2359,18 +2359,6 @@ pub struct IDirectSoundBufferVtbl {
 pub struct IDirectSoundBuffer8(::windows::core::IUnknown);
 impl IDirectSoundBuffer8 {
     #[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
-    pub unsafe fn SetFX(&self, dweffectscount: u32, pdsfxdesc: *const DSEFFECTDESC, pdwresultcodes: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFX)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweffectscount), ::core::mem::transmute(pdsfxdesc), ::core::mem::transmute(pdwresultcodes)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
-    pub unsafe fn AcquireResources(&self, dwflags: u32, dweffectscount: u32, pdwresultcodes: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AcquireResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(dweffectscount), ::core::mem::transmute(pdwresultcodes)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
-    pub unsafe fn GetObjectInPath(&self, rguidobject: *const ::windows::core::GUID, dwindex: u32, rguidinterface: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetObjectInPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguidobject), ::core::mem::transmute(dwindex), ::core::mem::transmute(rguidinterface), ::core::mem::transmute(ppobject)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
     pub unsafe fn GetCaps(&self) -> ::windows::core::Result<DSBCAPS> {
         let mut result__: DSBCAPS = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetCaps)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DSBCAPS>(result__)
@@ -2447,25 +2435,17 @@ impl IDirectSoundBuffer8 {
     pub unsafe fn Restore(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Restore)(::core::mem::transmute_copy(self)).ok()
     }
-}
-impl ::core::convert::From<IDirectSoundBuffer8> for IDirectSoundBuffer {
-    fn from(value: IDirectSoundBuffer8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
+    pub unsafe fn SetFX(&self, dweffectscount: u32, pdsfxdesc: *const DSEFFECTDESC, pdwresultcodes: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetFX)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweffectscount), ::core::mem::transmute(pdsfxdesc), ::core::mem::transmute(pdwresultcodes)).ok()
     }
-}
-impl ::core::convert::From<&IDirectSoundBuffer8> for IDirectSoundBuffer {
-    fn from(value: &IDirectSoundBuffer8) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    #[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
+    pub unsafe fn AcquireResources(&self, dwflags: u32, dweffectscount: u32, pdwresultcodes: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AcquireResources)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(dweffectscount), ::core::mem::transmute(pdwresultcodes)).ok()
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectSoundBuffer> for IDirectSoundBuffer8 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectSoundBuffer> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectSoundBuffer> for &IDirectSoundBuffer8 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectSoundBuffer> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
+    pub unsafe fn GetObjectInPath(&self, rguidobject: *const ::windows::core::GUID, dwindex: u32, rguidinterface: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetObjectInPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguidobject), ::core::mem::transmute(dwindex), ::core::mem::transmute(rguidinterface), ::core::mem::transmute(ppobject)).ok()
     }
 }
 impl ::core::convert::From<IDirectSoundBuffer8> for ::windows::core::IUnknown {
@@ -2485,6 +2465,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectSo
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectSoundBuffer8 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDirectSoundBuffer8> for IDirectSoundBuffer {
+    fn from(value: IDirectSoundBuffer8) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDirectSoundBuffer8> for IDirectSoundBuffer {
+    fn from(value: &IDirectSoundBuffer8) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDirectSoundBuffer> for IDirectSoundBuffer8 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDirectSoundBuffer> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDirectSoundBuffer> for &IDirectSoundBuffer8 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDirectSoundBuffer> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2684,14 +2684,6 @@ pub struct IDirectSoundCaptureBufferVtbl {
 pub struct IDirectSoundCaptureBuffer8(::windows::core::IUnknown);
 impl IDirectSoundCaptureBuffer8 {
     #[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
-    pub unsafe fn GetObjectInPath(&self, rguidobject: *const ::windows::core::GUID, dwindex: u32, rguidinterface: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetObjectInPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguidobject), ::core::mem::transmute(dwindex), ::core::mem::transmute(rguidinterface), ::core::mem::transmute(ppobject)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
-    pub unsafe fn GetFXStatus(&self, dweffectscount: u32, pdwfxstatus: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFXStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweffectscount), ::core::mem::transmute(pdwfxstatus)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
     pub unsafe fn GetCaps(&self) -> ::windows::core::Result<DSCBCAPS> {
         let mut result__: DSCBCAPS = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetCaps)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DSCBCAPS>(result__)
@@ -2729,25 +2721,13 @@ impl IDirectSoundCaptureBuffer8 {
     pub unsafe fn Unlock(&self, pvaudioptr1: *const ::core::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const ::core::ffi::c_void, dwaudiobytes2: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Unlock)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvaudioptr1), ::core::mem::transmute(dwaudiobytes1), ::core::mem::transmute(pvaudioptr2), ::core::mem::transmute(dwaudiobytes2)).ok()
     }
-}
-impl ::core::convert::From<IDirectSoundCaptureBuffer8> for IDirectSoundCaptureBuffer {
-    fn from(value: IDirectSoundCaptureBuffer8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
+    pub unsafe fn GetObjectInPath(&self, rguidobject: *const ::windows::core::GUID, dwindex: u32, rguidinterface: *const ::windows::core::GUID, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetObjectInPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(rguidobject), ::core::mem::transmute(dwindex), ::core::mem::transmute(rguidinterface), ::core::mem::transmute(ppobject)).ok()
     }
-}
-impl ::core::convert::From<&IDirectSoundCaptureBuffer8> for IDirectSoundCaptureBuffer {
-    fn from(value: &IDirectSoundCaptureBuffer8) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectSoundCaptureBuffer> for IDirectSoundCaptureBuffer8 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectSoundCaptureBuffer> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirectSoundCaptureBuffer> for &IDirectSoundCaptureBuffer8 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirectSoundCaptureBuffer> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Media_Audio_DirectSound'*"]
+    pub unsafe fn GetFXStatus(&self, dweffectscount: u32, pdwfxstatus: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetFXStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(dweffectscount), ::core::mem::transmute(pdwfxstatus)).ok()
     }
 }
 impl ::core::convert::From<IDirectSoundCaptureBuffer8> for ::windows::core::IUnknown {
@@ -2767,6 +2747,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirectSo
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirectSoundCaptureBuffer8 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDirectSoundCaptureBuffer8> for IDirectSoundCaptureBuffer {
+    fn from(value: IDirectSoundCaptureBuffer8) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDirectSoundCaptureBuffer8> for IDirectSoundCaptureBuffer {
+    fn from(value: &IDirectSoundCaptureBuffer8) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDirectSoundCaptureBuffer> for IDirectSoundCaptureBuffer8 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDirectSoundCaptureBuffer> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDirectSoundCaptureBuffer> for &IDirectSoundCaptureBuffer8 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDirectSoundCaptureBuffer> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

@@ -1309,30 +1309,6 @@ impl ISmsBinaryMessage {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<ISmsBinaryMessage> for ::windows::core::IInspectable {
-    fn from(value: ISmsBinaryMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&ISmsBinaryMessage> for ::windows::core::IInspectable {
-    fn from(value: &ISmsBinaryMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISmsBinaryMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISmsBinaryMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
 impl ::core::convert::From<ISmsBinaryMessage> for ::windows::core::IUnknown {
     fn from(value: ISmsBinaryMessage) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1353,6 +1329,30 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISmsBinar
 #[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISmsBinaryMessage {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<ISmsBinaryMessage> for ::windows::core::IInspectable {
+    fn from(value: ISmsBinaryMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<&ISmsBinaryMessage> for ::windows::core::IInspectable {
+    fn from(value: &ISmsBinaryMessage) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISmsBinaryMessage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISmsBinaryMessage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1550,30 +1550,6 @@ impl ISmsDevice {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<ISmsDevice> for ::windows::core::IInspectable {
-    fn from(value: ISmsDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&ISmsDevice> for ::windows::core::IInspectable {
-    fn from(value: &ISmsDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISmsDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISmsDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
 impl ::core::convert::From<ISmsDevice> for ::windows::core::IUnknown {
     fn from(value: ISmsDevice) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1594,6 +1570,30 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISmsDevic
 #[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISmsDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<ISmsDevice> for ::windows::core::IInspectable {
+    fn from(value: ISmsDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<&ISmsDevice> for ::windows::core::IInspectable {
+    fn from(value: &ISmsDevice) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISmsDevice {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISmsDevice {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1924,26 +1924,6 @@ impl ISmsMessage {
         }
     }
 }
-impl ::core::convert::From<ISmsMessage> for ::windows::core::IInspectable {
-    fn from(value: ISmsMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISmsMessage> for ::windows::core::IInspectable {
-    fn from(value: &ISmsMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISmsMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISmsMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISmsMessage> for ::windows::core::IUnknown {
     fn from(value: ISmsMessage) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1961,6 +1941,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISmsMessa
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISmsMessage {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ISmsMessage> for ::windows::core::IInspectable {
+    fn from(value: ISmsMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ISmsMessage> for ::windows::core::IInspectable {
+    fn from(value: &ISmsMessage) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISmsMessage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISmsMessage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2039,26 +2039,6 @@ impl ISmsMessageBase {
         }
     }
 }
-impl ::core::convert::From<ISmsMessageBase> for ::windows::core::IInspectable {
-    fn from(value: ISmsMessageBase) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISmsMessageBase> for ::windows::core::IInspectable {
-    fn from(value: &ISmsMessageBase) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISmsMessageBase {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISmsMessageBase {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISmsMessageBase> for ::windows::core::IUnknown {
     fn from(value: ISmsMessageBase) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -2076,6 +2056,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISmsMessa
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISmsMessageBase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ISmsMessageBase> for ::windows::core::IInspectable {
+    fn from(value: ISmsMessageBase) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ISmsMessageBase> for ::windows::core::IInspectable {
+    fn from(value: &ISmsMessageBase) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISmsMessageBase {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISmsMessageBase {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2417,30 +2417,6 @@ impl ISmsTextMessage {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<ISmsTextMessage> for ::windows::core::IInspectable {
-    fn from(value: ISmsTextMessage) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&ISmsTextMessage> for ::windows::core::IInspectable {
-    fn from(value: &ISmsTextMessage) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISmsTextMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISmsTextMessage {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
 impl ::core::convert::From<ISmsTextMessage> for ::windows::core::IUnknown {
     fn from(value: ISmsTextMessage) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -2461,6 +2437,30 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISmsTextM
 #[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISmsTextMessage {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<ISmsTextMessage> for ::windows::core::IInspectable {
+    fn from(value: ISmsTextMessage) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<&ISmsTextMessage> for ::windows::core::IInspectable {
+    fn from(value: &ISmsTextMessage) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISmsTextMessage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISmsTextMessage {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

@@ -6102,26 +6102,6 @@ impl ICashDrawerEventSourceEventArgs {
         }
     }
 }
-impl ::core::convert::From<ICashDrawerEventSourceEventArgs> for ::windows::core::IInspectable {
-    fn from(value: ICashDrawerEventSourceEventArgs) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICashDrawerEventSourceEventArgs> for ::windows::core::IInspectable {
-    fn from(value: &ICashDrawerEventSourceEventArgs) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICashDrawerEventSourceEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICashDrawerEventSourceEventArgs {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ICashDrawerEventSourceEventArgs> for ::windows::core::IUnknown {
     fn from(value: ICashDrawerEventSourceEventArgs) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -6139,6 +6119,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICashDraw
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICashDrawerEventSourceEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICashDrawerEventSourceEventArgs> for ::windows::core::IInspectable {
+    fn from(value: ICashDrawerEventSourceEventArgs) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICashDrawerEventSourceEventArgs> for ::windows::core::IInspectable {
+    fn from(value: &ICashDrawerEventSourceEventArgs) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICashDrawerEventSourceEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICashDrawerEventSourceEventArgs {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -7078,26 +7078,6 @@ impl ICommonClaimedPosPrinterStation {
         }
     }
 }
-impl ::core::convert::From<ICommonClaimedPosPrinterStation> for ::windows::core::IInspectable {
-    fn from(value: ICommonClaimedPosPrinterStation) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICommonClaimedPosPrinterStation> for ::windows::core::IInspectable {
-    fn from(value: &ICommonClaimedPosPrinterStation) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICommonClaimedPosPrinterStation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICommonClaimedPosPrinterStation {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ICommonClaimedPosPrinterStation> for ::windows::core::IUnknown {
     fn from(value: ICommonClaimedPosPrinterStation) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -7115,6 +7095,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICommonCl
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICommonClaimedPosPrinterStation {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICommonClaimedPosPrinterStation> for ::windows::core::IInspectable {
+    fn from(value: ICommonClaimedPosPrinterStation) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICommonClaimedPosPrinterStation> for ::windows::core::IInspectable {
+    fn from(value: &ICommonClaimedPosPrinterStation) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICommonClaimedPosPrinterStation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICommonClaimedPosPrinterStation {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -7275,26 +7275,6 @@ impl ICommonPosPrintStationCapabilities {
         }
     }
 }
-impl ::core::convert::From<ICommonPosPrintStationCapabilities> for ::windows::core::IInspectable {
-    fn from(value: ICommonPosPrintStationCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICommonPosPrintStationCapabilities> for ::windows::core::IInspectable {
-    fn from(value: &ICommonPosPrintStationCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICommonPosPrintStationCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICommonPosPrintStationCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ICommonPosPrintStationCapabilities> for ::windows::core::IUnknown {
     fn from(value: ICommonPosPrintStationCapabilities) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -7312,6 +7292,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICommonPo
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICommonPosPrintStationCapabilities {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICommonPosPrintStationCapabilities> for ::windows::core::IInspectable {
+    fn from(value: ICommonPosPrintStationCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICommonPosPrintStationCapabilities> for ::windows::core::IInspectable {
+    fn from(value: &ICommonPosPrintStationCapabilities) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICommonPosPrintStationCapabilities {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICommonPosPrintStationCapabilities {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -7543,26 +7543,6 @@ impl ICommonReceiptSlipCapabilities {
         }
     }
 }
-impl ::core::convert::From<ICommonReceiptSlipCapabilities> for ::windows::core::IInspectable {
-    fn from(value: ICommonReceiptSlipCapabilities) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICommonReceiptSlipCapabilities> for ::windows::core::IInspectable {
-    fn from(value: &ICommonReceiptSlipCapabilities) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICommonReceiptSlipCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICommonReceiptSlipCapabilities {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ICommonReceiptSlipCapabilities> for ::windows::core::IUnknown {
     fn from(value: ICommonReceiptSlipCapabilities) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -7580,6 +7560,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICommonRe
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICommonReceiptSlipCapabilities {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICommonReceiptSlipCapabilities> for ::windows::core::IInspectable {
+    fn from(value: ICommonReceiptSlipCapabilities) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICommonReceiptSlipCapabilities> for ::windows::core::IInspectable {
+    fn from(value: &ICommonReceiptSlipCapabilities) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICommonReceiptSlipCapabilities {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICommonReceiptSlipCapabilities {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -8502,26 +8502,6 @@ impl IPosPrinterJob {
         }
     }
 }
-impl ::core::convert::From<IPosPrinterJob> for ::windows::core::IInspectable {
-    fn from(value: IPosPrinterJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IPosPrinterJob> for ::windows::core::IInspectable {
-    fn from(value: &IPosPrinterJob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPosPrinterJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPosPrinterJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IPosPrinterJob> for ::windows::core::IUnknown {
     fn from(value: IPosPrinterJob) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -8539,6 +8519,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPosPrint
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPosPrinterJob {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IPosPrinterJob> for ::windows::core::IInspectable {
+    fn from(value: IPosPrinterJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IPosPrinterJob> for ::windows::core::IInspectable {
+    fn from(value: &IPosPrinterJob) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPosPrinterJob {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPosPrinterJob {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -8801,26 +8801,6 @@ impl IReceiptOrSlipJob {
         }
     }
 }
-impl ::core::convert::From<IReceiptOrSlipJob> for ::windows::core::IInspectable {
-    fn from(value: IReceiptOrSlipJob) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IReceiptOrSlipJob> for ::windows::core::IInspectable {
-    fn from(value: &IReceiptOrSlipJob) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IReceiptOrSlipJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IReceiptOrSlipJob {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IReceiptOrSlipJob> for ::windows::core::IUnknown {
     fn from(value: IReceiptOrSlipJob) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -8838,6 +8818,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IReceiptO
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IReceiptOrSlipJob {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IReceiptOrSlipJob> for ::windows::core::IInspectable {
+    fn from(value: IReceiptOrSlipJob) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IReceiptOrSlipJob> for ::windows::core::IInspectable {
+    fn from(value: &IReceiptOrSlipJob) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IReceiptOrSlipJob {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IReceiptOrSlipJob {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -9095,7 +9095,7 @@ impl JournalPrintJob {
     #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Print2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Print2)(::core::mem::transmute_copy(this), data.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Print)(::core::mem::transmute_copy(this), data.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PrintLine<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
@@ -14826,7 +14826,7 @@ impl ReceiptPrintJob {
     #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Print2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, PosPrinterPrintOptions>>(&self, data: Param0, printoptions: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptPrintJob2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Print2)(::core::mem::transmute_copy(this), data.into_param().abi(), printoptions.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Print)(::core::mem::transmute_copy(this), data.into_param().abi(), printoptions.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn FeedPaperByLine(&self, linecount: i32) -> ::windows::core::Result<()> {
@@ -15471,7 +15471,7 @@ impl SlipPrintJob {
     #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Print2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, PosPrinterPrintOptions>>(&self, data: Param0, printoptions: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISlipPrintJob>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Print2)(::core::mem::transmute_copy(this), data.into_param().abi(), printoptions.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Print)(::core::mem::transmute_copy(this), data.into_param().abi(), printoptions.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn FeedPaperByLine(&self, linecount: i32) -> ::windows::core::Result<()> {

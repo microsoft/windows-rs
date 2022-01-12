@@ -310,26 +310,6 @@ impl IInkPointFactory {
         }
     }
 }
-impl ::core::convert::From<IInkPointFactory> for ::windows::core::IInspectable {
-    fn from(value: IInkPointFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInkPointFactory> for ::windows::core::IInspectable {
-    fn from(value: &IInkPointFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IInkPointFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IInkPointFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IInkPointFactory> for ::windows::core::IUnknown {
     fn from(value: IInkPointFactory) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -347,6 +327,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkPoint
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IInkPointFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IInkPointFactory> for ::windows::core::IInspectable {
+    fn from(value: IInkPointFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IInkPointFactory> for ::windows::core::IInspectable {
+    fn from(value: &IInkPointFactory) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IInkPointFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IInkPointFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -556,26 +556,6 @@ impl IInkPresenterRulerFactory {
         }
     }
 }
-impl ::core::convert::From<IInkPresenterRulerFactory> for ::windows::core::IInspectable {
-    fn from(value: IInkPresenterRulerFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInkPresenterRulerFactory> for ::windows::core::IInspectable {
-    fn from(value: &IInkPresenterRulerFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IInkPresenterRulerFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IInkPresenterRulerFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IInkPresenterRulerFactory> for ::windows::core::IUnknown {
     fn from(value: IInkPresenterRulerFactory) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -593,6 +573,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkPrese
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IInkPresenterRulerFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IInkPresenterRulerFactory> for ::windows::core::IInspectable {
+    fn from(value: IInkPresenterRulerFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IInkPresenterRulerFactory> for ::windows::core::IInspectable {
+    fn from(value: &IInkPresenterRulerFactory) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IInkPresenterRulerFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IInkPresenterRulerFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -692,26 +692,6 @@ impl IInkPresenterStencil {
         unsafe { (::windows::core::Interface::vtable(this).SetTransform)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
 }
-impl ::core::convert::From<IInkPresenterStencil> for ::windows::core::IInspectable {
-    fn from(value: IInkPresenterStencil) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInkPresenterStencil> for ::windows::core::IInspectable {
-    fn from(value: &IInkPresenterStencil) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IInkPresenterStencil {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IInkPresenterStencil {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IInkPresenterStencil> for ::windows::core::IUnknown {
     fn from(value: IInkPresenterStencil) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -729,6 +709,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkPrese
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IInkPresenterStencil {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IInkPresenterStencil> for ::windows::core::IInspectable {
+    fn from(value: IInkPresenterStencil) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IInkPresenterStencil> for ::windows::core::IInspectable {
+    fn from(value: &IInkPresenterStencil) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IInkPresenterStencil {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IInkPresenterStencil {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -840,26 +840,6 @@ impl IInkRecognizerContainer {
         }
     }
 }
-impl ::core::convert::From<IInkRecognizerContainer> for ::windows::core::IInspectable {
-    fn from(value: IInkRecognizerContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInkRecognizerContainer> for ::windows::core::IInspectable {
-    fn from(value: &IInkRecognizerContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IInkRecognizerContainer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IInkRecognizerContainer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IInkRecognizerContainer> for ::windows::core::IUnknown {
     fn from(value: IInkRecognizerContainer) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -877,6 +857,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkRecog
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IInkRecognizerContainer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IInkRecognizerContainer> for ::windows::core::IInspectable {
+    fn from(value: IInkRecognizerContainer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IInkRecognizerContainer> for ::windows::core::IInspectable {
+    fn from(value: &IInkRecognizerContainer) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IInkRecognizerContainer {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IInkRecognizerContainer {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1180,26 +1180,6 @@ impl IInkStrokeContainer {
         }
     }
 }
-impl ::core::convert::From<IInkStrokeContainer> for ::windows::core::IInspectable {
-    fn from(value: IInkStrokeContainer) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IInkStrokeContainer> for ::windows::core::IInspectable {
-    fn from(value: &IInkStrokeContainer) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IInkStrokeContainer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IInkStrokeContainer {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IInkStrokeContainer> for ::windows::core::IUnknown {
     fn from(value: IInkStrokeContainer) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1217,6 +1197,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IInkStrok
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IInkStrokeContainer {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IInkStrokeContainer> for ::windows::core::IInspectable {
+    fn from(value: IInkStrokeContainer) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IInkStrokeContainer> for ::windows::core::IInspectable {
+    fn from(value: &IInkStrokeContainer) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IInkStrokeContainer {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IInkStrokeContainer {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4211,7 +4211,7 @@ impl InkStrokeBuilder {
         let this = &::windows::core::Interface::cast::<IInkStrokeBuilder3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateStrokeFromInkPoints2)(::core::mem::transmute_copy(this), inkpoints.into_param().abi(), transform.into_param().abi(), strokestartedtime.into_param().abi(), strokeduration.into_param().abi(), &mut result__).from_abi::<InkStroke>(result__)
+            (::windows::core::Interface::vtable(this).CreateStrokeFromInkPoints)(::core::mem::transmute_copy(this), inkpoints.into_param().abi(), transform.into_param().abi(), strokestartedtime.into_param().abi(), strokeduration.into_param().abi(), &mut result__).from_abi::<InkStroke>(result__)
         }
     }
 }

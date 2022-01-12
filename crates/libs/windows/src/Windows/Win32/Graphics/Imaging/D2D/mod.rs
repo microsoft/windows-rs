@@ -80,12 +80,6 @@ pub struct IWICImageEncoderVtbl {
 #[repr(transparent)]
 pub struct IWICImagingFactory2(::windows::core::IUnknown);
 impl IWICImagingFactory2 {
-    #[doc = "*Required features: 'Win32_Graphics_Imaging_D2D', 'Win32_Graphics_Direct2D'*"]
-    #[cfg(feature = "Win32_Graphics_Direct2D")]
-    pub unsafe fn CreateImageEncoder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Direct2D::ID2D1Device>>(&self, pd2ddevice: Param0) -> ::windows::core::Result<IWICImageEncoder> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateImageEncoder)(::core::mem::transmute_copy(self), pd2ddevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWICImageEncoder>(result__)
-    }
     #[doc = "*Required features: 'Win32_Graphics_Imaging_D2D', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateDecoderFromFilename<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, wzfilename: Param0, pguidvendor: *const ::windows::core::GUID, dwdesiredaccess: u32, metadataoptions: super::WICDecodeOptions) -> ::windows::core::Result<super::IWICBitmapDecoder> {
@@ -217,25 +211,11 @@ impl IWICImagingFactory2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.CreateQueryWriterFromReader)(::core::mem::transmute_copy(self), piqueryreader.into_param().abi(), ::core::mem::transmute(pguidvendor), ::core::mem::transmute(&mut result__)).from_abi::<super::IWICMetadataQueryWriter>(result__)
     }
-}
-impl ::core::convert::From<IWICImagingFactory2> for super::IWICImagingFactory {
-    fn from(value: IWICImagingFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IWICImagingFactory2> for super::IWICImagingFactory {
-    fn from(value: &IWICImagingFactory2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IWICImagingFactory> for IWICImagingFactory2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IWICImagingFactory> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, super::IWICImagingFactory> for &IWICImagingFactory2 {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IWICImagingFactory> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Imaging_D2D', 'Win32_Graphics_Direct2D'*"]
+    #[cfg(feature = "Win32_Graphics_Direct2D")]
+    pub unsafe fn CreateImageEncoder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Direct2D::ID2D1Device>>(&self, pd2ddevice: Param0) -> ::windows::core::Result<IWICImageEncoder> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateImageEncoder)(::core::mem::transmute_copy(self), pd2ddevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWICImageEncoder>(result__)
     }
 }
 impl ::core::convert::From<IWICImagingFactory2> for ::windows::core::IUnknown {
@@ -255,6 +235,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IWICImagi
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IWICImagingFactory2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IWICImagingFactory2> for super::IWICImagingFactory {
+    fn from(value: IWICImagingFactory2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IWICImagingFactory2> for super::IWICImagingFactory {
+    fn from(value: &IWICImagingFactory2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::IWICImagingFactory> for IWICImagingFactory2 {
+    fn into_param(self) -> ::windows::core::Param<'a, super::IWICImagingFactory> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, super::IWICImagingFactory> for &IWICImagingFactory2 {
+    fn into_param(self) -> ::windows::core::Param<'a, super::IWICImagingFactory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -281,7 +281,7 @@ unsafe impl ::windows::core::Interface for IWICImagingFactory2 {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWICImagingFactory2Vtbl {
-    pub base: IWICImagingFactoryVtbl,
+    pub base: super::IWICImagingFactoryVtbl,
     #[cfg(feature = "Win32_Graphics_Direct2D")]
     pub CreateImageEncoder: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pd2ddevice: ::windows::core::RawPtr, ppwicimageencoder: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D"))]

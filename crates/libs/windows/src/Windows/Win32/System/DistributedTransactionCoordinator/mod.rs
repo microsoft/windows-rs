@@ -1329,37 +1329,6 @@ pub struct IDtcNetworkAccessConfig2(::windows::core::IUnknown);
 impl IDtcNetworkAccessConfig2 {
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetNetworkInboundAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetNetworkInboundAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetNetworkOutboundAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetNetworkOutboundAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNetworkInboundAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, binbound: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNetworkInboundAccess)(::core::mem::transmute_copy(self), binbound.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNetworkOutboundAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, boutbound: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNetworkOutboundAccess)(::core::mem::transmute_copy(self), boutbound.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn GetAuthenticationLevel(&self) -> ::windows::core::Result<AUTHENTICATION_LEVEL> {
-        let mut result__: AUTHENTICATION_LEVEL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetAuthenticationLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<AUTHENTICATION_LEVEL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn SetAuthenticationLevel(&self, authlevel: AUTHENTICATION_LEVEL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthenticationLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(authlevel)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAnyNetworkAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetAnyNetworkAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -1428,25 +1397,36 @@ impl IDtcNetworkAccessConfig2 {
     pub unsafe fn RestartDtcService(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.RestartDtcService)(::core::mem::transmute_copy(self)).ok()
     }
-}
-impl ::core::convert::From<IDtcNetworkAccessConfig2> for IDtcNetworkAccessConfig {
-    fn from(value: IDtcNetworkAccessConfig2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetNetworkInboundAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetNetworkInboundAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-}
-impl ::core::convert::From<&IDtcNetworkAccessConfig2> for IDtcNetworkAccessConfig {
-    fn from(value: &IDtcNetworkAccessConfig2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetNetworkOutboundAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetNetworkOutboundAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDtcNetworkAccessConfig> for IDtcNetworkAccessConfig2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDtcNetworkAccessConfig> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetNetworkInboundAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, binbound: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNetworkInboundAccess)(::core::mem::transmute_copy(self), binbound.into_param().abi()).ok()
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDtcNetworkAccessConfig> for &IDtcNetworkAccessConfig2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDtcNetworkAccessConfig> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetNetworkOutboundAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, boutbound: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetNetworkOutboundAccess)(::core::mem::transmute_copy(self), boutbound.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
+    pub unsafe fn GetAuthenticationLevel(&self) -> ::windows::core::Result<AUTHENTICATION_LEVEL> {
+        let mut result__: AUTHENTICATION_LEVEL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetAuthenticationLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<AUTHENTICATION_LEVEL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
+    pub unsafe fn SetAuthenticationLevel(&self, authlevel: AUTHENTICATION_LEVEL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAuthenticationLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(authlevel)).ok()
     }
 }
 impl ::core::convert::From<IDtcNetworkAccessConfig2> for ::windows::core::IUnknown {
@@ -1466,6 +1446,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDtcNetwo
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDtcNetworkAccessConfig2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDtcNetworkAccessConfig2> for IDtcNetworkAccessConfig {
+    fn from(value: IDtcNetworkAccessConfig2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDtcNetworkAccessConfig2> for IDtcNetworkAccessConfig {
+    fn from(value: &IDtcNetworkAccessConfig2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDtcNetworkAccessConfig> for IDtcNetworkAccessConfig2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDtcNetworkAccessConfig> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDtcNetworkAccessConfig> for &IDtcNetworkAccessConfig2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDtcNetworkAccessConfig> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1516,48 +1516,6 @@ pub struct IDtcNetworkAccessConfig2Vtbl {
 #[repr(transparent)]
 pub struct IDtcNetworkAccessConfig3(::windows::core::IUnknown);
 impl IDtcNetworkAccessConfig3 {
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetLUAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetLUAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLUAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bluaccess: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLUAccess)(::core::mem::transmute_copy(self), bluaccess.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetNetworkInboundAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetNetworkInboundAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetNetworkOutboundAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetNetworkOutboundAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNetworkInboundAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, binbound: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetNetworkInboundAccess)(::core::mem::transmute_copy(self), binbound.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNetworkOutboundAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, boutbound: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetNetworkOutboundAccess)(::core::mem::transmute_copy(self), boutbound.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn GetAuthenticationLevel(&self) -> ::windows::core::Result<AUTHENTICATION_LEVEL> {
-        let mut result__: AUTHENTICATION_LEVEL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetAuthenticationLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<AUTHENTICATION_LEVEL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn SetAuthenticationLevel(&self, authlevel: AUTHENTICATION_LEVEL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetAuthenticationLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(authlevel)).ok()
-    }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAnyNetworkAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
@@ -1628,24 +1586,66 @@ impl IDtcNetworkAccessConfig3 {
     pub unsafe fn RestartDtcService(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.RestartDtcService)(::core::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetNetworkInboundAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetNetworkInboundAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetNetworkOutboundAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetNetworkOutboundAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetNetworkInboundAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, binbound: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetNetworkInboundAccess)(::core::mem::transmute_copy(self), binbound.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetNetworkOutboundAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, boutbound: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetNetworkOutboundAccess)(::core::mem::transmute_copy(self), boutbound.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
+    pub unsafe fn GetAuthenticationLevel(&self) -> ::windows::core::Result<AUTHENTICATION_LEVEL> {
+        let mut result__: AUTHENTICATION_LEVEL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetAuthenticationLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<AUTHENTICATION_LEVEL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
+    pub unsafe fn SetAuthenticationLevel(&self, authlevel: AUTHENTICATION_LEVEL) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetAuthenticationLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(authlevel)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetLUAccess(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetLUAccess)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetLUAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bluaccess: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetLUAccess)(::core::mem::transmute_copy(self), bluaccess.into_param().abi()).ok()
+    }
 }
-impl ::core::convert::From<IDtcNetworkAccessConfig3> for IDtcNetworkAccessConfig2 {
+impl ::core::convert::From<IDtcNetworkAccessConfig3> for ::windows::core::IUnknown {
     fn from(value: IDtcNetworkAccessConfig3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDtcNetworkAccessConfig3> for IDtcNetworkAccessConfig2 {
+impl ::core::convert::From<&IDtcNetworkAccessConfig3> for ::windows::core::IUnknown {
     fn from(value: &IDtcNetworkAccessConfig3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDtcNetworkAccessConfig2> for IDtcNetworkAccessConfig3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDtcNetworkAccessConfig2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDtcNetworkAccessConfig3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDtcNetworkAccessConfig2> for &IDtcNetworkAccessConfig3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDtcNetworkAccessConfig2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDtcNetworkAccessConfig3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1669,23 +1669,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDtcNetworkAccessConfig> for &IDtcNetwor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDtcNetworkAccessConfig3> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDtcNetworkAccessConfig3> for IDtcNetworkAccessConfig2 {
     fn from(value: IDtcNetworkAccessConfig3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDtcNetworkAccessConfig3> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDtcNetworkAccessConfig3> for IDtcNetworkAccessConfig2 {
     fn from(value: &IDtcNetworkAccessConfig3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDtcNetworkAccessConfig3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDtcNetworkAccessConfig2> for IDtcNetworkAccessConfig3 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDtcNetworkAccessConfig2> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDtcNetworkAccessConfig3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDtcNetworkAccessConfig2> for &IDtcNetworkAccessConfig3 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDtcNetworkAccessConfig2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2446,17 +2446,6 @@ pub struct IResourceManagerVtbl {
 #[repr(transparent)]
 pub struct IResourceManager2(::windows::core::IUnknown);
 impl IResourceManager2 {
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Enlist2<'a, Param0: ::windows::core::IntoParam<'a, ITransaction>, Param1: ::windows::core::IntoParam<'a, ITransactionResourceAsync>>(&self, ptransaction: Param0, presasync: Param1, puow: *mut BOID, pisolevel: *mut i32, pxid: *mut xid_t, ppenlist: *mut ::core::option::Option<ITransactionEnlistmentAsync>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Enlist2)(::core::mem::transmute_copy(self), ptransaction.into_param().abi(), presasync.into_param().abi(), ::core::mem::transmute(puow), ::core::mem::transmute(pisolevel), ::core::mem::transmute(pxid), ::core::mem::transmute(ppenlist)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Reenlist2(&self, pxid: *const xid_t, dwtimeout: u32) -> ::windows::core::Result<XACTSTAT> {
-        let mut result__: XACTSTAT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Reenlist2)(::core::mem::transmute_copy(self), ::core::mem::transmute(pxid), ::core::mem::transmute(dwtimeout), ::core::mem::transmute(&mut result__)).from_abi::<XACTSTAT>(result__)
-    }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
     pub unsafe fn Enlist<'a, Param0: ::windows::core::IntoParam<'a, ITransaction>, Param1: ::windows::core::IntoParam<'a, ITransactionResourceAsync>>(&self, ptransaction: Param0, pres: Param1, puow: *mut BOID, pisolevel: *mut i32, ppenlist: *mut ::core::option::Option<ITransactionEnlistmentAsync>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Enlist)(::core::mem::transmute_copy(self), ptransaction.into_param().abi(), pres.into_param().abi(), ::core::mem::transmute(puow), ::core::mem::transmute(pisolevel), ::core::mem::transmute(ppenlist)).ok()
@@ -2474,25 +2463,16 @@ impl IResourceManager2 {
     pub unsafe fn GetDistributedTransactionManager(&self, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetDistributedTransactionManager)(::core::mem::transmute_copy(self), ::core::mem::transmute(iid), ::core::mem::transmute(ppvobject)).ok()
     }
-}
-impl ::core::convert::From<IResourceManager2> for IResourceManager {
-    fn from(value: IResourceManager2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn Enlist2<'a, Param0: ::windows::core::IntoParam<'a, ITransaction>, Param1: ::windows::core::IntoParam<'a, ITransactionResourceAsync>>(&self, ptransaction: Param0, presasync: Param1, puow: *mut BOID, pisolevel: *mut i32, pxid: *mut xid_t, ppenlist: *mut ::core::option::Option<ITransactionEnlistmentAsync>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Enlist2)(::core::mem::transmute_copy(self), ptransaction.into_param().abi(), presasync.into_param().abi(), ::core::mem::transmute(puow), ::core::mem::transmute(pisolevel), ::core::mem::transmute(pxid), ::core::mem::transmute(ppenlist)).ok()
     }
-}
-impl ::core::convert::From<&IResourceManager2> for IResourceManager {
-    fn from(value: &IResourceManager2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IResourceManager> for IResourceManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IResourceManager> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IResourceManager> for &IResourceManager2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IResourceManager> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn Reenlist2(&self, pxid: *const xid_t, dwtimeout: u32) -> ::windows::core::Result<XACTSTAT> {
+        let mut result__: XACTSTAT = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).Reenlist2)(::core::mem::transmute_copy(self), ::core::mem::transmute(pxid), ::core::mem::transmute(dwtimeout), ::core::mem::transmute(&mut result__)).from_abi::<XACTSTAT>(result__)
     }
 }
 impl ::core::convert::From<IResourceManager2> for ::windows::core::IUnknown {
@@ -2512,6 +2492,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IResource
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IResourceManager2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IResourceManager2> for IResourceManager {
+    fn from(value: IResourceManager2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IResourceManager2> for IResourceManager {
+    fn from(value: &IResourceManager2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IResourceManager> for IResourceManager2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IResourceManager> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IResourceManager> for &IResourceManager2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IResourceManager> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2614,34 +2614,14 @@ pub struct IResourceManagerFactory2(::windows::core::IUnknown);
 impl IResourceManagerFactory2 {
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, IResourceManagerSink>>(&self, pguidrm: *const ::windows::core::GUID, pszrmname: Param1, piresmgrsink: Param2, riidrequested: *const ::windows::core::GUID, ppvresmgr: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidrm), pszrmname.into_param().abi(), piresmgrsink.into_param().abi(), ::core::mem::transmute(riidrequested), ::core::mem::transmute(ppvresmgr)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Create<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, IResourceManagerSink>>(&self, pguidrm: *const ::windows::core::GUID, pszrmname: Param1, piresmgrsink: Param2) -> ::windows::core::Result<IResourceManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Create)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidrm), pszrmname.into_param().abi(), piresmgrsink.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IResourceManager>(result__)
     }
-}
-impl ::core::convert::From<IResourceManagerFactory2> for IResourceManagerFactory {
-    fn from(value: IResourceManagerFactory2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IResourceManagerFactory2> for IResourceManagerFactory {
-    fn from(value: &IResourceManagerFactory2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IResourceManagerFactory> for IResourceManagerFactory2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IResourceManagerFactory> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IResourceManagerFactory> for &IResourceManagerFactory2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IResourceManagerFactory> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, IResourceManagerSink>>(&self, pguidrm: *const ::windows::core::GUID, pszrmname: Param1, piresmgrsink: Param2, riidrequested: *const ::windows::core::GUID, ppvresmgr: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidrm), pszrmname.into_param().abi(), piresmgrsink.into_param().abi(), ::core::mem::transmute(riidrequested), ::core::mem::transmute(ppvresmgr)).ok()
     }
 }
 impl ::core::convert::From<IResourceManagerFactory2> for ::windows::core::IUnknown {
@@ -2661,6 +2641,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IResource
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IResourceManagerFactory2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IResourceManagerFactory2> for IResourceManagerFactory {
+    fn from(value: IResourceManagerFactory2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IResourceManagerFactory2> for IResourceManagerFactory {
+    fn from(value: &IResourceManagerFactory2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IResourceManagerFactory> for IResourceManagerFactory2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IResourceManagerFactory> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IResourceManagerFactory> for &IResourceManagerFactory2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IResourceManagerFactory> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2698,22 +2698,6 @@ pub struct IResourceManagerFactory2Vtbl {
 pub struct IResourceManagerRejoinable(::windows::core::IUnknown);
 impl IResourceManagerRejoinable {
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn Rejoin(&self, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32) -> ::windows::core::Result<XACTSTAT> {
-        let mut result__: XACTSTAT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Rejoin)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprepinfo), ::core::mem::transmute(cbprepinfo), ::core::mem::transmute(ltimeout), ::core::mem::transmute(&mut result__)).from_abi::<XACTSTAT>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Enlist2<'a, Param0: ::windows::core::IntoParam<'a, ITransaction>, Param1: ::windows::core::IntoParam<'a, ITransactionResourceAsync>>(&self, ptransaction: Param0, presasync: Param1, puow: *mut BOID, pisolevel: *mut i32, pxid: *mut xid_t, ppenlist: *mut ::core::option::Option<ITransactionEnlistmentAsync>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Enlist2)(::core::mem::transmute_copy(self), ptransaction.into_param().abi(), presasync.into_param().abi(), ::core::mem::transmute(puow), ::core::mem::transmute(pisolevel), ::core::mem::transmute(pxid), ::core::mem::transmute(ppenlist)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Reenlist2(&self, pxid: *const xid_t, dwtimeout: u32) -> ::windows::core::Result<XACTSTAT> {
-        let mut result__: XACTSTAT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.Reenlist2)(::core::mem::transmute_copy(self), ::core::mem::transmute(pxid), ::core::mem::transmute(dwtimeout), ::core::mem::transmute(&mut result__)).from_abi::<XACTSTAT>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
     pub unsafe fn Enlist<'a, Param0: ::windows::core::IntoParam<'a, ITransaction>, Param1: ::windows::core::IntoParam<'a, ITransactionResourceAsync>>(&self, ptransaction: Param0, pres: Param1, puow: *mut BOID, pisolevel: *mut i32, ppenlist: *mut ::core::option::Option<ITransactionEnlistmentAsync>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.Enlist)(::core::mem::transmute_copy(self), ptransaction.into_param().abi(), pres.into_param().abi(), ::core::mem::transmute(puow), ::core::mem::transmute(pisolevel), ::core::mem::transmute(ppenlist)).ok()
     }
@@ -2730,24 +2714,40 @@ impl IResourceManagerRejoinable {
     pub unsafe fn GetDistributedTransactionManager(&self, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetDistributedTransactionManager)(::core::mem::transmute_copy(self), ::core::mem::transmute(iid), ::core::mem::transmute(ppvobject)).ok()
     }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn Enlist2<'a, Param0: ::windows::core::IntoParam<'a, ITransaction>, Param1: ::windows::core::IntoParam<'a, ITransactionResourceAsync>>(&self, ptransaction: Param0, presasync: Param1, puow: *mut BOID, pisolevel: *mut i32, pxid: *mut xid_t, ppenlist: *mut ::core::option::Option<ITransactionEnlistmentAsync>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Enlist2)(::core::mem::transmute_copy(self), ptransaction.into_param().abi(), presasync.into_param().abi(), ::core::mem::transmute(puow), ::core::mem::transmute(pisolevel), ::core::mem::transmute(pxid), ::core::mem::transmute(ppenlist)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn Reenlist2(&self, pxid: *const xid_t, dwtimeout: u32) -> ::windows::core::Result<XACTSTAT> {
+        let mut result__: XACTSTAT = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.Reenlist2)(::core::mem::transmute_copy(self), ::core::mem::transmute(pxid), ::core::mem::transmute(dwtimeout), ::core::mem::transmute(&mut result__)).from_abi::<XACTSTAT>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
+    pub unsafe fn Rejoin(&self, pprepinfo: *const u8, cbprepinfo: u32, ltimeout: u32) -> ::windows::core::Result<XACTSTAT> {
+        let mut result__: XACTSTAT = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).Rejoin)(::core::mem::transmute_copy(self), ::core::mem::transmute(pprepinfo), ::core::mem::transmute(cbprepinfo), ::core::mem::transmute(ltimeout), ::core::mem::transmute(&mut result__)).from_abi::<XACTSTAT>(result__)
+    }
 }
-impl ::core::convert::From<IResourceManagerRejoinable> for IResourceManager2 {
+impl ::core::convert::From<IResourceManagerRejoinable> for ::windows::core::IUnknown {
     fn from(value: IResourceManagerRejoinable) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IResourceManagerRejoinable> for IResourceManager2 {
+impl ::core::convert::From<&IResourceManagerRejoinable> for ::windows::core::IUnknown {
     fn from(value: &IResourceManagerRejoinable) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IResourceManager2> for IResourceManagerRejoinable {
-    fn into_param(self) -> ::windows::core::Param<'a, IResourceManager2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IResourceManagerRejoinable {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IResourceManager2> for &IResourceManagerRejoinable {
-    fn into_param(self) -> ::windows::core::Param<'a, IResourceManager2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IResourceManagerRejoinable {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2771,23 +2771,23 @@ impl<'a> ::windows::core::IntoParam<'a, IResourceManager> for &IResourceManagerR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IResourceManagerRejoinable> for ::windows::core::IUnknown {
+impl ::core::convert::From<IResourceManagerRejoinable> for IResourceManager2 {
     fn from(value: IResourceManagerRejoinable) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IResourceManagerRejoinable> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IResourceManagerRejoinable> for IResourceManager2 {
     fn from(value: &IResourceManagerRejoinable) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IResourceManagerRejoinable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IResourceManager2> for IResourceManagerRejoinable {
+    fn into_param(self) -> ::windows::core::Param<'a, IResourceManager2> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IResourceManagerRejoinable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IResourceManager2> for &IResourceManagerRejoinable {
+    fn into_param(self) -> ::windows::core::Param<'a, IResourceManager2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3252,16 +3252,6 @@ pub struct ITransactionVtbl {
 #[repr(transparent)]
 pub struct ITransaction2(::windows::core::IUnknown);
 impl ITransaction2 {
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn GetTransactionInfo2(&self) -> ::windows::core::Result<XACTTRANSINFO> {
-        let mut result__: XACTTRANSINFO = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTransactionInfo2)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XACTTRANSINFO>(result__)
-    }
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn CloneWithCommitDisabled(&self) -> ::windows::core::Result<ITransaction> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CloneWithCommitDisabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ITransaction>(result__)
-    }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Commit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fretaining: Param0, grftc: u32, grfrm: u32) -> ::windows::core::Result<()> {
@@ -3277,24 +3267,34 @@ impl ITransaction2 {
         let mut result__: XACTTRANSINFO = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetTransactionInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XACTTRANSINFO>(result__)
     }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
+    pub unsafe fn CloneWithCommitDisabled(&self) -> ::windows::core::Result<ITransaction> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CloneWithCommitDisabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ITransaction>(result__)
+    }
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
+    pub unsafe fn GetTransactionInfo2(&self) -> ::windows::core::Result<XACTTRANSINFO> {
+        let mut result__: XACTTRANSINFO = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetTransactionInfo2)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XACTTRANSINFO>(result__)
+    }
 }
-impl ::core::convert::From<ITransaction2> for ITransactionCloner {
+impl ::core::convert::From<ITransaction2> for ::windows::core::IUnknown {
     fn from(value: ITransaction2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ITransaction2> for ITransactionCloner {
+impl ::core::convert::From<&ITransaction2> for ::windows::core::IUnknown {
     fn from(value: &ITransaction2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ITransactionCloner> for ITransaction2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITransactionCloner> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransaction2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ITransactionCloner> for &ITransaction2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITransactionCloner> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransaction2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3318,23 +3318,23 @@ impl<'a> ::windows::core::IntoParam<'a, ITransaction> for &ITransaction2 {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<ITransaction2> for ::windows::core::IUnknown {
+impl ::core::convert::From<ITransaction2> for ITransactionCloner {
     fn from(value: ITransaction2) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&ITransaction2> for ::windows::core::IUnknown {
+impl ::core::convert::From<&ITransaction2> for ITransactionCloner {
     fn from(value: &ITransaction2) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransaction2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ITransactionCloner> for ITransaction2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ITransactionCloner> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransaction2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, ITransactionCloner> for &ITransaction2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ITransactionCloner> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3368,11 +3368,6 @@ pub struct ITransaction2Vtbl {
 #[repr(transparent)]
 pub struct ITransactionCloner(::windows::core::IUnknown);
 impl ITransactionCloner {
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn CloneWithCommitDisabled(&self) -> ::windows::core::Result<ITransaction> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CloneWithCommitDisabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ITransaction>(result__)
-    }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Commit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fretaining: Param0, grftc: u32, grfrm: u32) -> ::windows::core::Result<()> {
@@ -3388,25 +3383,10 @@ impl ITransactionCloner {
         let mut result__: XACTTRANSINFO = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetTransactionInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XACTTRANSINFO>(result__)
     }
-}
-impl ::core::convert::From<ITransactionCloner> for ITransaction {
-    fn from(value: ITransactionCloner) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransactionCloner> for ITransaction {
-    fn from(value: &ITransactionCloner) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITransaction> for ITransactionCloner {
-    fn into_param(self) -> ::windows::core::Param<'a, ITransaction> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITransaction> for &ITransactionCloner {
-    fn into_param(self) -> ::windows::core::Param<'a, ITransaction> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
+    pub unsafe fn CloneWithCommitDisabled(&self) -> ::windows::core::Result<ITransaction> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CloneWithCommitDisabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ITransaction>(result__)
     }
 }
 impl ::core::convert::From<ITransactionCloner> for ::windows::core::IUnknown {
@@ -3426,6 +3406,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransact
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransactionCloner {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ITransactionCloner> for ITransaction {
+    fn from(value: ITransactionCloner) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ITransactionCloner> for ITransaction {
+    fn from(value: &ITransactionCloner) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ITransaction> for ITransactionCloner {
+    fn into_param(self) -> ::windows::core::Param<'a, ITransaction> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ITransaction> for &ITransactionCloner {
+    fn into_param(self) -> ::windows::core::Param<'a, ITransaction> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4806,10 +4806,6 @@ pub struct ITransactionVoterFactory2Vtbl {
 #[repr(transparent)]
 pub struct ITransactionVoterNotifyAsync2(::windows::core::IUnknown);
 impl ITransactionVoterNotifyAsync2 {
-    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-    pub unsafe fn VoteRequest(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).VoteRequest)(::core::mem::transmute_copy(self)).ok()
-    }
     #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Committed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fretaining: Param0, pnewuow: *const BOID, hr: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
@@ -4828,25 +4824,9 @@ impl ITransactionVoterNotifyAsync2 {
     pub unsafe fn Indoubt(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Indoubt)(::core::mem::transmute_copy(self)).ok()
     }
-}
-impl ::core::convert::From<ITransactionVoterNotifyAsync2> for ITransactionOutcomeEvents {
-    fn from(value: ITransactionVoterNotifyAsync2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITransactionVoterNotifyAsync2> for ITransactionOutcomeEvents {
-    fn from(value: &ITransactionVoterNotifyAsync2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITransactionOutcomeEvents> for ITransactionVoterNotifyAsync2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITransactionOutcomeEvents> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITransactionOutcomeEvents> for &ITransactionVoterNotifyAsync2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITransactionOutcomeEvents> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
+    pub unsafe fn VoteRequest(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).VoteRequest)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<ITransactionVoterNotifyAsync2> for ::windows::core::IUnknown {
@@ -4866,6 +4846,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransact
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransactionVoterNotifyAsync2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ITransactionVoterNotifyAsync2> for ITransactionOutcomeEvents {
+    fn from(value: ITransactionVoterNotifyAsync2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ITransactionVoterNotifyAsync2> for ITransactionOutcomeEvents {
+    fn from(value: &ITransactionVoterNotifyAsync2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ITransactionOutcomeEvents> for ITransactionVoterNotifyAsync2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ITransactionOutcomeEvents> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ITransactionOutcomeEvents> for &ITransactionVoterNotifyAsync2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ITransactionOutcomeEvents> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

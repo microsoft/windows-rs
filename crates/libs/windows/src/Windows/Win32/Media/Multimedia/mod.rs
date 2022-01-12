@@ -3562,9 +3562,11 @@ pub struct IAVIFileVtbl {
 pub struct IAVIPersistFile(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl IAVIPersistFile {
-    #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
-    pub unsafe fn Reserved1(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reserved1)(::core::mem::transmute_copy(self)).ok()
+    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID> {
+        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetClassID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -3592,34 +3594,32 @@ impl IAVIPersistFile {
         let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetCurFile)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
-    #[doc = "*Required features: 'Win32_Media_Multimedia', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID> {
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.GetClassID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+    #[doc = "*Required features: 'Win32_Media_Multimedia'*"]
+    pub unsafe fn Reserved1(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Reserved1)(::core::mem::transmute_copy(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAVIPersistFile> for super::super::System::Com::IPersistFile {
+impl ::core::convert::From<IAVIPersistFile> for ::windows::core::IUnknown {
     fn from(value: IAVIPersistFile) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAVIPersistFile> for super::super::System::Com::IPersistFile {
+impl ::core::convert::From<&IAVIPersistFile> for ::windows::core::IUnknown {
     fn from(value: &IAVIPersistFile) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IPersistFile> for IAVIPersistFile {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IPersistFile> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAVIPersistFile {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IPersistFile> for &IAVIPersistFile {
-    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IPersistFile> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAVIPersistFile {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3648,26 +3648,26 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IPersist> for
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAVIPersistFile> for ::windows::core::IUnknown {
+impl ::core::convert::From<IAVIPersistFile> for super::super::System::Com::IPersistFile {
     fn from(value: IAVIPersistFile) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAVIPersistFile> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IAVIPersistFile> for super::super::System::Com::IPersistFile {
     fn from(value: &IAVIPersistFile) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAVIPersistFile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IPersistFile> for IAVIPersistFile {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IPersistFile> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAVIPersistFile {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IPersistFile> for &IAVIPersistFile {
+    fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IPersistFile> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3700,7 +3700,7 @@ unsafe impl ::windows::core::Interface for IAVIPersistFile {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAVIPersistFileVtbl {
-    pub base: IPersistFileVtbl,
+    pub base: super::super::System::Com::IPersistFileVtbl,
     pub Reserved1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_Multimedia'*"]

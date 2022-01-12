@@ -984,26 +984,6 @@ impl ICoreApplicationUnhandledError {
         unsafe { (::windows::core::Interface::vtable(this).RemoveUnhandledErrorDetected)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
 }
-impl ::core::convert::From<ICoreApplicationUnhandledError> for ::windows::core::IInspectable {
-    fn from(value: ICoreApplicationUnhandledError) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICoreApplicationUnhandledError> for ::windows::core::IInspectable {
-    fn from(value: &ICoreApplicationUnhandledError) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICoreApplicationUnhandledError {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICoreApplicationUnhandledError {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ICoreApplicationUnhandledError> for ::windows::core::IUnknown {
     fn from(value: ICoreApplicationUnhandledError) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1021,6 +1001,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ICoreAppl
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICoreApplicationUnhandledError {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICoreApplicationUnhandledError> for ::windows::core::IInspectable {
+    fn from(value: ICoreApplicationUnhandledError) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICoreApplicationUnhandledError> for ::windows::core::IInspectable {
+    fn from(value: &ICoreApplicationUnhandledError) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICoreApplicationUnhandledError {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICoreApplicationUnhandledError {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1279,26 +1279,6 @@ impl IFrameworkView {
         unsafe { (::windows::core::Interface::vtable(this).Uninitialize)(::core::mem::transmute_copy(this)).ok() }
     }
 }
-impl ::core::convert::From<IFrameworkView> for ::windows::core::IInspectable {
-    fn from(value: IFrameworkView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFrameworkView> for ::windows::core::IInspectable {
-    fn from(value: &IFrameworkView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IFrameworkView {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IFrameworkView {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IFrameworkView> for ::windows::core::IUnknown {
     fn from(value: IFrameworkView) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1316,6 +1296,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFramewor
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IFrameworkView {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IFrameworkView> for ::windows::core::IInspectable {
+    fn from(value: IFrameworkView) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IFrameworkView> for ::windows::core::IInspectable {
+    fn from(value: &IFrameworkView) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IFrameworkView {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IFrameworkView {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1368,26 +1368,6 @@ impl IFrameworkViewSource {
         }
     }
 }
-impl ::core::convert::From<IFrameworkViewSource> for ::windows::core::IInspectable {
-    fn from(value: IFrameworkViewSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IFrameworkViewSource> for ::windows::core::IInspectable {
-    fn from(value: &IFrameworkViewSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IFrameworkViewSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IFrameworkViewSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IFrameworkViewSource> for ::windows::core::IUnknown {
     fn from(value: IFrameworkViewSource) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1405,6 +1385,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IFramewor
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IFrameworkViewSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IFrameworkViewSource> for ::windows::core::IInspectable {
+    fn from(value: IFrameworkViewSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IFrameworkViewSource> for ::windows::core::IInspectable {
+    fn from(value: &IFrameworkViewSource) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IFrameworkViewSource {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IFrameworkViewSource {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

@@ -166,26 +166,6 @@ impl IReferenceClock2 {
         (::windows::core::Interface::vtable(self).base.Unadvise)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwadvisecookie)).ok()
     }
 }
-impl ::core::convert::From<IReferenceClock2> for IReferenceClock {
-    fn from(value: IReferenceClock2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IReferenceClock2> for IReferenceClock {
-    fn from(value: &IReferenceClock2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IReferenceClock> for IReferenceClock2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IReferenceClock> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IReferenceClock> for &IReferenceClock2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IReferenceClock> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IReferenceClock2> for ::windows::core::IUnknown {
     fn from(value: IReferenceClock2) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -203,6 +183,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IReferenc
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IReferenceClock2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IReferenceClock2> for IReferenceClock {
+    fn from(value: IReferenceClock2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IReferenceClock2> for IReferenceClock {
+    fn from(value: &IReferenceClock2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IReferenceClock> for IReferenceClock2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IReferenceClock> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IReferenceClock> for &IReferenceClock2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IReferenceClock> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

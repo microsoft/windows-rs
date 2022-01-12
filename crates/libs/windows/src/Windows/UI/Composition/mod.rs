@@ -25166,26 +25166,6 @@ impl IAnimationObject {
         unsafe { (::windows::core::Interface::vtable(this).PopulatePropertyInfo)(::core::mem::transmute_copy(this), propertyname.into_param().abi(), propertyinfo.into_param().abi()).ok() }
     }
 }
-impl ::core::convert::From<IAnimationObject> for ::windows::core::IInspectable {
-    fn from(value: IAnimationObject) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IAnimationObject> for ::windows::core::IInspectable {
-    fn from(value: &IAnimationObject) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAnimationObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IAnimationObject {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IAnimationObject> for ::windows::core::IUnknown {
     fn from(value: IAnimationObject) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -25203,6 +25183,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAnimatio
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAnimationObject {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IAnimationObject> for ::windows::core::IInspectable {
+    fn from(value: IAnimationObject) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IAnimationObject> for ::windows::core::IInspectable {
+    fn from(value: &IAnimationObject) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IAnimationObject {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IAnimationObject {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -25471,26 +25471,6 @@ pub struct ICompositionAnimation4Vtbl {
 #[repr(transparent)]
 pub struct ICompositionAnimationBase(::windows::core::IUnknown);
 impl ICompositionAnimationBase {}
-impl ::core::convert::From<ICompositionAnimationBase> for ::windows::core::IInspectable {
-    fn from(value: ICompositionAnimationBase) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICompositionAnimationBase> for ::windows::core::IInspectable {
-    fn from(value: &ICompositionAnimationBase) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICompositionAnimationBase {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICompositionAnimationBase {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ICompositionAnimationBase> for ::windows::core::IUnknown {
     fn from(value: ICompositionAnimationBase) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -25508,6 +25488,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IComposit
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICompositionAnimationBase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICompositionAnimationBase> for ::windows::core::IInspectable {
+    fn from(value: ICompositionAnimationBase) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICompositionAnimationBase> for ::windows::core::IInspectable {
+    fn from(value: &ICompositionAnimationBase) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICompositionAnimationBase {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICompositionAnimationBase {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -26989,26 +26989,6 @@ impl ICompositionSupportsSystemBackdrop {
         unsafe { (::windows::core::Interface::vtable(this).SetSystemBackdrop)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
 }
-impl ::core::convert::From<ICompositionSupportsSystemBackdrop> for ::windows::core::IInspectable {
-    fn from(value: ICompositionSupportsSystemBackdrop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICompositionSupportsSystemBackdrop> for ::windows::core::IInspectable {
-    fn from(value: &ICompositionSupportsSystemBackdrop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICompositionSupportsSystemBackdrop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICompositionSupportsSystemBackdrop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ICompositionSupportsSystemBackdrop> for ::windows::core::IUnknown {
     fn from(value: ICompositionSupportsSystemBackdrop) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -27026,6 +27006,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IComposit
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICompositionSupportsSystemBackdrop {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICompositionSupportsSystemBackdrop> for ::windows::core::IInspectable {
+    fn from(value: ICompositionSupportsSystemBackdrop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICompositionSupportsSystemBackdrop> for ::windows::core::IInspectable {
+    fn from(value: &ICompositionSupportsSystemBackdrop) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICompositionSupportsSystemBackdrop {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICompositionSupportsSystemBackdrop {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -27063,26 +27063,6 @@ pub struct ICompositionSupportsSystemBackdropVtbl {
 #[repr(transparent)]
 pub struct ICompositionSurface(::windows::core::IUnknown);
 impl ICompositionSurface {}
-impl ::core::convert::From<ICompositionSurface> for ::windows::core::IInspectable {
-    fn from(value: ICompositionSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICompositionSurface> for ::windows::core::IInspectable {
-    fn from(value: &ICompositionSurface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICompositionSurface {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICompositionSurface {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ICompositionSurface> for ::windows::core::IUnknown {
     fn from(value: ICompositionSurface) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -27100,6 +27080,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IComposit
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICompositionSurface {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICompositionSurface> for ::windows::core::IInspectable {
+    fn from(value: ICompositionSurface) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICompositionSurface> for ::windows::core::IInspectable {
+    fn from(value: &ICompositionSurface) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICompositionSurface {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICompositionSurface {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -27236,26 +27236,6 @@ impl ICompositionSurfaceFacade {
         }
     }
 }
-impl ::core::convert::From<ICompositionSurfaceFacade> for ::windows::core::IInspectable {
-    fn from(value: ICompositionSurfaceFacade) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ICompositionSurfaceFacade> for ::windows::core::IInspectable {
-    fn from(value: &ICompositionSurfaceFacade) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICompositionSurfaceFacade {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICompositionSurfaceFacade {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ICompositionSurfaceFacade> for ::windows::core::IUnknown {
     fn from(value: ICompositionSurfaceFacade) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -27273,6 +27253,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IComposit
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ICompositionSurfaceFacade {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ICompositionSurfaceFacade> for ::windows::core::IInspectable {
+    fn from(value: ICompositionSurfaceFacade) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ICompositionSurfaceFacade> for ::windows::core::IInspectable {
+    fn from(value: &ICompositionSurfaceFacade) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ICompositionSurfaceFacade {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ICompositionSurfaceFacade {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -28880,26 +28880,6 @@ pub struct IVisualCollectionVtbl {
 #[repr(transparent)]
 pub struct IVisualElement(::windows::core::IUnknown);
 impl IVisualElement {}
-impl ::core::convert::From<IVisualElement> for ::windows::core::IInspectable {
-    fn from(value: IVisualElement) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVisualElement> for ::windows::core::IInspectable {
-    fn from(value: &IVisualElement) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IVisualElement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IVisualElement {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IVisualElement> for ::windows::core::IUnknown {
     fn from(value: IVisualElement) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -28917,6 +28897,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVisualEl
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IVisualElement {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IVisualElement> for ::windows::core::IInspectable {
+    fn from(value: IVisualElement) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IVisualElement> for ::windows::core::IInspectable {
+    fn from(value: &IVisualElement) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IVisualElement {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IVisualElement {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -28961,26 +28961,6 @@ impl IVisualElement2 {
         }
     }
 }
-impl ::core::convert::From<IVisualElement2> for ::windows::core::IInspectable {
-    fn from(value: IVisualElement2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IVisualElement2> for ::windows::core::IInspectable {
-    fn from(value: &IVisualElement2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IVisualElement2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IVisualElement2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IVisualElement2> for ::windows::core::IUnknown {
     fn from(value: IVisualElement2) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -28998,6 +28978,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IVisualEl
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IVisualElement2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IVisualElement2> for ::windows::core::IInspectable {
+    fn from(value: IVisualElement2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IVisualElement2> for ::windows::core::IInspectable {
+    fn from(value: &IVisualElement2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IVisualElement2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IVisualElement2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

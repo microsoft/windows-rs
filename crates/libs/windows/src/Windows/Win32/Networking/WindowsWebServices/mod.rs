@@ -15,26 +15,6 @@ impl IContentPrefetcherTaskTrigger {
         (::windows::core::Interface::vtable(self).IsRegisteredForContentPrefetch)(::core::mem::transmute_copy(self), packagefullname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u8>(result__)
     }
 }
-impl ::core::convert::From<IContentPrefetcherTaskTrigger> for ::windows::core::IInspectable {
-    fn from(value: IContentPrefetcherTaskTrigger) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IContentPrefetcherTaskTrigger> for ::windows::core::IInspectable {
-    fn from(value: &IContentPrefetcherTaskTrigger) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IContentPrefetcherTaskTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IContentPrefetcherTaskTrigger {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IContentPrefetcherTaskTrigger> for ::windows::core::IUnknown {
     fn from(value: IContentPrefetcherTaskTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -52,6 +32,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IContentP
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IContentPrefetcherTaskTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IContentPrefetcherTaskTrigger> for ::windows::core::IInspectable {
+    fn from(value: IContentPrefetcherTaskTrigger) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IContentPrefetcherTaskTrigger> for ::windows::core::IInspectable {
+    fn from(value: &IContentPrefetcherTaskTrigger) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IContentPrefetcherTaskTrigger {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IContentPrefetcherTaskTrigger {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

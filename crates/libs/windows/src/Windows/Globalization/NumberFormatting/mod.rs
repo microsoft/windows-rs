@@ -79,7 +79,7 @@ impl CurrencyFormatter {
         let this = &::windows::core::Interface::cast::<INumberFormatter2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FormatInt2)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FormatInt)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Globalization_NumberFormatting'*"]
@@ -87,7 +87,7 @@ impl CurrencyFormatter {
         let this = &::windows::core::Interface::cast::<INumberFormatter2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FormatUInt2)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FormatUInt)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Globalization_NumberFormatting'*"]
@@ -95,7 +95,7 @@ impl CurrencyFormatter {
         let this = &::windows::core::Interface::cast::<INumberFormatter2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FormatDouble2)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FormatDouble)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Globalization_NumberFormatting', 'Foundation_Collections'*"]
@@ -571,7 +571,7 @@ impl DecimalFormatter {
         let this = &::windows::core::Interface::cast::<INumberFormatter2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FormatInt2)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FormatInt)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Globalization_NumberFormatting'*"]
@@ -579,7 +579,7 @@ impl DecimalFormatter {
         let this = &::windows::core::Interface::cast::<INumberFormatter2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FormatUInt2)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FormatUInt)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Globalization_NumberFormatting'*"]
@@ -587,7 +587,7 @@ impl DecimalFormatter {
         let this = &::windows::core::Interface::cast::<INumberFormatter2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FormatDouble2)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FormatDouble)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Globalization_NumberFormatting', 'Foundation_Collections'*"]
@@ -1092,26 +1092,6 @@ impl INumberFormatter {
         }
     }
 }
-impl ::core::convert::From<INumberFormatter> for ::windows::core::IInspectable {
-    fn from(value: INumberFormatter) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INumberFormatter> for ::windows::core::IInspectable {
-    fn from(value: &INumberFormatter) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INumberFormatter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INumberFormatter {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<INumberFormatter> for ::windows::core::IUnknown {
     fn from(value: INumberFormatter) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1129,6 +1109,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INumberFo
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INumberFormatter {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<INumberFormatter> for ::windows::core::IInspectable {
+    fn from(value: INumberFormatter) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&INumberFormatter> for ::windows::core::IInspectable {
+    fn from(value: &INumberFormatter) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INumberFormatter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INumberFormatter {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1192,26 +1192,6 @@ impl INumberFormatter2 {
         }
     }
 }
-impl ::core::convert::From<INumberFormatter2> for ::windows::core::IInspectable {
-    fn from(value: INumberFormatter2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INumberFormatter2> for ::windows::core::IInspectable {
-    fn from(value: &INumberFormatter2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INumberFormatter2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INumberFormatter2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<INumberFormatter2> for ::windows::core::IUnknown {
     fn from(value: INumberFormatter2) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1229,6 +1209,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INumberFo
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INumberFormatter2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<INumberFormatter2> for ::windows::core::IInspectable {
+    fn from(value: INumberFormatter2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&INumberFormatter2> for ::windows::core::IInspectable {
+    fn from(value: &INumberFormatter2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INumberFormatter2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INumberFormatter2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1366,26 +1366,6 @@ impl INumberFormatterOptions {
         }
     }
 }
-impl ::core::convert::From<INumberFormatterOptions> for ::windows::core::IInspectable {
-    fn from(value: INumberFormatterOptions) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INumberFormatterOptions> for ::windows::core::IInspectable {
-    fn from(value: &INumberFormatterOptions) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INumberFormatterOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INumberFormatterOptions {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<INumberFormatterOptions> for ::windows::core::IUnknown {
     fn from(value: INumberFormatterOptions) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1403,6 +1383,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INumberFo
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INumberFormatterOptions {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<INumberFormatterOptions> for ::windows::core::IInspectable {
+    fn from(value: INumberFormatterOptions) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&INumberFormatterOptions> for ::windows::core::IInspectable {
+    fn from(value: &INumberFormatterOptions) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INumberFormatterOptions {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INumberFormatterOptions {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1483,26 +1483,6 @@ impl INumberParser {
         }
     }
 }
-impl ::core::convert::From<INumberParser> for ::windows::core::IInspectable {
-    fn from(value: INumberParser) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INumberParser> for ::windows::core::IInspectable {
-    fn from(value: &INumberParser) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INumberParser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INumberParser {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<INumberParser> for ::windows::core::IUnknown {
     fn from(value: INumberParser) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1520,6 +1500,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INumberPa
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INumberParser {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<INumberParser> for ::windows::core::IInspectable {
+    fn from(value: INumberParser) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&INumberParser> for ::windows::core::IInspectable {
+    fn from(value: &INumberParser) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INumberParser {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INumberParser {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1616,26 +1616,6 @@ impl INumberRounder {
         }
     }
 }
-impl ::core::convert::From<INumberRounder> for ::windows::core::IInspectable {
-    fn from(value: INumberRounder) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INumberRounder> for ::windows::core::IInspectable {
-    fn from(value: &INumberRounder) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INumberRounder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INumberRounder {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<INumberRounder> for ::windows::core::IUnknown {
     fn from(value: INumberRounder) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1653,6 +1633,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INumberRo
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INumberRounder {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<INumberRounder> for ::windows::core::IInspectable {
+    fn from(value: INumberRounder) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&INumberRounder> for ::windows::core::IInspectable {
+    fn from(value: &INumberRounder) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INumberRounder {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INumberRounder {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1708,26 +1708,6 @@ impl INumberRounderOption {
         unsafe { (::windows::core::Interface::vtable(this).SetNumberRounder)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
 }
-impl ::core::convert::From<INumberRounderOption> for ::windows::core::IInspectable {
-    fn from(value: INumberRounderOption) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&INumberRounderOption> for ::windows::core::IInspectable {
-    fn from(value: &INumberRounderOption) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INumberRounderOption {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INumberRounderOption {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<INumberRounderOption> for ::windows::core::IUnknown {
     fn from(value: INumberRounderOption) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1745,6 +1725,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INumberRo
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &INumberRounderOption {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<INumberRounderOption> for ::windows::core::IInspectable {
+    fn from(value: INumberRounderOption) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&INumberRounderOption> for ::windows::core::IInspectable {
+    fn from(value: &INumberRounderOption) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for INumberRounderOption {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &INumberRounderOption {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1864,26 +1864,6 @@ impl ISignedZeroOption {
         unsafe { (::windows::core::Interface::vtable(this).SetIsZeroSigned)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
-impl ::core::convert::From<ISignedZeroOption> for ::windows::core::IInspectable {
-    fn from(value: ISignedZeroOption) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISignedZeroOption> for ::windows::core::IInspectable {
-    fn from(value: &ISignedZeroOption) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISignedZeroOption {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISignedZeroOption {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISignedZeroOption> for ::windows::core::IUnknown {
     fn from(value: ISignedZeroOption) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1901,6 +1881,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISignedZe
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISignedZeroOption {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ISignedZeroOption> for ::windows::core::IInspectable {
+    fn from(value: ISignedZeroOption) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ISignedZeroOption> for ::windows::core::IInspectable {
+    fn from(value: &ISignedZeroOption) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISignedZeroOption {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISignedZeroOption {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1968,26 +1968,6 @@ impl ISignificantDigitsOption {
         unsafe { (::windows::core::Interface::vtable(this).SetSignificantDigits)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
-impl ::core::convert::From<ISignificantDigitsOption> for ::windows::core::IInspectable {
-    fn from(value: ISignificantDigitsOption) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISignificantDigitsOption> for ::windows::core::IInspectable {
-    fn from(value: &ISignificantDigitsOption) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISignificantDigitsOption {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISignificantDigitsOption {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISignificantDigitsOption> for ::windows::core::IUnknown {
     fn from(value: ISignificantDigitsOption) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -2005,6 +1985,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISignific
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISignificantDigitsOption {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ISignificantDigitsOption> for ::windows::core::IInspectable {
+    fn from(value: ISignificantDigitsOption) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ISignificantDigitsOption> for ::windows::core::IInspectable {
+    fn from(value: &ISignificantDigitsOption) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISignificantDigitsOption {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISignificantDigitsOption {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2385,7 +2385,7 @@ impl PercentFormatter {
         let this = &::windows::core::Interface::cast::<INumberFormatter2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FormatInt2)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FormatInt)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Globalization_NumberFormatting'*"]
@@ -2393,7 +2393,7 @@ impl PercentFormatter {
         let this = &::windows::core::Interface::cast::<INumberFormatter2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FormatUInt2)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FormatUInt)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Globalization_NumberFormatting'*"]
@@ -2401,7 +2401,7 @@ impl PercentFormatter {
         let this = &::windows::core::Interface::cast::<INumberFormatter2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FormatDouble2)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FormatDouble)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Globalization_NumberFormatting', 'Foundation_Collections'*"]
@@ -2844,7 +2844,7 @@ impl PermilleFormatter {
         let this = &::windows::core::Interface::cast::<INumberFormatter2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FormatInt2)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FormatInt)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Globalization_NumberFormatting'*"]
@@ -2852,7 +2852,7 @@ impl PermilleFormatter {
         let this = &::windows::core::Interface::cast::<INumberFormatter2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FormatUInt2)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FormatUInt)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Globalization_NumberFormatting'*"]
@@ -2860,7 +2860,7 @@ impl PermilleFormatter {
         let this = &::windows::core::Interface::cast::<INumberFormatter2>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FormatDouble2)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FormatDouble)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: 'Globalization_NumberFormatting', 'Foundation_Collections'*"]

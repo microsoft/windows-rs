@@ -2578,26 +2578,6 @@ impl IBitmapFrame {
         }
     }
 }
-impl ::core::convert::From<IBitmapFrame> for ::windows::core::IInspectable {
-    fn from(value: IBitmapFrame) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBitmapFrame> for ::windows::core::IInspectable {
-    fn from(value: &IBitmapFrame) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBitmapFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBitmapFrame {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBitmapFrame> for ::windows::core::IUnknown {
     fn from(value: IBitmapFrame) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -2615,6 +2595,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBitmapFr
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBitmapFrame {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IBitmapFrame> for ::windows::core::IInspectable {
+    fn from(value: IBitmapFrame) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IBitmapFrame> for ::windows::core::IInspectable {
+    fn from(value: &IBitmapFrame) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBitmapFrame {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBitmapFrame {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2798,26 +2798,6 @@ impl IBitmapFrameWithSoftwareBitmap {
         }
     }
 }
-impl ::core::convert::From<IBitmapFrameWithSoftwareBitmap> for ::windows::core::IInspectable {
-    fn from(value: IBitmapFrameWithSoftwareBitmap) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBitmapFrameWithSoftwareBitmap> for ::windows::core::IInspectable {
-    fn from(value: &IBitmapFrameWithSoftwareBitmap) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBitmapFrameWithSoftwareBitmap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBitmapFrameWithSoftwareBitmap {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBitmapFrameWithSoftwareBitmap> for ::windows::core::IUnknown {
     fn from(value: IBitmapFrameWithSoftwareBitmap) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -2835,6 +2815,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBitmapFr
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBitmapFrameWithSoftwareBitmap {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IBitmapFrameWithSoftwareBitmap> for ::windows::core::IInspectable {
+    fn from(value: IBitmapFrameWithSoftwareBitmap) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IBitmapFrameWithSoftwareBitmap> for ::windows::core::IInspectable {
+    fn from(value: &IBitmapFrameWithSoftwareBitmap) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBitmapFrameWithSoftwareBitmap {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBitmapFrameWithSoftwareBitmap {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2930,26 +2930,6 @@ impl IBitmapPropertiesView {
         }
     }
 }
-impl ::core::convert::From<IBitmapPropertiesView> for ::windows::core::IInspectable {
-    fn from(value: IBitmapPropertiesView) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IBitmapPropertiesView> for ::windows::core::IInspectable {
-    fn from(value: &IBitmapPropertiesView) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBitmapPropertiesView {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBitmapPropertiesView {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IBitmapPropertiesView> for ::windows::core::IUnknown {
     fn from(value: IBitmapPropertiesView) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -2967,6 +2947,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IBitmapPr
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IBitmapPropertiesView {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IBitmapPropertiesView> for ::windows::core::IInspectable {
+    fn from(value: IBitmapPropertiesView) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IBitmapPropertiesView> for ::windows::core::IInspectable {
+    fn from(value: &IBitmapPropertiesView) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IBitmapPropertiesView {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IBitmapPropertiesView {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

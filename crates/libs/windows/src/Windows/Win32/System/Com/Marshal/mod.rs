@@ -1423,26 +1423,6 @@ impl IMarshal2 {
         (::windows::core::Interface::vtable(self).base.DisconnectObject)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwreserved)).ok()
     }
 }
-impl ::core::convert::From<IMarshal2> for IMarshal {
-    fn from(value: IMarshal2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMarshal2> for IMarshal {
-    fn from(value: &IMarshal2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMarshal> for IMarshal2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMarshal> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IMarshal> for &IMarshal2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IMarshal> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IMarshal2> for ::windows::core::IUnknown {
     fn from(value: IMarshal2) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1460,6 +1440,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMarshal2
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMarshal2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IMarshal2> for IMarshal {
+    fn from(value: IMarshal2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IMarshal2> for IMarshal {
+    fn from(value: &IMarshal2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IMarshal> for IMarshal2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IMarshal> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IMarshal> for &IMarshal2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IMarshal> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1493,9 +1493,13 @@ pub struct IMarshal2Vtbl {
 pub struct IMarshalingStream(::windows::core::IUnknown);
 impl IMarshalingStream {
     #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
-    pub unsafe fn GetMarshalingContextAttribute(&self, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES) -> ::windows::core::Result<usize> {
-        let mut result__: usize = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetMarshalingContextAttribute)(::core::mem::transmute_copy(self), ::core::mem::transmute(attribute), ::core::mem::transmute(&mut result__)).from_abi::<usize>(result__)
+    pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread)).ok()
+    }
+    #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
+    pub unsafe fn Write(&self, pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.Write)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
     pub unsafe fn Seek(&self, dlibmove: i64, dworigin: super::STREAM_SEEK) -> ::windows::core::Result<u64> {
@@ -1538,32 +1542,28 @@ impl IMarshalingStream {
         (::windows::core::Interface::vtable(self).base.Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::IStream>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
-    pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread)).ok()
-    }
-    #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
-    pub unsafe fn Write(&self, pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.Write)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    pub unsafe fn GetMarshalingContextAttribute(&self, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES) -> ::windows::core::Result<usize> {
+        let mut result__: usize = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetMarshalingContextAttribute)(::core::mem::transmute_copy(self), ::core::mem::transmute(attribute), ::core::mem::transmute(&mut result__)).from_abi::<usize>(result__)
     }
 }
-impl ::core::convert::From<IMarshalingStream> for super::IStream {
+impl ::core::convert::From<IMarshalingStream> for ::windows::core::IUnknown {
     fn from(value: IMarshalingStream) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IMarshalingStream> for super::IStream {
+impl ::core::convert::From<&IMarshalingStream> for ::windows::core::IUnknown {
     fn from(value: &IMarshalingStream) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IStream> for IMarshalingStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IStream> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMarshalingStream {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, super::IStream> for &IMarshalingStream {
-    fn into_param(self) -> ::windows::core::Param<'a, super::IStream> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMarshalingStream {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1587,23 +1587,23 @@ impl<'a> ::windows::core::IntoParam<'a, super::ISequentialStream> for &IMarshali
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IMarshalingStream> for ::windows::core::IUnknown {
+impl ::core::convert::From<IMarshalingStream> for super::IStream {
     fn from(value: IMarshalingStream) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IMarshalingStream> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IMarshalingStream> for super::IStream {
     fn from(value: &IMarshalingStream) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMarshalingStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, super::IStream> for IMarshalingStream {
+    fn into_param(self) -> ::windows::core::Param<'a, super::IStream> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMarshalingStream {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, super::IStream> for &IMarshalingStream {
+    fn into_param(self) -> ::windows::core::Param<'a, super::IStream> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1630,7 +1630,7 @@ unsafe impl ::windows::core::Interface for IMarshalingStream {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMarshalingStreamVtbl {
-    pub base: IStreamVtbl,
+    pub base: super::IStreamVtbl,
     pub GetMarshalingContextAttribute: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES, pattributevalue: *mut usize) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]

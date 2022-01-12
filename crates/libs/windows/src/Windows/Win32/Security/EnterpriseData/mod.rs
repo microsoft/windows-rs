@@ -95,26 +95,6 @@ impl IProtectionPolicyManagerInterop {
         (::windows::core::Interface::vtable(self).GetForWindow)(::core::mem::transmute_copy(self), appwindow.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IProtectionPolicyManagerInterop> for ::windows::core::IInspectable {
-    fn from(value: IProtectionPolicyManagerInterop) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IProtectionPolicyManagerInterop> for ::windows::core::IInspectable {
-    fn from(value: &IProtectionPolicyManagerInterop) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IProtectionPolicyManagerInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IProtectionPolicyManagerInterop {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IProtectionPolicyManagerInterop> for ::windows::core::IUnknown {
     fn from(value: IProtectionPolicyManagerInterop) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -132,6 +112,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IProtecti
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IProtectionPolicyManagerInterop {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IProtectionPolicyManagerInterop> for ::windows::core::IInspectable {
+    fn from(value: IProtectionPolicyManagerInterop) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IProtectionPolicyManagerInterop> for ::windows::core::IInspectable {
+    fn from(value: &IProtectionPolicyManagerInterop) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IProtectionPolicyManagerInterop {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IProtectionPolicyManagerInterop {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -203,26 +203,6 @@ impl IProtectionPolicyManagerInterop2 {
         (::windows::core::Interface::vtable(self).RequestAccessForAppWithMessageForWindowAsync)(::core::mem::transmute_copy(self), appwindow.into_param().abi(), sourceidentity.into_param().abi(), apppackagefamilyname.into_param().abi(), auditinfounk.into_param().abi(), messagefromapp.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IProtectionPolicyManagerInterop2> for ::windows::core::IInspectable {
-    fn from(value: IProtectionPolicyManagerInterop2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IProtectionPolicyManagerInterop2> for ::windows::core::IInspectable {
-    fn from(value: &IProtectionPolicyManagerInterop2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IProtectionPolicyManagerInterop2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IProtectionPolicyManagerInterop2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IProtectionPolicyManagerInterop2> for ::windows::core::IUnknown {
     fn from(value: IProtectionPolicyManagerInterop2) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -240,6 +220,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IProtecti
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IProtectionPolicyManagerInterop2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IProtectionPolicyManagerInterop2> for ::windows::core::IInspectable {
+    fn from(value: IProtectionPolicyManagerInterop2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IProtectionPolicyManagerInterop2> for ::windows::core::IInspectable {
+    fn from(value: &IProtectionPolicyManagerInterop2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IProtectionPolicyManagerInterop2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IProtectionPolicyManagerInterop2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -329,26 +329,6 @@ impl IProtectionPolicyManagerInterop3 {
         (::windows::core::Interface::vtable(self).RequestAccessToFilesForProcessWithMessageAndBehaviorForWindowAsync)(::core::mem::transmute_copy(self), appwindow.into_param().abi(), sourceitemlistunk.into_param().abi(), ::core::mem::transmute(processid), auditinfounk.into_param().abi(), messagefromapp.into_param().abi(), ::core::mem::transmute(behavior), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
-impl ::core::convert::From<IProtectionPolicyManagerInterop3> for ::windows::core::IInspectable {
-    fn from(value: IProtectionPolicyManagerInterop3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IProtectionPolicyManagerInterop3> for ::windows::core::IInspectable {
-    fn from(value: &IProtectionPolicyManagerInterop3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IProtectionPolicyManagerInterop3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IProtectionPolicyManagerInterop3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IProtectionPolicyManagerInterop3> for ::windows::core::IUnknown {
     fn from(value: IProtectionPolicyManagerInterop3) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -366,6 +346,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IProtecti
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IProtectionPolicyManagerInterop3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IProtectionPolicyManagerInterop3> for ::windows::core::IInspectable {
+    fn from(value: IProtectionPolicyManagerInterop3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IProtectionPolicyManagerInterop3> for ::windows::core::IInspectable {
+    fn from(value: &IProtectionPolicyManagerInterop3) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IProtectionPolicyManagerInterop3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IProtectionPolicyManagerInterop3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

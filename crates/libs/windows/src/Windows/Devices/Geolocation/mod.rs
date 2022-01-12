@@ -2470,26 +2470,6 @@ impl IGeoshape {
         }
     }
 }
-impl ::core::convert::From<IGeoshape> for ::windows::core::IInspectable {
-    fn from(value: IGeoshape) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IGeoshape> for ::windows::core::IInspectable {
-    fn from(value: &IGeoshape) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IGeoshape {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IGeoshape {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IGeoshape> for ::windows::core::IUnknown {
     fn from(value: IGeoshape) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -2507,6 +2487,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IGeoshape
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IGeoshape {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IGeoshape> for ::windows::core::IInspectable {
+    fn from(value: IGeoshape) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IGeoshape> for ::windows::core::IInspectable {
+    fn from(value: &IGeoshape) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IGeoshape {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IGeoshape {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

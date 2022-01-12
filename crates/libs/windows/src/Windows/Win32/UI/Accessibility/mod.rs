@@ -1382,6 +1382,28 @@ pub struct IAccessible(::windows::core::IUnknown);
 impl IAccessible {
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTypeInfoCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::super::System::Com::ITypeInfo> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_System_Com'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn accParent(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).accParent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
@@ -1499,27 +1521,29 @@ impl IAccessible {
     pub unsafe fn SetaccValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, varchild: Param0, szvalue: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetaccValue)(::core::mem::transmute_copy(self), varchild.into_param().abi(), szvalue.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetTypeInfoCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<IAccessible> for ::windows::core::IUnknown {
+    fn from(value: IAccessible) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::super::System::Com::ITypeInfo> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+}
+#[cfg(feature = "Win32_System_Com")]
+impl ::core::convert::From<&IAccessible> for ::windows::core::IUnknown {
+    fn from(value: &IAccessible) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_System_Com'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.GetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAccessible {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Invoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
+}
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAccessible {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1543,30 +1567,6 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> fo
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch> for &IAccessible {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::System::Com::IDispatch> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<IAccessible> for ::windows::core::IUnknown {
-    fn from(value: IAccessible) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl ::core::convert::From<&IAccessible> for ::windows::core::IUnknown {
-    fn from(value: &IAccessible) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IAccessible {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "Win32_System_Com")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IAccessible {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1599,7 +1599,7 @@ unsafe impl ::windows::core::Interface for IAccessible {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAccessibleVtbl {
-    pub base: IDispatchVtbl,
+    pub base: super::super::System::Com::IDispatchVtbl,
     #[cfg(feature = "Win32_System_Com")]
     pub accParent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdispparent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -3627,10 +3627,6 @@ pub struct IRawElementProviderSimpleVtbl {
 pub struct IRawElementProviderSimple2(::windows::core::IUnknown);
 impl IRawElementProviderSimple2 {
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn ShowContextMenu(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ShowContextMenu)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub unsafe fn ProviderOptions(&self) -> ::windows::core::Result<ProviderOptions> {
         let mut result__: ProviderOptions = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.ProviderOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ProviderOptions>(result__)
@@ -3651,25 +3647,9 @@ impl IRawElementProviderSimple2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.HostRawElementProvider)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRawElementProviderSimple>(result__)
     }
-}
-impl ::core::convert::From<IRawElementProviderSimple2> for IRawElementProviderSimple {
-    fn from(value: IRawElementProviderSimple2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IRawElementProviderSimple2> for IRawElementProviderSimple {
-    fn from(value: &IRawElementProviderSimple2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRawElementProviderSimple> for IRawElementProviderSimple2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRawElementProviderSimple> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IRawElementProviderSimple> for &IRawElementProviderSimple2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRawElementProviderSimple> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn ShowContextMenu(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ShowContextMenu)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IRawElementProviderSimple2> for ::windows::core::IUnknown {
@@ -3689,6 +3669,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRawEleme
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRawElementProviderSimple2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IRawElementProviderSimple2> for IRawElementProviderSimple {
+    fn from(value: IRawElementProviderSimple2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IRawElementProviderSimple2> for IRawElementProviderSimple {
+    fn from(value: &IRawElementProviderSimple2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IRawElementProviderSimple> for IRawElementProviderSimple2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IRawElementProviderSimple> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IRawElementProviderSimple> for &IRawElementProviderSimple2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IRawElementProviderSimple> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3722,16 +3722,6 @@ pub struct IRawElementProviderSimple2Vtbl {
 #[repr(transparent)]
 pub struct IRawElementProviderSimple3(::windows::core::IUnknown);
 impl IRawElementProviderSimple3 {
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetMetadataValue(&self, targetid: i32, metadataid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetMetadataValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(targetid), ::core::mem::transmute(metadataid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn ShowContextMenu(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.ShowContextMenu)(::core::mem::transmute_copy(self)).ok()
-    }
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub unsafe fn ProviderOptions(&self) -> ::windows::core::Result<ProviderOptions> {
         let mut result__: ProviderOptions = ::core::mem::zeroed();
@@ -3753,24 +3743,34 @@ impl IRawElementProviderSimple3 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.HostRawElementProvider)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IRawElementProviderSimple>(result__)
     }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn ShowContextMenu(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.ShowContextMenu)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn GetMetadataValue(&self, targetid: i32, metadataid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetMetadataValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(targetid), ::core::mem::transmute(metadataid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+    }
 }
-impl ::core::convert::From<IRawElementProviderSimple3> for IRawElementProviderSimple2 {
+impl ::core::convert::From<IRawElementProviderSimple3> for ::windows::core::IUnknown {
     fn from(value: IRawElementProviderSimple3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IRawElementProviderSimple3> for IRawElementProviderSimple2 {
+impl ::core::convert::From<&IRawElementProviderSimple3> for ::windows::core::IUnknown {
     fn from(value: &IRawElementProviderSimple3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IRawElementProviderSimple2> for IRawElementProviderSimple3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRawElementProviderSimple2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRawElementProviderSimple3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IRawElementProviderSimple2> for &IRawElementProviderSimple3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IRawElementProviderSimple2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRawElementProviderSimple3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3794,23 +3794,23 @@ impl<'a> ::windows::core::IntoParam<'a, IRawElementProviderSimple> for &IRawElem
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IRawElementProviderSimple3> for ::windows::core::IUnknown {
+impl ::core::convert::From<IRawElementProviderSimple3> for IRawElementProviderSimple2 {
     fn from(value: IRawElementProviderSimple3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IRawElementProviderSimple3> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IRawElementProviderSimple3> for IRawElementProviderSimple2 {
     fn from(value: &IRawElementProviderSimple3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IRawElementProviderSimple3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IRawElementProviderSimple2> for IRawElementProviderSimple3 {
+    fn into_param(self) -> ::windows::core::Param<'a, IRawElementProviderSimple2> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IRawElementProviderSimple3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IRawElementProviderSimple2> for &IRawElementProviderSimple3 {
+    fn into_param(self) -> ::windows::core::Param<'a, IRawElementProviderSimple2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4349,6 +4349,24 @@ pub struct ISelectionProviderVtbl {
 #[repr(transparent)]
 pub struct ISelectionProvider2(::windows::core::IUnknown);
 impl ISelectionProvider2 {
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetSelection(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CanSelectMultiple(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CanSelectMultiple)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn IsSelectionRequired(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.IsSelectionRequired)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub unsafe fn FirstSelectedItem(&self) -> ::windows::core::Result<IRawElementProviderSimple> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4369,23 +4387,25 @@ impl ISelectionProvider2 {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).ItemCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetSelection(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
-        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
+}
+impl ::core::convert::From<ISelectionProvider2> for ::windows::core::IUnknown {
+    fn from(value: ISelectionProvider2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CanSelectMultiple(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CanSelectMultiple)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+}
+impl ::core::convert::From<&ISelectionProvider2> for ::windows::core::IUnknown {
+    fn from(value: &ISelectionProvider2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsSelectionRequired(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.IsSelectionRequired)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISelectionProvider2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISelectionProvider2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<ISelectionProvider2> for ISelectionProvider {
@@ -4405,26 +4425,6 @@ impl<'a> ::windows::core::IntoParam<'a, ISelectionProvider> for ISelectionProvid
 }
 impl<'a> ::windows::core::IntoParam<'a, ISelectionProvider> for &ISelectionProvider2 {
     fn into_param(self) -> ::windows::core::Param<'a, ISelectionProvider> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<ISelectionProvider2> for ::windows::core::IUnknown {
-    fn from(value: ISelectionProvider2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISelectionProvider2> for ::windows::core::IUnknown {
-    fn from(value: &ISelectionProvider2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISelectionProvider2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISelectionProvider2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4977,16 +4977,6 @@ pub struct ITextChildProviderVtbl {
 #[repr(transparent)]
 pub struct ITextEditProvider(::windows::core::IUnknown);
 impl ITextEditProvider {
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn GetActiveComposition(&self) -> ::windows::core::Result<ITextRangeProvider> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetActiveComposition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ITextRangeProvider>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn GetConversionTarget(&self) -> ::windows::core::Result<ITextRangeProvider> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetConversionTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ITextRangeProvider>(result__)
-    }
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelection(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
@@ -5019,25 +5009,15 @@ impl ITextEditProvider {
         let mut result__: SupportedTextSelection = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.SupportedTextSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SupportedTextSelection>(result__)
     }
-}
-impl ::core::convert::From<ITextEditProvider> for ITextProvider {
-    fn from(value: ITextEditProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn GetActiveComposition(&self) -> ::windows::core::Result<ITextRangeProvider> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetActiveComposition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ITextRangeProvider>(result__)
     }
-}
-impl ::core::convert::From<&ITextEditProvider> for ITextProvider {
-    fn from(value: &ITextEditProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITextProvider> for ITextEditProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextProvider> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITextProvider> for &ITextEditProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextProvider> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn GetConversionTarget(&self) -> ::windows::core::Result<ITextRangeProvider> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetConversionTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ITextRangeProvider>(result__)
     }
 }
 impl ::core::convert::From<ITextEditProvider> for ::windows::core::IUnknown {
@@ -5057,6 +5037,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextEdit
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITextEditProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ITextEditProvider> for ITextProvider {
+    fn from(value: ITextEditProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ITextEditProvider> for ITextProvider {
+    fn from(value: &ITextEditProvider) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ITextProvider> for ITextEditProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ITextProvider> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ITextProvider> for &ITextEditProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ITextProvider> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5185,16 +5185,6 @@ pub struct ITextProviderVtbl {
 #[repr(transparent)]
 pub struct ITextProvider2(::windows::core::IUnknown);
 impl ITextProvider2 {
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn RangeFromAnnotation<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>>(&self, annotationelement: Param0) -> ::windows::core::Result<ITextRangeProvider> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RangeFromAnnotation)(::core::mem::transmute_copy(self), annotationelement.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ITextRangeProvider>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCaretRange(&self, isactive: *mut super::super::Foundation::BOOL, pretval: *mut ::core::option::Option<ITextRangeProvider>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCaretRange)(::core::mem::transmute_copy(self), ::core::mem::transmute(isactive), ::core::mem::transmute(pretval)).ok()
-    }
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSelection(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
@@ -5227,25 +5217,15 @@ impl ITextProvider2 {
         let mut result__: SupportedTextSelection = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.SupportedTextSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SupportedTextSelection>(result__)
     }
-}
-impl ::core::convert::From<ITextProvider2> for ITextProvider {
-    fn from(value: ITextProvider2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn RangeFromAnnotation<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>>(&self, annotationelement: Param0) -> ::windows::core::Result<ITextRangeProvider> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).RangeFromAnnotation)(::core::mem::transmute_copy(self), annotationelement.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ITextRangeProvider>(result__)
     }
-}
-impl ::core::convert::From<&ITextProvider2> for ITextProvider {
-    fn from(value: &ITextProvider2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITextProvider> for ITextProvider2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextProvider> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITextProvider> for &ITextProvider2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextProvider> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetCaretRange(&self, isactive: *mut super::super::Foundation::BOOL, pretval: *mut ::core::option::Option<ITextRangeProvider>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetCaretRange)(::core::mem::transmute_copy(self), ::core::mem::transmute(isactive), ::core::mem::transmute(pretval)).ok()
     }
 }
 impl ::core::convert::From<ITextProvider2> for ::windows::core::IUnknown {
@@ -5265,6 +5245,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextProv
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITextProvider2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ITextProvider2> for ITextProvider {
+    fn from(value: ITextProvider2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ITextProvider2> for ITextProvider {
+    fn from(value: &ITextProvider2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ITextProvider> for ITextProvider2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ITextProvider> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ITextProvider> for &ITextProvider2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ITextProvider> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5487,10 +5487,6 @@ pub struct ITextRangeProviderVtbl {
 pub struct ITextRangeProvider2(::windows::core::IUnknown);
 impl ITextRangeProvider2 {
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn ShowContextMenu(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ShowContextMenu)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<ITextRangeProvider> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ITextRangeProvider>(result__)
@@ -5582,25 +5578,9 @@ impl ITextRangeProvider2 {
         let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetChildren)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-}
-impl ::core::convert::From<ITextRangeProvider2> for ITextRangeProvider {
-    fn from(value: ITextRangeProvider2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ITextRangeProvider2> for ITextRangeProvider {
-    fn from(value: &ITextRangeProvider2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITextRangeProvider> for ITextRangeProvider2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextRangeProvider> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITextRangeProvider> for &ITextRangeProvider2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITextRangeProvider> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn ShowContextMenu(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ShowContextMenu)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<ITextRangeProvider2> for ::windows::core::IUnknown {
@@ -5620,6 +5600,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITextRang
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITextRangeProvider2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ITextRangeProvider2> for ITextRangeProvider {
+    fn from(value: ITextRangeProvider2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ITextRangeProvider2> for ITextRangeProvider {
+    fn from(value: &ITextRangeProvider2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ITextRangeProvider> for ITextRangeProvider2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ITextRangeProvider> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ITextRangeProvider> for &ITextRangeProvider2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ITextRangeProvider> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5810,35 +5810,6 @@ pub struct ITransformProviderVtbl {
 pub struct ITransformProvider2(::windows::core::IUnknown);
 impl ITransformProvider2 {
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn Zoom(&self, zoom: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Zoom)(::core::mem::transmute_copy(self), ::core::mem::transmute(zoom)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CanZoom(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CanZoom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn ZoomLevel(&self) -> ::windows::core::Result<f64> {
-        let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ZoomLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn ZoomMinimum(&self) -> ::windows::core::Result<f64> {
-        let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ZoomMinimum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn ZoomMaximum(&self) -> ::windows::core::Result<f64> {
-        let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ZoomMaximum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn ZoomByUnit(&self, zoomunit: ZoomUnit) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ZoomByUnit)(::core::mem::transmute_copy(self), ::core::mem::transmute(zoomunit)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub unsafe fn Move(&self, x: f64, y: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Move)(::core::mem::transmute_copy(self), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
     }
@@ -5868,25 +5839,34 @@ impl ITransformProvider2 {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.CanRotate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-}
-impl ::core::convert::From<ITransformProvider2> for ITransformProvider {
-    fn from(value: ITransformProvider2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn Zoom(&self, zoom: f64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Zoom)(::core::mem::transmute_copy(self), ::core::mem::transmute(zoom)).ok()
     }
-}
-impl ::core::convert::From<&ITransformProvider2> for ITransformProvider {
-    fn from(value: &ITransformProvider2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CanZoom(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CanZoom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITransformProvider> for ITransformProvider2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITransformProvider> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn ZoomLevel(&self) -> ::windows::core::Result<f64> {
+        let mut result__: f64 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).ZoomLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, ITransformProvider> for &ITransformProvider2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ITransformProvider> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn ZoomMinimum(&self) -> ::windows::core::Result<f64> {
+        let mut result__: f64 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).ZoomMinimum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn ZoomMaximum(&self) -> ::windows::core::Result<f64> {
+        let mut result__: f64 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).ZoomMaximum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn ZoomByUnit(&self, zoomunit: ZoomUnit) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ZoomByUnit)(::core::mem::transmute_copy(self), ::core::mem::transmute(zoomunit)).ok()
     }
 }
 impl ::core::convert::From<ITransformProvider2> for ::windows::core::IUnknown {
@@ -5906,6 +5886,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ITransfor
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ITransformProvider2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ITransformProvider2> for ITransformProvider {
+    fn from(value: ITransformProvider2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ITransformProvider2> for ITransformProvider {
+    fn from(value: &ITransformProvider2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ITransformProvider> for ITransformProvider2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ITransformProvider> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ITransformProvider> for &ITransformProvider2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ITransformProvider> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -6407,35 +6407,6 @@ pub struct IUIAutomation2(::windows::core::IUnknown);
 impl IUIAutomation2 {
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AutoSetFocus(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AutoSetFocus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAutoSetFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, autosetfocus: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAutoSetFocus)(::core::mem::transmute_copy(self), autosetfocus.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn ConnectionTimeout(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ConnectionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn SetConnectionTimeout(&self, timeout: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetConnectionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(timeout)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn TransactionTimeout(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TransactionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn SetTransactionTimeout(&self, timeout: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTransactionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(timeout)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CompareElements<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, el1: Param0, el2: Param1) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.CompareElements)(::core::mem::transmute_copy(self), el1.into_param().abi(), el2.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
@@ -6718,25 +6689,34 @@ impl IUIAutomation2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.ElementFromIAccessibleBuildCache)(::core::mem::transmute_copy(self), accessible.into_param().abi(), ::core::mem::transmute(childid), cacherequest.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
     }
-}
-impl ::core::convert::From<IUIAutomation2> for IUIAutomation {
-    fn from(value: IUIAutomation2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn AutoSetFocus(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).AutoSetFocus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-}
-impl ::core::convert::From<&IUIAutomation2> for IUIAutomation {
-    fn from(value: &IUIAutomation2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetAutoSetFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, autosetfocus: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAutoSetFocus)(::core::mem::transmute_copy(self), autosetfocus.into_param().abi()).ok()
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomation> for IUIAutomation2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn ConnectionTimeout(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).ConnectionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomation> for &IUIAutomation2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn SetConnectionTimeout(&self, timeout: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetConnectionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(timeout)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn TransactionTimeout(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).TransactionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn SetTransactionTimeout(&self, timeout: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTransactionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(timeout)).ok()
     }
 }
 impl ::core::convert::From<IUIAutomation2> for ::windows::core::IUnknown {
@@ -6756,6 +6736,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutoma
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomation2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomation2> for IUIAutomation {
+    fn from(value: IUIAutomation2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomation2> for IUIAutomation {
+    fn from(value: &IUIAutomation2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomation> for IUIAutomation2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomation> for &IUIAutomation2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -6800,43 +6800,6 @@ pub struct IUIAutomation2Vtbl {
 #[repr(transparent)]
 pub struct IUIAutomation3(::windows::core::IUnknown);
 impl IUIAutomation3 {
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn AddTextEditTextChangedEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param3: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param4: ::windows::core::IntoParam<'a, IUIAutomationTextEditTextChangedEventHandler>>(&self, element: Param0, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: Param3, handler: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddTextEditTextChangedEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), ::core::mem::transmute(scope), ::core::mem::transmute(texteditchangetype), cacherequest.into_param().abi(), handler.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn RemoveTextEditTextChangedEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationTextEditTextChangedEventHandler>>(&self, element: Param0, handler: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveTextEditTextChangedEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), handler.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AutoSetFocus(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.AutoSetFocus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAutoSetFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, autosetfocus: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetAutoSetFocus)(::core::mem::transmute_copy(self), autosetfocus.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn ConnectionTimeout(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.ConnectionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn SetConnectionTimeout(&self, timeout: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetConnectionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(timeout)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn TransactionTimeout(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.TransactionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn SetTransactionTimeout(&self, timeout: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetTransactionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(timeout)).ok()
-    }
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CompareElements<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, el1: Param0, el2: Param1) -> ::windows::core::Result<super::super::Foundation::BOOL> {
@@ -7121,24 +7084,61 @@ impl IUIAutomation3 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.ElementFromIAccessibleBuildCache)(::core::mem::transmute_copy(self), accessible.into_param().abi(), ::core::mem::transmute(childid), cacherequest.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
     }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn AutoSetFocus(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.AutoSetFocus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetAutoSetFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, autosetfocus: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetAutoSetFocus)(::core::mem::transmute_copy(self), autosetfocus.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn ConnectionTimeout(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.ConnectionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn SetConnectionTimeout(&self, timeout: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetConnectionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(timeout)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn TransactionTimeout(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.TransactionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn SetTransactionTimeout(&self, timeout: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetTransactionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(timeout)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn AddTextEditTextChangedEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param3: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param4: ::windows::core::IntoParam<'a, IUIAutomationTextEditTextChangedEventHandler>>(&self, element: Param0, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: Param3, handler: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddTextEditTextChangedEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), ::core::mem::transmute(scope), ::core::mem::transmute(texteditchangetype), cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn RemoveTextEditTextChangedEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationTextEditTextChangedEventHandler>>(&self, element: Param0, handler: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveTextEditTextChangedEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), handler.into_param().abi()).ok()
+    }
 }
-impl ::core::convert::From<IUIAutomation3> for IUIAutomation2 {
+impl ::core::convert::From<IUIAutomation3> for ::windows::core::IUnknown {
     fn from(value: IUIAutomation3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IUIAutomation3> for IUIAutomation2 {
+impl ::core::convert::From<&IUIAutomation3> for ::windows::core::IUnknown {
     fn from(value: &IUIAutomation3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomation2> for IUIAutomation3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomation3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomation2> for &IUIAutomation3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomation3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -7162,23 +7162,23 @@ impl<'a> ::windows::core::IntoParam<'a, IUIAutomation> for &IUIAutomation3 {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IUIAutomation3> for ::windows::core::IUnknown {
+impl ::core::convert::From<IUIAutomation3> for IUIAutomation2 {
     fn from(value: IUIAutomation3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IUIAutomation3> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IUIAutomation3> for IUIAutomation2 {
     fn from(value: &IUIAutomation3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomation3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomation2> for IUIAutomation3 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation2> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomation3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomation2> for &IUIAutomation3 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -7213,51 +7213,6 @@ pub struct IUIAutomation3Vtbl {
 #[repr(transparent)]
 pub struct IUIAutomation4(::windows::core::IUnknown);
 impl IUIAutomation4 {
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn AddChangesEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param4: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param5: ::windows::core::IntoParam<'a, IUIAutomationChangesEventHandler>>(&self, element: Param0, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: Param4, handler: Param5) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddChangesEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), ::core::mem::transmute(scope), ::core::mem::transmute(changetypes), ::core::mem::transmute(changescount), pcacherequest.into_param().abi(), handler.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn RemoveChangesEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationChangesEventHandler>>(&self, element: Param0, handler: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveChangesEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), handler.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn AddTextEditTextChangedEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param3: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param4: ::windows::core::IntoParam<'a, IUIAutomationTextEditTextChangedEventHandler>>(&self, element: Param0, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: Param3, handler: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.AddTextEditTextChangedEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), ::core::mem::transmute(scope), ::core::mem::transmute(texteditchangetype), cacherequest.into_param().abi(), handler.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn RemoveTextEditTextChangedEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationTextEditTextChangedEventHandler>>(&self, element: Param0, handler: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.RemoveTextEditTextChangedEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), handler.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AutoSetFocus(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.AutoSetFocus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAutoSetFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, autosetfocus: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SetAutoSetFocus)(::core::mem::transmute_copy(self), autosetfocus.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn ConnectionTimeout(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.ConnectionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn SetConnectionTimeout(&self, timeout: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SetConnectionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(timeout)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn TransactionTimeout(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.TransactionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn SetTransactionTimeout(&self, timeout: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SetTransactionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(timeout)).ok()
-    }
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CompareElements<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, el1: Param0, el2: Param1) -> ::windows::core::Result<super::super::Foundation::BOOL> {
@@ -7542,44 +7497,69 @@ impl IUIAutomation4 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.ElementFromIAccessibleBuildCache)(::core::mem::transmute_copy(self), accessible.into_param().abi(), ::core::mem::transmute(childid), cacherequest.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
     }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn AutoSetFocus(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.AutoSetFocus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetAutoSetFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, autosetfocus: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetAutoSetFocus)(::core::mem::transmute_copy(self), autosetfocus.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn ConnectionTimeout(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.ConnectionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn SetConnectionTimeout(&self, timeout: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetConnectionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(timeout)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn TransactionTimeout(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.TransactionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn SetTransactionTimeout(&self, timeout: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetTransactionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(timeout)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn AddTextEditTextChangedEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param3: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param4: ::windows::core::IntoParam<'a, IUIAutomationTextEditTextChangedEventHandler>>(&self, element: Param0, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: Param3, handler: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.AddTextEditTextChangedEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), ::core::mem::transmute(scope), ::core::mem::transmute(texteditchangetype), cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn RemoveTextEditTextChangedEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationTextEditTextChangedEventHandler>>(&self, element: Param0, handler: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.RemoveTextEditTextChangedEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), handler.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn AddChangesEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param4: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param5: ::windows::core::IntoParam<'a, IUIAutomationChangesEventHandler>>(&self, element: Param0, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: Param4, handler: Param5) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddChangesEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), ::core::mem::transmute(scope), ::core::mem::transmute(changetypes), ::core::mem::transmute(changescount), pcacherequest.into_param().abi(), handler.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn RemoveChangesEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationChangesEventHandler>>(&self, element: Param0, handler: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveChangesEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), handler.into_param().abi()).ok()
+    }
 }
-impl ::core::convert::From<IUIAutomation4> for IUIAutomation3 {
+impl ::core::convert::From<IUIAutomation4> for ::windows::core::IUnknown {
     fn from(value: IUIAutomation4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IUIAutomation4> for IUIAutomation3 {
+impl ::core::convert::From<&IUIAutomation4> for ::windows::core::IUnknown {
     fn from(value: &IUIAutomation4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomation3> for IUIAutomation4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation3> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomation4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomation3> for &IUIAutomation4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation3> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomation4> for IUIAutomation2 {
-    fn from(value: IUIAutomation4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomation4> for IUIAutomation2 {
-    fn from(value: &IUIAutomation4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomation2> for IUIAutomation4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomation2> for &IUIAutomation4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomation4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -7603,23 +7583,43 @@ impl<'a> ::windows::core::IntoParam<'a, IUIAutomation> for &IUIAutomation4 {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IUIAutomation4> for ::windows::core::IUnknown {
+impl ::core::convert::From<IUIAutomation4> for IUIAutomation2 {
     fn from(value: IUIAutomation4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IUIAutomation4> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IUIAutomation4> for IUIAutomation2 {
     fn from(value: &IUIAutomation4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomation4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomation2> for IUIAutomation4 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation2> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomation4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomation2> for &IUIAutomation4 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation2> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomation4> for IUIAutomation3 {
+    fn from(value: IUIAutomation4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomation4> for IUIAutomation3 {
+    fn from(value: &IUIAutomation4) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomation3> for IUIAutomation4 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation3> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomation3> for &IUIAutomation4 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -7654,59 +7654,6 @@ pub struct IUIAutomation4Vtbl {
 #[repr(transparent)]
 pub struct IUIAutomation5(::windows::core::IUnknown);
 impl IUIAutomation5 {
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn AddNotificationEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param2: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param3: ::windows::core::IntoParam<'a, IUIAutomationNotificationEventHandler>>(&self, element: Param0, scope: TreeScope, cacherequest: Param2, handler: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddNotificationEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), ::core::mem::transmute(scope), cacherequest.into_param().abi(), handler.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn RemoveNotificationEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationNotificationEventHandler>>(&self, element: Param0, handler: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveNotificationEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), handler.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn AddChangesEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param4: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param5: ::windows::core::IntoParam<'a, IUIAutomationChangesEventHandler>>(&self, element: Param0, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: Param4, handler: Param5) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.AddChangesEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), ::core::mem::transmute(scope), ::core::mem::transmute(changetypes), ::core::mem::transmute(changescount), pcacherequest.into_param().abi(), handler.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn RemoveChangesEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationChangesEventHandler>>(&self, element: Param0, handler: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.RemoveChangesEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), handler.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn AddTextEditTextChangedEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param3: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param4: ::windows::core::IntoParam<'a, IUIAutomationTextEditTextChangedEventHandler>>(&self, element: Param0, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: Param3, handler: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.AddTextEditTextChangedEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), ::core::mem::transmute(scope), ::core::mem::transmute(texteditchangetype), cacherequest.into_param().abi(), handler.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn RemoveTextEditTextChangedEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationTextEditTextChangedEventHandler>>(&self, element: Param0, handler: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.RemoveTextEditTextChangedEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), handler.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AutoSetFocus(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.AutoSetFocus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAutoSetFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, autosetfocus: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.SetAutoSetFocus)(::core::mem::transmute_copy(self), autosetfocus.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn ConnectionTimeout(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.ConnectionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn SetConnectionTimeout(&self, timeout: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.SetConnectionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(timeout)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn TransactionTimeout(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.TransactionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn SetTransactionTimeout(&self, timeout: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.SetTransactionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(timeout)).ok()
-    }
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CompareElements<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, el1: Param0, el2: Param1) -> ::windows::core::Result<super::super::Foundation::BOOL> {
@@ -7991,64 +7938,77 @@ impl IUIAutomation5 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.ElementFromIAccessibleBuildCache)(::core::mem::transmute_copy(self), accessible.into_param().abi(), ::core::mem::transmute(childid), cacherequest.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
     }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn AutoSetFocus(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.AutoSetFocus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetAutoSetFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, autosetfocus: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetAutoSetFocus)(::core::mem::transmute_copy(self), autosetfocus.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn ConnectionTimeout(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.ConnectionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn SetConnectionTimeout(&self, timeout: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetConnectionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(timeout)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn TransactionTimeout(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.TransactionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn SetTransactionTimeout(&self, timeout: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetTransactionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(timeout)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn AddTextEditTextChangedEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param3: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param4: ::windows::core::IntoParam<'a, IUIAutomationTextEditTextChangedEventHandler>>(&self, element: Param0, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: Param3, handler: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.AddTextEditTextChangedEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), ::core::mem::transmute(scope), ::core::mem::transmute(texteditchangetype), cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn RemoveTextEditTextChangedEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationTextEditTextChangedEventHandler>>(&self, element: Param0, handler: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.RemoveTextEditTextChangedEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), handler.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn AddChangesEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param4: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param5: ::windows::core::IntoParam<'a, IUIAutomationChangesEventHandler>>(&self, element: Param0, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: Param4, handler: Param5) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.AddChangesEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), ::core::mem::transmute(scope), ::core::mem::transmute(changetypes), ::core::mem::transmute(changescount), pcacherequest.into_param().abi(), handler.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn RemoveChangesEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationChangesEventHandler>>(&self, element: Param0, handler: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.RemoveChangesEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), handler.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn AddNotificationEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param2: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param3: ::windows::core::IntoParam<'a, IUIAutomationNotificationEventHandler>>(&self, element: Param0, scope: TreeScope, cacherequest: Param2, handler: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddNotificationEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), ::core::mem::transmute(scope), cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn RemoveNotificationEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationNotificationEventHandler>>(&self, element: Param0, handler: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveNotificationEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), handler.into_param().abi()).ok()
+    }
 }
-impl ::core::convert::From<IUIAutomation5> for IUIAutomation4 {
+impl ::core::convert::From<IUIAutomation5> for ::windows::core::IUnknown {
     fn from(value: IUIAutomation5) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IUIAutomation5> for IUIAutomation4 {
+impl ::core::convert::From<&IUIAutomation5> for ::windows::core::IUnknown {
     fn from(value: &IUIAutomation5) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomation4> for IUIAutomation5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation4> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomation5 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomation4> for &IUIAutomation5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation4> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomation5> for IUIAutomation3 {
-    fn from(value: IUIAutomation5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomation5> for IUIAutomation3 {
-    fn from(value: &IUIAutomation5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomation3> for IUIAutomation5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation3> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomation3> for &IUIAutomation5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation3> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomation5> for IUIAutomation2 {
-    fn from(value: IUIAutomation5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomation5> for IUIAutomation2 {
-    fn from(value: &IUIAutomation5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomation2> for IUIAutomation5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomation2> for &IUIAutomation5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomation5 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -8072,23 +8032,63 @@ impl<'a> ::windows::core::IntoParam<'a, IUIAutomation> for &IUIAutomation5 {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IUIAutomation5> for ::windows::core::IUnknown {
+impl ::core::convert::From<IUIAutomation5> for IUIAutomation2 {
     fn from(value: IUIAutomation5) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IUIAutomation5> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IUIAutomation5> for IUIAutomation2 {
     fn from(value: &IUIAutomation5) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomation5 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomation2> for IUIAutomation5 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation2> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomation5 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomation2> for &IUIAutomation5 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation2> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomation5> for IUIAutomation3 {
+    fn from(value: IUIAutomation5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomation5> for IUIAutomation3 {
+    fn from(value: &IUIAutomation5) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomation3> for IUIAutomation5 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation3> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomation3> for &IUIAutomation5 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation3> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomation5> for IUIAutomation4 {
+    fn from(value: IUIAutomation5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomation5> for IUIAutomation4 {
+    fn from(value: &IUIAutomation5) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomation4> for IUIAutomation5 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation4> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomation4> for &IUIAutomation5 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation4> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -8123,98 +8123,6 @@ pub struct IUIAutomation5Vtbl {
 #[repr(transparent)]
 pub struct IUIAutomation6(::windows::core::IUnknown);
 impl IUIAutomation6 {
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CreateEventHandlerGroup(&self) -> ::windows::core::Result<IUIAutomationEventHandlerGroup> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateEventHandlerGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationEventHandlerGroup>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn AddEventHandlerGroup<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationEventHandlerGroup>>(&self, element: Param0, handlergroup: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddEventHandlerGroup)(::core::mem::transmute_copy(self), element.into_param().abi(), handlergroup.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn RemoveEventHandlerGroup<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationEventHandlerGroup>>(&self, element: Param0, handlergroup: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveEventHandlerGroup)(::core::mem::transmute_copy(self), element.into_param().abi(), handlergroup.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn ConnectionRecoveryBehavior(&self) -> ::windows::core::Result<ConnectionRecoveryBehaviorOptions> {
-        let mut result__: ConnectionRecoveryBehaviorOptions = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ConnectionRecoveryBehavior)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ConnectionRecoveryBehaviorOptions>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn SetConnectionRecoveryBehavior(&self, connectionrecoverybehavioroptions: ConnectionRecoveryBehaviorOptions) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetConnectionRecoveryBehavior)(::core::mem::transmute_copy(self), ::core::mem::transmute(connectionrecoverybehavioroptions)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CoalesceEvents(&self) -> ::windows::core::Result<CoalesceEventsOptions> {
-        let mut result__: CoalesceEventsOptions = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CoalesceEvents)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<CoalesceEventsOptions>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn SetCoalesceEvents(&self, coalesceeventsoptions: CoalesceEventsOptions) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCoalesceEvents)(::core::mem::transmute_copy(self), ::core::mem::transmute(coalesceeventsoptions)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn AddActiveTextPositionChangedEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param2: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param3: ::windows::core::IntoParam<'a, IUIAutomationActiveTextPositionChangedEventHandler>>(&self, element: Param0, scope: TreeScope, cacherequest: Param2, handler: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddActiveTextPositionChangedEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), ::core::mem::transmute(scope), cacherequest.into_param().abi(), handler.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn RemoveActiveTextPositionChangedEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationActiveTextPositionChangedEventHandler>>(&self, element: Param0, handler: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveActiveTextPositionChangedEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), handler.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn AddNotificationEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param2: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param3: ::windows::core::IntoParam<'a, IUIAutomationNotificationEventHandler>>(&self, element: Param0, scope: TreeScope, cacherequest: Param2, handler: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.AddNotificationEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), ::core::mem::transmute(scope), cacherequest.into_param().abi(), handler.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn RemoveNotificationEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationNotificationEventHandler>>(&self, element: Param0, handler: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.RemoveNotificationEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), handler.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn AddChangesEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param4: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param5: ::windows::core::IntoParam<'a, IUIAutomationChangesEventHandler>>(&self, element: Param0, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: Param4, handler: Param5) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.AddChangesEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), ::core::mem::transmute(scope), ::core::mem::transmute(changetypes), ::core::mem::transmute(changescount), pcacherequest.into_param().abi(), handler.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn RemoveChangesEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationChangesEventHandler>>(&self, element: Param0, handler: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.RemoveChangesEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), handler.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn AddTextEditTextChangedEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param3: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param4: ::windows::core::IntoParam<'a, IUIAutomationTextEditTextChangedEventHandler>>(&self, element: Param0, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: Param3, handler: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.AddTextEditTextChangedEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), ::core::mem::transmute(scope), ::core::mem::transmute(texteditchangetype), cacherequest.into_param().abi(), handler.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn RemoveTextEditTextChangedEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationTextEditTextChangedEventHandler>>(&self, element: Param0, handler: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.RemoveTextEditTextChangedEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), handler.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AutoSetFocus(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.AutoSetFocus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAutoSetFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, autosetfocus: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.SetAutoSetFocus)(::core::mem::transmute_copy(self), autosetfocus.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn ConnectionTimeout(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.ConnectionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn SetConnectionTimeout(&self, timeout: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.SetConnectionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(timeout)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn TransactionTimeout(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.TransactionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn SetTransactionTimeout(&self, timeout: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.SetTransactionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(timeout)).ok()
-    }
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CompareElements<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, el1: Param0, el2: Param1) -> ::windows::core::Result<super::super::Foundation::BOOL> {
@@ -8499,84 +8407,116 @@ impl IUIAutomation6 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.base.base.base.ElementFromIAccessibleBuildCache)(::core::mem::transmute_copy(self), accessible.into_param().abi(), ::core::mem::transmute(childid), cacherequest.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
     }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn AutoSetFocus(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.AutoSetFocus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetAutoSetFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, autosetfocus: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetAutoSetFocus)(::core::mem::transmute_copy(self), autosetfocus.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn ConnectionTimeout(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.ConnectionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn SetConnectionTimeout(&self, timeout: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetConnectionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(timeout)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn TransactionTimeout(&self) -> ::windows::core::Result<u32> {
+        let mut result__: u32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.TransactionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn SetTransactionTimeout(&self, timeout: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.SetTransactionTimeout)(::core::mem::transmute_copy(self), ::core::mem::transmute(timeout)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn AddTextEditTextChangedEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param3: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param4: ::windows::core::IntoParam<'a, IUIAutomationTextEditTextChangedEventHandler>>(&self, element: Param0, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: Param3, handler: Param4) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.AddTextEditTextChangedEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), ::core::mem::transmute(scope), ::core::mem::transmute(texteditchangetype), cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn RemoveTextEditTextChangedEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationTextEditTextChangedEventHandler>>(&self, element: Param0, handler: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.RemoveTextEditTextChangedEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), handler.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn AddChangesEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param4: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param5: ::windows::core::IntoParam<'a, IUIAutomationChangesEventHandler>>(&self, element: Param0, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: Param4, handler: Param5) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.AddChangesEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), ::core::mem::transmute(scope), ::core::mem::transmute(changetypes), ::core::mem::transmute(changescount), pcacherequest.into_param().abi(), handler.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn RemoveChangesEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationChangesEventHandler>>(&self, element: Param0, handler: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.RemoveChangesEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), handler.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn AddNotificationEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param2: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param3: ::windows::core::IntoParam<'a, IUIAutomationNotificationEventHandler>>(&self, element: Param0, scope: TreeScope, cacherequest: Param2, handler: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.AddNotificationEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), ::core::mem::transmute(scope), cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn RemoveNotificationEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationNotificationEventHandler>>(&self, element: Param0, handler: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.RemoveNotificationEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), handler.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CreateEventHandlerGroup(&self) -> ::windows::core::Result<IUIAutomationEventHandlerGroup> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateEventHandlerGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationEventHandlerGroup>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn AddEventHandlerGroup<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationEventHandlerGroup>>(&self, element: Param0, handlergroup: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddEventHandlerGroup)(::core::mem::transmute_copy(self), element.into_param().abi(), handlergroup.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn RemoveEventHandlerGroup<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationEventHandlerGroup>>(&self, element: Param0, handlergroup: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveEventHandlerGroup)(::core::mem::transmute_copy(self), element.into_param().abi(), handlergroup.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn ConnectionRecoveryBehavior(&self) -> ::windows::core::Result<ConnectionRecoveryBehaviorOptions> {
+        let mut result__: ConnectionRecoveryBehaviorOptions = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).ConnectionRecoveryBehavior)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ConnectionRecoveryBehaviorOptions>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn SetConnectionRecoveryBehavior(&self, connectionrecoverybehavioroptions: ConnectionRecoveryBehaviorOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetConnectionRecoveryBehavior)(::core::mem::transmute_copy(self), ::core::mem::transmute(connectionrecoverybehavioroptions)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CoalesceEvents(&self) -> ::windows::core::Result<CoalesceEventsOptions> {
+        let mut result__: CoalesceEventsOptions = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CoalesceEvents)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<CoalesceEventsOptions>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn SetCoalesceEvents(&self, coalesceeventsoptions: CoalesceEventsOptions) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetCoalesceEvents)(::core::mem::transmute_copy(self), ::core::mem::transmute(coalesceeventsoptions)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn AddActiveTextPositionChangedEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param2: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param3: ::windows::core::IntoParam<'a, IUIAutomationActiveTextPositionChangedEventHandler>>(&self, element: Param0, scope: TreeScope, cacherequest: Param2, handler: Param3) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddActiveTextPositionChangedEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), ::core::mem::transmute(scope), cacherequest.into_param().abi(), handler.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn RemoveActiveTextPositionChangedEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>, Param1: ::windows::core::IntoParam<'a, IUIAutomationActiveTextPositionChangedEventHandler>>(&self, element: Param0, handler: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveActiveTextPositionChangedEventHandler)(::core::mem::transmute_copy(self), element.into_param().abi(), handler.into_param().abi()).ok()
+    }
 }
-impl ::core::convert::From<IUIAutomation6> for IUIAutomation5 {
+impl ::core::convert::From<IUIAutomation6> for ::windows::core::IUnknown {
     fn from(value: IUIAutomation6) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IUIAutomation6> for IUIAutomation5 {
+impl ::core::convert::From<&IUIAutomation6> for ::windows::core::IUnknown {
     fn from(value: &IUIAutomation6) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomation5> for IUIAutomation6 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation5> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomation6 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomation5> for &IUIAutomation6 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation5> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomation6> for IUIAutomation4 {
-    fn from(value: IUIAutomation6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomation6> for IUIAutomation4 {
-    fn from(value: &IUIAutomation6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomation4> for IUIAutomation6 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation4> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomation4> for &IUIAutomation6 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation4> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomation6> for IUIAutomation3 {
-    fn from(value: IUIAutomation6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomation6> for IUIAutomation3 {
-    fn from(value: &IUIAutomation6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomation3> for IUIAutomation6 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation3> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomation3> for &IUIAutomation6 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation3> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomation6> for IUIAutomation2 {
-    fn from(value: IUIAutomation6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomation6> for IUIAutomation2 {
-    fn from(value: &IUIAutomation6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomation2> for IUIAutomation6 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomation2> for &IUIAutomation6 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomation6 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -8600,23 +8540,83 @@ impl<'a> ::windows::core::IntoParam<'a, IUIAutomation> for &IUIAutomation6 {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IUIAutomation6> for ::windows::core::IUnknown {
+impl ::core::convert::From<IUIAutomation6> for IUIAutomation2 {
     fn from(value: IUIAutomation6) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IUIAutomation6> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IUIAutomation6> for IUIAutomation2 {
     fn from(value: &IUIAutomation6) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomation6 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomation2> for IUIAutomation6 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation2> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomation6 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomation2> for &IUIAutomation6 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation2> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomation6> for IUIAutomation3 {
+    fn from(value: IUIAutomation6) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomation6> for IUIAutomation3 {
+    fn from(value: &IUIAutomation6) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomation3> for IUIAutomation6 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation3> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomation3> for &IUIAutomation6 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation3> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomation6> for IUIAutomation4 {
+    fn from(value: IUIAutomation6) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomation6> for IUIAutomation4 {
+    fn from(value: &IUIAutomation6) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomation4> for IUIAutomation6 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation4> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomation4> for &IUIAutomation6 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation4> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomation6> for IUIAutomation5 {
+    fn from(value: IUIAutomation6) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomation6> for IUIAutomation5 {
+    fn from(value: &IUIAutomation6) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomation5> for IUIAutomation6 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation5> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomation5> for &IUIAutomation6 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomation5> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -8729,26 +8729,6 @@ impl IUIAutomationAndCondition {
         (::windows::core::Interface::vtable(self).GetChildren)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
-impl ::core::convert::From<IUIAutomationAndCondition> for IUIAutomationCondition {
-    fn from(value: IUIAutomationAndCondition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationAndCondition> for IUIAutomationCondition {
-    fn from(value: &IUIAutomationAndCondition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationCondition> for IUIAutomationAndCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationCondition> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationCondition> for &IUIAutomationAndCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationCondition> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IUIAutomationAndCondition> for ::windows::core::IUnknown {
     fn from(value: IUIAutomationAndCondition) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -8766,6 +8746,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutoma
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationAndCondition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationAndCondition> for IUIAutomationCondition {
+    fn from(value: IUIAutomationAndCondition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationAndCondition> for IUIAutomationCondition {
+    fn from(value: &IUIAutomationAndCondition) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationCondition> for IUIAutomationAndCondition {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationCondition> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationCondition> for &IUIAutomationAndCondition {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationCondition> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -8945,26 +8945,6 @@ impl IUIAutomationBoolCondition {
         (::windows::core::Interface::vtable(self).BooleanValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
 }
-impl ::core::convert::From<IUIAutomationBoolCondition> for IUIAutomationCondition {
-    fn from(value: IUIAutomationBoolCondition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationBoolCondition> for IUIAutomationCondition {
-    fn from(value: &IUIAutomationBoolCondition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationCondition> for IUIAutomationBoolCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationCondition> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationCondition> for &IUIAutomationBoolCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationCondition> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IUIAutomationBoolCondition> for ::windows::core::IUnknown {
     fn from(value: IUIAutomationBoolCondition) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -8982,6 +8962,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutoma
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationBoolCondition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationBoolCondition> for IUIAutomationCondition {
+    fn from(value: IUIAutomationBoolCondition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationBoolCondition> for IUIAutomationCondition {
+    fn from(value: &IUIAutomationBoolCondition) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationCondition> for IUIAutomationBoolCondition {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationCondition> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationCondition> for &IUIAutomationBoolCondition {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationCondition> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -10316,38 +10316,6 @@ pub struct IUIAutomationElementVtbl {
 #[repr(transparent)]
 pub struct IUIAutomationElement2(::windows::core::IUnknown);
 impl IUIAutomationElement2 {
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CurrentOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CachedOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
-        let mut result__: LiveSetting = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CurrentLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
-        let mut result__: LiveSetting = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CachedLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CurrentFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CachedFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub unsafe fn SetFocus(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetFocus)(::core::mem::transmute_copy(self)).ok()
@@ -10810,25 +10778,37 @@ impl IUIAutomationElement2 {
     pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetClickablePoint)(::core::mem::transmute_copy(self), ::core::mem::transmute(clickable), ::core::mem::transmute(gotclickable)).ok()
     }
-}
-impl ::core::convert::From<IUIAutomationElement2> for IUIAutomationElement {
-    fn from(value: IUIAutomationElement2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CurrentOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-}
-impl ::core::convert::From<&IUIAutomationElement2> for IUIAutomationElement {
-    fn from(value: &IUIAutomationElement2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CachedOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement> for IUIAutomationElement2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
+        let mut result__: LiveSetting = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CurrentLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement> for &IUIAutomationElement2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
+        let mut result__: LiveSetting = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CachedLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CurrentFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CachedFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
     }
 }
 impl ::core::convert::From<IUIAutomationElement2> for ::windows::core::IUnknown {
@@ -10848,6 +10828,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutoma
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationElement2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationElement2> for IUIAutomationElement {
+    fn from(value: IUIAutomationElement2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationElement2> for IUIAutomationElement {
+    fn from(value: &IUIAutomationElement2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement> for IUIAutomationElement2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement> for &IUIAutomationElement2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -10892,54 +10892,6 @@ pub struct IUIAutomationElement2Vtbl {
 #[repr(transparent)]
 pub struct IUIAutomationElement3(::windows::core::IUnknown);
 impl IUIAutomationElement3 {
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn ShowContextMenu(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ShowContextMenu)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CurrentIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CachedIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CurrentOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CachedOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
-        let mut result__: LiveSetting = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CurrentLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
-        let mut result__: LiveSetting = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CachedLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CurrentFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CachedFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub unsafe fn SetFocus(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetFocus)(::core::mem::transmute_copy(self)).ok()
@@ -11402,24 +11354,72 @@ impl IUIAutomationElement3 {
     pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.GetClickablePoint)(::core::mem::transmute_copy(self), ::core::mem::transmute(clickable), ::core::mem::transmute(gotclickable)).ok()
     }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CurrentOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CachedOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
+        let mut result__: LiveSetting = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CurrentLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
+        let mut result__: LiveSetting = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CachedLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CurrentFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CachedFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn ShowContextMenu(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ShowContextMenu)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CurrentIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CachedIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
 }
-impl ::core::convert::From<IUIAutomationElement3> for IUIAutomationElement2 {
+impl ::core::convert::From<IUIAutomationElement3> for ::windows::core::IUnknown {
     fn from(value: IUIAutomationElement3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IUIAutomationElement3> for IUIAutomationElement2 {
+impl ::core::convert::From<&IUIAutomationElement3> for ::windows::core::IUnknown {
     fn from(value: &IUIAutomationElement3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for IUIAutomationElement3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomationElement3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for &IUIAutomationElement3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationElement3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -11443,23 +11443,23 @@ impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement> for &IUIAutomation
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IUIAutomationElement3> for ::windows::core::IUnknown {
+impl ::core::convert::From<IUIAutomationElement3> for IUIAutomationElement2 {
     fn from(value: IUIAutomationElement3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IUIAutomationElement3> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IUIAutomationElement3> for IUIAutomationElement2 {
     fn from(value: &IUIAutomationElement3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomationElement3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for IUIAutomationElement3 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationElement3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for &IUIAutomationElement3 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -11501,106 +11501,6 @@ pub struct IUIAutomationElement3Vtbl {
 #[repr(transparent)]
 pub struct IUIAutomationElement4(::windows::core::IUnknown);
 impl IUIAutomationElement4 {
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentPositionInSet(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CurrentPositionInSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentSizeOfSet(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CurrentSizeOfSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CurrentLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CurrentAnnotationTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
-        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CurrentAnnotationTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentAnnotationObjects(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CurrentAnnotationObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedPositionInSet(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CachedPositionInSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedSizeOfSet(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CachedSizeOfSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CachedLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CachedAnnotationTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
-        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CachedAnnotationTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedAnnotationObjects(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CachedAnnotationObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn ShowContextMenu(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.ShowContextMenu)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CurrentIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CachedIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CurrentOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CachedOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
-        let mut result__: LiveSetting = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CurrentLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
-        let mut result__: LiveSetting = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CachedLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CurrentFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CachedFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub unsafe fn SetFocus(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.SetFocus)(::core::mem::transmute_copy(self)).ok()
@@ -12063,44 +11963,124 @@ impl IUIAutomationElement4 {
     pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.GetClickablePoint)(::core::mem::transmute_copy(self), ::core::mem::transmute(clickable), ::core::mem::transmute(gotclickable)).ok()
     }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CurrentOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CachedOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
+        let mut result__: LiveSetting = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CurrentLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
+        let mut result__: LiveSetting = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CachedLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CurrentFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CachedFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn ShowContextMenu(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.ShowContextMenu)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CurrentIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CachedIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentPositionInSet(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CurrentPositionInSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentSizeOfSet(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CurrentSizeOfSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentLevel(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CurrentLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CurrentAnnotationTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CurrentAnnotationTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentAnnotationObjects(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CurrentAnnotationObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedPositionInSet(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CachedPositionInSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedSizeOfSet(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CachedSizeOfSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedLevel(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CachedLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CachedAnnotationTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CachedAnnotationTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedAnnotationObjects(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CachedAnnotationObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
 }
-impl ::core::convert::From<IUIAutomationElement4> for IUIAutomationElement3 {
+impl ::core::convert::From<IUIAutomationElement4> for ::windows::core::IUnknown {
     fn from(value: IUIAutomationElement4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IUIAutomationElement4> for IUIAutomationElement3 {
+impl ::core::convert::From<&IUIAutomationElement4> for ::windows::core::IUnknown {
     fn from(value: &IUIAutomationElement4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement3> for IUIAutomationElement4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement3> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomationElement4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement3> for &IUIAutomationElement4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement3> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomationElement4> for IUIAutomationElement2 {
-    fn from(value: IUIAutomationElement4) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationElement4> for IUIAutomationElement2 {
-    fn from(value: &IUIAutomationElement4) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for IUIAutomationElement4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for &IUIAutomationElement4 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationElement4 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -12124,23 +12104,43 @@ impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement> for &IUIAutomation
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IUIAutomationElement4> for ::windows::core::IUnknown {
+impl ::core::convert::From<IUIAutomationElement4> for IUIAutomationElement2 {
     fn from(value: IUIAutomationElement4) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IUIAutomationElement4> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IUIAutomationElement4> for IUIAutomationElement2 {
     fn from(value: &IUIAutomationElement4) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomationElement4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for IUIAutomationElement4 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationElement4 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for &IUIAutomationElement4 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationElement4> for IUIAutomationElement3 {
+    fn from(value: IUIAutomationElement4) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationElement4> for IUIAutomationElement3 {
+    fn from(value: &IUIAutomationElement4) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement3> for IUIAutomationElement4 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement3> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement3> for &IUIAutomationElement4 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement3> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -12189,128 +12189,6 @@ pub struct IUIAutomationElement4Vtbl {
 #[repr(transparent)]
 pub struct IUIAutomationElement5(::windows::core::IUnknown);
 impl IUIAutomationElement5 {
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentLandmarkType(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CurrentLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentLocalizedLandmarkType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CurrentLocalizedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedLandmarkType(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CachedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedLocalizedLandmarkType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CachedLocalizedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentPositionInSet(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CurrentPositionInSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentSizeOfSet(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CurrentSizeOfSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CurrentLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CurrentAnnotationTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
-        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CurrentAnnotationTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentAnnotationObjects(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CurrentAnnotationObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedPositionInSet(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CachedPositionInSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedSizeOfSet(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CachedSizeOfSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CachedLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CachedAnnotationTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
-        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CachedAnnotationTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedAnnotationObjects(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CachedAnnotationObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn ShowContextMenu(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.ShowContextMenu)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CurrentIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CachedIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CurrentOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CachedOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
-        let mut result__: LiveSetting = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CurrentLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
-        let mut result__: LiveSetting = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CachedLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CurrentFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CachedFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub unsafe fn SetFocus(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.base.SetFocus)(::core::mem::transmute_copy(self)).ok()
@@ -12773,64 +12651,146 @@ impl IUIAutomationElement5 {
     pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.base.GetClickablePoint)(::core::mem::transmute_copy(self), ::core::mem::transmute(clickable), ::core::mem::transmute(gotclickable)).ok()
     }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CurrentOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CachedOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
+        let mut result__: LiveSetting = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CurrentLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
+        let mut result__: LiveSetting = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CachedLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CurrentFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CachedFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn ShowContextMenu(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.ShowContextMenu)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CurrentIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CachedIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentPositionInSet(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CurrentPositionInSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentSizeOfSet(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CurrentSizeOfSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentLevel(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CurrentLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CurrentAnnotationTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CurrentAnnotationTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentAnnotationObjects(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CurrentAnnotationObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedPositionInSet(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CachedPositionInSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedSizeOfSet(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CachedSizeOfSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedLevel(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CachedLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CachedAnnotationTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CachedAnnotationTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedAnnotationObjects(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CachedAnnotationObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentLandmarkType(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CurrentLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentLocalizedLandmarkType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CurrentLocalizedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedLandmarkType(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CachedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedLocalizedLandmarkType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CachedLocalizedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
 }
-impl ::core::convert::From<IUIAutomationElement5> for IUIAutomationElement4 {
+impl ::core::convert::From<IUIAutomationElement5> for ::windows::core::IUnknown {
     fn from(value: IUIAutomationElement5) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IUIAutomationElement5> for IUIAutomationElement4 {
+impl ::core::convert::From<&IUIAutomationElement5> for ::windows::core::IUnknown {
     fn from(value: &IUIAutomationElement5) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement4> for IUIAutomationElement5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement4> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomationElement5 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement4> for &IUIAutomationElement5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement4> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomationElement5> for IUIAutomationElement3 {
-    fn from(value: IUIAutomationElement5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationElement5> for IUIAutomationElement3 {
-    fn from(value: &IUIAutomationElement5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement3> for IUIAutomationElement5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement3> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement3> for &IUIAutomationElement5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement3> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomationElement5> for IUIAutomationElement2 {
-    fn from(value: IUIAutomationElement5) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationElement5> for IUIAutomationElement2 {
-    fn from(value: &IUIAutomationElement5) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for IUIAutomationElement5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for &IUIAutomationElement5 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationElement5 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -12854,23 +12814,63 @@ impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement> for &IUIAutomation
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IUIAutomationElement5> for ::windows::core::IUnknown {
+impl ::core::convert::From<IUIAutomationElement5> for IUIAutomationElement2 {
     fn from(value: IUIAutomationElement5) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IUIAutomationElement5> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IUIAutomationElement5> for IUIAutomationElement2 {
     fn from(value: &IUIAutomationElement5) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomationElement5 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for IUIAutomationElement5 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationElement5 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for &IUIAutomationElement5 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationElement5> for IUIAutomationElement3 {
+    fn from(value: IUIAutomationElement5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationElement5> for IUIAutomationElement3 {
+    fn from(value: &IUIAutomationElement5) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement3> for IUIAutomationElement5 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement3> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement3> for &IUIAutomationElement5 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement3> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationElement5> for IUIAutomationElement4 {
+    fn from(value: IUIAutomationElement5) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationElement5> for IUIAutomationElement4 {
+    fn from(value: &IUIAutomationElement5) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement4> for IUIAutomationElement5 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement4> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement4> for &IUIAutomationElement5 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement4> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -12913,140 +12913,6 @@ pub struct IUIAutomationElement5Vtbl {
 #[repr(transparent)]
 pub struct IUIAutomationElement6(::windows::core::IUnknown);
 impl IUIAutomationElement6 {
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentFullDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CurrentFullDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedFullDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CachedFullDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentLandmarkType(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CurrentLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentLocalizedLandmarkType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CurrentLocalizedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedLandmarkType(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CachedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedLocalizedLandmarkType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CachedLocalizedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentPositionInSet(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CurrentPositionInSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentSizeOfSet(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CurrentSizeOfSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CurrentLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CurrentAnnotationTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
-        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CurrentAnnotationTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentAnnotationObjects(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CurrentAnnotationObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedPositionInSet(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CachedPositionInSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedSizeOfSet(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CachedSizeOfSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CachedLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CachedAnnotationTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
-        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CachedAnnotationTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedAnnotationObjects(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CachedAnnotationObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn ShowContextMenu(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.ShowContextMenu)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CurrentIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CachedIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CurrentOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CachedOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
-        let mut result__: LiveSetting = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CurrentLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
-        let mut result__: LiveSetting = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CachedLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CurrentFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CachedFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub unsafe fn SetFocus(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.base.base.SetFocus)(::core::mem::transmute_copy(self)).ok()
@@ -13509,84 +13375,158 @@ impl IUIAutomationElement6 {
     pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.base.base.GetClickablePoint)(::core::mem::transmute_copy(self), ::core::mem::transmute(clickable), ::core::mem::transmute(gotclickable)).ok()
     }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CurrentOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CachedOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
+        let mut result__: LiveSetting = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CurrentLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
+        let mut result__: LiveSetting = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CachedLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CurrentFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CachedFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn ShowContextMenu(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.ShowContextMenu)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CurrentIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CachedIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentPositionInSet(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CurrentPositionInSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentSizeOfSet(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CurrentSizeOfSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentLevel(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CurrentLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CurrentAnnotationTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CurrentAnnotationTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentAnnotationObjects(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CurrentAnnotationObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedPositionInSet(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CachedPositionInSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedSizeOfSet(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CachedSizeOfSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedLevel(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CachedLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CachedAnnotationTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CachedAnnotationTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedAnnotationObjects(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CachedAnnotationObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentLandmarkType(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CurrentLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentLocalizedLandmarkType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CurrentLocalizedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedLandmarkType(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CachedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedLocalizedLandmarkType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CachedLocalizedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentFullDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CurrentFullDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedFullDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CachedFullDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
 }
-impl ::core::convert::From<IUIAutomationElement6> for IUIAutomationElement5 {
+impl ::core::convert::From<IUIAutomationElement6> for ::windows::core::IUnknown {
     fn from(value: IUIAutomationElement6) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IUIAutomationElement6> for IUIAutomationElement5 {
+impl ::core::convert::From<&IUIAutomationElement6> for ::windows::core::IUnknown {
     fn from(value: &IUIAutomationElement6) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement5> for IUIAutomationElement6 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement5> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomationElement6 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement5> for &IUIAutomationElement6 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement5> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomationElement6> for IUIAutomationElement4 {
-    fn from(value: IUIAutomationElement6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationElement6> for IUIAutomationElement4 {
-    fn from(value: &IUIAutomationElement6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement4> for IUIAutomationElement6 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement4> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement4> for &IUIAutomationElement6 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement4> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomationElement6> for IUIAutomationElement3 {
-    fn from(value: IUIAutomationElement6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationElement6> for IUIAutomationElement3 {
-    fn from(value: &IUIAutomationElement6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement3> for IUIAutomationElement6 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement3> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement3> for &IUIAutomationElement6 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement3> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomationElement6> for IUIAutomationElement2 {
-    fn from(value: IUIAutomationElement6) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationElement6> for IUIAutomationElement2 {
-    fn from(value: &IUIAutomationElement6) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for IUIAutomationElement6 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for &IUIAutomationElement6 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationElement6 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -13610,23 +13550,83 @@ impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement> for &IUIAutomation
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IUIAutomationElement6> for ::windows::core::IUnknown {
+impl ::core::convert::From<IUIAutomationElement6> for IUIAutomationElement2 {
     fn from(value: IUIAutomationElement6) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IUIAutomationElement6> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IUIAutomationElement6> for IUIAutomationElement2 {
     fn from(value: &IUIAutomationElement6) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomationElement6 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for IUIAutomationElement6 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationElement6 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for &IUIAutomationElement6 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationElement6> for IUIAutomationElement3 {
+    fn from(value: IUIAutomationElement6) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationElement6> for IUIAutomationElement3 {
+    fn from(value: &IUIAutomationElement6) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement3> for IUIAutomationElement6 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement3> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement3> for &IUIAutomationElement6 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement3> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationElement6> for IUIAutomationElement4 {
+    fn from(value: IUIAutomationElement6) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationElement6> for IUIAutomationElement4 {
+    fn from(value: &IUIAutomationElement6) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement4> for IUIAutomationElement6 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement4> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement4> for &IUIAutomationElement6 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement4> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationElement6> for IUIAutomationElement5 {
+    fn from(value: IUIAutomationElement6) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationElement6> for IUIAutomationElement5 {
+    fn from(value: &IUIAutomationElement6) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement5> for IUIAutomationElement6 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement5> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement5> for &IUIAutomationElement6 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement5> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -13667,166 +13667,6 @@ pub struct IUIAutomationElement6Vtbl {
 #[repr(transparent)]
 pub struct IUIAutomationElement7(::windows::core::IUnknown);
 impl IUIAutomationElement7 {
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn FindFirstWithOptions<'a, Param1: ::windows::core::IntoParam<'a, IUIAutomationCondition>, Param3: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, scope: TreeScope, condition: Param1, traversaloptions: TreeTraversalOptions, root: Param3) -> ::windows::core::Result<IUIAutomationElement> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FindFirstWithOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), condition.into_param().abi(), ::core::mem::transmute(traversaloptions), root.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn FindAllWithOptions<'a, Param1: ::windows::core::IntoParam<'a, IUIAutomationCondition>, Param3: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, scope: TreeScope, condition: Param1, traversaloptions: TreeTraversalOptions, root: Param3) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FindAllWithOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), condition.into_param().abi(), ::core::mem::transmute(traversaloptions), root.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn FindFirstWithOptionsBuildCache<'a, Param1: ::windows::core::IntoParam<'a, IUIAutomationCondition>, Param2: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param4: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, scope: TreeScope, condition: Param1, cacherequest: Param2, traversaloptions: TreeTraversalOptions, root: Param4) -> ::windows::core::Result<IUIAutomationElement> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FindFirstWithOptionsBuildCache)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), condition.into_param().abi(), cacherequest.into_param().abi(), ::core::mem::transmute(traversaloptions), root.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn FindAllWithOptionsBuildCache<'a, Param1: ::windows::core::IntoParam<'a, IUIAutomationCondition>, Param2: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param4: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, scope: TreeScope, condition: Param1, cacherequest: Param2, traversaloptions: TreeTraversalOptions, root: Param4) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FindAllWithOptionsBuildCache)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), condition.into_param().abi(), cacherequest.into_param().abi(), ::core::mem::transmute(traversaloptions), root.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetCurrentMetadataValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(targetid), ::core::mem::transmute(metadataid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentFullDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CurrentFullDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedFullDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CachedFullDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentLandmarkType(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CurrentLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentLocalizedLandmarkType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CurrentLocalizedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedLandmarkType(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CachedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedLocalizedLandmarkType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CachedLocalizedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentPositionInSet(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CurrentPositionInSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentSizeOfSet(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CurrentSizeOfSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CurrentLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CurrentAnnotationTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
-        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CurrentAnnotationTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentAnnotationObjects(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CurrentAnnotationObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedPositionInSet(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CachedPositionInSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedSizeOfSet(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CachedSizeOfSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CachedLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CachedAnnotationTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
-        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CachedAnnotationTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedAnnotationObjects(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CachedAnnotationObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn ShowContextMenu(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.ShowContextMenu)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CurrentIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CachedIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CurrentOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CachedOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
-        let mut result__: LiveSetting = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CurrentLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
-        let mut result__: LiveSetting = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CachedLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CurrentFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CachedFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub unsafe fn SetFocus(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.base.base.base.SetFocus)(::core::mem::transmute_copy(self)).ok()
@@ -14289,104 +14129,184 @@ impl IUIAutomationElement7 {
     pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.base.base.base.GetClickablePoint)(::core::mem::transmute_copy(self), ::core::mem::transmute(clickable), ::core::mem::transmute(gotclickable)).ok()
     }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CurrentOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CachedOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
+        let mut result__: LiveSetting = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CurrentLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
+        let mut result__: LiveSetting = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CachedLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CurrentFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CachedFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn ShowContextMenu(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.ShowContextMenu)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CurrentIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CachedIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentPositionInSet(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CurrentPositionInSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentSizeOfSet(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CurrentSizeOfSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentLevel(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CurrentLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CurrentAnnotationTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CurrentAnnotationTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentAnnotationObjects(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CurrentAnnotationObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedPositionInSet(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CachedPositionInSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedSizeOfSet(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CachedSizeOfSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedLevel(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CachedLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CachedAnnotationTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CachedAnnotationTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedAnnotationObjects(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CachedAnnotationObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentLandmarkType(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CurrentLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentLocalizedLandmarkType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CurrentLocalizedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedLandmarkType(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CachedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedLocalizedLandmarkType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CachedLocalizedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentFullDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CurrentFullDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedFullDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CachedFullDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn FindFirstWithOptions<'a, Param1: ::windows::core::IntoParam<'a, IUIAutomationCondition>, Param3: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, scope: TreeScope, condition: Param1, traversaloptions: TreeTraversalOptions, root: Param3) -> ::windows::core::Result<IUIAutomationElement> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).FindFirstWithOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), condition.into_param().abi(), ::core::mem::transmute(traversaloptions), root.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn FindAllWithOptions<'a, Param1: ::windows::core::IntoParam<'a, IUIAutomationCondition>, Param3: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, scope: TreeScope, condition: Param1, traversaloptions: TreeTraversalOptions, root: Param3) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).FindAllWithOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), condition.into_param().abi(), ::core::mem::transmute(traversaloptions), root.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn FindFirstWithOptionsBuildCache<'a, Param1: ::windows::core::IntoParam<'a, IUIAutomationCondition>, Param2: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param4: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, scope: TreeScope, condition: Param1, cacherequest: Param2, traversaloptions: TreeTraversalOptions, root: Param4) -> ::windows::core::Result<IUIAutomationElement> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).FindFirstWithOptionsBuildCache)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), condition.into_param().abi(), cacherequest.into_param().abi(), ::core::mem::transmute(traversaloptions), root.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn FindAllWithOptionsBuildCache<'a, Param1: ::windows::core::IntoParam<'a, IUIAutomationCondition>, Param2: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param4: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, scope: TreeScope, condition: Param1, cacherequest: Param2, traversaloptions: TreeTraversalOptions, root: Param4) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).FindAllWithOptionsBuildCache)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), condition.into_param().abi(), cacherequest.into_param().abi(), ::core::mem::transmute(traversaloptions), root.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetCurrentMetadataValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(targetid), ::core::mem::transmute(metadataid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+    }
 }
-impl ::core::convert::From<IUIAutomationElement7> for IUIAutomationElement6 {
+impl ::core::convert::From<IUIAutomationElement7> for ::windows::core::IUnknown {
     fn from(value: IUIAutomationElement7) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IUIAutomationElement7> for IUIAutomationElement6 {
+impl ::core::convert::From<&IUIAutomationElement7> for ::windows::core::IUnknown {
     fn from(value: &IUIAutomationElement7) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement6> for IUIAutomationElement7 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement6> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomationElement7 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement6> for &IUIAutomationElement7 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement6> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomationElement7> for IUIAutomationElement5 {
-    fn from(value: IUIAutomationElement7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationElement7> for IUIAutomationElement5 {
-    fn from(value: &IUIAutomationElement7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement5> for IUIAutomationElement7 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement5> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement5> for &IUIAutomationElement7 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement5> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomationElement7> for IUIAutomationElement4 {
-    fn from(value: IUIAutomationElement7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationElement7> for IUIAutomationElement4 {
-    fn from(value: &IUIAutomationElement7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement4> for IUIAutomationElement7 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement4> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement4> for &IUIAutomationElement7 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement4> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomationElement7> for IUIAutomationElement3 {
-    fn from(value: IUIAutomationElement7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationElement7> for IUIAutomationElement3 {
-    fn from(value: &IUIAutomationElement7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement3> for IUIAutomationElement7 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement3> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement3> for &IUIAutomationElement7 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement3> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomationElement7> for IUIAutomationElement2 {
-    fn from(value: IUIAutomationElement7) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationElement7> for IUIAutomationElement2 {
-    fn from(value: &IUIAutomationElement7) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for IUIAutomationElement7 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for &IUIAutomationElement7 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationElement7 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -14410,23 +14330,103 @@ impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement> for &IUIAutomation
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IUIAutomationElement7> for ::windows::core::IUnknown {
+impl ::core::convert::From<IUIAutomationElement7> for IUIAutomationElement2 {
     fn from(value: IUIAutomationElement7) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IUIAutomationElement7> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IUIAutomationElement7> for IUIAutomationElement2 {
     fn from(value: &IUIAutomationElement7) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomationElement7 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for IUIAutomationElement7 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationElement7 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for &IUIAutomationElement7 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationElement7> for IUIAutomationElement3 {
+    fn from(value: IUIAutomationElement7) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationElement7> for IUIAutomationElement3 {
+    fn from(value: &IUIAutomationElement7) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement3> for IUIAutomationElement7 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement3> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement3> for &IUIAutomationElement7 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement3> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationElement7> for IUIAutomationElement4 {
+    fn from(value: IUIAutomationElement7) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationElement7> for IUIAutomationElement4 {
+    fn from(value: &IUIAutomationElement7) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement4> for IUIAutomationElement7 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement4> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement4> for &IUIAutomationElement7 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement4> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationElement7> for IUIAutomationElement5 {
+    fn from(value: IUIAutomationElement7) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationElement7> for IUIAutomationElement5 {
+    fn from(value: &IUIAutomationElement7) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement5> for IUIAutomationElement7 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement5> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement5> for &IUIAutomationElement7 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement5> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationElement7> for IUIAutomationElement6 {
+    fn from(value: IUIAutomationElement7) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationElement7> for IUIAutomationElement6 {
+    fn from(value: &IUIAutomationElement7) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement6> for IUIAutomationElement7 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement6> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement6> for &IUIAutomationElement7 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement6> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -14467,176 +14467,6 @@ pub struct IUIAutomationElement7Vtbl {
 #[repr(transparent)]
 pub struct IUIAutomationElement8(::windows::core::IUnknown);
 impl IUIAutomationElement8 {
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentHeadingLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CurrentHeadingLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedHeadingLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CachedHeadingLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn FindFirstWithOptions<'a, Param1: ::windows::core::IntoParam<'a, IUIAutomationCondition>, Param3: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, scope: TreeScope, condition: Param1, traversaloptions: TreeTraversalOptions, root: Param3) -> ::windows::core::Result<IUIAutomationElement> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.FindFirstWithOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), condition.into_param().abi(), ::core::mem::transmute(traversaloptions), root.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn FindAllWithOptions<'a, Param1: ::windows::core::IntoParam<'a, IUIAutomationCondition>, Param3: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, scope: TreeScope, condition: Param1, traversaloptions: TreeTraversalOptions, root: Param3) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.FindAllWithOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), condition.into_param().abi(), ::core::mem::transmute(traversaloptions), root.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn FindFirstWithOptionsBuildCache<'a, Param1: ::windows::core::IntoParam<'a, IUIAutomationCondition>, Param2: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param4: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, scope: TreeScope, condition: Param1, cacherequest: Param2, traversaloptions: TreeTraversalOptions, root: Param4) -> ::windows::core::Result<IUIAutomationElement> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.FindFirstWithOptionsBuildCache)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), condition.into_param().abi(), cacherequest.into_param().abi(), ::core::mem::transmute(traversaloptions), root.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn FindAllWithOptionsBuildCache<'a, Param1: ::windows::core::IntoParam<'a, IUIAutomationCondition>, Param2: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param4: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, scope: TreeScope, condition: Param1, cacherequest: Param2, traversaloptions: TreeTraversalOptions, root: Param4) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.FindAllWithOptionsBuildCache)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), condition.into_param().abi(), cacherequest.into_param().abi(), ::core::mem::transmute(traversaloptions), root.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetCurrentMetadataValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(targetid), ::core::mem::transmute(metadataid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentFullDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CurrentFullDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedFullDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CachedFullDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentLandmarkType(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CurrentLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentLocalizedLandmarkType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CurrentLocalizedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedLandmarkType(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CachedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedLocalizedLandmarkType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CachedLocalizedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentPositionInSet(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CurrentPositionInSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentSizeOfSet(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CurrentSizeOfSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CurrentLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CurrentAnnotationTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
-        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CurrentAnnotationTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentAnnotationObjects(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CurrentAnnotationObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedPositionInSet(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CachedPositionInSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedSizeOfSet(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CachedSizeOfSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CachedLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CachedAnnotationTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
-        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CachedAnnotationTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedAnnotationObjects(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CachedAnnotationObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn ShowContextMenu(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.ShowContextMenu)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CurrentIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CachedIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CurrentOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CachedOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
-        let mut result__: LiveSetting = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CurrentLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
-        let mut result__: LiveSetting = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CachedLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CurrentFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CachedFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub unsafe fn SetFocus(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.SetFocus)(::core::mem::transmute_copy(self)).ok()
@@ -15099,124 +14929,194 @@ impl IUIAutomationElement8 {
     pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.GetClickablePoint)(::core::mem::transmute_copy(self), ::core::mem::transmute(clickable), ::core::mem::transmute(gotclickable)).ok()
     }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CurrentOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CachedOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
+        let mut result__: LiveSetting = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CurrentLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
+        let mut result__: LiveSetting = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CachedLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CurrentFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CachedFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn ShowContextMenu(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.ShowContextMenu)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CurrentIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CachedIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentPositionInSet(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CurrentPositionInSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentSizeOfSet(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CurrentSizeOfSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentLevel(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CurrentLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CurrentAnnotationTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CurrentAnnotationTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentAnnotationObjects(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CurrentAnnotationObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedPositionInSet(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CachedPositionInSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedSizeOfSet(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CachedSizeOfSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedLevel(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CachedLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CachedAnnotationTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CachedAnnotationTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedAnnotationObjects(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CachedAnnotationObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentLandmarkType(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CurrentLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentLocalizedLandmarkType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CurrentLocalizedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedLandmarkType(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CachedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedLocalizedLandmarkType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CachedLocalizedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentFullDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CurrentFullDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedFullDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.CachedFullDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn FindFirstWithOptions<'a, Param1: ::windows::core::IntoParam<'a, IUIAutomationCondition>, Param3: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, scope: TreeScope, condition: Param1, traversaloptions: TreeTraversalOptions, root: Param3) -> ::windows::core::Result<IUIAutomationElement> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.FindFirstWithOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), condition.into_param().abi(), ::core::mem::transmute(traversaloptions), root.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn FindAllWithOptions<'a, Param1: ::windows::core::IntoParam<'a, IUIAutomationCondition>, Param3: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, scope: TreeScope, condition: Param1, traversaloptions: TreeTraversalOptions, root: Param3) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.FindAllWithOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), condition.into_param().abi(), ::core::mem::transmute(traversaloptions), root.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn FindFirstWithOptionsBuildCache<'a, Param1: ::windows::core::IntoParam<'a, IUIAutomationCondition>, Param2: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param4: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, scope: TreeScope, condition: Param1, cacherequest: Param2, traversaloptions: TreeTraversalOptions, root: Param4) -> ::windows::core::Result<IUIAutomationElement> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.FindFirstWithOptionsBuildCache)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), condition.into_param().abi(), cacherequest.into_param().abi(), ::core::mem::transmute(traversaloptions), root.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn FindAllWithOptionsBuildCache<'a, Param1: ::windows::core::IntoParam<'a, IUIAutomationCondition>, Param2: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param4: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, scope: TreeScope, condition: Param1, cacherequest: Param2, traversaloptions: TreeTraversalOptions, root: Param4) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.FindAllWithOptionsBuildCache)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), condition.into_param().abi(), cacherequest.into_param().abi(), ::core::mem::transmute(traversaloptions), root.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetCurrentMetadataValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(targetid), ::core::mem::transmute(metadataid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentHeadingLevel(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CurrentHeadingLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedHeadingLevel(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CachedHeadingLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
 }
-impl ::core::convert::From<IUIAutomationElement8> for IUIAutomationElement7 {
+impl ::core::convert::From<IUIAutomationElement8> for ::windows::core::IUnknown {
     fn from(value: IUIAutomationElement8) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IUIAutomationElement8> for IUIAutomationElement7 {
+impl ::core::convert::From<&IUIAutomationElement8> for ::windows::core::IUnknown {
     fn from(value: &IUIAutomationElement8) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement7> for IUIAutomationElement8 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement7> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomationElement8 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement7> for &IUIAutomationElement8 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement7> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomationElement8> for IUIAutomationElement6 {
-    fn from(value: IUIAutomationElement8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationElement8> for IUIAutomationElement6 {
-    fn from(value: &IUIAutomationElement8) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement6> for IUIAutomationElement8 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement6> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement6> for &IUIAutomationElement8 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement6> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomationElement8> for IUIAutomationElement5 {
-    fn from(value: IUIAutomationElement8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationElement8> for IUIAutomationElement5 {
-    fn from(value: &IUIAutomationElement8) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement5> for IUIAutomationElement8 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement5> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement5> for &IUIAutomationElement8 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement5> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomationElement8> for IUIAutomationElement4 {
-    fn from(value: IUIAutomationElement8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationElement8> for IUIAutomationElement4 {
-    fn from(value: &IUIAutomationElement8) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement4> for IUIAutomationElement8 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement4> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement4> for &IUIAutomationElement8 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement4> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomationElement8> for IUIAutomationElement3 {
-    fn from(value: IUIAutomationElement8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationElement8> for IUIAutomationElement3 {
-    fn from(value: &IUIAutomationElement8) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement3> for IUIAutomationElement8 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement3> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement3> for &IUIAutomationElement8 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement3> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomationElement8> for IUIAutomationElement2 {
-    fn from(value: IUIAutomationElement8) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationElement8> for IUIAutomationElement2 {
-    fn from(value: &IUIAutomationElement8) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for IUIAutomationElement8 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for &IUIAutomationElement8 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationElement8 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -15240,23 +15140,123 @@ impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement> for &IUIAutomation
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IUIAutomationElement8> for ::windows::core::IUnknown {
+impl ::core::convert::From<IUIAutomationElement8> for IUIAutomationElement2 {
     fn from(value: IUIAutomationElement8) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IUIAutomationElement8> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IUIAutomationElement8> for IUIAutomationElement2 {
     fn from(value: &IUIAutomationElement8) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomationElement8 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for IUIAutomationElement8 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationElement8 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for &IUIAutomationElement8 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationElement8> for IUIAutomationElement3 {
+    fn from(value: IUIAutomationElement8) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationElement8> for IUIAutomationElement3 {
+    fn from(value: &IUIAutomationElement8) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement3> for IUIAutomationElement8 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement3> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement3> for &IUIAutomationElement8 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement3> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationElement8> for IUIAutomationElement4 {
+    fn from(value: IUIAutomationElement8) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationElement8> for IUIAutomationElement4 {
+    fn from(value: &IUIAutomationElement8) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement4> for IUIAutomationElement8 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement4> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement4> for &IUIAutomationElement8 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement4> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationElement8> for IUIAutomationElement5 {
+    fn from(value: IUIAutomationElement8) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationElement8> for IUIAutomationElement5 {
+    fn from(value: &IUIAutomationElement8) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement5> for IUIAutomationElement8 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement5> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement5> for &IUIAutomationElement8 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement5> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationElement8> for IUIAutomationElement6 {
+    fn from(value: IUIAutomationElement8) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationElement8> for IUIAutomationElement6 {
+    fn from(value: &IUIAutomationElement8) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement6> for IUIAutomationElement8 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement6> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement6> for &IUIAutomationElement8 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement6> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationElement8> for IUIAutomationElement7 {
+    fn from(value: IUIAutomationElement8) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationElement8> for IUIAutomationElement7 {
+    fn from(value: &IUIAutomationElement8) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement7> for IUIAutomationElement8 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement7> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement7> for &IUIAutomationElement8 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement7> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -15291,188 +15291,6 @@ pub struct IUIAutomationElement8Vtbl {
 #[repr(transparent)]
 pub struct IUIAutomationElement9(::windows::core::IUnknown);
 impl IUIAutomationElement9 {
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentIsDialog(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CurrentIsDialog)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedIsDialog(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CachedIsDialog)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentHeadingLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CurrentHeadingLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedHeadingLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CachedHeadingLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn FindFirstWithOptions<'a, Param1: ::windows::core::IntoParam<'a, IUIAutomationCondition>, Param3: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, scope: TreeScope, condition: Param1, traversaloptions: TreeTraversalOptions, root: Param3) -> ::windows::core::Result<IUIAutomationElement> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.FindFirstWithOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), condition.into_param().abi(), ::core::mem::transmute(traversaloptions), root.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn FindAllWithOptions<'a, Param1: ::windows::core::IntoParam<'a, IUIAutomationCondition>, Param3: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, scope: TreeScope, condition: Param1, traversaloptions: TreeTraversalOptions, root: Param3) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.FindAllWithOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), condition.into_param().abi(), ::core::mem::transmute(traversaloptions), root.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn FindFirstWithOptionsBuildCache<'a, Param1: ::windows::core::IntoParam<'a, IUIAutomationCondition>, Param2: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param4: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, scope: TreeScope, condition: Param1, cacherequest: Param2, traversaloptions: TreeTraversalOptions, root: Param4) -> ::windows::core::Result<IUIAutomationElement> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.FindFirstWithOptionsBuildCache)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), condition.into_param().abi(), cacherequest.into_param().abi(), ::core::mem::transmute(traversaloptions), root.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn FindAllWithOptionsBuildCache<'a, Param1: ::windows::core::IntoParam<'a, IUIAutomationCondition>, Param2: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param4: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, scope: TreeScope, condition: Param1, cacherequest: Param2, traversaloptions: TreeTraversalOptions, root: Param4) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.FindAllWithOptionsBuildCache)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), condition.into_param().abi(), cacherequest.into_param().abi(), ::core::mem::transmute(traversaloptions), root.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.GetCurrentMetadataValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(targetid), ::core::mem::transmute(metadataid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentFullDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CurrentFullDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedFullDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CachedFullDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentLandmarkType(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CurrentLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentLocalizedLandmarkType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CurrentLocalizedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedLandmarkType(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CachedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedLocalizedLandmarkType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CachedLocalizedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentPositionInSet(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CurrentPositionInSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentSizeOfSet(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CurrentSizeOfSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CurrentLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CurrentAnnotationTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
-        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CurrentAnnotationTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentAnnotationObjects(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CurrentAnnotationObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedPositionInSet(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CachedPositionInSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedSizeOfSet(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CachedSizeOfSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedLevel(&self) -> ::windows::core::Result<i32> {
-        let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CachedLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CachedAnnotationTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
-        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CachedAnnotationTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedAnnotationObjects(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CachedAnnotationObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn ShowContextMenu(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.ShowContextMenu)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CurrentIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CachedIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.CurrentOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.CachedOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
-        let mut result__: LiveSetting = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.CurrentLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
-        let mut result__: LiveSetting = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.CachedLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CurrentFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.CurrentFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn CachedFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.CachedFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub unsafe fn SetFocus(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.base.SetFocus)(::core::mem::transmute_copy(self)).ok()
@@ -15935,144 +15753,206 @@ impl IUIAutomationElement9 {
     pub unsafe fn GetClickablePoint(&self, clickable: *mut super::super::Foundation::POINT, gotclickable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.base.GetClickablePoint)(::core::mem::transmute_copy(self), ::core::mem::transmute(clickable), ::core::mem::transmute(gotclickable)).ok()
     }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.CurrentOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedOptimizeForVisualContent(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.CachedOptimizeForVisualContent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
+        let mut result__: LiveSetting = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.CurrentLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedLiveSetting(&self) -> ::windows::core::Result<LiveSetting> {
+        let mut result__: LiveSetting = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.CachedLiveSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<LiveSetting>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.CurrentFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedFlowsFrom(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.base.CachedFlowsFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn ShowContextMenu(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.ShowContextMenu)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CurrentIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedIsPeripheral(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CachedIsPeripheral)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentPositionInSet(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CurrentPositionInSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentSizeOfSet(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CurrentSizeOfSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentLevel(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CurrentLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CurrentAnnotationTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CurrentAnnotationTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentAnnotationObjects(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CurrentAnnotationObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedPositionInSet(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CachedPositionInSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedSizeOfSet(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CachedSizeOfSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedLevel(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CachedLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn CachedAnnotationTypes(&self) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CachedAnnotationTypes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedAnnotationObjects(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CachedAnnotationObjects)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentLandmarkType(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CurrentLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentLocalizedLandmarkType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CurrentLocalizedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedLandmarkType(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CachedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedLocalizedLandmarkType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.base.CachedLocalizedLandmarkType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentFullDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CurrentFullDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedFullDescription(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.base.CachedFullDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn FindFirstWithOptions<'a, Param1: ::windows::core::IntoParam<'a, IUIAutomationCondition>, Param3: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, scope: TreeScope, condition: Param1, traversaloptions: TreeTraversalOptions, root: Param3) -> ::windows::core::Result<IUIAutomationElement> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.FindFirstWithOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), condition.into_param().abi(), ::core::mem::transmute(traversaloptions), root.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn FindAllWithOptions<'a, Param1: ::windows::core::IntoParam<'a, IUIAutomationCondition>, Param3: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, scope: TreeScope, condition: Param1, traversaloptions: TreeTraversalOptions, root: Param3) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.FindAllWithOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), condition.into_param().abi(), ::core::mem::transmute(traversaloptions), root.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn FindFirstWithOptionsBuildCache<'a, Param1: ::windows::core::IntoParam<'a, IUIAutomationCondition>, Param2: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param4: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, scope: TreeScope, condition: Param1, cacherequest: Param2, traversaloptions: TreeTraversalOptions, root: Param4) -> ::windows::core::Result<IUIAutomationElement> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.FindFirstWithOptionsBuildCache)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), condition.into_param().abi(), cacherequest.into_param().abi(), ::core::mem::transmute(traversaloptions), root.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn FindAllWithOptionsBuildCache<'a, Param1: ::windows::core::IntoParam<'a, IUIAutomationCondition>, Param2: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>, Param4: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, scope: TreeScope, condition: Param1, cacherequest: Param2, traversaloptions: TreeTraversalOptions, root: Param4) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.FindAllWithOptionsBuildCache)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), condition.into_param().abi(), cacherequest.into_param().abi(), ::core::mem::transmute(traversaloptions), root.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
+    pub unsafe fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
+        let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.base.GetCurrentMetadataValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(targetid), ::core::mem::transmute(metadataid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CurrentHeadingLevel(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CurrentHeadingLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn CachedHeadingLevel(&self) -> ::windows::core::Result<i32> {
+        let mut result__: i32 = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CachedHeadingLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentIsDialog(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CurrentIsDialog)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedIsDialog(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CachedIsDialog)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
 }
-impl ::core::convert::From<IUIAutomationElement9> for IUIAutomationElement8 {
+impl ::core::convert::From<IUIAutomationElement9> for ::windows::core::IUnknown {
     fn from(value: IUIAutomationElement9) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IUIAutomationElement9> for IUIAutomationElement8 {
+impl ::core::convert::From<&IUIAutomationElement9> for ::windows::core::IUnknown {
     fn from(value: &IUIAutomationElement9) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement8> for IUIAutomationElement9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement8> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomationElement9 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement8> for &IUIAutomationElement9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement8> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomationElement9> for IUIAutomationElement7 {
-    fn from(value: IUIAutomationElement9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationElement9> for IUIAutomationElement7 {
-    fn from(value: &IUIAutomationElement9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement7> for IUIAutomationElement9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement7> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement7> for &IUIAutomationElement9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement7> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomationElement9> for IUIAutomationElement6 {
-    fn from(value: IUIAutomationElement9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationElement9> for IUIAutomationElement6 {
-    fn from(value: &IUIAutomationElement9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement6> for IUIAutomationElement9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement6> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement6> for &IUIAutomationElement9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement6> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomationElement9> for IUIAutomationElement5 {
-    fn from(value: IUIAutomationElement9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationElement9> for IUIAutomationElement5 {
-    fn from(value: &IUIAutomationElement9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement5> for IUIAutomationElement9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement5> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement5> for &IUIAutomationElement9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement5> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomationElement9> for IUIAutomationElement4 {
-    fn from(value: IUIAutomationElement9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationElement9> for IUIAutomationElement4 {
-    fn from(value: &IUIAutomationElement9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement4> for IUIAutomationElement9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement4> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement4> for &IUIAutomationElement9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement4> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomationElement9> for IUIAutomationElement3 {
-    fn from(value: IUIAutomationElement9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationElement9> for IUIAutomationElement3 {
-    fn from(value: &IUIAutomationElement9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement3> for IUIAutomationElement9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement3> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement3> for &IUIAutomationElement9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement3> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomationElement9> for IUIAutomationElement2 {
-    fn from(value: IUIAutomationElement9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationElement9> for IUIAutomationElement2 {
-    fn from(value: &IUIAutomationElement9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for IUIAutomationElement9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for &IUIAutomationElement9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationElement9 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -16096,23 +15976,143 @@ impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement> for &IUIAutomation
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IUIAutomationElement9> for ::windows::core::IUnknown {
+impl ::core::convert::From<IUIAutomationElement9> for IUIAutomationElement2 {
     fn from(value: IUIAutomationElement9) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IUIAutomationElement9> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IUIAutomationElement9> for IUIAutomationElement2 {
     fn from(value: &IUIAutomationElement9) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomationElement9 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for IUIAutomationElement9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationElement9 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement2> for &IUIAutomationElement9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement2> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationElement9> for IUIAutomationElement3 {
+    fn from(value: IUIAutomationElement9) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationElement9> for IUIAutomationElement3 {
+    fn from(value: &IUIAutomationElement9) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement3> for IUIAutomationElement9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement3> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement3> for &IUIAutomationElement9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement3> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationElement9> for IUIAutomationElement4 {
+    fn from(value: IUIAutomationElement9) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationElement9> for IUIAutomationElement4 {
+    fn from(value: &IUIAutomationElement9) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement4> for IUIAutomationElement9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement4> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement4> for &IUIAutomationElement9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement4> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationElement9> for IUIAutomationElement5 {
+    fn from(value: IUIAutomationElement9) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationElement9> for IUIAutomationElement5 {
+    fn from(value: &IUIAutomationElement9) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement5> for IUIAutomationElement9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement5> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement5> for &IUIAutomationElement9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement5> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationElement9> for IUIAutomationElement6 {
+    fn from(value: IUIAutomationElement9) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationElement9> for IUIAutomationElement6 {
+    fn from(value: &IUIAutomationElement9) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement6> for IUIAutomationElement9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement6> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement6> for &IUIAutomationElement9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement6> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationElement9> for IUIAutomationElement7 {
+    fn from(value: IUIAutomationElement9) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationElement9> for IUIAutomationElement7 {
+    fn from(value: &IUIAutomationElement9) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement7> for IUIAutomationElement9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement7> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement7> for &IUIAutomationElement9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement7> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationElement9> for IUIAutomationElement8 {
+    fn from(value: IUIAutomationElement9) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationElement9> for IUIAutomationElement8 {
+    fn from(value: &IUIAutomationElement9) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement8> for IUIAutomationElement9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement8> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationElement8> for &IUIAutomationElement9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationElement8> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -17137,26 +17137,6 @@ impl IUIAutomationNotCondition {
         (::windows::core::Interface::vtable(self).GetChild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationCondition>(result__)
     }
 }
-impl ::core::convert::From<IUIAutomationNotCondition> for IUIAutomationCondition {
-    fn from(value: IUIAutomationNotCondition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationNotCondition> for IUIAutomationCondition {
-    fn from(value: &IUIAutomationNotCondition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationCondition> for IUIAutomationNotCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationCondition> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationCondition> for &IUIAutomationNotCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationCondition> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IUIAutomationNotCondition> for ::windows::core::IUnknown {
     fn from(value: IUIAutomationNotCondition) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -17174,6 +17154,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutoma
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationNotCondition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationNotCondition> for IUIAutomationCondition {
+    fn from(value: IUIAutomationNotCondition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationNotCondition> for IUIAutomationCondition {
+    fn from(value: &IUIAutomationNotCondition) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationCondition> for IUIAutomationNotCondition {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationCondition> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationCondition> for &IUIAutomationNotCondition {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationCondition> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -17338,26 +17338,6 @@ impl IUIAutomationOrCondition {
         (::windows::core::Interface::vtable(self).GetChildren)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
-impl ::core::convert::From<IUIAutomationOrCondition> for IUIAutomationCondition {
-    fn from(value: IUIAutomationOrCondition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationOrCondition> for IUIAutomationCondition {
-    fn from(value: &IUIAutomationOrCondition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationCondition> for IUIAutomationOrCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationCondition> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationCondition> for &IUIAutomationOrCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationCondition> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IUIAutomationOrCondition> for ::windows::core::IUnknown {
     fn from(value: IUIAutomationOrCondition) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -17375,6 +17355,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutoma
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationOrCondition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationOrCondition> for IUIAutomationCondition {
+    fn from(value: IUIAutomationOrCondition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationOrCondition> for IUIAutomationCondition {
+    fn from(value: &IUIAutomationOrCondition) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationCondition> for IUIAutomationOrCondition {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationCondition> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationCondition> for &IUIAutomationOrCondition {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationCondition> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -17614,26 +17614,6 @@ impl IUIAutomationPropertyCondition {
         (::windows::core::Interface::vtable(self).PropertyConditionFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<PropertyConditionFlags>(result__)
     }
 }
-impl ::core::convert::From<IUIAutomationPropertyCondition> for IUIAutomationCondition {
-    fn from(value: IUIAutomationPropertyCondition) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationPropertyCondition> for IUIAutomationCondition {
-    fn from(value: &IUIAutomationPropertyCondition) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationCondition> for IUIAutomationPropertyCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationCondition> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationCondition> for &IUIAutomationPropertyCondition {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationCondition> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IUIAutomationPropertyCondition> for ::windows::core::IUnknown {
     fn from(value: IUIAutomationPropertyCondition) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -17651,6 +17631,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutoma
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationPropertyCondition {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationPropertyCondition> for IUIAutomationCondition {
+    fn from(value: IUIAutomationPropertyCondition) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationPropertyCondition> for IUIAutomationCondition {
+    fn from(value: &IUIAutomationPropertyCondition) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationCondition> for IUIAutomationPropertyCondition {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationCondition> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationCondition> for &IUIAutomationPropertyCondition {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationCondition> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -18656,6 +18656,40 @@ pub struct IUIAutomationSelectionPatternVtbl {
 pub struct IUIAutomationSelectionPattern2(::windows::core::IUnknown);
 impl IUIAutomationSelectionPattern2 {
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn GetCurrentSelection(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetCurrentSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentCanSelectMultiple(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CurrentCanSelectMultiple)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentIsSelectionRequired(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CurrentIsSelectionRequired)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn GetCachedSelection(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.GetCachedSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedCanSelectMultiple(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CachedCanSelectMultiple)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedIsSelectionRequired(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CachedIsSelectionRequired)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub unsafe fn CurrentFirstSelectedItem(&self) -> ::windows::core::Result<IUIAutomationElement> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CurrentFirstSelectedItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
@@ -18695,39 +18729,25 @@ impl IUIAutomationSelectionPattern2 {
         let mut result__: i32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CachedItemCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn GetCurrentSelection(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetCurrentSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+}
+impl ::core::convert::From<IUIAutomationSelectionPattern2> for ::windows::core::IUnknown {
+    fn from(value: IUIAutomationSelectionPattern2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentCanSelectMultiple(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CurrentCanSelectMultiple)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+}
+impl ::core::convert::From<&IUIAutomationSelectionPattern2> for ::windows::core::IUnknown {
+    fn from(value: &IUIAutomationSelectionPattern2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentIsSelectionRequired(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CurrentIsSelectionRequired)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomationSelectionPattern2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn GetCachedSelection(&self) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.GetCachedSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedCanSelectMultiple(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CachedCanSelectMultiple)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedIsSelectionRequired(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CachedIsSelectionRequired)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationSelectionPattern2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IUIAutomationSelectionPattern2> for IUIAutomationSelectionPattern {
@@ -18747,26 +18767,6 @@ impl<'a> ::windows::core::IntoParam<'a, IUIAutomationSelectionPattern> for IUIAu
 }
 impl<'a> ::windows::core::IntoParam<'a, IUIAutomationSelectionPattern> for &IUIAutomationSelectionPattern2 {
     fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationSelectionPattern> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomationSelectionPattern2> for ::windows::core::IUnknown {
-    fn from(value: IUIAutomationSelectionPattern2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationSelectionPattern2> for ::windows::core::IUnknown {
-    fn from(value: &IUIAutomationSelectionPattern2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomationSelectionPattern2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationSelectionPattern2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -19494,16 +19494,6 @@ pub struct IUIAutomationTextChildPatternVtbl {
 #[repr(transparent)]
 pub struct IUIAutomationTextEditPattern(::windows::core::IUnknown);
 impl IUIAutomationTextEditPattern {
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn GetActiveComposition(&self) -> ::windows::core::Result<IUIAutomationTextRange> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetActiveComposition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationTextRange>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn GetConversionTarget(&self) -> ::windows::core::Result<IUIAutomationTextRange> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetConversionTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationTextRange>(result__)
-    }
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RangeFromPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::POINT>>(&self, pt: Param0) -> ::windows::core::Result<IUIAutomationTextRange> {
@@ -19535,25 +19525,15 @@ impl IUIAutomationTextEditPattern {
         let mut result__: SupportedTextSelection = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.SupportedTextSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SupportedTextSelection>(result__)
     }
-}
-impl ::core::convert::From<IUIAutomationTextEditPattern> for IUIAutomationTextPattern {
-    fn from(value: IUIAutomationTextEditPattern) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn GetActiveComposition(&self) -> ::windows::core::Result<IUIAutomationTextRange> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetActiveComposition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationTextRange>(result__)
     }
-}
-impl ::core::convert::From<&IUIAutomationTextEditPattern> for IUIAutomationTextPattern {
-    fn from(value: &IUIAutomationTextEditPattern) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationTextPattern> for IUIAutomationTextEditPattern {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationTextPattern> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationTextPattern> for &IUIAutomationTextEditPattern {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationTextPattern> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn GetConversionTarget(&self) -> ::windows::core::Result<IUIAutomationTextRange> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetConversionTarget)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationTextRange>(result__)
     }
 }
 impl ::core::convert::From<IUIAutomationTextEditPattern> for ::windows::core::IUnknown {
@@ -19573,6 +19553,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutoma
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationTextEditPattern {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationTextEditPattern> for IUIAutomationTextPattern {
+    fn from(value: IUIAutomationTextEditPattern) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationTextEditPattern> for IUIAutomationTextPattern {
+    fn from(value: &IUIAutomationTextEditPattern) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationTextPattern> for IUIAutomationTextEditPattern {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationTextPattern> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationTextPattern> for &IUIAutomationTextEditPattern {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationTextPattern> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -19756,16 +19756,6 @@ pub struct IUIAutomationTextPatternVtbl {
 #[repr(transparent)]
 pub struct IUIAutomationTextPattern2(::windows::core::IUnknown);
 impl IUIAutomationTextPattern2 {
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn RangeFromAnnotation<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, annotation: Param0) -> ::windows::core::Result<IUIAutomationTextRange> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RangeFromAnnotation)(::core::mem::transmute_copy(self), annotation.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationTextRange>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCaretRange(&self, isactive: *mut super::super::Foundation::BOOL, range: *mut ::core::option::Option<IUIAutomationTextRange>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCaretRange)(::core::mem::transmute_copy(self), ::core::mem::transmute(isactive), ::core::mem::transmute(range)).ok()
-    }
     #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RangeFromPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::POINT>>(&self, pt: Param0) -> ::windows::core::Result<IUIAutomationTextRange> {
@@ -19797,25 +19787,15 @@ impl IUIAutomationTextPattern2 {
         let mut result__: SupportedTextSelection = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.SupportedTextSelection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<SupportedTextSelection>(result__)
     }
-}
-impl ::core::convert::From<IUIAutomationTextPattern2> for IUIAutomationTextPattern {
-    fn from(value: IUIAutomationTextPattern2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn RangeFromAnnotation<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationElement>>(&self, annotation: Param0) -> ::windows::core::Result<IUIAutomationTextRange> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).RangeFromAnnotation)(::core::mem::transmute_copy(self), annotation.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationTextRange>(result__)
     }
-}
-impl ::core::convert::From<&IUIAutomationTextPattern2> for IUIAutomationTextPattern {
-    fn from(value: &IUIAutomationTextPattern2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationTextPattern> for IUIAutomationTextPattern2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationTextPattern> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationTextPattern> for &IUIAutomationTextPattern2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationTextPattern> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetCaretRange(&self, isactive: *mut super::super::Foundation::BOOL, range: *mut ::core::option::Option<IUIAutomationTextRange>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetCaretRange)(::core::mem::transmute_copy(self), ::core::mem::transmute(isactive), ::core::mem::transmute(range)).ok()
     }
 }
 impl ::core::convert::From<IUIAutomationTextPattern2> for ::windows::core::IUnknown {
@@ -19835,6 +19815,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutoma
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationTextPattern2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationTextPattern2> for IUIAutomationTextPattern {
+    fn from(value: IUIAutomationTextPattern2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationTextPattern2> for IUIAutomationTextPattern {
+    fn from(value: &IUIAutomationTextPattern2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationTextPattern> for IUIAutomationTextPattern2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationTextPattern> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationTextPattern> for &IUIAutomationTextPattern2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationTextPattern> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -20053,10 +20053,6 @@ pub struct IUIAutomationTextRangeVtbl {
 pub struct IUIAutomationTextRange2(::windows::core::IUnknown);
 impl IUIAutomationTextRange2 {
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn ShowContextMenu(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ShowContextMenu)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IUIAutomationTextRange> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationTextRange>(result__)
@@ -20147,25 +20143,9 @@ impl IUIAutomationTextRange2 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetChildren)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
     }
-}
-impl ::core::convert::From<IUIAutomationTextRange2> for IUIAutomationTextRange {
-    fn from(value: IUIAutomationTextRange2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationTextRange2> for IUIAutomationTextRange {
-    fn from(value: &IUIAutomationTextRange2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationTextRange> for IUIAutomationTextRange2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationTextRange> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationTextRange> for &IUIAutomationTextRange2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationTextRange> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn ShowContextMenu(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ShowContextMenu)(::core::mem::transmute_copy(self)).ok()
     }
 }
 impl ::core::convert::From<IUIAutomationTextRange2> for ::windows::core::IUnknown {
@@ -20185,6 +20165,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutoma
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationTextRange2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IUIAutomationTextRange2> for IUIAutomationTextRange {
+    fn from(value: IUIAutomationTextRange2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IUIAutomationTextRange2> for IUIAutomationTextRange {
+    fn from(value: &IUIAutomationTextRange2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationTextRange> for IUIAutomationTextRange2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationTextRange> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationTextRange> for &IUIAutomationTextRange2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationTextRange> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -20218,26 +20218,6 @@ pub struct IUIAutomationTextRange2Vtbl {
 #[repr(transparent)]
 pub struct IUIAutomationTextRange3(::windows::core::IUnknown);
 impl IUIAutomationTextRange3 {
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn GetEnclosingElementBuildCache<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>>(&self, cacherequest: Param0) -> ::windows::core::Result<IUIAutomationElement> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetEnclosingElementBuildCache)(::core::mem::transmute_copy(self), cacherequest.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn GetChildrenBuildCache<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>>(&self, cacherequest: Param0) -> ::windows::core::Result<IUIAutomationElementArray> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetChildrenBuildCache)(::core::mem::transmute_copy(self), cacherequest.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
-    #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetAttributeValues(&self, attributeids: *const i32, attributeidcount: i32) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
-        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetAttributeValues)(::core::mem::transmute_copy(self), ::core::mem::transmute(attributeids), ::core::mem::transmute(attributeidcount), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn ShowContextMenu(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.ShowContextMenu)(::core::mem::transmute_copy(self)).ok()
-    }
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IUIAutomationTextRange> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -20329,24 +20309,44 @@ impl IUIAutomationTextRange3 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetChildren)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
     }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn ShowContextMenu(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.ShowContextMenu)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn GetEnclosingElementBuildCache<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>>(&self, cacherequest: Param0) -> ::windows::core::Result<IUIAutomationElement> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetEnclosingElementBuildCache)(::core::mem::transmute_copy(self), cacherequest.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElement>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn GetChildrenBuildCache<'a, Param0: ::windows::core::IntoParam<'a, IUIAutomationCacheRequest>>(&self, cacherequest: Param0) -> ::windows::core::Result<IUIAutomationElementArray> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetChildrenBuildCache)(::core::mem::transmute_copy(self), cacherequest.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IUIAutomationElementArray>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_System_Com'*"]
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn GetAttributeValues(&self, attributeids: *const i32, attributeidcount: i32) -> ::windows::core::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__: *mut super::super::System::Com::SAFEARRAY = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetAttributeValues)(::core::mem::transmute_copy(self), ::core::mem::transmute(attributeids), ::core::mem::transmute(attributeidcount), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
+    }
 }
-impl ::core::convert::From<IUIAutomationTextRange3> for IUIAutomationTextRange2 {
+impl ::core::convert::From<IUIAutomationTextRange3> for ::windows::core::IUnknown {
     fn from(value: IUIAutomationTextRange3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IUIAutomationTextRange3> for IUIAutomationTextRange2 {
+impl ::core::convert::From<&IUIAutomationTextRange3> for ::windows::core::IUnknown {
     fn from(value: &IUIAutomationTextRange3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationTextRange2> for IUIAutomationTextRange3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationTextRange2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomationTextRange3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IUIAutomationTextRange2> for &IUIAutomationTextRange3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationTextRange2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationTextRange3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -20370,23 +20370,23 @@ impl<'a> ::windows::core::IntoParam<'a, IUIAutomationTextRange> for &IUIAutomati
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IUIAutomationTextRange3> for ::windows::core::IUnknown {
+impl ::core::convert::From<IUIAutomationTextRange3> for IUIAutomationTextRange2 {
     fn from(value: IUIAutomationTextRange3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IUIAutomationTextRange3> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IUIAutomationTextRange3> for IUIAutomationTextRange2 {
     fn from(value: &IUIAutomationTextRange3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomationTextRange3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationTextRange2> for IUIAutomationTextRange3 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationTextRange2> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationTextRange3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IUIAutomationTextRange2> for &IUIAutomationTextRange3 {
+    fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationTextRange2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -20680,6 +20680,54 @@ pub struct IUIAutomationTransformPatternVtbl {
 pub struct IUIAutomationTransformPattern2(::windows::core::IUnknown);
 impl IUIAutomationTransformPattern2 {
     #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn Move(&self, x: f64, y: f64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Move)(::core::mem::transmute_copy(self), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn Resize(&self, width: f64, height: f64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Resize)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
+    pub unsafe fn Rotate(&self, degrees: f64) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.Rotate)(::core::mem::transmute_copy(self), ::core::mem::transmute(degrees)).ok()
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentCanMove(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CurrentCanMove)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentCanResize(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CurrentCanResize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CurrentCanRotate(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CurrentCanRotate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedCanMove(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CachedCanMove)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedCanResize(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CachedCanResize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CachedCanRotate(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
+        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).base.CachedCanRotate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+    }
+    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
     pub unsafe fn Zoom(&self, zoomvalue: f64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).Zoom)(::core::mem::transmute_copy(self), ::core::mem::transmute(zoomvalue)).ok()
     }
@@ -20729,53 +20777,25 @@ impl IUIAutomationTransformPattern2 {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).CachedZoomMaximum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn Move(&self, x: f64, y: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Move)(::core::mem::transmute_copy(self), ::core::mem::transmute(x), ::core::mem::transmute(y)).ok()
+}
+impl ::core::convert::From<IUIAutomationTransformPattern2> for ::windows::core::IUnknown {
+    fn from(value: IUIAutomationTransformPattern2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn Resize(&self, width: f64, height: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Resize)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height)).ok()
+}
+impl ::core::convert::From<&IUIAutomationTransformPattern2> for ::windows::core::IUnknown {
+    fn from(value: &IUIAutomationTransformPattern2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility'*"]
-    pub unsafe fn Rotate(&self, degrees: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.Rotate)(::core::mem::transmute_copy(self), ::core::mem::transmute(degrees)).ok()
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomationTransformPattern2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentCanMove(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CurrentCanMove)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentCanResize(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CurrentCanResize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CurrentCanRotate(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CurrentCanRotate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedCanMove(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CachedCanMove)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedCanResize(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CachedCanResize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
-    }
-    #[doc = "*Required features: 'Win32_UI_Accessibility', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CachedCanRotate(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CachedCanRotate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationTransformPattern2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IUIAutomationTransformPattern2> for IUIAutomationTransformPattern {
@@ -20795,26 +20815,6 @@ impl<'a> ::windows::core::IntoParam<'a, IUIAutomationTransformPattern> for IUIAu
 }
 impl<'a> ::windows::core::IntoParam<'a, IUIAutomationTransformPattern> for &IUIAutomationTransformPattern2 {
     fn into_param(self) -> ::windows::core::Param<'a, IUIAutomationTransformPattern> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IUIAutomationTransformPattern2> for ::windows::core::IUnknown {
-    fn from(value: IUIAutomationTransformPattern2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IUIAutomationTransformPattern2> for ::windows::core::IUnknown {
-    fn from(value: &IUIAutomationTransformPattern2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IUIAutomationTransformPattern2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IUIAutomationTransformPattern2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

@@ -491,7 +491,7 @@ impl DesktopWindowXamlSource {
     pub fn new() -> ::windows::core::Result<DesktopWindowXamlSource> {
         Self::IDesktopWindowXamlSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).new)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DesktopWindowXamlSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DesktopWindowXamlSource>(result__)
         })
     }
     #[doc(hidden)]
@@ -1266,26 +1266,6 @@ impl IXamlUIPresenterHost {
         }
     }
 }
-impl ::core::convert::From<IXamlUIPresenterHost> for ::windows::core::IInspectable {
-    fn from(value: IXamlUIPresenterHost) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXamlUIPresenterHost> for ::windows::core::IInspectable {
-    fn from(value: &IXamlUIPresenterHost) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IXamlUIPresenterHost {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IXamlUIPresenterHost {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IXamlUIPresenterHost> for ::windows::core::IUnknown {
     fn from(value: IXamlUIPresenterHost) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1303,6 +1283,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXamlUIPr
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXamlUIPresenterHost {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IXamlUIPresenterHost> for ::windows::core::IInspectable {
+    fn from(value: IXamlUIPresenterHost) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IXamlUIPresenterHost> for ::windows::core::IInspectable {
+    fn from(value: &IXamlUIPresenterHost) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IXamlUIPresenterHost {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IXamlUIPresenterHost {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1348,26 +1348,6 @@ impl IXamlUIPresenterHost2 {
         }
     }
 }
-impl ::core::convert::From<IXamlUIPresenterHost2> for ::windows::core::IInspectable {
-    fn from(value: IXamlUIPresenterHost2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXamlUIPresenterHost2> for ::windows::core::IInspectable {
-    fn from(value: &IXamlUIPresenterHost2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IXamlUIPresenterHost2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IXamlUIPresenterHost2 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IXamlUIPresenterHost2> for ::windows::core::IUnknown {
     fn from(value: IXamlUIPresenterHost2) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1385,6 +1365,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXamlUIPr
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXamlUIPresenterHost2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IXamlUIPresenterHost2> for ::windows::core::IInspectable {
+    fn from(value: IXamlUIPresenterHost2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IXamlUIPresenterHost2> for ::windows::core::IInspectable {
+    fn from(value: &IXamlUIPresenterHost2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IXamlUIPresenterHost2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IXamlUIPresenterHost2 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1430,26 +1430,6 @@ impl IXamlUIPresenterHost3 {
         }
     }
 }
-impl ::core::convert::From<IXamlUIPresenterHost3> for ::windows::core::IInspectable {
-    fn from(value: IXamlUIPresenterHost3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IXamlUIPresenterHost3> for ::windows::core::IInspectable {
-    fn from(value: &IXamlUIPresenterHost3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IXamlUIPresenterHost3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IXamlUIPresenterHost3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IXamlUIPresenterHost3> for ::windows::core::IUnknown {
     fn from(value: IXamlUIPresenterHost3) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1467,6 +1447,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IXamlUIPr
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IXamlUIPresenterHost3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IXamlUIPresenterHost3> for ::windows::core::IInspectable {
+    fn from(value: IXamlUIPresenterHost3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IXamlUIPresenterHost3> for ::windows::core::IInspectable {
+    fn from(value: &IXamlUIPresenterHost3) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IXamlUIPresenterHost3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IXamlUIPresenterHost3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

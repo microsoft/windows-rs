@@ -45,26 +45,6 @@ impl ISysStorageProviderEventSource {
         unsafe { (::windows::core::Interface::vtable(this).RemoveEventReceived)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
 }
-impl ::core::convert::From<ISysStorageProviderEventSource> for ::windows::core::IInspectable {
-    fn from(value: ISysStorageProviderEventSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISysStorageProviderEventSource> for ::windows::core::IInspectable {
-    fn from(value: &ISysStorageProviderEventSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISysStorageProviderEventSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISysStorageProviderEventSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISysStorageProviderEventSource> for ::windows::core::IUnknown {
     fn from(value: ISysStorageProviderEventSource) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -82,6 +62,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISysStora
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISysStorageProviderEventSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ISysStorageProviderEventSource> for ::windows::core::IInspectable {
+    fn from(value: ISysStorageProviderEventSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ISysStorageProviderEventSource> for ::windows::core::IInspectable {
+    fn from(value: &ISysStorageProviderEventSource) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISysStorageProviderEventSource {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISysStorageProviderEventSource {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -142,26 +142,6 @@ impl ISysStorageProviderHandlerFactory {
         }
     }
 }
-impl ::core::convert::From<ISysStorageProviderHandlerFactory> for ::windows::core::IInspectable {
-    fn from(value: ISysStorageProviderHandlerFactory) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISysStorageProviderHandlerFactory> for ::windows::core::IInspectable {
-    fn from(value: &ISysStorageProviderHandlerFactory) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISysStorageProviderHandlerFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISysStorageProviderHandlerFactory {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISysStorageProviderHandlerFactory> for ::windows::core::IUnknown {
     fn from(value: ISysStorageProviderHandlerFactory) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -179,6 +159,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISysStora
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISysStorageProviderHandlerFactory {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ISysStorageProviderHandlerFactory> for ::windows::core::IInspectable {
+    fn from(value: ISysStorageProviderHandlerFactory) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ISysStorageProviderHandlerFactory> for ::windows::core::IInspectable {
+    fn from(value: &ISysStorageProviderHandlerFactory) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISysStorageProviderHandlerFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISysStorageProviderHandlerFactory {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -226,26 +226,6 @@ impl ISysStorageProviderHttpRequestProvider {
         }
     }
 }
-impl ::core::convert::From<ISysStorageProviderHttpRequestProvider> for ::windows::core::IInspectable {
-    fn from(value: ISysStorageProviderHttpRequestProvider) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISysStorageProviderHttpRequestProvider> for ::windows::core::IInspectable {
-    fn from(value: &ISysStorageProviderHttpRequestProvider) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISysStorageProviderHttpRequestProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISysStorageProviderHttpRequestProvider {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISysStorageProviderHttpRequestProvider> for ::windows::core::IUnknown {
     fn from(value: ISysStorageProviderHttpRequestProvider) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -263,6 +243,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISysStora
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISysStorageProviderHttpRequestProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ISysStorageProviderHttpRequestProvider> for ::windows::core::IInspectable {
+    fn from(value: ISysStorageProviderHttpRequestProvider) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ISysStorageProviderHttpRequestProvider> for ::windows::core::IInspectable {
+    fn from(value: &ISysStorageProviderHttpRequestProvider) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISysStorageProviderHttpRequestProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISysStorageProviderHttpRequestProvider {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

@@ -73,9 +73,9 @@ impl Gen<'_> {
             features.insert("implement_exclusive");
         }
 
-        for def in def.vtable_types().iter().rev().skip(1) {
+        for def in def.vtable_types() {
             if let ElementType::TypeDef(def) = def {
-                self.type_and_method_requirements(def, &mut features, &mut keys);
+                self.type_and_method_requirements(&def, &mut features, &mut keys);
             }
         }
 
@@ -157,7 +157,7 @@ impl Gen<'_> {
             }
             TypeKind::Interface => {
                 if !def.is_winrt() {
-                    for def in def.vtable_types().iter().rev().skip(1) {
+                    for def in def.vtable_types(){
                         if let ElementType::TypeDef(def) = def {
                             self.add_namespace(def.namespace(), namespaces);
                         }

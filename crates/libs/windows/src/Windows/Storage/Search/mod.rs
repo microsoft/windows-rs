@@ -617,26 +617,6 @@ impl IIndexableContent {
         unsafe { (::windows::core::Interface::vtable(this).SetStreamContentType)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
 }
-impl ::core::convert::From<IIndexableContent> for ::windows::core::IInspectable {
-    fn from(value: IIndexableContent) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IIndexableContent> for ::windows::core::IInspectable {
-    fn from(value: &IIndexableContent) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IIndexableContent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IIndexableContent {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IIndexableContent> for ::windows::core::IUnknown {
     fn from(value: IIndexableContent) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -654,6 +634,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IIndexabl
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IIndexableContent {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IIndexableContent> for ::windows::core::IInspectable {
+    fn from(value: IIndexableContent) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IIndexableContent> for ::windows::core::IInspectable {
+    fn from(value: &IIndexableContent) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IIndexableContent {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IIndexableContent {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -959,26 +959,6 @@ impl IStorageFolderQueryOperations {
         }
     }
 }
-impl ::core::convert::From<IStorageFolderQueryOperations> for ::windows::core::IInspectable {
-    fn from(value: IStorageFolderQueryOperations) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageFolderQueryOperations> for ::windows::core::IInspectable {
-    fn from(value: &IStorageFolderQueryOperations) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IStorageFolderQueryOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IStorageFolderQueryOperations {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IStorageFolderQueryOperations> for ::windows::core::IUnknown {
     fn from(value: IStorageFolderQueryOperations) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -996,6 +976,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IStorageF
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IStorageFolderQueryOperations {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IStorageFolderQueryOperations> for ::windows::core::IInspectable {
+    fn from(value: IStorageFolderQueryOperations) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IStorageFolderQueryOperations> for ::windows::core::IInspectable {
+    fn from(value: &IStorageFolderQueryOperations) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IStorageFolderQueryOperations {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IStorageFolderQueryOperations {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1207,26 +1207,6 @@ impl IStorageQueryResultBase {
         unsafe { (::windows::core::Interface::vtable(this).ApplyNewQueryOptions)(::core::mem::transmute_copy(this), newqueryoptions.into_param().abi()).ok() }
     }
 }
-impl ::core::convert::From<IStorageQueryResultBase> for ::windows::core::IInspectable {
-    fn from(value: IStorageQueryResultBase) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStorageQueryResultBase> for ::windows::core::IInspectable {
-    fn from(value: &IStorageQueryResultBase) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IStorageQueryResultBase {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IStorageQueryResultBase {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IStorageQueryResultBase> for ::windows::core::IUnknown {
     fn from(value: IStorageQueryResultBase) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1244,6 +1224,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IStorageQ
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IStorageQueryResultBase {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IStorageQueryResultBase> for ::windows::core::IInspectable {
+    fn from(value: IStorageQueryResultBase) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IStorageQueryResultBase> for ::windows::core::IInspectable {
+    fn from(value: &IStorageQueryResultBase) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IStorageQueryResultBase {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IStorageQueryResultBase {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

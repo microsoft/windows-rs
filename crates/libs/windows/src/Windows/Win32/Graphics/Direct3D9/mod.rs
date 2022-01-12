@@ -5387,28 +5387,6 @@ pub struct IDirect3D9Vtbl {
 pub struct IDirect3D9Ex(::windows::core::IUnknown);
 impl IDirect3D9Ex {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetAdapterModeCountEx(&self, adapter: u32, pfilter: *const D3DDISPLAYMODEFILTER) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetAdapterModeCountEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(pfilter)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn EnumAdapterModesEx(&self, adapter: u32, pfilter: *const D3DDISPLAYMODEFILTER, mode: u32, pmode: *mut D3DDISPLAYMODEEX) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumAdapterModesEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(pfilter), ::core::mem::transmute(mode), ::core::mem::transmute(pmode)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetAdapterDisplayModeEx(&self, adapter: u32, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAdapterDisplayModeEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(pmode), ::core::mem::transmute(protation)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateDeviceEx<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: Param2, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX, ppreturneddeviceinterface: *mut ::core::option::Option<IDirect3DDevice9Ex>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateDeviceEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(devicetype), hfocuswindow.into_param().abi(), ::core::mem::transmute(behaviorflags), ::core::mem::transmute(ppresentationparameters), ::core::mem::transmute(pfullscreendisplaymode), ::core::mem::transmute(ppreturneddeviceinterface)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAdapterLUID(&self, adapter: u32, pluid: *mut super::super::Foundation::LUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetAdapterLUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(pluid)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
     pub unsafe fn RegisterSoftwareDevice(&self, pinitializefunction: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.RegisterSoftwareDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinitializefunction)).ok()
     }
@@ -5469,25 +5447,27 @@ impl IDirect3D9Ex {
     pub unsafe fn CreateDevice<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: Param2, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, ppreturneddeviceinterface: *mut ::core::option::Option<IDirect3DDevice9>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.CreateDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(devicetype), hfocuswindow.into_param().abi(), ::core::mem::transmute(behaviorflags), ::core::mem::transmute(ppresentationparameters), ::core::mem::transmute(ppreturneddeviceinterface)).ok()
     }
-}
-impl ::core::convert::From<IDirect3D9Ex> for IDirect3D9 {
-    fn from(value: IDirect3D9Ex) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetAdapterModeCountEx(&self, adapter: u32, pfilter: *const D3DDISPLAYMODEFILTER) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetAdapterModeCountEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(pfilter)))
     }
-}
-impl ::core::convert::From<&IDirect3D9Ex> for IDirect3D9 {
-    fn from(value: &IDirect3D9Ex) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn EnumAdapterModesEx(&self, adapter: u32, pfilter: *const D3DDISPLAYMODEFILTER, mode: u32, pmode: *mut D3DDISPLAYMODEEX) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnumAdapterModesEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(pfilter), ::core::mem::transmute(mode), ::core::mem::transmute(pmode)).ok()
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirect3D9> for IDirect3D9Ex {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirect3D9> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetAdapterDisplayModeEx(&self, adapter: u32, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetAdapterDisplayModeEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(pmode), ::core::mem::transmute(protation)).ok()
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirect3D9> for &IDirect3D9Ex {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirect3D9> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateDeviceEx<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, adapter: u32, devicetype: D3DDEVTYPE, hfocuswindow: Param2, behaviorflags: u32, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX, ppreturneddeviceinterface: *mut ::core::option::Option<IDirect3DDevice9Ex>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateDeviceEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(devicetype), hfocuswindow.into_param().abi(), ::core::mem::transmute(behaviorflags), ::core::mem::transmute(ppresentationparameters), ::core::mem::transmute(pfullscreendisplaymode), ::core::mem::transmute(ppreturneddeviceinterface)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn GetAdapterLUID(&self, adapter: u32, pluid: *mut super::super::Foundation::LUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetAdapterLUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(adapter), ::core::mem::transmute(pluid)).ok()
     }
 }
 impl ::core::convert::From<IDirect3D9Ex> for ::windows::core::IUnknown {
@@ -5507,6 +5487,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirect3D
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirect3D9Ex {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDirect3D9Ex> for IDirect3D9 {
+    fn from(value: IDirect3D9Ex) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDirect3D9Ex> for IDirect3D9 {
+    fn from(value: &IDirect3D9Ex) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDirect3D9> for IDirect3D9Ex {
+    fn into_param(self) -> ::windows::core::Param<'a, IDirect3D9> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDirect3D9> for &IDirect3D9Ex {
+    fn into_param(self) -> ::windows::core::Param<'a, IDirect3D9> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5551,30 +5551,6 @@ pub struct IDirect3D9ExVtbl {
 pub struct IDirect3DBaseTexture9(::windows::core::IUnknown);
 impl IDirect3DBaseTexture9 {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn SetLOD(&self, lodnew: u32) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).SetLOD)(::core::mem::transmute_copy(self), ::core::mem::transmute(lodnew)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetLOD(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetLOD)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetLevelCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetLevelCount)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn SetAutoGenFilterType(&self, filtertype: D3DTEXTUREFILTERTYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAutoGenFilterType)(::core::mem::transmute_copy(self), ::core::mem::transmute(filtertype)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetAutoGenFilterType)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GenerateMipSubLevels(&self) {
-        (::windows::core::Interface::vtable(self).GenerateMipSubLevels)(::core::mem::transmute_copy(self))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<IDirect3DDevice9> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDirect3DDevice9>(result__)
@@ -5607,25 +5583,29 @@ impl IDirect3DBaseTexture9 {
     pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetType)(::core::mem::transmute_copy(self)))
     }
-}
-impl ::core::convert::From<IDirect3DBaseTexture9> for IDirect3DResource9 {
-    fn from(value: IDirect3DBaseTexture9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn SetLOD(&self, lodnew: u32) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).SetLOD)(::core::mem::transmute_copy(self), ::core::mem::transmute(lodnew)))
     }
-}
-impl ::core::convert::From<&IDirect3DBaseTexture9> for IDirect3DResource9 {
-    fn from(value: &IDirect3DBaseTexture9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetLOD(&self) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetLOD)(::core::mem::transmute_copy(self)))
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirect3DResource9> for IDirect3DBaseTexture9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DResource9> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetLevelCount(&self) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetLevelCount)(::core::mem::transmute_copy(self)))
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirect3DResource9> for &IDirect3DBaseTexture9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DResource9> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn SetAutoGenFilterType(&self, filtertype: D3DTEXTUREFILTERTYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetAutoGenFilterType)(::core::mem::transmute_copy(self), ::core::mem::transmute(filtertype)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetAutoGenFilterType)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GenerateMipSubLevels(&self) {
+        (::windows::core::Interface::vtable(self).GenerateMipSubLevels)(::core::mem::transmute_copy(self))
     }
 }
 impl ::core::convert::From<IDirect3DBaseTexture9> for ::windows::core::IUnknown {
@@ -5645,6 +5625,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirect3D
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirect3DBaseTexture9 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDirect3DBaseTexture9> for IDirect3DResource9 {
+    fn from(value: IDirect3DBaseTexture9) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDirect3DBaseTexture9> for IDirect3DResource9 {
+    fn from(value: &IDirect3DBaseTexture9) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDirect3DResource9> for IDirect3DBaseTexture9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DResource9> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDirect3DResource9> for &IDirect3DBaseTexture9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DResource9> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5684,53 +5684,6 @@ pub struct IDirect3DBaseTexture9Vtbl {
 pub struct IDirect3DCubeTexture9(::windows::core::IUnknown);
 impl IDirect3DCubeTexture9 {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetLevelDesc(&self, level: u32, pdesc: *mut D3DSURFACE_DESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetLevelDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(level), ::core::mem::transmute(pdesc)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetCubeMapSurface(&self, facetype: D3DCUBEMAP_FACES, level: u32) -> ::windows::core::Result<IDirect3DSurface9> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetCubeMapSurface)(::core::mem::transmute_copy(self), ::core::mem::transmute(facetype), ::core::mem::transmute(level), ::core::mem::transmute(&mut result__)).from_abi::<IDirect3DSurface9>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LockRect(&self, facetype: D3DCUBEMAP_FACES, level: u32, plockedrect: *mut D3DLOCKED_RECT, prect: *const super::super::Foundation::RECT, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LockRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(facetype), ::core::mem::transmute(level), ::core::mem::transmute(plockedrect), ::core::mem::transmute(prect), ::core::mem::transmute(flags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn UnlockRect(&self, facetype: D3DCUBEMAP_FACES, level: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnlockRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(facetype), ::core::mem::transmute(level)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddDirtyRect(&self, facetype: D3DCUBEMAP_FACES, pdirtyrect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddDirtyRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(facetype), ::core::mem::transmute(pdirtyrect)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn SetLOD(&self, lodnew: u32) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.SetLOD)(::core::mem::transmute_copy(self), ::core::mem::transmute(lodnew)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetLOD(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetLOD)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetLevelCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetLevelCount)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn SetAutoGenFilterType(&self, filtertype: D3DTEXTUREFILTERTYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetAutoGenFilterType)(::core::mem::transmute_copy(self), ::core::mem::transmute(filtertype)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetAutoGenFilterType)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GenerateMipSubLevels(&self) {
-        (::windows::core::Interface::vtable(self).base.GenerateMipSubLevels)(::core::mem::transmute_copy(self))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<IDirect3DDevice9> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDirect3DDevice9>(result__)
@@ -5763,24 +5716,71 @@ impl IDirect3DCubeTexture9 {
     pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.GetType)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn SetLOD(&self, lodnew: u32) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.SetLOD)(::core::mem::transmute_copy(self), ::core::mem::transmute(lodnew)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetLOD(&self) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetLOD)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetLevelCount(&self) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetLevelCount)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn SetAutoGenFilterType(&self, filtertype: D3DTEXTUREFILTERTYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetAutoGenFilterType)(::core::mem::transmute_copy(self), ::core::mem::transmute(filtertype)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetAutoGenFilterType)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GenerateMipSubLevels(&self) {
+        (::windows::core::Interface::vtable(self).base.GenerateMipSubLevels)(::core::mem::transmute_copy(self))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetLevelDesc(&self, level: u32, pdesc: *mut D3DSURFACE_DESC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetLevelDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(level), ::core::mem::transmute(pdesc)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetCubeMapSurface(&self, facetype: D3DCUBEMAP_FACES, level: u32) -> ::windows::core::Result<IDirect3DSurface9> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetCubeMapSurface)(::core::mem::transmute_copy(self), ::core::mem::transmute(facetype), ::core::mem::transmute(level), ::core::mem::transmute(&mut result__)).from_abi::<IDirect3DSurface9>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn LockRect(&self, facetype: D3DCUBEMAP_FACES, level: u32, plockedrect: *mut D3DLOCKED_RECT, prect: *const super::super::Foundation::RECT, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).LockRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(facetype), ::core::mem::transmute(level), ::core::mem::transmute(plockedrect), ::core::mem::transmute(prect), ::core::mem::transmute(flags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn UnlockRect(&self, facetype: D3DCUBEMAP_FACES, level: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UnlockRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(facetype), ::core::mem::transmute(level)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn AddDirtyRect(&self, facetype: D3DCUBEMAP_FACES, pdirtyrect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddDirtyRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(facetype), ::core::mem::transmute(pdirtyrect)).ok()
+    }
 }
-impl ::core::convert::From<IDirect3DCubeTexture9> for IDirect3DBaseTexture9 {
+impl ::core::convert::From<IDirect3DCubeTexture9> for ::windows::core::IUnknown {
     fn from(value: IDirect3DCubeTexture9) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDirect3DCubeTexture9> for IDirect3DBaseTexture9 {
+impl ::core::convert::From<&IDirect3DCubeTexture9> for ::windows::core::IUnknown {
     fn from(value: &IDirect3DCubeTexture9) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDirect3DBaseTexture9> for IDirect3DCubeTexture9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DBaseTexture9> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirect3DCubeTexture9 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDirect3DBaseTexture9> for &IDirect3DCubeTexture9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DBaseTexture9> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirect3DCubeTexture9 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5804,23 +5804,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDirect3DResource9> for &IDirect3DCubeTe
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDirect3DCubeTexture9> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDirect3DCubeTexture9> for IDirect3DBaseTexture9 {
     fn from(value: IDirect3DCubeTexture9) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDirect3DCubeTexture9> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDirect3DCubeTexture9> for IDirect3DBaseTexture9 {
     fn from(value: &IDirect3DCubeTexture9) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirect3DCubeTexture9 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDirect3DBaseTexture9> for IDirect3DCubeTexture9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DBaseTexture9> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirect3DCubeTexture9 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDirect3DBaseTexture9> for &IDirect3DCubeTexture9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DBaseTexture9> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -6651,72 +6651,6 @@ pub struct IDirect3DDevice9Vtbl {
 pub struct IDirect3DDevice9Ex(::windows::core::IUnknown);
 impl IDirect3DDevice9Ex {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn SetConvolutionMonoKernel(&self, width: u32, height: u32, rows: *mut f32, columns: *mut f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetConvolutionMonoKernel)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(rows), ::core::mem::transmute(columns)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn ComposeRects<'a, Param0: ::windows::core::IntoParam<'a, IDirect3DSurface9>, Param1: ::windows::core::IntoParam<'a, IDirect3DSurface9>, Param2: ::windows::core::IntoParam<'a, IDirect3DVertexBuffer9>, Param4: ::windows::core::IntoParam<'a, IDirect3DVertexBuffer9>>(&self, psrc: Param0, pdst: Param1, psrcrectdescs: Param2, numrects: u32, pdstrectdescs: Param4, operation: D3DCOMPOSERECTSOP, xoffset: i32, yoffset: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ComposeRects)(::core::mem::transmute_copy(self), psrc.into_param().abi(), pdst.into_param().abi(), psrcrectdescs.into_param().abi(), ::core::mem::transmute(numrects), pdstrectdescs.into_param().abi(), ::core::mem::transmute(operation), ::core::mem::transmute(xoffset), ::core::mem::transmute(yoffset)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn PresentEx<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: Param2, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PresentEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(psourcerect), ::core::mem::transmute(pdestrect), hdestwindowoverride.into_param().abi(), ::core::mem::transmute(pdirtyregion), ::core::mem::transmute(dwflags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetGPUThreadPriority(&self, ppriority: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetGPUThreadPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppriority)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn SetGPUThreadPriority(&self, priority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGPUThreadPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(priority)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn WaitForVBlank(&self, iswapchain: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WaitForVBlank)(::core::mem::transmute_copy(self), ::core::mem::transmute(iswapchain)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn CheckResourceResidency(&self, presourcearray: *mut ::core::option::Option<IDirect3DResource9>, numresources: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CheckResourceResidency)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcearray), ::core::mem::transmute(numresources)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn SetMaximumFrameLatency(&self, maxlatency: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaximumFrameLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(maxlatency)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetMaximumFrameLatency(&self, pmaxlatency: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetMaximumFrameLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmaxlatency)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CheckDeviceState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hdestinationwindow: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CheckDeviceState)(::core::mem::transmute_copy(self), hdestinationwindow.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateRenderTargetEx<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: Param5, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateRenderTargetEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(multisample), ::core::mem::transmute(multisamplequality), lockable.into_param().abi(), ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle), ::core::mem::transmute(usage)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateOffscreenPlainSurfaceEx(&self, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateOffscreenPlainSurfaceEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(pool), ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle), ::core::mem::transmute(usage)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateDepthStencilSurfaceEx<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: Param5, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateDepthStencilSurfaceEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(multisample), ::core::mem::transmute(multisamplequality), discard.into_param().abi(), ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle), ::core::mem::transmute(usage)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ResetEx(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ResetEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresentationparameters), ::core::mem::transmute(pfullscreendisplaymode)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetDisplayModeEx(&self, iswapchain: u32, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplayModeEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(iswapchain), ::core::mem::transmute(pmode), ::core::mem::transmute(protation)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
     pub unsafe fn TestCooperativeLevel(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.TestCooperativeLevel)(::core::mem::transmute_copy(self)).ok()
     }
@@ -7231,25 +7165,71 @@ impl IDirect3DDevice9Ex {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.CreateQuery)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(&mut result__)).from_abi::<IDirect3DQuery9>(result__)
     }
-}
-impl ::core::convert::From<IDirect3DDevice9Ex> for IDirect3DDevice9 {
-    fn from(value: IDirect3DDevice9Ex) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn SetConvolutionMonoKernel(&self, width: u32, height: u32, rows: *mut f32, columns: *mut f32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetConvolutionMonoKernel)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(rows), ::core::mem::transmute(columns)).ok()
     }
-}
-impl ::core::convert::From<&IDirect3DDevice9Ex> for IDirect3DDevice9 {
-    fn from(value: &IDirect3DDevice9Ex) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn ComposeRects<'a, Param0: ::windows::core::IntoParam<'a, IDirect3DSurface9>, Param1: ::windows::core::IntoParam<'a, IDirect3DSurface9>, Param2: ::windows::core::IntoParam<'a, IDirect3DVertexBuffer9>, Param4: ::windows::core::IntoParam<'a, IDirect3DVertexBuffer9>>(&self, psrc: Param0, pdst: Param1, psrcrectdescs: Param2, numrects: u32, pdstrectdescs: Param4, operation: D3DCOMPOSERECTSOP, xoffset: i32, yoffset: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ComposeRects)(::core::mem::transmute_copy(self), psrc.into_param().abi(), pdst.into_param().abi(), psrcrectdescs.into_param().abi(), ::core::mem::transmute(numrects), pdstrectdescs.into_param().abi(), ::core::mem::transmute(operation), ::core::mem::transmute(xoffset), ::core::mem::transmute(yoffset)).ok()
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirect3DDevice9> for IDirect3DDevice9Ex {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DDevice9> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub unsafe fn PresentEx<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: Param2, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).PresentEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(psourcerect), ::core::mem::transmute(pdestrect), hdestwindowoverride.into_param().abi(), ::core::mem::transmute(pdirtyregion), ::core::mem::transmute(dwflags)).ok()
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirect3DDevice9> for &IDirect3DDevice9Ex {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DDevice9> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetGPUThreadPriority(&self, ppriority: *mut i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetGPUThreadPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppriority)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn SetGPUThreadPriority(&self, priority: i32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetGPUThreadPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(priority)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn WaitForVBlank(&self, iswapchain: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).WaitForVBlank)(::core::mem::transmute_copy(self), ::core::mem::transmute(iswapchain)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn CheckResourceResidency(&self, presourcearray: *mut ::core::option::Option<IDirect3DResource9>, numresources: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CheckResourceResidency)(::core::mem::transmute_copy(self), ::core::mem::transmute(presourcearray), ::core::mem::transmute(numresources)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn SetMaximumFrameLatency(&self, maxlatency: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetMaximumFrameLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(maxlatency)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetMaximumFrameLatency(&self, pmaxlatency: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetMaximumFrameLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmaxlatency)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CheckDeviceState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hdestinationwindow: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CheckDeviceState)(::core::mem::transmute_copy(self), hdestinationwindow.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateRenderTargetEx<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, lockable: Param5, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateRenderTargetEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(multisample), ::core::mem::transmute(multisamplequality), lockable.into_param().abi(), ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle), ::core::mem::transmute(usage)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateOffscreenPlainSurfaceEx(&self, width: u32, height: u32, format: D3DFORMAT, pool: D3DPOOL, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateOffscreenPlainSurfaceEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(pool), ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle), ::core::mem::transmute(usage)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateDepthStencilSurfaceEx<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, width: u32, height: u32, format: D3DFORMAT, multisample: D3DMULTISAMPLE_TYPE, multisamplequality: u32, discard: Param5, ppsurface: *mut ::core::option::Option<IDirect3DSurface9>, psharedhandle: *mut super::super::Foundation::HANDLE, usage: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).CreateDepthStencilSurfaceEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height), ::core::mem::transmute(format), ::core::mem::transmute(multisample), ::core::mem::transmute(multisamplequality), discard.into_param().abi(), ::core::mem::transmute(ppsurface), ::core::mem::transmute(psharedhandle), ::core::mem::transmute(usage)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn ResetEx(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS, pfullscreendisplaymode: *mut D3DDISPLAYMODEEX) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ResetEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresentationparameters), ::core::mem::transmute(pfullscreendisplaymode)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetDisplayModeEx(&self, iswapchain: u32, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetDisplayModeEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(iswapchain), ::core::mem::transmute(pmode), ::core::mem::transmute(protation)).ok()
     }
 }
 impl ::core::convert::From<IDirect3DDevice9Ex> for ::windows::core::IUnknown {
@@ -7269,6 +7249,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirect3D
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirect3DDevice9Ex {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDirect3DDevice9Ex> for IDirect3DDevice9 {
+    fn from(value: IDirect3DDevice9Ex) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDirect3DDevice9Ex> for IDirect3DDevice9 {
+    fn from(value: &IDirect3DDevice9Ex) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDirect3DDevice9> for IDirect3DDevice9Ex {
+    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DDevice9> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDirect3DDevice9> for &IDirect3DDevice9Ex {
+    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DDevice9> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -7335,18 +7335,6 @@ pub struct IDirect3DDevice9ExVtbl {
 pub struct IDirect3DIndexBuffer9(::windows::core::IUnknown);
 impl IDirect3DIndexBuffer9 {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn Lock(&self, offsettolock: u32, sizetolock: u32, ppbdata: *mut *mut ::core::ffi::c_void, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Lock)(::core::mem::transmute_copy(self), ::core::mem::transmute(offsettolock), ::core::mem::transmute(sizetolock), ::core::mem::transmute(ppbdata), ::core::mem::transmute(flags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn Unlock(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Unlock)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3DINDEXBUFFER_DESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<IDirect3DDevice9> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDirect3DDevice9>(result__)
@@ -7379,25 +7367,17 @@ impl IDirect3DIndexBuffer9 {
     pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetType)(::core::mem::transmute_copy(self)))
     }
-}
-impl ::core::convert::From<IDirect3DIndexBuffer9> for IDirect3DResource9 {
-    fn from(value: IDirect3DIndexBuffer9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn Lock(&self, offsettolock: u32, sizetolock: u32, ppbdata: *mut *mut ::core::ffi::c_void, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Lock)(::core::mem::transmute_copy(self), ::core::mem::transmute(offsettolock), ::core::mem::transmute(sizetolock), ::core::mem::transmute(ppbdata), ::core::mem::transmute(flags)).ok()
     }
-}
-impl ::core::convert::From<&IDirect3DIndexBuffer9> for IDirect3DResource9 {
-    fn from(value: &IDirect3DIndexBuffer9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn Unlock(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Unlock)(::core::mem::transmute_copy(self)).ok()
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirect3DResource9> for IDirect3DIndexBuffer9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DResource9> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirect3DResource9> for &IDirect3DIndexBuffer9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DResource9> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3DINDEXBUFFER_DESC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc)).ok()
     }
 }
 impl ::core::convert::From<IDirect3DIndexBuffer9> for ::windows::core::IUnknown {
@@ -7417,6 +7397,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirect3D
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirect3DIndexBuffer9 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDirect3DIndexBuffer9> for IDirect3DResource9 {
+    fn from(value: IDirect3DIndexBuffer9) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDirect3DIndexBuffer9> for IDirect3DResource9 {
+    fn from(value: &IDirect3DIndexBuffer9) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDirect3DResource9> for IDirect3DIndexBuffer9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DResource9> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDirect3DResource9> for &IDirect3DIndexBuffer9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DResource9> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -7747,33 +7747,6 @@ pub struct IDirect3DStateBlock9Vtbl {
 pub struct IDirect3DSurface9(::windows::core::IUnknown);
 impl IDirect3DSurface9 {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetContainer(&self, riid: *const ::windows::core::GUID, ppcontainer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetContainer)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppcontainer)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3DSURFACE_DESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LockRect(&self, plockedrect: *mut D3DLOCKED_RECT, prect: *const super::super::Foundation::RECT, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LockRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(plockedrect), ::core::mem::transmute(prect), ::core::mem::transmute(flags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn UnlockRect(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnlockRect)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Graphics_Gdi'*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetDC(&self, phdc: *mut super::Gdi::HDC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDC)(::core::mem::transmute_copy(self), ::core::mem::transmute(phdc)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Graphics_Gdi'*"]
-    #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn ReleaseDC<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(&self, hdc: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReleaseDC)(::core::mem::transmute_copy(self), hdc.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<IDirect3DDevice9> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDirect3DDevice9>(result__)
@@ -7806,25 +7779,32 @@ impl IDirect3DSurface9 {
     pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetType)(::core::mem::transmute_copy(self)))
     }
-}
-impl ::core::convert::From<IDirect3DSurface9> for IDirect3DResource9 {
-    fn from(value: IDirect3DSurface9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetContainer(&self, riid: *const ::windows::core::GUID, ppcontainer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetContainer)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(ppcontainer)).ok()
     }
-}
-impl ::core::convert::From<&IDirect3DSurface9> for IDirect3DResource9 {
-    fn from(value: &IDirect3DSurface9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3DSURFACE_DESC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc)).ok()
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirect3DResource9> for IDirect3DSurface9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DResource9> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn LockRect(&self, plockedrect: *mut D3DLOCKED_RECT, prect: *const super::super::Foundation::RECT, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).LockRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(plockedrect), ::core::mem::transmute(prect), ::core::mem::transmute(flags)).ok()
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirect3DResource9> for &IDirect3DSurface9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DResource9> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn UnlockRect(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UnlockRect)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub unsafe fn GetDC(&self, phdc: *mut super::Gdi::HDC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetDC)(::core::mem::transmute_copy(self), ::core::mem::transmute(phdc)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Graphics_Gdi'*"]
+    #[cfg(feature = "Win32_Graphics_Gdi")]
+    pub unsafe fn ReleaseDC<'a, Param0: ::windows::core::IntoParam<'a, super::Gdi::HDC>>(&self, hdc: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ReleaseDC)(::core::mem::transmute_copy(self), hdc.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IDirect3DSurface9> for ::windows::core::IUnknown {
@@ -7844,6 +7824,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirect3D
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirect3DSurface9 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDirect3DSurface9> for IDirect3DResource9 {
+    fn from(value: IDirect3DSurface9) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDirect3DSurface9> for IDirect3DResource9 {
+    fn from(value: &IDirect3DSurface9) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDirect3DResource9> for IDirect3DSurface9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DResource9> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDirect3DResource9> for &IDirect3DSurface9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DResource9> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -7990,18 +7990,6 @@ pub struct IDirect3DSwapChain9Vtbl {
 #[repr(transparent)]
 pub struct IDirect3DSwapChain9Ex(::windows::core::IUnknown);
 impl IDirect3DSwapChain9Ex {
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetLastPresentCount(&self, plastpresentcount: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetLastPresentCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(plastpresentcount)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetPresentStats(&self, ppresentationstatistics: *mut D3DPRESENTSTATS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPresentStats)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresentationstatistics)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetDisplayModeEx(&self, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplayModeEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmode), ::core::mem::transmute(protation)).ok()
-    }
     #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Present<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, psourcerect: *const super::super::Foundation::RECT, pdestrect: *const super::super::Foundation::RECT, hdestwindowoverride: Param2, pdirtyregion: *const super::Gdi::RGNDATA, dwflags: u32) -> ::windows::core::Result<()> {
@@ -8035,25 +8023,17 @@ impl IDirect3DSwapChain9Ex {
     pub unsafe fn GetPresentParameters(&self, ppresentationparameters: *mut D3DPRESENT_PARAMETERS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.GetPresentParameters)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresentationparameters)).ok()
     }
-}
-impl ::core::convert::From<IDirect3DSwapChain9Ex> for IDirect3DSwapChain9 {
-    fn from(value: IDirect3DSwapChain9Ex) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetLastPresentCount(&self, plastpresentcount: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetLastPresentCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(plastpresentcount)).ok()
     }
-}
-impl ::core::convert::From<&IDirect3DSwapChain9Ex> for IDirect3DSwapChain9 {
-    fn from(value: &IDirect3DSwapChain9Ex) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetPresentStats(&self, ppresentationstatistics: *mut D3DPRESENTSTATS) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetPresentStats)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppresentationstatistics)).ok()
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirect3DSwapChain9> for IDirect3DSwapChain9Ex {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DSwapChain9> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirect3DSwapChain9> for &IDirect3DSwapChain9Ex {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DSwapChain9> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetDisplayModeEx(&self, pmode: *mut D3DDISPLAYMODEEX, protation: *mut D3DDISPLAYROTATION) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetDisplayModeEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmode), ::core::mem::transmute(protation)).ok()
     }
 }
 impl ::core::convert::From<IDirect3DSwapChain9Ex> for ::windows::core::IUnknown {
@@ -8073,6 +8053,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirect3D
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirect3DSwapChain9Ex {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDirect3DSwapChain9Ex> for IDirect3DSwapChain9 {
+    fn from(value: IDirect3DSwapChain9Ex) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDirect3DSwapChain9Ex> for IDirect3DSwapChain9 {
+    fn from(value: &IDirect3DSwapChain9Ex) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDirect3DSwapChain9> for IDirect3DSwapChain9Ex {
+    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DSwapChain9> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDirect3DSwapChain9> for &IDirect3DSwapChain9Ex {
+    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DSwapChain9> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -8109,53 +8109,6 @@ pub struct IDirect3DSwapChain9ExVtbl {
 pub struct IDirect3DTexture9(::windows::core::IUnknown);
 impl IDirect3DTexture9 {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetLevelDesc(&self, level: u32, pdesc: *mut D3DSURFACE_DESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetLevelDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(level), ::core::mem::transmute(pdesc)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetSurfaceLevel(&self, level: u32) -> ::windows::core::Result<IDirect3DSurface9> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSurfaceLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(level), ::core::mem::transmute(&mut result__)).from_abi::<IDirect3DSurface9>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LockRect(&self, level: u32, plockedrect: *mut D3DLOCKED_RECT, prect: *const super::super::Foundation::RECT, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LockRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(level), ::core::mem::transmute(plockedrect), ::core::mem::transmute(prect), ::core::mem::transmute(flags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn UnlockRect(&self, level: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnlockRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(level)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddDirtyRect(&self, pdirtyrect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddDirtyRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdirtyrect)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn SetLOD(&self, lodnew: u32) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.SetLOD)(::core::mem::transmute_copy(self), ::core::mem::transmute(lodnew)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetLOD(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetLOD)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetLevelCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetLevelCount)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn SetAutoGenFilterType(&self, filtertype: D3DTEXTUREFILTERTYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetAutoGenFilterType)(::core::mem::transmute_copy(self), ::core::mem::transmute(filtertype)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetAutoGenFilterType)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GenerateMipSubLevels(&self) {
-        (::windows::core::Interface::vtable(self).base.GenerateMipSubLevels)(::core::mem::transmute_copy(self))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<IDirect3DDevice9> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDirect3DDevice9>(result__)
@@ -8188,24 +8141,71 @@ impl IDirect3DTexture9 {
     pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.GetType)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn SetLOD(&self, lodnew: u32) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.SetLOD)(::core::mem::transmute_copy(self), ::core::mem::transmute(lodnew)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetLOD(&self) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetLOD)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetLevelCount(&self) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetLevelCount)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn SetAutoGenFilterType(&self, filtertype: D3DTEXTUREFILTERTYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetAutoGenFilterType)(::core::mem::transmute_copy(self), ::core::mem::transmute(filtertype)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetAutoGenFilterType)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GenerateMipSubLevels(&self) {
+        (::windows::core::Interface::vtable(self).base.GenerateMipSubLevels)(::core::mem::transmute_copy(self))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetLevelDesc(&self, level: u32, pdesc: *mut D3DSURFACE_DESC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetLevelDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(level), ::core::mem::transmute(pdesc)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetSurfaceLevel(&self, level: u32) -> ::windows::core::Result<IDirect3DSurface9> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetSurfaceLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(level), ::core::mem::transmute(&mut result__)).from_abi::<IDirect3DSurface9>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn LockRect(&self, level: u32, plockedrect: *mut D3DLOCKED_RECT, prect: *const super::super::Foundation::RECT, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).LockRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(level), ::core::mem::transmute(plockedrect), ::core::mem::transmute(prect), ::core::mem::transmute(flags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn UnlockRect(&self, level: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UnlockRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(level)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn AddDirtyRect(&self, pdirtyrect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddDirtyRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdirtyrect)).ok()
+    }
 }
-impl ::core::convert::From<IDirect3DTexture9> for IDirect3DBaseTexture9 {
+impl ::core::convert::From<IDirect3DTexture9> for ::windows::core::IUnknown {
     fn from(value: IDirect3DTexture9) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDirect3DTexture9> for IDirect3DBaseTexture9 {
+impl ::core::convert::From<&IDirect3DTexture9> for ::windows::core::IUnknown {
     fn from(value: &IDirect3DTexture9) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDirect3DBaseTexture9> for IDirect3DTexture9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DBaseTexture9> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirect3DTexture9 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDirect3DBaseTexture9> for &IDirect3DTexture9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DBaseTexture9> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirect3DTexture9 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -8229,23 +8229,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDirect3DResource9> for &IDirect3DTextur
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDirect3DTexture9> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDirect3DTexture9> for IDirect3DBaseTexture9 {
     fn from(value: IDirect3DTexture9) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDirect3DTexture9> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDirect3DTexture9> for IDirect3DBaseTexture9 {
     fn from(value: &IDirect3DTexture9) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirect3DTexture9 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDirect3DBaseTexture9> for IDirect3DTexture9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DBaseTexture9> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirect3DTexture9 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDirect3DBaseTexture9> for &IDirect3DTexture9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DBaseTexture9> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -8290,18 +8290,6 @@ pub struct IDirect3DTexture9Vtbl {
 pub struct IDirect3DVertexBuffer9(::windows::core::IUnknown);
 impl IDirect3DVertexBuffer9 {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn Lock(&self, offsettolock: u32, sizetolock: u32, ppbdata: *mut *mut ::core::ffi::c_void, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Lock)(::core::mem::transmute_copy(self), ::core::mem::transmute(offsettolock), ::core::mem::transmute(sizetolock), ::core::mem::transmute(ppbdata), ::core::mem::transmute(flags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn Unlock(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Unlock)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3DVERTEXBUFFER_DESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<IDirect3DDevice9> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDirect3DDevice9>(result__)
@@ -8334,25 +8322,17 @@ impl IDirect3DVertexBuffer9 {
     pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetType)(::core::mem::transmute_copy(self)))
     }
-}
-impl ::core::convert::From<IDirect3DVertexBuffer9> for IDirect3DResource9 {
-    fn from(value: IDirect3DVertexBuffer9) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn Lock(&self, offsettolock: u32, sizetolock: u32, ppbdata: *mut *mut ::core::ffi::c_void, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Lock)(::core::mem::transmute_copy(self), ::core::mem::transmute(offsettolock), ::core::mem::transmute(sizetolock), ::core::mem::transmute(ppbdata), ::core::mem::transmute(flags)).ok()
     }
-}
-impl ::core::convert::From<&IDirect3DVertexBuffer9> for IDirect3DResource9 {
-    fn from(value: &IDirect3DVertexBuffer9) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn Unlock(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Unlock)(::core::mem::transmute_copy(self)).ok()
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirect3DResource9> for IDirect3DVertexBuffer9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DResource9> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDirect3DResource9> for &IDirect3DVertexBuffer9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DResource9> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3DVERTEXBUFFER_DESC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdesc)).ok()
     }
 }
 impl ::core::convert::From<IDirect3DVertexBuffer9> for ::windows::core::IUnknown {
@@ -8372,6 +8352,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirect3D
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirect3DVertexBuffer9 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDirect3DVertexBuffer9> for IDirect3DResource9 {
+    fn from(value: IDirect3DVertexBuffer9) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDirect3DVertexBuffer9> for IDirect3DResource9 {
+    fn from(value: &IDirect3DVertexBuffer9) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDirect3DResource9> for IDirect3DVertexBuffer9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DResource9> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDirect3DResource9> for &IDirect3DVertexBuffer9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DResource9> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -8621,51 +8621,6 @@ pub struct IDirect3DVolume9Vtbl {
 pub struct IDirect3DVolumeTexture9(::windows::core::IUnknown);
 impl IDirect3DVolumeTexture9 {
     #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetLevelDesc(&self, level: u32, pdesc: *mut D3DVOLUME_DESC) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetLevelDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(level), ::core::mem::transmute(pdesc)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetVolumeLevel(&self, level: u32) -> ::windows::core::Result<IDirect3DVolume9> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetVolumeLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(level), ::core::mem::transmute(&mut result__)).from_abi::<IDirect3DVolume9>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn LockBox(&self, level: u32, plockedvolume: *mut D3DLOCKED_BOX, pbox: *const D3DBOX, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LockBox)(::core::mem::transmute_copy(self), ::core::mem::transmute(level), ::core::mem::transmute(plockedvolume), ::core::mem::transmute(pbox), ::core::mem::transmute(flags)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn UnlockBox(&self, level: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnlockBox)(::core::mem::transmute_copy(self), ::core::mem::transmute(level)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn AddDirtyBox(&self, pdirtybox: *const D3DBOX) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddDirtyBox)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdirtybox)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn SetLOD(&self, lodnew: u32) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.SetLOD)(::core::mem::transmute_copy(self), ::core::mem::transmute(lodnew)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetLOD(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetLOD)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetLevelCount(&self) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetLevelCount)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn SetAutoGenFilterType(&self, filtertype: D3DTEXTUREFILTERTYPE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetAutoGenFilterType)(::core::mem::transmute_copy(self), ::core::mem::transmute(filtertype)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetAutoGenFilterType)(::core::mem::transmute_copy(self)))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
-    pub unsafe fn GenerateMipSubLevels(&self) {
-        (::windows::core::Interface::vtable(self).base.GenerateMipSubLevels)(::core::mem::transmute_copy(self))
-    }
-    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
     pub unsafe fn GetDevice(&self) -> ::windows::core::Result<IDirect3DDevice9> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.base.GetDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDirect3DDevice9>(result__)
@@ -8698,24 +8653,69 @@ impl IDirect3DVolumeTexture9 {
     pub unsafe fn GetType(&self) -> D3DRESOURCETYPE {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).base.base.GetType)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn SetLOD(&self, lodnew: u32) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.SetLOD)(::core::mem::transmute_copy(self), ::core::mem::transmute(lodnew)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetLOD(&self) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetLOD)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetLevelCount(&self) -> u32 {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetLevelCount)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn SetAutoGenFilterType(&self, filtertype: D3DTEXTUREFILTERTYPE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetAutoGenFilterType)(::core::mem::transmute_copy(self), ::core::mem::transmute(filtertype)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetAutoGenFilterType(&self) -> D3DTEXTUREFILTERTYPE {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).base.GetAutoGenFilterType)(::core::mem::transmute_copy(self)))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GenerateMipSubLevels(&self) {
+        (::windows::core::Interface::vtable(self).base.GenerateMipSubLevels)(::core::mem::transmute_copy(self))
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetLevelDesc(&self, level: u32, pdesc: *mut D3DVOLUME_DESC) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetLevelDesc)(::core::mem::transmute_copy(self), ::core::mem::transmute(level), ::core::mem::transmute(pdesc)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn GetVolumeLevel(&self, level: u32) -> ::windows::core::Result<IDirect3DVolume9> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).GetVolumeLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(level), ::core::mem::transmute(&mut result__)).from_abi::<IDirect3DVolume9>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn LockBox(&self, level: u32, plockedvolume: *mut D3DLOCKED_BOX, pbox: *const D3DBOX, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).LockBox)(::core::mem::transmute_copy(self), ::core::mem::transmute(level), ::core::mem::transmute(plockedvolume), ::core::mem::transmute(pbox), ::core::mem::transmute(flags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn UnlockBox(&self, level: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).UnlockBox)(::core::mem::transmute_copy(self), ::core::mem::transmute(level)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D9'*"]
+    pub unsafe fn AddDirtyBox(&self, pdirtybox: *const D3DBOX) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddDirtyBox)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdirtybox)).ok()
+    }
 }
-impl ::core::convert::From<IDirect3DVolumeTexture9> for IDirect3DBaseTexture9 {
+impl ::core::convert::From<IDirect3DVolumeTexture9> for ::windows::core::IUnknown {
     fn from(value: IDirect3DVolumeTexture9) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDirect3DVolumeTexture9> for IDirect3DBaseTexture9 {
+impl ::core::convert::From<&IDirect3DVolumeTexture9> for ::windows::core::IUnknown {
     fn from(value: &IDirect3DVolumeTexture9) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDirect3DBaseTexture9> for IDirect3DVolumeTexture9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DBaseTexture9> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirect3DVolumeTexture9 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDirect3DBaseTexture9> for &IDirect3DVolumeTexture9 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DBaseTexture9> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirect3DVolumeTexture9 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -8739,23 +8739,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDirect3DResource9> for &IDirect3DVolume
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDirect3DVolumeTexture9> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDirect3DVolumeTexture9> for IDirect3DBaseTexture9 {
     fn from(value: IDirect3DVolumeTexture9) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDirect3DVolumeTexture9> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDirect3DVolumeTexture9> for IDirect3DBaseTexture9 {
     fn from(value: &IDirect3DVolumeTexture9) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDirect3DVolumeTexture9 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDirect3DBaseTexture9> for IDirect3DVolumeTexture9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DBaseTexture9> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDirect3DVolumeTexture9 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDirect3DBaseTexture9> for &IDirect3DVolumeTexture9 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDirect3DBaseTexture9> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

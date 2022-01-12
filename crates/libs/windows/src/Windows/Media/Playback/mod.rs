@@ -522,30 +522,6 @@ impl IMediaEnginePlaybackSource {
     }
 }
 #[cfg(feature = "deprecated")]
-impl ::core::convert::From<IMediaEnginePlaybackSource> for ::windows::core::IInspectable {
-    fn from(value: IMediaEnginePlaybackSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::convert::From<&IMediaEnginePlaybackSource> for ::windows::core::IInspectable {
-    fn from(value: &IMediaEnginePlaybackSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMediaEnginePlaybackSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IMediaEnginePlaybackSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-#[cfg(feature = "deprecated")]
 impl ::core::convert::From<IMediaEnginePlaybackSource> for ::windows::core::IUnknown {
     fn from(value: IMediaEnginePlaybackSource) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -566,6 +542,30 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMediaEng
 #[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMediaEnginePlaybackSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<IMediaEnginePlaybackSource> for ::windows::core::IInspectable {
+    fn from(value: IMediaEnginePlaybackSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+#[cfg(feature = "deprecated")]
+impl ::core::convert::From<&IMediaEnginePlaybackSource> for ::windows::core::IInspectable {
+    fn from(value: &IMediaEnginePlaybackSource) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMediaEnginePlaybackSource {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+#[cfg(feature = "deprecated")]
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IMediaEnginePlaybackSource {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1481,26 +1481,6 @@ pub struct IMediaPlaybackSessionOutputDegradationPolicyStateVtbl {
 #[repr(transparent)]
 pub struct IMediaPlaybackSource(::windows::core::IUnknown);
 impl IMediaPlaybackSource {}
-impl ::core::convert::From<IMediaPlaybackSource> for ::windows::core::IInspectable {
-    fn from(value: IMediaPlaybackSource) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IMediaPlaybackSource> for ::windows::core::IInspectable {
-    fn from(value: &IMediaPlaybackSource) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMediaPlaybackSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IMediaPlaybackSource {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IMediaPlaybackSource> for ::windows::core::IUnknown {
     fn from(value: IMediaPlaybackSource) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -1518,6 +1498,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMediaPla
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IMediaPlaybackSource {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IMediaPlaybackSource> for ::windows::core::IInspectable {
+    fn from(value: IMediaPlaybackSource) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IMediaPlaybackSource> for ::windows::core::IInspectable {
+    fn from(value: &IMediaPlaybackSource) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IMediaPlaybackSource {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IMediaPlaybackSource {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

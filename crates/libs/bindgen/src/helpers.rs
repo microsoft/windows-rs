@@ -148,19 +148,14 @@ pub fn gen_vtbl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
 }
 
 pub fn gen_vtbl(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    // TODO: consider using parent field to avoid duplicating inherited vfptrs.
-    // And then consider naming them to simplify traits and debugging.
-    // Should the first param be the Vtbl type?
-
     let cfg = cfg.gen(gen);
     let vtbl = gen_vtbl_ident(def, gen);
-    let guid = gen_element_name(&ElementType::GUID, gen);
-    let hresult = gen_element_name(&ElementType::HRESULT, gen);
     let phantoms = gen_named_phantoms(def, gen);
     let constraints = gen_type_constraints(def, gen);
     let mut methods = quote! {};
+    let mut method_names = MethodNames::new();
 
-    match def.vtable_base() {
+    match def.vtable_types().last() {
         Some(ElementType::IUnknown) => methods.combine(&quote! { pub base: ::windows::core::IUnknownVtbl, }),
         Some(ElementType::IInspectable) => methods.combine(&quote! { pub base: ::windows::core::IInspectableVtbl, }),
         Some(ElementType::TypeDef(def)) => {
@@ -176,7 +171,7 @@ pub fn gen_vtbl(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
             continue;
         }
 
-        let name = gen_ident(&method.rust_name());
+        let name = method_names.add(&method);
         let signature = gen_vtbl_signature(&def, &method, gen);
         let cfg = gen.method_cfg(&def, &method);
         let cfg_all = cfg.gen(gen);

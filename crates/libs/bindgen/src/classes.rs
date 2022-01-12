@@ -20,7 +20,7 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
     let has_default = def.default_interface().is_some();
     let interfaces = def.class_interfaces();
     let mut methods = quote! {};
-    let mut method_names = BTreeMap::<String, u32>::new();
+    let mut method_names = MethodNames::new();
 
     let cfg = gen.type_cfg(def);
     let features = cfg.gen(gen);
@@ -31,8 +31,10 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
             continue;
         }
 
+        let mut virtual_names = MethodNames::new();
+
         for method in def.methods() {
-            methods.combine(&gen_winrt_method(def, *kind, &method, &mut method_names, gen));
+            methods.combine(&gen_winrt_method(def, *kind, &method, &mut method_names, &mut virtual_names, gen));
         }
     }
 

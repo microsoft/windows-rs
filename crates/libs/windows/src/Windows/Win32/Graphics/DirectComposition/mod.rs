@@ -452,6 +452,10 @@ pub unsafe fn DCompositionWaitForCompositorClock(count: u32, handles: *const sup
 pub struct IDCompositionAffineTransform2DEffect(::windows::core::IUnknown);
 impl IDCompositionAffineTransform2DEffect {
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
     pub unsafe fn SetInterpolationMode(&self, interpolationmode: super::D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetInterpolationMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(interpolationmode)).ok()
     }
@@ -481,28 +485,24 @@ impl IDCompositionAffineTransform2DEffect {
     pub unsafe fn SetSharpness2(&self, sharpness: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSharpness2)(::core::mem::transmute_copy(self), ::core::mem::transmute(sharpness)).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
-    }
 }
-impl ::core::convert::From<IDCompositionAffineTransform2DEffect> for IDCompositionFilterEffect {
+impl ::core::convert::From<IDCompositionAffineTransform2DEffect> for ::windows::core::IUnknown {
     fn from(value: IDCompositionAffineTransform2DEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionAffineTransform2DEffect> for IDCompositionFilterEffect {
+impl ::core::convert::From<&IDCompositionAffineTransform2DEffect> for ::windows::core::IUnknown {
     fn from(value: &IDCompositionAffineTransform2DEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionAffineTransform2DEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionAffineTransform2DEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionAffineTransform2DEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionAffineTransform2DEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -526,23 +526,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionA
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDCompositionAffineTransform2DEffect> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDCompositionAffineTransform2DEffect> for IDCompositionFilterEffect {
     fn from(value: IDCompositionAffineTransform2DEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionAffineTransform2DEffect> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDCompositionAffineTransform2DEffect> for IDCompositionFilterEffect {
     fn from(value: &IDCompositionAffineTransform2DEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionAffineTransform2DEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionAffineTransform2DEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionAffineTransform2DEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionAffineTransform2DEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -580,9 +580,9 @@ pub struct IDCompositionAffineTransform2DEffectVtbl {
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetTransformMatrix: usize,
     pub SetTransformMatrixElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, row: i32, column: i32, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetTransformMatrixElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, row: i32, column: i32, value: f32) -> ::windows::core::HRESULT,
+    pub SetTransformMatrixElement2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, row: i32, column: i32, value: f32) -> ::windows::core::HRESULT,
     pub SetSharpness: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetSharpness: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sharpness: f32) -> ::windows::core::HRESULT,
+    pub SetSharpness2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sharpness: f32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 #[repr(transparent)]
@@ -668,6 +668,10 @@ pub struct IDCompositionAnimationVtbl {
 #[repr(transparent)]
 pub struct IDCompositionArithmeticCompositeEffect(::windows::core::IUnknown);
 impl IDCompositionArithmeticCompositeEffect {
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
+    }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetCoefficients(&self, coefficients: *const super::Direct2D::Common::D2D_VECTOR_4F) -> ::windows::core::Result<()> {
@@ -710,28 +714,24 @@ impl IDCompositionArithmeticCompositeEffect {
     pub unsafe fn SetCoefficient42(&self, coefficient4: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetCoefficient42)(::core::mem::transmute_copy(self), ::core::mem::transmute(coefficient4)).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
-    }
 }
-impl ::core::convert::From<IDCompositionArithmeticCompositeEffect> for IDCompositionFilterEffect {
+impl ::core::convert::From<IDCompositionArithmeticCompositeEffect> for ::windows::core::IUnknown {
     fn from(value: IDCompositionArithmeticCompositeEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionArithmeticCompositeEffect> for IDCompositionFilterEffect {
+impl ::core::convert::From<&IDCompositionArithmeticCompositeEffect> for ::windows::core::IUnknown {
     fn from(value: &IDCompositionArithmeticCompositeEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionArithmeticCompositeEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionArithmeticCompositeEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionArithmeticCompositeEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionArithmeticCompositeEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -755,23 +755,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionA
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDCompositionArithmeticCompositeEffect> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDCompositionArithmeticCompositeEffect> for IDCompositionFilterEffect {
     fn from(value: IDCompositionArithmeticCompositeEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionArithmeticCompositeEffect> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDCompositionArithmeticCompositeEffect> for IDCompositionFilterEffect {
     fn from(value: &IDCompositionArithmeticCompositeEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionArithmeticCompositeEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionArithmeticCompositeEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionArithmeticCompositeEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionArithmeticCompositeEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -808,45 +808,45 @@ pub struct IDCompositionArithmeticCompositeEffectVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetClampOutput: usize,
     pub SetCoefficient1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetCoefficient1: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coeffcient1: f32) -> ::windows::core::HRESULT,
+    pub SetCoefficient12: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coeffcient1: f32) -> ::windows::core::HRESULT,
     pub SetCoefficient2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetCoefficient2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coefficient2: f32) -> ::windows::core::HRESULT,
+    pub SetCoefficient22: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coefficient2: f32) -> ::windows::core::HRESULT,
     pub SetCoefficient3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetCoefficient3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coefficient3: f32) -> ::windows::core::HRESULT,
+    pub SetCoefficient32: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coefficient3: f32) -> ::windows::core::HRESULT,
     pub SetCoefficient4: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetCoefficient4: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coefficient4: f32) -> ::windows::core::HRESULT,
+    pub SetCoefficient42: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coefficient4: f32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 #[repr(transparent)]
 pub struct IDCompositionBlendEffect(::windows::core::IUnknown);
 impl IDCompositionBlendEffect {
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
+    }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetMode(&self, mode: super::Direct2D::Common::D2D1_BLEND_MODE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(mode)).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
-    }
 }
-impl ::core::convert::From<IDCompositionBlendEffect> for IDCompositionFilterEffect {
+impl ::core::convert::From<IDCompositionBlendEffect> for ::windows::core::IUnknown {
     fn from(value: IDCompositionBlendEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionBlendEffect> for IDCompositionFilterEffect {
+impl ::core::convert::From<&IDCompositionBlendEffect> for ::windows::core::IUnknown {
     fn from(value: &IDCompositionBlendEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionBlendEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionBlendEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionBlendEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionBlendEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -870,23 +870,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDCompositionBlendEffect> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDCompositionBlendEffect> for IDCompositionFilterEffect {
     fn from(value: IDCompositionBlendEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionBlendEffect> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDCompositionBlendEffect> for IDCompositionFilterEffect {
     fn from(value: &IDCompositionBlendEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionBlendEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionBlendEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionBlendEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionBlendEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -923,6 +923,10 @@ pub struct IDCompositionBlendEffectVtbl {
 #[repr(transparent)]
 pub struct IDCompositionBrightnessEffect(::windows::core::IUnknown);
 impl IDCompositionBrightnessEffect {
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
+    }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetWhitePoint(&self, whitepoint: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows::core::Result<()> {
@@ -965,28 +969,24 @@ impl IDCompositionBrightnessEffect {
     pub unsafe fn SetBlackPointY2(&self, blackpointy: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetBlackPointY2)(::core::mem::transmute_copy(self), ::core::mem::transmute(blackpointy)).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
-    }
 }
-impl ::core::convert::From<IDCompositionBrightnessEffect> for IDCompositionFilterEffect {
+impl ::core::convert::From<IDCompositionBrightnessEffect> for ::windows::core::IUnknown {
     fn from(value: IDCompositionBrightnessEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionBrightnessEffect> for IDCompositionFilterEffect {
+impl ::core::convert::From<&IDCompositionBrightnessEffect> for ::windows::core::IUnknown {
     fn from(value: &IDCompositionBrightnessEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionBrightnessEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionBrightnessEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionBrightnessEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionBrightnessEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1010,23 +1010,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionB
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDCompositionBrightnessEffect> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDCompositionBrightnessEffect> for IDCompositionFilterEffect {
     fn from(value: IDCompositionBrightnessEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionBrightnessEffect> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDCompositionBrightnessEffect> for IDCompositionFilterEffect {
     fn from(value: &IDCompositionBrightnessEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionBrightnessEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionBrightnessEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionBrightnessEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionBrightnessEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1063,13 +1063,13 @@ pub struct IDCompositionBrightnessEffectVtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     SetBlackPoint: usize,
     pub SetWhitePointX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetWhitePointX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, whitepointx: f32) -> ::windows::core::HRESULT,
+    pub SetWhitePointX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, whitepointx: f32) -> ::windows::core::HRESULT,
     pub SetWhitePointY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetWhitePointY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, whitepointy: f32) -> ::windows::core::HRESULT,
+    pub SetWhitePointY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, whitepointy: f32) -> ::windows::core::HRESULT,
     pub SetBlackPointX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetBlackPointX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blackpointx: f32) -> ::windows::core::HRESULT,
+    pub SetBlackPointX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blackpointx: f32) -> ::windows::core::HRESULT,
     pub SetBlackPointY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetBlackPointY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blackpointy: f32) -> ::windows::core::HRESULT,
+    pub SetBlackPointY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blackpointy: f32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 #[repr(transparent)]
@@ -1124,6 +1124,10 @@ pub struct IDCompositionClipVtbl {
 #[repr(transparent)]
 pub struct IDCompositionColorMatrixEffect(::windows::core::IUnknown);
 impl IDCompositionColorMatrixEffect {
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
+    }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetMatrix(&self, matrix: *const super::Direct2D::Common::D2D_MATRIX_5X4_F) -> ::windows::core::Result<()> {
@@ -1147,28 +1151,24 @@ impl IDCompositionColorMatrixEffect {
     pub unsafe fn SetClampOutput<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, clamp: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetClampOutput)(::core::mem::transmute_copy(self), clamp.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
-    }
 }
-impl ::core::convert::From<IDCompositionColorMatrixEffect> for IDCompositionFilterEffect {
+impl ::core::convert::From<IDCompositionColorMatrixEffect> for ::windows::core::IUnknown {
     fn from(value: IDCompositionColorMatrixEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionColorMatrixEffect> for IDCompositionFilterEffect {
+impl ::core::convert::From<&IDCompositionColorMatrixEffect> for ::windows::core::IUnknown {
     fn from(value: &IDCompositionColorMatrixEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionColorMatrixEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionColorMatrixEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionColorMatrixEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionColorMatrixEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1192,23 +1192,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDCompositionColorMatrixEffect> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDCompositionColorMatrixEffect> for IDCompositionFilterEffect {
     fn from(value: IDCompositionColorMatrixEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionColorMatrixEffect> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDCompositionColorMatrixEffect> for IDCompositionFilterEffect {
     fn from(value: &IDCompositionColorMatrixEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionColorMatrixEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionColorMatrixEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionColorMatrixEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionColorMatrixEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1241,7 +1241,7 @@ pub struct IDCompositionColorMatrixEffectVtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     SetMatrix: usize,
     pub SetMatrixElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, row: i32, column: i32, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetMatrixElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, row: i32, column: i32, value: f32) -> ::windows::core::HRESULT,
+    pub SetMatrixElement2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, row: i32, column: i32, value: f32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub SetAlphaMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: super::Direct2D::Common::D2D1_COLORMATRIX_ALPHA_MODE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
@@ -1255,33 +1255,33 @@ pub struct IDCompositionColorMatrixEffectVtbl {
 #[repr(transparent)]
 pub struct IDCompositionCompositeEffect(::windows::core::IUnknown);
 impl IDCompositionCompositeEffect {
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
+    }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetMode(&self, mode: super::Direct2D::Common::D2D1_COMPOSITE_MODE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(mode)).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
-    }
 }
-impl ::core::convert::From<IDCompositionCompositeEffect> for IDCompositionFilterEffect {
+impl ::core::convert::From<IDCompositionCompositeEffect> for ::windows::core::IUnknown {
     fn from(value: IDCompositionCompositeEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionCompositeEffect> for IDCompositionFilterEffect {
+impl ::core::convert::From<&IDCompositionCompositeEffect> for ::windows::core::IUnknown {
     fn from(value: &IDCompositionCompositeEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionCompositeEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionCompositeEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionCompositeEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionCompositeEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1305,23 +1305,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionC
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDCompositionCompositeEffect> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDCompositionCompositeEffect> for IDCompositionFilterEffect {
     fn from(value: IDCompositionCompositeEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionCompositeEffect> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDCompositionCompositeEffect> for IDCompositionFilterEffect {
     fn from(value: &IDCompositionCompositeEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionCompositeEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionCompositeEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionCompositeEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionCompositeEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -1434,24 +1434,6 @@ pub struct IDCompositionDelegatedInkTrailVtbl {
 #[repr(transparent)]
 pub struct IDCompositionDesktopDevice(::windows::core::IUnknown);
 impl IDCompositionDesktopDevice {
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateTargetForHwnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hwnd: Param0, topmost: Param1) -> ::windows::core::Result<IDCompositionTarget> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTargetForHwnd)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), topmost.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionTarget>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSurfaceFromHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, handle: Param0) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSurfaceFromHandle)(::core::mem::transmute_copy(self), handle.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateSurfaceFromHwnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwnd: Param0) -> ::windows::core::Result<::windows::core::IUnknown> {
-        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSurfaceFromHwnd)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
-    }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Commit)(::core::mem::transmute_copy(self)).ok()
@@ -1558,25 +1540,23 @@ impl IDCompositionDesktopDevice {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.CreateAnimation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionAnimation>(result__)
     }
-}
-impl ::core::convert::From<IDCompositionDesktopDevice> for IDCompositionDevice2 {
-    fn from(value: IDCompositionDesktopDevice) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateTargetForHwnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hwnd: Param0, topmost: Param1) -> ::windows::core::Result<IDCompositionTarget> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateTargetForHwnd)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), topmost.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionTarget>(result__)
     }
-}
-impl ::core::convert::From<&IDCompositionDesktopDevice> for IDCompositionDevice2 {
-    fn from(value: &IDCompositionDesktopDevice) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateSurfaceFromHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, handle: Param0) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateSurfaceFromHandle)(::core::mem::transmute_copy(self), handle.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionDevice2> for IDCompositionDesktopDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionDevice2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionDevice2> for &IDCompositionDesktopDevice {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionDevice2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn CreateSurfaceFromHwnd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwnd: Param0) -> ::windows::core::Result<::windows::core::IUnknown> {
+        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateSurfaceFromHwnd)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
 impl ::core::convert::From<IDCompositionDesktopDevice> for ::windows::core::IUnknown {
@@ -1596,6 +1576,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionDesktopDevice {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDCompositionDesktopDevice> for IDCompositionDevice2 {
+    fn from(value: IDCompositionDesktopDevice) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDCompositionDesktopDevice> for IDCompositionDevice2 {
+    fn from(value: &IDCompositionDesktopDevice) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionDevice2> for IDCompositionDesktopDevice {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionDevice2> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionDevice2> for &IDCompositionDesktopDevice {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionDevice2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2047,71 +2047,6 @@ pub struct IDCompositionDevice2Vtbl {
 pub struct IDCompositionDevice3(::windows::core::IUnknown);
 impl IDCompositionDevice3 {
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn CreateGaussianBlurEffect(&self) -> ::windows::core::Result<IDCompositionGaussianBlurEffect> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateGaussianBlurEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionGaussianBlurEffect>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn CreateBrightnessEffect(&self) -> ::windows::core::Result<IDCompositionBrightnessEffect> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateBrightnessEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionBrightnessEffect>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn CreateColorMatrixEffect(&self) -> ::windows::core::Result<IDCompositionColorMatrixEffect> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateColorMatrixEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionColorMatrixEffect>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn CreateShadowEffect(&self) -> ::windows::core::Result<IDCompositionShadowEffect> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateShadowEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionShadowEffect>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn CreateHueRotationEffect(&self) -> ::windows::core::Result<IDCompositionHueRotationEffect> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateHueRotationEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionHueRotationEffect>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn CreateSaturationEffect(&self) -> ::windows::core::Result<IDCompositionSaturationEffect> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSaturationEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionSaturationEffect>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn CreateTurbulenceEffect(&self) -> ::windows::core::Result<IDCompositionTurbulenceEffect> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTurbulenceEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionTurbulenceEffect>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn CreateLinearTransferEffect(&self) -> ::windows::core::Result<IDCompositionLinearTransferEffect> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateLinearTransferEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionLinearTransferEffect>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn CreateTableTransferEffect(&self) -> ::windows::core::Result<IDCompositionTableTransferEffect> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTableTransferEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionTableTransferEffect>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn CreateCompositeEffect(&self) -> ::windows::core::Result<IDCompositionCompositeEffect> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateCompositeEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionCompositeEffect>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn CreateBlendEffect(&self) -> ::windows::core::Result<IDCompositionBlendEffect> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateBlendEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionBlendEffect>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn CreateArithmeticCompositeEffect(&self) -> ::windows::core::Result<IDCompositionArithmeticCompositeEffect> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateArithmeticCompositeEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionArithmeticCompositeEffect>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn CreateAffineTransform2DEffect(&self) -> ::windows::core::Result<IDCompositionAffineTransform2DEffect> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateAffineTransform2DEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionAffineTransform2DEffect>(result__)
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Commit)(::core::mem::transmute_copy(self)).ok()
     }
@@ -2217,25 +2152,70 @@ impl IDCompositionDevice3 {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).base.CreateAnimation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionAnimation>(result__)
     }
-}
-impl ::core::convert::From<IDCompositionDevice3> for IDCompositionDevice2 {
-    fn from(value: IDCompositionDevice3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn CreateGaussianBlurEffect(&self) -> ::windows::core::Result<IDCompositionGaussianBlurEffect> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateGaussianBlurEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionGaussianBlurEffect>(result__)
     }
-}
-impl ::core::convert::From<&IDCompositionDevice3> for IDCompositionDevice2 {
-    fn from(value: &IDCompositionDevice3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn CreateBrightnessEffect(&self) -> ::windows::core::Result<IDCompositionBrightnessEffect> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateBrightnessEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionBrightnessEffect>(result__)
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionDevice2> for IDCompositionDevice3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionDevice2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn CreateColorMatrixEffect(&self) -> ::windows::core::Result<IDCompositionColorMatrixEffect> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateColorMatrixEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionColorMatrixEffect>(result__)
     }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionDevice2> for &IDCompositionDevice3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionDevice2> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn CreateShadowEffect(&self) -> ::windows::core::Result<IDCompositionShadowEffect> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateShadowEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionShadowEffect>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn CreateHueRotationEffect(&self) -> ::windows::core::Result<IDCompositionHueRotationEffect> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateHueRotationEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionHueRotationEffect>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn CreateSaturationEffect(&self) -> ::windows::core::Result<IDCompositionSaturationEffect> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateSaturationEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionSaturationEffect>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn CreateTurbulenceEffect(&self) -> ::windows::core::Result<IDCompositionTurbulenceEffect> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateTurbulenceEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionTurbulenceEffect>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn CreateLinearTransferEffect(&self) -> ::windows::core::Result<IDCompositionLinearTransferEffect> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateLinearTransferEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionLinearTransferEffect>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn CreateTableTransferEffect(&self) -> ::windows::core::Result<IDCompositionTableTransferEffect> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateTableTransferEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionTableTransferEffect>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn CreateCompositeEffect(&self) -> ::windows::core::Result<IDCompositionCompositeEffect> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateCompositeEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionCompositeEffect>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn CreateBlendEffect(&self) -> ::windows::core::Result<IDCompositionBlendEffect> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateBlendEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionBlendEffect>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn CreateArithmeticCompositeEffect(&self) -> ::windows::core::Result<IDCompositionArithmeticCompositeEffect> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateArithmeticCompositeEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionArithmeticCompositeEffect>(result__)
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn CreateAffineTransform2DEffect(&self) -> ::windows::core::Result<IDCompositionAffineTransform2DEffect> {
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        (::windows::core::Interface::vtable(self).CreateAffineTransform2DEffect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDCompositionAffineTransform2DEffect>(result__)
     }
 }
 impl ::core::convert::From<IDCompositionDevice3> for ::windows::core::IUnknown {
@@ -2255,6 +2235,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionDevice3 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDCompositionDevice3> for IDCompositionDevice2 {
+    fn from(value: IDCompositionDevice3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDCompositionDevice3> for IDCompositionDevice2 {
+    fn from(value: &IDCompositionDevice3) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionDevice2> for IDCompositionDevice3 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionDevice2> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionDevice2> for &IDCompositionDevice3 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionDevice2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2422,26 +2422,6 @@ impl IDCompositionEffectGroup {
         (::windows::core::Interface::vtable(self).SetTransform3D)(::core::mem::transmute_copy(self), transform3d.into_param().abi()).ok()
     }
 }
-impl ::core::convert::From<IDCompositionEffectGroup> for IDCompositionEffect {
-    fn from(value: IDCompositionEffectGroup) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionEffectGroup> for IDCompositionEffect {
-    fn from(value: &IDCompositionEffectGroup) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionEffectGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionEffectGroup {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IDCompositionEffectGroup> for ::windows::core::IUnknown {
     fn from(value: IDCompositionEffectGroup) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -2459,6 +2439,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionEffectGroup {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDCompositionEffectGroup> for IDCompositionEffect {
+    fn from(value: IDCompositionEffectGroup) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDCompositionEffectGroup> for IDCompositionEffect {
+    fn from(value: &IDCompositionEffectGroup) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionEffectGroup {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionEffectGroup {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2487,7 +2487,7 @@ unsafe impl ::windows::core::Interface for IDCompositionEffectGroup {
 pub struct IDCompositionEffectGroupVtbl {
     pub base: IDCompositionEffectVtbl,
     pub SetOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, opacity: f32) -> ::windows::core::HRESULT,
+    pub SetOpacity2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, opacity: f32) -> ::windows::core::HRESULT,
     pub SetTransform3D: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transform3d: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
@@ -2497,26 +2497,6 @@ impl IDCompositionFilterEffect {
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
     pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
-    }
-}
-impl ::core::convert::From<IDCompositionFilterEffect> for IDCompositionEffect {
-    fn from(value: IDCompositionFilterEffect) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionFilterEffect> for IDCompositionEffect {
-    fn from(value: &IDCompositionFilterEffect) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionFilterEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionFilterEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<IDCompositionFilterEffect> for ::windows::core::IUnknown {
@@ -2536,6 +2516,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionFilterEffect {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDCompositionFilterEffect> for IDCompositionEffect {
+    fn from(value: IDCompositionFilterEffect) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDCompositionFilterEffect> for IDCompositionEffect {
+    fn from(value: &IDCompositionFilterEffect) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionFilterEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionFilterEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2570,6 +2570,10 @@ pub struct IDCompositionFilterEffectVtbl {
 pub struct IDCompositionGaussianBlurEffect(::windows::core::IUnknown);
 impl IDCompositionGaussianBlurEffect {
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
     pub unsafe fn SetStandardDeviation<'a, Param0: ::windows::core::IntoParam<'a, IDCompositionAnimation>>(&self, animation: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetStandardDeviation)(::core::mem::transmute_copy(self), animation.into_param().abi()).ok()
     }
@@ -2582,28 +2586,24 @@ impl IDCompositionGaussianBlurEffect {
     pub unsafe fn SetBorderMode(&self, mode: super::Direct2D::Common::D2D1_BORDER_MODE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetBorderMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(mode)).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
-    }
 }
-impl ::core::convert::From<IDCompositionGaussianBlurEffect> for IDCompositionFilterEffect {
+impl ::core::convert::From<IDCompositionGaussianBlurEffect> for ::windows::core::IUnknown {
     fn from(value: IDCompositionGaussianBlurEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionGaussianBlurEffect> for IDCompositionFilterEffect {
+impl ::core::convert::From<&IDCompositionGaussianBlurEffect> for ::windows::core::IUnknown {
     fn from(value: &IDCompositionGaussianBlurEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionGaussianBlurEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionGaussianBlurEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionGaussianBlurEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionGaussianBlurEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2627,23 +2627,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionG
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDCompositionGaussianBlurEffect> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDCompositionGaussianBlurEffect> for IDCompositionFilterEffect {
     fn from(value: IDCompositionGaussianBlurEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionGaussianBlurEffect> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDCompositionGaussianBlurEffect> for IDCompositionFilterEffect {
     fn from(value: &IDCompositionGaussianBlurEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionGaussianBlurEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionGaussianBlurEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionGaussianBlurEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionGaussianBlurEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2672,7 +2672,7 @@ unsafe impl ::windows::core::Interface for IDCompositionGaussianBlurEffect {
 pub struct IDCompositionGaussianBlurEffectVtbl {
     pub base: IDCompositionFilterEffectVtbl,
     pub SetStandardDeviation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetStandardDeviation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, amount: f32) -> ::windows::core::HRESULT,
+    pub SetStandardDeviation2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, amount: f32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub SetBorderMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: super::Direct2D::Common::D2D1_BORDER_MODE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
@@ -2683,6 +2683,10 @@ pub struct IDCompositionGaussianBlurEffectVtbl {
 pub struct IDCompositionHueRotationEffect(::windows::core::IUnknown);
 impl IDCompositionHueRotationEffect {
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
     pub unsafe fn SetAngle<'a, Param0: ::windows::core::IntoParam<'a, IDCompositionAnimation>>(&self, animation: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAngle)(::core::mem::transmute_copy(self), animation.into_param().abi()).ok()
     }
@@ -2690,28 +2694,24 @@ impl IDCompositionHueRotationEffect {
     pub unsafe fn SetAngle2(&self, amountdegrees: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAngle2)(::core::mem::transmute_copy(self), ::core::mem::transmute(amountdegrees)).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
-    }
 }
-impl ::core::convert::From<IDCompositionHueRotationEffect> for IDCompositionFilterEffect {
+impl ::core::convert::From<IDCompositionHueRotationEffect> for ::windows::core::IUnknown {
     fn from(value: IDCompositionHueRotationEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionHueRotationEffect> for IDCompositionFilterEffect {
+impl ::core::convert::From<&IDCompositionHueRotationEffect> for ::windows::core::IUnknown {
     fn from(value: &IDCompositionHueRotationEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionHueRotationEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionHueRotationEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionHueRotationEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionHueRotationEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2735,23 +2735,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionH
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDCompositionHueRotationEffect> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDCompositionHueRotationEffect> for IDCompositionFilterEffect {
     fn from(value: IDCompositionHueRotationEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionHueRotationEffect> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDCompositionHueRotationEffect> for IDCompositionFilterEffect {
     fn from(value: &IDCompositionHueRotationEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionHueRotationEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionHueRotationEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionHueRotationEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionHueRotationEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2780,7 +2780,7 @@ unsafe impl ::windows::core::Interface for IDCompositionHueRotationEffect {
 pub struct IDCompositionHueRotationEffectVtbl {
     pub base: IDCompositionFilterEffectVtbl,
     pub SetAngle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetAngle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, amountdegrees: f32) -> ::windows::core::HRESULT,
+    pub SetAngle2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, amountdegrees: f32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 #[repr(transparent)]
@@ -2848,6 +2848,10 @@ pub struct IDCompositionInkTrailDeviceVtbl {
 #[repr(transparent)]
 pub struct IDCompositionLinearTransferEffect(::windows::core::IUnknown);
 impl IDCompositionLinearTransferEffect {
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
+    }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
     pub unsafe fn SetRedYIntercept<'a, Param0: ::windows::core::IntoParam<'a, IDCompositionAnimation>>(&self, animation: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRedYIntercept)(::core::mem::transmute_copy(self), animation.into_param().abi()).ok()
@@ -2937,28 +2941,24 @@ impl IDCompositionLinearTransferEffect {
     pub unsafe fn SetClampOutput<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, clampoutput: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetClampOutput)(::core::mem::transmute_copy(self), clampoutput.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
-    }
 }
-impl ::core::convert::From<IDCompositionLinearTransferEffect> for IDCompositionFilterEffect {
+impl ::core::convert::From<IDCompositionLinearTransferEffect> for ::windows::core::IUnknown {
     fn from(value: IDCompositionLinearTransferEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionLinearTransferEffect> for IDCompositionFilterEffect {
+impl ::core::convert::From<&IDCompositionLinearTransferEffect> for ::windows::core::IUnknown {
     fn from(value: &IDCompositionLinearTransferEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionLinearTransferEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionLinearTransferEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionLinearTransferEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionLinearTransferEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -2982,23 +2982,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionL
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDCompositionLinearTransferEffect> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDCompositionLinearTransferEffect> for IDCompositionFilterEffect {
     fn from(value: IDCompositionLinearTransferEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionLinearTransferEffect> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDCompositionLinearTransferEffect> for IDCompositionFilterEffect {
     fn from(value: &IDCompositionLinearTransferEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionLinearTransferEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionLinearTransferEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionLinearTransferEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionLinearTransferEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3027,33 +3027,33 @@ unsafe impl ::windows::core::Interface for IDCompositionLinearTransferEffect {
 pub struct IDCompositionLinearTransferEffectVtbl {
     pub base: IDCompositionFilterEffectVtbl,
     pub SetRedYIntercept: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetRedYIntercept: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, redyintercept: f32) -> ::windows::core::HRESULT,
+    pub SetRedYIntercept2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, redyintercept: f32) -> ::windows::core::HRESULT,
     pub SetRedSlope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetRedSlope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, redslope: f32) -> ::windows::core::HRESULT,
+    pub SetRedSlope2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, redslope: f32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SetRedDisable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reddisable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetRedDisable: usize,
     pub SetGreenYIntercept: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetGreenYIntercept: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, greenyintercept: f32) -> ::windows::core::HRESULT,
+    pub SetGreenYIntercept2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, greenyintercept: f32) -> ::windows::core::HRESULT,
     pub SetGreenSlope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetGreenSlope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, greenslope: f32) -> ::windows::core::HRESULT,
+    pub SetGreenSlope2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, greenslope: f32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SetGreenDisable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, greendisable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetGreenDisable: usize,
     pub SetBlueYIntercept: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetBlueYIntercept: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blueyintercept: f32) -> ::windows::core::HRESULT,
+    pub SetBlueYIntercept2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blueyintercept: f32) -> ::windows::core::HRESULT,
     pub SetBlueSlope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetBlueSlope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blueslope: f32) -> ::windows::core::HRESULT,
+    pub SetBlueSlope2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blueslope: f32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SetBlueDisable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bluedisable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
     SetBlueDisable: usize,
     pub SetAlphaYIntercept: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetAlphaYIntercept: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, alphayintercept: f32) -> ::windows::core::HRESULT,
+    pub SetAlphaYIntercept2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, alphayintercept: f32) -> ::windows::core::HRESULT,
     pub SetAlphaSlope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetAlphaSlope: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, alphaslope: f32) -> ::windows::core::HRESULT,
+    pub SetAlphaSlope2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, alphaslope: f32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub SetAlphaDisable: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, alphadisable: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -3081,43 +3081,23 @@ impl IDCompositionMatrixTransform {
         (::windows::core::Interface::vtable(self).SetMatrixElement2)(::core::mem::transmute_copy(self), ::core::mem::transmute(row), ::core::mem::transmute(column), ::core::mem::transmute(value)).ok()
     }
 }
-impl ::core::convert::From<IDCompositionMatrixTransform> for IDCompositionTransform {
+impl ::core::convert::From<IDCompositionMatrixTransform> for ::windows::core::IUnknown {
     fn from(value: IDCompositionMatrixTransform) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionMatrixTransform> for IDCompositionTransform {
+impl ::core::convert::From<&IDCompositionMatrixTransform> for ::windows::core::IUnknown {
     fn from(value: &IDCompositionMatrixTransform) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for IDCompositionMatrixTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionMatrixTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for &IDCompositionMatrixTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IDCompositionMatrixTransform> for IDCompositionTransform3D {
-    fn from(value: IDCompositionMatrixTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionMatrixTransform> for IDCompositionTransform3D {
-    fn from(value: &IDCompositionMatrixTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDCompositionMatrixTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionMatrixTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionMatrixTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3141,23 +3121,43 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionM
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDCompositionMatrixTransform> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDCompositionMatrixTransform> for IDCompositionTransform3D {
     fn from(value: IDCompositionMatrixTransform) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionMatrixTransform> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDCompositionMatrixTransform> for IDCompositionTransform3D {
     fn from(value: &IDCompositionMatrixTransform) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionMatrixTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDCompositionMatrixTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionMatrixTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionMatrixTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDCompositionMatrixTransform> for IDCompositionTransform {
+    fn from(value: IDCompositionMatrixTransform) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDCompositionMatrixTransform> for IDCompositionTransform {
+    fn from(value: &IDCompositionMatrixTransform) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for IDCompositionMatrixTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for &IDCompositionMatrixTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3190,7 +3190,7 @@ pub struct IDCompositionMatrixTransformVtbl {
     #[cfg(not(feature = "Foundation_Numerics"))]
     SetMatrix: usize,
     pub SetMatrixElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, row: i32, column: i32, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetMatrixElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, row: i32, column: i32, value: f32) -> ::windows::core::HRESULT,
+    pub SetMatrixElement2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, row: i32, column: i32, value: f32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 #[repr(transparent)]
@@ -3210,23 +3210,23 @@ impl IDCompositionMatrixTransform3D {
         (::windows::core::Interface::vtable(self).SetMatrixElement2)(::core::mem::transmute_copy(self), ::core::mem::transmute(row), ::core::mem::transmute(column), ::core::mem::transmute(value)).ok()
     }
 }
-impl ::core::convert::From<IDCompositionMatrixTransform3D> for IDCompositionTransform3D {
+impl ::core::convert::From<IDCompositionMatrixTransform3D> for ::windows::core::IUnknown {
     fn from(value: IDCompositionMatrixTransform3D) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionMatrixTransform3D> for IDCompositionTransform3D {
+impl ::core::convert::From<&IDCompositionMatrixTransform3D> for ::windows::core::IUnknown {
     fn from(value: &IDCompositionMatrixTransform3D) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDCompositionMatrixTransform3D {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionMatrixTransform3D {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionMatrixTransform3D {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionMatrixTransform3D {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3250,23 +3250,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionM
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDCompositionMatrixTransform3D> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDCompositionMatrixTransform3D> for IDCompositionTransform3D {
     fn from(value: IDCompositionMatrixTransform3D) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionMatrixTransform3D> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDCompositionMatrixTransform3D> for IDCompositionTransform3D {
     fn from(value: &IDCompositionMatrixTransform3D) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionMatrixTransform3D {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDCompositionMatrixTransform3D {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionMatrixTransform3D {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionMatrixTransform3D {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3299,7 +3299,7 @@ pub struct IDCompositionMatrixTransform3DVtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct3D"))]
     SetMatrix: usize,
     pub SetMatrixElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, row: i32, column: i32, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetMatrixElement: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, row: i32, column: i32, value: f32) -> ::windows::core::HRESULT,
+    pub SetMatrixElement2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, row: i32, column: i32, value: f32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 #[repr(transparent)]
@@ -3402,26 +3402,6 @@ impl IDCompositionRectangleClip {
         (::windows::core::Interface::vtable(self).SetBottomRightRadiusY2)(::core::mem::transmute_copy(self), ::core::mem::transmute(radius)).ok()
     }
 }
-impl ::core::convert::From<IDCompositionRectangleClip> for IDCompositionClip {
-    fn from(value: IDCompositionRectangleClip) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionRectangleClip> for IDCompositionClip {
-    fn from(value: &IDCompositionRectangleClip) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionClip> for IDCompositionRectangleClip {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionClip> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionClip> for &IDCompositionRectangleClip {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionClip> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IDCompositionRectangleClip> for ::windows::core::IUnknown {
     fn from(value: IDCompositionRectangleClip) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -3439,6 +3419,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionRectangleClip {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDCompositionRectangleClip> for IDCompositionClip {
+    fn from(value: IDCompositionRectangleClip) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDCompositionRectangleClip> for IDCompositionClip {
+    fn from(value: &IDCompositionRectangleClip) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionClip> for IDCompositionRectangleClip {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionClip> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionClip> for &IDCompositionRectangleClip {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionClip> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3467,29 +3467,29 @@ unsafe impl ::windows::core::Interface for IDCompositionRectangleClip {
 pub struct IDCompositionRectangleClipVtbl {
     pub base: IDCompositionClipVtbl,
     pub SetLeft: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetLeft: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, left: f32) -> ::windows::core::HRESULT,
+    pub SetLeft2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, left: f32) -> ::windows::core::HRESULT,
     pub SetTop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetTop: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, top: f32) -> ::windows::core::HRESULT,
+    pub SetTop2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, top: f32) -> ::windows::core::HRESULT,
     pub SetRight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetRight: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, right: f32) -> ::windows::core::HRESULT,
+    pub SetRight2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, right: f32) -> ::windows::core::HRESULT,
     pub SetBottom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetBottom: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bottom: f32) -> ::windows::core::HRESULT,
+    pub SetBottom2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bottom: f32) -> ::windows::core::HRESULT,
     pub SetTopLeftRadiusX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetTopLeftRadiusX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: f32) -> ::windows::core::HRESULT,
+    pub SetTopLeftRadiusX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: f32) -> ::windows::core::HRESULT,
     pub SetTopLeftRadiusY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetTopLeftRadiusY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: f32) -> ::windows::core::HRESULT,
+    pub SetTopLeftRadiusY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: f32) -> ::windows::core::HRESULT,
     pub SetTopRightRadiusX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetTopRightRadiusX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: f32) -> ::windows::core::HRESULT,
+    pub SetTopRightRadiusX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: f32) -> ::windows::core::HRESULT,
     pub SetTopRightRadiusY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetTopRightRadiusY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: f32) -> ::windows::core::HRESULT,
+    pub SetTopRightRadiusY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: f32) -> ::windows::core::HRESULT,
     pub SetBottomLeftRadiusX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetBottomLeftRadiusX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: f32) -> ::windows::core::HRESULT,
+    pub SetBottomLeftRadiusX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: f32) -> ::windows::core::HRESULT,
     pub SetBottomLeftRadiusY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetBottomLeftRadiusY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: f32) -> ::windows::core::HRESULT,
+    pub SetBottomLeftRadiusY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: f32) -> ::windows::core::HRESULT,
     pub SetBottomRightRadiusX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetBottomRightRadiusX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: f32) -> ::windows::core::HRESULT,
+    pub SetBottomRightRadiusX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: f32) -> ::windows::core::HRESULT,
     pub SetBottomRightRadiusY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetBottomRightRadiusY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: f32) -> ::windows::core::HRESULT,
+    pub SetBottomRightRadiusY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, radius: f32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 #[repr(transparent)]
@@ -3520,43 +3520,23 @@ impl IDCompositionRotateTransform {
         (::windows::core::Interface::vtable(self).SetCenterY2)(::core::mem::transmute_copy(self), ::core::mem::transmute(centery)).ok()
     }
 }
-impl ::core::convert::From<IDCompositionRotateTransform> for IDCompositionTransform {
+impl ::core::convert::From<IDCompositionRotateTransform> for ::windows::core::IUnknown {
     fn from(value: IDCompositionRotateTransform) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionRotateTransform> for IDCompositionTransform {
+impl ::core::convert::From<&IDCompositionRotateTransform> for ::windows::core::IUnknown {
     fn from(value: &IDCompositionRotateTransform) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for IDCompositionRotateTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionRotateTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for &IDCompositionRotateTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IDCompositionRotateTransform> for IDCompositionTransform3D {
-    fn from(value: IDCompositionRotateTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionRotateTransform> for IDCompositionTransform3D {
-    fn from(value: &IDCompositionRotateTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDCompositionRotateTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionRotateTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionRotateTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3580,23 +3560,43 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDCompositionRotateTransform> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDCompositionRotateTransform> for IDCompositionTransform3D {
     fn from(value: IDCompositionRotateTransform) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionRotateTransform> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDCompositionRotateTransform> for IDCompositionTransform3D {
     fn from(value: &IDCompositionRotateTransform) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionRotateTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDCompositionRotateTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionRotateTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionRotateTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDCompositionRotateTransform> for IDCompositionTransform {
+    fn from(value: IDCompositionRotateTransform) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDCompositionRotateTransform> for IDCompositionTransform {
+    fn from(value: &IDCompositionRotateTransform) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for IDCompositionRotateTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for &IDCompositionRotateTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3625,11 +3625,11 @@ unsafe impl ::windows::core::Interface for IDCompositionRotateTransform {
 pub struct IDCompositionRotateTransformVtbl {
     pub base: IDCompositionTransformVtbl,
     pub SetAngle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetAngle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, angle: f32) -> ::windows::core::HRESULT,
+    pub SetAngle2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, angle: f32) -> ::windows::core::HRESULT,
     pub SetCenterX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetCenterX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centerx: f32) -> ::windows::core::HRESULT,
+    pub SetCenterX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centerx: f32) -> ::windows::core::HRESULT,
     pub SetCenterY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetCenterY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centery: f32) -> ::windows::core::HRESULT,
+    pub SetCenterY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centery: f32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 #[repr(transparent)]
@@ -3692,23 +3692,23 @@ impl IDCompositionRotateTransform3D {
         (::windows::core::Interface::vtable(self).SetCenterZ2)(::core::mem::transmute_copy(self), ::core::mem::transmute(centerz)).ok()
     }
 }
-impl ::core::convert::From<IDCompositionRotateTransform3D> for IDCompositionTransform3D {
+impl ::core::convert::From<IDCompositionRotateTransform3D> for ::windows::core::IUnknown {
     fn from(value: IDCompositionRotateTransform3D) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionRotateTransform3D> for IDCompositionTransform3D {
+impl ::core::convert::From<&IDCompositionRotateTransform3D> for ::windows::core::IUnknown {
     fn from(value: &IDCompositionRotateTransform3D) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDCompositionRotateTransform3D {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionRotateTransform3D {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionRotateTransform3D {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionRotateTransform3D {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3732,23 +3732,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionR
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDCompositionRotateTransform3D> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDCompositionRotateTransform3D> for IDCompositionTransform3D {
     fn from(value: IDCompositionRotateTransform3D) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionRotateTransform3D> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDCompositionRotateTransform3D> for IDCompositionTransform3D {
     fn from(value: &IDCompositionRotateTransform3D) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionRotateTransform3D {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDCompositionRotateTransform3D {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionRotateTransform3D {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionRotateTransform3D {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3777,24 +3777,28 @@ unsafe impl ::windows::core::Interface for IDCompositionRotateTransform3D {
 pub struct IDCompositionRotateTransform3DVtbl {
     pub base: IDCompositionTransform3DVtbl,
     pub SetAngle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetAngle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, angle: f32) -> ::windows::core::HRESULT,
+    pub SetAngle2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, angle: f32) -> ::windows::core::HRESULT,
     pub SetAxisX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetAxisX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, axisx: f32) -> ::windows::core::HRESULT,
+    pub SetAxisX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, axisx: f32) -> ::windows::core::HRESULT,
     pub SetAxisY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetAxisY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, axisy: f32) -> ::windows::core::HRESULT,
+    pub SetAxisY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, axisy: f32) -> ::windows::core::HRESULT,
     pub SetAxisZ: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetAxisZ: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, axisz: f32) -> ::windows::core::HRESULT,
+    pub SetAxisZ2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, axisz: f32) -> ::windows::core::HRESULT,
     pub SetCenterX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetCenterX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centerx: f32) -> ::windows::core::HRESULT,
+    pub SetCenterX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centerx: f32) -> ::windows::core::HRESULT,
     pub SetCenterY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetCenterY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centery: f32) -> ::windows::core::HRESULT,
+    pub SetCenterY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centery: f32) -> ::windows::core::HRESULT,
     pub SetCenterZ: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetCenterZ: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centerz: f32) -> ::windows::core::HRESULT,
+    pub SetCenterZ2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centerz: f32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 #[repr(transparent)]
 pub struct IDCompositionSaturationEffect(::windows::core::IUnknown);
 impl IDCompositionSaturationEffect {
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
+    }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
     pub unsafe fn SetSaturation<'a, Param0: ::windows::core::IntoParam<'a, IDCompositionAnimation>>(&self, animation: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSaturation)(::core::mem::transmute_copy(self), animation.into_param().abi()).ok()
@@ -3803,28 +3807,24 @@ impl IDCompositionSaturationEffect {
     pub unsafe fn SetSaturation2(&self, ratio: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetSaturation2)(::core::mem::transmute_copy(self), ::core::mem::transmute(ratio)).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
-    }
 }
-impl ::core::convert::From<IDCompositionSaturationEffect> for IDCompositionFilterEffect {
+impl ::core::convert::From<IDCompositionSaturationEffect> for ::windows::core::IUnknown {
     fn from(value: IDCompositionSaturationEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionSaturationEffect> for IDCompositionFilterEffect {
+impl ::core::convert::From<&IDCompositionSaturationEffect> for ::windows::core::IUnknown {
     fn from(value: &IDCompositionSaturationEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionSaturationEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionSaturationEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionSaturationEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionSaturationEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3848,23 +3848,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDCompositionSaturationEffect> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDCompositionSaturationEffect> for IDCompositionFilterEffect {
     fn from(value: IDCompositionSaturationEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionSaturationEffect> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDCompositionSaturationEffect> for IDCompositionFilterEffect {
     fn from(value: &IDCompositionSaturationEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionSaturationEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionSaturationEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionSaturationEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionSaturationEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3893,7 +3893,7 @@ unsafe impl ::windows::core::Interface for IDCompositionSaturationEffect {
 pub struct IDCompositionSaturationEffectVtbl {
     pub base: IDCompositionFilterEffectVtbl,
     pub SetSaturation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetSaturation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ratio: f32) -> ::windows::core::HRESULT,
+    pub SetSaturation2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ratio: f32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 #[repr(transparent)]
@@ -3932,43 +3932,23 @@ impl IDCompositionScaleTransform {
         (::windows::core::Interface::vtable(self).SetCenterY2)(::core::mem::transmute_copy(self), ::core::mem::transmute(centery)).ok()
     }
 }
-impl ::core::convert::From<IDCompositionScaleTransform> for IDCompositionTransform {
+impl ::core::convert::From<IDCompositionScaleTransform> for ::windows::core::IUnknown {
     fn from(value: IDCompositionScaleTransform) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionScaleTransform> for IDCompositionTransform {
+impl ::core::convert::From<&IDCompositionScaleTransform> for ::windows::core::IUnknown {
     fn from(value: &IDCompositionScaleTransform) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for IDCompositionScaleTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionScaleTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for &IDCompositionScaleTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IDCompositionScaleTransform> for IDCompositionTransform3D {
-    fn from(value: IDCompositionScaleTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionScaleTransform> for IDCompositionTransform3D {
-    fn from(value: &IDCompositionScaleTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDCompositionScaleTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionScaleTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionScaleTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -3992,23 +3972,43 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDCompositionScaleTransform> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDCompositionScaleTransform> for IDCompositionTransform3D {
     fn from(value: IDCompositionScaleTransform) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionScaleTransform> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDCompositionScaleTransform> for IDCompositionTransform3D {
     fn from(value: &IDCompositionScaleTransform) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionScaleTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDCompositionScaleTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionScaleTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionScaleTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDCompositionScaleTransform> for IDCompositionTransform {
+    fn from(value: IDCompositionScaleTransform) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDCompositionScaleTransform> for IDCompositionTransform {
+    fn from(value: &IDCompositionScaleTransform) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for IDCompositionScaleTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for &IDCompositionScaleTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4037,13 +4037,13 @@ unsafe impl ::windows::core::Interface for IDCompositionScaleTransform {
 pub struct IDCompositionScaleTransformVtbl {
     pub base: IDCompositionTransformVtbl,
     pub SetScaleX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetScaleX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scalex: f32) -> ::windows::core::HRESULT,
+    pub SetScaleX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scalex: f32) -> ::windows::core::HRESULT,
     pub SetScaleY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetScaleY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scaley: f32) -> ::windows::core::HRESULT,
+    pub SetScaleY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scaley: f32) -> ::windows::core::HRESULT,
     pub SetCenterX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetCenterX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centerx: f32) -> ::windows::core::HRESULT,
+    pub SetCenterX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centerx: f32) -> ::windows::core::HRESULT,
     pub SetCenterY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetCenterY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centery: f32) -> ::windows::core::HRESULT,
+    pub SetCenterY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centery: f32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 #[repr(transparent)]
@@ -4098,23 +4098,23 @@ impl IDCompositionScaleTransform3D {
         (::windows::core::Interface::vtable(self).SetCenterZ2)(::core::mem::transmute_copy(self), ::core::mem::transmute(centerz)).ok()
     }
 }
-impl ::core::convert::From<IDCompositionScaleTransform3D> for IDCompositionTransform3D {
+impl ::core::convert::From<IDCompositionScaleTransform3D> for ::windows::core::IUnknown {
     fn from(value: IDCompositionScaleTransform3D) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionScaleTransform3D> for IDCompositionTransform3D {
+impl ::core::convert::From<&IDCompositionScaleTransform3D> for ::windows::core::IUnknown {
     fn from(value: &IDCompositionScaleTransform3D) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDCompositionScaleTransform3D {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionScaleTransform3D {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionScaleTransform3D {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionScaleTransform3D {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4138,23 +4138,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDCompositionScaleTransform3D> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDCompositionScaleTransform3D> for IDCompositionTransform3D {
     fn from(value: IDCompositionScaleTransform3D) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionScaleTransform3D> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDCompositionScaleTransform3D> for IDCompositionTransform3D {
     fn from(value: &IDCompositionScaleTransform3D) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionScaleTransform3D {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDCompositionScaleTransform3D {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionScaleTransform3D {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionScaleTransform3D {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4183,22 +4183,26 @@ unsafe impl ::windows::core::Interface for IDCompositionScaleTransform3D {
 pub struct IDCompositionScaleTransform3DVtbl {
     pub base: IDCompositionTransform3DVtbl,
     pub SetScaleX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetScaleX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scalex: f32) -> ::windows::core::HRESULT,
+    pub SetScaleX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scalex: f32) -> ::windows::core::HRESULT,
     pub SetScaleY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetScaleY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scaley: f32) -> ::windows::core::HRESULT,
+    pub SetScaleY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scaley: f32) -> ::windows::core::HRESULT,
     pub SetScaleZ: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetScaleZ: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scalez: f32) -> ::windows::core::HRESULT,
+    pub SetScaleZ2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scalez: f32) -> ::windows::core::HRESULT,
     pub SetCenterX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetCenterX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centerx: f32) -> ::windows::core::HRESULT,
+    pub SetCenterX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centerx: f32) -> ::windows::core::HRESULT,
     pub SetCenterY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetCenterY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centery: f32) -> ::windows::core::HRESULT,
+    pub SetCenterY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centery: f32) -> ::windows::core::HRESULT,
     pub SetCenterZ: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetCenterZ: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centerz: f32) -> ::windows::core::HRESULT,
+    pub SetCenterZ2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centerz: f32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 #[repr(transparent)]
 pub struct IDCompositionShadowEffect(::windows::core::IUnknown);
 impl IDCompositionShadowEffect {
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
+    }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
     pub unsafe fn SetStandardDeviation<'a, Param0: ::windows::core::IntoParam<'a, IDCompositionAnimation>>(&self, animation: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetStandardDeviation)(::core::mem::transmute_copy(self), animation.into_param().abi()).ok()
@@ -4244,28 +4248,24 @@ impl IDCompositionShadowEffect {
     pub unsafe fn SetAlpha2(&self, amount: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAlpha2)(::core::mem::transmute_copy(self), ::core::mem::transmute(amount)).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
-    }
 }
-impl ::core::convert::From<IDCompositionShadowEffect> for IDCompositionFilterEffect {
+impl ::core::convert::From<IDCompositionShadowEffect> for ::windows::core::IUnknown {
     fn from(value: IDCompositionShadowEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionShadowEffect> for IDCompositionFilterEffect {
+impl ::core::convert::From<&IDCompositionShadowEffect> for ::windows::core::IUnknown {
     fn from(value: &IDCompositionShadowEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionShadowEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionShadowEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionShadowEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionShadowEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4289,23 +4289,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDCompositionShadowEffect> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDCompositionShadowEffect> for IDCompositionFilterEffect {
     fn from(value: IDCompositionShadowEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionShadowEffect> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDCompositionShadowEffect> for IDCompositionFilterEffect {
     fn from(value: &IDCompositionShadowEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionShadowEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionShadowEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionShadowEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionShadowEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4334,19 +4334,19 @@ unsafe impl ::windows::core::Interface for IDCompositionShadowEffect {
 pub struct IDCompositionShadowEffectVtbl {
     pub base: IDCompositionFilterEffectVtbl,
     pub SetStandardDeviation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetStandardDeviation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, amount: f32) -> ::windows::core::HRESULT,
+    pub SetStandardDeviation2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, amount: f32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub SetColor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: *const super::Direct2D::Common::D2D_VECTOR_4F) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     SetColor: usize,
     pub SetRed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetRed: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, amount: f32) -> ::windows::core::HRESULT,
+    pub SetRed2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, amount: f32) -> ::windows::core::HRESULT,
     pub SetGreen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetGreen: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, amount: f32) -> ::windows::core::HRESULT,
+    pub SetGreen2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, amount: f32) -> ::windows::core::HRESULT,
     pub SetBlue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetBlue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, amount: f32) -> ::windows::core::HRESULT,
+    pub SetBlue2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, amount: f32) -> ::windows::core::HRESULT,
     pub SetAlpha: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetAlpha: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, amount: f32) -> ::windows::core::HRESULT,
+    pub SetAlpha2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, amount: f32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 #[repr(transparent)]
@@ -4385,43 +4385,23 @@ impl IDCompositionSkewTransform {
         (::windows::core::Interface::vtable(self).SetCenterY2)(::core::mem::transmute_copy(self), ::core::mem::transmute(centery)).ok()
     }
 }
-impl ::core::convert::From<IDCompositionSkewTransform> for IDCompositionTransform {
+impl ::core::convert::From<IDCompositionSkewTransform> for ::windows::core::IUnknown {
     fn from(value: IDCompositionSkewTransform) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionSkewTransform> for IDCompositionTransform {
+impl ::core::convert::From<&IDCompositionSkewTransform> for ::windows::core::IUnknown {
     fn from(value: &IDCompositionSkewTransform) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for IDCompositionSkewTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionSkewTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for &IDCompositionSkewTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IDCompositionSkewTransform> for IDCompositionTransform3D {
-    fn from(value: IDCompositionSkewTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionSkewTransform> for IDCompositionTransform3D {
-    fn from(value: &IDCompositionSkewTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDCompositionSkewTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionSkewTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionSkewTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4445,23 +4425,43 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDCompositionSkewTransform> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDCompositionSkewTransform> for IDCompositionTransform3D {
     fn from(value: IDCompositionSkewTransform) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionSkewTransform> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDCompositionSkewTransform> for IDCompositionTransform3D {
     fn from(value: &IDCompositionSkewTransform) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionSkewTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDCompositionSkewTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionSkewTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionSkewTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDCompositionSkewTransform> for IDCompositionTransform {
+    fn from(value: IDCompositionSkewTransform) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDCompositionSkewTransform> for IDCompositionTransform {
+    fn from(value: &IDCompositionSkewTransform) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for IDCompositionSkewTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for &IDCompositionSkewTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4490,13 +4490,13 @@ unsafe impl ::windows::core::Interface for IDCompositionSkewTransform {
 pub struct IDCompositionSkewTransformVtbl {
     pub base: IDCompositionTransformVtbl,
     pub SetAngleX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetAngleX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, anglex: f32) -> ::windows::core::HRESULT,
+    pub SetAngleX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, anglex: f32) -> ::windows::core::HRESULT,
     pub SetAngleY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetAngleY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, angley: f32) -> ::windows::core::HRESULT,
+    pub SetAngleY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, angley: f32) -> ::windows::core::HRESULT,
     pub SetCenterX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetCenterX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centerx: f32) -> ::windows::core::HRESULT,
+    pub SetCenterX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centerx: f32) -> ::windows::core::HRESULT,
     pub SetCenterY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetCenterY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centery: f32) -> ::windows::core::HRESULT,
+    pub SetCenterY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, centery: f32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 #[repr(transparent)]
@@ -4656,6 +4656,10 @@ pub struct IDCompositionSurfaceFactoryVtbl {
 pub struct IDCompositionTableTransferEffect(::windows::core::IUnknown);
 impl IDCompositionTableTransferEffect {
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
     pub unsafe fn SetRedTable(&self, tablevalues: *const f32, count: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetRedTable)(::core::mem::transmute_copy(self), ::core::mem::transmute(tablevalues), ::core::mem::transmute(count)).ok()
     }
@@ -4728,28 +4732,24 @@ impl IDCompositionTableTransferEffect {
     pub unsafe fn SetAlphaTableValue2(&self, index: u32, value: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetAlphaTableValue2)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(value)).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
-    }
 }
-impl ::core::convert::From<IDCompositionTableTransferEffect> for IDCompositionFilterEffect {
+impl ::core::convert::From<IDCompositionTableTransferEffect> for ::windows::core::IUnknown {
     fn from(value: IDCompositionTableTransferEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionTableTransferEffect> for IDCompositionFilterEffect {
+impl ::core::convert::From<&IDCompositionTableTransferEffect> for ::windows::core::IUnknown {
     fn from(value: &IDCompositionTableTransferEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionTableTransferEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionTableTransferEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionTableTransferEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionTableTransferEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4773,23 +4773,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionT
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDCompositionTableTransferEffect> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDCompositionTableTransferEffect> for IDCompositionFilterEffect {
     fn from(value: IDCompositionTableTransferEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionTableTransferEffect> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDCompositionTableTransferEffect> for IDCompositionFilterEffect {
     fn from(value: &IDCompositionTableTransferEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionTableTransferEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionTableTransferEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionTableTransferEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionTableTransferEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4842,13 +4842,13 @@ pub struct IDCompositionTableTransferEffectVtbl {
     #[cfg(not(feature = "Win32_Foundation"))]
     SetClampOutput: usize,
     pub SetRedTableValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetRedTableValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, value: f32) -> ::windows::core::HRESULT,
+    pub SetRedTableValue2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, value: f32) -> ::windows::core::HRESULT,
     pub SetGreenTableValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetGreenTableValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, value: f32) -> ::windows::core::HRESULT,
+    pub SetGreenTableValue2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, value: f32) -> ::windows::core::HRESULT,
     pub SetBlueTableValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetBlueTableValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, value: f32) -> ::windows::core::HRESULT,
+    pub SetBlueTableValue2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, value: f32) -> ::windows::core::HRESULT,
     pub SetAlphaTableValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetAlphaTableValue: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, value: f32) -> ::windows::core::HRESULT,
+    pub SetAlphaTableValue2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, value: f32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 #[repr(transparent)]
@@ -4909,23 +4909,23 @@ pub struct IDCompositionTargetVtbl {
 #[repr(transparent)]
 pub struct IDCompositionTransform(::windows::core::IUnknown);
 impl IDCompositionTransform {}
-impl ::core::convert::From<IDCompositionTransform> for IDCompositionTransform3D {
+impl ::core::convert::From<IDCompositionTransform> for ::windows::core::IUnknown {
     fn from(value: IDCompositionTransform) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionTransform> for IDCompositionTransform3D {
+impl ::core::convert::From<&IDCompositionTransform> for ::windows::core::IUnknown {
     fn from(value: &IDCompositionTransform) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDCompositionTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4949,23 +4949,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionT
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDCompositionTransform> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDCompositionTransform> for IDCompositionTransform3D {
     fn from(value: IDCompositionTransform) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionTransform> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDCompositionTransform> for IDCompositionTransform3D {
     fn from(value: &IDCompositionTransform) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDCompositionTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -4998,26 +4998,6 @@ pub struct IDCompositionTransformVtbl {
 #[repr(transparent)]
 pub struct IDCompositionTransform3D(::windows::core::IUnknown);
 impl IDCompositionTransform3D {}
-impl ::core::convert::From<IDCompositionTransform3D> for IDCompositionEffect {
-    fn from(value: IDCompositionTransform3D) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionTransform3D> for IDCompositionEffect {
-    fn from(value: &IDCompositionTransform3D) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionTransform3D {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionTransform3D {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<IDCompositionTransform3D> for ::windows::core::IUnknown {
     fn from(value: IDCompositionTransform3D) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -5035,6 +5015,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionTransform3D {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDCompositionTransform3D> for IDCompositionEffect {
+    fn from(value: IDCompositionTransform3D) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDCompositionTransform3D> for IDCompositionEffect {
+    fn from(value: &IDCompositionTransform3D) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for IDCompositionTransform3D {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionTransform3D {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5084,43 +5084,23 @@ impl IDCompositionTranslateTransform {
         (::windows::core::Interface::vtable(self).SetOffsetY2)(::core::mem::transmute_copy(self), ::core::mem::transmute(offsety)).ok()
     }
 }
-impl ::core::convert::From<IDCompositionTranslateTransform> for IDCompositionTransform {
+impl ::core::convert::From<IDCompositionTranslateTransform> for ::windows::core::IUnknown {
     fn from(value: IDCompositionTranslateTransform) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionTranslateTransform> for IDCompositionTransform {
+impl ::core::convert::From<&IDCompositionTranslateTransform> for ::windows::core::IUnknown {
     fn from(value: &IDCompositionTranslateTransform) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for IDCompositionTranslateTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionTranslateTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for &IDCompositionTranslateTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IDCompositionTranslateTransform> for IDCompositionTransform3D {
-    fn from(value: IDCompositionTranslateTransform) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionTranslateTransform> for IDCompositionTransform3D {
-    fn from(value: &IDCompositionTranslateTransform) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDCompositionTranslateTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionTranslateTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionTranslateTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5144,23 +5124,43 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionT
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDCompositionTranslateTransform> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDCompositionTranslateTransform> for IDCompositionTransform3D {
     fn from(value: IDCompositionTranslateTransform) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionTranslateTransform> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDCompositionTranslateTransform> for IDCompositionTransform3D {
     fn from(value: &IDCompositionTranslateTransform) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionTranslateTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDCompositionTranslateTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionTranslateTransform {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionTranslateTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDCompositionTranslateTransform> for IDCompositionTransform {
+    fn from(value: IDCompositionTranslateTransform) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDCompositionTranslateTransform> for IDCompositionTransform {
+    fn from(value: &IDCompositionTranslateTransform) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for IDCompositionTranslateTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform> for &IDCompositionTranslateTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5189,9 +5189,9 @@ unsafe impl ::windows::core::Interface for IDCompositionTranslateTransform {
 pub struct IDCompositionTranslateTransformVtbl {
     pub base: IDCompositionTransformVtbl,
     pub SetOffsetX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetOffsetX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetx: f32) -> ::windows::core::HRESULT,
+    pub SetOffsetX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetx: f32) -> ::windows::core::HRESULT,
     pub SetOffsetY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetOffsetY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsety: f32) -> ::windows::core::HRESULT,
+    pub SetOffsetY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsety: f32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 #[repr(transparent)]
@@ -5222,23 +5222,23 @@ impl IDCompositionTranslateTransform3D {
         (::windows::core::Interface::vtable(self).SetOffsetZ2)(::core::mem::transmute_copy(self), ::core::mem::transmute(offsetz)).ok()
     }
 }
-impl ::core::convert::From<IDCompositionTranslateTransform3D> for IDCompositionTransform3D {
+impl ::core::convert::From<IDCompositionTranslateTransform3D> for ::windows::core::IUnknown {
     fn from(value: IDCompositionTranslateTransform3D) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionTranslateTransform3D> for IDCompositionTransform3D {
+impl ::core::convert::From<&IDCompositionTranslateTransform3D> for ::windows::core::IUnknown {
     fn from(value: &IDCompositionTranslateTransform3D) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDCompositionTranslateTransform3D {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionTranslateTransform3D {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionTranslateTransform3D {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionTranslateTransform3D {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5262,23 +5262,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionT
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDCompositionTranslateTransform3D> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDCompositionTranslateTransform3D> for IDCompositionTransform3D {
     fn from(value: IDCompositionTranslateTransform3D) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionTranslateTransform3D> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDCompositionTranslateTransform3D> for IDCompositionTransform3D {
     fn from(value: &IDCompositionTranslateTransform3D) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionTranslateTransform3D {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for IDCompositionTranslateTransform3D {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionTranslateTransform3D {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionTransform3D> for &IDCompositionTranslateTransform3D {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionTransform3D> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5307,16 +5307,20 @@ unsafe impl ::windows::core::Interface for IDCompositionTranslateTransform3D {
 pub struct IDCompositionTranslateTransform3DVtbl {
     pub base: IDCompositionTransform3DVtbl,
     pub SetOffsetX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetOffsetX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetx: f32) -> ::windows::core::HRESULT,
+    pub SetOffsetX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetx: f32) -> ::windows::core::HRESULT,
     pub SetOffsetY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetOffsetY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsety: f32) -> ::windows::core::HRESULT,
+    pub SetOffsetY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsety: f32) -> ::windows::core::HRESULT,
     pub SetOffsetZ: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetOffsetZ: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetz: f32) -> ::windows::core::HRESULT,
+    pub SetOffsetZ2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetz: f32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 #[repr(transparent)]
 pub struct IDCompositionTurbulenceEffect(::windows::core::IUnknown);
 impl IDCompositionTurbulenceEffect {
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
+    }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn SetOffset(&self, offset: *const super::Direct2D::Common::D2D_VECTOR_2F) -> ::windows::core::Result<()> {
@@ -5350,28 +5354,24 @@ impl IDCompositionTurbulenceEffect {
     pub unsafe fn SetStitchable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, stitchable: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetStitchable)(::core::mem::transmute_copy(self), stitchable.into_param().abi()).ok()
     }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetInput<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, index: u32, input: Param1, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), input.into_param().abi(), ::core::mem::transmute(flags)).ok()
-    }
 }
-impl ::core::convert::From<IDCompositionTurbulenceEffect> for IDCompositionFilterEffect {
+impl ::core::convert::From<IDCompositionTurbulenceEffect> for ::windows::core::IUnknown {
     fn from(value: IDCompositionTurbulenceEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionTurbulenceEffect> for IDCompositionFilterEffect {
+impl ::core::convert::From<&IDCompositionTurbulenceEffect> for ::windows::core::IUnknown {
     fn from(value: &IDCompositionTurbulenceEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionTurbulenceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionTurbulenceEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionTurbulenceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionTurbulenceEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5395,23 +5395,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionEffect> for &IDCompositionT
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDCompositionTurbulenceEffect> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDCompositionTurbulenceEffect> for IDCompositionFilterEffect {
     fn from(value: IDCompositionTurbulenceEffect) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionTurbulenceEffect> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDCompositionTurbulenceEffect> for IDCompositionFilterEffect {
     fn from(value: &IDCompositionTurbulenceEffect) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionTurbulenceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for IDCompositionTurbulenceEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionTurbulenceEffect {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionFilterEffect> for &IDCompositionTurbulenceEffect {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionFilterEffect> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5466,15 +5466,6 @@ pub struct IDCompositionTurbulenceEffectVtbl {
 #[repr(transparent)]
 pub struct IDCompositionVirtualSurface(::windows::core::IUnknown);
 impl IDCompositionVirtualSurface {
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn Resize(&self, width: u32, height: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Resize)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Trim(&self, rectangles: *const super::super::Foundation::RECT, count: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Trim)(::core::mem::transmute_copy(self), ::core::mem::transmute(rectangles), ::core::mem::transmute(count)).ok()
-    }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BeginDraw(&self, updaterect: *const super::super::Foundation::RECT, iid: *const ::windows::core::GUID, updateobject: *mut *mut ::core::ffi::c_void, updateoffset: *mut super::super::Foundation::POINT) -> ::windows::core::Result<()> {
@@ -5497,25 +5488,14 @@ impl IDCompositionVirtualSurface {
     pub unsafe fn Scroll(&self, scrollrect: *const super::super::Foundation::RECT, cliprect: *const super::super::Foundation::RECT, offsetx: i32, offsety: i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.Scroll)(::core::mem::transmute_copy(self), ::core::mem::transmute(scrollrect), ::core::mem::transmute(cliprect), ::core::mem::transmute(offsetx), ::core::mem::transmute(offsety)).ok()
     }
-}
-impl ::core::convert::From<IDCompositionVirtualSurface> for IDCompositionSurface {
-    fn from(value: IDCompositionVirtualSurface) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn Resize(&self, width: u32, height: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Resize)(::core::mem::transmute_copy(self), ::core::mem::transmute(width), ::core::mem::transmute(height)).ok()
     }
-}
-impl ::core::convert::From<&IDCompositionVirtualSurface> for IDCompositionSurface {
-    fn from(value: &IDCompositionVirtualSurface) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionSurface> for IDCompositionVirtualSurface {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionSurface> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionSurface> for &IDCompositionVirtualSurface {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionSurface> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn Trim(&self, rectangles: *const super::super::Foundation::RECT, count: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).Trim)(::core::mem::transmute_copy(self), ::core::mem::transmute(rectangles), ::core::mem::transmute(count)).ok()
     }
 }
 impl ::core::convert::From<IDCompositionVirtualSurface> for ::windows::core::IUnknown {
@@ -5535,6 +5515,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionVirtualSurface {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDCompositionVirtualSurface> for IDCompositionSurface {
+    fn from(value: IDCompositionVirtualSurface) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDCompositionVirtualSurface> for IDCompositionSurface {
+    fn from(value: &IDCompositionVirtualSurface) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionSurface> for IDCompositionVirtualSurface {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionSurface> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionSurface> for &IDCompositionVirtualSurface {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionSurface> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5689,23 +5689,23 @@ unsafe impl ::windows::core::Interface for IDCompositionVisual {
 pub struct IDCompositionVisualVtbl {
     pub base: ::windows::core::IUnknownVtbl,
     pub SetOffsetX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetOffsetX: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetx: f32) -> ::windows::core::HRESULT,
+    pub SetOffsetX2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetx: f32) -> ::windows::core::HRESULT,
     pub SetOffsetY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetOffsetY: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsety: f32) -> ::windows::core::HRESULT,
+    pub SetOffsetY2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsety: f32) -> ::windows::core::HRESULT,
     pub SetTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transform: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Numerics")]
-    pub SetTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT,
+    pub SetTransform2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
-    SetTransform: usize,
+    SetTransform2: usize,
     pub SetTransformParent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visual: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effect: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetBitmapInterpolationMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, interpolationmode: DCOMPOSITION_BITMAP_INTERPOLATION_MODE) -> ::windows::core::HRESULT,
     pub SetBorderMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bordermode: DCOMPOSITION_BORDER_MODE) -> ::windows::core::HRESULT,
     pub SetClip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, clip: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub SetClip: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rect: *const super::Direct2D::Common::D2D_RECT_F) -> ::windows::core::HRESULT,
+    pub SetClip2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rect: *const super::Direct2D::Common::D2D_RECT_F) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
-    SetClip: usize,
+    SetClip2: usize,
     pub SetContent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, content: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub AddVisual: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visual: ::windows::core::RawPtr, insertabove: super::super::Foundation::BOOL, referencevisual: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5719,14 +5719,6 @@ pub struct IDCompositionVisualVtbl {
 #[repr(transparent)]
 pub struct IDCompositionVisual2(::windows::core::IUnknown);
 impl IDCompositionVisual2 {
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetOpacityMode(&self, mode: DCOMPOSITION_OPACITY_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOpacityMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(mode)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetBackFaceVisibility(&self, visibility: DCOMPOSITION_BACKFACE_VISIBILITY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBackFaceVisibility)(::core::mem::transmute_copy(self), ::core::mem::transmute(visibility)).ok()
-    }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
     pub unsafe fn SetOffsetX<'a, Param0: ::windows::core::IntoParam<'a, IDCompositionAnimation>>(&self, animation: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetOffsetX)(::core::mem::transmute_copy(self), animation.into_param().abi()).ok()
@@ -5798,25 +5790,13 @@ impl IDCompositionVisual2 {
     pub unsafe fn SetCompositeMode(&self, compositemode: DCOMPOSITION_COMPOSITE_MODE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.SetCompositeMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(compositemode)).ok()
     }
-}
-impl ::core::convert::From<IDCompositionVisual2> for IDCompositionVisual {
-    fn from(value: IDCompositionVisual2) -> Self {
-        unsafe { ::core::mem::transmute(value) }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn SetOpacityMode(&self, mode: DCOMPOSITION_OPACITY_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetOpacityMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(mode)).ok()
     }
-}
-impl ::core::convert::From<&IDCompositionVisual2> for IDCompositionVisual {
-    fn from(value: &IDCompositionVisual2) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual> for IDCompositionVisual2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionVisual> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual> for &IDCompositionVisual2 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionVisual> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn SetBackFaceVisibility(&self, visibility: DCOMPOSITION_BACKFACE_VISIBILITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetBackFaceVisibility)(::core::mem::transmute_copy(self), ::core::mem::transmute(visibility)).ok()
     }
 }
 impl ::core::convert::From<IDCompositionVisual2> for ::windows::core::IUnknown {
@@ -5836,6 +5816,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDComposi
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionVisual2 {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDCompositionVisual2> for IDCompositionVisual {
+    fn from(value: IDCompositionVisual2) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDCompositionVisual2> for IDCompositionVisual {
+    fn from(value: &IDCompositionVisual2) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual> for IDCompositionVisual2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionVisual> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual> for &IDCompositionVisual2 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionVisual> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -5871,65 +5871,6 @@ pub struct IDCompositionVisual2Vtbl {
 pub struct IDCompositionVisual3(::windows::core::IUnknown);
 impl IDCompositionVisual3 {
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetDepthMode(&self, mode: DCOMPOSITION_DEPTH_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDepthMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(mode)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetOffsetZ<'a, Param0: ::windows::core::IntoParam<'a, IDCompositionAnimation>>(&self, animation: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOffsetZ)(::core::mem::transmute_copy(self), animation.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetOffsetZ2(&self, offsetz: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOffsetZ2)(::core::mem::transmute_copy(self), ::core::mem::transmute(offsetz)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetOpacity<'a, Param0: ::windows::core::IntoParam<'a, IDCompositionAnimation>>(&self, animation: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOpacity)(::core::mem::transmute_copy(self), animation.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetOpacity2(&self, opacity: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOpacity2)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetTransform<'a, Param0: ::windows::core::IntoParam<'a, IDCompositionTransform3D>>(&self, transform: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTransform)(::core::mem::transmute_copy(self), transform.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Graphics_Direct2D_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn SetTransform2(&self, matrix: *const super::Direct2D::Common::D2D_MATRIX_4X4_F) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTransform2)(::core::mem::transmute_copy(self), ::core::mem::transmute(matrix)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetVisible<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, visible: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVisible)(::core::mem::transmute_copy(self), visible.into_param().abi()).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Graphics_Direct2D_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn EnableHeatMap(&self, color: *const super::Direct2D::Common::D2D1_COLOR_F) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.EnableHeatMap)(::core::mem::transmute_copy(self), ::core::mem::transmute(color)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn DisableHeatMap(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.DisableHeatMap)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn EnableRedrawRegions(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.EnableRedrawRegions)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn DisableRedrawRegions(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.DisableRedrawRegions)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetOpacityMode(&self, mode: DCOMPOSITION_OPACITY_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SetOpacityMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(mode)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetBackFaceVisibility(&self, visibility: DCOMPOSITION_BACKFACE_VISIBILITY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.SetBackFaceVisibility)(::core::mem::transmute_copy(self), ::core::mem::transmute(visibility)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
     pub unsafe fn SetOffsetX<'a, Param0: ::windows::core::IntoParam<'a, IDCompositionAnimation>>(&self, animation: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.SetOffsetX)(::core::mem::transmute_copy(self), animation.into_param().abi()).ok()
     }
@@ -5946,13 +5887,13 @@ impl IDCompositionVisual3 {
         (::windows::core::Interface::vtable(self).base.base.base.SetOffsetY2)(::core::mem::transmute_copy(self), ::core::mem::transmute(offsety)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetTransform3<'a, Param0: ::windows::core::IntoParam<'a, IDCompositionTransform>>(&self, transform: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.SetTransform3)(::core::mem::transmute_copy(self), transform.into_param().abi()).ok()
+    pub unsafe fn SetTransform<'a, Param0: ::windows::core::IntoParam<'a, IDCompositionTransform>>(&self, transform: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetTransform)(::core::mem::transmute_copy(self), transform.into_param().abi()).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Foundation_Numerics'*"]
     #[cfg(feature = "Foundation_Numerics")]
-    pub unsafe fn SetTransform4(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.SetTransform4)(::core::mem::transmute_copy(self), ::core::mem::transmute(matrix)).ok()
+    pub unsafe fn SetTransform2(&self, matrix: *const super::super::super::Foundation::Numerics::Matrix3x2) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.base.SetTransform2)(::core::mem::transmute_copy(self), ::core::mem::transmute(matrix)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
     pub unsafe fn SetTransformParent<'a, Param0: ::windows::core::IntoParam<'a, IDCompositionVisual>>(&self, visual: Param0) -> ::windows::core::Result<()> {
@@ -6000,44 +5941,83 @@ impl IDCompositionVisual3 {
     pub unsafe fn SetCompositeMode(&self, compositemode: DCOMPOSITION_COMPOSITE_MODE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.base.SetCompositeMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(compositemode)).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn SetOpacityMode(&self, mode: DCOMPOSITION_OPACITY_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetOpacityMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(mode)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn SetBackFaceVisibility(&self, visibility: DCOMPOSITION_BACKFACE_VISIBILITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.base.SetBackFaceVisibility)(::core::mem::transmute_copy(self), ::core::mem::transmute(visibility)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Graphics_Direct2D_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    pub unsafe fn EnableHeatMap(&self, color: *const super::Direct2D::Common::D2D1_COLOR_F) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.EnableHeatMap)(::core::mem::transmute_copy(self), ::core::mem::transmute(color)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn DisableHeatMap(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.DisableHeatMap)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn EnableRedrawRegions(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.EnableRedrawRegions)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn DisableRedrawRegions(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.DisableRedrawRegions)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn SetDepthMode(&self, mode: DCOMPOSITION_DEPTH_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetDepthMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(mode)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn SetOffsetZ<'a, Param0: ::windows::core::IntoParam<'a, IDCompositionAnimation>>(&self, animation: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetOffsetZ)(::core::mem::transmute_copy(self), animation.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn SetOffsetZ2(&self, offsetz: f32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetOffsetZ2)(::core::mem::transmute_copy(self), ::core::mem::transmute(offsetz)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn SetOpacity<'a, Param0: ::windows::core::IntoParam<'a, IDCompositionAnimation>>(&self, animation: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetOpacity)(::core::mem::transmute_copy(self), animation.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn SetOpacity2(&self, opacity: f32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetOpacity2)(::core::mem::transmute_copy(self), ::core::mem::transmute(opacity)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn SetTransform3<'a, Param0: ::windows::core::IntoParam<'a, IDCompositionTransform3D>>(&self, transform: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTransform)(::core::mem::transmute_copy(self), transform.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Graphics_Direct2D_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    pub unsafe fn SetTransform4(&self, matrix: *const super::Direct2D::Common::D2D_MATRIX_4X4_F) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetTransform2)(::core::mem::transmute_copy(self), ::core::mem::transmute(matrix)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn SetVisible<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, visible: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetVisible)(::core::mem::transmute_copy(self), visible.into_param().abi()).ok()
+    }
 }
-impl ::core::convert::From<IDCompositionVisual3> for IDCompositionVisualDebug {
+impl ::core::convert::From<IDCompositionVisual3> for ::windows::core::IUnknown {
     fn from(value: IDCompositionVisual3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionVisual3> for IDCompositionVisualDebug {
+impl ::core::convert::From<&IDCompositionVisual3> for ::windows::core::IUnknown {
     fn from(value: &IDCompositionVisual3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisualDebug> for IDCompositionVisual3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionVisualDebug> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionVisual3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisualDebug> for &IDCompositionVisual3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionVisualDebug> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IDCompositionVisual3> for IDCompositionVisual2 {
-    fn from(value: IDCompositionVisual3) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IDCompositionVisual3> for IDCompositionVisual2 {
-    fn from(value: &IDCompositionVisual3) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual2> for IDCompositionVisual3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionVisual2> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual2> for &IDCompositionVisual3 {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionVisual2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionVisual3 {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -6061,23 +6041,43 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual> for &IDCompositionV
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDCompositionVisual3> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDCompositionVisual3> for IDCompositionVisual2 {
     fn from(value: IDCompositionVisual3) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionVisual3> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDCompositionVisual3> for IDCompositionVisual2 {
     fn from(value: &IDCompositionVisual3) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionVisual3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual2> for IDCompositionVisual3 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionVisual2> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionVisual3 {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual2> for &IDCompositionVisual3 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionVisual2> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IDCompositionVisual3> for IDCompositionVisualDebug {
+    fn from(value: IDCompositionVisual3) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IDCompositionVisual3> for IDCompositionVisualDebug {
+    fn from(value: &IDCompositionVisual3) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisualDebug> for IDCompositionVisual3 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionVisualDebug> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisualDebug> for &IDCompositionVisual3 {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionVisualDebug> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -6107,14 +6107,14 @@ pub struct IDCompositionVisual3Vtbl {
     pub base: IDCompositionVisualDebugVtbl,
     pub SetDepthMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mode: DCOMPOSITION_DEPTH_MODE) -> ::windows::core::HRESULT,
     pub SetOffsetZ: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetOffsetZ: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetz: f32) -> ::windows::core::HRESULT,
+    pub SetOffsetZ2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offsetz: f32) -> ::windows::core::HRESULT,
     pub SetOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, animation: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub SetOpacity: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, opacity: f32) -> ::windows::core::HRESULT,
+    pub SetOpacity2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, opacity: f32) -> ::windows::core::HRESULT,
     pub SetTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transform: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub SetTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrix: *const super::Direct2D::Common::D2D_MATRIX_4X4_F) -> ::windows::core::HRESULT,
+    pub SetTransform2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, matrix: *const super::Direct2D::Common::D2D_MATRIX_4X4_F) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
-    SetTransform: usize,
+    SetTransform2: usize,
     #[cfg(feature = "Win32_Foundation")]
     pub SetVisible: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, visible: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))]
@@ -6124,31 +6124,6 @@ pub struct IDCompositionVisual3Vtbl {
 #[repr(transparent)]
 pub struct IDCompositionVisualDebug(::windows::core::IUnknown);
 impl IDCompositionVisualDebug {
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Graphics_Direct2D_Common'*"]
-    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn EnableHeatMap(&self, color: *const super::Direct2D::Common::D2D1_COLOR_F) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnableHeatMap)(::core::mem::transmute_copy(self), ::core::mem::transmute(color)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn DisableHeatMap(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DisableHeatMap)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn EnableRedrawRegions(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnableRedrawRegions)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn DisableRedrawRegions(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DisableRedrawRegions)(::core::mem::transmute_copy(self)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetOpacityMode(&self, mode: DCOMPOSITION_OPACITY_MODE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetOpacityMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(mode)).ok()
-    }
-    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-    pub unsafe fn SetBackFaceVisibility(&self, visibility: DCOMPOSITION_BACKFACE_VISIBILITY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.SetBackFaceVisibility)(::core::mem::transmute_copy(self), ::core::mem::transmute(visibility)).ok()
-    }
     #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
     pub unsafe fn SetOffsetX<'a, Param0: ::windows::core::IntoParam<'a, IDCompositionAnimation>>(&self, animation: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetOffsetX)(::core::mem::transmute_copy(self), animation.into_param().abi()).ok()
@@ -6220,24 +6195,49 @@ impl IDCompositionVisualDebug {
     pub unsafe fn SetCompositeMode(&self, compositemode: DCOMPOSITION_COMPOSITE_MODE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).base.base.SetCompositeMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(compositemode)).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn SetOpacityMode(&self, mode: DCOMPOSITION_OPACITY_MODE) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetOpacityMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(mode)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn SetBackFaceVisibility(&self, visibility: DCOMPOSITION_BACKFACE_VISIBILITY) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).base.SetBackFaceVisibility)(::core::mem::transmute_copy(self), ::core::mem::transmute(visibility)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Graphics_Direct2D_Common'*"]
+    #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
+    pub unsafe fn EnableHeatMap(&self, color: *const super::Direct2D::Common::D2D1_COLOR_F) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnableHeatMap)(::core::mem::transmute_copy(self), ::core::mem::transmute(color)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn DisableHeatMap(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DisableHeatMap)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn EnableRedrawRegions(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).EnableRedrawRegions)(::core::mem::transmute_copy(self)).ok()
+    }
+    #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
+    pub unsafe fn DisableRedrawRegions(&self) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).DisableRedrawRegions)(::core::mem::transmute_copy(self)).ok()
+    }
 }
-impl ::core::convert::From<IDCompositionVisualDebug> for IDCompositionVisual2 {
+impl ::core::convert::From<IDCompositionVisualDebug> for ::windows::core::IUnknown {
     fn from(value: IDCompositionVisualDebug) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionVisualDebug> for IDCompositionVisual2 {
+impl ::core::convert::From<&IDCompositionVisualDebug> for ::windows::core::IUnknown {
     fn from(value: &IDCompositionVisualDebug) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual2> for IDCompositionVisualDebug {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionVisual2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionVisualDebug {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual2> for &IDCompositionVisualDebug {
-    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionVisual2> {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionVisualDebug {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
@@ -6261,23 +6261,23 @@ impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual> for &IDCompositionV
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl ::core::convert::From<IDCompositionVisualDebug> for ::windows::core::IUnknown {
+impl ::core::convert::From<IDCompositionVisualDebug> for IDCompositionVisual2 {
     fn from(value: IDCompositionVisualDebug) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
-impl ::core::convert::From<&IDCompositionVisualDebug> for ::windows::core::IUnknown {
+impl ::core::convert::From<&IDCompositionVisualDebug> for IDCompositionVisual2 {
     fn from(value: &IDCompositionVisualDebug) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IDCompositionVisualDebug {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual2> for IDCompositionVisualDebug {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionVisual2> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IDCompositionVisualDebug {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+impl<'a> ::windows::core::IntoParam<'a, IDCompositionVisual2> for &IDCompositionVisualDebug {
+    fn into_param(self) -> ::windows::core::Param<'a, IDCompositionVisual2> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }

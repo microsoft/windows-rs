@@ -147,26 +147,6 @@ impl ISpeechRecognitionConstraint {
         unsafe { (::windows::core::Interface::vtable(this).SetProbability)(::core::mem::transmute_copy(this), value).ok() }
     }
 }
-impl ::core::convert::From<ISpeechRecognitionConstraint> for ::windows::core::IInspectable {
-    fn from(value: ISpeechRecognitionConstraint) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&ISpeechRecognitionConstraint> for ::windows::core::IInspectable {
-    fn from(value: &ISpeechRecognitionConstraint) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISpeechRecognitionConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISpeechRecognitionConstraint {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
 impl ::core::convert::From<ISpeechRecognitionConstraint> for ::windows::core::IUnknown {
     fn from(value: ISpeechRecognitionConstraint) -> Self {
         unsafe { ::core::mem::transmute(value) }
@@ -184,6 +164,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISpeechRe
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISpeechRecognitionConstraint {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<ISpeechRecognitionConstraint> for ::windows::core::IInspectable {
+    fn from(value: ISpeechRecognitionConstraint) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&ISpeechRecognitionConstraint> for ::windows::core::IInspectable {
+    fn from(value: &ISpeechRecognitionConstraint) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISpeechRecognitionConstraint {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISpeechRecognitionConstraint {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
