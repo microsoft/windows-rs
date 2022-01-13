@@ -28,6 +28,14 @@
 C:\git\windows-rs> cargo doc -p windows --all-features --no-deps --target-dir d:\git\docs-rs\docs
 ```
 
+## Publishing order
+
+1. All crates under `crates/targets`
+2. `crates/libs/quote` and `crates/libs/reader`
+4. `crates/libs/bindgen` and `crates/libs/gen`
+5. `crates/libs/macros`
+6. `crates/libs/sys` and `crates/libs/windows`
+
 ## References
 
 - [windows-rs docs repo](https://github.com/microsoft/windows-docs-rs)
